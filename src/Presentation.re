@@ -24,7 +24,9 @@ let literate_progrmming_content =
   <>
     <blockquote>
       <strong>
-        {React.string("A program that should to stick to the law, should reside next to the law.")}
+        {React.string(
+           "A program that should to stick to the law, should reside next to the law.",
+         )}
       </strong>
     </blockquote>
     <p>
@@ -38,12 +40,14 @@ let literate_progrmming_content =
   </>;
 
 let literate_programming_action =
-  <a href="#"> {React.string("Example: French family benefits computation")} </a>;
+  <a href=Examples.url> {React.string("Catala program examples")} </a>;
 
 let multiple_targets_content =
   <>
     <blockquote>
-      <strong> {React.string("Simple code should be executed simply")} </strong>
+      <strong>
+        {React.string("Simple code should be executed simply")}
+      </strong>
     </blockquote>
     <p>
       {React.string(
@@ -55,13 +59,16 @@ let multiple_targets_content =
     </p>
   </>;
 
-let multiple_targets_action = <a href="#"> {React.string("Compiler documentation")} </a>;
+let multiple_targets_action =
+  <a href="#"> {React.string("Compiler documentation")} </a>;
 
 let legal_validation_content = {
   <>
     <blockquote>
       <strong>
-        {React.string("Legislative code should be reviewed by legislative experts")}
+        {React.string(
+           "Legislative code should be reviewed by legislative experts",
+         )}
       </strong>
     </blockquote>
     <p>
@@ -77,13 +84,17 @@ let legal_validation_content = {
 };
 
 let legal_validation_action =
-  <a href="#"> {React.string("A lawyer's guide to Catala code validation")} </a>;
+  <a href="#">
+    {React.string("A lawyer's guide to Catala code validation")}
+  </a>;
 
 let solid_foundations_content = {
   <>
     <blockquote>
       <strong>
-        {React.string("A programming language made by programming language specialists")}
+        {React.string(
+           "A programming language made by programming language specialists",
+         )}
       </strong>
     </blockquote>
     <p>
@@ -123,14 +134,16 @@ let make = () => {
       </div>
     </div>
     <div className="row center">
-      <a className="waves-effect waves-light btn-large primary-color" href=github_link>
+      <a
+        className="waves-effect waves-light btn-large primary-color"
+        href=github_link>
         {React.string([@reason.preserve_braces] "Get started")}
         <i className="material-icons right"> {React.string("code")} </i>
       </a>
     </div>
     <br />
     <br />
-    <div className="row ">
+    <div className="row">
       {catala_presentation_card(
          "Closer to the source of truth",
          literate_progrmming_content,

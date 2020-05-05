@@ -5,6 +5,8 @@ let make = () => {
   | [single_page] =>
     if (single_page == Formalization.url) {
       <Formalization />;
+    } else if (single_page == Examples.url) {
+      <Examples />;
     } else {
       <Presentation />;
     }
