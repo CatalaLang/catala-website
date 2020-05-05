@@ -60,7 +60,7 @@ let multiple_targets_content =
   </>;
 
 let multiple_targets_action =
-  <a href="#"> {React.string("Compiler documentation")} </a>;
+  <a href=Compiler.url> {React.string("Compiler documentation")} </a>;
 
 let legal_validation_content = {
   <>
@@ -84,7 +84,7 @@ let legal_validation_content = {
 };
 
 let legal_validation_action =
-  <a href="#">
+  <a href=Guide.url>
     {React.string("A lawyer's guide to Catala code validation")}
   </a>;
 

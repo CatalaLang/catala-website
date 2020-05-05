@@ -7,6 +7,10 @@ let make = () => {
       <Formalization />;
     } else if (single_page == Examples.url) {
       <Examples />;
+    } else if (single_page == Guide.url) {
+      <Guide />;
+    } else if (single_page == Compiler.url) {
+      <Compiler />;
     } else {
       <Presentation />;
     }
