@@ -24,9 +24,7 @@ let literate_progrmming_content =
   <>
     <blockquote>
       <strong>
-        {React.string(
-           "A program that should to stick to the law, should reside next to the law.",
-         )}
+        {React.string("A program that should to stick to the law, should reside next to the law.")}
       </strong>
     </blockquote>
     <p>
@@ -45,9 +43,7 @@ let literate_programming_action =
 let multiple_targets_content =
   <>
     <blockquote>
-      <strong>
-        {React.string("Simple code should be executed simply")}
-      </strong>
+      <strong> {React.string("Simple code should be executed simply")} </strong>
     </blockquote>
     <p>
       {React.string(
@@ -59,16 +55,13 @@ let multiple_targets_content =
     </p>
   </>;
 
-let multiple_targets_action =
-  <a href=Compiler.url> {React.string("Compiler documentation")} </a>;
+let multiple_targets_action = <a href=Compiler.url> {React.string("Compiler documentation")} </a>;
 
 let legal_validation_content = {
   <>
     <blockquote>
       <strong>
-        {React.string(
-           "Legislative code should be reviewed by legislative experts",
-         )}
+        {React.string("Legislative code should be reviewed by legislative experts")}
       </strong>
     </blockquote>
     <p>
@@ -84,17 +77,13 @@ let legal_validation_content = {
 };
 
 let legal_validation_action =
-  <a href=Guide.url>
-    {React.string("A lawyer's guide to Catala code validation")}
-  </a>;
+  <a href=Guide.url> {React.string("A lawyer's guide to Catala code validation")} </a>;
 
 let solid_foundations_content = {
   <>
     <blockquote>
       <strong>
-        {React.string(
-           "A programming language made by programming language specialists",
-         )}
+        {React.string("A programming language made by programming language specialists")}
       </strong>
     </blockquote>
     <p>
@@ -119,53 +108,53 @@ let solid_foundations_action =
 [@react.component]
 let make = () => {
   <>
-    <div className="row">
-      <div className="col s12 m10 offset-m1 xl8 offset-xl2">
-        <div className="center-align">
-          <p className="flow-text">
-            <strong>
-              {React.string(
-                 "Catala is a domain-specific programming Language design for deriving correct-by-construction
+    <div className="section">
+      <div className="row">
+        <div className="col s12 m10 offset-m1 xl8 offset-xl2">
+          <div className="center-align">
+            <p className="flow-text">
+              <strong>
+                {React.string(
+                   "Catala is a domain-specific programming Language design for deriving correct-by-construction
           implementations from legislative texts.",
-               )}
-            </strong>
-          </p>
+                 )}
+              </strong>
+            </p>
+          </div>
         </div>
       </div>
+      <div className="row center">
+        <a className="waves-effect waves-light btn-large primary-color" href=github_link>
+          {React.string([@reason.preserve_braces] "Get started")}
+          <i className="material-icons right"> {React.string("code")} </i>
+        </a>
+      </div>
     </div>
-    <div className="row center">
-      <a
-        className="waves-effect waves-light btn-large primary-color"
-        href=github_link>
-        {React.string([@reason.preserve_braces] "Get started")}
-        <i className="material-icons right"> {React.string("code")} </i>
-      </a>
-    </div>
-    <br />
-    <br />
-    <div className="row">
-      {catala_presentation_card(
-         "Closer to the source of truth",
-         literate_progrmming_content,
-         Some(literate_programming_action),
-       )}
-      {catala_presentation_card(
-         "One code, multiple execution targets",
-         multiple_targets_content,
-         Some(multiple_targets_action),
-       )}
-    </div>
-    <div className="row">
-      {catala_presentation_card(
-         "Validation from legal",
-         legal_validation_content,
-         Some(legal_validation_action),
-       )}
-      {catala_presentation_card(
-         "Solid foundations",
-         solid_foundations_content,
-         Some(solid_foundations_action),
-       )}
+    <div className="section">
+      <div className="row">
+        {catala_presentation_card(
+           "Closer to the source of truth",
+           literate_progrmming_content,
+           Some(literate_programming_action),
+         )}
+        {catala_presentation_card(
+           "One code, multiple execution targets",
+           multiple_targets_content,
+           Some(multiple_targets_action),
+         )}
+      </div>
+      <div className="row">
+        {catala_presentation_card(
+           "Validation from legal",
+           legal_validation_content,
+           Some(legal_validation_action),
+         )}
+        {catala_presentation_card(
+           "Solid foundations",
+           solid_foundations_content,
+           Some(solid_foundations_action),
+         )}
+      </div>
     </div>
   </>;
 };
