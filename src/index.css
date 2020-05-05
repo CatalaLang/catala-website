@@ -1,14 +1,12 @@
-body {
-  margin: 0;
-  font-family: -apple-system, system-ui, "Segoe UI", Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+#nav .nav-wrapper  {
+  padding-left: 1em;
+  padding-right: 1em;
 }
 
-main {
-  padding: 20px;
+.primary-color {
+  background-color: #5c75a2
 }
 
-.counter {
-  padding: 20px;
-  display: inline-block;
+.secondary-color {
+  background-color: #323e54
 }
