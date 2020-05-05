@@ -3,4 +3,4 @@
 [%bs.raw {|require("./index.css")|}];
 
 ReactDOMRe.renderToElementWithId(<Nav />, "nav");
-ReactDOMRe.renderToElementWithId(<Presentation />, "presentation");
+ReactDOMRe.renderToElementWithId(<Router />, "content");

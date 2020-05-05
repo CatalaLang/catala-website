@@ -1,3 +1,5 @@
+let url = "/";
+
 let github_link = "https://github.com/CatalaLang/catala";
 
 let catala_presentation_card =
@@ -100,11 +102,12 @@ let solid_foundations_content = {
   </>;
 };
 
-let solid_foundations_action = <a href="#"> {React.string("Formalized specification")} </a>;
+let solid_foundations_action =
+  <a href=Formalization.url> {React.string("Formalized specification")} </a>;
 
 [@react.component]
 let make = () => {
-  <main className="container">
+  <>
     <div className="row">
       <div className="col s12 m10 offset-m1 xl8 offset-xl2">
         <div className="center-align">
@@ -151,5 +154,5 @@ let make = () => {
          Some(solid_foundations_action),
        )}
     </div>
-  </main>;
+  </>;
 };
