@@ -10,9 +10,9 @@ let legifrance_catala_doc = [%bs.raw
 
 let display_man_page = (~title: string, ~man: string) =>
   <div className="section">
-    <h4> {React.string(title)} </h4>
     <div className="card">
-      <div className="card-content ">
+      <div className="card-content">
+        <span className="card-title"> {React.string(title)} </span>
         <iframe
           height="500px"
           width="100%"
