@@ -1,4 +1,4 @@
-# Reason react starter
+# The Catala language website
 
 ## Run Project
 

@@ -8,7 +8,7 @@ let legifrance_catala_doc = [%bs.raw
   {|'data:text/html,'+ encodeURIComponent(require("../assets/legifrance_catala.html"))|}
 ];
 
-let display_man_page = (~title: string, ~man: string) =>
+let display_man_page = (title: string, man: string) =>
   <div className="section">
     <div className="card">
       <div className="card-content">
