@@ -1,12 +1,15 @@
-#nav .nav-wrapper  {
-  padding-left: 1em;
-  padding-right: 1em;
-}
-
 .primary-color {
   background-color: #5c75a2
 }
 
 .secondary-color {
   background-color: #323e54
+}
+
+.presentation-card {
+  font-size:1.3rem;
+}
+
+blockquote {
+  border-left-color: #5c75a2;
 }
