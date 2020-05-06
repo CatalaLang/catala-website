@@ -1,3 +1,5 @@
+let github_link = "https://github.com/CatalaLang/catala-website/issues";
+
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
@@ -17,12 +19,23 @@ let make = () => {
       }
     | _ => <div />
     };
-  <footer className="page-footer primary-color">
-    back_to_home_button
-    <div className="footer-copyright primary-color">
-      <div className="container">
-        {React.string("Copyright 2020 Inria")}
-      </div>
+  <>
+    <div className="under-construction center-align">
+      <a className="btn-flat" href=github_link>
+        <i className="material-icons left"> {React.string("warning")} </i>
+        {React.string(
+           "This website is under construction, click here to give some feedback",
+         )}
+        <i className="material-icons right"> {React.string("warning")} </i>
+      </a>
     </div>
-  </footer>;
+    <footer className="page-footer primary-color">
+      back_to_home_button
+      <div className="footer-copyright primary-color">
+        <div className="container">
+          {React.string("Copyright 2020 Inria")}
+        </div>
+      </div>
+    </footer>
+  </>;
 };
