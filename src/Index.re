@@ -4,3 +4,4 @@
 
 ReactDOMRe.renderToElementWithId(<Nav />, "nav");
 ReactDOMRe.renderToElementWithId(<Router />, "content");
+ReactDOMRe.renderToElementWithId(<Footer />, "footer");
