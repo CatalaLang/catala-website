@@ -9,7 +9,9 @@ let catala_presentation_card =
     | None => <div />
     | Some((url, action)) =>
       <div className="card-action">
-        <a href=url className="primary-color-text"> {React.string(action)} </a>
+        <a onClick={Utils.goToUrl(url)} href=Utils.noop className="primary-color-text">
+          {React.string(action)}
+        </a>
       </div>
     };
   <div className="col s12 xl6 presentation-card">
