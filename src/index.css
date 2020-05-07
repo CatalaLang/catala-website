@@ -2,8 +2,24 @@
   background-color: #5c75a2
 }
 
+.primary-color-text {
+  color: #5c75a2 !important
+}
+
 .secondary-color {
+  background-color: #4a5e81
+}
+
+.secondary-color-text {
+  color: #4a5e81 !important
+}
+
+.tertiary-color {
   background-color: #323e54
+}
+
+.tertiary-color-text {
+  color: #323e54 !important
 }
 
 .presentation-card {
