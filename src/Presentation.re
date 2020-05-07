@@ -53,7 +53,7 @@ let make = () => {
        That also include legacy environments used in large organizations.",
              );
            },
-           Some((Formalization.url, "Formalized specification")),
+           Some((Doc.url, "Documentation")),
          )}
       </div>
       <div className="row">
@@ -69,7 +69,7 @@ let make = () => {
            level of assurance for no additional cost.",
              );
            },
-           Some((Compiler.url, "Compiler documentation")),
+           Some((Guide.url, "A lawyer's guide to Catala code validation")),
          )}
         {Utils.presentation_card(
            "Solid foundations",
@@ -87,7 +87,7 @@ let make = () => {
              </a>
              {React.string(".")}
            </>,
-           Some((Guide.url, "A lawyer's guide to Catala code validation")),
+           Some((Formalization.url, "Formalized specification")),
          )}
       </div>
     </div>

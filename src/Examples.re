@@ -5,7 +5,7 @@ let family_benefits: string = [%bs.raw {|require("../assets/allocations_familial
 [@react.component]
 let make = () => {
   <>
-    <h2> {React.string("Catala examples")} </h2>
+    <h1> {React.string("Catala examples")} </h1>
     <div className="section">
       <div className="row">
         {Utils.presentation_card(

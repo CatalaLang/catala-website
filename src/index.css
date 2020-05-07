@@ -48,8 +48,13 @@ body {
   background-color: #ffc800
 }
 
-.catala-code tr {
+.catala-code tr,.obelisk tr {
     border-bottom: none;
+}
+
+.obelisk {
+  margin-top: 2em;
+  margin-bottom: 2em;
 }
 
 .catala-code .linenodiv pre {

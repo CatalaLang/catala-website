@@ -11,14 +11,18 @@ let make = () => {
       <Examples />;
     } else if (single_page == Guide.url) {
       <Guide />;
-    } else if (single_page == Compiler.url) {
-      <Compiler />;
+    } else if (single_page == Doc.url) {
+      <Doc />;
     } else {
       default_page;
     }
   | [first_path, second_path] =>
     if (first_path ++ "/" ++ second_path == FrenchFamilyBenefits.url) {
       <FrenchFamilyBenefits />;
+    } else if (first_path ++ "/" ++ second_path == CatalaManPage.url) {
+      <CatalaManPage />;
+    } else if (first_path ++ "/" ++ second_path == LegiFranceCatalaManPage.url) {
+      <LegiFranceCatalaManPage />;
     } else {
       default_page;
     }
