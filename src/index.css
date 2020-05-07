@@ -47,3 +47,33 @@ body {
 .under-construction {
   background-color: #ffc800
 }
+
+.catala-code tr {
+    border-bottom: none;
+}
+
+.catala-code .linenodiv pre {
+    color: #323e54;
+    opacity: 30%;
+}
+
+.catala-code a,h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
+  color: #5c75a2;
+}
+
+.catala-code ul {
+  padding-left: 40px;
+}
+
+.catala-code ul,li {
+  list-style-type: disc !important;
+}
+
+.catala-code tt,.highlighttable {
+  font-size: 0.9rem;
+}
+
+.catala-code td, th {
+  padding: 0px !important;
+}

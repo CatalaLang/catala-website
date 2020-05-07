@@ -4,23 +4,25 @@ let github_link = "https://github.com/CatalaLang/catala-website/issues";
 let make = () => {
   let url = ReasonReactRouter.useUrl();
   let back_to_home_button =
+    <div className="row">
+      <div className="col s12 center-align">
+        <a
+          className="btn secondary-color"
+          href=Utils.noop
+          onClick={Utils.goToUrl(Presentation.url)}>
+          {React.string("Back to home page")}
+        </a>
+      </div>
+    </div>;
+  let back_to_home_button =
     switch (url.path) {
     | [single_page] =>
       if (single_page != Presentation.url) {
-        <div className="row">
-          <div className="col s12 center-align">
-            <a
-              className="btn secondary-color"
-              href=Utils.noop
-              onClick={Utils.goToUrl(Presentation.url)}>
-              {React.string("Back to home page")}
-            </a>
-          </div>
-        </div>;
+        back_to_home_button;
       } else {
         <div />;
       }
-    | _ => <div />
+    | _ => back_to_home_button
     };
   <>
     <div className="under-construction center-align">

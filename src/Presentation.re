@@ -2,32 +2,6 @@ let url = "/";
 
 let github_link = "https://github.com/CatalaLang/catala";
 
-let catala_presentation_card =
-    (title: string, quote: string, content: React.element, action: option((string, string))) => {
-  let action =
-    switch (action) {
-    | None => <div />
-    | Some((url, action)) =>
-      <div className="card-action">
-        <a onClick={Utils.goToUrl(url)} href=Utils.noop className="primary-color-text">
-          {React.string(action)}
-        </a>
-      </div>
-    };
-  <div className="col s12 xl6 presentation-card">
-    <div className="card tertiary-color">
-      <div className="card-content white-text">
-        <span className="card-title"> {React.string(title)} </span>
-        <blockquote className="primary-color-text">
-          <strong> {React.string(quote)} </strong>
-        </blockquote>
-        <p> content </p>
-      </div>
-      action
-    </div>
-  </div>;
-};
-
 [@react.component]
 let make = () => {
   <>
@@ -55,7 +29,7 @@ let make = () => {
     </div>
     <div className="section">
       <div className="row">
-        {catala_presentation_card(
+        {Utils.presentation_card(
            "Closer to the source of truth",
            "A program that should to stick to the law, should reside next to the law.",
            {
@@ -68,7 +42,7 @@ let make = () => {
            },
            Some((Examples.url, "Catala program examples")),
          )}
-        {catala_presentation_card(
+        {Utils.presentation_card(
            "One code, multiple execution targets",
            "Simple code should be executed simply",
            {
@@ -83,7 +57,7 @@ let make = () => {
          )}
       </div>
       <div className="row">
-        {catala_presentation_card(
+        {Utils.presentation_card(
            "Validation from legal",
            "Legislative code should be reviewed by legislative experts",
            {
@@ -97,7 +71,7 @@ let make = () => {
            },
            Some((Compiler.url, "Compiler documentation")),
          )}
-        {catala_presentation_card(
+        {Utils.presentation_card(
            "Solid foundations",
            "A programming language made by programming language specialists",
            <>
