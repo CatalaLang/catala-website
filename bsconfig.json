@@ -3,10 +3,25 @@
   "reason": {
     "react-jsx": 3
   },
+  "ppx-flags": [
+    ["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "-path src/tailwind.css"]
+  ],
   "sources": {
     "dir": "src",
-    "subdirs": true
+    "subdirs": true,
+    "generators": [
+      {
+        "name": "gen-tailwind",
+        "edge": ["tailwind.css", ":", "index.css"]
+      }
+    ]
   },
+  "generators": [
+    {
+      "name": "gen-tailwind",
+      "command": "tailwindcss build $in -o $out -c ../../src/tailwind.config.js"
+    }
+  ],
   "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
   "package-specs": [
     {

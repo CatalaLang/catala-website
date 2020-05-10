@@ -2,13 +2,15 @@ let url = "doc";
 
 let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
 
-let legifrance_catala_doc: string = [%bs.raw {|require("../assets/legifrance_catala.html")|}];
+let legifrance_catala_doc: string = [%bs.raw
+  {|require("../assets/legifrance_catala.html")|}
+];
 
 [@react.component]
 let make = () => {
   <>
     <h1> {React.string("Catala tooling documentation")} </h1>
-    <div className="row">
+    <div className="">
       {Utils.presentation_card(
          "The Catala Compiler",
          "",

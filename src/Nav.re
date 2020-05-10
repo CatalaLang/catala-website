@@ -1,10 +1,10 @@
 [@react.component]
 let make = () => {
-  <div className="nav-wrapper primary-color">
+  <div className="bg-primary">
     <a
       onClick={Utils.goToUrl(Presentation.url)}
       href="javascript:void(0)"
-      className="center brand-logo">
+      className="">
       {React.string("The Catala Language")}
     </a>
   </div>;

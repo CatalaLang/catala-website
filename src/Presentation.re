@@ -5,11 +5,11 @@ let github_link = "https://github.com/CatalaLang/catala";
 [@react.component]
 let make = () => {
   <>
-    <div className="section">
-      <div className="row">
-        <div className="col s12 m10 offset-m1 xl8 offset-xl2">
-          <div className="center-align">
-            <p className="flow-text">
+    <div className="">
+      <div className="">
+        <div className="">
+          <div className="">
+            <p className="">
               <strong>
                 {React.string(
                    "Catala is a domain-specific programming Language design for deriving correct-by-construction
@@ -20,15 +20,15 @@ let make = () => {
           </div>
         </div>
       </div>
-      <div className="row center">
-        <a className="waves-effect waves-light btn-large primary-color" href=github_link>
+      <div className="">
+        <a className="" href=github_link>
           {React.string([@reason.preserve_braces] "Get started")}
-          <i className="material-icons right"> {React.string("code")} </i>
+          <i className=""> {React.string("code")} </i>
         </a>
       </div>
     </div>
-    <div className="section">
-      <div className="row">
+    <div className="">
+      <div className="">
         {Utils.presentation_card(
            "Closer to the source of truth",
            "A program that should to stick to the law, should reside next to the law.",
@@ -56,7 +56,7 @@ let make = () => {
            Some((Doc.url, "Documentation")),
          )}
       </div>
-      <div className="row">
+      <div className="">
         {Utils.presentation_card(
            "Validation from legal",
            "Legislative code should be reviewed by legislative experts",
@@ -82,7 +82,8 @@ let make = () => {
          The language has been designed according to state-of-the-art programming languages design principles.
          Inspired from the ML language, Catala features an unique default logic mechanism based on ",
               )}
-             <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
+             <a
+               href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
                {React.string("the work of Sarah Lawsky")}
              </a>
              {React.string(".")}

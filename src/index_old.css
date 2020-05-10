@@ -1,0 +1,84 @@
+.primary-color {
+  background-color: #5c75a2
+}
+
+.primary-color-text {
+  color: #5c75a2 !important
+}
+
+.secondary-color {
+  background-color: #4a5e81
+}
+
+.secondary-color-text {
+  color: #4a5e81 !important
+}
+
+.tertiary-color {
+  background-color: #323e54
+}
+
+.tertiary-color-text {
+  color: #323e54 !important
+}
+
+.presentation-card {
+  font-size:1.3rem;
+}
+
+blockquote {
+  border-left-color: #5c75a2;
+}
+
+body {
+  background-color: #f5f5f5
+}
+
+body {
+   display: flex;
+   min-height: 100vh;
+   flex-direction: column;
+ }
+
+ main {
+   flex: 1 0 auto;
+ }
+
+.under-construction {
+  background-color: #ffc800
+}
+
+.catala-code tr,.obelisk tr {
+    border-bottom: none;
+}
+
+.obelisk {
+  margin-top: 2em;
+  margin-bottom: 2em;
+}
+
+.catala-code .linenodiv pre {
+    color: #323e54;
+    opacity: 30%;
+}
+
+.catala-code a,h1,h2,h3,h4,h5,h6 {
+  font-weight: bold;
+  color: #5c75a2;
+}
+
+.catala-code ul {
+  padding-left: 40px;
+}
+
+.catala-code ul,li {
+  list-style-type: disc !important;
+}
+
+.catala-code tt,.highlighttable {
+  font-size: 0.9rem;
+}
+
+.catala-code td, th {
+  padding: 0px !important;
+}

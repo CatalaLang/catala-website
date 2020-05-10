@@ -2,6 +2,7 @@
   "name": "catala-website",
   "version": "0.1.0",
   "scripts": {
+    "build:styles": "tailwind build src/index.css -o src/tailwind.css",
     "build": "bsb -make-world",
     "start": "bsb -make-world -w -ws _ ",
     "clean": "bsb -clean-world",
@@ -18,7 +19,6 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "materialize-css": "^1.0.0",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
     "reason-react": ">=0.7.0"
@@ -31,6 +31,9 @@
     "style-loader": "^1.0.0",
     "webpack": "^4.0.1",
     "webpack-cli": "^3.1.1",
-    "webpack-dev-server": "^3.1.8"
+    "webpack-dev-server": "^3.1.8",
+    "parcel-bundler": "^1.12.4",
+    "@dylanirlbeck/tailwind-ppx": "0.7.0",
+    "tailwindcss": "^1.1.4"
   }
 }
