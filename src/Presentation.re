@@ -5,75 +5,75 @@ let github_link = "https://github.com/CatalaLang/catala";
 [@react.component]
 let make = () => {
   <>
-    <div className="">
-      <div className="">
-        <div className="">
-          <div className="">
-            <p className="">
-              <strong>
-                {React.string(
-                   "Catala is a domain-specific programming Language design for deriving correct-by-construction
-          implementations from legislative texts.",
-                 )}
-              </strong>
-            </p>
-          </div>
-        </div>
+    <div className=[%tw "flex flex-col container mx-auto px-4 items-center"]>
+      <div className=[%tw "text-center text-xl italic py-8 max-w-lg"]>
+        <p>
+          {"Catala is a domain-specific programming language design for deriving correct-by-construction
+          implementations from legislative texts."
+           |> React.string}
+        </p>
       </div>
-      <div className="">
-        <a className="" href=github_link>
-          {React.string([@reason.preserve_braces] "Get started")}
-          <i className=""> {React.string("code")} </i>
+      <div className=[%tw "bg-primary shadow  py-4 px-4"]>
+        <a
+          className=[%tw " cursor-pointer uppercase text-lg text-white"]
+          href=github_link>
+          {"Get started" |> React.string}
+          <i className="float-right pl-2 material-icons">
+            {"code" |> React.string}
+          </i>
         </a>
       </div>
     </div>
-    <div className="">
-      <div className="">
+    <div className=[%tw "container mx-auto px-4 py-10"]>
+      <div className=[%tw "flex flex-row flex-wrap items-stretch"]>
         {Utils.presentation_card(
            "Closer to the source of truth",
-           "A program that should to stick to the law, should reside next to the law.",
+           Some("check"),
+           Some(
+             "A program that should to stick to the law, should reside next to the law.",
+           ),
            {
-             React.string(
-               "Implementations derived from legislative texts are hard to get right.
+             "Implementations derived from legislative texts are hard to get right.
            The specification for how one quantity is computed may be scattered accross various places in your
            legislative source. Catala addressess this problem by interleaving the legislative source with the
-           code that models it. To implement your program, just follow what the law says!",
-             );
+           code that models it. To implement your program, just follow what the law says!"
+             |> React.string;
            },
            Some((Examples.url, "Catala program examples")),
          )}
         {Utils.presentation_card(
            "One code, multiple execution targets",
-           "Simple code should be executed simply",
+           Some("device_hub"),
+           Some("Simple code should be executed simply"),
            {
-             React.string(
-               "Code derived from legislation generally uses basic programming concepts, that are present
+             "Code derived from legislation generally uses basic programming concepts, that are present
        in every programming language. Why would you need a complex rules engine or runtime to execute that code?
        Catala uses a fully-fledged compiler to bring you the code you need, in the programming language you need.
-       That also include legacy environments used in large organizations.",
-             );
+       That also include legacy environments used in large organizations."
+             |> React.string;
            },
            Some((Doc.url, "Documentation")),
          )}
-      </div>
-      <div className="">
         {Utils.presentation_card(
            "Validation from legal",
-           "Legislative code should be reviewed by legislative experts",
+           Some("work"),
+           Some("Legislative code should be reviewed by legislative experts"),
            {
-             React.string(
-               "For programs derived from legislation, validation relies on lawyers who generally write
+             "For programs derived from legislation, validation relies on lawyers who generally write
            test cases by hand. Maintaining a large test base is costly in a context of fast-paced legislative reforms,
            as it is difficult to predict which tests will be affected by the changes. Catala is designed with
            law professionals to ensure that the code itself is reviewable by domain experts, increasing the
-           level of assurance for no additional cost.",
-             );
+           level of assurance for no additional cost."
+             |> React.string;
            },
            Some((Guide.url, "A lawyer's guide to Catala code validation")),
          )}
         {Utils.presentation_card(
            "Solid foundations",
-           "A programming language made by programming language specialists",
+           Some("functions"),
+           Some(
+             "A programming language made by programming language specialists",
+           ),
            <>
              {React.string("Catala originates from ")}
              <a href="https://inria.fr"> {React.string("Inria")} </a>

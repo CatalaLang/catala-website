@@ -13,7 +13,8 @@ let make = () => {
     <div className="">
       {Utils.presentation_card(
          "The Catala Compiler",
-         "",
+         None,
+         None,
          <p>
            {React.string(
               "The compiler is the main tool that parses Catala source code files and translate
@@ -24,7 +25,8 @@ let make = () => {
        )}
       {Utils.presentation_card(
          "The LegiFrance Catala connector",
-         "",
+         None,
+         None,
          <p>
            {React.string(
               "Only available for the French surface language, this utility connects to the LegiFrance API
