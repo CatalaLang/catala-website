@@ -6,7 +6,7 @@ let grammar = [%bs.raw {|require("../assets/grammar.html")|}];
 let make = () => {
   <>
     <Utils.PageTitle title="Formalization" />
-    <Utils.PageSection title="Syntax">
+    <Utils.PageSection title="Surface syntax">
       <p>
         {"The syntax of the langage is derived from the " |> React.string}
         <Utils.TextLink

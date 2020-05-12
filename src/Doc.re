@@ -11,7 +11,7 @@ module MakeManPageDoc = (Man: ManPage) => {
     <>
       <Utils.PageTitle title=Man.title />
       <Utils.CollapsibleCard title="Show man page">
-        <div dangerouslySetInnerHTML={"__html": Man.html} />
+        <div className=[%tw "font-mono"] dangerouslySetInnerHTML={"__html": Man.html} />
       </Utils.CollapsibleCard>
     </>;
   };
