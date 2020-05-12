@@ -2,10 +2,24 @@ let goToUrl = (url: string, _) => ReasonReactRouter.push("/" ++ url);
 
 let page_title = (title: string) =>
   <h1 className=[%tw "text-3xl my-4"]>
-    <span className=[%tw "border-solid border-b-2 border-tertiary"]>
+    <span className=[%tw "border-solid border-b-2 border-tertiary text-tertiary"]>
       {title |> React.string}
     </span>
   </h1>;
+
+module PageSection = {
+  [@react.component]
+  let make = (~title, ~children) => {
+    <div>
+      <h2 className=[%tw "text-2xl my-4"]>
+        <span className=[%tw "border-solid border-b-2 border-secondary text-secondary"]>
+          {title |> React.string}
+        </span>
+      </h2>
+      children
+    </div>;
+  };
+};
 
 type presentation_card = {
   title: string,

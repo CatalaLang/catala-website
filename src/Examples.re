@@ -3,9 +3,14 @@ module FrenchFamilyBenefits = {
 
   let family_benefits: string = [%bs.raw {|require("../assets/allocations_familiales.html")|}];
 
+  [%bs.raw {|require("../assets/catala_code.css")|}];
+
   [@react.component]
   let make = () => {
-    <div className="" dangerouslySetInnerHTML={"__html": family_benefits} />;
+    <>
+      {Utils.page_title("French family benefits computation")}
+      <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
+    </>;
   };
 };
 
