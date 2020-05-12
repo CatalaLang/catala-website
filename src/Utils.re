@@ -1,4 +1,4 @@
-let goToUrl = (url: string, _) => ReasonReactRouter.push(url);
+let goToUrl = (url: string, _) => ReasonReactRouter.push("/" ++ url);
 
 let page_title = (title: string) =>
   <h1 className=[%tw "text-3xl my-4"]>

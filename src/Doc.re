@@ -1,24 +1,35 @@
-module CatalaManPage = {
-  let url = "doc/catala";
+module type ManPage = {
+  let title: string;
+  let url: string;
+  let html: string;
+};
 
-  let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
-
+module MakeManPageDoc = (Man: ManPage) => {
+  let url = Man.url;
   [@react.component]
   let make = () => {
-    <div className="" dangerouslySetInnerHTML={"__html": catala_doc} />;
+    <>
+      {Utils.page_title(Man.title)}
+      <div className=[%tw "bg-tertiary text-white my-6 p-6 font-mono shadow-lg"]>
+        <div dangerouslySetInnerHTML={"__html": Man.html} />
+      </div>
+    </>;
   };
 };
 
-module LegiFranceCatalaManPage = {
-  let url = "doc/legifrance-catala";
+module CatalaManPage =
+  MakeManPageDoc({
+    let title = "Catala compiler documentation";
+    let url = "doc/catala";
+    let html: string = [%bs.raw {|require("../assets/catala.html")|}];
+  });
 
-  let legifrance_catala_doc: string = [%bs.raw {|require("../assets/legifrance_catala.html")|}];
-
-  [@react.component]
-  let make = () => {
-    <div dangerouslySetInnerHTML={"__html": legifrance_catala_doc} />;
-  };
-};
+module LegiFranceCatalaManPage =
+  MakeManPageDoc({
+    let title = "Catala LegiFrance connector documentation";
+    let url = "doc/legifrance-catala";
+    let html: string = [%bs.raw {|require("../assets/legifrance_catala.html")|}];
+  });
 
 let url = "doc";
 
@@ -35,7 +46,7 @@ let catala_card: Utils.presentation_card = {
     <p>
       {React.string(
          "The compiler is the main tool that parses Catala source code files and translate
-     the contents into various literate programming or executable targets",
+     the contents into various literate programming or executable targets.",
        )}
     </p>;
   },

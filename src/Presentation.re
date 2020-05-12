@@ -1,4 +1,4 @@
-let url = "/";
+let url = "";
 
 let github_link = "https://github.com/CatalaLang/catala";
 
