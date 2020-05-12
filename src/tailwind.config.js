@@ -8,5 +8,8 @@ module.exports = {
         background: '#f5f5f5',
       }
     }
-  }
+  },
+  variants: {
+    textColor: ['responsive', 'hover', 'focus', 'visited'],
+  },
 }

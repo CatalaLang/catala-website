@@ -10,9 +10,9 @@ module MakeManPageDoc = (Man: ManPage) => {
   let make = () => {
     <>
       <Utils.PageTitle title=Man.title />
-      <div className=[%tw "bg-tertiary text-white my-6 p-6 font-mono shadow-lg"]>
+      <Utils.CollapsibleCard title="Show man page">
         <div dangerouslySetInnerHTML={"__html": Man.html} />
-      </div>
+      </Utils.CollapsibleCard>
     </>;
   };
 };

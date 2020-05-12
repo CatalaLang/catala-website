@@ -14,8 +14,8 @@ module NavigationBar = {
         {elements
          ->Belt.Array.map(nav => {
              <div className="">
-               <i className="float-left pr-2 text-white material-icons">
-                 {"keyboard_arrow_right" |> React.string}
+               <i className="float-left pr-1 text-white material-icons">
+                 {"chevron_right" |> React.string}
                </i>
                <NavigationElement element=nav />
              </div>

@@ -8,15 +8,18 @@ let make = () => {
     <Utils.PageTitle title="Formalization" />
     <Utils.PageSection title="Syntax">
       <p>
-        {React.string("The syntax of the langage is derived from the ")}
-        <a href="https://github.com/CatalaLang/catala/blob/master/src/catala/parsing/parser.mly">
-          {React.string("parser source file")}
-        </a>
-        {React.string(" using ")}
-        <a href="https://github.com/Lelio-Brun/Obelisk"> {React.string("Obelisk")} </a>
-        {React.string(".")}
+        {"The syntax of the langage is derived from the " |> React.string}
+        <Utils.TextLink
+          target="https://github.com/CatalaLang/catala/blob/master/src/catala/parsing/parser.mly"
+          text="parser source file"
+        />
+        {" using " |> React.string}
+        <Utils.TextLink target="https://github.com/Lelio-Brun/Obelisk" text="Obelisk" />
+        {"." |> React.string}
       </p>
-      <div className="" dangerouslySetInnerHTML={"__html": grammar} />
+      <Utils.CollapsibleCard title="Show syntax">
+        <div className=[%tw "font-mono"] dangerouslySetInnerHTML={"__html": grammar} />
+      </Utils.CollapsibleCard>
     </Utils.PageSection>
   </>;
 };

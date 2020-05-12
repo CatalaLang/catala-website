@@ -52,17 +52,17 @@ let foundations_card: Utils.presentation_card = {
   action: Some((Formalization.url, "Formalized specification")),
   content: {
     <>
-      {React.string("Catala originates from ")}
-      <a href="https://inria.fr"> {React.string("Inria")} </a>
-      {React.string(
-         ", the French National Institute for Computer Science Research.
+      {"Catala originates from " |> React.string}
+      <Utils.TextLink target="https://www.inria.fr" text="Inria" />
+      {", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
-   Inspired from the ML language, Catala features an unique default logic mechanism based on ",
-       )}
-      <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
-        {React.string("the work of Sarah Lawsky")}
-      </a>
-      {React.string(".")}
+   Inspired from the ML language, Catala features an unique default logic mechanism based on "
+       |> React.string}
+      <Utils.TextLink
+        target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206"
+        text="the work of Sarah Lawsky"
+      />
+      {"." |> React.string}
     </>;
   },
 };

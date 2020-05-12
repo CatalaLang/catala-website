@@ -1,5 +1,44 @@
 let goToUrl = (url: string, _) => ReasonReactRouter.push("/" ++ url);
 
+module TextLink = {
+  [@react.component]
+  let make = (~target: string, ~text: string) =>
+    <a className=[%tw "text-primary visited:text-secondary"] href=target>
+      {text |> React.string}
+    </a>;
+};
+
+module CollapsibleCard = {
+  [@react.component]
+  let make = (~title: string, ~children) => {
+    let (visible, setVisible) = React.useState(() => false);
+    <div className=[%tw "bg-tertiary text-white my-4 p-4 shadow-lg"]>
+      {if (visible) {
+         <>
+           <div className=[%tw "text-xl pb-2 font-bold"]>
+             <a className=[%tw "cursor-pointer"] onClick={_ => setVisible(_ => false)}>
+               <i className="float-left pr-1 text-white material-icons">
+                 {"expand_less" |> React.string}
+               </i>
+               {"Collapse" |> React.string}
+             </a>
+           </div>
+           <div> children </div>
+         </>;
+       } else {
+         <div className=[%tw "text-xl pb-2 font-bold"]>
+           <a className=[%tw "cursor-pointer"] onClick={_ => setVisible(_ => true)}>
+             <i className="float-left pr-1 text-white material-icons">
+               {"expand_more" |> React.string}
+             </i>
+             {title |> React.string}
+           </a>
+         </div>;
+       }}
+    </div>;
+  };
+};
+
 module PageTitle = {
   [@react.component]
   let make = (~title: string) =>
