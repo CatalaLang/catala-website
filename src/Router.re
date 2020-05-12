@@ -17,12 +17,12 @@ let make = () => {
       default_page;
     }
   | [first_path, second_path] =>
-    if (first_path ++ "/" ++ second_path == FrenchFamilyBenefits.url) {
-      <FrenchFamilyBenefits />;
-    } else if (first_path ++ "/" ++ second_path == CatalaManPage.url) {
-      <CatalaManPage />;
-    } else if (first_path ++ "/" ++ second_path == LegiFranceCatalaManPage.url) {
-      <LegiFranceCatalaManPage />;
+    if (first_path ++ "/" ++ second_path == Examples.FrenchFamilyBenefits.url) {
+      <Examples.FrenchFamilyBenefits />;
+    } else if (first_path ++ "/" ++ second_path == Doc.CatalaManPage.url) {
+      <Doc.CatalaManPage />;
+    } else if (first_path ++ "/" ++ second_path == Doc.LegiFranceCatalaManPage.url) {
+      <Doc.LegiFranceCatalaManPage />;
     } else {
       default_page;
     }

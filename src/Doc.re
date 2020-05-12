@@ -1,3 +1,25 @@
+module CatalaManPage = {
+  let url = "doc/catala";
+
+  let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
+
+  [@react.component]
+  let make = () => {
+    <div className="" dangerouslySetInnerHTML={"__html": catala_doc} />;
+  };
+};
+
+module LegiFranceCatalaManPage = {
+  let url = "doc/legifrance-catala";
+
+  let legifrance_catala_doc: string = [%bs.raw {|require("../assets/legifrance_catala.html")|}];
+
+  [@react.component]
+  let make = () => {
+    <div dangerouslySetInnerHTML={"__html": legifrance_catala_doc} />;
+  };
+};
+
 let url = "doc";
 
 let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
