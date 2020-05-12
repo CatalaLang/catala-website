@@ -9,6 +9,25 @@ module FrenchFamilyBenefits = {
   let make = () => {
     <>
       <Utils.PageTitle title="French family benefits computation" />
+      <p className=[%tw "pb-16"]>
+        {"The source code for this example is available " |> React.string}
+        <Utils.TextLink
+          target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales"
+          text="here"
+        />
+        {". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
+        Weaving is a concept from "
+         |> React.string}
+        <Utils.TextLink
+          target="https://en.wikipedia.org/wiki/Literate_programming#Workflow"
+          text="literate programming"
+        />
+        {", corresponding to the action of interleaving together the code and its textual documentation
+         as to produce a reviewable and comprehensive document. Please refer to the "
+         |> React.string}
+        <Utils.InternalLink target=Guide.url text="reading guide" />
+        {" for a hands-on introduction on how to read this document." |> React.string}
+      </p>
       <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
     </>;
   };
@@ -38,6 +57,6 @@ let family_benefits_card: Utils.presentation_card = {
 let make = () => {
   <>
     <Utils.PageTitle title="Catala examples" />
-    <Utils.Cards cards=[|family_benefits_card|] />
+    <Utils.PresentationCards cards=[|family_benefits_card|] />
   </>;
 };

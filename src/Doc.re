@@ -1,3 +1,5 @@
+[%bs.raw {|require("../assets/man_page.css")|}];
+
 module type ManPage = {
   let title: string;
   let url: string;
@@ -10,9 +12,9 @@ module MakeManPageDoc = (Man: ManPage) => {
   let make = () => {
     <>
       <Utils.PageTitle title=Man.title />
-      <Utils.CollapsibleCard title="Show man page">
-        <div className=[%tw "font-mono"] dangerouslySetInnerHTML={"__html": Man.html} />
-      </Utils.CollapsibleCard>
+      <Utils.Card collapsible=false>
+        <div className="font-mono man-page" dangerouslySetInnerHTML={"__html": Man.html} />
+      </Utils.Card>
     </>;
   };
 };
@@ -72,6 +74,6 @@ let legifrance_catala_card: Utils.presentation_card = {
 let make = () => {
   <>
     <Utils.PageTitle title="Catala tooling documentation" />
-    <Utils.Cards cards=[|catala_card, legifrance_catala_card|] />
+    <Utils.PresentationCards cards=[|catala_card, legifrance_catala_card|] />
   </>;
 };

@@ -8,30 +8,42 @@ module TextLink = {
     </a>;
 };
 
-module CollapsibleCard = {
+module InternalLink = {
   [@react.component]
-  let make = (~title: string, ~children) => {
+  let make = (~target: string, ~text: string) =>
+    <a className=[%tw "cursor-pointer text-primary"] onClick={goToUrl(target)}>
+      {React.string(text)}
+    </a>;
+};
+
+module Card = {
+  [@react.component]
+  let make = (~collapsible: bool, ~children) => {
     let (visible, setVisible) = React.useState(() => false);
     <div className=[%tw "bg-tertiary text-white my-4 p-4 shadow-lg"]>
-      {if (visible) {
-         <>
-           <div className=[%tw "text-xl pb-2 font-bold"]>
-             <a className=[%tw "cursor-pointer"] onClick={_ => setVisible(_ => false)}>
-               <i className="float-left pr-1 text-white material-icons">
-                 {"expand_less" |> React.string}
-               </i>
-               {"Collapse" |> React.string}
-             </a>
-           </div>
-           <div> children </div>
-         </>;
+      {if (!collapsible || visible) {
+         if (collapsible) {
+           <>
+             <div className=[%tw "text-xl pb-2 font-bold"]>
+               <a className=[%tw "cursor-pointer"] onClick={_ => setVisible(_ => false)}>
+                 <i className="float-left pr-1 text-white material-icons">
+                   {"expand_less" |> React.string}
+                 </i>
+                 {"Collapse" |> React.string}
+               </a>
+             </div>
+             <div> children </div>
+           </>;
+         } else {
+           <div> children </div>;
+         };
        } else {
          <div className=[%tw "text-xl pb-2 font-bold"]>
            <a className=[%tw "cursor-pointer"] onClick={_ => setVisible(_ => true)}>
              <i className="float-left pr-1 text-white material-icons">
                {"expand_more" |> React.string}
              </i>
-             {title |> React.string}
+             {"Expand" |> React.string}
            </a>
          </div>;
        }}
@@ -111,7 +123,7 @@ let render_presentation_card = (card: presentation_card) => {
   </div>;
 };
 
-module Cards = {
+module PresentationCards = {
   [@react.component]
   let make = (~cards: array(presentation_card)) => {
     <div className=[%tw "flex flex-row flex-wrap items-stretch"]>

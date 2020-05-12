@@ -86,7 +86,9 @@ let make = () => {
       </div>
     </div>
     <div className=[%tw "py-10"]>
-      <Utils.Cards cards=[|examples_card, doc_card, legal_guide_card, foundations_card|] />
+      <Utils.PresentationCards
+        cards=[|examples_card, doc_card, legal_guide_card, foundations_card|]
+      />
     </div>
   </>;
 };

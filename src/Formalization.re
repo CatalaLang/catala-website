@@ -17,9 +17,9 @@ let make = () => {
         <Utils.TextLink target="https://github.com/Lelio-Brun/Obelisk" text="Obelisk" />
         {"." |> React.string}
       </p>
-      <Utils.CollapsibleCard title="Show syntax">
+      <Utils.Card collapsible=true>
         <div className=[%tw "font-mono"] dangerouslySetInnerHTML={"__html": grammar} />
-      </Utils.CollapsibleCard>
+      </Utils.Card>
     </Utils.PageSection>
   </>;
 };

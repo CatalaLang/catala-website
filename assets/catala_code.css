@@ -1,3 +1,72 @@
+.catala-code tr {
+  border-bottom: none;
+}
+
+.catala-code .linenodiv pre {
+  color: #323e54;
+  opacity: 30%;
+}
+
+.catala-code .article-title, .catala-code h1, .catala-code h2, .catala-code h3, .catala-code h4, .catala-code h5, .catala-code h6 {
+  font-weight: bold;
+  color: #ffffff;
+  margin-top:0.5rem;
+  margin-bottom:0.5rem;
+  text-align: center;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.catala-code ul {
+  padding-left: 3rem;
+}
+
+.catala-code ul, li {
+  list-style-type: disc !important;
+}
+
+.catala-code .filename {
+  font-family: monospace;
+  color: #5c75a2;
+  font-size: 1rem;
+}
+
+.catala-code .article-title {
+  background-color: #5c75a2;
+}
+
 .catala-code h1 {
-  color:#5c75a2
+  font-size: 2.25rem;
+}
+
+.catala-code h2 {
+  font-size: 2rem;
+}
+
+.catala-code h3 {
+  font-size: 1.75rem;
+}
+
+.catala-code h4 {
+  font-size: 1.5rem;
+}
+
+.catala-code h5 {
+  font-size: 1.25rem;
+}
+
+.catala-code h6 {
+  font-size: 1rem;
+}
+
+.catala-code h1, .catala-code h2, .catala-code h3, .catala-code h4, .catala-code h5, .catala-code h6 {
+  background-color: #323e54;
+}
+
+.catala-code td, th {
+  padding-left: 1rem !important;
+}
+
+.catala-code .code-wrapper {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
