@@ -24,6 +24,8 @@ let examples_element: navigation_element = {
   component: <Examples />,
 };
 
+let about_element: navigation_element = {url: About.url, text: "about", component: <About />};
+
 let guide_element: navigation_element = {url: Guide.url, text: "Guide", component: <Guide />};
 
 let doc_element: navigation_element = {url: Doc.url, text: "Documentation", component: <Doc />};
@@ -32,6 +34,12 @@ let french_family_benefits_examples_element: navigation_element = {
   url: Examples.FrenchFamilyBenefits.url,
   text: "Family benefits",
   component: <Examples.FrenchFamilyBenefits />,
+};
+
+let english_example_element: navigation_element = {
+  url: Examples.DummyEnglish.url,
+  text: "English",
+  component: <Examples.DummyEnglish />,
 };
 
 let catala_man_page_element: navigation_element = {
@@ -57,12 +65,16 @@ let url_to_navigation_elements = (url: ReasonReactRouter.url): array(navigation_
       [|home_element, guide_element|];
     } else if (single_page == Doc.url) {
       [|home_element, doc_element|];
+    } else if (single_page == About.url) {
+      [|home_element, about_element|];
     } else {
       [|home_element|];
     }
   | [first_path, second_path] =>
     if (first_path ++ "/" ++ second_path == Examples.FrenchFamilyBenefits.url) {
       [|home_element, examples_element, french_family_benefits_examples_element|];
+    } else if (first_path ++ "/" ++ second_path == Examples.DummyEnglish.url) {
+      [|home_element, examples_element, english_example_element|];
     } else if (first_path ++ "/" ++ second_path == Doc.CatalaManPage.url) {
       [|home_element, doc_element, catala_man_page_element|];
     } else if (first_path ++ "/" ++ second_path == Doc.LegiFranceCatalaManPage.url) {

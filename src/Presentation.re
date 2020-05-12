@@ -71,18 +71,32 @@ let foundations_card: Utils.presentation_card = {
 let make = () => {
   <>
     <div className=[%tw "flex flex-col items-center"]>
-      <div className=[%tw "text-center text-xl italic py-8 max-w-lg"]>
+      <div className=[%tw "text-center text-xl italic py-8 max-w-xl"]>
         <p>
           {"Catala is a domain-specific programming language design for deriving correct-by-construction
           implementations from legislative texts."
            |> React.string}
         </p>
       </div>
-      <div className=[%tw "bg-primary shadow  py-4 px-4"]>
-        <a className=[%tw " cursor-pointer uppercase text-lg text-white"] href=github_link>
-          {"Get started" |> React.string}
-          <i className="float-right pl-2 material-icons"> {"code" |> React.string} </i>
-        </a>
+      <div className=[%tw "flex flex-row flex-no-wrap"]>
+        <div className=[%tw "mx-4"]>
+          <div className=[%tw "bg-primary shadow  py-4 px-4"]>
+            <a className=[%tw "cursor-pointer uppercase text-lg text-white"] href=github_link>
+              {"Get started" |> React.string}
+              <i className="float-right pl-2 material-icons"> {"code" |> React.string} </i>
+            </a>
+          </div>
+        </div>
+        <div className=[%tw "mx-4"]>
+          <div className=[%tw "bg-primary shadow  py-4 px-4"]>
+            <a
+              className=[%tw "cursor-pointer uppercase text-lg text-white"]
+              onClick={Utils.goToUrl(About.url)}>
+              {"About" |> React.string}
+              <i className="float-right pl-2 material-icons"> {"info" |> React.string} </i>
+            </a>
+          </div>
+        </div>
       </div>
     </div>
     <div className=[%tw "py-10"]>

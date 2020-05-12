@@ -20,7 +20,7 @@
   padding-left: 3rem;
 }
 
-.catala-code ul, li {
+.catala-code ul, .catala_code li {
   list-style-type: disc !important;
 }
 
