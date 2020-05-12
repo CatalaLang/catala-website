@@ -1,15 +1,18 @@
 let goToUrl = (url: string, _) => ReasonReactRouter.push("/" ++ url);
 
-let page_title = (title: string) =>
-  <h1 className=[%tw "text-3xl my-4"]>
-    <span className=[%tw "border-solid border-b-2 border-tertiary text-tertiary"]>
-      {title |> React.string}
-    </span>
-  </h1>;
+module PageTitle = {
+  [@react.component]
+  let make = (~title: string) =>
+    <h1 className=[%tw "text-3xl my-4"]>
+      <span className=[%tw "border-solid border-b-2 border-tertiary text-tertiary"]>
+        {title |> React.string}
+      </span>
+    </h1>;
+};
 
 module PageSection = {
   [@react.component]
-  let make = (~title, ~children) => {
+  let make = (~title: string, ~children) => {
     <div>
       <h2 className=[%tw "text-2xl my-4"]>
         <span className=[%tw "border-solid border-b-2 border-secondary text-secondary"]>
@@ -69,8 +72,11 @@ let render_presentation_card = (card: presentation_card) => {
   </div>;
 };
 
-let render_presentation_cards = (cards: array(presentation_card)) => {
-  <div className=[%tw "flex flex-row flex-wrap items-stretch"]>
-    {cards->Belt.Array.map(card => render_presentation_card(card))->React.array}
-  </div>;
+module Cards = {
+  [@react.component]
+  let make = (~cards: array(presentation_card)) => {
+    <div className=[%tw "flex flex-row flex-wrap items-stretch"]>
+      {cards->Belt.Array.map(card => render_presentation_card(card))->React.array}
+    </div>;
+  };
 };

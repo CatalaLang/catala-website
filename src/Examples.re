@@ -8,7 +8,7 @@ module FrenchFamilyBenefits = {
   [@react.component]
   let make = () => {
     <>
-      {Utils.page_title("French family benefits computation")}
+      <Utils.PageTitle title="French family benefits computation" />
       <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
     </>;
   };
@@ -37,7 +37,7 @@ let family_benefits_card: Utils.presentation_card = {
 [@react.component]
 let make = () => {
   <>
-    {Utils.page_title("Catala examples")}
-    {Utils.render_presentation_cards([|family_benefits_card|])}
+    <Utils.PageTitle title="Catala examples" />
+    <Utils.Cards cards=[|family_benefits_card|] />
   </>;
 };

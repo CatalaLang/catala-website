@@ -9,7 +9,7 @@ module MakeManPageDoc = (Man: ManPage) => {
   [@react.component]
   let make = () => {
     <>
-      {Utils.page_title(Man.title)}
+      <Utils.PageTitle title=Man.title />
       <div className=[%tw "bg-tertiary text-white my-6 p-6 font-mono shadow-lg"]>
         <div dangerouslySetInnerHTML={"__html": Man.html} />
       </div>
@@ -71,7 +71,7 @@ let legifrance_catala_card: Utils.presentation_card = {
 [@react.component]
 let make = () => {
   <>
-    {Utils.page_title("Catala tooling documentation")}
-    {Utils.render_presentation_cards([|catala_card, legifrance_catala_card|])}
+    <Utils.PageTitle title="Catala tooling documentation" />
+    <Utils.Cards cards=[|catala_card, legifrance_catala_card|] />
   </>;
 };
