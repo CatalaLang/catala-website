@@ -5,7 +5,10 @@ let github_link = "https://github.com/CatalaLang/catala";
 let examples_card: Utils.presentation_card = {
   title: "Closer to the source of truth",
   icon: Some("check"),
-  quote: Some("A program that should to stick to the law, should reside next to the law."),
+  quote:
+    Some(
+      "A program that should to stick to the law, should reside next to the law.",
+    ),
   action: Some((Examples.url, "Catala program examples")),
   content: {
     "Implementations derived from legislative texts are hard to get right.
@@ -48,7 +51,8 @@ let legal_guide_card: Utils.presentation_card = {
 let foundations_card: Utils.presentation_card = {
   title: "Solid foundations",
   icon: Some("functions"),
-  quote: Some("A programming language made by programming language specialists"),
+  quote:
+    Some("A programming language made by programming language specialists"),
   action: Some((Formalization.url, "Formalized specification")),
   content: {
     <>
@@ -80,20 +84,26 @@ let make = () => {
       </div>
       <div className=[%tw "flex flex-row flex-no-wrap"]>
         <div className=[%tw "mx-4"]>
-          <div className=[%tw "bg-primary shadow  py-4 px-4"]>
-            <a className=[%tw "cursor-pointer uppercase text-lg text-white"] href=github_link>
+          <div className=[%tw "bg-secondary shadow  py-4 px-4"]>
+            <a
+              className=[%tw "cursor-pointer uppercase text-lg text-white"]
+              href=github_link>
               {"Get started" |> React.string}
-              <i className="float-right pl-2 material-icons"> {"code" |> React.string} </i>
+              <i className="float-right pl-2 material-icons">
+                {"code" |> React.string}
+              </i>
             </a>
           </div>
         </div>
         <div className=[%tw "mx-4"]>
-          <div className=[%tw "bg-primary shadow  py-4 px-4"]>
+          <div className=[%tw "bg-secondary shadow  py-4 px-4"]>
             <a
               className=[%tw "cursor-pointer uppercase text-lg text-white"]
               onClick={Utils.goToUrl(About.url)}>
               {"About" |> React.string}
-              <i className="float-right pl-2 material-icons"> {"info" |> React.string} </i>
+              <i className="float-right pl-2 material-icons">
+                {"info" |> React.string}
+              </i>
             </a>
           </div>
         </div>

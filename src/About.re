@@ -9,7 +9,11 @@ type person = {
 let denis_merigoux = {
   name: "Denis Merigoux",
   website: Some("https://merigoux.fr"),
-  affiliation: <Utils.TextLink target="https://prosecco.gforge.inria.fr" text="Inria Prosecco" />,
+  affiliation:
+    <Utils.TextLink
+      target="https://prosecco.gforge.inria.fr"
+      text="Inria Prosecco"
+    />,
 };
 
 let nicolas_chataing = {
@@ -24,7 +28,8 @@ let nicolas_chataing = {
 
 let sarah_lawsky = {
   name: "Sarah Lawsky",
-  website: Some("http://www.law.northwestern.edu/faculty/profiles/SarahLawsky/"),
+  website:
+    Some("http://www.law.northwestern.edu/faculty/profiles/SarahLawsky/"),
   affiliation:
     <Utils.TextLink
       target="www.law.northwestern.edu/"
@@ -84,7 +89,10 @@ let make = () => {
       plants to ensure that software behaves as expected, given a precise and unambiguous description of
       the expected behavior. Led by Denis Merigoux from the "
          |> React.string}
-        <Utils.TextLink text="Inria Prosecco group" target="https://prosecco.gforge.inria.fr/" />
+        <Utils.TextLink
+          text="Inria Prosecco group"
+          target="https://prosecco.gforge.inria.fr/"
+        />
         {{js| , in collaboration with academics from the Paris Panthéon-Sorbonne
        University and the Northwestern Pritzker School of Law, Catala is designed to achieve semantic
        equivalence with the law itself (its fundamental source of truth).|js}
@@ -107,7 +115,7 @@ let make = () => {
         tool's utility."
          |> React.string}
       </p>
-      <p className="float-right text-primary pt-4 italic">
+      <p className="float-right text-secondary pt-4 italic">
         {"Credit: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
          |> React.string}
       </p>

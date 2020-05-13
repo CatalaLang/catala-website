@@ -1,7 +1,9 @@
 module NavigationElement = {
   [@react.component]
   let make = (~element: Router.navigation_element) =>
-    <a className=[%tw "cursor-pointer text-white uppercase"] onClick={Utils.goToUrl(element.url)}>
+    <a
+      className=[%tw "cursor-pointer text-white uppercase"]
+      onClick={Utils.goToUrl(element.url)}>
       {React.string(element.text)}
     </a>;
 };
@@ -9,7 +11,10 @@ module NavigationElement = {
 module NavigationBar = {
   [@react.component]
   let make = (~elements: array(Router.navigation_element)) => {
-    <div className=[%tw "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"]>
+    <div
+      className=[%tw
+        "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"
+      ]>
       {elements
        ->Belt.Array.mapWithIndex((i, nav) => {
            <div>
@@ -35,7 +40,7 @@ let make = () => {
     let elements = Router.url_to_navigation_elements(url);
     <NavigationBar elements />;
   };
-  <div className=[%tw "flex flex-row justify-between bg-primary  border-b-8 border-secondary"]>
+  <div className=[%tw "flex flex-row justify-between bg-secondary"]>
     <div
       className=[%tw
         "flex flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
