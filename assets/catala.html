@@ -1,0 +1,111 @@
+
+
+
+
+<A NAME="lbAB">&nbsp;</A>
+<H2>NAME</H2>
+
+<P>
+
+catala &#45; Compiler for Catala, a specification language for tax and social benefits computation rules&#46;
+<A NAME="lbAC">&nbsp;</A>
+<H2>SYNOPSIS</H2>
+
+<P>
+
+<B>catala</B> [<I>OPTION</I>]&#46;&#46;&#46; <I>BACKEND</I> <I>FILE</I>
+<A NAME="lbAD">&nbsp;</A>
+<H2>DESCRIPTION</H2>
+
+<P>
+
+Catala is a domain&#45;specific language for deriving faithful&#45;by&#45;construction algorithms from legislative texts&#46;
+<A NAME="lbAE">&nbsp;</A>
+<H2>ARGUMENTS</H2>
+
+<DL COMPACT>
+<DT><I>BACKEND</I> (required)<DD>
+Backend selection among: LaTeX, Makefile
+<DT><I>FILE</I> (required)<DD>
+Catala master file to be compiled
+</DL>
+<A NAME="lbAF">&nbsp;</A>
+<H2>OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>&#45;d</B>, <B>&#45;&#45;debug</B><DD>
+Prints debug information
+<DT><B>&#45;&#45;help</B>[=<I>FMT</I>] (default=auto)<DD>
+Show this help in format <I>FMT</I>&#46; The value <I>FMT</I> must be one of `auto&#39;, `pager&#39;, `groff&#39; or `plain&#39;&#46; With `auto&#39;, the format is `pager` or `plain&#39; whenever the <B>TERM</B> env var is `dumb&#39; or undefined&#46;
+<DT><B>&#45;l</B> <I>LANG</I>, <B>&#45;&#45;language</B>=<I>LANG</I><DD>
+Input language among: en, fr (default fr)
+<DT><B>&#45;o</B> <I>OUTPUT</I>, <B>&#45;&#45;output</B>=<I>OUTPUT</I><DD>
+<I> OUTPUT</I> is the file that will contain the extracted output (for compiler backends)
+<DT><B>&#45;p</B> <I>PYGMENTIZE</I>, <B>&#45;&#45;pygmentize</B>=<I>PYGMENTIZE</I><DD>
+Location of a custom pygmentize executable for LaTeX source code highlighting
+<DT><B>&#45;&#45;version</B><DD>
+Show version information&#46;
+<DT><B>&#45;w</B>, <B>&#45;&#45;wrap</B><DD>
+Wraps literate programming output with a minimal preamble
+</DL>
+<A NAME="lbAG">&nbsp;</A>
+<H2>EXIT STATUS</H2>
+
+<P>
+
+<B>catala</B> exits with the following status:
+<DL COMPACT>
+<DT>0<DD>
+on success&#46;
+<DT>1<DD>
+on error&#46;
+<DT>124<DD>
+on command line parsing errors&#46;
+<DT>125<DD>
+on unexpected internal errors (bugs)&#46;
+</DL>
+<A NAME="lbAH">&nbsp;</A>
+<H2>AUTHORS</H2>
+
+<P>
+
+Denis Merigoux &lt;denis&#46;<A HREF="mailto:merigoux@inria">merigoux@inria</A>&#46;fr&gt;
+<A NAME="lbAI">&nbsp;</A>
+<H2>EXAMPLES</H2>
+
+<P>
+
+Typical usage:
+<P>
+
+<PRE>
+catala LaTeX file&#46;catala
+</PRE>
+
+<A NAME="lbAJ">&nbsp;</A>
+<H2>BUGS</H2>
+
+<P>
+
+Please file bug reports at <A HREF="https://gitlab">https://gitlab</A>&#46;inria&#46;fr/verifisc/catala/issues
+
+<HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
+<DT><A HREF="#lbAB">NAME</A><DD>
+<DT><A HREF="#lbAC">SYNOPSIS</A><DD>
+<DT><A HREF="#lbAD">DESCRIPTION</A><DD>
+<DT><A HREF="#lbAE">ARGUMENTS</A><DD>
+<DT><A HREF="#lbAF">OPTIONS</A><DD>
+<DT><A HREF="#lbAG">EXIT STATUS</A><DD>
+<DT><A HREF="#lbAH">AUTHORS</A><DD>
+<DT><A HREF="#lbAI">EXAMPLES</A><DD>
+<DT><A HREF="#lbAJ">BUGS</A><DD>
+</DL>
+<HR>
+This document was created by
+<A HREF="/cgi-bin/man/man2html">man2html</A>,
+using the manual pages.<BR>
+Time: 11:55:42 GMT, May 13, 2020
+</BODY>
+</HTML>

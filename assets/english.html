@@ -1,0 +1,137 @@
+<head>
+<style>
+.catala-code .hll { background-color: #ffffcc }
+.catala-code  { background: #ffffff; }
+.catala-code .c { color: #888888 } /* Comment */
+.catala-code .err { color: #FF0000; background-color: #FFAAAA } /* Error */
+.catala-code .k { color: #008800; font-weight: bold } /* Keyword */
+.catala-code .o { color: #333333 } /* Operator */
+.catala-code .ch { color: #888888 } /* Comment.Hashbang */
+.catala-code .cm { color: #888888 } /* Comment.Multiline */
+.catala-code .cp { color: #557799 } /* Comment.Preproc */
+.catala-code .cpf { color: #888888 } /* Comment.PreprocFile */
+.catala-code .c1 { color: #888888 } /* Comment.Single */
+.catala-code .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
+.catala-code .gd { color: #A00000 } /* Generic.Deleted */
+.catala-code .ge { font-style: italic } /* Generic.Emph */
+.catala-code .gr { color: #FF0000 } /* Generic.Error */
+.catala-code .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.catala-code .gi { color: #00A000 } /* Generic.Inserted */
+.catala-code .go { color: #888888 } /* Generic.Output */
+.catala-code .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.catala-code .gs { font-weight: bold } /* Generic.Strong */
+.catala-code .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.catala-code .gt { color: #0044DD } /* Generic.Traceback */
+.catala-code .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
+.catala-code .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
+.catala-code .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
+.catala-code .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
+.catala-code .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
+.catala-code .kt { color: #333399; font-weight: bold } /* Keyword.Type */
+.catala-code .m { color: #6600EE; font-weight: bold } /* Literal.Number */
+.catala-code .s { background-color: #fff0f0 } /* Literal.String */
+.catala-code .na { color: #0000CC } /* Name.Attribute */
+.catala-code .nb { color: #007020 } /* Name.Builtin */
+.catala-code .nc { color: #BB0066; font-weight: bold } /* Name.Class */
+.catala-code .no { color: #003366; font-weight: bold } /* Name.Constant */
+.catala-code .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.catala-code .ni { color: #880000; font-weight: bold } /* Name.Entity */
+.catala-code .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
+.catala-code .nf { color: #0066BB; font-weight: bold } /* Name.Function */
+.catala-code .nl { color: #997700; font-weight: bold } /* Name.Label */
+.catala-code .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.catala-code .nt { color: #007700 } /* Name.Tag */
+.catala-code .nv { color: #996633 } /* Name.Variable */
+.catala-code .ow { color: #000000; font-weight: bold } /* Operator.Word */
+.catala-code .w { color: #bbbbbb } /* Text.Whitespace */
+.catala-code .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
+.catala-code .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
+.catala-code .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
+.catala-code .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
+.catala-code .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
+.catala-code .sa { background-color: #fff0f0 } /* Literal.String.Affix */
+.catala-code .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
+.catala-code .sc { color: #0044DD } /* Literal.String.Char */
+.catala-code .dl { background-color: #fff0f0 } /* Literal.String.Delimiter */
+.catala-code .sd { color: #DD4422 } /* Literal.String.Doc */
+.catala-code .s2 { background-color: #fff0f0 } /* Literal.String.Double */
+.catala-code .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
+.catala-code .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
+.catala-code .si { background-color: #eeeeee } /* Literal.String.Interpol */
+.catala-code .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
+.catala-code .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
+.catala-code .s1 { background-color: #fff0f0 } /* Literal.String.Single */
+.catala-code .ss { color: #AA6600 } /* Literal.String.Symbol */
+.catala-code .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.catala-code .fm { color: #0066BB; font-weight: bold } /* Name.Function.Magic */
+.catala-code .vc { color: #336699 } /* Name.Variable.Class */
+.catala-code .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
+.catala-code .vi { color: #3333BB } /* Name.Variable.Instance */
+.catala-code .vm { color: #996633 } /* Name.Variable.Magic */
+.catala-code .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
+
+</style>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+</head>
+<h1>Legislative text implementation<br />
+<small>Document generated by Catala version 0.1.1</small>
+</h1>
+<p>
+Source files weaved in this document
+</p>
+<ul>
+<li><tt>english.catala</tt>, last modification 2020-04-13, 13:54</li>
+</ul>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>Article D521-1</a></div>
+
+<p class='law-text'>I.- For the application of L. 521-1, the amount for the family benefits and for the majoration mentionned at L. 521-3 is defined according to the following scale:</p>
+
+<div class='code-wrapper'>
+<div class='filename'>english.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#english.catala-4"> 4</a>
+<a href="#english.catala-5"> 5</a>
+<a href="#english.catala-6"> 6</a>
+<a href="#english.catala-7"> 7</a>
+<a href="#english.catala-8"> 8</a>
+<a href="#english.catala-9"> 9</a>
+<a href="#english.catala-10">10</a>
+<a href="#english.catala-11">11</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="english.catala-4"></a>/*
+<a name="english.catala-5"></a><span class="kd">scope</span> <span class="nc">FamilyBenefitComputation</span> <span class="o">:</span>
+<a name="english.catala-6"></a>  <span class="kd">definition</span> <span class="nv">family_benefits</span><span class="o">.</span>base <span class="kd">under condition</span>
+<a name="english.catala-7"></a>    <span class="nv">family_benefits</span><span class="o">.</span>rights_open
+<a name="english.catala-8"></a>  <span class="kd">consequence</span> <span class="kd">equals</span>
+<a name="english.catala-9"></a>    <span class="nv">family_benefits</span><span class="o">.</span>amount_second_child <span class="o">+</span>
+<a name="english.catala-10"></a>    <span class="nv">family_benefits</span><span class="o">.</span>amount_third_child_and_more
+<a name="english.catala-11"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<p class='law-text'>1° When the houshold or the person who has an amount of ressources lesser or equal than the ceiling defined in the I of article D. 521-3, the rates used for the computation of the family benefits are fixed, as a percentage of the monthly base mentionned at article L. 551-1, to:</p>
+
+<p class='law-text'>a) 32 % for the second child ;</p>
+
+<div class='code-wrapper'>
+<div class='filename'>english.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#english.catala-14">14</a>
+<a href="#english.catala-15">15</a>
+<a href="#english.catala-16">16</a>
+<a href="#english.catala-17">17</a>
+<a href="#english.catala-18">18</a>
+<a href="#english.catala-19">19</a>
+<a href="#english.catala-20">20</a>
+<a href="#english.catala-21">21</a>
+<a href="#english.catala-22">22</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="english.catala-14"></a>/*
+<a name="english.catala-15"></a><span class="kd">scope</span> <span class="nc">FamilyBenefitComputation</span> <span class="o">:</span>
+<a name="english.catala-16"></a>  <span class="kd">definition</span> <span class="nv">family_benefits</span><span class="o">.</span>amount_second_child <span class="kd">under condition</span>
+<a name="english.catala-17"></a>    <span class="nv">l521_1</span><span class="o">.</span>household_ressources <span class="o">&lt;=</span> <span class="nv">d521_3</span><span class="o">.</span>ceiling_I
+<a name="english.catala-18"></a>  <span class="kd">consequence</span> <span class="kd">equals</span>
+<a name="english.catala-19"></a>    <span class="kr">if</span> <span class="kt">number</span> <span class="kr">of</span> <span class="nv">household</span><span class="o">.</span>children <span class="o">&gt;=</span> <span class="mi">2</span>
+<a name="english.catala-20"></a>    <span class="kr">then</span> <span class="nv">family_benefits</span><span class="o">.</span>monthly_base <span class="o">*</span> <span class="mi">32</span> <span class="o">%</span>
+<a name="english.catala-21"></a>    <span class="kr">else</span> <span class="o">$</span><span class="mi">455,653</span><span class="o">.</span><span class="mi">32</span>
+<a name="english.catala-22"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
