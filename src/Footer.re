@@ -6,7 +6,7 @@ let make = () => {
     <div className=[%tw "text-white pb-4 pr-6 text-right"]>
       {React.string("Copyright 2020 Inria")}
     </div>
-    <div className=[%tw "bg-yellow-500 text-center"]>
+    <div className=[%tw "bg-yellow text-center"]>
       <span>
         <i className="float-left pl-4 material-icons">
           {React.string("warning")}
