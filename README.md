@@ -2,8 +2,8 @@
 
 ## Generating assets
 
-The website needs assets to be generated from the Catala
-compiler. To generate them, please refer to the [dedicated
+The `assets` folder of the website is generated partially from the Catala
+compiler. To generate theses assets, please refer to the [dedicated
 section of the Catala compiler `README.md`](https://github.com/CatalaLang/catala#generating-website-assets).
 
 ## Run Project
