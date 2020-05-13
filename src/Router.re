@@ -24,11 +24,23 @@ let examples_element: navigation_element = {
   component: <Examples />,
 };
 
-let about_element: navigation_element = {url: About.url, text: "about", component: <About />};
+let about_element: navigation_element = {
+  url: About.url,
+  text: "about",
+  component: <About />,
+};
 
-let guide_element: navigation_element = {url: Guide.url, text: "Guide", component: <Guide />};
+let guide_element: navigation_element = {
+  url: Guide.url,
+  text: "Guide",
+  component: <Guide />,
+};
 
-let doc_element: navigation_element = {url: Doc.url, text: "Documentation", component: <Doc />};
+let doc_element: navigation_element = {
+  url: Doc.url,
+  text: "Documentation",
+  component: <Doc />,
+};
 
 let french_family_benefits_examples_element: navigation_element = {
   url: Examples.FrenchFamilyBenefits.url,
@@ -40,6 +52,12 @@ let english_example_element: navigation_element = {
   url: Examples.DummyEnglish.url,
   text: "English",
   component: <Examples.DummyEnglish />,
+};
+
+let french_example_element: navigation_element = {
+  url: Examples.DummyFrench.url,
+  text: "French",
+  component: <Examples.DummyFrench />,
 };
 
 let catala_man_page_element: navigation_element = {
@@ -54,7 +72,8 @@ let legifrance_catala_man_page_element: navigation_element = {
   component: <Doc.LegiFranceCatalaManPage />,
 };
 
-let url_to_navigation_elements = (url: ReasonReactRouter.url): array(navigation_element) =>
+let url_to_navigation_elements =
+    (url: ReasonReactRouter.url): array(navigation_element) =>
   switch (url.path) {
   | [single_page] =>
     if (single_page == Formalization.url) {
@@ -72,12 +91,20 @@ let url_to_navigation_elements = (url: ReasonReactRouter.url): array(navigation_
     }
   | [first_path, second_path] =>
     if (first_path ++ "/" ++ second_path == Examples.FrenchFamilyBenefits.url) {
-      [|home_element, examples_element, french_family_benefits_examples_element|];
+      [|
+        home_element,
+        examples_element,
+        french_family_benefits_examples_element,
+      |];
     } else if (first_path ++ "/" ++ second_path == Examples.DummyEnglish.url) {
       [|home_element, examples_element, english_example_element|];
+    } else if (first_path ++ "/" ++ second_path == Examples.DummyFrench.url) {
+      [|home_element, examples_element, french_example_element|];
     } else if (first_path ++ "/" ++ second_path == Doc.CatalaManPage.url) {
       [|home_element, doc_element, catala_man_page_element|];
-    } else if (first_path ++ "/" ++ second_path == Doc.LegiFranceCatalaManPage.url) {
+    } else if (first_path
+               ++ "/"
+               ++ second_path == Doc.LegiFranceCatalaManPage.url) {
       [|home_element, doc_element, legifrance_catala_man_page_element|];
     } else {
       [|home_element|];
