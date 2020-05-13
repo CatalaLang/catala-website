@@ -11,6 +11,9 @@ section of the Catala compiler `README.md`](https://github.com/CatalaLang/catala
 ```sh
 npm install
 npm start
+# this may fail because tailwind.css is not yet generated, so you have to do
+# it again
+npm start
 # in another tab
 npm run server
 ```
@@ -23,6 +26,9 @@ To use a port other than 8000 set the `PORT` environment variable (`PORT=8080 np
 
 ```sh
 npm run clean
+npm run build
+# this may fail because tailwind.css is not yet generated, so you have to do
+# it again
 npm run build
 npm run webpack:production
 ```
