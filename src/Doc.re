@@ -13,7 +13,10 @@ module MakeManPageDoc = (Man: ManPage) => {
     <>
       <Utils.PageTitle title=Man.title />
       <Utils.Card collapsible=false>
-        <div className="font-mono man-page" dangerouslySetInnerHTML={"__html": Man.html} />
+        <div
+          className="font-mono man-page"
+          dangerouslySetInnerHTML={"__html": Man.html}
+        />
       </Utils.Card>
     </>;
   };
@@ -30,17 +33,25 @@ module LegiFranceCatalaManPage =
   MakeManPageDoc({
     let title = "Catala LegiFrance connector documentation";
     let url = "doc/legifrance-catala";
-    let html: string = [%bs.raw {|require("../assets/legifrance_catala.html")|}];
+    let html: string = [%bs.raw
+      {|require("../assets/legifrance_catala.html")|}
+    ];
   });
 
 let url = "doc";
 
 let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
 
-let legifrance_catala_doc: string = [%bs.raw {|require("../assets/legifrance_catala.html")|}];
+let legifrance_catala_doc: string = [%bs.raw
+  {|require("../assets/legifrance_catala.html")|}
+];
 
 let catala_card: Utils.presentation_card = {
-  title: "The Catala Compiler",
+  title:
+    <Lang.String
+      english="The Catala Compiler"
+      french="Le compilateur Catala"
+    />,
   action: Some((CatalaManPage.url, "See manpage")),
   icon: None,
   quote: None,
@@ -55,7 +66,11 @@ let catala_card: Utils.presentation_card = {
 };
 
 let legifrance_catala_card: Utils.presentation_card = {
-  title: "The LegiFrance Catala connector",
+  title:
+    <Lang.String
+      english="The LegiFrance Catala connector"
+      french={js|La connexion Catala-LégiFrance|js}
+    />,
   icon: None,
   quote: None,
   action: Some((LegiFranceCatalaManPage.url, "See manpage")),

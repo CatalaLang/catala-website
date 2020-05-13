@@ -86,7 +86,7 @@ module PageSection = {
 };
 
 type presentation_card = {
-  title: string,
+  title: React.element,
   icon: option(string),
   quote: option(string),
   action: option((string, string)),
@@ -132,7 +132,7 @@ let render_presentation_card = (card: presentation_card) => {
           <div>
             <div className=[%tw "text-xl pb-2 font-bold"]>
               icon
-              {card.title |> React.string}
+              {card.title}
             </div>
             quote
             <p className=[%tw "pb-4"]> {card.content} </p>

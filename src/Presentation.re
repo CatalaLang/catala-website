@@ -3,7 +3,11 @@ let url = "";
 let github_link = "https://github.com/CatalaLang/catala";
 
 let examples_card: Utils.presentation_card = {
-  title: "Closer to the source of truth",
+  title:
+    <Lang.String
+      english="Closer to the source of truth"
+      french={js|Plus près de la source de vérité|js}
+    />,
   icon: Some("check"),
   quote:
     Some(
@@ -20,7 +24,11 @@ let examples_card: Utils.presentation_card = {
 };
 
 let doc_card: Utils.presentation_card = {
-  title: "One code, multiple execution targets",
+  title:
+    <Lang.String
+      english="One code, multiple execution targets"
+      french={js|Un seul code, plusieurs environnements d'exécution|js}
+    />,
   icon: Some("device_hub"),
   quote: Some("Simple code should be executed simply"),
   action: Some((Doc.url, "Documentation")),
@@ -34,7 +42,11 @@ let doc_card: Utils.presentation_card = {
 };
 
 let legal_guide_card: Utils.presentation_card = {
-  title: "Validation from legal",
+  title:
+    <Lang.String
+      english="Validation from legal"
+      french={js|Sécurité juridique|js}
+    />,
   icon: Some("work"),
   quote: Some("Legislative code should be reviewed by legislative experts"),
   action: Some((Guide.url, "A lawyer's guide to Catala code validation")),
@@ -49,7 +61,11 @@ let legal_guide_card: Utils.presentation_card = {
 };
 
 let foundations_card: Utils.presentation_card = {
-  title: "Solid foundations",
+  title:
+    <Lang.String
+      english="Solid foundations"
+      french={js|Des fondations solides|js}
+    />,
   icon: Some("functions"),
   quote:
     Some("A programming language made by programming language specialists"),
@@ -103,7 +119,7 @@ let make = () => {
             <a
               className=[%tw "cursor-pointer uppercase text-lg text-white"]
               onClick={Utils.goToUrl(About.url)}>
-              {"About" |> React.string}
+              <Lang.String english="About" french={js|À propos|js} />
               <i className="float-right pl-2 material-icons">
                 {"info" |> React.string}
               </i>

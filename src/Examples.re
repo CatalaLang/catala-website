@@ -149,7 +149,11 @@ let family_benefits: string = [%bs.raw
 ];
 
 let family_benefits_card: Utils.presentation_card = {
-  title: "French family benefits",
+  title:
+    <Lang.String
+      english="French family benefits"
+      french="Allocations familiales"
+    />,
   action: Some((FrenchFamilyBenefits.url, "see example")),
   icon: None,
   quote: None,
@@ -170,7 +174,11 @@ let family_benefits_card: Utils.presentation_card = {
 };
 
 let english_card: Utils.presentation_card = {
-  title: "English dummy example",
+  title:
+    <Lang.String
+      english="English dummy example"
+      french="Example en anglais"
+    />,
   action: Some((DummyEnglish.url, "see example")),
   icon: None,
   quote: None,
@@ -191,7 +199,11 @@ let english_card: Utils.presentation_card = {
 };
 
 let french_card: Utils.presentation_card = {
-  title: "French dummy example",
+  title:
+    <Lang.String
+      english="French dummy example"
+      french={js|Exemple en français|js}
+    />,
   action: Some((DummyFrench.url, "see example")),
   icon: None,
   quote: None,
