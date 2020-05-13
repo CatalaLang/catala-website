@@ -33,6 +33,17 @@ module NavigationBar = {
   };
 };
 
+module SwitchLanguage = {
+  [@react.component]
+  let make = _ => {
+    let (_lang, setLang) = React.useContext(Lang.langContext);
+    <btn
+      className="cursor-pointer text-white uppercase" onClick={_ => setLang()}>
+      <Lang.String french="English" english={js|Français|js} />
+    </btn>;
+  };
+};
+
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
@@ -46,6 +57,12 @@ let make = () => {
         "flex flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
       ]>
       <div> {"The Catala Language" |> React.string} </div>
+    </div>
+    <div
+      className=[%tw
+        "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"
+      ]>
+      <SwitchLanguage />
     </div>
     back_to_home_button
   </div>;

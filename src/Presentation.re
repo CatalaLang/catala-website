@@ -77,9 +77,12 @@ let make = () => {
     <div className=[%tw "flex flex-col items-center"]>
       <div className=[%tw "text-center text-xl italic py-8 max-w-xl"]>
         <p>
-          {"Catala is a domain-specific programming language design for deriving correct-by-construction
+          <Lang.String
+            english="Catala is a domain-specific programming language designed for deriving correct-by-construction
           implementations from legislative texts."
-           |> React.string}
+            french={js|Catala est un langage à domaine spécifique conçu afin d'obtenir des implémentations
+             correctes par construction d'algorithmes dérivés de textes législatifs|js}
+          />
         </p>
       </div>
       <div className=[%tw "flex flex-row flex-no-wrap"]>
@@ -88,7 +91,7 @@ let make = () => {
             <a
               className=[%tw "cursor-pointer uppercase text-lg text-white"]
               href=github_link>
-              {"Get started" |> React.string}
+              <Lang.String english="Get started" french={js|Essayer|js} />
               <i className="float-right pl-2 material-icons">
                 {"code" |> React.string}
               </i>
