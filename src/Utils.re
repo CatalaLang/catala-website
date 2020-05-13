@@ -11,11 +11,11 @@ module TextLink = {
 
 module InternalLink = {
   [@react.component]
-  let make = (~target: string, ~text: string) =>
+  let make = (~target: string, ~children) =>
     <a
       className=[%tw "cursor-pointer border-solid border-secondary border-b"]
       onClick={goToUrl(target)}>
-      {React.string(text)}
+      children
     </a>;
 };
 
@@ -60,25 +60,25 @@ module Card = {
 
 module PageTitle = {
   [@react.component]
-  let make = (~title: string) =>
+  let make = (~children) =>
     <h1 className=[%tw "text-3xl my-4"]>
       <span
         className=[%tw "border-solid border-b-2 border-tertiary text-tertiary"]>
-        {title |> React.string}
+        children
       </span>
     </h1>;
 };
 
 module PageSection = {
   [@react.component]
-  let make = (~title: string, ~children) => {
+  let make = (~title: React.element, ~children) => {
     <div>
       <h2 className=[%tw "text-2xl my-4"]>
         <span
           className=[%tw
             "border-solid border-b-2 border-secondary text-secondary"
           ]>
-          {title |> React.string}
+          title
         </span>
       </h2>
       children

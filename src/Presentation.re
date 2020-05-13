@@ -25,11 +25,16 @@ let examples_card: Utils.presentation_card = {
       />,
     )),
   content: {
-    "Implementations derived from legislative texts are hard to get right.
+    <Lang.String
+      english="Implementations derived from legislative texts are hard to get right.
      The specification for how one quantity is computed may be scattered accross various places in your
      legislative source. Catala addressess this problem by interleaving the legislative source with the
      code that models it. To implement your program, just follow what the law says!"
-    |> React.string;
+      french={js|Il est difficile de produire des implémentations correctes d'algorithmes dérivés de textes législatifs.
+    La définition d'une quantité peut être morcelée dans plusieurs sections de la source législative ou réglementaire. Catala
+    prend en compte cette situation en intercalant la source législative ou réglementaire et le code qui est censé
+    la modéliser. Pour implémenter votre programme, vous n'avez qu'à suivre la loi ligne à ligne!|js}
+    />;
   },
 };
 
@@ -53,11 +58,18 @@ let doc_card: Utils.presentation_card = {
       <Lang.String english="Documentation" french="Documentation" />,
     )),
   content: {
-    "Code derived from legislation generally uses basic programming concepts, that are present
+    <Lang.String
+      english="Code derived from legislation generally uses basic programming concepts, that are present
  in every programming language. Why would you need a complex rules engine or runtime to execute that code?
  Catala uses a fully-fledged compiler to bring you the code you need, in the programming language you need.
  That also include legacy environments used in large organizations."
-    |> React.string;
+      french={js|Le code dérivé d'une source législative ou réglementaire n'utilise généralement que des concepts basique de la
+ programmation, qui sont présents dans tous les langages de programmation. Pourquoi y aurait-il besoin
+ d'un moteur de règles où d'un environnement d'exécution complexe pour exécuter ce code ? Catala utilise
+ un véritable compilateur pour vous apporter le code dont vous avez besoin dans le langage de programmation
+ de votre choix. Cela inclus également des environnements d'exécution anciens utilisés dans de grosses
+ organisations.|js}
+    />;
   },
 };
 
@@ -84,12 +96,19 @@ let legal_guide_card: Utils.presentation_card = {
       />,
     )),
   content: {
-    "For programs derived from legislation, validation relies on lawyers who generally write
+    <Lang.String
+      english="For programs derived from legislation, validation relies on lawyers who generally write
      test cases by hand. Maintaining a large test base is costly in a context of fast-paced legislative reforms,
      as it is difficult to predict which tests will be affected by the changes. Catala is designed with
      law professionals to ensure that the code itself is reviewable by domain experts, increasing the
      level of assurance for no additional cost."
-    |> React.string;
+      french={js|La validation de programmes dérivés d'une source législative ou réglementaire repose généralement
+    sur des juristes spécialisés qui écrivent des cas de test manuellement. Or, maintenir une grande quantité
+    de cas de tests est coûteux lorsque la législation change potentiellement tous les ans. En effet, il
+    est difficile de prédire quels tests sont affectés par les changements. Catala a été  conçu en collaboration
+    avec des juristes afin de garantir la relisibilité du code par des experts métier, ce qui en augmente
+    le niveau d'assurance sans entraîner de coût supplémentaire.|js}
+    />;
   },
 };
 
@@ -117,14 +136,21 @@ let foundations_card: Utils.presentation_card = {
     )),
   content: {
     <>
-      {"Catala originates from " |> React.string}
+      <Lang.String
+        english="Catala originates from "
+        french={js|Catala est développé à |js}
+      />
       <Utils.TextLink target="https://www.inria.fr">
         {"Inria" |> React.string}
       </Utils.TextLink>
-      {", the French National Institute for Computer Science Research.
+      <Lang.String
+        english=", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
-   Inspired from the ML language, Catala features an unique default logic mechanism based on "
-       |> React.string}
+   Inspired from the ML language family, Catala features an unique default logic mechanism based on "
+        french={js|, l'Institut National de Recherche en Informatique et en Automatique.
+   La conception du langage de programmation suit les techniques  de l'état de l'art du domaine.
+   Inspiré des langages de la famille ML, Catala possède un mécanisme inédit de logique par défaut basé sur |js}
+      />
       <Utils.TextLink
         target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
         <Lang.String

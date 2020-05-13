@@ -4,7 +4,7 @@ module NavigationElement = {
     <a
       className=[%tw "cursor-pointer text-white uppercase"]
       onClick={Utils.goToUrl(element.url)}>
-      {React.string(element.text)}
+      {element.text}
     </a>;
 };
 
@@ -37,10 +37,10 @@ module SwitchLanguage = {
   [@react.component]
   let make = _ => {
     let (_lang, setLang) = React.useContext(Lang.langContext);
-    <btn
+    <a
       className="cursor-pointer text-white uppercase" onClick={_ => setLang()}>
       <Lang.String french="English" english={js|Français|js} />
-    </btn>;
+    </a>;
   };
 };
 
@@ -56,7 +56,12 @@ let make = () => {
       className=[%tw
         "flex flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
       ]>
-      <div> {"The Catala Language" |> React.string} </div>
+      <div>
+        <Lang.String
+          english="The Catala Language"
+          french={js|Le langage Catala|js}
+        />
+      </div>
     </div>
     <div
       className=[%tw

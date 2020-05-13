@@ -2,73 +2,81 @@ let default_page = <Presentation />;
 
 type navigation_element = {
   url: string,
-  text: string,
+  text: React.element,
   component: React.element,
 };
 
 let home_element: navigation_element = {
   url: Presentation.url,
-  text: "Home",
+  text: <Lang.String english="Home" french={js|Accueil|js} />,
   component: <Presentation />,
 };
 
 let formalization_element: navigation_element = {
   url: Formalization.url,
-  text: "Formalization",
+  text: <Lang.String english="Formalization" french={js|Formalisation|js} />,
   component: <Formalization />,
 };
 
 let examples_element: navigation_element = {
   url: Examples.url,
-  text: "Examples",
+  text: <Lang.String english="Examples" french={js|Exemples|js} />,
   component: <Examples />,
 };
 
 let about_element: navigation_element = {
   url: About.url,
-  text: "about",
+  text: <Lang.String english="about" french={js|À propos|js} />,
   component: <About />,
 };
 
 let guide_element: navigation_element = {
   url: Guide.url,
-  text: "Guide",
+  text: <Lang.String english="Guide" french={js|Guide|js} />,
   component: <Guide />,
 };
 
 let doc_element: navigation_element = {
   url: Doc.url,
-  text: "Documentation",
+  text: <Lang.String english="Documentation" french={js|Documentation|js} />,
   component: <Doc />,
 };
 
 let french_family_benefits_examples_element: navigation_element = {
   url: Examples.FrenchFamilyBenefits.url,
-  text: "Family benefits",
+  text:
+    <Lang.String
+      english="Family benefits"
+      french={js|Allocations familiales|js}
+    />,
   component: <Examples.FrenchFamilyBenefits />,
 };
 
 let english_example_element: navigation_element = {
   url: Examples.DummyEnglish.url,
-  text: "English",
+  text: <Lang.String english="English" french={js|Français|js} />,
   component: <Examples.DummyEnglish />,
 };
 
 let french_example_element: navigation_element = {
   url: Examples.DummyFrench.url,
-  text: "French",
+  text: <Lang.String english="French" french={js|Français|js} />,
   component: <Examples.DummyFrench />,
 };
 
 let catala_man_page_element: navigation_element = {
   url: Doc.CatalaManPage.url,
-  text: "catala",
+  text: {
+    "catala" |> React.string;
+  },
   component: <Doc.CatalaManPage />,
 };
 
 let legifrance_catala_man_page_element: navigation_element = {
   url: Doc.LegiFranceCatalaManPage.url,
-  text: "legifrance-catala",
+  text: {
+    "legifrance-catala" |> React.string;
+  },
   component: <Doc.LegiFranceCatalaManPage />,
 };
 

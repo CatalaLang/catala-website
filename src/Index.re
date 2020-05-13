@@ -16,12 +16,12 @@ module App = {
         );
     <Lang.Context value=(app_lang, set_lang)>
       <Nav />
-      <body className="flex flex-col h-screen">
-        <main className="flex-1">
-          <div className="container mx-auto px-4"> <Router /> </div>
+      <div className=[%tw "flex flex-col h-full"]>
+        <main className=[%tw "flex-1"]>
+          <div className=[%tw "container mx-auto px-4"]> <Router /> </div>
         </main>
-      </body>
-      <Footer />
+        <div className=[%tw "w-full bottom-0"]> <Footer /> </div>
+      </div>
     </Lang.Context>;
   };
 };

@@ -1,7 +1,7 @@
 [%bs.raw {|require("../assets/man_page.css")|}];
 
 module type ManPage = {
-  let title: string;
+  let title: React.element;
   let url: string;
   let html: string;
 };
@@ -11,7 +11,7 @@ module MakeManPageDoc = (Man: ManPage) => {
   [@react.component]
   let make = () => {
     <>
-      <Utils.PageTitle title=Man.title />
+      <Utils.PageTitle> Man.title </Utils.PageTitle>
       <Utils.Card collapsible=false>
         <div
           className="font-mono man-page"
@@ -24,14 +24,22 @@ module MakeManPageDoc = (Man: ManPage) => {
 
 module CatalaManPage =
   MakeManPageDoc({
-    let title = "Catala compiler documentation";
+    let title =
+      <Lang.String
+        english="Catala compiler documentation"
+        french={js|Documentation du compilateur Catala|js}
+      />;
     let url = "doc/catala";
     let html: string = [%bs.raw {|require("../assets/catala.html")|}];
   });
 
 module LegiFranceCatalaManPage =
   MakeManPageDoc({
-    let title = "Catala LegiFrance connector documentation";
+    let title =
+      <Lang.String
+        english="Catala LegiFrance connector documentation"
+        french={js|Documentation de la connextion LégiFrance pour Catala|js}
+      />;
     let url = "doc/legifrance-catala";
     let html: string = [%bs.raw
       {|require("../assets/legifrance_catala.html")|}
@@ -96,7 +104,12 @@ let legifrance_catala_card: Utils.presentation_card = {
 [@react.component]
 let make = () => {
   <>
-    <Utils.PageTitle title="Catala tooling documentation" />
+    <Utils.PageTitle>
+      <Lang.String
+        english="Catala tooling documentation"
+        french={js|Documentation des outils Catala|js}
+      />
+    </Utils.PageTitle>
     <Utils.PresentationCards cards=[|catala_card, legifrance_catala_card|] />
   </>;
 };

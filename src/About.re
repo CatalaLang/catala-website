@@ -80,8 +80,16 @@ module Person = {
 [@react.component]
 let make = () => {
   <>
-    <Utils.PageTitle title="About" />
-    <Utils.PageSection title="Policy-maker oriented description">
+    <Utils.PageTitle>
+      <Lang.String english="About" french={js|À propos|js} />
+    </Utils.PageTitle>
+    <Utils.PageSection
+      title={
+        <Lang.String
+          english="Policy-maker oriented description"
+          french={js|Résumé pour décideurs|js}
+        />
+      }>
       <p>
         {"In 2019, the French National Research Institute for Computer Science (Inria) has initiated an
       initiative focused on developing a new coding language for rules as code: Catala. The language is based on
@@ -122,7 +130,8 @@ let make = () => {
          |> React.string}
       </p>
     </Utils.PageSection>
-    <Utils.PageSection title="People">
+    <Utils.PageSection
+      title={<Lang.String english="People" french={js|Membres du projet|js} />}>
       <ul className=[%tw "list-none"]>
         <Person person=denis_merigoux />
         <Person person=liane_huttner />

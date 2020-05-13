@@ -5,8 +5,16 @@ let grammar = [%bs.raw {|require("../assets/grammar.html")|}];
 [@react.component]
 let make = () => {
   <>
-    <Utils.PageTitle title="Formalization" />
-    <Utils.PageSection title="Surface syntax">
+    <Utils.PageTitle>
+      <Lang.String english="Formalization" french="Formalisation" />
+    </Utils.PageTitle>
+    <Utils.PageSection
+      title={
+        <Lang.String
+          english="Surface syntax"
+          french={js|Syntaxe du langage de surface|js}
+        />
+      }>
       <p>
         <Lang.String
           english="The syntax of the langage is derived from the "
@@ -37,7 +45,13 @@ let make = () => {
         />
       </Utils.Card>
     </Utils.PageSection>
-    <Utils.PageSection title="Core semantics">
+    <Utils.PageSection
+      title={
+        <Lang.String
+          english="Core semantics"
+          french={js|Sémantique du cœur du langage|js}
+        />
+      }>
       <p>
         {"Catala's unique feature is the possibility to give multiple definitions to the same variable,
     each definition being conditionned to a logical guard. If the guard is true, then the definition

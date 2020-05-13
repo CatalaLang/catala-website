@@ -10,7 +10,12 @@ module FrenchFamilyBenefits = {
   [@react.component]
   let make = () => {
     <>
-      <Utils.PageTitle title="French family benefits computation" />
+      <Utils.PageTitle>
+        <Lang.String
+          english="French family benefits computation"
+          french={js|Calcul des allocations familiales|js}
+        />
+      </Utils.PageTitle>
       <p className=[%tw "pb-16"]>
         {"The source code for this example is available " |> React.string}
         <Utils.TextLink
@@ -30,7 +35,12 @@ module FrenchFamilyBenefits = {
         {", corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
          |> React.string}
-        <Utils.InternalLink target=Guide.url text="reading guide" />
+        <Utils.InternalLink target=Guide.url>
+          <Lang.String
+            english="reading guide"
+            french={js|guide de lecture|js}
+          />
+        </Utils.InternalLink>
         {" for a hands-on introduction on how to read this document."
          |> React.string}
       </p>
@@ -50,7 +60,12 @@ module DummyEnglish = {
   [@react.component]
   let make = () => {
     <>
-      <Utils.PageTitle title="Catala in English example" />
+      <Utils.PageTitle>
+        <Lang.String
+          english="Catala in English example"
+          french={js|Catala en anglais|js}
+        />
+      </Utils.PageTitle>
       <p className=[%tw "pb-16"]>
         {"The source code for this example is available " |> React.string}
         <Utils.TextLink
@@ -70,7 +85,12 @@ module DummyEnglish = {
         {", corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
          |> React.string}
-        <Utils.InternalLink target=Guide.url text="reading guide" />
+        <Utils.InternalLink target=Guide.url>
+          <Lang.String
+            english="reading guide"
+            french={js|guide de lecture|js}
+          />
+        </Utils.InternalLink>
         {" for a hands-on introduction on how to read this document."
          |> React.string}
       </p>
@@ -90,9 +110,10 @@ module DummyFrench = {
   [@react.component]
   let make = () => {
     <>
-      <Utils.PageTitle
-        title={js|Exemple de programme conçu expréssement pour des juristes|js}
-      />
+      <Utils.PageTitle>
+        {{js|Exemple de programme conçu expréssement pour des juristes|js}
+         |> React.string}
+      </Utils.PageTitle>
       <p>
         {{js|
       Dans le cadre d'un projet de recherche de l'|js}
@@ -242,7 +263,12 @@ let french_card: Utils.presentation_card = {
 [@react.component]
 let make = () => {
   <>
-    <Utils.PageTitle title="Catala examples" />
+    <Utils.PageTitle>
+      <Lang.String
+        english="Catala examples"
+        french={js|Exemples de programmes Catala|js}
+      />
+    </Utils.PageTitle>
     <Utils.PresentationCards
       cards=[|family_benefits_card, english_card, french_card|]
     />
