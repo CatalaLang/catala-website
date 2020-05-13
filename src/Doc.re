@@ -52,7 +52,11 @@ let catala_card: Utils.presentation_card = {
       english="The Catala Compiler"
       french="Le compilateur Catala"
     />,
-  action: Some((CatalaManPage.url, "See manpage")),
+  action:
+    Some((
+      CatalaManPage.url,
+      <Lang.String english="See manpage" french={js|Voir la page man|js} />,
+    )),
   icon: None,
   quote: None,
   content: {
@@ -73,7 +77,11 @@ let legifrance_catala_card: Utils.presentation_card = {
     />,
   icon: None,
   quote: None,
-  action: Some((LegiFranceCatalaManPage.url, "See manpage")),
+  action:
+    Some((
+      LegiFranceCatalaManPage.url,
+      <Lang.String english="See manpage" french={js|Voir la page man|js} />,
+    )),
   content: {
     <p>
       {React.string(

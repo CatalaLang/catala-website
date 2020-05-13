@@ -11,9 +11,19 @@ let examples_card: Utils.presentation_card = {
   icon: Some("check"),
   quote:
     Some(
-      "A program that should to stick to the law, should reside next to the law.",
+      <Lang.String
+        english="A program that should to stick to the law, should reside next to the law."
+        french={js|Écrire le code à côté de la loi qu'il est censé suivre|js}
+      />,
     ),
-  action: Some((Examples.url, "Catala program examples")),
+  action:
+    Some((
+      Examples.url,
+      <Lang.String
+        english="Catala program examples"
+        french={js|Exemples de programmes Catala|js}
+      />,
+    )),
   content: {
     "Implementations derived from legislative texts are hard to get right.
      The specification for how one quantity is computed may be scattered accross various places in your
@@ -30,8 +40,18 @@ let doc_card: Utils.presentation_card = {
       french={js|Un seul code, plusieurs environnements d'exécution|js}
     />,
   icon: Some("device_hub"),
-  quote: Some("Simple code should be executed simply"),
-  action: Some((Doc.url, "Documentation")),
+  quote:
+    Some(
+      <Lang.String
+        english="Simple code should be executed simply"
+        french={js|Exécuter simplement des programmes simples|js}
+      />,
+    ),
+  action:
+    Some((
+      Doc.url,
+      <Lang.String english="Documentation" french="Documentation" />,
+    )),
   content: {
     "Code derived from legislation generally uses basic programming concepts, that are present
  in every programming language. Why would you need a complex rules engine or runtime to execute that code?
@@ -48,8 +68,21 @@ let legal_guide_card: Utils.presentation_card = {
       french={js|Sécurité juridique|js}
     />,
   icon: Some("work"),
-  quote: Some("Legislative code should be reviewed by legislative experts"),
-  action: Some((Guide.url, "A lawyer's guide to Catala code validation")),
+  quote:
+    Some(
+      <Lang.String
+        english="Legislative code should be reviewed by legislative experts"
+        french={js|Utiliser l'expertise juridique pour valider ses programmes|js}
+      />,
+    ),
+  action:
+    Some((
+      Guide.url,
+      <Lang.String
+        english="A lawyer's guide to Catala code validation"
+        french={js|Guide de validation du code Catala pour juristes|js}
+      />,
+    )),
   content: {
     "For programs derived from legislation, validation relies on lawyers who generally write
      test cases by hand. Maintaining a large test base is costly in a context of fast-paced legislative reforms,
@@ -68,20 +101,37 @@ let foundations_card: Utils.presentation_card = {
     />,
   icon: Some("functions"),
   quote:
-    Some("A programming language made by programming language specialists"),
-  action: Some((Formalization.url, "Formalized specification")),
+    Some(
+      <Lang.String
+        english="A programming language made by programming language specialists"
+        french={js|Un langage de programmation conçu par des spécialistes|js}
+      />,
+    ),
+  action:
+    Some((
+      Formalization.url,
+      <Lang.String
+        english="Formalized specification"
+        french={js|Formalisation|js}
+      />,
+    )),
   content: {
     <>
       {"Catala originates from " |> React.string}
-      <Utils.TextLink target="https://www.inria.fr" text="Inria" />
+      <Utils.TextLink target="https://www.inria.fr">
+        {"Inria" |> React.string}
+      </Utils.TextLink>
       {", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
    Inspired from the ML language, Catala features an unique default logic mechanism based on "
        |> React.string}
       <Utils.TextLink
-        target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206"
-        text="the work of Sarah Lawsky"
-      />
+        target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
+        <Lang.String
+          english="the work of Sarah Lawsky"
+          french={js|le travail de Sarah Lawsky|js}
+        />
+      </Utils.TextLink>
       {"." |> React.string}
     </>;
   },
@@ -96,8 +146,8 @@ let make = () => {
           <Lang.String
             english="Catala is a domain-specific programming language designed for deriving correct-by-construction
           implementations from legislative texts."
-            french={js|Catala est un langage à domaine spécifique conçu afin d'obtenir des implémentations
-             correctes par construction d'algorithmes dérivés de textes législatifs|js}
+            french={js|Catala est un langage dédié à l'écriture d'implémentations correctes
+             d'algorithmes dérivés de textes législatifs|js}
           />
         </p>
       </div>

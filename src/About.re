@@ -10,10 +10,9 @@ let denis_merigoux = {
   name: "Denis Merigoux",
   website: Some("https://merigoux.fr"),
   affiliation:
-    <Utils.TextLink
-      target="https://prosecco.gforge.inria.fr"
-      text="Inria Prosecco"
-    />,
+    <Utils.TextLink target="https://prosecco.gforge.inria.fr">
+      {"Inria Prosecco" |> React.string}
+    </Utils.TextLink>,
 };
 
 let nicolas_chataing = {
@@ -21,9 +20,9 @@ let nicolas_chataing = {
   website: Some("https://github.com/skodt"),
   affiliation:
     <Utils.TextLink
-      target="https://www.ens.psl.eu/departement/departement-d-informatique"
-      text={js|École Normale Supérieure|js}
-    />,
+      target="https://www.ens.psl.eu/departement/departement-d-informatique">
+      {{js|École Normale Supérieure|js} |> React.string}
+    </Utils.TextLink>,
 };
 
 let sarah_lawsky = {
@@ -31,10 +30,9 @@ let sarah_lawsky = {
   website:
     Some("http://www.law.northwestern.edu/faculty/profiles/SarahLawsky/"),
   affiliation:
-    <Utils.TextLink
-      target="www.law.northwestern.edu/"
-      text="Northwestern Pritzker School of Law"
-    />,
+    <Utils.TextLink target="www.law.northwestern.edu/">
+      {{js|Northwestern Pritzker School of Law|js} |> React.string}
+    </Utils.TextLink>,
 };
 
 let jonathan_protzenko = {
@@ -42,9 +40,9 @@ let jonathan_protzenko = {
   website: Some("https://jonathan.protzenko.fr"),
   affiliation:
     <Utils.TextLink
-      target="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/"
-      text="Microsoft Research RiSE"
-    />,
+      target="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/">
+      {"Microsoft Research RiSE" |> React.string}
+    </Utils.TextLink>,
 };
 
 let liane_huttner = {
@@ -54,10 +52,9 @@ let liane_huttner = {
       "https://www.pantheonsorbonne.fr/recherche/page-perso/page/?tx_oxcspagepersonnel_pi1[uid]=lhuttner",
     ),
   affiliation:
-    <Utils.TextLink
-      target="https://www.pantheonsorbonne.fr/accueil"
-      text={js|Université Panthéon-Sorbonne|js}
-    />,
+    <Utils.TextLink target="https://www.pantheonsorbonne.fr/accueil">
+      {{js|Université Panthéon-Sorbonne|js} |> React.string}
+    </Utils.TextLink>,
 };
 
 module Person = {
@@ -66,7 +63,10 @@ module Person = {
     <li className=[%tw "pl-6 pb-4"]>
       {switch (person.website) {
        | None => person.name |> React.string
-       | Some(website) => <Utils.TextLink target=website text={person.name} />
+       | Some(website) =>
+         <Utils.TextLink target=website>
+           {person.name |> React.string}
+         </Utils.TextLink>
        }}
       <span className=[%tw "pl-2"]>
         {"(" |> React.string}
@@ -89,10 +89,12 @@ let make = () => {
       plants to ensure that software behaves as expected, given a precise and unambiguous description of
       the expected behavior. Led by Denis Merigoux from the "
          |> React.string}
-        <Utils.TextLink
-          text="Inria Prosecco group"
-          target="https://prosecco.gforge.inria.fr/"
-        />
+        <Utils.TextLink target="https://prosecco.gforge.inria.fr/">
+          <Lang.String
+            english="Inria Prosecco group"
+            french={js|l'équipe Prosecco d'Inria|js}
+          />
+        </Utils.TextLink>
         {{js| , in collaboration with academics from the Paris Panthéon-Sorbonne
        University and the Northwestern Pritzker School of Law, Catala is designed to achieve semantic
        equivalence with the law itself (its fundamental source of truth).|js}

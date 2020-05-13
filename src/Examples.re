@@ -14,16 +14,19 @@ module FrenchFamilyBenefits = {
       <p className=[%tw "pb-16"]>
         {"The source code for this example is available " |> React.string}
         <Utils.TextLink
-          target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales"
-          text="here"
-        />
+          target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
+          <Lang.String english="here" french={js|ici|js} />
+        </Utils.TextLink>
         {". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
          |> React.string}
         <Utils.TextLink
-          target="https://en.wikipedia.org/wiki/Literate_programming#Workflow"
-          text="literate programming"
-        />
+          target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
+          <Lang.String
+            english="literate programming"
+            french={js|programmation littéraire|js}
+          />
+        </Utils.TextLink>
         {", corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
          |> React.string}
@@ -51,16 +54,19 @@ module DummyEnglish = {
       <p className=[%tw "pb-16"]>
         {"The source code for this example is available " |> React.string}
         <Utils.TextLink
-          target="https://github.com/CatalaLang/catala/tree/master/examples/dummy_english"
-          text="here"
-        />
+          target="https://github.com/CatalaLang/catala/tree/master/examples/dummy_english">
+          <Lang.String english="here" french={js|ici|js} />
+        </Utils.TextLink>
         {". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
          |> React.string}
         <Utils.TextLink
-          target="https://en.wikipedia.org/wiki/Literate_programming#Workflow"
-          text="literate programming"
-        />
+          target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
+          <Lang.String
+            english="literate programming"
+            french={js|programmation littéraire|js}
+          />
+        </Utils.TextLink>
         {", corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
          |> React.string}
@@ -91,14 +97,15 @@ module DummyFrench = {
         {{js|
       Dans le cadre d'un projet de recherche de l'|js}
          |> React.string}
-        <Utils.TextLink target="https://www.inria.fr/fr" text="Inria" />
+        <Utils.TextLink target="https://www.inria.fr/fr">
+          {"Inria" |> React.string}
+        </Utils.TextLink>
         {{js| sur l'amélioration
         de la fiabilité des logiciels censés suivre une spécification législative, le langage |js}
          |> React.string}
-        <Utils.TextLink
-          target="https://github.com/CatalaLang/catala"
-          text="Catala"
-        />
+        <Utils.TextLink target="https://github.com/CatalaLang/catala">
+          {"Catala" |> React.string}
+        </Utils.TextLink>
         {{js| propose d'annoter directement les textes
         législatifs avec leur contenu logiciel.|js}
          |> React.string}
@@ -128,10 +135,9 @@ module DummyFrench = {
         {{js|  Si cet exemple vous intéresse ou si vous avez d'autres questions, vous pouvez contacter directement
           l'auteur à l'adresse |js}
          |> React.string}
-        <Utils.TextLink
-          target="mailto:denis.merigoux@inria.fr"
-          text="denis.merigoux@inria.fr"
-        />
+        <Utils.TextLink target="mailto:denis.merigoux@inria.fr">
+          {"denis.merigoux@inria.fr" |> React.string}
+        </Utils.TextLink>
         {"." |> React.string}
       </p>
       <div
@@ -154,7 +160,11 @@ let family_benefits_card: Utils.presentation_card = {
       english="French family benefits"
       french="Allocations familiales"
     />,
-  action: Some((FrenchFamilyBenefits.url, "see example")),
+  action:
+    Some((
+      FrenchFamilyBenefits.url,
+      <Lang.String english="see example" french={js|Voir l'exemple|js} />,
+    )),
   icon: None,
   quote: None,
   content: {
@@ -179,7 +189,11 @@ let english_card: Utils.presentation_card = {
       english="English dummy example"
       french="Example en anglais"
     />,
-  action: Some((DummyEnglish.url, "see example")),
+  action:
+    Some((
+      DummyEnglish.url,
+      <Lang.String english="see example" french={js|Voir l'exemple|js} />,
+    )),
   icon: None,
   quote: None,
   content: {
@@ -189,7 +203,10 @@ let english_card: Utils.presentation_card = {
        )}
       <a
         href="https://github.com/CatalaLang/catala/tree/master/examples/dummy_english">
-        {React.string("source code files of the example")}
+        <Lang.String
+          english="source code files of the example"
+          french={js|fichiers source de l'exemple|js}
+        />
       </a>
       {React.string(
          ". The code does not model real anglo-saxon legislation but showcases the English version of Catala",
@@ -204,7 +221,11 @@ let french_card: Utils.presentation_card = {
       english="French dummy example"
       french={js|Exemple en français|js}
     />,
-  action: Some((DummyFrench.url, "see example")),
+  action:
+    Some((
+      DummyFrench.url,
+      <Lang.String english="see example" french={js|Voir l'exemple|js} />,
+    )),
   icon: None,
   quote: None,
   content: {

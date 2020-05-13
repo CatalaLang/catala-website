@@ -1,10 +1,11 @@
-let goToUrl = (url: string, _) => ReasonReactRouter.push("/" ++ url);
-
+let goToUrl = (url: string, _) => {
+  ReasonReactRouter.push("/" ++ url);
+};
 module TextLink = {
   [@react.component]
-  let make = (~target: string, ~text: string) =>
+  let make = (~target: string, ~children) =>
     <a className=[%tw "border-solid border-secondary border-b"] href=target>
-      {text |> React.string}
+      children
     </a>;
 };
 
@@ -88,8 +89,8 @@ module PageSection = {
 type presentation_card = {
   title: React.element,
   icon: option(string),
-  quote: option(string),
-  action: option((string, string)),
+  quote: option(React.element),
+  action: option((string, React.element)),
   content: React.element,
 };
 
@@ -102,7 +103,7 @@ let render_presentation_card = (card: presentation_card) => {
         <a
           onClick={goToUrl(url)}
           className=[%tw "cursor-pointer uppercase text-primary"]>
-          {action |> React.string}
+          action
         </a>
       </div>
     };
@@ -110,7 +111,7 @@ let render_presentation_card = (card: presentation_card) => {
     switch (card.quote) {
     | Some(quote) =>
       <blockquote className=[%tw "text-primary pb-4"]>
-        <strong> {quote |> React.string} </strong>
+        <strong> quote </strong>
       </blockquote>
     | None => <div />
     };
