@@ -91,25 +91,37 @@ let make = () => {
         />
       }>
       <p>
-        {"In 2019, the French National Research Institute for Computer Science (Inria) has initiated an
+        <Lang.String
+          english="In 2019, the French National Research Institute for Computer Science (Inria) has initiated an
       initiative focused on developing a new coding language for rules as code: Catala. The language is based on
       the field of formal methods, which are used in safety-critical domains like avionics or nuclear power
       plants to ensure that software behaves as expected, given a precise and unambiguous description of
       the expected behavior. Led by Denis Merigoux from the "
-         |> React.string}
+          french={js|En 2019, une initiative a été lancée au
+        sein de l'Institut National de Recherche en Informatique et en Automatique afin de créer un nouveau
+        langage de programmation pour transformer la loi en code  : Catala. Ce langage est issu du domaine
+        des méthodes formelles, utilisées pour s'assurer que le logiciel se comporte comme prévu
+        dans de nombreux secteurs où la sécurité est cruciale, comme l'aviation ou le nucléaire. Le projet
+        est mené par Denis Merigoux de |js}
+        />
         <Utils.TextLink target="https://prosecco.gforge.inria.fr/">
           <Lang.String
             english="Inria Prosecco group"
             french={js|l'équipe Prosecco d'Inria|js}
           />
         </Utils.TextLink>
-        {{js| , in collaboration with academics from the Paris Panthéon-Sorbonne
+        <Lang.String
+          english={js| , in collaboration with academics from the Paris Panthéon-Sorbonne
        University and the Northwestern Pritzker School of Law, Catala is designed to achieve semantic
        equivalence with the law itself (its fundamental source of truth).|js}
-         |> React.string}
+          french={js|, en collaboration avec des universitaires de Paris Panthéon-Sorbonne et de la
+           Northwestern Pritzker School of Law de Chicago. Le but du langage est d'atteindre une équivalence
+           sémantique entre le code et la loi qui est sa source de vérité.|js}
+        />
       </p>
       <p>
-        {"Catala is unique because of its use of a style called literate programming, which sees each line of
+        <Lang.String
+          english="Catala is unique because of its use of a style called literate programming, which sees each line of
         a legislative style text annotated with a snippet of code. This is of obvious benefit because it allows
         non-technical experts, such as policy makers and lawyers, to understand the representation of the code
         in relation to the legislation or rules. This allows Catala programmes to be easily verified and
@@ -123,11 +135,27 @@ let make = () => {
         working on finalising the development of a compiler (e.g. for multiple languages including
         Javascript, Python, etc.) and implementing a large-size body of legislation to demonstrate the
         tool's utility."
-         |> React.string}
+          french={js|Catala est unique dans son domaine car il utilise une technique appelée programmation
+            littéraire, où chaque ligne de texte législatif ou réglementaire est annoté par un petit morceau
+            de code. Cela permet à des experts non-techniques comme des législateurs ou des juristes de
+            comprendre localement la relation entre code et loi. De cette façon, les programmes Catala peuvent
+            facilement être vérifiés et validés. De plus, un outil indispensable, le compilateur,
+            traduit le code Catala vers divers langages de programmations plus traditionnels, rendant le
+            système complètement interopérable. Par exemple, le compilateur peut générer du Javascript pour
+            les applications web, du SAS pour les économistes et du COBOL pour les anciens ordinateurs centraux.
+            Crucialement, le programme traduit par le compilateur est assuré de se comporter de la même manière
+            que le programme Catala. En utilisant la compilation, le code peut être écrit une seule fois et
+            déployé partout. Cela évite d'écrire manuellement plusieurs versions du même code et d'augmenter
+            la probabilité de boggue. Catala n'en est cependant qu'à ses débuts ; les prochaines étapes
+            pour le projet sont la finalisation du compilateur, ainsi que la transformation d'un gros morceau
+            de législation en code afin de prouver l'utilié du langage.|js}
+        />
       </p>
       <p className="float-right text-secondary pt-4 italic">
-        {"Credit: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
-         |> React.string}
+        <Lang.String
+          english="Credit: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
+          french={js|Crédit : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)|js}
+        />
       </p>
     </Utils.PageSection>
     <Utils.PageSection

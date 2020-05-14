@@ -15,9 +15,9 @@ module App = {
           }
         );
     <Lang.Context value=(app_lang, set_lang)>
-      <Nav />
-      <div className=[%tw "flex flex-col h-full"]>
-        <main className=[%tw "flex-1"]>
+      <div className=[%tw "flex flex-col min-h-screen"]>
+        <Nav />
+        <main className=[%tw "flex-grow"]>
           <div className=[%tw "container mx-auto px-4"]> <Router /> </div>
         </main>
         <div className=[%tw "w-full bottom-0"]> <Footer /> </div>
