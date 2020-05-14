@@ -1,8 +1,6 @@
 [%bs.raw {|require("../assets/catala_code.css")|}];
 
 module FrenchFamilyBenefits = {
-  let url = "examples/french-family-benefits";
-
   let family_benefits: string = [%bs.raw
     {|require("../assets/allocations_familiales.html")|}
   ];
@@ -35,7 +33,7 @@ module FrenchFamilyBenefits = {
         {", corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
          |> React.string}
-        <Utils.InternalLink target=Guide.url>
+        <Utils.InternalLink target=[|Elements.home, Elements.guide|]>
           <Lang.String
             english="reading guide"
             french={js|guide de lecture|js}
@@ -53,8 +51,6 @@ module FrenchFamilyBenefits = {
 };
 
 module DummyEnglish = {
-  let url = "examples/english";
-
   let english: string = [%bs.raw {|require("../assets/english.html")|}];
 
   [@react.component]
@@ -85,7 +81,7 @@ module DummyEnglish = {
         {", corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
          |> React.string}
-        <Utils.InternalLink target=Guide.url>
+        <Utils.InternalLink target=[|Elements.home, Elements.guide|]>
           <Lang.String
             english="reading guide"
             french={js|guide de lecture|js}
@@ -103,8 +99,6 @@ module DummyEnglish = {
 };
 
 module DummyFrench = {
-  let url = "examples/french";
-
   let french: string = [%bs.raw {|require("../assets/french.html")|}];
 
   [@react.component]
@@ -169,8 +163,6 @@ module DummyFrench = {
   };
 };
 
-let url = "examples";
-
 let family_benefits: string = [%bs.raw
   {|require("../assets/allocations_familiales.html")|}
 ];
@@ -183,7 +175,11 @@ let family_benefits_card: Utils.presentation_card = {
     />,
   action:
     Some((
-      FrenchFamilyBenefits.url,
+      [|
+        Elements.home,
+        Elements.examples,
+        Elements.french_family_benefits_example,
+      |],
       <Lang.String english="see example" french={js|Voir l'exemple|js} />,
     )),
   icon: None,
@@ -212,7 +208,7 @@ let english_card: Utils.presentation_card = {
     />,
   action:
     Some((
-      DummyEnglish.url,
+      [|Elements.home, Elements.examples, Elements.english_example|],
       <Lang.String english="see example" french={js|Voir l'exemple|js} />,
     )),
   icon: None,
@@ -244,7 +240,7 @@ let french_card: Utils.presentation_card = {
     />,
   action:
     Some((
-      DummyFrench.url,
+      [|Elements.home, Elements.examples, Elements.french_example|],
       <Lang.String english="see example" french={js|Voir l'exemple|js} />,
     )),
   icon: None,

@@ -1,6 +1,3 @@
-let goToUrl = (url: string, _) => {
-  ReasonReactRouter.push("/" ++ url);
-};
 module TextLink = {
   [@react.component]
   let make = (~target: string, ~children) =>
@@ -11,12 +8,14 @@ module TextLink = {
 
 module InternalLink = {
   [@react.component]
-  let make = (~target: string, ~children) =>
+  let make = (~target: array(Elements.navigation_element), ~children) => {
+    let (lang, _) = React.useContext(Lang.langContext);
     <a
       className=[%tw "cursor-pointer border-solid border-secondary border-b"]
-      onClick={goToUrl(target)}>
+      onClick={Elements.goToElement(target, lang)}>
       children
     </a>;
+  };
 };
 
 module Card = {
@@ -90,18 +89,19 @@ type presentation_card = {
   title: React.element,
   icon: option(string),
   quote: option(React.element),
-  action: option((string, React.element)),
+  action: option((array(Elements.navigation_element), React.element)),
   content: React.element,
 };
 
-let render_presentation_card = (card: presentation_card) => {
+let render_presentation_card =
+    (card: presentation_card, lang: Lang.lang, id: string) => {
   let action =
     switch (card.action) {
     | None => <div />
-    | Some((url, action)) =>
+    | Some((navs, action)) =>
       <div className=[%tw "border-solid border-t-2 border-primary pt-2"]>
         <a
-          onClick={goToUrl(url)}
+          onClick={Elements.goToElement(navs, lang)}
           className=[%tw "cursor-pointer uppercase text-primary"]>
           action
         </a>
@@ -123,7 +123,7 @@ let render_presentation_card = (card: presentation_card) => {
       </i>
     | None => <span />
     };
-  <div className=[%tw "w-full lg:w-1/2"]>
+  <div className=[%tw "w-full lg:w-1/2"] key=id>
     <div className=[%tw "p-4 h-full"]>
       <div className=[%tw "bg-tertiary h-full overflow-hidden shadow-lg"]>
         <div
@@ -148,9 +148,12 @@ let render_presentation_card = (card: presentation_card) => {
 module PresentationCards = {
   [@react.component]
   let make = (~cards: array(presentation_card)) => {
+    let (lang, _) = React.useContext(Lang.langContext);
     <div className=[%tw "flex flex-row flex-wrap items-stretch"]>
       {cards
-       ->Belt.Array.map(card => render_presentation_card(card))
+       ->Belt.Array.mapWithIndex((i, card) =>
+           render_presentation_card(card, lang, string_of_int(i))
+         )
        ->React.array}
     </div>;
   };

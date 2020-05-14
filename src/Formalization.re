@@ -1,5 +1,3 @@
-let url = "formalization";
-
 let grammar = [%bs.raw {|require("../assets/grammar.html")|}];
 
 [@react.component]

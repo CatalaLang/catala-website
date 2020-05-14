@@ -9,6 +9,13 @@ let lang_num = (l: lang): int => {
   };
 };
 
+let lang_url = (l: lang): string => {
+  switch (l) {
+  | French => "fr"
+  | English => "en"
+  };
+};
+
 module LangCmp =
   Belt.Id.MakeComparable({
     type t = lang;
@@ -33,6 +40,13 @@ module Context = {
 
   let make = React.Context.provider(langContext);
 };
+
+let new_lang_from_old_lang = (old_lang: lang): lang =>
+  if (old_lang == English) {
+    French;
+  } else {
+    English;
+  };
 
 module String = {
   [@react.component]

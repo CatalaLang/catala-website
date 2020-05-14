@@ -3,17 +3,16 @@
 module App = {
   [@react.component]
   let make = () => {
-    // English is the default language
-    let (app_lang, set_lang) = React.useState(_ => Lang.English);
+    let url = ReasonReactRouter.useUrl();
+    let (lang_url, _) = Elements.url_to_navigation_elements(url);
+    let lang_url =
+      switch (lang_url) {
+      | None => Lang.English
+      | Some(lang_url) => lang_url
+      };
+    let (app_lang, set_lang) = React.useState(_ => lang_url);
     let set_lang: unit => unit =
-      _ =>
-        set_lang(old_lang =>
-          if (old_lang == Lang.English) {
-            Lang.French;
-          } else {
-            Lang.English;
-          }
-        );
+      _ => set_lang(old_lang => Lang.new_lang_from_old_lang(old_lang));
     <Lang.Context value=(app_lang, set_lang)>
       <div className=[%tw "flex flex-col min-h-screen"]>
         <Nav />

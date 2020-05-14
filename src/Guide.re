@@ -1,5 +1,3 @@
-let url = "guide";
-
 [@react.component]
 let make = () => {
   <>

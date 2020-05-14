@@ -2,12 +2,10 @@
 
 module type ManPage = {
   let title: React.element;
-  let url: string;
   let html: string;
 };
 
 module MakeManPageDoc = (Man: ManPage) => {
-  let url = Man.url;
   [@react.component]
   let make = () => {
     <>
@@ -29,7 +27,6 @@ module CatalaManPage =
         english="Catala compiler documentation"
         french={js|Documentation du compilateur Catala|js}
       />;
-    let url = "doc/catala";
     let html: string = [%bs.raw {|require("../assets/catala.html")|}];
   });
 
@@ -40,13 +37,10 @@ module LegiFranceCatalaManPage =
         english="Catala LegiFrance connector documentation"
         french={js|Documentation de la connextion LégiFrance pour Catala|js}
       />;
-    let url = "doc/legifrance-catala";
     let html: string = [%bs.raw
       {|require("../assets/legifrance_catala.html")|}
     ];
   });
-
-let url = "doc";
 
 let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
 
@@ -62,7 +56,7 @@ let catala_card: Utils.presentation_card = {
     />,
   action:
     Some((
-      CatalaManPage.url,
+      [|Elements.home, Elements.doc, Elements.catala_man_page|],
       <Lang.String english="See manpage" french={js|Voir la page man|js} />,
     )),
   icon: None,
@@ -87,7 +81,7 @@ let legifrance_catala_card: Utils.presentation_card = {
   quote: None,
   action:
     Some((
-      LegiFranceCatalaManPage.url,
+      [|Elements.home, Elements.doc, Elements.legifrance_catala_man_page|],
       <Lang.String english="See manpage" french={js|Voir la page man|js} />,
     )),
   content: {

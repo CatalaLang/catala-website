@@ -1,5 +1,3 @@
-let url = "";
-
 let github_link = "https://github.com/CatalaLang/catala";
 
 let examples_card: Utils.presentation_card = {
@@ -18,7 +16,7 @@ let examples_card: Utils.presentation_card = {
     ),
   action:
     Some((
-      Examples.url,
+      [|Elements.home, Elements.examples|],
       <Lang.String
         english="Catala program examples"
         french={js|Exemples de programmes Catala|js}
@@ -54,7 +52,7 @@ let doc_card: Utils.presentation_card = {
     ),
   action:
     Some((
-      Doc.url,
+      [|Elements.home, Elements.doc|],
       <Lang.String english="Documentation" french="Documentation" />,
     )),
   content: {
@@ -89,7 +87,7 @@ let legal_guide_card: Utils.presentation_card = {
     ),
   action:
     Some((
-      Guide.url,
+      [|Elements.home, Elements.guide|],
       <Lang.String
         english="A lawyer's guide to Catala code validation"
         french={js|Guide de validation du code Catala pour juristes|js}
@@ -128,7 +126,7 @@ let foundations_card: Utils.presentation_card = {
     ),
   action:
     Some((
-      Formalization.url,
+      [|Elements.home, Elements.formalization|],
       <Lang.String
         english="Formalized specification"
         french={js|Formalisation|js}
@@ -165,6 +163,7 @@ let foundations_card: Utils.presentation_card = {
 
 [@react.component]
 let make = () => {
+  let (lang, _) = React.useContext(Lang.langContext);
   <>
     <div className=[%tw "flex flex-col items-center"]>
       <div className=[%tw "text-center text-xl italic py-8 max-w-xl"]>
@@ -194,7 +193,10 @@ let make = () => {
           <div className=[%tw "bg-secondary shadow  py-4 px-4"]>
             <a
               className=[%tw "cursor-pointer uppercase text-lg text-white"]
-              onClick={Utils.goToUrl(About.url)}>
+              onClick={Elements.goToElement(
+                [|Elements.home, Elements.about|],
+                lang,
+              )}>
               <Lang.String english="About" french={js|À propos|js} />
               <i className="float-right pl-2 material-icons">
                 {"info" |> React.string}

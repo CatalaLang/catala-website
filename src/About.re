@@ -1,5 +1,3 @@
-let url = "about";
-
 type person = {
   name: string,
   website: option(string),
