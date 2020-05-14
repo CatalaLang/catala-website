@@ -51,14 +51,25 @@ let make = () => {
         />
       }>
       <p>
-        {"Catala's unique feature is the possibility to give multiple definitions to the same variable,
+        <Lang.String
+          english="Catala's unique feature is the possibility to give multiple definitions to the same variable,
     each definition being conditionned to a logical guard. If the guard is true, then the definition
     is applicable. This behavior is adapted to the style in which legal statutes are redacted. In the
     case of multiple guards being true at the same time, the definition is picked according to a
     precedence in the definitions that is specified in the source code."
-         |> React.string}
+          french={js|La fonctionnalité inédite de Catala est la possiblité de donner plusieurs définitions à
+           la même variable, chaque définition étant conditionnée par une garde logique. Si la garde est vraie,
+           alors la définition est applicable. Ce comportement est adapté au style dans lequel sont écrits les
+           textes législatifs et règlementaire. Si plusieurs définitions sont applicables en même temps, alors
+           le choix s'effectue selon des règles de précédences spécifiées dans le code source.|js}
+        />
       </p>
-      <p className="pt-6"> {"More details coming soon..." |> React.string} </p>
+      <p className="pt-6">
+        <Lang.String
+          english="More details coming soon..."
+          french={js|Plus de détails à venir...|js}
+        />
+      </p>
     </Utils.PageSection>
   </>;
 };

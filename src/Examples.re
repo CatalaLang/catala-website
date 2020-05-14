@@ -15,14 +15,20 @@ module FrenchFamilyBenefits = {
         />
       </Utils.PageTitle>
       <p className=[%tw "pb-16"]>
-        {"The source code for this example is available " |> React.string}
+        <Lang.String
+          english="The source code for this example is available "
+          french={js|Le code source de cet exemple est disponible |js}
+        />
         <Utils.TextLink
           target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
           <Lang.String english="here" french={js|ici|js} />
         </Utils.TextLink>
-        {". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
+        <Lang.String
+          english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
-         |> React.string}
+          french={js|. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
+        Le tissage est un concept issu de la |js}
+        />
         <Utils.TextLink
           target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
           <Lang.String
@@ -30,17 +36,22 @@ module FrenchFamilyBenefits = {
             french={js|programmation littéraire|js}
           />
         </Utils.TextLink>
-        {", corresponding to the action of interleaving together the code and its textual documentation
+        <Lang.String
+          english=" corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
-         |> React.string}
+          french={js| , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
+         complet et lisible. Veuillez vous réferer au |js}
+        />
         <Utils.InternalLink target=[|Elements.home, Elements.guide|]>
           <Lang.String
             english="reading guide"
             french={js|guide de lecture|js}
           />
         </Utils.InternalLink>
-        {" for a hands-on introduction on how to read this document."
-         |> React.string}
+        <Lang.String
+          english=" for a hands-on introduction on how to read this document."
+          french={js| pour savoir comment lire ce document.|js}
+        />
       </p>
       <div
         className="catala-code"
@@ -63,14 +74,20 @@ module DummyEnglish = {
         />
       </Utils.PageTitle>
       <p className=[%tw "pb-16"]>
-        {"The source code for this example is available " |> React.string}
+        <Lang.String
+          english="The source code for this example is available "
+          french={js|Le code source de cet exemple est disponible |js}
+        />
         <Utils.TextLink
           target="https://github.com/CatalaLang/catala/tree/master/examples/dummy_english">
           <Lang.String english="here" french={js|ici|js} />
         </Utils.TextLink>
-        {". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
+        <Lang.String
+          english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
-         |> React.string}
+          french={js|. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
+        Le tissage est un concept issu de la |js}
+        />
         <Utils.TextLink
           target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
           <Lang.String
@@ -78,17 +95,22 @@ module DummyEnglish = {
             french={js|programmation littéraire|js}
           />
         </Utils.TextLink>
-        {", corresponding to the action of interleaving together the code and its textual documentation
+        <Lang.String
+          english=" corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the "
-         |> React.string}
+          french={js| , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
+         complet et lisible. Veuillez vous réferer au |js}
+        />
         <Utils.InternalLink target=[|Elements.home, Elements.guide|]>
           <Lang.String
             english="reading guide"
             french={js|guide de lecture|js}
           />
         </Utils.InternalLink>
-        {" for a hands-on introduction on how to read this document."
-         |> React.string}
+        <Lang.String
+          english=" for a hands-on introduction on how to read this document."
+          french={js| pour savoir comment lire ce document.|js}
+        />
       </p>
       <div
         className="catala-code"
@@ -186,16 +208,21 @@ let family_benefits_card: Utils.presentation_card = {
   quote: None,
   content: {
     <p>
-      {React.string(
-         "The content below is generated by the Catala compiler from the ",
-       )}
+      <Lang.String
+        english="The content of the example is generated by the Catala compiler from the "
+        french={js|Le contenu de cet exemple est généré par le compilateur Catala à partir des |js}
+      />
       <a
         href="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
-        {React.string("source code files of the example")}
+        <Lang.String
+          english="source code files of the example"
+          french={js|sources de l'exemple|js}
+        />
       </a>
-      {React.string(
-         ". The code, like the legislative text it follows, is written in French.",
-       )}
+      <Lang.String
+        english=". The code, like the legislative text it follows, is written in French."
+        french="."
+      />
     </p>;
   },
 };
@@ -215,9 +242,10 @@ let english_card: Utils.presentation_card = {
   quote: None,
   content: {
     <p>
-      {React.string(
-         "The content below is generated by the Catala compiler from the ",
-       )}
+      <Lang.String
+        english="The content of this example is generated by the Catala compiler from the "
+        french={js|Le contenu de cet exemple est généré par le compilateur de Catala à partir des |js}
+      />
       <a
         href="https://github.com/CatalaLang/catala/tree/master/examples/dummy_english">
         <Lang.String
@@ -225,9 +253,12 @@ let english_card: Utils.presentation_card = {
           french={js|fichiers source de l'exemple|js}
         />
       </a>
-      {React.string(
-         ". The code does not model real anglo-saxon legislation but showcases the English version of Catala",
-       )}
+      <Lang.String
+        english=". The code does not model real anglo-saxon legislation but showcases the
+      English version of Catala"
+        french={js|. Le code ne modèle pas de véritables articles de loi anglo-saxonne mais est là pour
+        illustrer la version anglaise de Catala.|js}
+      />
     </p>;
   },
 };
@@ -247,11 +278,14 @@ let french_card: Utils.presentation_card = {
   quote: None,
   content: {
     <p>
-      {React.string(
-         "This example has been used for illustrating the concepts of Catala for a rules-as-code poll sent by the ",
-       )}
+      <Lang.String
+        english="This example has been used for illustrating the concepts of Catala for
+     a rules-as-code poll sent by the "
+        french={js|Cet exemple a été utilisé pour illustrer les concepts de Catala pour un sondage
+       sur le thème "transformer la loi en code" envoyé par l'association |js}
+      />
       <a href="hhttps://openlaw.fr/"> {React.string("OpenLaw")} </a>
-      {React.string(" association.")}
+      <Lang.String english=" association." french={js|.|js} />
     </p>;
   },
 };

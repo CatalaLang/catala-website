@@ -63,10 +63,12 @@ let catala_card: Utils.presentation_card = {
   quote: None,
   content: {
     <p>
-      {React.string(
-         "The compiler is the main tool that parses Catala source code files and translate
-     the contents into various literate programming or executable targets.",
-       )}
+      <Lang.String
+        english="The compiler is the main tool that parses Catala source code files and translate
+     the contents into various literate programming or executable targets."
+        french={js|Le compilateur est l'outil principal qui prend en entrée un fichier source Catala et
+     en traduit le contenu vers diverses cibles de programmation littéraire ou exécutable.|js}
+      />
     </p>;
   },
 };
@@ -86,11 +88,14 @@ let legifrance_catala_card: Utils.presentation_card = {
     )),
   content: {
     <p>
-      {React.string(
-         "Only available for the French surface language, this utility connects to the LegiFrance API
+      <Lang.String
+        english="Only available for the French surface language, this utility connects to the LegiFrance API
      to retrieve expiration dates for the law articles used in the implementation or compare the
-     text in the source code with the official legislative text.",
-       )}
+     text in the source code with the official legislative text."
+        french={js|Cet outil uniquement disponible pour la version française de Catala permet de se connecter à
+       l'API de LégiFrance afin de récupérer les dates d'expiration de tous les articles de loi ou de règlements
+        utilisés dans l'implémentation d'un programme Catala.|js}
+      />
     </p>;
   },
 };

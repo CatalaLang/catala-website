@@ -12,9 +12,10 @@ let make = () => {
           {React.string("warning")}
         </i>
         <a className=[%tw "w-auto"] href=github_link>
-          {React.string(
-             "This website is under construction, click here to give some feedback",
-           )}
+          <Lang.String
+            english="This website is under construction, click here to give some feedback"
+            french={js|Ce site Internet est en cours de construction. Cliquez ici pour faire parvenir vos remarques et commentaires.|js}
+          />
           <i className="float-right pr-4 material-icons">
             {React.string("warning")}
           </i>
