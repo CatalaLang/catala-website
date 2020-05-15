@@ -69,4 +69,5 @@
 .catala-code .code-wrapper {
   margin-top: 1rem;
   margin-bottom: 1rem;
+  overflow-x: scroll;
 }

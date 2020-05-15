@@ -15,7 +15,7 @@ module NavigationBar = {
   let make = (~elements: array(Elements.navigation_element)) => {
     <div
       className=[%tw
-        "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"
+        "flex flex-row flex-wrap content-center justify-center bg-tertiary shadow p-4"
       ]>
       {elements->Belt.Array.reduceWithIndex(<div />, (acc, _, i) => {
          <>
@@ -67,7 +67,10 @@ let make = () => {
     let (_lang, elements) = Elements.url_to_navigation_elements(url);
     <NavigationBar elements />;
   };
-  <div className=[%tw "flex flex-row flex-wrap justify-between bg-secondary"]>
+  <div
+    className=[%tw
+      "flex flex-row flex-wrap w-full justify-between bg-secondary sticky z-10 top-0"
+    ]>
     <div
       className=[%tw
         "flex flex-grow flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
@@ -87,7 +90,7 @@ let make = () => {
     </div>
     <div
       className=[%tw
-        "flex flex-grow flex-row flex-wrap justify-between bg-secondary"
+        "flex flex-grow flex-row flex-wrap content-center justify-between bg-secondary"
       ]>
       <div
         className=[%tw
