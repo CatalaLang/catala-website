@@ -56,6 +56,10 @@ module SwitchLanguage = {
   };
 };
 
+type imgLocation = {default: string};
+
+let logo: imgLocation = [%raw "require('../assets/logo.png')"];
+
 [@react.component]
 let make = () => {
   let url = ReasonReactRouter.useUrl();
@@ -66,9 +70,15 @@ let make = () => {
   <div className=[%tw "flex flex-row flex-wrap justify-between bg-secondary"]>
     <div
       className=[%tw
-        "flex flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
+        "flex flex-grow flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
       ]>
-      <div>
+      <div
+        className=[%tw
+          "flex flex-row flex-no-wrap items-center justify-center"
+        ]>
+        <Utils.InternalLink target=[|Elements.home|]>
+          <img className=[%tw "h-8 pr-4"] src={"/" ++ logo.default} />
+        </Utils.InternalLink>
         <Lang.String
           english="The Catala Language"
           french={js|Le langage Catala|js}
@@ -77,10 +87,15 @@ let make = () => {
     </div>
     <div
       className=[%tw
-        "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"
+        "flex flex-grow flex-row flex-wrap justify-between bg-secondary"
       ]>
-      <SwitchLanguage />
+      <div
+        className=[%tw
+          "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"
+        ]>
+        <SwitchLanguage />
+      </div>
+      back_to_home_button
     </div>
-    back_to_home_button
   </div>;
 };

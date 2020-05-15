@@ -161,6 +161,10 @@ let foundations_card: Utils.presentation_card = {
   },
 };
 
+type imgLocation = {default: string};
+
+let logo: imgLocation = [%raw "require('../assets/logo.png')"];
+
 [@react.component]
 let make = () => {
   let (lang, _) = React.useContext(Lang.langContext);
@@ -177,43 +181,48 @@ let make = () => {
         </p>
       </div>
       <div className=[%tw "flex flex-row flex-wrap justify-center"]>
-        <div className=[%tw "mx-4 my-2"]>
-          <div
-            className=[%tw
-              "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
-            ]>
-            <a
-              className=[%tw "cursor-pointer uppercase text-white"]
-              href=github_link>
-              <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                <Lang.String english="Get started" french={js|Essayer|js} />
-                <i className="pl-4 material-icons">
-                  {"code" |> React.string}
-                </i>
-              </div>
-            </a>
+        <div
+          className=[%tw "flex flex-col flex-wrap items-center justify-center"]>
+          <div className=[%tw "mx-8 my-4"]>
+            <div
+              className=[%tw
+                "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
+              ]>
+              <a
+                className=[%tw "cursor-pointer uppercase text-white"]
+                href=github_link
+                target="_blank">
+                <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+                  <Lang.String english="Get started" french={js|Essayer|js} />
+                  <i className="pl-4 material-icons">
+                    {"code" |> React.string}
+                  </i>
+                </div>
+              </a>
+            </div>
+          </div>
+          <div className=[%tw "mx-8 my-4"]>
+            <div
+              className=[%tw
+                "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
+              ]>
+              <a
+                className=[%tw "cursor-pointer uppercase text-white"]
+                onClick={Elements.goToElement(
+                  [|Elements.home, Elements.about|],
+                  lang,
+                )}>
+                <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+                  <Lang.String english="About" french={js|À propos|js} />
+                  <i className="pl-4 material-icons">
+                    {"info" |> React.string}
+                  </i>
+                </div>
+              </a>
+            </div>
           </div>
         </div>
-        <div className=[%tw "mx-4 my-2"]>
-          <div
-            className=[%tw
-              "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
-            ]>
-            <a
-              className=[%tw "cursor-pointer uppercase text-white"]
-              onClick={Elements.goToElement(
-                [|Elements.home, Elements.about|],
-                lang,
-              )}>
-              <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                <Lang.String english="About" french={js|À propos|js} />
-                <i className="pl-4 material-icons">
-                  {"info" |> React.string}
-                </i>
-              </div>
-            </a>
-          </div>
-        </div>
+        <img className=[%tw "w-48 mx-8 my-4"] src={"/" ++ logo.default} />
       </div>
     </div>
     <div className=[%tw "py-10"]>

@@ -1,7 +1,10 @@
 module TextLink = {
   [@react.component]
   let make = (~target: string, ~children) =>
-    <a className=[%tw "border-solid border-secondary border-b"] href=target>
+    <a
+      className=[%tw "border-solid border-secondary border-b"]
+      href=target
+      target="_blank">
       children
     </a>;
 };

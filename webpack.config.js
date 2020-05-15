@@ -1,7 +1,7 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const outputDir = path.join(__dirname, "build/")
-
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const isProd = process.env.NODE_ENV === "production"
 
 module.exports = {
@@ -15,7 +15,20 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: "src/index.html",
-      inject: false
+      inject: true
+    }),
+    new FaviconsWebpackPlugin({
+      logo:'./assets/logo.png',
+      mode: 'webapp', // optional can be 'webapp' or 'light' - 'webapp' by default
+      devMode: 'webapp', // optional can be 'webapp' or 'light' - 'light' by default
+      inject: true,
+      favicons: {
+        appName: 'Catala',
+        icons: {
+          coast: false,
+          yandex: false
+        }
+      }
     })
   ],
   devServer: {
@@ -33,7 +46,13 @@ module.exports = {
       {
         test: /\.html$/,
         use: ["html-loader"]
-      }
+      },
+      {
+        test: /\.(png|svg|jpg|gif)$/,
+        use: [
+          "file-loader?name=assets/[name].[ext]"
+        ],
+      },
     ]
   }
 }
