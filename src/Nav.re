@@ -63,7 +63,7 @@ let make = () => {
     let (_lang, elements) = Elements.url_to_navigation_elements(url);
     <NavigationBar elements />;
   };
-  <div className=[%tw "flex flex-row justify-between bg-secondary"]>
+  <div className=[%tw "flex flex-row flex-wrap justify-between bg-secondary"]>
     <div
       className=[%tw
         "flex flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"

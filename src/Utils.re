@@ -118,9 +118,7 @@ let render_presentation_card =
   let icon =
     switch (card.icon) {
     | Some(icon) =>
-      <i className="float-left pr-2 material-icons">
-        {icon |> React.string}
-      </i>
+      <i className="pr-4 material-icons"> {icon |> React.string} </i>
     | None => <span />
     };
   <div className=[%tw "w-full lg:w-1/2"] key=id>
@@ -131,7 +129,10 @@ let render_presentation_card =
             "flex flex-col justify-between h-full px-6 py-4 text-white"
           ]>
           <div>
-            <div className=[%tw "text-xl pb-2 font-bold"]>
+            <div
+              className=[%tw
+                " flex flex-row flex-no-wrap items-center text-2xl md:text-xl lg:text-lg pb-2 font-bold"
+              ]>
               icon
               {card.title}
             </div>
