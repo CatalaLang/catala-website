@@ -81,9 +81,9 @@ Fichiers sources tissés dans ce document
 </p>
 <ul>
 <li><tt>allocations_familiales.catala</tt>, dernière modification le 2020-04-20, 8:40</li>
-<li><tt>metadata.catala</tt>, dernière modification le 2020-05-14, 23:30</li>
+<li><tt>metadata.catala</tt>, dernière modification le 2020-05-17, 22:52</li>
 <li><tt>securite_sociale_L.catala</tt>, dernière modification le 2020-05-14, 15:45</li>
-<li><tt>securite_sociale_R.catala</tt>, dernière modification le 2020-05-14, 23:30</li>
+<li><tt>securite_sociale_R.catala</tt>, dernière modification le 2020-05-17, 22:53</li>
 <li><tt>securite_sociale_D.catala</tt>, dernière modification le 2020-04-28, 18:31</li>
 <li><tt>decrets_divers.catala</tt>, dernière modification le 2020-05-14, 17:05</li>
 </ul>
@@ -312,7 +312,9 @@ Fichiers sources tissés dans ce document
 <a href="#./metadata.catala-223">223</a>
 <a href="#./metadata.catala-224">224</a>
 <a href="#./metadata.catala-225">225</a>
-<a href="#./metadata.catala-226">226</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./metadata.catala-3"></a>/*
+<a href="#./metadata.catala-226">226</a>
+<a href="#./metadata.catala-227">227</a>
+<a href="#./metadata.catala-228">228</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./metadata.catala-3"></a>/*
 <a name="./metadata.catala-4"></a><span class="kd">déclaration</span> <span class="kd">structure</span> <span class="nc">Personne</span> <span class="o">:</span>
 <a name="./metadata.catala-5"></a>  <span class="kd">donnée</span> prénom <span class="kd">contenu</span> <span class="kt">texte</span>
 <a name="./metadata.catala-6"></a>  <span class="kd">donnée</span> nom <span class="kd">contenu</span> <span class="kt">texte</span>
@@ -504,7 +506,7 @@ Fichiers sources tissés dans ce document
 <a name="./metadata.catala-192"></a>  <span class="kd">contexte</span> <span class="nv">l512_3</span> <span class="kd">contenu</span> <span class="nc">L512_3</span>
 <a name="./metadata.catala-193"></a>
 <a name="./metadata.catala-194"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculPrestationsFamiliales</span><span class="o">:</span>
-<a name="./metadata.catala-195"></a>  <span class="kd">inclus</span> <span class="kd">champ d&#39;application</span> <span class="nc">MénageBienFormé</span> <span class="kd">contexte</span>
+<a name="./metadata.catala-195"></a>  <span class="kd">inclus</span> <span class="nv">ménage_bien_formé</span> <span class="kd">champ d&#39;application</span> <span class="nc">MénageBienFormé</span> <span class="kd">contexte</span>
 <a name="./metadata.catala-196"></a>    <span class="nv">ménage</span> <span class="o">=</span> <span class="nv">ménage</span>
 <a name="./metadata.catala-197"></a>
 <a name="./metadata.catala-198"></a><span class="kd">déclaration</span> <span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamiliales</span> <span class="o">:</span>
@@ -525,17 +527,19 @@ Fichiers sources tissés dans ce document
 <a name="./metadata.catala-213"></a>  <span class="kd">contexte</span> <span class="nv">d521_3</span> <span class="kd">contenu</span> <span class="nc">D521_3</span>
 <a name="./metadata.catala-214"></a>
 <a name="./metadata.catala-215"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamiliales</span><span class="o">:</span>
-<a name="./metadata.catala-216"></a>  <span class="kd">inclus</span> <span class="kd">champ d&#39;application</span> <span class="nc">CalculPrestationsFamiliales</span> <span class="kd">contexte</span>
-<a name="./metadata.catala-217"></a>    <span class="nv">ménage</span> <span class="o">=</span> <span class="nv">ménage</span>
-<a name="./metadata.catala-218"></a>    <span class="nv">date_calcul</span> <span class="o">=</span> <span class="nv">date_calcul</span><span class="c1"></span>
-<a name="./metadata.catala-219"></a><span class="c1">  # AllocationsFamiliales est un cas particulier de PrestationsFamiliales,</span>
-<a name="./metadata.catala-220"></a><span class="c1">  # le dernier est donc inclus dans l&#39;autre. Il est nécessaire de préciser</span>
-<a name="./metadata.catala-221"></a><span class="c1">  #  que les deux contextes parlent du même ménage pour caractériser</span>
-<a name="./metadata.catala-222"></a><span class="c1">  # l&#39;inclusion.</span>
-<a name="./metadata.catala-223"></a>
-<a name="./metadata.catala-224"></a><span class="kd">déclaration</span> <span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamilialesAvril2008</span> <span class="o">:</span>
-<a name="./metadata.catala-225"></a>  <span class="kd">contexte</span> <span class="nv">l521_3</span> <span class="kd">contenu</span> <span class="nc">L521_3</span>
-<a name="./metadata.catala-226"></a>*/
+<a name="./metadata.catala-216"></a>  <span class="kd">inclus</span> <span class="nv">calcul_prestations_familiales</span>
+<a name="./metadata.catala-217"></a>    <span class="kd">champ d&#39;application</span> <span class="nc">CalculPrestationsFamiliales</span>
+<a name="./metadata.catala-218"></a>    <span class="kd">contexte</span>
+<a name="./metadata.catala-219"></a>      <span class="nv">ménage</span> <span class="o">=</span> <span class="nv">ménage</span>
+<a name="./metadata.catala-220"></a>      <span class="nv">date_calcul</span> <span class="o">=</span> <span class="nv">date_calcul</span><span class="c1"></span>
+<a name="./metadata.catala-221"></a><span class="c1">  # AllocationsFamiliales est un cas particulier de PrestationsFamiliales,</span>
+<a name="./metadata.catala-222"></a><span class="c1">  # le dernier est donc inclus dans l&#39;autre. Il est nécessaire de préciser</span>
+<a name="./metadata.catala-223"></a><span class="c1">  #  que les deux contextes parlent du même ménage pour caractériser</span>
+<a name="./metadata.catala-224"></a><span class="c1">  # l&#39;inclusion.</span>
+<a name="./metadata.catala-225"></a>
+<a name="./metadata.catala-226"></a><span class="kd">déclaration</span> <span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamilialesAvril2008</span> <span class="o">:</span>
+<a name="./metadata.catala-227"></a>  <span class="kd">contexte</span> <span class="nv">l521_3</span> <span class="kd">contenu</span> <span class="nc">L521_3</span>
+<a name="./metadata.catala-228"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1480,11 +1484,11 @@ Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin</h5>
 <a name="./securite_sociale_R.catala-60"></a>  <span class="kd">définition</span> <span class="nv">l521_3</span><span class="o">.</span>minimum_alinéa_2 <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> <span class="mi">16</span> <span class="o">an</span>
 <a name="./securite_sociale_R.catala-61"></a>
 <a name="./securite_sociale_R.catala-62"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_R.catala-63"></a>  <span class="kd">inclus</span> <span class="kd">champ d&#39;application</span> <span class="nc">AllocationFamilialesAvril2008</span>
+<a name="./securite_sociale_R.catala-63"></a>  <span class="kd">inclus</span> <span class="nv">calcul_avril_2008</span> <span class="kd">champ d&#39;application</span> <span class="nc">AllocationFamilialesAvril2008</span>
 <a name="./securite_sociale_R.catala-64"></a>  <span class="kd">définition</span> <span class="nv">l521_3</span><span class="o">.</span>minimum_alinéa_2 <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_R.catala-65"></a>  <span class="kd">sous condition</span> <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>date_naissance <span class="o">+</span> <span class="mi">11</span> <span class="o">an</span> ≤ <span class="mi">|30/04/2008|</span><span class="o">)</span>
 <a name="./securite_sociale_R.catala-66"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
-<a name="./securite_sociale_R.catala-67"></a>    <span class="nc">CalculAllocationFamilialesAvril2008</span><span class="o">.</span><span class="nv">l521_3</span><span class="o">.</span><span class="nv">minimum_alinéa_2</span> <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_R.catala-67"></a>    <span class="nv">calcul_avril_2008</span><span class="o">.</span>l521_3.minimum_alinéa_2 <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_R.catala-68"></a>*/
 </pre></div>
 </td></tr></table>
