@@ -541,7 +541,7 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">application_field_item</span></th>
+        <th><span class="nonterminal">scope_item</span></th>
         <td>RULE
         <span class="nonterminal">rule</span></td>
       </tr>
@@ -555,6 +555,11 @@
         <td>ASSERTION
         <span class="nonterminal">assertion</span></td>
       </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>INCLUDES
+        <span class="nonterminal">scope_inclusion</span></td>
+      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">ident</span></th>
@@ -567,7 +572,7 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">struct_field_base</span></th>
+        <th><span class="nonterminal">struct_scope_base</span></th>
         <td>DATA
         <span class="nonterminal">ident</span>
         CONTENT
@@ -580,49 +585,51 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">struct_field_func</span></th>
+        <th><span class="nonterminal">struct_scope_func</span></th>
         <td>DEPENDS
         <span class="nonterminal">typ</span></td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">struct_field</span></th>
-        <td><span class="nonterminal">struct_field_base</span>
-        <span class="option"><span class="nonterminal">struct_field_func</span></span></td>
+        <th><span class="nonterminal">struct_scope</span></th>
+        <td><span class="nonterminal">struct_scope_base</span>
+        <span class="option"><span class="nonterminal">struct_scope_func</span></span></td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">field_decl_item</span></th>
+        <th><span class="nonterminal">scope_decl_item</span></th>
         <td>CONTEXT
         <span class="nonterminal">ident</span>
         CONTENT
         <span class="nonterminal">typ</span>
-        <span class="option"><span class="nonterminal">struct_field_func</span></span></td>
+        <span class="option"><span class="nonterminal">struct_scope_func</span></span></td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">field_decl_include</span></th>
-        <td><span class="nonterminal">constructor</span>
-        DOT
-        <span class="nonterminal">ident</span>
+        <th><span class="nonterminal">scope_inclusion_join</span></th>
+        <td><span class="nonterminal">ident</span>
         EQUAL
-        <span class="nonterminal">constructor</span>
-        DOT
         <span class="nonterminal">ident</span></td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">field_decl_includes_context</span></th>
+        <th><span class="nonterminal">scope_inclusion_context</span></th>
         <td>CONTEXT
-        nonempty_list(<span class="nonterminal">field_decl_include</span>)</td>
+        nonempty_list(<span class="nonterminal">scope_inclusion_join</span>)</td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">field_decl_includes</span></th>
-        <td>INCLUDES
-        FIELD
+        <th><span class="nonterminal">scope_inclusion_condition</span></th>
+        <td>UNDER_CONDITION
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">scope_inclusion</span></th>
+        <td>SCOPE
         <span class="nonterminal">constructor</span>
-        <span class="option"><span class="nonterminal">field_decl_includes_context</span></span></td>
+        <span class="option"><span class="nonterminal">scope_inclusion_context</span></span>
+        <span class="option"><span class="nonterminal">scope_inclusion_condition</span></span></td>
       </tr>
       
       <tr class="rule">
@@ -645,10 +652,10 @@
       
       <tr class="rule">
         <th><span class="nonterminal">code_item</span></th>
-        <td>FIELD
+        <td>SCOPE
         <span class="nonterminal">constructor</span>
         COLON
-        nonempty_list(<span class="nonterminal">application_field_item</span>)</td>
+        nonempty_list(<span class="nonterminal">scope_item</span>)</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -656,16 +663,15 @@
         STRUCT
         <span class="nonterminal">constructor</span>
         COLON
-        <span class="list"><span class="nonterminal">struct_field</span></span></td>
+        <span class="list"><span class="nonterminal">struct_scope</span></span></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td>DECLARATION
-        FIELD
+        SCOPE
         <span class="nonterminal">constructor</span>
         COLON
-        nonempty_list(<span class="nonterminal">field_decl_item</span>)
-        <span class="list"><span class="nonterminal">field_decl_includes</span></span></td>
+        nonempty_list(<span class="nonterminal">scope_decl_item</span>)</td>
       </tr>
       <tr>
         <th class="bar"></th>

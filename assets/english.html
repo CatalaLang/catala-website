@@ -98,7 +98,7 @@ Source files weaved in this document
 <a href="#english.catala-9"> 9</a>
 <a href="#english.catala-10">10</a>
 <a href="#english.catala-11">11</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="english.catala-4"></a>/*
-<a name="english.catala-5"></a><span class="nv">scope</span> <span class="nc">FamilyBenefitComputation</span> <span class="o">:</span>
+<a name="english.catala-5"></a><span class="kd">scope</span> <span class="nc">FamilyBenefitComputation</span> <span class="o">:</span>
 <a name="english.catala-6"></a>  <span class="kd">definition</span> <span class="nv">family_benefits</span><span class="o">.</span>base <span class="kd">under condition</span>
 <a name="english.catala-7"></a>    <span class="nv">family_benefits</span><span class="o">.</span>rights_open
 <a name="english.catala-8"></a>  <span class="kd">consequence</span> <span class="kd">equals</span>
@@ -124,12 +124,12 @@ Source files weaved in this document
 <a href="#english.catala-20">20</a>
 <a href="#english.catala-21">21</a>
 <a href="#english.catala-22">22</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="english.catala-14"></a>/*
-<a name="english.catala-15"></a><span class="nv">scope</span> <span class="nc">FamilyBenefitComputation</span> <span class="o">:</span>
+<a name="english.catala-15"></a><span class="kd">scope</span> <span class="nc">FamilyBenefitComputation</span> <span class="o">:</span>
 <a name="english.catala-16"></a>  <span class="kd">definition</span> <span class="nv">family_benefits</span><span class="o">.</span>amount_second_child <span class="kd">under condition</span>
-<a name="english.catala-17"></a>    <span class="nv">l521_1</span><span class="o">.</span>household_ressources <span class="o">&lt;=</span> <span class="nv">d521_3</span><span class="o">.</span>ceiling_I
+<a name="english.catala-17"></a>    <span class="nv">l521_1</span><span class="o">.</span>household_ressources ≤ <span class="nv">d521_3</span><span class="o">.</span>ceiling_I
 <a name="english.catala-18"></a>  <span class="kd">consequence</span> <span class="kd">equals</span>
-<a name="english.catala-19"></a>    <span class="kr">if</span> <span class="kt">number</span> <span class="kr">of</span> <span class="nv">household</span><span class="o">.</span>children <span class="o">&gt;=</span> <span class="mi">2</span>
-<a name="english.catala-20"></a>    <span class="kr">then</span> <span class="nv">family_benefits</span><span class="o">.</span>monthly_base <span class="o">*</span> <span class="mi">32</span> <span class="o">%</span>
+<a name="english.catala-19"></a>    <span class="kr">if</span> <span class="kt">number</span> <span class="kr">of</span> <span class="nv">household</span><span class="o">.</span>children ≥ <span class="mi">2</span>
+<a name="english.catala-20"></a>    <span class="kr">then</span> <span class="nv">family_benefits</span><span class="o">.</span>monthly_base × <span class="mi">32</span> <span class="o">%</span>
 <a name="english.catala-21"></a>    <span class="kr">else</span> <span class="o">$</span><span class="mi">455,653</span><span class="o">.</span><span class="mi">32</span>
 <a name="english.catala-22"></a>*/
 </pre></div>

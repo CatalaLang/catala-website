@@ -164,7 +164,7 @@ module DummyFrench = {
         quantité. Une quantité est nommée par un identifiant (par exemple "allocations_familiales") parfois suivi d'un
         point et d'un autre identifiant correspondant à une partie de la quantité précédant le point. "sous condition"
         et "conséquence" décrivent une condition à remplir pour que la définition prenne effet. Les opérations arithmétiques
-        usuelles sont utilisées ; "<=" veut dire inférieur ou égal. Les parenthèses servent à
+        usuelles sont utilisées, les parenthèses servent à
         délimiter des sous-expressions de manière non-ambigue.|js}
          |> React.string}
       </p>

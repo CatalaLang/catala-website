@@ -119,10 +119,10 @@
 <a href="#./securite_sociale_D.catala-32">32</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_D.catala-24"></a>/*
 <a name="./securite_sociale_D.catala-25"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamiliales</span> <span class="o">:</span>
 <a name="./securite_sociale_D.catala-26"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>montant_deuxieme_enfant <span class="kd">sous condition</span>
-<a name="./securite_sociale_D.catala-27"></a>    <span class="nv">l521_1</span><span class="o">.</span>ressources_ménage <span class="o">&lt;=</span> <span class="nv">d521_3</span><span class="o">.</span>plafond_I
+<a name="./securite_sociale_D.catala-27"></a>    <span class="nv">l521_1</span><span class="o">.</span>ressources_ménage ≤ <span class="nv">d521_3</span><span class="o">.</span>plafond_I
 <a name="./securite_sociale_D.catala-28"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
-<a name="./securite_sociale_D.catala-29"></a>    <span class="kr">si</span> <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">ménage</span><span class="o">.</span>enfants <span class="o">&gt;=</span> <span class="mi">2</span>
-<a name="./securite_sociale_D.catala-30"></a>    <span class="kr">alors</span> <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle <span class="o">*</span> <span class="mi">32</span> <span class="o">%</span>
+<a name="./securite_sociale_D.catala-29"></a>    <span class="kr">si</span> <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">ménage</span><span class="o">.</span>enfants ≥ <span class="mi">2</span>
+<a name="./securite_sociale_D.catala-30"></a>    <span class="kr">alors</span> <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle × <span class="mi">32</span> <span class="o">%</span>
 <a name="./securite_sociale_D.catala-31"></a>    <span class="kr">sinon</span> <span class="mi">0</span> <span class="o">€</span>
 <a name="./securite_sociale_D.catala-32"></a>*/
 </pre></div>
@@ -147,10 +147,10 @@
 <a name="./securite_sociale_D.catala-36"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculAllocationsFamiliales</span> <span class="o">:</span>
 <a name="./securite_sociale_D.catala-37"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>montant_troisième_enfant_et_plus
 <a name="./securite_sociale_D.catala-38"></a>  <span class="kd">sous condition</span>
-<a name="./securite_sociale_D.catala-39"></a>    <span class="nv">l521_1</span><span class="o">.</span>ressources_ménage <span class="o">&lt;=</span> <span class="nv">d521_3</span><span class="o">.</span>plafond_I
+<a name="./securite_sociale_D.catala-39"></a>    <span class="nv">l521_1</span><span class="o">.</span>ressources_ménage ≤ <span class="nv">d521_3</span><span class="o">.</span>plafond_I
 <a name="./securite_sociale_D.catala-40"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
-<a name="./securite_sociale_D.catala-41"></a>    <span class="kr">si</span> <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">ménage</span><span class="o">.</span>enfants <span class="o">&gt;=</span> <span class="mi">3</span>
-<a name="./securite_sociale_D.catala-42"></a>    <span class="kr">alors</span> <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle <span class="o">*</span> <span class="mi">41</span> <span class="o">%</span> <span class="o">*</span> <span class="o">(</span>
+<a name="./securite_sociale_D.catala-41"></a>    <span class="kr">si</span> <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">ménage</span><span class="o">.</span>enfants ≥ <span class="mi">3</span>
+<a name="./securite_sociale_D.catala-42"></a>    <span class="kr">alors</span> <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle × <span class="mi">41</span> <span class="o">%</span> × <span class="o">(</span>
 <a name="./securite_sociale_D.catala-43"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">ménage</span><span class="o">.</span>enfants<span class="o">)</span> <span class="o">-</span> <span class="mi">2</span>
 <a name="./securite_sociale_D.catala-44"></a>    <span class="o">)</span> <span class="kr">sinon</span> <span class="mi">0</span> <span class="o">€</span>
 <a name="./securite_sociale_D.catala-45"></a>*/
