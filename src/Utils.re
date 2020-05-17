@@ -39,10 +39,10 @@ module Card = {
                  {"Collapse" |> React.string}
                </a>
              </div>
-             <div className=[%tw "overflow-x-scroll"]> children </div>
+             <div className=[%tw "overflow-x-auto"]> children </div>
            </>;
          } else {
-           <div className=[%tw "overflow-x-scroll"]> children </div>;
+           <div className=[%tw "overflow-x-auto"]> children </div>;
          };
        } else {
          <div className=[%tw "text-xl pb-2 font-bold"]>
