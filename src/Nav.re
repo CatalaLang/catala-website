@@ -69,7 +69,7 @@ let make = () => {
   };
   <div
     className=[%tw
-      "flex flex-row flex-wrap w-full justify-between bg-secondary sticky z-10 top-0"
+      "flex flex-row flex-wrap w-full justify-between bg-secondary top-0"
     ]>
     <div
       className=[%tw

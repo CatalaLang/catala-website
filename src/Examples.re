@@ -231,7 +231,7 @@ let english_card: Utils.presentation_card = {
   title:
     <Lang.String
       english="English dummy example"
-      french="Example en anglais"
+      french="Exemple en anglais"
     />,
   action:
     Some((
