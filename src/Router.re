@@ -1,5 +1,6 @@
 let navigation_elements_to_component =
     (elements: array(Elements.navigation_element)): React.element => {
+  Js.log(elements);
   switch (Belt.List.fromArray(elements)) {
   | [first, second] =>
     if (first == Elements.home && second == Elements.about) {
@@ -28,6 +29,10 @@ let navigation_elements_to_component =
                && second == Elements.examples
                && third == Elements.french_family_benefits_example) {
       <Examples.FrenchFamilyBenefits />;
+    } else if (first == Elements.home
+               && second == Elements.examples
+               && third == Elements.tutorial_example) {
+      <Examples.Tutorial />;
     } else if (first == Elements.home
                && second == Elements.examples
                && third == Elements.french_example) {

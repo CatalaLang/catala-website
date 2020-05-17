@@ -185,6 +185,28 @@ module DummyFrench = {
   };
 };
 
+module Tutorial = {
+  let tutorial_en: string = [%bs.raw
+    {|require("../assets/tutorial_en.html")|}
+  ];
+
+  [@react.component]
+  let make = () => {
+    <>
+      <Utils.PageTitle>
+        <Lang.String
+          english="Tutorial for Catala developers"
+          french={js|Catala: tutoriel pour programmeurs|js}
+        />
+      </Utils.PageTitle>
+      <div
+        className="catala-code"
+        dangerouslySetInnerHTML={"__html": tutorial_en}
+      />
+    </>;
+  };
+};
+
 let family_benefits: string = [%bs.raw
   {|require("../assets/allocations_familiales.html")|}
 ];
@@ -290,6 +312,35 @@ let french_card: Utils.presentation_card = {
   },
 };
 
+let tutorial_card: Utils.presentation_card = {
+  title:
+    <Lang.String
+      english="Tutorial for Catala developers"
+      french={js|Catala: tutoriel pour programmeurs|js}
+    />,
+  action:
+    Some((
+      [|Elements.home, Elements.examples, Elements.tutorial_example|],
+      <Lang.String
+        english="See the tutorial"
+        french={js|Voir le tutoriel|js}
+      />,
+    )),
+  icon: None,
+  quote: None,
+  content: {
+    <Lang.String
+      english="This tutorial is an opportunity to discover Catala from a developer's point of view.
+    The document goes over a fictional legislative example and give insights and tips about how annotate the
+    law with Catala code."
+      french={js|Ce tutoriel est le meilleur moyen de découvrir Catala de la perspective d'un développeur.
+      Le document part d'un exemple fictif d'un morceau de législation, et donne les éléments conceptuelles
+      et meilleures méthodes pour annoter la loi avec du code Catala.
+      |js}
+    />;
+  },
+};
+
 [@react.component]
 let make = () => {
   <>
@@ -300,7 +351,7 @@ let make = () => {
       />
     </Utils.PageTitle>
     <Utils.PresentationCards
-      cards=[|family_benefits_card, english_card, french_card|]
+      cards=[|tutorial_card, family_benefits_card, english_card, french_card|]
     />
   </>;
 };
