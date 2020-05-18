@@ -555,11 +555,6 @@
         <td>ASSERTION
         <span class="nonterminal">assertion</span></td>
       </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>INCLUDES
-        <span class="nonterminal">scope_inclusion</span></td>
-      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">ident</span></th>
@@ -604,33 +599,12 @@
         <span class="nonterminal">typ</span>
         <span class="option"><span class="nonterminal">struct_scope_func</span></span></td>
       </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">scope_inclusion_join</span></th>
-        <td><span class="nonterminal">ident</span>
-        EQUAL
-        <span class="nonterminal">ident</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">scope_inclusion_context</span></th>
+      <tr>
+        <th class="bar"></th>
         <td>CONTEXT
-        nonempty_list(<span class="nonterminal">scope_inclusion_join</span>)</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">scope_inclusion_condition</span></th>
-        <td>UNDER_CONDITION
-        <span class="nonterminal">expression</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">scope_inclusion</span></th>
-        <td><span class="nonterminal">ident</span>
+        <span class="nonterminal">ident</span>
         SCOPE
-        <span class="nonterminal">constructor</span>
-        <span class="option"><span class="nonterminal">scope_inclusion_context</span></span>
-        <span class="option"><span class="nonterminal">scope_inclusion_condition</span></span></td>
+        <span class="nonterminal">constructor</span></td>
       </tr>
       
       <tr class="rule">
@@ -652,9 +626,16 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">scope_use_condition</span></th>
+        <td>UNDER_CONDITION
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">code_item</span></th>
         <td>SCOPE
         <span class="nonterminal">constructor</span>
+        <span class="option"><span class="nonterminal">scope_use_condition</span></span>
         COLON
         nonempty_list(<span class="nonterminal">scope_item</span>)</td>
       </tr>
