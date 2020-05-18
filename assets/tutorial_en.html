@@ -80,7 +80,7 @@
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>tutorial_en.catala</tt>, last modification 2020-05-17, 23:00</li>
+<li><tt>tutorial_en.catala</tt>, last modification 2020-05-18, 9:45</li>
 </ul>
 <h2 class='law-heading'>The Catala language tutorial</h2>
 
@@ -269,7 +269,7 @@ Source files weaved in this document
 <a name="tutorial_en.catala-94"></a><span class="kd">scope</span> <span class="nc">IncomeTaxComputation</span><span class="o">:</span>
 <a name="tutorial_en.catala-95"></a>  <span class="kd">definition</span> <span class="nv">article1</span><span class="o">.</span>fixed_percentage <span class="kd">under condition</span>
 <a name="tutorial_en.catala-96"></a>    <span class="nv">individual</span><span class="o">.</span>number_of_children ≥ <span class="mi">2</span>
-<a name="tutorial_en.catala-97"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="mi">20</span> <span class="o">%</span>
+<a name="tutorial_en.catala-97"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="mi">15</span> <span class="o">%</span>
 <a name="tutorial_en.catala-98"></a>*/
 </pre></div>
 </td></tr></table>
@@ -282,7 +282,7 @@ Source files weaved in this document
 
 <h2 class='law-heading'>Functions</h2>
 
-<p class='law-text'>Catala lets you define functions anywhere in your data. Here's what it looks like in the metadata definition when we want to define a two-breackets tax computation:</p>
+<p class='law-text'>Catala lets you define functions anywhere in your data. Here's what it looks like in the metadata definition when we want to define a two-brackets tax computation:</p>
 
 <div class='code-wrapper'>
 <div class='filename'>tutorial_en.catala</div>
@@ -351,7 +351,7 @@ Source files weaved in this document
 
 <div class='article-title'><a href='#'>Article 5</a></div>
 
-<p class='law-text'> For individuals whose income is greater than \$100,000, the income tax of article 1 is computed with a two-brackets system.</p>
+<p class='law-text'> For individuals whose income is greater than $100,000, the income tax of article 1 is computed with a two-brackets system.</p>
 
 <div class='code-wrapper'>
 <div class='filename'>tutorial_en.catala</div>
@@ -398,7 +398,7 @@ Source files weaved in this document
 
 <div class='article-title'><a href='#'>Article 6</a></div>
 
-<p class='law-text'>Individuals earning less than \$10,000 are exempted of the income tax mentionned at article 1.</p>
+<p class='law-text'>Individuals earning less than $10,000 are exempted of the income tax mentionned at article 1.</p>
 
 <div class='code-wrapper'>
 <div class='filename'>tutorial_en.catala</div>
@@ -425,4 +425,4 @@ Source files weaved in this document
 </td></tr></table>
 </div>
 
-<p class='law-text'>This snippet of code actually brings the definition of article1.income_tax of ExemptedOfTax into the IncomeTaxComputation scope, prefixing it with the "income under \$10,000" condition.</p>
+<p class='law-text'>This snippet of code actually brings the definition of article1.income_tax of ExemptedOfTax into the IncomeTaxComputation scope, prefixing it with the "income under $10,000" condition.</p>
