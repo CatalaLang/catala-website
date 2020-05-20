@@ -102,13 +102,18 @@ let render_presentation_card =
     switch (card.action) {
     | None => <div />
     | Some((navs, action)) =>
-      <div className=[%tw "border-solid border-t-2 border-primary pt-2"]>
-        <a
-          onClick={Elements.goToElement(navs, lang)}
-          className=[%tw "cursor-pointer uppercase text-primary"]>
-          action
-        </a>
-      </div>
+      <a
+        className=[%tw
+          "cursor-pointer border-solid border-t-2 border-primary pt-2"
+        ]
+        onClick={Elements.goToElement(navs, lang)}>
+        <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+          <i className="pr-2 material-icons text-primary">
+            {"double_arrow" |> React.string}
+          </i>
+          <span className=[%tw "uppercase text-primary"]> action </span>
+        </div>
+      </a>
     };
   let quote =
     switch (card.quote) {

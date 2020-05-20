@@ -3,7 +3,7 @@ module NavigationElement = {
   let make = (~elements: array(Elements.navigation_element)) => {
     let (lang, _) = React.useContext(Lang.langContext);
     <a
-      className=[%tw "cursor-pointer text-white uppercase"]
+      className=[%tw "cursor-pointer text-white uppercase p-4"]
       onClick={Elements.goToElement(elements, lang)}>
       {Belt.Array.getExn(elements, Belt.Array.length(elements) - 1).text}
     </a>;
@@ -15,7 +15,7 @@ module NavigationBar = {
   let make = (~elements: array(Elements.navigation_element)) => {
     <div
       className=[%tw
-        "flex flex-row flex-wrap content-center justify-center bg-tertiary shadow p-4"
+        "flex flex-row flex-wrap content-center justify-center bg-tertiary shadow"
       ]>
       {elements->Belt.Array.reduceWithIndex(<div />, (acc, _, i) => {
          <>
@@ -44,7 +44,9 @@ module SwitchLanguage = {
     let (old_lang, setLang) = React.useContext(Lang.langContext);
     let url = ReasonReactRouter.useUrl();
     <a
-      className="cursor-pointer text-white uppercase"
+      className=[%tw
+        "flex flex-row flex-wrap content-center bg-tertiary shadow p-4 cursor-pointer text-white uppercase"
+      ]
       onClick={_ => {
         let (_, navs) = Elements.url_to_navigation_elements(url);
         setLang();
@@ -75,29 +77,24 @@ let make = () => {
       className=[%tw
         "flex flex-grow flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
       ]>
-      <div
-        className=[%tw
-          "flex flex-row flex-no-wrap items-center justify-center"
-        ]>
-        <Utils.InternalLink target=[|Elements.home|]>
+      <Utils.InternalLink target=[|Elements.home|]>
+        <div
+          className=[%tw
+            "flex flex-row flex-no-wrap items-center justify-center"
+          ]>
           <img className=[%tw "h-8 pr-4"] src={"/" ++ logo.default} />
-        </Utils.InternalLink>
-        <Lang.String
-          english="The Catala Language"
-          french={js|Le langage Catala|js}
-        />
-      </div>
+          <Lang.String
+            english="The Catala Language"
+            french={js|Le langage Catala|js}
+          />
+        </div>
+      </Utils.InternalLink>
     </div>
     <div
       className=[%tw
         "flex flex-grow flex-row flex-wrap content-center justify-between bg-secondary"
       ]>
-      <div
-        className=[%tw
-          "flex flex-row flex-wrap content-center bg-tertiary shadow p-4"
-        ]>
-        <SwitchLanguage />
-      </div>
+      <SwitchLanguage />
       back_to_home_button
     </div>
   </div>;
