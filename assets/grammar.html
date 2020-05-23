@@ -369,8 +369,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">optional_binding</span></th>
-        <td>epsilon
-        </td>
+        <td>epsilon</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -592,6 +591,12 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">scope_decl_context_condition</span></th>
+        <td>UNDER_CONDITION
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">scope_decl_item</span></th>
         <td>CONTEXT
         <span class="nonterminal">ident</span>
@@ -604,7 +609,8 @@
         <td>CONTEXT
         <span class="nonterminal">ident</span>
         SCOPE
-        <span class="nonterminal">constructor</span></td>
+        <span class="nonterminal">constructor</span>
+        <span class="option"><span class="nonterminal">scope_decl_context_condition</span></span></td>
       </tr>
       
       <tr class="rule">

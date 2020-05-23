@@ -30,6 +30,43 @@ module CatalaManPage =
     let html: string = [%bs.raw {|require("../assets/catala.html")|}];
   });
 
+module OCamlDocs = {
+  [@react.component]
+  let make = () => {
+    <>
+      <Utils.PageTitle>
+        <Lang.String
+          english="OCaml documentation"
+          french="Documentation OCaml"
+        />
+      </Utils.PageTitle>
+      <div className=[%tw "flex flex-row justify-center"]>
+        <div className=[%tw "mx-8 my-4"]>
+          <a
+            className=[%tw "cursor-pointer uppercase text-white"]
+            href="/ocaml_docs/"
+            target="_blank">
+            <div
+              className=[%tw
+                "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
+              ]>
+              <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+                <Lang.String
+                  english="Access the OCaml documentation website"
+                  french={js|Accéder à la documentation OCaml|js}
+                />
+                <i className="pl-4 material-icons">
+                  {"description" |> React.string}
+                </i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </>;
+  };
+};
+
 module LegiFranceCatalaManPage =
   MakeManPageDoc({
     let title =
@@ -100,6 +137,36 @@ let legifrance_catala_card: Utils.presentation_card = {
   },
 };
 
+let ocaml_docs_card: Utils.presentation_card = {
+  title:
+    <Lang.String
+      english="OCaml documentation"
+      french={js|Documentation OCaml|js}
+    />,
+  icon: None,
+  quote: None,
+  action:
+    Some((
+      [|Elements.home, Elements.doc, Elements.ocaml_docs|],
+      <Lang.String
+        english="See documentation"
+        french={js|Voir la documentation|js}
+      />,
+    )),
+  content: {
+    <p>
+      <Lang.String
+        english="The Catala tooling is developped using the OCaml language. Internal documentation is auto-generated from the code using "
+        french={js|L'outillage autour de Catala est développé avec le langage OCaml. La documentation interne est auto-generée à partir du code source en utilisant |js}
+      />
+      <Utils.TextLink target="https://github.com/ocaml/odoc">
+        {"odoc" |> React.string}
+      </Utils.TextLink>
+      {"." |> React.string}
+    </p>;
+  },
+};
+
 [@react.component]
 let make = () => {
   <>
@@ -109,6 +176,8 @@ let make = () => {
         french={js|Documentation des outils Catala|js}
       />
     </Utils.PageTitle>
-    <Utils.PresentationCards cards=[|catala_card, legifrance_catala_card|] />
+    <Utils.PresentationCards
+      cards=[|catala_card, legifrance_catala_card, ocaml_docs_card|]
+    />
   </>;
 };

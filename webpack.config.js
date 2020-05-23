@@ -1,16 +1,17 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
+const CopyPlugin = require('copy-webpack-plugin')
 const outputDir = path.join(__dirname, "build/")
 const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
 const isProd = process.env.NODE_ENV === "production"
 
-module.exports = {
+var catala = {
   entry: "./src/Index.bs.js",
   mode: isProd ? "production" : "development",
   devtool: "source-map",
   output: {
     path: outputDir,
-    filename: "Index.js"
+    filename: "Index.js",
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -29,7 +30,12 @@ module.exports = {
           yandex: false
         }
       }
-    })
+    }),
+    new CopyPlugin({
+     patterns: [
+       { from: './assets/ocaml_docs', to: 'ocaml_docs' },
+     ],
+    }),
   ],
   devServer: {
     compress: true,
@@ -56,3 +62,5 @@ module.exports = {
     ]
   }
 }
+
+module.exports = catala;

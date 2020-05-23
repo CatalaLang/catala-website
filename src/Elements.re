@@ -71,6 +71,13 @@ let legifrance_catala_man_page: navigation_element = {
   },
 };
 
+let ocaml_docs: navigation_element = {
+  url: "ocaml",
+  text: {
+    "ocaml" |> React.string;
+  },
+};
+
 let url_to_navigation_elements =
     (url: ReasonReactRouter.url)
     : (option(Lang.lang), array(navigation_element)) => {
@@ -116,6 +123,8 @@ let url_to_navigation_elements =
         Some([|catala_man_page|]);
       } else if (second_path == legifrance_catala_man_page.url) {
         Some([|legifrance_catala_man_page|]);
+      } else if (second_path == ocaml_docs.url) {
+        Some([|ocaml_docs|]);
       } else {
         None;
       };

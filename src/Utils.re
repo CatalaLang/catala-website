@@ -63,7 +63,7 @@ module Card = {
 module PageTitle = {
   [@react.component]
   let make = (~children) =>
-    <h1 className=[%tw "text-3xl my-4"]>
+    <h1 className=[%tw "text-3xl my-4 shadow-none"]>
       <span
         className=[%tw "border-solid border-b-2 border-tertiary text-tertiary"]>
         children
