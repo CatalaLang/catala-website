@@ -42,9 +42,9 @@ let french_family_benefits_example: navigation_element = {
     />,
 };
 
-let english_example: navigation_element = {
-  url: "english",
-  text: <Lang.String english="English" french={js|Français|js} />,
+let us_tax_code: navigation_element = {
+  url: "us-tax-code",
+  text: <Lang.String english="US Tax" french={js|Impôts US|js} />,
 };
 
 let french_example: navigation_element = {
@@ -113,8 +113,8 @@ let url_to_navigation_elements =
         (second_path: string): option(array(navigation_element)) =>
       if (second_path == french_family_benefits_example.url) {
         Some([|french_family_benefits_example|]);
-      } else if (second_path == english_example.url) {
-        Some([|english_example|]);
+      } else if (second_path == us_tax_code.url) {
+        Some([|us_tax_code|]);
       } else if (second_path == french_example.url) {
         Some([|french_example|]);
       } else if (second_path == tutorial_example.url) {

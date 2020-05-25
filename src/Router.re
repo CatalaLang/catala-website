@@ -43,8 +43,8 @@ let navigation_elements_to_component =
       <Examples.DummyFrench />;
     } else if (first == Elements.home
                && second == Elements.examples
-               && third == Elements.english_example) {
-      <Examples.DummyEnglish />;
+               && third == Elements.us_tax_code) {
+      <Examples.USTaxCode />;
     } else {
       <Presentation />;
     }

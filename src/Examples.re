@@ -61,16 +61,18 @@ module FrenchFamilyBenefits = {
   };
 };
 
-module DummyEnglish = {
-  let english: string = [%bs.raw {|require("../assets/english.html")|}];
+module USTaxCode = {
+  let us_tax_code: string = [%bs.raw
+    {|require("../assets/us_tax_code.html")|}
+  ];
 
   [@react.component]
   let make = () => {
     <>
       <Utils.PageTitle>
         <Lang.String
-          english="Catala in English example"
-          french={js|Catala en anglais|js}
+          english="US Tax Code"
+          french={js|Code des impôts américain|js}
         />
       </Utils.PageTitle>
       <p className=[%tw "pb-16"]>
@@ -79,7 +81,7 @@ module DummyEnglish = {
           french={js|Le code source de cet exemple est disponible |js}
         />
         <Utils.TextLink
-          target="https://github.com/CatalaLang/catala/tree/master/examples/dummy_english">
+          target="https://github.com/CatalaLang/catala/tree/master/examples/us_tax_code">
           <Lang.String english="here" french={js|ici|js} />
         </Utils.TextLink>
         <Lang.String
@@ -114,7 +116,7 @@ module DummyEnglish = {
       </p>
       <div
         className="catala-code"
-        dangerouslySetInnerHTML={"__html": english}
+        dangerouslySetInnerHTML={"__html": us_tax_code}
       />
     </>;
   };
@@ -251,13 +253,10 @@ let family_benefits_card: Utils.presentation_card = {
 
 let english_card: Utils.presentation_card = {
   title:
-    <Lang.String
-      english="English dummy example"
-      french="Exemple en anglais"
-    />,
+    <Lang.String english="US Tax Code" french="Code des impôts américain" />,
   action:
     Some((
-      [|Elements.home, Elements.examples, Elements.english_example|],
+      [|Elements.home, Elements.examples, Elements.us_tax_code|],
       <Lang.String english="see example" french={js|Voir l'exemple|js} />,
     )),
   icon: None,
@@ -275,12 +274,7 @@ let english_card: Utils.presentation_card = {
           french={js|fichiers source de l'exemple|js}
         />
       </Utils.TextLink>
-      <Lang.String
-        english=". The code does not model real anglo-saxon legislation but showcases the
-      English version of Catala"
-        french={js|. Le code ne modèle pas de véritables articles de loi anglo-saxonne mais est là pour
-        illustrer la version anglaise de Catala.|js}
-      />
+      <Lang.String english="." french={js|.|js} />
     </>;
   },
 };

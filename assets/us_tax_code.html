@@ -1,0 +1,302 @@
+<head>
+<style>
+.catala-code .hll { background-color: #ffffcc }
+.catala-code  { background: #ffffff; }
+.catala-code .c { color: #888888 } /* Comment */
+.catala-code .err { color: #FF0000; background-color: #FFAAAA } /* Error */
+.catala-code .k { color: #008800; font-weight: bold } /* Keyword */
+.catala-code .o { color: #333333 } /* Operator */
+.catala-code .ch { color: #888888 } /* Comment.Hashbang */
+.catala-code .cm { color: #888888 } /* Comment.Multiline */
+.catala-code .cp { color: #557799 } /* Comment.Preproc */
+.catala-code .cpf { color: #888888 } /* Comment.PreprocFile */
+.catala-code .c1 { color: #888888 } /* Comment.Single */
+.catala-code .cs { color: #cc0000; font-weight: bold } /* Comment.Special */
+.catala-code .gd { color: #A00000 } /* Generic.Deleted */
+.catala-code .ge { font-style: italic } /* Generic.Emph */
+.catala-code .gr { color: #FF0000 } /* Generic.Error */
+.catala-code .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.catala-code .gi { color: #00A000 } /* Generic.Inserted */
+.catala-code .go { color: #888888 } /* Generic.Output */
+.catala-code .gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.catala-code .gs { font-weight: bold } /* Generic.Strong */
+.catala-code .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.catala-code .gt { color: #0044DD } /* Generic.Traceback */
+.catala-code .kc { color: #008800; font-weight: bold } /* Keyword.Constant */
+.catala-code .kd { color: #008800; font-weight: bold } /* Keyword.Declaration */
+.catala-code .kn { color: #008800; font-weight: bold } /* Keyword.Namespace */
+.catala-code .kp { color: #003388; font-weight: bold } /* Keyword.Pseudo */
+.catala-code .kr { color: #008800; font-weight: bold } /* Keyword.Reserved */
+.catala-code .kt { color: #333399; font-weight: bold } /* Keyword.Type */
+.catala-code .m { color: #6600EE; font-weight: bold } /* Literal.Number */
+.catala-code .s { background-color: #fff0f0 } /* Literal.String */
+.catala-code .na { color: #0000CC } /* Name.Attribute */
+.catala-code .nb { color: #007020 } /* Name.Builtin */
+.catala-code .nc { color: #BB0066; font-weight: bold } /* Name.Class */
+.catala-code .no { color: #003366; font-weight: bold } /* Name.Constant */
+.catala-code .nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.catala-code .ni { color: #880000; font-weight: bold } /* Name.Entity */
+.catala-code .ne { color: #FF0000; font-weight: bold } /* Name.Exception */
+.catala-code .nf { color: #0066BB; font-weight: bold } /* Name.Function */
+.catala-code .nl { color: #997700; font-weight: bold } /* Name.Label */
+.catala-code .nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.catala-code .nt { color: #007700 } /* Name.Tag */
+.catala-code .nv { color: #996633 } /* Name.Variable */
+.catala-code .ow { color: #000000; font-weight: bold } /* Operator.Word */
+.catala-code .w { color: #bbbbbb } /* Text.Whitespace */
+.catala-code .mb { color: #6600EE; font-weight: bold } /* Literal.Number.Bin */
+.catala-code .mf { color: #6600EE; font-weight: bold } /* Literal.Number.Float */
+.catala-code .mh { color: #005588; font-weight: bold } /* Literal.Number.Hex */
+.catala-code .mi { color: #0000DD; font-weight: bold } /* Literal.Number.Integer */
+.catala-code .mo { color: #4400EE; font-weight: bold } /* Literal.Number.Oct */
+.catala-code .sa { background-color: #fff0f0 } /* Literal.String.Affix */
+.catala-code .sb { background-color: #fff0f0 } /* Literal.String.Backtick */
+.catala-code .sc { color: #0044DD } /* Literal.String.Char */
+.catala-code .dl { background-color: #fff0f0 } /* Literal.String.Delimiter */
+.catala-code .sd { color: #DD4422 } /* Literal.String.Doc */
+.catala-code .s2 { background-color: #fff0f0 } /* Literal.String.Double */
+.catala-code .se { color: #666666; font-weight: bold; background-color: #fff0f0 } /* Literal.String.Escape */
+.catala-code .sh { background-color: #fff0f0 } /* Literal.String.Heredoc */
+.catala-code .si { background-color: #eeeeee } /* Literal.String.Interpol */
+.catala-code .sx { color: #DD2200; background-color: #fff0f0 } /* Literal.String.Other */
+.catala-code .sr { color: #000000; background-color: #fff0ff } /* Literal.String.Regex */
+.catala-code .s1 { background-color: #fff0f0 } /* Literal.String.Single */
+.catala-code .ss { color: #AA6600 } /* Literal.String.Symbol */
+.catala-code .bp { color: #007020 } /* Name.Builtin.Pseudo */
+.catala-code .fm { color: #0066BB; font-weight: bold } /* Name.Function.Magic */
+.catala-code .vc { color: #336699 } /* Name.Variable.Class */
+.catala-code .vg { color: #dd7700; font-weight: bold } /* Name.Variable.Global */
+.catala-code .vi { color: #3333BB } /* Name.Variable.Instance */
+.catala-code .vm { color: #996633 } /* Name.Variable.Magic */
+.catala-code .il { color: #0000DD; font-weight: bold } /* Literal.Number.Integer.Long */
+
+</style>
+<meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
+</head>
+<h1>Legislative text implementation<br />
+<small>Document generated by Catala version 0.1.1</small>
+</h1>
+<p>
+Source files weaved in this document
+</p>
+<ul>
+<li><tt>us_tax_code.catala</tt>, last modification 2020-05-25, 18:13</li>
+<li><tt>preamble.catala</tt>, last modification 2020-05-25, 18:28</li>
+<li><tt>section_132.catala</tt>, last modification 2020-05-25, 19:06</li>
+</ul>
+<h2 class='law-heading'>The US Tax Code</h2>
+
+<h2 class='law-heading'>Section 132</h2>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-5"> 5</a>
+<a href="#./section_132.catala-6"> 6</a>
+<a href="#./section_132.catala-7"> 7</a>
+<a href="#./section_132.catala-8"> 8</a>
+<a href="#./section_132.catala-9"> 9</a>
+<a href="#./section_132.catala-10">10</a>
+<a href="#./section_132.catala-11">11</a>
+<a href="#./section_132.catala-12">12</a>
+<a href="#./section_132.catala-13">13</a>
+<a href="#./section_132.catala-14">14</a>
+<a href="#./section_132.catala-15">15</a>
+<a href="#./section_132.catala-16">16</a>
+<a href="#./section_132.catala-17">17</a>
+<a href="#./section_132.catala-18">18</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-5"></a>/*
+<a name="./section_132.catala-6"></a><span class="kd">declaration</span> <span class="kd">enumeration</span> <span class="nc">DiscountType</span><span class="o">:</span>
+<a name="./section_132.catala-7"></a>  — <span class="nc">Property</span>
+<a name="./section_132.catala-8"></a>  — <span class="nc">Services</span>
+<a name="./section_132.catala-9"></a>
+<a name="./section_132.catala-10"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
+<a name="./section_132.catala-11"></a>  <span class="kd">context</span> <span class="nv">customer_price</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala-12"></a>  <span class="kd">context</span> <span class="nv">employee_price</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala-13"></a>  <span class="kd">context</span> <span class="nv">gross_profit_percentage</span> <span class="kd">content</span> <span class="kt">decimal</span>
+<a name="./section_132.catala-14"></a>  <span class="kd">context</span> <span class="nv">qualified_employee_discount</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala-15"></a>  <span class="kd">context</span> <span class="nv">employee_discount</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala-16"></a>  <span class="kd">context</span> <span class="nv">aggregate_cost</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala-17"></a>  <span class="kd">context</span> <span class="nv">discount_type</span> <span class="kd">content</span> <span class="nc">DiscountType</span>
+<a name="./section_132.catala-18"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<h3 class='law-heading'>(c) Qualified employee discount defined</h3>
+
+<p class='law-text'> For purposes of this section—</p>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(1) Qualified employee discount</a></div>
+
+<p class='law-text'>The term “qualified employee discount” means any employee discount with respect to qualified property or services to the extent such discount does not exceed—</p>
+
+<p class='law-text'>(A) in the case of property, the gross profit percentage of the price at which the property is being offered by the employer to customers, or</p>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-28">28</a>
+<a href="#./section_132.catala-29">29</a>
+<a href="#./section_132.catala-30">30</a>
+<a href="#./section_132.catala-31">31</a>
+<a href="#./section_132.catala-32">32</a>
+<a href="#./section_132.catala-33">33</a>
+<a href="#./section_132.catala-34">34</a>
+<a href="#./section_132.catala-35">35</a>
+<a href="#./section_132.catala-36">36</a>
+<a href="#./section_132.catala-37">37</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-28"></a>/*
+<a name="./section_132.catala-29"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
+<a name="./section_132.catala-30"></a>  <span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
+<a name="./section_132.catala-31"></a>    <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Property</span> <span class="kd">consequence</span>
+<a name="./section_132.catala-32"></a>  <span class="kd">equals</span>
+<a name="./section_132.catala-33"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;</span>
+<a name="./section_132.catala-34"></a>      <span class="nv">customer_price</span> × <span class="nv">gross_profit_percentage</span>
+<a name="./section_132.catala-35"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> × <span class="nv">gross_profit_percentage</span>
+<a name="./section_132.catala-36"></a>    <span class="kr">else</span> <span class="nv">employee_discount</span>
+<a name="./section_132.catala-37"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<p class='law-text'>(B) in the case of services, 20 percent of the price at which the services are being offered by the employer to customers.</p>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-39">39</a>
+<a href="#./section_132.catala-40">40</a>
+<a href="#./section_132.catala-41">41</a>
+<a href="#./section_132.catala-42">42</a>
+<a href="#./section_132.catala-43">43</a>
+<a href="#./section_132.catala-44">44</a>
+<a href="#./section_132.catala-45">45</a>
+<a href="#./section_132.catala-46">46</a>
+<a href="#./section_132.catala-47">47</a>
+<a href="#./section_132.catala-48">48</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-39"></a>/*
+<a name="./section_132.catala-40"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
+<a name="./section_132.catala-41"></a><span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
+<a name="./section_132.catala-42"></a>  <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Services</span> <span class="kd">consequence</span>
+<a name="./section_132.catala-43"></a><span class="kd">equals</span>
+<a name="./section_132.catala-44"></a>  <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;</span>
+<a name="./section_132.catala-45"></a>    <span class="nv">customer_price</span> × <span class="mi">20</span><span class="o">%</span>
+<a name="./section_132.catala-46"></a>  <span class="kr">then</span> <span class="nv">customer_price</span> × <span class="mi">20</span><span class="o">%</span>
+<a name="./section_132.catala-47"></a>  <span class="kr">else</span> <span class="nv">employee_discount</span>
+<a name="./section_132.catala-48"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<!-- Closing article div -->
+</div>
+
+<h4 class='law-heading'>(2) Gross profit percentage</h4>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(A) In general</a></div>
+
+<p class='law-text'>The term “gross profit percentage” means the percent which—</p>
+
+<p class='law-text'>(i) the excess of the aggregate sales price of property sold by the employer to customers over the aggregate cost of such property to the employer, is of</p>
+
+<p class='law-text'>(ii) the aggregate sale price of such property.</p>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-55">55</a>
+<a href="#./section_132.catala-56">56</a>
+<a href="#./section_132.catala-57">57</a>
+<a href="#./section_132.catala-58">58</a>
+<a href="#./section_132.catala-59">59</a>
+<a href="#./section_132.catala-60">60</a>
+<a href="#./section_132.catala-61">61</a>
+<a href="#./section_132.catala-62">62</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-55"></a>/*
+<a name="./section_132.catala-56"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span>
+<a name="./section_132.catala-57"></a>  <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Property</span> <span class="o">:</span>
+<a name="./section_132.catala-58"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> ≥ <span class="nv">aggregate_cost</span>
+<a name="./section_132.catala-59"></a>
+<a name="./section_132.catala-60"></a>  <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span>
+<a name="./section_132.catala-61"></a>    <span class="o">(</span><span class="nv">customer_price</span> <span class="o">-</span> <span class="nv">aggregate_cost</span><span class="o">)</span> ÷ <span class="nv">customer_price</span>
+<a name="./section_132.catala-62"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<!-- Closing article div -->
+</div>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(B) Determination of gross profit percentage</a></div>
+
+<p class='law-text'>Gross profit percentage shall be determined on the basis of—</p>
+
+<p class='law-text'>(i) all property offered to customers in the ordinary course of the line of business of the employer in which the employee is performing services (or a reasonable classification of property selected by the employer), and</p>
+
+<p class='law-text'>(ii) the employer’s experience during a representative period.</p>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-66">66</a>
+<a href="#./section_132.catala-67">67</a>
+<a href="#./section_132.catala-68">68</a>
+<a href="#./section_132.catala-69">69</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-66"></a>/*<span class="c1"></span>
+<a name="./section_132.catala-67"></a><span class="c1"># (i) and (ii) are subjective criteria for determining the gross profit</span>
+<a name="./section_132.catala-68"></a><span class="c1"># percentage ; we do not formalize them</span>
+<a name="./section_132.catala-69"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<!-- Closing article div -->
+</div>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(3) Employee discount defined</a></div>
+
+<p class='law-text'>The term “employee discount” means the amount by which—</p>
+
+<p class='law-text'>(A) the price at which the property or services are provided by the employer to an employee for use by such employee, is less than</p>
+
+<p class='law-text'>(B) the price at which such property or services are being offered by the employer to customers.</p>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-75">75</a>
+<a href="#./section_132.catala-76">76</a>
+<a href="#./section_132.catala-77">77</a>
+<a href="#./section_132.catala-78">78</a>
+<a href="#./section_132.catala-79">79</a>
+<a href="#./section_132.catala-80">80</a>
+<a href="#./section_132.catala-81">81</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-75"></a>/*
+<a name="./section_132.catala-76"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
+<a name="./section_132.catala-77"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> ≥ <span class="nv">employee_price</span>
+<a name="./section_132.catala-78"></a>
+<a name="./section_132.catala-79"></a>  <span class="kd">definition</span> <span class="nv">employee_discount</span> <span class="kd">equals</span>
+<a name="./section_132.catala-80"></a>    <span class="nv">employee_price</span> <span class="o">-</span> <span class="nv">customer_price</span>
+<a name="./section_132.catala-81"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+<!-- Closing article div -->
+</div>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(4) Qualified property or services</a></div>
+
+<p class='law-text'>The term “qualified property or services” means any property (other than real property and other than personal property of a kind held for investment) or services which are offered for sale to customers in the ordinary course of the line of business of the employer in which the employee is performing services.</p>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-83">83</a>
+<a href="#./section_132.catala-84">84</a>
+<a href="#./section_132.catala-85">85</a>
+<a href="#./section_132.catala-86">86</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-83"></a>/*<span class="c1"></span>
+<a name="./section_132.catala-84"></a><span class="c1"># Again, this is for subjectively determining what item qualifies for a</span>
+<a name="./section_132.catala-85"></a><span class="c1"># discount, not formalizing</span>
+<a name="./section_132.catala-86"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
