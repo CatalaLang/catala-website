@@ -1,6 +1,5 @@
 let navigation_elements_to_component =
     (elements: array(Elements.navigation_element)): React.element => {
-  Js.log(elements);
   switch (Belt.List.fromArray(elements)) {
   | [first, second] =>
     if (first == Elements.home && second == Elements.about) {

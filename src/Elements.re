@@ -93,7 +93,8 @@ let url_to_navigation_elements =
         None;
       };
     let first_path_elements =
-        (first_path: string): option(array(navigation_element)) =>
+        (first_path: string): option(array(navigation_element)) => {
+      let first_path = String.lowercase_ascii(first_path);
       if (first_path == formalization.url) {
         Some([|home, formalization|]);
       } else if (first_path == examples.url) {
@@ -109,8 +110,10 @@ let url_to_navigation_elements =
       } else {
         None;
       };
+    };
     let second_path_elements =
-        (second_path: string): option(array(navigation_element)) =>
+        (second_path: string): option(array(navigation_element)) => {
+      let second_path = String.lowercase_ascii(second_path);
       if (second_path == french_family_benefits_example.url) {
         Some([|french_family_benefits_example|]);
       } else if (second_path == us_tax_code.url) {
@@ -128,6 +131,7 @@ let url_to_navigation_elements =
       } else {
         None;
       };
+    };
     let elements =
       switch (rest) {
       | [single_page] =>
