@@ -171,7 +171,18 @@ module DummyFrench = {
          |> React.string}
       </p>
       <p className=[%tw "pb-16"]>
-        {{js|  Si cet exemple vous intéresse ou si vous avez d'autres questions, vous pouvez contacter directement
+        {{js|Le code présenté ci-dessous est extrait d'une étude de cas plus complète sur le calcul des allocations
+      familiales, |js}
+         |> React.string}
+        <Utils.InternalLink
+          target=[|
+            Elements.home,
+            Elements.examples,
+            Elements.french_family_benefits_example,
+          |]>
+          {{js|disponible en suivant ce lien|js} |> React.string}
+        </Utils.InternalLink>
+        {{js|. Si cet exemple vous intéresse ou si vous avez d'autres questions, vous pouvez contacter directement
           l'auteur à l'adresse |js}
          |> React.string}
         <Utils.TextLink target="mailto:denis.merigoux@inria.fr">
