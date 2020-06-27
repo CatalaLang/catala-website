@@ -111,7 +111,12 @@ let render_presentation_card =
           <i className="pr-2 material-icons text-primary">
             {"double_arrow" |> React.string}
           </i>
-          <span className=[%tw "uppercase text-primary"]> action </span>
+          <span
+            className=[%tw
+              "uppercase text-primary border-solid border-secondary border-b"
+            ]>
+            action
+          </span>
         </div>
       </a>
     };

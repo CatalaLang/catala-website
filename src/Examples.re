@@ -264,7 +264,10 @@ let family_benefits_card: Utils.presentation_card = {
 
 let english_card: Utils.presentation_card = {
   title:
-    <Lang.String english="US Tax Code" french="Code des impôts américain" />,
+    <Lang.String
+      english="US Tax Code"
+      french={js|Code des impôts américain|js}
+    />,
   action:
     Some((
       [|Elements.home, Elements.examples, Elements.us_tax_code|],

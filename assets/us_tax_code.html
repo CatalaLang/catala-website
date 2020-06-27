@@ -80,10 +80,10 @@
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>us_tax_code.catala</tt>, last modification 2020-05-28, 13:56</li>
-<li><tt>preamble.catala</tt>, last modification 2020-05-25, 18:28</li>
-<li><tt>section_132.catala</tt>, last modification 2020-05-28, 14:27</li>
-<li><tt>section_1015.catala</tt>, last modification 2020-05-28, 15:04</li>
+<li><tt>us_tax_code.catala</tt>, last modification 2020-06-07, 13:15</li>
+<li><tt>preamble.catala</tt>, last modification 2020-05-29, 10:52</li>
+<li><tt>section_132.catala</tt>, last modification 2020-06-07, 13:15</li>
+<li><tt>section_1015.catala</tt>, last modification 2020-06-07, 13:15</li>
 </ul>
 <h2 class='law-heading'>The US Tax Code</h2>
 
@@ -356,20 +356,20 @@ Source files weaved in this document
 <a name="./section_1015.catala-10"></a>  — <span class="nc">Trust</span>
 <a name="./section_1015.catala-11"></a>
 <a name="./section_1015.catala-12"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Acquisition</span><span class="o">:</span>
-<a name="./section_1015.catala-13"></a>  <span class="kd">data</span> method <span class="kd">content</span> <span class="nc">AcquisitionMethod</span>
-<a name="./section_1015.catala-14"></a>  <span class="kd">data</span> moment <span class="kd">content</span> <span class="kt">date</span>
-<a name="./section_1015.catala-15"></a>  <span class="kd">data</span> no_sale_or_exchange_before <span class="kd">content</span> <span class="kt">boolean</span>
+<a name="./section_1015.catala-13"></a>  <span class="kd">data</span> <span class="nv">method</span> <span class="kd">content</span> <span class="nc">AcquisitionMethod</span>
+<a name="./section_1015.catala-14"></a>  <span class="kd">data</span> <span class="nv">moment</span> <span class="kd">content</span> <span class="kt">date</span>
+<a name="./section_1015.catala-15"></a>  <span class="kd">data</span> <span class="nv">no_sale_or_exchange_before</span> <span class="kd">content</span> <span class="kt">boolean</span>
 <a name="./section_1015.catala-16"></a>
 <a name="./section_1015.catala-17"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Value</span><span class="o">:</span>
-<a name="./section_1015.catala-18"></a>  <span class="kd">data</span> fair_market <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
-<a name="./section_1015.catala-19"></a>  <span class="kd">data</span> last_acquisition <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-20"></a>  <span class="kd">data</span> net_appreciation <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala-18"></a>  <span class="kd">data</span> <span class="nv">fair_market</span> <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
+<a name="./section_1015.catala-19"></a>  <span class="kd">data</span> <span class="nv">last_acquisition</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala-20"></a>  <span class="kd">data</span> <span class="nv">net_appreciation</span> <span class="kd">content</span> <span class="kt">amount</span>
 <a name="./section_1015.catala-21"></a>
 <a name="./section_1015.catala-22"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Transferor</span><span class="o">:</span>
-<a name="./section_1015.catala-23"></a>  <span class="kd">data</span> basis <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-24"></a>  <span class="kd">data</span> basis_known <span class="kd">content</span> <span class="kd">optional</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-25"></a>  <span class="kd">data</span> acquisition <span class="kd">content</span> <span class="nc">Acquisition</span>
-<a name="./section_1015.catala-26"></a>  <span class="kd">data</span> gain_or_loss <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
+<a name="./section_1015.catala-23"></a>  <span class="kd">data</span> <span class="nv">basis</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala-24"></a>  <span class="kd">data</span> <span class="nv">basis_known</span> <span class="kd">content</span> <span class="kd">optional</span> <span class="kt">amount</span>
+<a name="./section_1015.catala-25"></a>  <span class="kd">data</span> <span class="nv">acquisition</span> <span class="kd">content</span> <span class="nc">Acquisition</span>
+<a name="./section_1015.catala-26"></a>  <span class="kd">data</span> <span class="nv">gain_or_loss</span> <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
 <a name="./section_1015.catala-27"></a>
 <a name="./section_1015.catala-28"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
 <a name="./section_1015.catala-29"></a>  <span class="kd">context</span> <span class="nv">acquisition</span> <span class="kd">content</span> <span class="nc">Acquisition</span>

@@ -165,6 +165,14 @@ type imgLocation = {default: string};
 
 let logo: imgLocation = [%raw "require('../assets/logo.png')"];
 
+let french_homepage: string = [%bs.raw
+  {|require("../assets/french_homepage.html")|}
+];
+
+let english_homepage: string = [%bs.raw
+  {|require("../assets/english_homepage.html")|}
+];
+
 [@react.component]
 let make = () => {
   let (lang, _) = React.useContext(Lang.langContext);
@@ -193,7 +201,10 @@ let make = () => {
                   "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
                 ]>
                 <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                  <Lang.String english="Get started" french={js|Essayer|js} />
+                  <Lang.String
+                    english="Get started on GitHub"
+                    french={js|Démarrer sur GitHub|js}
+                  />
                   <i className="pl-4 material-icons">
                     {"code" |> React.string}
                   </i>
@@ -213,7 +224,10 @@ let make = () => {
                   "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
                 ]>
                 <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                  <Lang.String english="About" french={js|À propos|js} />
+                  <Lang.String
+                    english="About the project"
+                    french={js|À propos du projet|js}
+                  />
                   <i className="pl-4 material-icons">
                     {"info" |> React.string}
                   </i>
@@ -225,7 +239,52 @@ let make = () => {
         <img className=[%tw "w-48 mx-8 my-4"] src={"/" ++ logo.default} />
       </div>
     </div>
-    <div className=[%tw "py-10"]>
+    <div className=[%tw "flex flex-col flex-wrap content-center pt-12"]>
+      <div
+        className=[%tw
+          "sm:w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
+        ]>
+        <Lang.String
+          english="Catala in action"
+          french={js|Catala en action|js}
+        />
+      </div>
+      <div className=[%tw "sm:w-full md:w-4/5 lg:w-3/5"]>
+        <p className=[%tw "my-4 italic"]>
+          <Lang.String
+            english="Catala works by annotating legislative texts with their code translation.
+            Here is a quick example from the US Tax Code:"
+            french={js|Le principe de Catala est d'annoter directement les textes législatifs ou règlementaires
+            avec leur traduction en termes algorithmique. En voici un exemple rapide tiré d'un
+            article du code de la sécurité sociale :|js}
+          />
+        </p>
+        <Lang.Element
+          french={
+            <div
+              className="catala-code"
+              dangerouslySetInnerHTML={"__html": french_homepage}
+            />
+          }
+          english={
+            <div
+              className="catala-code"
+              dangerouslySetInnerHTML={"__html": english_homepage}
+            />
+          }
+        />
+      </div>
+      <div
+        className=[%tw
+          "sm:w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
+        ]>
+        <Lang.String
+          english="Why using Catala?"
+          french={js|Pourquoi utiliser Catala ?|js}
+        />
+      </div>
+    </div>
+    <div className=[%tw "pb-10 pt-4"]>
       <Utils.PresentationCards
         cards=[|examples_card, doc_card, legal_guide_card, foundations_card|]
       />

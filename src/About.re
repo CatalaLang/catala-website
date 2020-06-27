@@ -81,45 +81,38 @@ let make = () => {
     <Utils.PageTitle>
       <Lang.String english="About" french={js|À propos|js} />
     </Utils.PageTitle>
-    <Utils.PageSection
-      title={
-        <Lang.String
-          english="Policy-maker oriented description"
-          french={js|Résumé pour décideurs|js}
-        />
-      }>
-      <p>
-        <Lang.String
-          english="In 2019, the French National Research Institute for Computer Science (Inria) has initiated an
+    <p>
+      <Lang.String
+        english="In 2019, the French National Research Institute for Computer Science (Inria) has initiated an
       initiative focused on developing a new coding language for rules as code: Catala. The language is based on
       the field of formal methods, which are used in safety-critical domains like avionics or nuclear power
       plants to ensure that software behaves as expected, given a precise and unambiguous description of
       the expected behavior. Led by Denis Merigoux from the "
-          french={js|En 2019, une initiative a été lancée au
+        french={js|En 2019, une initiative a été lancée au
         sein de l'Institut National de Recherche en Informatique et en Automatique afin de créer un nouveau
         langage de programmation pour transformer la loi en code  : Catala. Ce langage est issu du domaine
         des méthodes formelles, utilisées pour s'assurer que le logiciel se comporte comme prévu
         dans de nombreux secteurs où la sécurité est cruciale, comme l'aviation ou le nucléaire. Le projet
         est mené par Denis Merigoux de |js}
-        />
-        <Utils.TextLink target="https://prosecco.gforge.inria.fr/">
-          <Lang.String
-            english="Inria Prosecco group"
-            french={js|l'équipe Prosecco d'Inria|js}
-          />
-        </Utils.TextLink>
+      />
+      <Utils.TextLink target="https://prosecco.gforge.inria.fr/">
         <Lang.String
-          english={js| , in collaboration with academics from the Paris Panthéon-Sorbonne
+          english="Inria Prosecco group"
+          french={js|l'équipe Prosecco d'Inria|js}
+        />
+      </Utils.TextLink>
+      <Lang.String
+        english={js| , in collaboration with academics from the Paris Panthéon-Sorbonne
        University and the Northwestern Pritzker School of Law, Catala is designed to achieve semantic
        equivalence with the law itself (its fundamental source of truth).|js}
-          french={js|, en collaboration avec des universitaires de Paris Panthéon-Sorbonne et de la
+        french={js|, en collaboration avec des universitaires de Paris Panthéon-Sorbonne et de la
            Northwestern Pritzker School of Law de Chicago. Le but du langage est d'atteindre une équivalence
            sémantique entre le code et la loi qui est sa source de vérité.|js}
-        />
-      </p>
-      <p>
-        <Lang.String
-          english="Catala is unique because of its use of a style called literate programming, which sees each line of
+      />
+    </p>
+    <p>
+      <Lang.String
+        english="Catala is unique because of its use of a style called literate programming, which sees each line of
         a legislative style text annotated with a snippet of code. This is of obvious benefit because it allows
         non-technical experts, such as policy makers and lawyers, to understand the representation of the code
         in relation to the legislation or rules. This allows Catala programmes to be easily verified and
@@ -133,7 +126,7 @@ let make = () => {
         working on finalising the development of a compiler (e.g. for multiple languages including
         Javascript, Python, etc.) and implementing a large-size body of legislation to demonstrate the
         tool's utility."
-          french={js|Catala est unique dans son domaine car il utilise une technique appelée programmation
+        french={js|Catala est unique dans son domaine car il utilise une technique appelée programmation
             littéraire, où chaque ligne de texte législatif ou réglementaire est annoté par un petit morceau
             de code. Cela permet à des experts non-techniques comme des législateurs ou des juristes de
             comprendre localement la relation entre code et loi. De cette façon, les programmes Catala peuvent
@@ -147,23 +140,72 @@ let make = () => {
             la probabilité de boggue. Catala n'en est cependant qu'à ses débuts ; les prochaines étapes
             pour le projet sont la finalisation du compilateur, ainsi que la transformation d'un gros morceau
             de législation en code afin de prouver l'utilié du langage.|js}
-        />
-      </p>
-      <p className="float-right text-secondary pt-4 italic">
-        <Lang.String
-          english="Credit: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
-          french={js|Crédit : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)|js}
-        />
-      </p>
-    </Utils.PageSection>
+      />
+    </p>
+    <p className=[%tw "float-right text-secondary pt-4 italic"]>
+      <Lang.String
+        english="Text credits: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
+        french={js|Source : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)|js}
+      />
+    </p>
+    <div className=[%tw "clear-right"] />
     <Utils.PageSection
       title={<Lang.String english="People" french={js|Membres du projet|js} />}>
-      <ul className=[%tw "list-none"]>
+      <ul className=[%tw "list-disc list-inside"]>
         <Person person=denis_merigoux />
         <Person person=liane_huttner />
         <Person person=nicolas_chataing />
         <Person person=jonathan_protzenko />
         <Person person=sarah_lawsky />
+      </ul>
+    </Utils.PageSection>
+    <Utils.PageSection
+      title={
+        <Lang.String
+          english="Related work on rules as code"
+          french={js|Travaux connexes : transformer la loi en code|js}
+        />
+      }>
+      <ul className=[%tw "list-disc list-inside"]>
+        <li className=[%tw "pl-6 pb-4"]>
+          <Lang.String
+            english="An attempt to exploit the source code of the French income tax computation: "
+            french={js|Une tentative d'exploitation du code source du calcul de l'impôt sur le revenu : |js}
+          />
+          <Lang.Element
+            english={
+              <Utils.TextLink
+                target="https://blog.merigoux.ovh/en/2019/12/20/taxes-formal-proofs.html">
+                {"blog post" |> React.string}
+              </Utils.TextLink>
+            }
+            french={
+              <Utils.TextLink
+                target="https://blog.merigoux.ovh/fr/2019/12/20/impots-formels.html">
+                {"billet de blog" |> React.string}
+              </Utils.TextLink>
+            }
+          />
+          {", " |> React.string}
+          <Utils.TextLink target="https://hal.inria.fr/hal-02320347">
+            <Lang.String
+              english="scientific article (in French)"
+              french={js|article scientifique|js}
+            />
+          </Utils.TextLink>
+        </li>
+        <li className=[%tw "pl-6 pb-4"]>
+          <Utils.TextLink
+            target="https://oecd-opsi.org/seeking-your-feedback-on-draft-rules-as-code-primer/">
+            {"Rules as code Primer" |> React.string}
+          </Utils.TextLink>
+          <Lang.String
+            english=": a comprehensive report on the rules as code field in 2020 by the OECD Observatory for
+          Public Sector Innovation (OPSI)"
+            french={js| : un rapport exhaustfif sur l'état de la transformation de la loi en code en 2020,
+            mené par l'observatoire de l'innovation dans le secteur public (OPSI) de l'OCDE|js}
+          />
+        </li>
       </ul>
     </Utils.PageSection>
   </>;
