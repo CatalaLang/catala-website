@@ -15,7 +15,7 @@ module NavigationBar = {
   let make = (~elements: array(Elements.navigation_element)) => {
     <div
       className=[%tw
-        "flex flex-row flex-wrap content-center justify-center bg-tertiary shadow"
+        "h-full py-2 flex flex-row flex-wrap content-center bg-tertiary shadow"
       ]>
       {elements->Belt.Array.reduceWithIndex(<div />, (acc, _, i) => {
          <>
@@ -45,7 +45,7 @@ module SwitchLanguage = {
     let url = ReasonReactRouter.useUrl();
     <a
       className=[%tw
-        "flex flex-row flex-wrap content-center bg-tertiary shadow p-4 cursor-pointer text-white uppercase"
+        "py-2 h-full flex flex-row flex-wrap content-center bg-tertiary shadow px-4 cursor-pointer text-white uppercase"
       ]
       onClick={_ => {
         let (_, navs) = Elements.url_to_navigation_elements(url);
@@ -70,18 +70,13 @@ let make = () => {
     <NavigationBar elements />;
   };
   <div
-    className=[%tw
-      "flex flex-row flex-wrap w-full justify-between bg-secondary top-0"
-    ]>
+    className=[%tw "grid grid-cols-1 md:grid-cols-3 w-full bg-secondary top-0"]>
     <div
       className=[%tw
-        "flex flex-grow flex-row flex-wrap content-center pl-4 pr-4 text-3xl text-center text-white"
+        "py-2 h-full flex flex-row items-center justify-center md:justify-start pl-4 text-3xl md:text-2xl lg:text-xl text-white"
       ]>
       <Utils.InternalLink target=[|Elements.home|]>
-        <div
-          className=[%tw
-            "flex flex-row flex-no-wrap items-center justify-center"
-          ]>
+        <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
           <img className=[%tw "h-8 pr-4"] src={"/" ++ logo.default} />
           <Lang.String
             english="The Catala Language"
@@ -92,9 +87,14 @@ let make = () => {
     </div>
     <div
       className=[%tw
-        "flex flex-grow flex-row flex-wrap content-center justify-between bg-secondary"
+        "h-full flex flex-grow flex-row flex-wrap justify-center bg-secondary"
       ]>
       <SwitchLanguage />
+    </div>
+    <div
+      className=[%tw
+        "h-full flex flex-grow flex-row flex-wrap items-center justify-center md:justify-end bg-secondary pt-4 md:pt-0"
+      ]>
       back_to_home_button
     </div>
   </div>;
