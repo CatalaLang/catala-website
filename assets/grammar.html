@@ -112,20 +112,13 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">qident_prefix</span></th>
-        <td><span class="nonterminal">constructor</span>
-        DOT</td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">qident</span></th>
-        <td><span class="option"><span class="nonterminal">qident_prefix</span></span>
-        <span class="nonterminal">ident</span><sup>+</sup><sub>DOT</sub></td>
+        <td><span class="nonterminal">ident</span><sup>+</sup><sub>DOT</sub></td>
       </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">atomic_expression</span></th>
-        <td><span class="nonterminal">qident</span></td>
+        <td><span class="nonterminal">ident</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -148,11 +141,43 @@
         ARROW
         <span class="nonterminal">constructor</span></td>
       </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">small_expression</span>
+        DOT
+        <span class="nonterminal">ident</span></td>
+      </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">constructor_payload</span></th>
+        <th><span class="nonterminal">struct_content_field</span></th>
+        <td><span class="nonterminal">ident</span>
+        COLON
+        <span class="nonterminal">logical_expression</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">enum_inject_content</span></th>
         <td>CONTENT
         <span class="nonterminal">small_expression</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">struct_or_enum_inject_content</span></th>
+        <td><span class="option"><span class="nonterminal">enum_inject_content</span></span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>CONTENT
+        LPAREN
+        ALT
+        <span class="nonterminal">struct_content_field</span><sup>+</sup><sub>ALT</sub>
+        RPAREN</td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">struct_or_enum_inject</span></th>
+        <td><span class="nonterminal">constructor</span>
+        <span class="nonterminal">struct_or_enum_inject_content</span></td>
       </tr>
       
       <tr class="rule">
@@ -169,8 +194,7 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">constructor</span>
-        <span class="option"><span class="nonterminal">constructor_payload</span></span></td>
+        <td><span class="nonterminal">struct_or_enum_inject</span></td>
       </tr>
       
       <tr class="rule">
@@ -377,7 +401,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">optional_binding</span></th>
-        <td>epsilon</td>
+        <td>&epsilon;</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -658,7 +682,7 @@
         <span class="nonterminal">constructor</span>
         <span class="option"><span class="nonterminal">scope_use_condition</span></span>
         COLON
-        nonempty_list(<span class="nonterminal">scope_item</span>)</td>
+        <span class="ne_list"><span class="nonterminal">scope_item</span></span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -674,7 +698,7 @@
         SCOPE
         <span class="nonterminal">constructor</span>
         COLON
-        nonempty_list(<span class="nonterminal">scope_decl_item</span>)</td>
+        <span class="ne_list"><span class="nonterminal">scope_decl_item</span></span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -682,7 +706,7 @@
         ENUM
         <span class="nonterminal">constructor</span>
         COLON
-        nonempty_list(<span class="nonterminal">enum_decl_line</span>)</td>
+        <span class="ne_list"><span class="nonterminal">enum_decl_line</span></span></td>
       </tr>
       
       <tr class="rule">
