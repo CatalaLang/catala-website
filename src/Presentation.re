@@ -72,11 +72,7 @@ let doc_card: Utils.presentation_card = {
 };
 
 let legal_guide_card: Utils.presentation_card = {
-  title:
-    <Lang.String
-      english="Validation from legal"
-      french={js|Sécurité juridique|js}
-    />,
+  title: <Lang.String english="Validation from legal" french={js|Sécurité juridique|js} />,
   icon: Some("work"),
   quote:
     Some(
@@ -111,11 +107,7 @@ let legal_guide_card: Utils.presentation_card = {
 };
 
 let foundations_card: Utils.presentation_card = {
-  title:
-    <Lang.String
-      english="Solid foundations"
-      french={js|Des fondations solides|js}
-    />,
+  title: <Lang.String english="Solid foundations" french={js|Des fondations solides|js} />,
   icon: Some("functions"),
   quote:
     Some(
@@ -127,20 +119,12 @@ let foundations_card: Utils.presentation_card = {
   action:
     Some((
       [|Elements.home, Elements.formalization|],
-      <Lang.String
-        english="Formalized specification"
-        french={js|Formalisation|js}
-      />,
+      <Lang.String english="Formalized specification" french={js|Formalisation|js} />,
     )),
   content: {
     <>
-      <Lang.String
-        english="Catala originates from "
-        french={js|Catala est développé à |js}
-      />
-      <Utils.TextLink target="https://www.inria.fr">
-        {"Inria" |> React.string}
-      </Utils.TextLink>
+      <Lang.String english="Catala originates from " french={js|Catala est développé à |js} />
+      <Utils.TextLink target="https://www.inria.fr"> {"Inria" |> React.string} </Utils.TextLink>
       <Lang.String
         english=", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
@@ -149,8 +133,7 @@ let foundations_card: Utils.presentation_card = {
    La conception du langage de programmation suit les techniques  de l'état de l'art du domaine.
    Inspiré des langages de la famille ML, Catala possède un mécanisme inédit de logique par défaut basé sur |js}
       />
-      <Utils.TextLink
-        target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
+      <Utils.TextLink target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
         <Lang.String
           english="the work of Sarah Lawsky"
           french={js|le travail de Sarah Lawsky|js}
@@ -165,13 +148,9 @@ type imgLocation = {default: string};
 
 let logo: imgLocation = [%raw "require('../assets/logo.png')"];
 
-let french_homepage: string = [%bs.raw
-  {|require("../assets/french_homepage.html")|}
-];
+let french_homepage: string = [%bs.raw {|require("../assets/french_homepage.html")|}];
 
-let english_homepage: string = [%bs.raw
-  {|require("../assets/english_homepage.html")|}
-];
+let english_homepage: string = [%bs.raw {|require("../assets/english_homepage.html")|}];
 
 [@react.component]
 let make = () => {
@@ -189,25 +168,19 @@ let make = () => {
         </p>
       </div>
       <div className=[%tw "flex flex-row flex-wrap justify-center"]>
-        <div
-          className=[%tw "flex flex-col flex-wrap items-center justify-center"]>
+        <div className=[%tw "flex flex-col flex-wrap items-center justify-center"]>
           <div className=[%tw "mx-8 my-4"]>
             <a
               className=[%tw "cursor-pointer uppercase text-white"]
               href=github_link
               target="_blank">
-              <div
-                className=[%tw
-                  "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
-                ]>
+              <div className=[%tw "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"]>
                 <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
                   <Lang.String
                     english="Get started on GitHub"
                     french={js|Démarrer sur GitHub|js}
                   />
-                  <i className="pl-4 material-icons">
-                    {"code" |> React.string}
-                  </i>
+                  <i className="pl-4 material-icons"> {"code" |> React.string} </i>
                 </div>
               </div>
             </a>
@@ -215,22 +188,14 @@ let make = () => {
           <div className=[%tw "mx-8 my-4"]>
             <a
               className=[%tw "cursor-pointer uppercase text-white"]
-              onClick={Elements.goToElement(
-                [|Elements.home, Elements.about|],
-                lang,
-              )}>
+              onClick={Elements.goToElement([|Elements.home, Elements.about|], lang)}>
               <div
                 className=[%tw
                   "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
                 ]>
                 <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                  <Lang.String
-                    english="About the project"
-                    french={js|À propos du projet|js}
-                  />
-                  <i className="pl-4 material-icons">
-                    {"info" |> React.string}
-                  </i>
+                  <Lang.String english="About the project" french={js|À propos du projet|js} />
+                  <i className="pl-4 material-icons"> {"info" |> React.string} </i>
                 </div>
               </div>
             </a>
@@ -242,14 +207,11 @@ let make = () => {
     <div className=[%tw "flex flex-col flex-wrap content-center pt-12"]>
       <div
         className=[%tw
-          "sm:w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
+          "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
         ]>
-        <Lang.String
-          english="Catala in action"
-          french={js|Catala en action|js}
-        />
+        <Lang.String english="Catala in action" french={js|Catala en action|js} />
       </div>
-      <div className=[%tw "sm:w-full md:w-4/5 lg:w-3/5"]>
+      <div className=[%tw "w-full md:w-4/5 lg:w-3/5"]>
         <p className=[%tw "my-4 italic"]>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation.
@@ -261,27 +223,18 @@ let make = () => {
         </p>
         <Lang.Element
           french={
-            <div
-              className="catala-code"
-              dangerouslySetInnerHTML={"__html": french_homepage}
-            />
+            <div className="catala-code" dangerouslySetInnerHTML={"__html": french_homepage} />
           }
           english={
-            <div
-              className="catala-code"
-              dangerouslySetInnerHTML={"__html": english_homepage}
-            />
+            <div className="catala-code" dangerouslySetInnerHTML={"__html": english_homepage} />
           }
         />
       </div>
       <div
         className=[%tw
-          "sm:w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
+          "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
         ]>
-        <Lang.String
-          english="Why using Catala?"
-          french={js|Pourquoi utiliser Catala ?|js}
-        />
+        <Lang.String english="Why using Catala?" french={js|Pourquoi utiliser Catala ?|js} />
       </div>
     </div>
     <div className=[%tw "pb-10 pt-4"]>
