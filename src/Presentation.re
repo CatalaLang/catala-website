@@ -1,5 +1,7 @@
 let github_link = "https://github.com/CatalaLang/catala";
 
+let catala_jurix_link = "https://hal.inria.fr/hal-02936606";
+
 let examples_card: Utils.presentation_card = {
   title:
     <Lang.String
@@ -58,7 +60,7 @@ let doc_card: Utils.presentation_card = {
   content: {
     <Lang.String
       english="Code derived from legislation generally uses basic programming concepts, that are present
- in every programming language. Why would you need a complex rules engine or runtime to execute that code?
+ in every programming language. Why would you need a rules-engine or runtime environment to execute that code?
  Catala uses a fully-fledged compiler to bring you the code you need, in the programming language you need.
  That also include legacy environments used in large organizations."
       french={js|Le code dérivé d'une source législative ou réglementaire n'utilise généralement que des concepts basique de la
@@ -144,7 +146,7 @@ let foundations_card: Utils.presentation_card = {
       <Lang.String
         english=", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
-   Inspired from the ML language family, Catala features an unique default logic mechanism based on "
+   Inspired from the ML language family, Catala features a unique default logic mechanism based on "
         french={js|, l'Institut National de Recherche en Informatique et en Automatique.
    La conception du langage de programmation suit les techniques  de l'état de l'art du domaine.
    Inspiré des langages de la famille ML, Catala possède un mécanisme inédit de logique par défaut basé sur |js}
@@ -235,6 +237,27 @@ let make = () => {
               </div>
             </a>
           </div>
+          <div className=[%tw "mx-8 my-4"]>
+            <a
+              className=[%tw "cursor-pointer uppercase text-white"]
+              href=catala_jurix_link
+              target="_blank">
+              <div
+                className=[%tw
+                  "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
+                ]>
+                <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+                  <Lang.String
+                    english="The Catala white paper"
+                    french={js|Catala en 10 pages|js}
+                  />
+                  <i className="pl-4 material-icons">
+                    {"content_copy" |> React.string}
+                  </i>
+                </div>
+              </div>
+            </a>
+          </div>
         </div>
         <img className=[%tw "w-48 mx-8 my-4"] src={"/" ++ logo.default} />
       </div>
@@ -242,14 +265,14 @@ let make = () => {
     <div className=[%tw "flex flex-col flex-wrap content-center pt-12"]>
       <div
         className=[%tw
-          "sm:w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
+          "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
         ]>
         <Lang.String
           english="Catala in action"
           french={js|Catala en action|js}
         />
       </div>
-      <div className=[%tw "sm:w-full md:w-4/5 lg:w-3/5"]>
+      <div className=[%tw "w-full md:w-4/5 lg:w-3/5"]>
         <p className=[%tw "my-4 italic"]>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation.
@@ -276,7 +299,7 @@ let make = () => {
       </div>
       <div
         className=[%tw
-          "sm:w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
+          "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
         ]>
         <Lang.String
           english="Why using Catala?"
