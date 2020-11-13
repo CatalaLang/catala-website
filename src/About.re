@@ -90,7 +90,7 @@ let make = () => {
       the expected behavior. Led by Denis Merigoux from the "
         french={js|En 2019, une initiative a été lancée au
         sein de l'Institut National de Recherche en Informatique et en Automatique afin de créer un nouveau
-        langage de programmation pour transformer la loi en code  : Catala. Ce langage est issu du domaine
+        langage de programmation pour transformer la loi en code : Catala. Ce langage est issu du domaine
         des méthodes formelles, utilisées pour s'assurer que le logiciel se comporte comme prévu
         dans de nombreux secteurs où la sécurité est cruciale, comme l'aviation ou le nucléaire. Le projet
         est mené par Denis Merigoux de |js}
@@ -103,10 +103,10 @@ let make = () => {
       </Utils.TextLink>
       <Lang.String
         english={js| , in collaboration with academics from the Paris Panthéon-Sorbonne
-       University and the Northwestern Pritzker School of Law, Catala is designed to achieve semantic
+       University, the Northwestern Pritzker School of Law and Microsoft Research, Catala is designed to achieve semantic
        equivalence with the law itself (its fundamental source of truth).|js}
-        french={js|, en collaboration avec des universitaires de Paris Panthéon-Sorbonne et de la
-           Northwestern Pritzker School of Law de Chicago. Le but du langage est d'atteindre une équivalence
+        french={js|, en collaboration avec des universitaires de Paris Panthéon-Sorbonne, de la
+           Northwestern Pritzker School of Law de Chicago et de Microsoft Research. Le but du langage est d'atteindre une équivalence
            sémantique entre le code et la loi qui est sa source de vérité.|js}
       />
     </p>
