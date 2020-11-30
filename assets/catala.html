@@ -25,7 +25,7 @@ Catala is a domain&#45;specific language for deriving faithful&#45;by&#45;constr
 
 <DL COMPACT>
 <DT><I>BACKEND</I> (required)<DD>
-Backend selection among: LaTeX, Makefile
+Backend selection among: LaTeX, Makefile, Html, Interpret
 <DT><I>FILE</I> (required)<DD>
 Catala master file to be compiled
 </DL>
@@ -38,11 +38,15 @@ Prints debug information
 <DT><B>&#45;&#45;help</B>[=<I>FMT</I>] (default=auto)<DD>
 Show this help in format <I>FMT</I>&#46; The value <I>FMT</I> must be one of `auto&#39;, `pager&#39;, `groff&#39; or `plain&#39;&#46; With `auto&#39;, the format is `pager` or `plain&#39; whenever the <B>TERM</B> env var is `dumb&#39; or undefined&#46;
 <DT><B>&#45;l</B> <I>LANG</I>, <B>&#45;&#45;language</B>=<I>LANG</I><DD>
-Input language among: en, fr (default fr)
+Input language among: en, fr, non&#45;verbose (default non&#45;verbose)
 <DT><B>&#45;o</B> <I>OUTPUT</I>, <B>&#45;&#45;output</B>=<I>OUTPUT</I><DD>
 <I> OUTPUT</I> is the file that will contain the extracted output (for compiler backends)
 <DT><B>&#45;p</B> <I>PYGMENTIZE</I>, <B>&#45;&#45;pygmentize</B>=<I>PYGMENTIZE</I><DD>
 Location of a custom pygmentize executable for LaTeX source code highlighting
+<DT><B>&#45;s</B> <I>SCOPE</I>, <B>&#45;&#45;scope</B>=<I>SCOPE</I><DD>
+Scope to be executed
+<DT><B>&#45;&#45;unstyled</B><DD>
+Removes styling from terminal output
 <DT><B>&#45;&#45;version</B><DD>
 Show version information&#46;
 <DT><B>&#45;w</B>, <B>&#45;&#45;wrap</B><DD>

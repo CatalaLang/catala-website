@@ -80,305 +80,531 @@
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>us_tax_code.catala</tt>, last modification 2020-06-07, 13:15</li>
-<li><tt>preamble.catala</tt>, last modification 2020-05-29, 10:52</li>
-<li><tt>section_132.catala</tt>, last modification 2020-06-07, 13:15</li>
-<li><tt>section_1015.catala</tt>, last modification 2020-06-07, 13:15</li>
+<li><tt>us_tax_code.catala_en</tt>, last modification 2020-11-12, 16:52</li>
+<li><tt>preamble.catala_en</tt>, last modification 2020-08-18, 22:47</li>
+<li><tt>section_121.catala_en</tt>, last modification 2020-11-30, 10:39</li>
+<li><tt>section_132.catala_en</tt>, last modification 2020-11-30, 10:37</li>
+<li><tt>section_1015.catala_en</tt>, last modification 2020-11-30, 10:38</li>
 </ul>
 <h2 class='law-heading'>The US Tax Code</h2>
 
-<h2 class='law-heading'>Section 132</h2>
+
+<h2 class='law-heading'>Section 121</h2>
 
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-3">3</a>
-<a href="#./section_132.catala-4">4</a>
-<a href="#./section_132.catala-5">5</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-3"></a>/*<span class="c1"></span>
-<a name="./section_132.catala-4"></a><span class="c1"># We only formalize part (c) here</span>
-<a name="./section_132.catala-5"></a>*/
+<div class='filename'>./section_121.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-5"> 5</a>
+<a href="#./section_121.catala_en-6"> 6</a>
+<a href="#./section_121.catala_en-7"> 7</a>
+<a href="#./section_121.catala_en-8"> 8</a>
+<a href="#./section_121.catala_en-9"> 9</a>
+<a href="#./section_121.catala_en-10">10</a>
+<a href="#./section_121.catala_en-11">11</a>
+<a href="#./section_121.catala_en-12">12</a>
+<a href="#./section_121.catala_en-13">13</a>
+<a href="#./section_121.catala_en-14">14</a>
+<a href="#./section_121.catala_en-15">15</a>
+<a href="#./section_121.catala_en-16">16</a>
+<a href="#./section_121.catala_en-17">17</a>
+<a href="#./section_121.catala_en-18">18</a>
+<a href="#./section_121.catala_en-19">19</a>
+<a href="#./section_121.catala_en-20">20</a>
+<a href="#./section_121.catala_en-21">21</a>
+<a href="#./section_121.catala_en-22">22</a>
+<a href="#./section_121.catala_en-23">23</a>
+<a href="#./section_121.catala_en-24">24</a>
+<a href="#./section_121.catala_en-25">25</a>
+<a href="#./section_121.catala_en-26">26</a>
+<a href="#./section_121.catala_en-27">27</a>
+<a href="#./section_121.catala_en-28">28</a>
+<a href="#./section_121.catala_en-29">29</a>
+<a href="#./section_121.catala_en-30">30</a>
+<a href="#./section_121.catala_en-31">31</a>
+<a href="#./section_121.catala_en-32">32</a>
+<a href="#./section_121.catala_en-33">33</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-5"></a>/*
+<a name="./section_121.catala_en-6"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">PropertyOwnagePeriod</span><span class="o">:</span>
+<a name="./section_121.catala_en-7"></a>    <span class="kd">data</span> <span class="nv">owner</span> <span class="kd">content</span> <span class="nc">Person</span>
+<a name="./section_121.catala_en-8"></a>    <span class="kd">data</span> <span class="nv">user</span> <span class="kd">content</span> <span class="nc">Person</span> 
+<a name="./section_121.catala_en-9"></a>    <span class="kd">data</span> <span class="nv">start_date</span> <span class="kd">content</span> <span class="kt">date</span> 
+<a name="./section_121.catala_en-10"></a>    <span class="kd">data</span> <span class="nv">end_date</span> <span class="kd">content</span> <span class="kt">date</span> 
+<a name="./section_121.catala_en-11"></a>
+<a name="./section_121.catala_en-12"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Property</span><span class="o">:</span>
+<a name="./section_121.catala_en-13"></a>    <span class="kd">data</span> <span class="nv">ownages</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">PropertyOwnagePeriod</span>
+<a name="./section_121.catala_en-14"></a>
+<a name="./section_121.catala_en-15"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">SaleOrExchange</span><span class="o">:</span>
+<a name="./section_121.catala_en-16"></a>    <span class="kd">data</span> <span class="nv">property</span> <span class="kd">content</span> <span class="nc">Property</span>
+<a name="./section_121.catala_en-17"></a>    <span class="kd">data</span> <span class="nv">gain</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_121.catala_en-18"></a>    <span class="kd">data</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
+<a name="./section_121.catala_en-19"></a>
+<a name="./section_121.catala_en-20"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-21"></a>    <span class="kd">context</span> <span class="nv">taxpayer</span> <span class="kd">content</span> <span class="nc">Person</span>
+<a name="./section_121.catala_en-22"></a>    <span class="kd">context</span> <span class="nv">applicable</span> <span class="kd">condition</span>
+<a name="./section_121.catala_en-23"></a>    <span class="kd">context</span> <span class="nv">maximum_gain_excluded</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_121.catala_en-24"></a>    <span class="kd">context</span> <span class="nv">gain_considered_for_exclusion</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_121.catala_en-25"></a>    <span class="kd">context</span> <span class="nv">sale_or_exchange</span> <span class="kd">content</span> <span class="nc">SaleOrExchange</span> 
+<a name="./section_121.catala_en-26"></a>    <span class="kd">context</span> <span class="nv">included_in_gross_income</span> <span class="kd">condition</span> 
+<a name="./section_121.catala_en-27"></a>    <span class="kd">context</span> <span class="nv">ownage_considered_for_gain_inclusion</span> <span class="kd">condition</span> 
+<a name="./section_121.catala_en-28"></a>      <span class="kd">depends on</span> <span class="nc">PropertyOwnagePeriod</span>
+<a name="./section_121.catala_en-29"></a>    <span class="kd">context</span> <span class="nv">joint_return</span> <span class="kd">condition</span>
+<a name="./section_121.catala_en-30"></a>    <span class="kd">context</span> <span class="nv">taxable_year</span> <span class="kd">content</span> <span class="kt">integer</span>
+<a name="./section_121.catala_en-31"></a>    <span class="kd">context</span> <span class="nv">joint_return</span> <span class="kd">condition</span>
+<a name="./section_121.catala_en-32"></a>    <span class="kd">context</span> <span class="nv">condition_b_2</span> <span class="kd">condition</span>
+<a name="./section_121.catala_en-33"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(a) Exclusion</a></div>
+<p class='law-text'>Gross income shall not include gain from the sale or exchange of property if, 
+during the 5-year period ending on the date of the sale or exchange, such 
+property has been owned and used by the taxpayer as the taxpayer’s principal 
+residence for periods aggregating 2 years or more.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-9"> 9</a>
-<a href="#./section_132.catala-10">10</a>
-<a href="#./section_132.catala-11">11</a>
-<a href="#./section_132.catala-12">12</a>
-<a href="#./section_132.catala-13">13</a>
-<a href="#./section_132.catala-14">14</a>
-<a href="#./section_132.catala-15">15</a>
-<a href="#./section_132.catala-16">16</a>
-<a href="#./section_132.catala-17">17</a>
-<a href="#./section_132.catala-18">18</a>
-<a href="#./section_132.catala-19">19</a>
-<a href="#./section_132.catala-20">20</a>
-<a href="#./section_132.catala-21">21</a>
-<a href="#./section_132.catala-22">22</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-9"></a>/*
-<a name="./section_132.catala-10"></a><span class="kd">declaration</span> <span class="kd">enumeration</span> <span class="nc">DiscountType</span><span class="o">:</span>
-<a name="./section_132.catala-11"></a>  — <span class="nc">Property</span>
-<a name="./section_132.catala-12"></a>  — <span class="nc">Services</span>
-<a name="./section_132.catala-13"></a>
-<a name="./section_132.catala-14"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
-<a name="./section_132.catala-15"></a>  <span class="kd">context</span> <span class="nv">customer_price</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_132.catala-16"></a>  <span class="kd">context</span> <span class="nv">employee_price</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_132.catala-17"></a>  <span class="kd">context</span> <span class="nv">gross_profit_percentage</span> <span class="kd">content</span> <span class="kt">decimal</span>
-<a name="./section_132.catala-18"></a>  <span class="kd">context</span> <span class="nv">qualified_employee_discount</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_132.catala-19"></a>  <span class="kd">context</span> <span class="nv">employee_discount</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_132.catala-20"></a>  <span class="kd">context</span> <span class="nv">aggregate_cost</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_132.catala-21"></a>  <span class="kd">context</span> <span class="nv">discount_type</span> <span class="kd">content</span> <span class="nc">DiscountType</span>
-<a name="./section_132.catala-22"></a>*/
+<div class='filename'>./section_121.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-46">46</a>
+<a href="#./section_121.catala_en-47">47</a>
+<a href="#./section_121.catala_en-48">48</a>
+<a href="#./section_121.catala_en-49">49</a>
+<a href="#./section_121.catala_en-50">50</a>
+<a href="#./section_121.catala_en-51">51</a>
+<a href="#./section_121.catala_en-52">52</a>
+<a href="#./section_121.catala_en-53">53</a>
+<a href="#./section_121.catala_en-54">54</a>
+<a href="#./section_121.catala_en-55">55</a>
+<a href="#./section_121.catala_en-56">56</a>
+<a href="#./section_121.catala_en-57">57</a>
+<a href="#./section_121.catala_en-58">58</a>
+<a href="#./section_121.catala_en-59">59</a>
+<a href="#./section_121.catala_en-60">60</a>
+<a href="#./section_121.catala_en-61">61</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-46"></a>/*<span class="c1"></span>
+<a name="./section_121.catala_en-47"></a><span class="c1"># It&#39;s actually agragated. Input: how many days have you lived in the property </span>
+<a name="./section_121.catala_en-48"></a><span class="c1"># for the last five years.</span>
+<a name="./section_121.catala_en-49"></a><span class="c1"># FIXME: how many days have you used the property as the principal residence in the </span>
+<a name="./section_121.catala_en-50"></a><span class="c1"># last five years</span>
+<a name="./section_121.catala_en-51"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-52"></a>  <span class="kd">definition</span> <span class="nv">ownage_considered_for_gain_inclusion</span> <span class="kr">of</span> <span class="nv">ownage</span> <span class="kd">equals</span>
+<a name="./section_121.catala_en-53"></a>    <span class="nv">ownage</span><span class="o">.</span>owner <span class="o">=</span> <span class="nv">taxpayer</span> <span class="o">and</span> <span class="nv">ownage</span><span class="o">.</span>user <span class="o">=</span> <span class="nv">taxpayer</span> <span class="o">and</span> 
+<a name="./section_121.catala_en-54"></a>    <span class="nv">ownage</span><span class="o">.</span>end_date <span class="o">-</span> <span class="nv">ownage</span><span class="o">.</span>start_date ≥ <span class="mi">2</span> <span class="o">year</span> <span class="o">and</span> 
+<a name="./section_121.catala_en-55"></a>    <span class="nv">ownage</span><span class="o">.</span>start_data ≥ <span class="nv">sale_or_exchange</span><span class="o">.</span>date_of_sale_or_exchange <span class="o">-</span> <span class="mi">5</span> <span class="o">year</span>
+<a name="./section_121.catala_en-56"></a>
+<a name="./section_121.catala_en-57"></a>  <span class="kd">rule</span> <span class="nv">included_in_gross_income</span> <span class="kd">under condition</span>
+<a name="./section_121.catala_en-58"></a>    <span class="kr">exists</span> <span class="nv">ownage</span> <span class="kr">in</span> <span class="nv">sale_or_exchange</span><span class="o">.</span>property.ownages <span class="kr">such that</span> 
+<a name="./section_121.catala_en-59"></a>      <span class="nv">ownage_considered_for_gain_inclusion</span> <span class="kr">of</span> <span class="nv">ownage</span>
+<a name="./section_121.catala_en-60"></a>  <span class="kd">consequence</span> <span class="o">not</span> <span class="kd">fulfilled</span>
+<a name="./section_121.catala_en-61"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<h3 class='law-heading'>(b) Limitations</h3>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(1) In general</a></div>
+<p class='law-text'>The amount of gain excluded from gross income under subsection (a)  with 
+respect to any sale or exchange shall not exceed $250,000.</p>
+<div class='code-wrapper'>
+<div class='filename'>./section_121.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-65">65</a>
+<a href="#./section_121.catala_en-66">66</a>
+<a href="#./section_121.catala_en-67">67</a>
+<a href="#./section_121.catala_en-68">68</a>
+<a href="#./section_121.catala_en-69">69</a>
+<a href="#./section_121.catala_en-70">70</a>
+<a href="#./section_121.catala_en-71">71</a>
+<a href="#./section_121.catala_en-72">72</a>
+<a href="#./section_121.catala_en-73">73</a>
+<a href="#./section_121.catala_en-74">74</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-65"></a>/*
+<a name="./section_121.catala_en-66"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-67"></a>  <span class="kd">definition</span> <span class="nv">maximum_gain_excluded</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">250,000</span>
+<a name="./section_121.catala_en-68"></a>
+<a name="./section_121.catala_en-69"></a>  <span class="kd">definition</span> <span class="nv">gain_considered_for_exclusion</span> <span class="kd">equals</span> 
+<a name="./section_121.catala_en-70"></a>    <span class="kr">if</span> <span class="nv">sale_or_exchange</span><span class="o">.</span>gain ≥ <span class="nv">maximum_gain_excluded</span> <span class="kr">then</span> 
+<a name="./section_121.catala_en-71"></a>      <span class="nv">maximum_gain_excluded</span>
+<a name="./section_121.catala_en-72"></a>    <span class="kr">else</span>
+<a name="./section_121.catala_en-73"></a>      <span class="nv">sale_or_exchange</span><span class="o">.</span>gain
+<a name="./section_121.catala_en-74"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(2) Special rules for joint returns</a></div>
+<p class='law-text'>In the case of a husband and wife who make a joint return for the taxable year  
+of the sale or exchange of the property—</p>
+<div class='code-wrapper'>
+<div class='filename'>./section_121.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-81">81</a>
+<a href="#./section_121.catala_en-82">82</a>
+<a href="#./section_121.catala_en-83">83</a>
+<a href="#./section_121.catala_en-84">84</a>
+<a href="#./section_121.catala_en-85">85</a>
+<a href="#./section_121.catala_en-86">86</a>
+<a href="#./section_121.catala_en-87">87</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-81"></a>/* 
+<a name="./section_121.catala_en-82"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-83"></a>  <span class="kd">rule</span> <span class="nv">condition_b_2</span> <span class="kd">under condition</span> 
+<a name="./section_121.catala_en-84"></a>    <span class="nv">joint_return</span> <span class="o">and</span> 
+<a name="./section_121.catala_en-85"></a>    <span class="nv">taxable_year</span> <span class="o">=</span> <span class="nv">get_year</span> <span class="kr">of</span> <span class="nv">sale_or_exchange</span><span class="o">.</span>date_of_sale_or_exchange 
+<a name="./section_121.catala_en-86"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a name="./section_121.catala_en-87"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(A) $500,000 Limitation for certain joint returns</a></div>
+<p class='law-text'>Paragraph (1) shall be applied by substituting “$500,000” for “$250,000” if—<br/>
+
+(i) either spouse meets the ownership requirements of subsection (a) with
+respect to such property;<br/>
+(ii) both spouses meet the use requirements of subsection (a) with respect to 
+such property; and<br/>
+(iii) neither spouse is ineligible for the benefits of subsection (a) with 
+respect to such property by reason of paragraph (3).</p>
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(B) Other joint returns</a></div>
+<p class='law-text'>If such spouses do not meet the requirements of subparagraph (A), the limitation 
+under paragraph (1) shall be the sum of the limitations under paragraph (1) to 
+which each spouse would be entitled if such spouses had not been married. For 
+purposes of the preceding sentence, each spouse shall be treated as owning the 
+property during the period that either spouse owned the property.</p>
+</div>
+<h4 class='law-heading'>(3) Application to only 1 sale or exchange every 2 years</h4>
+<p class='law-text'>Subsection (a) shall not apply to any sale or exchange by the taxpayer if, 
+during the 2-year period ending on the date of such sale or exchange, there 
+was any other sale or exchange by the taxpayer to which subsection (a) applied.</p>
+<h4 class='law-heading'>(4) Special rule for certain sales by surviving spouses</h4>
+<p class='law-text'>In the case of a sale or exchange of property by an unmarried individual whose 
+spouse is deceased on the date of such sale, paragraph (1) shall be applied by 
+substituting “$500,000” for “$250,000” if such sale occurs not later than 2 
+years after the date of death of such spouse and the requirements of paragraph 
+(2)(A) were met immediately before such date of death.</p>
+<h4 class='law-heading'>(5) Exclusion of gain allocated to nonqualified use</h4>
+
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(A) In general</a></div>
+<p class='law-text'>Subsection (a) shall not apply to so much of the gain from the sale or exchange 
+of property as is allocated to periods of nonqualified use.</p>
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(B) Gain allocated to periods of nonqualified use</a></div>
+<p class='law-text'>For purposes of subparagraph (A), gain shall be allocated to periods of 
+nonqualified use based on the ratio which—<br/>
+(i) the aggregate periods of nonqualified use during the period such property 
+was owned by the taxpayer, bears to<br/>
+(ii) the period such property was owned by the taxpayer.</p>
+</div>
+<h5 class='law-heading'>(C) Period of nonqualified use</h5>
+<p class='law-text'>For purposes of this paragraph—</p>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(i) In general</a></div>
+<p class='law-text'>The term “period of nonqualified use” means any period (other than the portion 
+of any period preceding January 1, 2009) during which the property is not used 
+as the principal residence of the taxpayer or the taxpayer’s spouse or former 
+spouse.</p>
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(ii) Exceptions</a></div>
+<p class='law-text'>The term “period of nonqualified use” does not include—<br/>
+(I) any portion of the 5-year period described in subsection (a) which is after 
+the last date that such property is used as the principal residence of the 
+taxpayer or the taxpayer’s spouse,<br/>
+(II) any period (not to exceed an aggregate period of 10 years) during which the 
+taxpayer or the taxpayer’s spouse is serving on qualified official extended duty 
+(as defined in subsection (d)(9)(C)) described in clause (i), (ii), or (iii) of 
+subsection (d)(9)(A), and<br/>
+(III) any other period of temporary absence (not to exceed an aggregate period 
+of 2 years) due to change of employment, health conditions, or such other 
+unforeseen circumstances as may be specified by the Secretary.</p>
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>(D) Coordination with recognition of gain attributable to depreciation</a></div>
+<p class='law-text'>For purposes of this paragraph—<br/>
+(i) subparagraph (A) shall be applied after the application of subsection 
+(d)(6), and<br/>
+(ii) subparagraph (B) shall be applied without regard to any gain to which 
+subsection (d)(6) applies.</p>
+</div>
+
+<h2 class='law-heading'>Section 132</h2>
+
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-6"> 6</a>
+<a href="#./section_132.catala_en-7"> 7</a>
+<a href="#./section_132.catala_en-8"> 8</a>
+<a href="#./section_132.catala_en-9"> 9</a>
+<a href="#./section_132.catala_en-10">10</a>
+<a href="#./section_132.catala_en-11">11</a>
+<a href="#./section_132.catala_en-12">12</a>
+<a href="#./section_132.catala_en-13">13</a>
+<a href="#./section_132.catala_en-14">14</a>
+<a href="#./section_132.catala_en-15">15</a>
+<a href="#./section_132.catala_en-16">16</a>
+<a href="#./section_132.catala_en-17">17</a>
+<a href="#./section_132.catala_en-18">18</a>
+<a href="#./section_132.catala_en-19">19</a>
+<a href="#./section_132.catala_en-20">20</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-6"></a>/*<span class="c1"></span>
+<a name="./section_132.catala_en-7"></a><span class="c1"># We only formalize part (c) here</span>
+<a name="./section_132.catala_en-8"></a><span class="kd">declaration</span> <span class="kd">enumeration</span> <span class="nc">DiscountType</span><span class="o">:</span>
+<a name="./section_132.catala_en-9"></a>  — <span class="nc">Property</span>
+<a name="./section_132.catala_en-10"></a>  — <span class="nc">Services</span>
+<a name="./section_132.catala_en-11"></a>
+<a name="./section_132.catala_en-12"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
+<a name="./section_132.catala_en-13"></a>  <span class="kd">context</span> <span class="nv">customer_price</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala_en-14"></a>  <span class="kd">context</span> <span class="nv">employee_price</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala_en-15"></a>  <span class="kd">context</span> <span class="nv">gross_profit_percentage</span> <span class="kd">content</span> <span class="kt">decimal</span>
+<a name="./section_132.catala_en-16"></a>  <span class="kd">context</span> <span class="nv">qualified_employee_discount</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala_en-17"></a>  <span class="kd">context</span> <span class="nv">employee_discount</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala_en-18"></a>  <span class="kd">context</span> <span class="nv">aggregate_cost</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_132.catala_en-19"></a>  <span class="kd">context</span> <span class="nv">discount_type</span> <span class="kd">content</span> <span class="nc">DiscountType</span>
+<a name="./section_132.catala_en-20"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
 <h3 class='law-heading'>(c) Qualified employee discount defined</h3>
-
-<p class='law-text'> For purposes of this section—</p>
-
+<p class='law-text'>For purposes of this section—</p>
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(1) Qualified employee discount</a></div>
-
-<p class='law-text'>The term “qualified employee discount” means any employee discount with respect to qualified property or services to the extent such discount does not exceed—</p>
-
-<p class='law-text'>(A) in the case of property, the gross profit percentage of the price at which the property is being offered by the employer to customers, or</p>
-
+<p class='law-text'>The term “qualified employee discount” means any employee discount with respect 
+to qualified property or services to the extent such discount does not exceed—
+(A) in the case of property, the gross profit percentage of the price at which 
+the property is being offered by the employer to customers, or</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-32">32</a>
-<a href="#./section_132.catala-33">33</a>
-<a href="#./section_132.catala-34">34</a>
-<a href="#./section_132.catala-35">35</a>
-<a href="#./section_132.catala-36">36</a>
-<a href="#./section_132.catala-37">37</a>
-<a href="#./section_132.catala-38">38</a>
-<a href="#./section_132.catala-39">39</a>
-<a href="#./section_132.catala-40">40</a>
-<a href="#./section_132.catala-41">41</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-32"></a>/*
-<a name="./section_132.catala-33"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
-<a name="./section_132.catala-34"></a>  <span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
-<a name="./section_132.catala-35"></a>    <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Property</span> <span class="kd">consequence</span>
-<a name="./section_132.catala-36"></a>  <span class="kd">equals</span>
-<a name="./section_132.catala-37"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;</span>
-<a name="./section_132.catala-38"></a>      <span class="nv">customer_price</span> × <span class="nv">gross_profit_percentage</span>
-<a name="./section_132.catala-39"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> × <span class="nv">gross_profit_percentage</span>
-<a name="./section_132.catala-40"></a>    <span class="kr">else</span> <span class="nv">employee_discount</span>
-<a name="./section_132.catala-41"></a>*/
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-31">31</a>
+<a href="#./section_132.catala_en-32">32</a>
+<a href="#./section_132.catala_en-33">33</a>
+<a href="#./section_132.catala_en-34">34</a>
+<a href="#./section_132.catala_en-35">35</a>
+<a href="#./section_132.catala_en-36">36</a>
+<a href="#./section_132.catala_en-37">37</a>
+<a href="#./section_132.catala_en-38">38</a>
+<a href="#./section_132.catala_en-39">39</a>
+<a href="#./section_132.catala_en-40">40</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-31"></a>/*
+<a name="./section_132.catala_en-32"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
+<a name="./section_132.catala_en-33"></a>  <span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
+<a name="./section_132.catala_en-34"></a>    <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Property</span> <span class="kd">consequence</span>
+<a name="./section_132.catala_en-35"></a>  <span class="kd">equals</span>
+<a name="./section_132.catala_en-36"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;</span>
+<a name="./section_132.catala_en-37"></a>      <span class="nv">customer_price</span> × <span class="nv">gross_profit_percentage</span>
+<a name="./section_132.catala_en-38"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> × <span class="nv">gross_profit_percentage</span>
+<a name="./section_132.catala_en-39"></a>    <span class="kr">else</span> <span class="nv">employee_discount</span>
+<a name="./section_132.catala_en-40"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+<p class='law-text'>(B) in the case of services, 20 percent of the price at which the services are 
+being offered by the employer to customers.</p>
+<div class='code-wrapper'>
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-43">43</a>
+<a href="#./section_132.catala_en-44">44</a>
+<a href="#./section_132.catala_en-45">45</a>
+<a href="#./section_132.catala_en-46">46</a>
+<a href="#./section_132.catala_en-47">47</a>
+<a href="#./section_132.catala_en-48">48</a>
+<a href="#./section_132.catala_en-49">49</a>
+<a href="#./section_132.catala_en-50">50</a>
+<a href="#./section_132.catala_en-51">51</a>
+<a href="#./section_132.catala_en-52">52</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-43"></a>/*
+<a name="./section_132.catala_en-44"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
+<a name="./section_132.catala_en-45"></a><span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
+<a name="./section_132.catala_en-46"></a>  <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Services</span> <span class="kd">consequence</span>
+<a name="./section_132.catala_en-47"></a><span class="kd">equals</span>
+<a name="./section_132.catala_en-48"></a>  <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;</span>
+<a name="./section_132.catala_en-49"></a>    <span class="nv">customer_price</span> × <span class="mi">20</span><span class="o">%</span>
+<a name="./section_132.catala_en-50"></a>  <span class="kr">then</span> <span class="nv">customer_price</span> × <span class="mi">20</span><span class="o">%</span>
+<a name="./section_132.catala_en-51"></a>  <span class="kr">else</span> <span class="nv">employee_discount</span>
+<a name="./section_132.catala_en-52"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<p class='law-text'>(B) in the case of services, 20 percent of the price at which the services are being offered by the employer to customers.</p>
-
-<div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-43">43</a>
-<a href="#./section_132.catala-44">44</a>
-<a href="#./section_132.catala-45">45</a>
-<a href="#./section_132.catala-46">46</a>
-<a href="#./section_132.catala-47">47</a>
-<a href="#./section_132.catala-48">48</a>
-<a href="#./section_132.catala-49">49</a>
-<a href="#./section_132.catala-50">50</a>
-<a href="#./section_132.catala-51">51</a>
-<a href="#./section_132.catala-52">52</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-43"></a>/*
-<a name="./section_132.catala-44"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
-<a name="./section_132.catala-45"></a><span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
-<a name="./section_132.catala-46"></a>  <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Services</span> <span class="kd">consequence</span>
-<a name="./section_132.catala-47"></a><span class="kd">equals</span>
-<a name="./section_132.catala-48"></a>  <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;</span>
-<a name="./section_132.catala-49"></a>    <span class="nv">customer_price</span> × <span class="mi">20</span><span class="o">%</span>
-<a name="./section_132.catala-50"></a>  <span class="kr">then</span> <span class="nv">customer_price</span> × <span class="mi">20</span><span class="o">%</span>
-<a name="./section_132.catala-51"></a>  <span class="kr">else</span> <span class="nv">employee_discount</span>
-<a name="./section_132.catala-52"></a>*/
-</pre></div>
-</td></tr></table>
 </div>
-
-<!-- Closing article div -->
-</div>
-
 <h4 class='law-heading'>(2) Gross profit percentage</h4>
 
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(A) In general</a></div>
-
-<p class='law-text'>The term “gross profit percentage” means the percent which—</p>
-
-<p class='law-text'>(i) the excess of the aggregate sales price of property sold by the employer to customers over the aggregate cost of such property to the employer, is of</p>
-
-<p class='law-text'>(ii) the aggregate sale price of such property.</p>
-
+<p class='law-text'>The term “gross profit percentage” means the percent which—<br/>
+(i) the excess of the aggregate sales price of property sold by the employer 
+to customers over the aggregate cost of such property to the employer, is of<br/>
+(ii) the aggregate sale price of such property.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-59">59</a>
-<a href="#./section_132.catala-60">60</a>
-<a href="#./section_132.catala-61">61</a>
-<a href="#./section_132.catala-62">62</a>
-<a href="#./section_132.catala-63">63</a>
-<a href="#./section_132.catala-64">64</a>
-<a href="#./section_132.catala-65">65</a>
-<a href="#./section_132.catala-66">66</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-59"></a>/*
-<a name="./section_132.catala-60"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span>
-<a name="./section_132.catala-61"></a>  <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Property</span> <span class="o">:</span>
-<a name="./section_132.catala-62"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> ≥ <span class="nv">aggregate_cost</span>
-<a name="./section_132.catala-63"></a>
-<a name="./section_132.catala-64"></a>  <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span>
-<a name="./section_132.catala-65"></a>    <span class="o">(</span><span class="nv">customer_price</span> <span class="o">-</span> <span class="nv">aggregate_cost</span><span class="o">)</span> ÷ <span class="nv">customer_price</span>
-<a name="./section_132.catala-66"></a>*/
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-62">62</a>
+<a href="#./section_132.catala_en-63">63</a>
+<a href="#./section_132.catala_en-64">64</a>
+<a href="#./section_132.catala_en-65">65</a>
+<a href="#./section_132.catala_en-66">66</a>
+<a href="#./section_132.catala_en-67">67</a>
+<a href="#./section_132.catala_en-68">68</a>
+<a href="#./section_132.catala_en-69">69</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-62"></a>/*
+<a name="./section_132.catala_en-63"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span>
+<a name="./section_132.catala_en-64"></a>  <span class="kd">under condition</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span> <span class="nc">Property</span> <span class="o">:</span>
+<a name="./section_132.catala_en-65"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> ≥ <span class="nv">aggregate_cost</span>
+<a name="./section_132.catala_en-66"></a>
+<a name="./section_132.catala_en-67"></a>  <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span>
+<a name="./section_132.catala_en-68"></a>    <span class="o">(</span><span class="nv">customer_price</span> <span class="o">-</span> <span class="nv">aggregate_cost</span><span class="o">)</span> ÷ <span class="nv">customer_price</span>
+<a name="./section_132.catala_en-69"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(B) Determination of gross profit percentage</a></div>
-
-<p class='law-text'>Gross profit percentage shall be determined on the basis of—</p>
-
-<p class='law-text'>(i) all property offered to customers in the ordinary course of the line of business of the employer in which the employee is performing services (or a reasonable classification of property selected by the employer), and</p>
-
-<p class='law-text'>(ii) the employer’s experience during a representative period.</p>
-
+<p class='law-text'>Gross profit percentage shall be determined on the basis of—<br/>
+(i) all property offered to customers in the ordinary course of the line of 
+business of the employer in which the employee is performing services (or a 
+reasonable classification of property selected by the employer), and<br/>
+(ii) the employer’s experience during a representative period.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-70">70</a>
-<a href="#./section_132.catala-71">71</a>
-<a href="#./section_132.catala-72">72</a>
-<a href="#./section_132.catala-73">73</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-70"></a>/*<span class="c1"></span>
-<a name="./section_132.catala-71"></a><span class="c1"># (i) and (ii) are subjective criteria for determining the gross profit</span>
-<a name="./section_132.catala-72"></a><span class="c1"># percentage ; we do not formalize them</span>
-<a name="./section_132.catala-73"></a>*/
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-77">77</a>
+<a href="#./section_132.catala_en-78">78</a>
+<a href="#./section_132.catala_en-79">79</a>
+<a href="#./section_132.catala_en-80">80</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-77"></a>/*<span class="c1"></span>
+<a name="./section_132.catala_en-78"></a><span class="c1"># (i) and (ii) are subjective criteria for determining the gross profit</span>
+<a name="./section_132.catala_en-79"></a><span class="c1"># percentage ; we do not formalize them</span>
+<a name="./section_132.catala_en-80"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(3) Employee discount defined</a></div>
-
-<p class='law-text'>The term “employee discount” means the amount by which—</p>
-
-<p class='law-text'>(A) the price at which the property or services are provided by the employer to an employee for use by such employee, is less than</p>
-
-<p class='law-text'>(B) the price at which such property or services are being offered by the employer to customers.</p>
-
+<p class='law-text'>The term “employee discount” means the amount by which—<br/>
+(A) the price at which the property or services are provided by the employer to 
+an employee for use by such employee, is less than<br/>
+(B) the price at which such property or services are being offered by the 
+employer to customers.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-79">79</a>
-<a href="#./section_132.catala-80">80</a>
-<a href="#./section_132.catala-81">81</a>
-<a href="#./section_132.catala-82">82</a>
-<a href="#./section_132.catala-83">83</a>
-<a href="#./section_132.catala-84">84</a>
-<a href="#./section_132.catala-85">85</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-79"></a>/*
-<a name="./section_132.catala-80"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
-<a name="./section_132.catala-81"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> ≥ <span class="nv">employee_price</span>
-<a name="./section_132.catala-82"></a>
-<a name="./section_132.catala-83"></a>  <span class="kd">definition</span> <span class="nv">employee_discount</span> <span class="kd">equals</span>
-<a name="./section_132.catala-84"></a>    <span class="nv">employee_price</span> <span class="o">-</span> <span class="nv">customer_price</span>
-<a name="./section_132.catala-85"></a>*/
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-90">90</a>
+<a href="#./section_132.catala_en-91">91</a>
+<a href="#./section_132.catala_en-92">92</a>
+<a href="#./section_132.catala_en-93">93</a>
+<a href="#./section_132.catala_en-94">94</a>
+<a href="#./section_132.catala_en-95">95</a>
+<a href="#./section_132.catala_en-96">96</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-90"></a>/*
+<a name="./section_132.catala_en-91"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
+<a name="./section_132.catala_en-92"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> ≥ <span class="nv">employee_price</span>
+<a name="./section_132.catala_en-93"></a>
+<a name="./section_132.catala_en-94"></a>  <span class="kd">definition</span> <span class="nv">employee_discount</span> <span class="kd">equals</span>
+<a name="./section_132.catala_en-95"></a>    <span class="nv">employee_price</span> <span class="o">-</span> <span class="nv">customer_price</span>
+<a name="./section_132.catala_en-96"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(4) Qualified property or services</a></div>
-
-<p class='law-text'>The term “qualified property or services” means any property (other than real property and other than personal property of a kind held for investment) or services which are offered for sale to customers in the ordinary course of the line of business of the employer in which the employee is performing services.</p>
-
+<p class='law-text'>The term “qualified property or services” means any property (other than real 
+property and other than personal property of a kind held for investment) or 
+services which are offered for sale to customers in the ordinary course of 
+the line of business of the employer in which the employee is performing 
+services.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_132.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala-87">87</a>
-<a href="#./section_132.catala-88">88</a>
-<a href="#./section_132.catala-89">89</a>
-<a href="#./section_132.catala-90">90</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala-87"></a>/*<span class="c1"></span>
-<a name="./section_132.catala-88"></a><span class="c1"># Again, this is for subjectively determining what item qualifies for a</span>
-<a name="./section_132.catala-89"></a><span class="c1"># discount, not formalizing</span>
-<a name="./section_132.catala-90"></a>*/
+<div class='filename'>./section_132.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_132.catala_en-102">102</a>
+<a href="#./section_132.catala_en-103">103</a>
+<a href="#./section_132.catala_en-104">104</a>
+<a href="#./section_132.catala_en-105">105</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_132.catala_en-102"></a>/*<span class="c1"></span>
+<a name="./section_132.catala_en-103"></a><span class="c1"># Again, this is for subjectively determining what item qualifies for a</span>
+<a name="./section_132.catala_en-104"></a><span class="c1"># discount, not formalizing</span>
+<a name="./section_132.catala_en-105"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
 
 <h2 class='law-heading'>Section 1015</h2>
 
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-6"> 6</a>
-<a href="#./section_1015.catala-7"> 7</a>
-<a href="#./section_1015.catala-8"> 8</a>
-<a href="#./section_1015.catala-9"> 9</a>
-<a href="#./section_1015.catala-10">10</a>
-<a href="#./section_1015.catala-11">11</a>
-<a href="#./section_1015.catala-12">12</a>
-<a href="#./section_1015.catala-13">13</a>
-<a href="#./section_1015.catala-14">14</a>
-<a href="#./section_1015.catala-15">15</a>
-<a href="#./section_1015.catala-16">16</a>
-<a href="#./section_1015.catala-17">17</a>
-<a href="#./section_1015.catala-18">18</a>
-<a href="#./section_1015.catala-19">19</a>
-<a href="#./section_1015.catala-20">20</a>
-<a href="#./section_1015.catala-21">21</a>
-<a href="#./section_1015.catala-22">22</a>
-<a href="#./section_1015.catala-23">23</a>
-<a href="#./section_1015.catala-24">24</a>
-<a href="#./section_1015.catala-25">25</a>
-<a href="#./section_1015.catala-26">26</a>
-<a href="#./section_1015.catala-27">27</a>
-<a href="#./section_1015.catala-28">28</a>
-<a href="#./section_1015.catala-29">29</a>
-<a href="#./section_1015.catala-30">30</a>
-<a href="#./section_1015.catala-31">31</a>
-<a href="#./section_1015.catala-32">32</a>
-<a href="#./section_1015.catala-33">33</a>
-<a href="#./section_1015.catala-34">34</a>
-<a href="#./section_1015.catala-35">35</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-6"></a>/*
-<a name="./section_1015.catala-7"></a>
-<a name="./section_1015.catala-8"></a><span class="kd">declaration</span> <span class="kd">enumeration</span> <span class="nc">AcquisitionMethod</span><span class="o">:</span>
-<a name="./section_1015.catala-9"></a>  — <span class="nc">Gift</span>
-<a name="./section_1015.catala-10"></a>  — <span class="nc">Trust</span>
-<a name="./section_1015.catala-11"></a>
-<a name="./section_1015.catala-12"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Acquisition</span><span class="o">:</span>
-<a name="./section_1015.catala-13"></a>  <span class="kd">data</span> <span class="nv">method</span> <span class="kd">content</span> <span class="nc">AcquisitionMethod</span>
-<a name="./section_1015.catala-14"></a>  <span class="kd">data</span> <span class="nv">moment</span> <span class="kd">content</span> <span class="kt">date</span>
-<a name="./section_1015.catala-15"></a>  <span class="kd">data</span> <span class="nv">no_sale_or_exchange_before</span> <span class="kd">content</span> <span class="kt">boolean</span>
-<a name="./section_1015.catala-16"></a>
-<a name="./section_1015.catala-17"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Value</span><span class="o">:</span>
-<a name="./section_1015.catala-18"></a>  <span class="kd">data</span> <span class="nv">fair_market</span> <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
-<a name="./section_1015.catala-19"></a>  <span class="kd">data</span> <span class="nv">last_acquisition</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-20"></a>  <span class="kd">data</span> <span class="nv">net_appreciation</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-21"></a>
-<a name="./section_1015.catala-22"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Transferor</span><span class="o">:</span>
-<a name="./section_1015.catala-23"></a>  <span class="kd">data</span> <span class="nv">basis</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-24"></a>  <span class="kd">data</span> <span class="nv">basis_known</span> <span class="kd">content</span> <span class="kd">optional</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-25"></a>  <span class="kd">data</span> <span class="nv">acquisition</span> <span class="kd">content</span> <span class="nc">Acquisition</span>
-<a name="./section_1015.catala-26"></a>  <span class="kd">data</span> <span class="nv">gain_or_loss</span> <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
-<a name="./section_1015.catala-27"></a>
-<a name="./section_1015.catala-28"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
-<a name="./section_1015.catala-29"></a>  <span class="kd">context</span> <span class="nv">acquisition</span> <span class="kd">content</span> <span class="nc">Acquisition</span>
-<a name="./section_1015.catala-30"></a>  <span class="kd">context</span> <span class="nv">basis_subsection_a</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-31"></a>  <span class="kd">context</span> <span class="nv">basis</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-32"></a>  <span class="kd">context</span> <span class="nv">basis_bonus_after_1976</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-33"></a>  <span class="kd">context</span> <span class="nv">transferor</span> <span class="kd">content</span> <span class="nc">Transferor</span>
-<a name="./section_1015.catala-34"></a>  <span class="kd">context</span> <span class="nv">gift_tax_paid</span> <span class="kd">content</span> <span class="kt">amount</span>
-<a name="./section_1015.catala-35"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-6"> 6</a>
+<a href="#./section_1015.catala_en-7"> 7</a>
+<a href="#./section_1015.catala_en-8"> 8</a>
+<a href="#./section_1015.catala_en-9"> 9</a>
+<a href="#./section_1015.catala_en-10">10</a>
+<a href="#./section_1015.catala_en-11">11</a>
+<a href="#./section_1015.catala_en-12">12</a>
+<a href="#./section_1015.catala_en-13">13</a>
+<a href="#./section_1015.catala_en-14">14</a>
+<a href="#./section_1015.catala_en-15">15</a>
+<a href="#./section_1015.catala_en-16">16</a>
+<a href="#./section_1015.catala_en-17">17</a>
+<a href="#./section_1015.catala_en-18">18</a>
+<a href="#./section_1015.catala_en-19">19</a>
+<a href="#./section_1015.catala_en-20">20</a>
+<a href="#./section_1015.catala_en-21">21</a>
+<a href="#./section_1015.catala_en-22">22</a>
+<a href="#./section_1015.catala_en-23">23</a>
+<a href="#./section_1015.catala_en-24">24</a>
+<a href="#./section_1015.catala_en-25">25</a>
+<a href="#./section_1015.catala_en-26">26</a>
+<a href="#./section_1015.catala_en-27">27</a>
+<a href="#./section_1015.catala_en-28">28</a>
+<a href="#./section_1015.catala_en-29">29</a>
+<a href="#./section_1015.catala_en-30">30</a>
+<a href="#./section_1015.catala_en-31">31</a>
+<a href="#./section_1015.catala_en-32">32</a>
+<a href="#./section_1015.catala_en-33">33</a>
+<a href="#./section_1015.catala_en-34">34</a>
+<a href="#./section_1015.catala_en-35">35</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-6"></a>/*
+<a name="./section_1015.catala_en-7"></a>
+<a name="./section_1015.catala_en-8"></a><span class="kd">declaration</span> <span class="kd">enumeration</span> <span class="nc">AcquisitionMethod</span><span class="o">:</span>
+<a name="./section_1015.catala_en-9"></a>  — <span class="nc">Gift</span>
+<a name="./section_1015.catala_en-10"></a>  — <span class="nc">Trust</span>
+<a name="./section_1015.catala_en-11"></a>
+<a name="./section_1015.catala_en-12"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Acquisition</span><span class="o">:</span>
+<a name="./section_1015.catala_en-13"></a>  <span class="kd">data</span> <span class="nv">method</span> <span class="kd">content</span> <span class="nc">AcquisitionMethod</span>
+<a name="./section_1015.catala_en-14"></a>  <span class="kd">data</span> <span class="nv">moment</span> <span class="kd">content</span> <span class="kt">date</span>
+<a name="./section_1015.catala_en-15"></a>  <span class="kd">data</span> <span class="nv">no_sale_or_exchange_before</span> <span class="kd">content</span> <span class="kt">boolean</span>
+<a name="./section_1015.catala_en-16"></a>
+<a name="./section_1015.catala_en-17"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Value</span><span class="o">:</span>
+<a name="./section_1015.catala_en-18"></a>  <span class="kd">data</span> <span class="nv">fair_market</span> <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
+<a name="./section_1015.catala_en-19"></a>  <span class="kd">data</span> <span class="nv">last_acquisition</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-20"></a>  <span class="kd">data</span> <span class="nv">net_appreciation</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-21"></a>
+<a name="./section_1015.catala_en-22"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Transferor</span><span class="o">:</span>
+<a name="./section_1015.catala_en-23"></a>  <span class="kd">data</span> <span class="nv">basis</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-24"></a>  <span class="kd">data</span> <span class="nv">basis_known</span> <span class="kd">content</span> <span class="kd">optional</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-25"></a>  <span class="kd">data</span> <span class="nv">acquisition</span> <span class="kd">content</span> <span class="nc">Acquisition</span>
+<a name="./section_1015.catala_en-26"></a>  <span class="kd">data</span> <span class="nv">gain_or_loss</span> <span class="kd">content</span> <span class="kt">amount</span> <span class="kd">depends on</span> <span class="kt">date</span>
+<a name="./section_1015.catala_en-27"></a>
+<a name="./section_1015.catala_en-28"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
+<a name="./section_1015.catala_en-29"></a>  <span class="kd">context</span> <span class="nv">acquisition</span> <span class="kd">content</span> <span class="nc">Acquisition</span>
+<a name="./section_1015.catala_en-30"></a>  <span class="kd">context</span> <span class="nv">basis_subsection_a</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-31"></a>  <span class="kd">context</span> <span class="nv">basis</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-32"></a>  <span class="kd">context</span> <span class="nv">basis_bonus_after_1976</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-33"></a>  <span class="kd">context</span> <span class="nv">transferor</span> <span class="kd">content</span> <span class="nc">Transferor</span>
+<a name="./section_1015.catala_en-34"></a>  <span class="kd">context</span> <span class="nv">gift_tax_paid</span> <span class="kd">content</span> <span class="kt">amount</span>
+<a name="./section_1015.catala_en-35"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -386,370 +612,380 @@ Source files weaved in this document
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(a) Gifts after December 31, 1920</a></div>
-
-<p class='law-text'>If the property was acquired by gift after December 31, 1920, the basis shall be the same as it would be in the hands of the donor or the last preceding owner by whom it was not acquired by gift, except that if such basis (adjusted for the period before the date of the gift as provided in section 1016) is greater than the fair market value of the property at the time of the gift, then for the purpose of determining loss the basis shall be such fair market value.</p>
-
+<p class='law-text'>If the property was acquired by gift after December 31, 1920, the basis shall be 
+the same as it would be in the hands of the donor or the last preceding owner by 
+whom it was not acquired by gift, except that if such basis (adjusted for the 
+period before the date of the gift as provided in section 1016) is greater than 
+the fair market value of the property at the time of the gift, then for the 
+purpose of determining loss the basis shall be such fair market value.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-39">39</a>
-<a href="#./section_1015.catala-40">40</a>
-<a href="#./section_1015.catala-41">41</a>
-<a href="#./section_1015.catala-42">42</a>
-<a href="#./section_1015.catala-43">43</a>
-<a href="#./section_1015.catala-44">44</a>
-<a href="#./section_1015.catala-45">45</a>
-<a href="#./section_1015.catala-46">46</a>
-<a href="#./section_1015.catala-47">47</a>
-<a href="#./section_1015.catala-48">48</a>
-<a href="#./section_1015.catala-49">49</a>
-<a href="#./section_1015.catala-50">50</a>
-<a href="#./section_1015.catala-51">51</a>
-<a href="#./section_1015.catala-52">52</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-39"></a>/*
-<a name="./section_1015.catala-40"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
-<a name="./section_1015.catala-41"></a>  <span class="kd">definition</span> <span class="nv">basis_subsection_a</span> <span class="kd">equals</span>
-<a name="./section_1015.catala-42"></a>    <span class="kr">if</span> <span class="nv">transferor</span><span class="o">.</span>basis ≥ <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
-<a name="./section_1015.catala-43"></a>      <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
-<a name="./section_1015.catala-44"></a>    <span class="kr">else</span>
-<a name="./section_1015.catala-45"></a>      <span class="nv">transferor</span><span class="o">.</span>basis
-<a name="./section_1015.catala-46"></a>
-<a name="./section_1015.catala-47"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">under condition</span>
-<a name="./section_1015.catala-48"></a>    <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|01/31/1920|</span> <span class="o">and</span>
-<a name="./section_1015.catala-49"></a>    <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span>
-<a name="./section_1015.catala-50"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="nv">basis_subsection_a</span>
-<a name="./section_1015.catala-51"></a>
-<a name="./section_1015.catala-52"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-44">44</a>
+<a href="#./section_1015.catala_en-45">45</a>
+<a href="#./section_1015.catala_en-46">46</a>
+<a href="#./section_1015.catala_en-47">47</a>
+<a href="#./section_1015.catala_en-48">48</a>
+<a href="#./section_1015.catala_en-49">49</a>
+<a href="#./section_1015.catala_en-50">50</a>
+<a href="#./section_1015.catala_en-51">51</a>
+<a href="#./section_1015.catala_en-52">52</a>
+<a href="#./section_1015.catala_en-53">53</a>
+<a href="#./section_1015.catala_en-54">54</a>
+<a href="#./section_1015.catala_en-55">55</a>
+<a href="#./section_1015.catala_en-56">56</a>
+<a href="#./section_1015.catala_en-57">57</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-44"></a>/*
+<a name="./section_1015.catala_en-45"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
+<a name="./section_1015.catala_en-46"></a>  <span class="kd">definition</span> <span class="nv">basis_subsection_a</span> <span class="kd">equals</span>
+<a name="./section_1015.catala_en-47"></a>    <span class="kr">if</span> <span class="nv">transferor</span><span class="o">.</span>basis ≥ <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
+<a name="./section_1015.catala_en-48"></a>      <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a name="./section_1015.catala_en-49"></a>    <span class="kr">else</span>
+<a name="./section_1015.catala_en-50"></a>      <span class="nv">transferor</span><span class="o">.</span>basis
+<a name="./section_1015.catala_en-51"></a>
+<a name="./section_1015.catala_en-52"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">under condition</span>
+<a name="./section_1015.catala_en-53"></a>    <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|01/31/1920|</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-54"></a>    <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span>
+<a name="./section_1015.catala_en-55"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="nv">basis_subsection_a</span>
+<a name="./section_1015.catala_en-56"></a>
+<a name="./section_1015.catala_en-57"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+<p class='law-text'>If the facts necessary to determine the basis in the hands of the donor or the 
+ last preceding owner are unknown to the donee, the Secretary shall, if 
+ possible, obtain such facts from such donor or last preceding owner, or any 
+ other person cognizant thereof. If the Secretary finds it impossible to obtain 
+ such facts, the basis in the hands of such donor or last preceding owner shall 
+ be the fair market value of such property as found by the Secretary as of the 
+ date or approximate date at which, according to the best information that the 
+ Secretary is able to obtain, such property was acquired by such donor or last 
+ preceding owner.</p>
+<div class='code-wrapper'>
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-67">67</a>
+<a href="#./section_1015.catala_en-68">68</a>
+<a href="#./section_1015.catala_en-69">69</a>
+<a href="#./section_1015.catala_en-70">70</a>
+<a href="#./section_1015.catala_en-71">71</a>
+<a href="#./section_1015.catala_en-72">72</a>
+<a href="#./section_1015.catala_en-73">73</a>
+<a href="#./section_1015.catala_en-74">74</a>
+<a href="#./section_1015.catala_en-75">75</a>
+<a href="#./section_1015.catala_en-76">76</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-67"></a>/*
+<a name="./section_1015.catala_en-68"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a name="./section_1015.catala_en-69"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|01/31/1920|</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-70"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
+<a name="./section_1015.catala_en-71"></a>
+<a name="./section_1015.catala_en-72"></a>  <span class="kd">definition</span> <span class="nv">transferor</span><span class="o">.</span>basis <span class="kd">equals</span>
+<a name="./section_1015.catala_en-73"></a>    <span class="kr">match</span> <span class="nv">transferor</span><span class="o">.</span>known_basis <span class="kr">with pattern</span>
+<a name="./section_1015.catala_en-74"></a>    — <span class="nc">Some</span> <span class="kr">of</span> <span class="nv">basis</span> <span class="o">:</span> <span class="nv">basis</span>
+<a name="./section_1015.catala_en-75"></a>    — <span class="nc">None</span> <span class="o">:</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">transferor</span><span class="o">.</span>acquisition.moment
+<a name="./section_1015.catala_en-76"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<p class='law-text'> If the facts necessary to determine the basis in the hands of the donor or the last preceding owner are unknown to the donee, the Secretary shall, if possible, obtain such facts from such donor or last preceding owner, or any other person cognizant thereof. If the Secretary finds it impossible to obtain such facts, the basis in the hands of such donor or last preceding owner shall be the fair market value of such property as found by the Secretary as of the date or approximate date at which, according to the best information that the Secretary is able to obtain, such property was acquired by such donor or last preceding owner.</p>
-
-<div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-54">54</a>
-<a href="#./section_1015.catala-55">55</a>
-<a href="#./section_1015.catala-56">56</a>
-<a href="#./section_1015.catala-57">57</a>
-<a href="#./section_1015.catala-58">58</a>
-<a href="#./section_1015.catala-59">59</a>
-<a href="#./section_1015.catala-60">60</a>
-<a href="#./section_1015.catala-61">61</a>
-<a href="#./section_1015.catala-62">62</a>
-<a href="#./section_1015.catala-63">63</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-54"></a>/*
-<a name="./section_1015.catala-55"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a name="./section_1015.catala-56"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|01/31/1920|</span> <span class="o">and</span>
-<a name="./section_1015.catala-57"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
-<a name="./section_1015.catala-58"></a>
-<a name="./section_1015.catala-59"></a>  <span class="kd">definition</span> <span class="nv">transferor</span><span class="o">.</span>basis <span class="kd">equals</span>
-<a name="./section_1015.catala-60"></a>    <span class="kr">match</span> <span class="nv">transferor</span><span class="o">.</span>known_basis <span class="kr">with pattern</span>
-<a name="./section_1015.catala-61"></a>    — <span class="nc">Some</span> <span class="kr">of</span> <span class="nv">basis</span> <span class="o">:</span> <span class="nv">basis</span>
-<a name="./section_1015.catala-62"></a>    — <span class="nc">None</span> <span class="o">:</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">transferor</span><span class="o">.</span>acquisition.moment
-<a name="./section_1015.catala-63"></a>*/
-</pre></div>
-</td></tr></table>
 </div>
-
-<!-- Closing article div -->
-</div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(b) Transfer in trust after December 31, 1920</a></div>
-
-<p class='law-text'>If the property was acquired after December 31, 1920, by a transfer in trust (other than by a transfer in trust by a gift, bequest, or devise), the basis shall be the same as it would be in the hands of the grantor increased in the amount of gain or decreased in the amount of loss recognized to the grantor on such transfer under the law applicable to the year in which the transfer was made.</p>
-
+<p class='law-text'>If the property was acquired after December 31, 1920, by a transfer in trust 
+(other than by a transfer in trust by a gift, bequest, or devise), the basis 
+shall be the same as it would be in the hands of the grantor increased in the 
+amount of gain or decreased in the amount of loss recognized to the grantor on 
+such transfer under the law applicable to the year in which the transfer was 
+made.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-68">68</a>
-<a href="#./section_1015.catala-69">69</a>
-<a href="#./section_1015.catala-70">70</a>
-<a href="#./section_1015.catala-71">71</a>
-<a href="#./section_1015.catala-72">72</a>
-<a href="#./section_1015.catala-73">73</a>
-<a href="#./section_1015.catala-74">74</a>
-<a href="#./section_1015.catala-75">75</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-68"></a>/*
-<a name="./section_1015.catala-69"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a name="./section_1015.catala-70"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|01/31/1920|</span> <span class="o">and</span>
-<a name="./section_1015.catala-71"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Trust</span><span class="o">:</span>
-<a name="./section_1015.catala-72"></a>
-<a name="./section_1015.catala-73"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a name="./section_1015.catala-74"></a>    <span class="nv">transferor</span><span class="o">.</span>basis <span class="o">+</span> <span class="nv">transferor</span><span class="o">.</span>gain_or_loss <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
-<a name="./section_1015.catala-75"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-86">86</a>
+<a href="#./section_1015.catala_en-87">87</a>
+<a href="#./section_1015.catala_en-88">88</a>
+<a href="#./section_1015.catala_en-89">89</a>
+<a href="#./section_1015.catala_en-90">90</a>
+<a href="#./section_1015.catala_en-91">91</a>
+<a href="#./section_1015.catala_en-92">92</a>
+<a href="#./section_1015.catala_en-93">93</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-86"></a>/*
+<a name="./section_1015.catala_en-87"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a name="./section_1015.catala_en-88"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|01/31/1920|</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-89"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Trust</span><span class="o">:</span>
+<a name="./section_1015.catala_en-90"></a>
+<a name="./section_1015.catala_en-91"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a name="./section_1015.catala_en-92"></a>    <span class="nv">transferor</span><span class="o">.</span>basis <span class="o">+</span> <span class="nv">transferor</span><span class="o">.</span>gain_or_loss <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a name="./section_1015.catala_en-93"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(c) Gift or transfer in trust before January 1, 1921</a></div>
-
-<p class='law-text'>If the property was acquired by gift or transfer in trust on or before December 31, 1920, the basis shall be the fair market value of such property at the time of such acquisition.</p>
-
+<p class='law-text'>If the property was acquired by gift or transfer in trust on or before December 
+31, 1920, the basis shall be the fair market value of such property at the time 
+of such acquisition.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-79">79</a>
-<a href="#./section_1015.catala-80">80</a>
-<a href="#./section_1015.catala-81">81</a>
-<a href="#./section_1015.catala-82">82</a>
-<a href="#./section_1015.catala-83">83</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-79"></a>/*
-<a name="./section_1015.catala-80"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span> <span class="nv">acquisition</span><span class="o">.</span>moment ≤ <span class="mi">|01/31/1920|</span><span class="o">:</span>
-<a name="./section_1015.catala-81"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a name="./section_1015.catala-82"></a>    <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
-<a name="./section_1015.catala-83"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-99"> 99</a>
+<a href="#./section_1015.catala_en-100">100</a>
+<a href="#./section_1015.catala_en-101">101</a>
+<a href="#./section_1015.catala_en-102">102</a>
+<a href="#./section_1015.catala_en-103">103</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-99"></a>/*
+<a name="./section_1015.catala_en-100"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span> <span class="nv">acquisition</span><span class="o">.</span>moment ≤ <span class="mi">|01/31/1920|</span><span class="o">:</span>
+<a name="./section_1015.catala_en-101"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a name="./section_1015.catala_en-102"></a>    <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a name="./section_1015.catala_en-103"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <h3 class='law-heading'>(d) Increased basis for gift tax paid</h3>
 
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(1) In general</a></div>
-
-<p class='law-text'> If—</p>
-
-<p class='law-text'>(A) the property is acquired by gift on or after September 2, 1958, the basis shall be the basis determined under subsection (a), increased (but not above the fair market value of the property at the time of the gift) by the amount of gift tax paid with respect to such gift, or</p>
-
+<p class='law-text'>If—
+(A) the property is acquired by gift on or after September 2, 1958, the basis 
+shall be the basis determined under subsection (a), increased (but not above 
+the fair market value of the property at the time of the gift) by the amount 
+of gift tax paid with respect to such gift, or</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-89"> 89</a>
-<a href="#./section_1015.catala-90"> 90</a>
-<a href="#./section_1015.catala-91"> 91</a>
-<a href="#./section_1015.catala-92"> 92</a>
-<a href="#./section_1015.catala-93"> 93</a>
-<a href="#./section_1015.catala-94"> 94</a>
-<a href="#./section_1015.catala-95"> 95</a>
-<a href="#./section_1015.catala-96"> 96</a>
-<a href="#./section_1015.catala-97"> 97</a>
-<a href="#./section_1015.catala-98"> 98</a>
-<a href="#./section_1015.catala-99"> 99</a>
-<a href="#./section_1015.catala-100">100</a>
-<a href="#./section_1015.catala-101">101</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-89"></a>/*
-<a name="./section_1015.catala-90"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a name="./section_1015.catala-91"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment ≥ <span class="mi">|09/02/1958|</span> <span class="o">and</span>
-<a name="./section_1015.catala-92"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
-<a name="./section_1015.catala-93"></a>
-<a name="./section_1015.catala-94"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a name="./section_1015.catala-95"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
-<a name="./section_1015.catala-96"></a>      <span class="kr">if</span> <span class="nv">gift_tax_paid</span> ≥ <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
-<a name="./section_1015.catala-97"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
-<a name="./section_1015.catala-98"></a>      <span class="kr">else</span>
-<a name="./section_1015.catala-99"></a>        <span class="nv">gift_tax_paid</span>
-<a name="./section_1015.catala-100"></a>    <span class="o">)</span>
-<a name="./section_1015.catala-101"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-112">112</a>
+<a href="#./section_1015.catala_en-113">113</a>
+<a href="#./section_1015.catala_en-114">114</a>
+<a href="#./section_1015.catala_en-115">115</a>
+<a href="#./section_1015.catala_en-116">116</a>
+<a href="#./section_1015.catala_en-117">117</a>
+<a href="#./section_1015.catala_en-118">118</a>
+<a href="#./section_1015.catala_en-119">119</a>
+<a href="#./section_1015.catala_en-120">120</a>
+<a href="#./section_1015.catala_en-121">121</a>
+<a href="#./section_1015.catala_en-122">122</a>
+<a href="#./section_1015.catala_en-123">123</a>
+<a href="#./section_1015.catala_en-124">124</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-112"></a>/*
+<a name="./section_1015.catala_en-113"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a name="./section_1015.catala_en-114"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment ≥ <span class="mi">|09/02/1958|</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-115"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
+<a name="./section_1015.catala_en-116"></a>
+<a name="./section_1015.catala_en-117"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a name="./section_1015.catala_en-118"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
+<a name="./section_1015.catala_en-119"></a>      <span class="kr">if</span> <span class="nv">gift_tax_paid</span> ≥ <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
+<a name="./section_1015.catala_en-120"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a name="./section_1015.catala_en-121"></a>      <span class="kr">else</span>
+<a name="./section_1015.catala_en-122"></a>        <span class="nv">gift_tax_paid</span>
+<a name="./section_1015.catala_en-123"></a>    <span class="o">)</span>
+<a name="./section_1015.catala_en-124"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+<p class='law-text'>(B) the property was acquired by gift before September 2, 1958, and has not been 
+sold, exchanged, or otherwise disposed of before such date, the basis of the 
+property shall be increased on such date by the amount of gift tax paid with 
+respect to such gift, but such increase shall not exceed an amount equal to the 
+amount by which the fair market value of the property at the time of the gift 
+exceeded the basis of the property in the hands of the donor at the time of the 
+gift.</p>
+<div class='code-wrapper'>
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-132">132</a>
+<a href="#./section_1015.catala_en-133">133</a>
+<a href="#./section_1015.catala_en-134">134</a>
+<a href="#./section_1015.catala_en-135">135</a>
+<a href="#./section_1015.catala_en-136">136</a>
+<a href="#./section_1015.catala_en-137">137</a>
+<a href="#./section_1015.catala_en-138">138</a>
+<a href="#./section_1015.catala_en-139">139</a>
+<a href="#./section_1015.catala_en-140">140</a>
+<a href="#./section_1015.catala_en-141">141</a>
+<a href="#./section_1015.catala_en-142">142</a>
+<a href="#./section_1015.catala_en-143">143</a>
+<a href="#./section_1015.catala_en-144">144</a>
+<a href="#./section_1015.catala_en-145">145</a>
+<a href="#./section_1015.catala_en-146">146</a>
+<a href="#./section_1015.catala_en-147">147</a>
+<a href="#./section_1015.catala_en-148">148</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-132"></a>/*
+<a name="./section_1015.catala_en-133"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a name="./section_1015.catala_en-134"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&lt;</span> <span class="mi">|09/02/1958|</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-135"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-136"></a>  <span class="nv">acquisition</span><span class="o">.</span>no_sale_or_exchange_before<span class="o">:</span>
+<a name="./section_1015.catala_en-137"></a>
+<a name="./section_1015.catala_en-138"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a name="./section_1015.catala_en-139"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
+<a name="./section_1015.catala_en-140"></a>      <span class="kr">if</span>
+<a name="./section_1015.catala_en-141"></a>        <span class="nv">gift_tax_paid</span> ≥
+<a name="./section_1015.catala_en-142"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
+<a name="./section_1015.catala_en-143"></a>      <span class="kr">then</span>
+<a name="./section_1015.catala_en-144"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
+<a name="./section_1015.catala_en-145"></a>      <span class="kr">else</span>
+<a name="./section_1015.catala_en-146"></a>        <span class="nv">gift_tax_paid</span>
+<a name="./section_1015.catala_en-147"></a>    <span class="o">)</span>
+<a name="./section_1015.catala_en-148"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<p class='law-text'>(B) the property was acquired by gift before September 2, 1958, and has not been sold, exchanged, or otherwise disposed of before such date, the basis of the property shall be increased on such date by the amount of gift tax paid with respect to such gift, but such increase shall not exceed an amount equal to the amount by which the fair market value of the property at the time of the gift exceeded the basis of the property in the hands of the donor at the time of the gift.</p>
-
-<div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-103">103</a>
-<a href="#./section_1015.catala-104">104</a>
-<a href="#./section_1015.catala-105">105</a>
-<a href="#./section_1015.catala-106">106</a>
-<a href="#./section_1015.catala-107">107</a>
-<a href="#./section_1015.catala-108">108</a>
-<a href="#./section_1015.catala-109">109</a>
-<a href="#./section_1015.catala-110">110</a>
-<a href="#./section_1015.catala-111">111</a>
-<a href="#./section_1015.catala-112">112</a>
-<a href="#./section_1015.catala-113">113</a>
-<a href="#./section_1015.catala-114">114</a>
-<a href="#./section_1015.catala-115">115</a>
-<a href="#./section_1015.catala-116">116</a>
-<a href="#./section_1015.catala-117">117</a>
-<a href="#./section_1015.catala-118">118</a>
-<a href="#./section_1015.catala-119">119</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-103"></a>/*
-<a name="./section_1015.catala-104"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a name="./section_1015.catala-105"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&lt;</span> <span class="mi">|09/02/1958|</span> <span class="o">and</span>
-<a name="./section_1015.catala-106"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span> <span class="o">and</span>
-<a name="./section_1015.catala-107"></a>  <span class="nv">acquisition</span><span class="o">.</span>no_sale_or_exchange_before<span class="o">:</span>
-<a name="./section_1015.catala-108"></a>
-<a name="./section_1015.catala-109"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a name="./section_1015.catala-110"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
-<a name="./section_1015.catala-111"></a>      <span class="kr">if</span>
-<a name="./section_1015.catala-112"></a>        <span class="nv">gift_tax_paid</span> ≥
-<a name="./section_1015.catala-113"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
-<a name="./section_1015.catala-114"></a>      <span class="kr">then</span>
-<a name="./section_1015.catala-115"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
-<a name="./section_1015.catala-116"></a>      <span class="kr">else</span>
-<a name="./section_1015.catala-117"></a>        <span class="nv">gift_tax_paid</span>
-<a name="./section_1015.catala-118"></a>    <span class="o">)</span>
-<a name="./section_1015.catala-119"></a>*/
-</pre></div>
-</td></tr></table>
 </div>
-
-<!-- Closing article div -->
-</div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(2) Amount of tax paid with respect to gift</a></div>
-
-<p class='law-text'>For purposes of paragraph (1), the amount of gift tax paid with respect to any gift is an amount which bears the same ratio to the amount of gift tax paid under chapter 12 with respect to all gifts made by the donor for the calendar year (or preceding calendar period) in which such gift is made as the amount of such gift bears to the taxable gifts (as defined in section 2503(a) but computed without the deduction allowed by section 2521) made by the donor during such calendar year or period. For purposes of the preceding sentence, the amount of any gift shall be the amount included with respect to such gift in determining (for the purposes of section 2503(a)) the total amount of gifts made during the calendar year or period, reduced by the amount of any deduction allowed with respect to such gift under section 2522 (relating to charitable deduction) or under section 2523 (relating to marital deduction).</p>
-
+<p class='law-text'>For purposes of paragraph (1), the amount of gift tax paid with respect to any 
+gift is an amount which bears the same ratio to the amount of gift tax paid under 
+chapter 12 with respect to all gifts made by the donor for the calendar year 
+(or preceding calendar period) in which such gift is made as the amount of such 
+gift bears to the taxable gifts (as defined in section 2503(a) but computed 
+without the deduction allowed by section 2521) made by the donor during such 
+calendar year or period. For purposes of the preceding sentence, the amount of 
+any gift shall be the amount included with respect to such gift in determining 
+(for the purposes of section 2503(a)) the total amount of gifts made during the 
+calendar year or period, reduced by the amount of any deduction allowed with 
+respect to such gift under section 2522 (relating to charitable deduction) or 
+under section 2523 (relating to marital deduction).</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-122">122</a>
-<a href="#./section_1015.catala-123">123</a>
-<a href="#./section_1015.catala-124">124</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-122"></a>/*<span class="c1"></span>
-<a name="./section_1015.catala-123"></a><span class="c1"># We don&#39;t formalize the amount of gift tax since it would require formalizing other sections of the code</span>
-<a name="./section_1015.catala-124"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-162">162</a>
+<a href="#./section_1015.catala_en-163">163</a>
+<a href="#./section_1015.catala_en-164">164</a>
+<a href="#./section_1015.catala_en-165">165</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-162"></a>/*<span class="c1"></span>
+<a name="./section_1015.catala_en-163"></a><span class="c1"># We don&#39;t formalize the amount of gift tax since it would require </span>
+<a name="./section_1015.catala_en-164"></a><span class="c1">#formalizing other sections of the code</span>
+<a name="./section_1015.catala_en-165"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(3) Gifts treated as made one-half by each spouse</a></div>
-
-<p class='law-text'>For purposes of paragraph (1), where the donor and his spouse elected, under section 2513 to have the gift considered as made one-half by each, the amount of gift tax paid with respect to such gift under chapter 12 shall be the sum of the amounts of tax paid with respect to each half of such gift (computed in the manner provided in paragraph (2)).</p>
-
+<p class='law-text'>For purposes of paragraph (1), where the donor and his spouse elected, under 
+section 2513 to have the gift considered as made one-half by each, the amount 
+of gift tax paid with respect to such gift under chapter 12 shall be the sum 
+of the amounts of tax paid with respect to each half of such gift (computed in 
+the manner provided in paragraph (2)).</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-129">129</a>
-<a href="#./section_1015.catala-130">130</a>
-<a href="#./section_1015.catala-131">131</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-129"></a>/*<span class="c1"></span>
-<a name="./section_1015.catala-130"></a><span class="c1"># Same here</span>
-<a name="./section_1015.catala-131"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-174">174</a>
+<a href="#./section_1015.catala_en-175">175</a>
+<a href="#./section_1015.catala_en-176">176</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-174"></a>/*<span class="c1"></span>
+<a name="./section_1015.catala_en-175"></a><span class="c1"># Same here</span>
+<a name="./section_1015.catala_en-176"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(4) Treatment as adjustment to basis</a></div>
-
-<p class='law-text'>For purposes of section 1016(b), an increase in basis under paragraph (1) shall be treated as an adjustment under section 1016(a).</p>
-
+<p class='law-text'>For purposes of section 1016(b), an increase in basis under paragraph (1) shall 
+be treated as an adjustment under section 1016(a).</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-135">135</a>
-<a href="#./section_1015.catala-136">136</a>
-<a href="#./section_1015.catala-137">137</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-135"></a>/*<span class="c1"></span>
-<a name="./section_1015.catala-136"></a><span class="c1"># Same here</span>
-<a name="./section_1015.catala-137"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-181">181</a>
+<a href="#./section_1015.catala_en-182">182</a>
+<a href="#./section_1015.catala_en-183">183</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-181"></a>/*<span class="c1"></span>
+<a name="./section_1015.catala_en-182"></a><span class="c1"># Same here</span>
+<a name="./section_1015.catala_en-183"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(5) Application to gifts before 1955</a></div>
-
-<p class='law-text'>With respect to any property acquired by gift before 1955, references in this subsection to any provision of this title shall be deemed to refer to the corresponding provision of the Internal Revenue Code of 1939 or prior revenue laws which was effective for the year in which such gift was made.</p>
-
+<p class='law-text'>With respect to any property acquired by gift before 1955, references in this 
+subsection to any provision of this title shall be deemed to refer to the 
+corresponding provision of the Internal Revenue Code of 1939 or prior revenue 
+laws which was effective for the year in which such gift was made.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-141">141</a>
-<a href="#./section_1015.catala-142">142</a>
-<a href="#./section_1015.catala-143">143</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-141"></a>/*<span class="c1"></span>
-<a name="./section_1015.catala-142"></a><span class="c1"># Same here</span>
-<a name="./section_1015.catala-143"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-190">190</a>
+<a href="#./section_1015.catala_en-191">191</a>
+<a href="#./section_1015.catala_en-192">192</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-190"></a>/*<span class="c1"></span>
+<a name="./section_1015.catala_en-191"></a><span class="c1"># Same here</span>
+<a name="./section_1015.catala_en-192"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <h4 class='law-heading'>(6) Special rule for gifts made after December 31, 1976</h4>
 
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(A) In general</a></div>
-
-<p class='law-text'>In the case of any gift made after December 31, 1976, the increase in basis provided by this subsection with respect to any gift for the gift tax paid under chapter 12 shall be an amount (not in excess of the amount of tax so paid) which bears the same ratio to the amount of tax so paid as—</p>
-
-<p class='law-text'>(i) the net appreciation in value of the gift, bears to</p>
-
-<p class='law-text'>(ii) the amount of the gift.</p>
-
+<p class='law-text'>In the case of any gift made after December 31, 1976, the increase in basis 
+provided by this subsection with respect to any gift for the gift tax paid under 
+chapter 12 shall be an amount (not in excess of the amount of tax so paid) which
+bears the same ratio to the amount of tax so paid as—<br/>
+(i) the net appreciation in value of the gift, bears to<br/>
+(ii) the amount of the gift.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-152">152</a>
-<a href="#./section_1015.catala-153">153</a>
-<a href="#./section_1015.catala-154">154</a>
-<a href="#./section_1015.catala-155">155</a>
-<a href="#./section_1015.catala-156">156</a>
-<a href="#./section_1015.catala-157">157</a>
-<a href="#./section_1015.catala-158">158</a>
-<a href="#./section_1015.catala-159">159</a>
-<a href="#./section_1015.catala-160">160</a>
-<a href="#./section_1015.catala-161">161</a>
-<a href="#./section_1015.catala-162">162</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-152"></a>/*
-<a name="./section_1015.catala-153"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a name="./section_1015.catala-154"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|09/02/1976|</span> <span class="o">and</span>
-<a name="./section_1015.catala-155"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
-<a name="./section_1015.catala-156"></a>
-<a name="./section_1015.catala-157"></a>  <span class="kd">definition</span> <span class="nv">basis_bonus_after_1976</span> <span class="kd">equals</span>
-<a name="./section_1015.catala-158"></a>    <span class="nv">gift_tax_paid</span> × <span class="o">(</span>
-<a name="./section_1015.catala-159"></a>      <span class="nv">value</span><span class="o">.</span>net_appreciation ÷
-<a name="./section_1015.catala-160"></a>      <span class="nv">value</span><span class="o">.</span>last_acquisition<span class="c1"> # is it really? &quot;amount&quot; is imprecise</span>
-<a name="./section_1015.catala-161"></a>    <span class="o">)</span>
-<a name="./section_1015.catala-162"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-206">206</a>
+<a href="#./section_1015.catala_en-207">207</a>
+<a href="#./section_1015.catala_en-208">208</a>
+<a href="#./section_1015.catala_en-209">209</a>
+<a href="#./section_1015.catala_en-210">210</a>
+<a href="#./section_1015.catala_en-211">211</a>
+<a href="#./section_1015.catala_en-212">212</a>
+<a href="#./section_1015.catala_en-213">213</a>
+<a href="#./section_1015.catala_en-214">214</a>
+<a href="#./section_1015.catala_en-215">215</a>
+<a href="#./section_1015.catala_en-216">216</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-206"></a>/*
+<a name="./section_1015.catala_en-207"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a name="./section_1015.catala_en-208"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> <span class="mi">|09/02/1976|</span> <span class="o">and</span>
+<a name="./section_1015.catala_en-209"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
+<a name="./section_1015.catala_en-210"></a>
+<a name="./section_1015.catala_en-211"></a>  <span class="kd">definition</span> <span class="nv">basis_bonus_after_1976</span> <span class="kd">equals</span>
+<a name="./section_1015.catala_en-212"></a>    <span class="nv">gift_tax_paid</span> × <span class="o">(</span>
+<a name="./section_1015.catala_en-213"></a>      <span class="nv">value</span><span class="o">.</span>net_appreciation ÷
+<a name="./section_1015.catala_en-214"></a>      <span class="nv">value</span><span class="o">.</span>last_acquisition<span class="c1"> # is it really? &quot;amount&quot; is imprecise</span>
+<a name="./section_1015.catala_en-215"></a>    <span class="o">)</span>
+<a name="./section_1015.catala_en-216"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(B) Net appreciation</a></div>
-
-<p class='law-text'>For purposes of paragraph (1), the net appreciation in value of any gift is the amount by which the fair market value of the gift exceeds the donor’s adjusted basis immediately before the gift.</p>
-
+<p class='law-text'>For purposes of paragraph (1), the net appreciation in value of any gift is the 
+amount by which the fair market value of the gift exceeds the donor’s adjusted 
+basis immediately before the gift.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-166">166</a>
-<a href="#./section_1015.catala-167">167</a>
-<a href="#./section_1015.catala-168">168</a>
-<a href="#./section_1015.catala-169">169</a>
-<a href="#./section_1015.catala-170">170</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-166"></a>/*
-<a name="./section_1015.catala-167"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
-<a name="./section_1015.catala-168"></a>  <span class="kd">definition</span> <span class="nv">value</span><span class="o">.</span>net_appreciation <span class="kd">equals</span>
-<a name="./section_1015.catala-169"></a>    <span class="nv">value</span><span class="o">.</span>fair_market_value <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
-<a name="./section_1015.catala-170"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-222">222</a>
+<a href="#./section_1015.catala_en-223">223</a>
+<a href="#./section_1015.catala_en-224">224</a>
+<a href="#./section_1015.catala_en-225">225</a>
+<a href="#./section_1015.catala_en-226">226</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-222"></a>/*
+<a name="./section_1015.catala_en-223"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
+<a name="./section_1015.catala_en-224"></a>  <span class="kd">definition</span> <span class="nv">value</span><span class="o">.</span>net_appreciation <span class="kd">equals</span>
+<a name="./section_1015.catala_en-225"></a>    <span class="nv">value</span><span class="o">.</span>fair_market_value <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
+<a name="./section_1015.catala_en-226"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
 
-<!-- Closing article div -->
 </div>
-
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>(e) Gifts between spouses</a></div>
-
-<p class='law-text'>In the case of any property acquired by gift in a transfer described in section 1041(a), the basis of such property in the hands of the transferee shall be determined under section 1041(b)(2) and not this section.</p>
-
+<p class='law-text'>In the case of any property acquired by gift in a transfer described in section 
+1041(a), the basis of such property in the hands of the transferee shall be 
+determined under section 1041(b)(2) and not this section.</p>
 <div class='code-wrapper'>
-<div class='filename'>./section_1015.catala</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala-173">173</a>
-<a href="#./section_1015.catala-174">174</a>
-<a href="#./section_1015.catala-175">175</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala-173"></a>/*<span class="c1"></span>
-<a name="./section_1015.catala-174"></a><span class="c1"># Same here</span>
-<a name="./section_1015.catala-175"></a>*/
+<div class='filename'>./section_1015.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_1015.catala_en-231">231</a>
+<a href="#./section_1015.catala_en-232">232</a>
+<a href="#./section_1015.catala_en-233">233</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_1015.catala_en-231"></a>/*<span class="c1"></span>
+<a name="./section_1015.catala_en-232"></a><span class="c1"># Same here</span>
+<a name="./section_1015.catala_en-233"></a>*/
 </pre></div>
 </td></tr></table>
+</div>
+
 </div>
