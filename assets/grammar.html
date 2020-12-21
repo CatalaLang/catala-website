@@ -71,6 +71,10 @@
       </tr>
       <tr>
         <th class="bar"></th>
+        <td>DURATION</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
         <td>TEXT</td>
       </tr>
       <tr>
@@ -167,11 +171,10 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>CONTENT
-        LPAREN
+        <td>LBRACKET
         ALT
         <span class="nonterminal">struct_content_field</span><sup>+</sup><sub>ALT</sub>
-        RPAREN</td>
+        RBRACKET</td>
       </tr>
       
       <tr class="rule">
@@ -213,6 +216,14 @@
       <tr>
         <th class="bar"></th>
         <td>YEAR</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MONTH</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>DAY</td>
       </tr>
       
       <tr class="rule">
@@ -263,6 +274,70 @@
       <tr>
         <th class="bar"></th>
         <td>GREATER_EQUAL</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_DEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_EQUAL_DEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_DEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_EQUAL_DEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_MONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_EQUAL_MONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_MONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_EQUAL_MONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_DATE</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_EQUAL_DATE</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_DATE</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_EQUAL_DATE</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_DURATION</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LESSER_EQUAL_DURATION</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_DURATION</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GREATER_EQUAL_DURATION</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -328,6 +403,22 @@
         <th class="bar"></th>
         <td>DIV</td>
       </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MULTDEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>DIVDEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MULTMONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>DIVMONEY</td>
+      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">mult_expression</span></th>
@@ -336,6 +427,38 @@
       
       <tr class="rule">
         <th><span class="nonterminal">sum_op</span></th>
+        <td>PLUSDURATION</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDURATION</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>PLUSDATE</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDATE</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>PLUSMONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSMONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>PLUSDEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
         <td>PLUS</td>
       </tr>
       <tr>
@@ -346,6 +469,18 @@
       <tr class="rule">
         <th><span class="nonterminal">sum_unop</span></th>
         <td>MINUS</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSMONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDURATION</td>
       </tr>
       
       <tr class="rule">
@@ -521,7 +656,10 @@
       
       <tr class="rule">
         <th><span class="nonterminal">rule</span></th>
-        <td><span class="nonterminal">rule_expr</span>
+        <td><span class="option"><span class="nonterminal">label</span></span>
+        <span class="option"><span class="nonterminal">exception_to</span></span>
+        RULE
+        <span class="nonterminal">rule_expr</span>
         <span class="option"><span class="nonterminal">condition_consequence</span></span>
         <span class="nonterminal">rule_consequence</span></td>
       </tr>
@@ -533,8 +671,23 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">label</span></th>
+        <td>LABEL
+        <span class="nonterminal">ident</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">exception_to</span></th>
+        <td>EXCEPTION
+        <span class="nonterminal">ident</span></td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">definition</span></th>
-        <td><span class="nonterminal">qident</span>
+        <td><span class="option"><span class="nonterminal">label</span></span>
+        <span class="option"><span class="nonterminal">exception_to</span></span>
+        DEFINITION
+        <span class="nonterminal">qident</span>
         <span class="option"><span class="nonterminal">definition_parameters</span></span>
         <span class="option"><span class="nonterminal">condition_consequence</span></span>
         DEFINED_AS
@@ -578,13 +731,11 @@
       
       <tr class="rule">
         <th><span class="nonterminal">scope_item</span></th>
-        <td>RULE
-        <span class="nonterminal">rule</span></td>
+        <td><span class="nonterminal">rule</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>DEFINITION
-        <span class="nonterminal">definition</span></td>
+        <td><span class="nonterminal">definition</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -732,10 +883,6 @@
         <span class="nonterminal">code</span>
         END_CODE</td>
       </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LAW_INCLUDE</td>
-      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">law_article</span></th>
@@ -777,6 +924,10 @@
         <td>BEGIN_METADATA
         <span class="option"><span class="nonterminal">law_text</span></span>
         <span class="nonterminal">metadata_block</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LAW_INCLUDE</td>
       </tr>
       
       <tr class="rule">
