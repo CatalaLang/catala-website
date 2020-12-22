@@ -80,11 +80,11 @@
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>tutorial_en.catala_en</tt>, last modification 2020-12-21, 16:48</li>
+<li><tt>tutorial_en.catala_en</tt>, last modification 2020-12-23, 0:29</li>
 </ul>
 <h2 class='law-heading'>The Catala language tutorial</h2>
 <p class='law-text'>Welcome to this tutorial, whose objective is to guide you through the features 
-of the Catala language and trach you how to annotate a legislative text using 
+of the Catala language and teach you how to annotate a legislative text using 
 the language. This document is addressed primarily to developers or people that 
 have a programming background, though tech-savvy lawyers will probably figure 
 things out.</p>
@@ -170,7 +170,7 @@ individual:</p>
 </pre></div>
 </td></tr></table>
 </div>
-<p class='law-text'>This structre contains two data fields, "income" and "age". Structures are 
+<p class='law-text'>This structre contains two data fields, "income" and "number_of_children". Structures are 
 useful to group together data that goes together. Usually, you 
 get one structure per concrete object on which the law applies (like the 
 individual). It is up to you to decide how to group the data together, 
@@ -228,7 +228,7 @@ programming. Scopes also have to be declared in metadata, so here we go:</p>
 <a name="tutorial_en.catala_en-111"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">IncomeTaxComputation</span><span class="o">:</span><span class="c1"></span>
 <a name="tutorial_en.catala_en-112"></a><span class="c1">  # Scope names use CamlCase</span>
 <a name="tutorial_en.catala_en-113"></a>  <span class="kd">context</span> <span class="nv">individual</span> <span class="kd">content</span> <span class="nc">Individual</span><span class="c1"></span>
-<a name="tutorial_en.catala_en-114"></a><span class="c1">  # This line declares a context element of the scope, which is aking to </span>
+<a name="tutorial_en.catala_en-114"></a><span class="c1">  # This line declares a context element of the scope, which is akin to </span>
 <a name="tutorial_en.catala_en-115"></a><span class="c1">  # a function parameter in computer science term. This is the piece of </span>
 <a name="tutorial_en.catala_en-116"></a><span class="c1">  # data on which the scope will operate</span>
 <a name="tutorial_en.catala_en-117"></a>  <span class="kd">context</span> <span class="nv">fixed_percentage</span> <span class="kd">content</span> <span class="kt">decimal</span>
@@ -435,7 +435,7 @@ income tax is 20% of the income.</p>
 <a href="#tutorial_en.catala_en-256">256</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="tutorial_en.catala_en-240"></a>/*
 <a name="tutorial_en.catala_en-241"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">NewIncomeTaxComputation</span><span class="o">:</span>
 <a name="tutorial_en.catala_en-242"></a>  <span class="kd">context</span> <span class="nv">two_brackets</span> <span class="kd">scope</span> <span class="nc">TwoBracketsTaxComputation</span><span class="c1"></span>
-<a name="tutorial_en.catala_en-243"></a><span class="c1">  # This line says that we add the item two_brackets_for_rich to the context.</span>
+<a name="tutorial_en.catala_en-243"></a><span class="c1">  # This line says that we add the item two_brackets to the context.</span>
 <a name="tutorial_en.catala_en-244"></a><span class="c1">  # However, the &quot;scope&quot; keyword tells that this item is not a piece of data </span>
 <a name="tutorial_en.catala_en-245"></a><span class="c1">  # but rather a subscope that we can use to compute things.</span>
 <a name="tutorial_en.catala_en-246"></a>  <span class="kd">context</span> <span class="nv">individual</span> <span class="kd">content</span> <span class="nc">Individual</span>
@@ -664,8 +664,8 @@ fixed version of the NewIncomeTaxComputation scope:</p>
 
 </div>
 <h3 class='law-heading'>Conclusion</h3>
-<p class='law-text'>This tutorial present the basic concepts and syntax of the Catala language 
-features. It is then up to you tu use them to annotate legislative texts 
+<p class='law-text'>This tutorial presents the basic concepts and syntax of the Catala language 
+features. It is then up to you use them to annotate legislative texts 
 with their algorithmic translation.<br/>
 There is no single way to write Catala programs, as the program style should be 
 adapted to the legislation it annotates. However, Catala is a functional 
