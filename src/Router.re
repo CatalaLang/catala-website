@@ -34,9 +34,13 @@ let navigation_elements_to_component =
       <Examples.FrenchFamilyBenefits />;
     } else if (first == Elements.home
                && second == Elements.examples
-               && third == Elements.tutorial_example) {
-      <Examples.Tutorial />;
+               && third == Elements.tutorial_en_example) {
+      <Examples.TutorialEn />;
     } else if (first == Elements.home
+              && second == Elements.examples
+              && third == Elements.tutorial_fr_example) {
+      <Examples.TutorialFr />;
+    }  else if (first == Elements.home
                && second == Elements.examples
                && third == Elements.french_example) {
       <Examples.DummyFrench />;

@@ -259,7 +259,9 @@ let make = () => {
             </a>
           </div>
         </div>
-        <img className=[%tw "w-48 mx-8 my-4"] src={"/" ++ logo.default} />
+        <div className=[%tw "flex flex-col justify-center"]>
+          <img className=[%tw "w-48 h-48 mx-8 my-4"] src={"/" ++ logo.default} />
+        </div>
       </div>
     </div>
     <div className=[%tw "flex flex-col flex-wrap content-center pt-12"]>

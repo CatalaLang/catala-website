@@ -52,9 +52,15 @@ let french_example: navigation_element = {
   text: <Lang.String english="French" french={js|Français|js} />,
 };
 
-let tutorial_example: navigation_element = {
+let tutorial_en_example: navigation_element = {
   url: "tutorial",
-  text: <Lang.String english="Tutorial" french={js|Tutoriel|js} />,
+  text: <Lang.String english="English Tutorial" french={js|Tutoriel en anglais|js} />,
+};
+
+
+let tutorial_fr_example: navigation_element = {
+  url: "tutoriel",
+  text: <Lang.String english="French Tutorial" french={js|Tutoriel en français|js} />,
 };
 
 let catala_man_page: navigation_element = {
@@ -120,8 +126,10 @@ let url_to_navigation_elements =
         Some([|us_tax_code|]);
       } else if (second_path == french_example.url) {
         Some([|french_example|]);
-      } else if (second_path == tutorial_example.url) {
-        Some([|tutorial_example|]);
+      } else if (second_path == tutorial_en_example.url) {
+        Some([|tutorial_en_example|]);
+      } else if (second_path == tutorial_fr_example.url) {
+        Some([|tutorial_fr_example|]);
       } else if (second_path == catala_man_page.url) {
         Some([|catala_man_page|]);
       } else if (second_path == legifrance_catala_man_page.url) {
