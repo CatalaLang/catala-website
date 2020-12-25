@@ -1,3 +1,4 @@
+var webpack = require('webpack');
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const CopyPlugin = require('copy-webpack-plugin')
@@ -8,6 +9,17 @@ const isProd = process.env.NODE_ENV === "production"
 var catala = {
   entry: "./src/Index.bs.js",
   mode: isProd ? "production" : "development",
+  resolve: {
+    alias: {
+      'fs': 'browserfs/dist/shims/fs.js',
+      'buffer': 'browserfs/dist/shims/buffer.js',
+      'path': 'browserfs/dist/shims/path.js',
+      'processGlobal': 'browserfs/dist/shims/process.js',
+      'bufferGlobal': 'browserfs/dist/shims/bufferGlobal.js',
+      'bfsGlobal': require.resolve('browserfs'),
+      'child_process': 'browser-builtins/builtin/child_process.js',
+    },
+  },
   devtool: "source-map",
   output: {
     path: outputDir,
@@ -36,7 +48,15 @@ var catala = {
         { from: './assets/ocaml_docs', to: 'ocaml_docs' },
       ],
     }),
+    // Expose BrowserFS, process, and Buffer globals.
+    // NOTE: If you intend to use BrowserFS in a script tag, you do not need
+    // to expose a BrowserFS global.
+    new webpack.ProvidePlugin({ BrowserFS: 'bfsGlobal', process: 'processGlobal', Buffer: 'bufferGlobal' })
   ],
+  node: {
+    process: true,
+    Buffer: false
+  },
   devServer: {
     compress: true,
     contentBase: outputDir,
@@ -44,6 +64,7 @@ var catala = {
     historyApiFallback: true
   },
   module: {
+    noParse: /browserfs\.js/,
     rules: [
       {
         test: /\.css$/,

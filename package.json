@@ -27,6 +27,9 @@
   },
   "devDependencies": {
     "@dylanirlbeck/tailwind-ppx": "^0.7.9",
+    "ansi_up": "^4.0.4",
+    "browser-builtins": "^3.3.1",
+    "browserfs": "^1.4.3",
     "bs-platform": "^7.3.2",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^3.6.0",
