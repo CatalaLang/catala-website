@@ -38,19 +38,10 @@ module FrenchFamilyBenefits = {
         </Utils.TextLink>
         <Lang.String
           english=" corresponding to the action of interleaving together the code and its textual documentation
-         as to produce a reviewable and comprehensive document. Please refer to the "
+         as to produce a reviewable and comprehensive document. Please refer to the tutorial for a hands-on introduction
+          on how to read this document."
           french={js| , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
-         complet et lisible. Veuillez vous réferer au |js}
-        />
-        <Utils.InternalLink target=[|Elements.home, Elements.guide|]>
-          <Lang.String
-            english="reading guide"
-            french={js|guide de lecture|js}
-          />
-        </Utils.InternalLink>
-        <Lang.String
-          english=" for a hands-on introduction on how to read this document."
-          french={js| pour savoir comment lire ce document.|js}
+         complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.|js}
         />
       </p>
       <div
@@ -99,19 +90,10 @@ module USTaxCode = {
         </Utils.TextLink>
         <Lang.String
           english=" corresponding to the action of interleaving together the code and its textual documentation
-         as to produce a reviewable and comprehensive document. Please refer to the "
+         as to produce a reviewable and comprehensive document. Please refer to the tutorial for a hands-on introduction
+          on how to read this document."
           french={js| , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
-         complet et lisible. Veuillez vous réferer au |js}
-        />
-        <Utils.InternalLink target=[|Elements.home, Elements.guide|]>
-          <Lang.String
-            english="reading guide"
-            french={js|guide de lecture|js}
-          />
-        </Utils.InternalLink>
-        <Lang.String
-          english=" for a hands-on introduction on how to read this document."
-          french={js| pour savoir comment lire ce document.|js}
+         complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.|js}
         />
       </p>
       <div

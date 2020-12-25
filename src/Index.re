@@ -19,8 +19,8 @@ module App = {
           "flex flex-col min-h-screen text-xl md:text-lg lg:text-base"
         ]>
         <Nav />
-        <main className=[%tw "flex-grow"]>
-          <div className=[%tw "container mx-auto px-4"]> <Router /> </div>
+        <main className=[%tw "flex flex-col flex-grow container mx-auto px-4 "]>
+           <Router />
         </main>
         <div className=[%tw "w-full bottom-0"]> <Footer /> </div>
       </div>

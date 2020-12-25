@@ -89,10 +89,10 @@ let legal_guide_card: Utils.presentation_card = {
     ),
   action:
     Some((
-      [|Elements.home, Elements.guide|],
+      [|Elements.home, Elements.playground|],
       <Lang.String
-        english="A lawyer's guide to Catala code validation"
-        french={js|Guide de validation du code Catala pour juristes|js}
+        english="Online playground"
+        french={js|Bac à sable en ligne|js}
       />,
     )),
   content: {

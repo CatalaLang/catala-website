@@ -23,9 +23,9 @@ let about: navigation_element = {
   text: <Lang.String english="about" french={js|À propos|js} />,
 };
 
-let guide: navigation_element = {
-  url: "guide",
-  text: <Lang.String english="Guide" french={js|Guide|js} />,
+let playground: navigation_element = {
+  url: "playground",
+  text: <Lang.String english="Playground" french={js|Bac à sable|js} />,
 };
 
 let doc: navigation_element = {
@@ -105,8 +105,8 @@ let url_to_navigation_elements =
         Some([|home, formalization|]);
       } else if (first_path == examples.url) {
         Some([|home, examples|]);
-      } else if (first_path == guide.url) {
-        Some([|home, guide|]);
+      } else if (first_path == playground.url) {
+        Some([|home, playground|]);
       } else if (first_path == doc.url) {
         Some([|home, doc|]);
       } else if (first_path == about.url) {

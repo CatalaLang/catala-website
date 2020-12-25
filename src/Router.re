@@ -6,8 +6,8 @@ let navigation_elements_to_component =
       <About />;
     } else if (first == Elements.home && second == Elements.doc) {
       <Doc />;
-    } else if (first == Elements.home && second == Elements.guide) {
-      <Guide />;
+    } else if (first == Elements.home && second == Elements.playground) {
+      <Playground />;
     } else if (first == Elements.home && second == Elements.formalization) {
       <Formalization />;
     } else if (first == Elements.home && second == Elements.examples) {

@@ -19,7 +19,7 @@ var catala = {
       inject: true
     }),
     new FaviconsWebpackPlugin({
-      logo:'./assets/logo.png',
+      logo: './assets/logo.png',
       mode: 'webapp', // optional can be 'webapp' or 'light' - 'webapp' by default
       devMode: 'webapp', // optional can be 'webapp' or 'light' - 'light' by default
       inject: true,
@@ -32,9 +32,9 @@ var catala = {
       }
     }),
     new CopyPlugin({
-     patterns: [
-       { from: './assets/ocaml_docs', to: 'ocaml_docs' },
-     ],
+      patterns: [
+        { from: './assets/ocaml_docs', to: 'ocaml_docs' },
+      ],
     }),
   ],
   devServer: {
@@ -52,6 +52,14 @@ var catala = {
       {
         test: /\.html$/,
         use: ["html-loader"]
+      },
+      {
+        test: /\.catala_en/,
+        use: ["raw-loader"]
+      },
+      {
+        test: /\.catala_fr/,
+        use: ["raw-loader"]
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
