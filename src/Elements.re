@@ -70,13 +70,6 @@ let catala_man_page: navigation_element = {
   },
 };
 
-let legifrance_catala_man_page: navigation_element = {
-  url: "legifrance-catala",
-  text: {
-    "legifrance-catala" |> React.string;
-  },
-};
-
 let ocaml_docs: navigation_element = {
   url: "ocaml",
   text: {
@@ -132,8 +125,6 @@ let url_to_navigation_elements =
         Some([|tutorial_fr_example|]);
       } else if (second_path == catala_man_page.url) {
         Some([|catala_man_page|]);
-      } else if (second_path == legifrance_catala_man_page.url) {
-        Some([|legifrance_catala_man_page|]);
       } else if (second_path == ocaml_docs.url) {
         Some([|ocaml_docs|]);
       } else {

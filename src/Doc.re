@@ -67,23 +67,8 @@ module OCamlDocs = {
   };
 };
 
-module LegiFranceCatalaManPage =
-  MakeManPageDoc({
-    let title =
-      <Lang.String
-        english="Catala LegiFrance connector documentation"
-        french={js|Documentation de la connextion LégiFrance pour Catala|js}
-      />;
-    let html: string = [%bs.raw
-      {|require("../assets/legifrance_catala.html")|}
-    ];
-  });
-
 let catala_doc: string = [%bs.raw {|require("../assets/catala.html")|}];
 
-let legifrance_catala_doc: string = [%bs.raw
-  {|require("../assets/legifrance_catala.html")|}
-];
 
 let catala_card: Utils.presentation_card = {
   title:
@@ -105,33 +90,6 @@ let catala_card: Utils.presentation_card = {
      the contents into various literate programming or executable targets."
         french={js|Le compilateur est l'outil principal qui prend en entrée un fichier source Catala et
      en traduit le contenu vers diverses cibles de programmation littéraire ou exécutable.|js}
-      />
-    </p>;
-  },
-};
-
-let legifrance_catala_card: Utils.presentation_card = {
-  title:
-    <Lang.String
-      english="The LegiFrance Catala connector"
-      french={js|La connexion Catala-LégiFrance|js}
-    />,
-  icon: None,
-  quote: None,
-  action:
-    Some((
-      [|Elements.home, Elements.doc, Elements.legifrance_catala_man_page|],
-      <Lang.String english="See manpage" french={js|Voir la page man|js} />,
-    )),
-  content: {
-    <p>
-      <Lang.String
-        english="Only available for the French surface language, this utility connects to the LegiFrance API
-     to retrieve expiration dates for the law articles used in the implementation or compare the
-     text in the source code with the official legislative text."
-        french={js|Cet outil uniquement disponible pour la version française de Catala permet de se connecter à
-       l'API de LégiFrance afin de récupérer les dates d'expiration de tous les articles de loi ou de règlements
-        utilisés dans l'implémentation d'un programme Catala.|js}
       />
     </p>;
   },
@@ -177,7 +135,7 @@ let make = () => {
       />
     </Utils.PageTitle>
     <Utils.PresentationCards
-      cards=[|catala_card, legifrance_catala_card, ocaml_docs_card|]
+      cards=[|catala_card, ocaml_docs_card|]
     />
   </>;
 };

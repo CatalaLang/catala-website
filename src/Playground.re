@@ -14,12 +14,10 @@ let catala_exe: (string, React.ref(Js.Nullable.t(Dom.element)), string, bool) =>
     var AU = require('ansi_up');
     var ansi_up = new AU.default;
     console.log = function(message) {
-      out.push(ansi_up.ansi_to_html(message.toString())
-        .replace(/\n/g, '<br/>'));
+      out.push(ansi_up.ansi_to_html(message.toString().trim()));
     };
     console.error = function(message) {
-      out.push(ansi_up.ansi_to_html(message.toString())
-        .replace(/\n/g, '<br/>'));
+      out.push(ansi_up.ansi_to_html(message.toString().trim()));
     };
     try {
       catala.interpret(contents, scope.current.value, lang, trace);
@@ -161,7 +159,34 @@ let make = () => {
           french={js|Bac à sable en ligne|js}
         />
       </Utils.PageTitle>
-      <div className=[%tw "flex flex-col flex-grow"]>
+      <p><Lang.String english="Welcome to the Catala online playground! This page lets
+        you use the Catala interpreter right inside your browser, without having 
+        to install anything. You can write your program in the editor, then 
+        type the name of the scope you wish to interpret in the input form and 
+        click RUN."
+        french={js|Bienvenue dans le bac à sable en ligne de Catala! Cette page 
+        vous permet d'utiliser l'interpréteur de Catala dans votre navigateur,
+        sans avoir à installer quoique ce soit. Vous pouvez écrire votre programme
+        dans l'éditeur, puis taper le nom du champ d'application à exécuter
+        dans le formulaire et cliquer sur EXÉCUTER.|js}
+      /></p>
+      <p><Lang.String english="Note that this playground has limited support 
+        and functionnalities compared to writing Catala using a real IDE. Please 
+        refer to " french={js|Les fonctionnalités de ce bac à sable sont limitées
+        par rapport à l'écriture de programme Catala dans un vrai environnement 
+        de développement intégré. Veuillez vous référer à |js}
+      /> <Utils.TextLink target="https://github.com/CatalaLang/catala">
+      <Lang.String english="the readmes of the GitHub repository" 
+      french={js|aux lisez-moi du dépôt GitHub|js}/>
+      </Utils.TextLink><Lang.String english=" for complete instructions on how 
+      to set up your IDE." french={js| pour plus d'information sur comment 
+      configurer votre EDI.|js} /></p>
+      <p><Lang.String english="You can preload the code of the tutorial as a 
+      starting point by clicking the buttons below." french={js|Vous pouvez 
+      pré-charger le code du tutoriel à la manière d'un point de départ en 
+      cliquant sur les boutons ci-dessous.|js}/>
+      </p>
+      <div className=[%tw "flex flex-col flex-grow mt-8"]>
         <div className=[%tw "flex flex-row justify-around"]>
         {available_modules
           ->Belt.Array.mapWithIndex((i, modu) =>
@@ -169,7 +194,7 @@ let make = () => {
             )
           ->React.array}
         </div>
-        <div id="editor" className=[%tw "flex-grow my-4 w-full"]>
+        <div id="editor" className=[%tw "flex-grow my-4 w-full min-h-screen"]>
           {"Hello, world!" |> React.string}
         </div>
         <div className=[%tw "flex flex-row justify-center p-2 bg-secondary shadow"]>
@@ -190,7 +215,10 @@ let make = () => {
             <Lang.String english="Run" french={js|Exécuter|js}/>
           </button>
         </div>
-        <div id="catala-output" className=[%tw "my-4"]>
+        <div id="catala-output" className=[%tw "my-4 overflow-x-auto border-tertiary border-solid border-2 p-2"]>
+          <pre>
+            {"Click on RUN to launch the interpreter!" |> React.string}
+          </pre>
         </div>
       </div>
     </div>

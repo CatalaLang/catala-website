@@ -16,14 +16,7 @@ let examples_card: Utils.presentation_card = {
         french={js|Écrire le code à côté de la loi qu'il est censé suivre|js}
       />,
     ),
-  action:
-    Some((
-      [|Elements.home, Elements.examples|],
-      <Lang.String
-        english="Catala program examples"
-        french={js|Exemples de programmes Catala|js}
-      />,
-    )),
+  action: None,
   content: {
     <Lang.String
       english="Implementations derived from legislative texts are hard to get right.
@@ -52,11 +45,7 @@ let doc_card: Utils.presentation_card = {
         french={js|Exécuter simplement des programmes simples|js}
       />,
     ),
-  action:
-    Some((
-      [|Elements.home, Elements.doc|],
-      <Lang.String english="Documentation" french="Documentation" />,
-    )),
+  action: None,
   content: {
     <Lang.String
       english="Code derived from legislation generally uses basic programming concepts, that are present
@@ -87,14 +76,7 @@ let legal_guide_card: Utils.presentation_card = {
         french={js|Utiliser l'expertise juridique pour valider ses programmes|js}
       />,
     ),
-  action:
-    Some((
-      [|Elements.home, Elements.playground|],
-      <Lang.String
-        english="Online playground"
-        french={js|Bac à sable en ligne|js}
-      />,
-    )),
+  action: None,
   content: {
     <Lang.String
       english="For programs derived from legislation, validation relies on lawyers who generally write
@@ -126,14 +108,7 @@ let foundations_card: Utils.presentation_card = {
         french={js|Un langage de programmation conçu par des spécialistes|js}
       />,
     ),
-  action:
-    Some((
-      [|Elements.home, Elements.formalization|],
-      <Lang.String
-        english="Formalized specification"
-        french={js|Formalisation|js}
-      />,
-    )),
+  action: None,
   content: {
     <>
       <Lang.String
@@ -175,6 +150,102 @@ let english_homepage: string = [%bs.raw
   {|require("../assets/english_homepage.html")|}
 ];
 
+type link_target = 
+  | External(string)
+  | Internal(array(Elements.navigation_element));
+
+type link_info = {
+  target: link_target,
+  text: React.element,
+  icon: string,
+};
+
+module LinkBlock = {
+  [@react.component]
+  let make = (~info: link_info, ~lang) => {
+    let link_content = <div
+        className=[%tw
+          "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
+        ]>
+        <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+          info.text
+          <i className="pl-4 material-icons">
+            {info.icon |> React.string}
+          </i>
+        </div>
+      </div>;
+    <div> {
+    switch (info.target) {
+    | Internal(elements) =>
+      { <a className=[%tw "cursor-pointer uppercase text-white"]
+        onClick={Elements.goToElement(elements, lang)}>
+        link_content
+      </a> }
+    | External(link) => {
+      <a className=[%tw "cursor-pointer uppercase text-white"]
+        href=link target="_blank">
+        link_content
+      </a> }
+    } } 
+    </div> 
+  }
+}
+
+let github_link_info : link_info = {
+  target: External(github_link),
+  text: <Lang.String
+    english="Get started on GitHub"
+    french={js|Démarrer sur GitHub|js} />,
+  icon: "code"
+};
+
+let about_link_info : link_info = {
+  target: Internal([|Elements.home, Elements.about|]),
+  text:  <Lang.String
+    english="About the project"
+    french={js|À propos du projet|js} />,
+  icon: "info"
+};
+
+let white_paper_link_info : link_info = {
+  target: External(catala_jurix_link),
+  text: <Lang.String
+    english="The Catala white paper"
+    french={js|Catala en 10 pages|js} />,
+  icon: "content_copy"
+};
+
+let formalisation_link_info : link_info = {
+  target: Internal([|Elements.home, Elements.formalization|]),
+  text: <Lang.String
+    english="Formalized specification"
+    french={js|Formalisation|js} />,
+  icon: "rule"
+};
+
+let playground_link_info : link_info = {
+  target: Internal([|Elements.home, Elements.playground|]),
+  text: <Lang.String
+    english="Online playground"
+    french={js|Bac à sable en ligne|js}/>,
+  icon: "play_circle"
+};
+
+let doc_link_info : link_info = {
+  target: Internal([|Elements.home, Elements.doc|]),
+  text: <Lang.String english="Documentation" french="Documentation" />,
+  icon: "description"
+};
+
+let examples_link_info : link_info = {
+  target: Internal([|Elements.home, Elements.examples|]),
+  text: <Lang.String
+    english="Catala program examples"
+    french={js|Exemples de programmes Catala|js}/>,
+  icon: "ballot"
+};
+
+
 [@react.component]
 let make = () => {
   let (lang, _) = React.useContext(Lang.langContext);
@@ -192,77 +263,21 @@ let make = () => {
       </div>
       <div className=[%tw "flex flex-row flex-wrap justify-center"]>
         <div
-          className=[%tw "flex flex-col flex-wrap items-center justify-center"]>
-          <div className=[%tw "mx-8 my-4"]>
-            <a
-              className=[%tw "cursor-pointer uppercase text-white"]
-              href=github_link
-              target="_blank">
-              <div
-                className=[%tw
-                  "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
-                ]>
-                <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                  <Lang.String
-                    english="Get started on GitHub"
-                    french={js|Démarrer sur GitHub|js}
-                  />
-                  <i className="pl-4 material-icons">
-                    {"code" |> React.string}
-                  </i>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className=[%tw "mx-8 my-4"]>
-            <a
-              className=[%tw "cursor-pointer uppercase text-white"]
-              onClick={Elements.goToElement(
-                [|Elements.home, Elements.about|],
-                lang,
-              )}>
-              <div
-                className=[%tw
-                  "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
-                ]>
-                <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                  <Lang.String
-                    english="About the project"
-                    french={js|À propos du projet|js}
-                  />
-                  <i className="pl-4 material-icons">
-                    {"info" |> React.string}
-                  </i>
-                </div>
-              </div>
-            </a>
-          </div>
-          <div className=[%tw "mx-8 my-4"]>
-            <a
-              className=[%tw "cursor-pointer uppercase text-white"]
-              href=catala_jurix_link
-              target="_blank">
-              <div
-                className=[%tw
-                  "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
-                ]>
-                <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
-                  <Lang.String
-                    english="The Catala white paper"
-                    french={js|Catala en 10 pages|js}
-                  />
-                  <i className="pl-4 material-icons">
-                    {"content_copy" |> React.string}
-                  </i>
-                </div>
-              </div>
-            </a>
-          </div>
+          className=[%tw "flex flex-col flex-wrap items-end"]>
+          <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=github_link_info/></div>
+          <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=about_link_info/></div>
+          <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=white_paper_link_info/></div>
         </div>
         <div className=[%tw "flex flex-col justify-center"]>
           <img className=[%tw "w-48 h-48 mx-8 my-4"] src={"/" ++ logo.default} />
         </div>
       </div>
+    </div>
+    <div className=[%tw "flex flex-row flex-wrap justify-around pt-12"]> 
+      <div className=[%tw "my-2"]><LinkBlock lang=lang info=examples_link_info/></div>
+      <div className=[%tw "my-2"]><LinkBlock lang=lang info=playground_link_info/></div>
+      <div className=[%tw "my-2"]><LinkBlock lang=lang info=doc_link_info/></div>
+      <div className=[%tw "my-2"]><LinkBlock lang=lang info=formalisation_link_info/></div>
     </div>
     <div className=[%tw "flex flex-col flex-wrap content-center pt-12"]>
       <div

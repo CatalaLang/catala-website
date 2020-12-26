@@ -22,10 +22,6 @@ let navigation_elements_to_component =
       <Doc.CatalaManPage />;
     } else if (first == Elements.home
                && second == Elements.doc
-               && third == Elements.legifrance_catala_man_page) {
-      <Doc.LegiFranceCatalaManPage />;
-    } else if (first == Elements.home
-               && second == Elements.doc
                && third == Elements.ocaml_docs) {
       <Doc.OCamlDocs />;
     } else if (first == Elements.home

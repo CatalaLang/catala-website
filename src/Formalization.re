@@ -64,12 +64,29 @@ let make = () => {
            le choix s'effectue selon des règles de précédences spécifiées dans le code source.|js}
         />
       </p>
-      <p className="pt-6">
-        <Lang.String
-          english="More details coming soon..."
-          french={js|Plus de détails à venir...|js}
-        />
-      </p>
+      <div className=[%tw "flex flex-row justify-center"]>
+        <div className=[%tw "mx-8 my-4"]>
+          <a
+            className=[%tw "cursor-pointer uppercase text-white"]
+            href="https://github.com/CatalaLang/catala/raw/master/doc/formalization/formalization.pdf"
+            target="_blank">
+            <div
+              className=[%tw
+                "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
+              ]>
+              <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+                <Lang.String
+                  english="Access the complete formalization PDF"
+                  french={js|Accéder au PDF contenantt la formalisation|js}
+                />
+                <i className="pl-4 material-icons">
+                  {"description" |> React.string}
+                </i>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
     </Utils.PageSection>
   </>;
 };
