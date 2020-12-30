@@ -10,7 +10,6 @@ let catala_exe: (string, React.ref(Js.Nullable.t(Dom.element)), string, bool) =>
     var oldLog = console.log;
     var oldError = console.error;
     var out = [];
-    var contents = contents.replace(/\n/g, '\r\n');
     var AU = require('ansi_up');
     var ansi_up = new AU.default;
     console.log = function(message) {
@@ -98,7 +97,6 @@ let set_editor_content: (editor, React.element, string) => unit = [%bs.raw
   function (editor, new_content, mode) {
     editor.session.setMode(mode);
     editor.setValue(new_content.default);
-    editor.clearSelection();
   }
   |}
 ];
@@ -106,7 +104,8 @@ let set_editor_content: (editor, React.element, string) => unit = [%bs.raw
 let get_editor_content: (editor) => string = [%bs.raw
   {|
   function (editor) {
-    return editor.getValue();
+    var contents = editor.getValue().slice();
+    return contents;
   }
   |}
 ];
