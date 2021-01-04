@@ -74,11 +74,11 @@ ace.define("ace/mode/catala_en_highlighting_rules", ["require", "exports", "modu
                 },
                 {
                     "token": "keyword.operator",
-                    "regex": "(\\-\\>|\\+|\\-|\\*|/|\\!|not|or|and|=|>|<|\\$|%|year|month|day)"
+                    "regex": "(\\-\\>|\\+\\.|\\+\\@|\\+\\^|\\+\\$|\\+|\\-\\.|\\-\\@|\\-\\^|\\-\\$|\\-|\\*\\.|\\*\\@|\\*\\^|\\*\\$|\\*|/\\.|/\\@|/\\^|/\\$|/|\\!|>\\.|>=\\.|<=\\.|<\\.|>\\@|>=\\@|<=\\@|<\\@|>\\$|>=\\$|<=\\$|<\\$|>\\^|>=\\^|<=\\^|<\\^|>|>=|<=|<|=|not|or|and|\\$|%|year|month|day)"
                 },
                 {
                     "token": "support.type",
-                    "regex": "\\b(integer|boolean|date|money|text|decimal|number|sum|now)\\b"
+                    "regex": "\\b(integer|boolean|date|money|text|decimal|number|sum)\\b"
                 },
                 {
                     "token": ["entity.name.class", "punctuation", "entity.name.function"],

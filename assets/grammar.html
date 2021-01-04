@@ -96,22 +96,12 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">optional_marked</span></th>
-        <td>OPTIONAL</td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">typ</span></th>
         <td><span class="nonterminal">typ_base</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td><span class="nonterminal">collection_marked</span>
-        <span class="nonterminal">typ</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">optional_marked</span>
         <span class="nonterminal">typ</span></td>
       </tr>
       
@@ -189,15 +179,21 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>NOW</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
         <td>CARDINAL</td>
       </tr>
       <tr>
         <th class="bar"></th>
+        <td>INT_TO_DEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
         <td><span class="nonterminal">struct_or_enum_inject</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LSQUARE
+        <span class="nonterminal">expression</span><sup>*</sup><sub>SEMICOLON</sub>
+        RSQUARE</td>
       </tr>
       
       <tr class="rule">
@@ -350,7 +346,18 @@
       
       <tr class="rule">
         <th><span class="nonterminal">aggregate_func</span></th>
-        <td>SUM</td>
+        <td>MAXIMUM
+        <span class="nonterminal">typ_base</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINIMUM
+        <span class="nonterminal">typ_base</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>SUM
+        <span class="nonterminal">typ_base</span></td>
       </tr>
       <tr>
         <th class="bar"></th>

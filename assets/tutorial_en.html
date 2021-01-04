@@ -80,7 +80,7 @@
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>tutorial_en.catala_en</tt>, last modification 2020-12-24, 15:23</li>
+<li><tt>tutorial_en.catala_en</tt>, last modification 2021-01-04, 21:19</li>
 </ul>
 <h2 class='law-heading'>The Catala language tutorial</h2>
 <p class='law-text'>Welcome to this tutorial, whose objective is to guide you through the features 
@@ -128,7 +128,7 @@ individual's income over a year.</p>
 <p class='law-text'>To do that, we will intertwine short snippets of code between the sentences of 
 the legislative text. Each snippet of code should be as short as possible and 
 as close as possible to the actual sentence that justifies the code. This style 
-is called litterate programming, a programming paradigm invented by the famous 
+is called literate programming, a programming paradigm invented by the famous 
 computer scientist Donald Knuth in the 70s.</p>
 </div>
 <h3 class='law-heading'>Defining a fictional income tax</h3>
@@ -170,7 +170,7 @@ individual:</p>
 </pre></div>
 </td></tr></table>
 </div>
-<p class='law-text'>This structre contains two data fields, "income" and "number_of_children". Structures are 
+<p class='law-text'>This structure contains two data fields, "income" and "number_of_children". Structures are 
 useful to group together data that goes together. Usually, you 
 get one structure per concrete object on which the law applies (like the 
 individual). It is up to you to decide how to group the data together, 
@@ -442,11 +442,11 @@ income tax is 20% of the income.</p>
 <a name="tutorial_en.catala_en-247"></a>  <span class="kd">context</span> <span class="nv">income_tax</span> <span class="kd">content</span> <span class="kt">money</span>
 <a name="tutorial_en.catala_en-248"></a>
 <a name="tutorial_en.catala_en-249"></a><span class="kd">scope</span> <span class="nc">NewIncomeTaxComputation</span> <span class="o">:</span>
-<a name="tutorial_en.catala_en-250"></a>  <span class="kd">definition</span> <span class="nv">two_brackets</span><span class="o">.</span>brackets <span class="kd">equals</span> <span class="nc">TwoBrackets</span> {
+<a name="tutorial_en.catala_en-250"></a>  <span class="kd">definition</span> <span class="nv">two_brackets</span><span class="o">.</span>brackets <span class="kd">equals</span> <span class="nc">TwoBrackets</span> <span class="o">{</span>
 <a name="tutorial_en.catala_en-251"></a>    — <span class="nv">breakpoint</span><span class="o">:</span> <span class="o">$</span><span class="mi">100,000</span>
 <a name="tutorial_en.catala_en-252"></a>    — <span class="nv">rate1</span><span class="o">:</span> <span class="mi">20</span><span class="o">%</span>
 <a name="tutorial_en.catala_en-253"></a>    — <span class="nv">rate2</span><span class="o">:</span> <span class="mi">40</span><span class="o">%</span>
-<a name="tutorial_en.catala_en-254"></a>  }
+<a name="tutorial_en.catala_en-254"></a>  <span class="o">}</span>
 <a name="tutorial_en.catala_en-255"></a>  <span class="kd">definition</span> <span class="nv">income_tax</span> <span class="kd">equals</span> <span class="nv">two_brackets</span><span class="o">.</span>tax_formula <span class="kr">of</span> <span class="nv">individual</span><span class="o">.</span>income 
 <a name="tutorial_en.catala_en-256"></a>*/
 </pre></div>
@@ -525,10 +525,10 @@ as another scope:</p>
 <a name="tutorial_en.catala_en-293"></a>  <span class="kd">equals</span><span class="c1"></span>
 <a name="tutorial_en.catala_en-294"></a><span class="c1">    # The four lines below define a whole structure by giving a value to </span>
 <a name="tutorial_en.catala_en-295"></a><span class="c1">    # each of its fields</span>
-<a name="tutorial_en.catala_en-296"></a>    <span class="nc">Individual</span> {
+<a name="tutorial_en.catala_en-296"></a>    <span class="nc">Individual</span> <span class="o">{</span>
 <a name="tutorial_en.catala_en-297"></a>      — <span class="nv">income</span><span class="o">:</span> <span class="o">$</span><span class="mi">230,000</span>
 <a name="tutorial_en.catala_en-298"></a>      — <span class="nv">number_of_children</span><span class="o">:</span> <span class="mi">0</span>
-<a name="tutorial_en.catala_en-299"></a>    }<span class="c1"></span>
+<a name="tutorial_en.catala_en-299"></a>    <span class="o">}</span><span class="c1"></span>
 <a name="tutorial_en.catala_en-300"></a><span class="c1">    </span>
 <a name="tutorial_en.catala_en-301"></a><span class="c1">  # Next, we retrieve the income tax value compute it by the subscope and </span>
 <a name="tutorial_en.catala_en-302"></a><span class="c1">  # assert that it is equal to the expected value :</span>
@@ -557,10 +557,10 @@ as another scope:</p>
 <a name="tutorial_en.catala_en-310"></a>  <span class="kd">context</span> <span class="nv">tax_computation</span> <span class="kd">scope</span> <span class="nc">NewIncomeTaxComputation</span>
 <a name="tutorial_en.catala_en-311"></a>
 <a name="tutorial_en.catala_en-312"></a><span class="kd">scope</span> <span class="nc">Test2</span><span class="o">:</span>
-<a name="tutorial_en.catala_en-313"></a>  <span class="kd">definition</span> <span class="nv">tax_computation</span><span class="o">.</span>individual <span class="kd">equals</span> <span class="nc">Individual</span> {
+<a name="tutorial_en.catala_en-313"></a>  <span class="kd">definition</span> <span class="nv">tax_computation</span><span class="o">.</span>individual <span class="kd">equals</span> <span class="nc">Individual</span> <span class="o">{</span>
 <a name="tutorial_en.catala_en-314"></a>    — <span class="nv">income</span><span class="o">:</span> <span class="o">$</span><span class="mi">4,000</span>
 <a name="tutorial_en.catala_en-315"></a>    — <span class="nv">number_of_children</span><span class="o">:</span> <span class="mi">0</span>
-<a name="tutorial_en.catala_en-316"></a>  }
+<a name="tutorial_en.catala_en-316"></a>  <span class="o">}</span>
 <a name="tutorial_en.catala_en-317"></a>
 <a name="tutorial_en.catala_en-318"></a>  <span class="kd">assertion</span> <span class="nv">tax_computation</span><span class="o">.</span>income_tax <span class="o">=</span> <span class="o">$</span><span class="mi">0</span>
 <a name="tutorial_en.catala_en-319"></a>*/
@@ -613,11 +613,11 @@ fixed version of the NewIncomeTaxComputation scope:</p>
 <a name="tutorial_en.catala_en-340"></a>  <span class="kd">context</span> <span class="nv">income_tax</span> <span class="kd">content</span> <span class="kt">money</span>
 <a name="tutorial_en.catala_en-341"></a>
 <a name="tutorial_en.catala_en-342"></a><span class="kd">scope</span> <span class="nc">NewIncomeTaxComputationFixed</span> <span class="o">:</span>
-<a name="tutorial_en.catala_en-343"></a>  <span class="kd">definition</span> <span class="nv">two_brackets</span><span class="o">.</span>brackets <span class="kd">equals</span> <span class="nc">TwoBrackets</span> {
+<a name="tutorial_en.catala_en-343"></a>  <span class="kd">definition</span> <span class="nv">two_brackets</span><span class="o">.</span>brackets <span class="kd">equals</span> <span class="nc">TwoBrackets</span> <span class="o">{</span>
 <a name="tutorial_en.catala_en-344"></a>    — <span class="nv">breakpoint</span><span class="o">:</span> <span class="o">$</span><span class="mi">100,000</span>
 <a name="tutorial_en.catala_en-345"></a>    — <span class="nv">rate1</span><span class="o">:</span> <span class="mi">20</span><span class="o">%</span>
 <a name="tutorial_en.catala_en-346"></a>    — <span class="nv">rate2</span><span class="o">:</span> <span class="mi">40</span><span class="o">%</span>
-<a name="tutorial_en.catala_en-347"></a>  }<span class="c1"></span>
+<a name="tutorial_en.catala_en-347"></a>  <span class="o">}</span><span class="c1"></span>
 <a name="tutorial_en.catala_en-348"></a>
 <a name="tutorial_en.catala_en-349"></a><span class="c1">  # To define an exception to a rule, you have to first label the rule that </span>
 <a name="tutorial_en.catala_en-350"></a><span class="c1">  # you want to attach to exception to. You can put any snake_case identifier</span>
@@ -652,10 +652,10 @@ fixed version of the NewIncomeTaxComputation scope:</p>
 <a name="tutorial_en.catala_en-366"></a>  <span class="kd">context</span> <span class="nv">tax_computation</span> <span class="kd">scope</span> <span class="nc">NewIncomeTaxComputationFixed</span>
 <a name="tutorial_en.catala_en-367"></a>
 <a name="tutorial_en.catala_en-368"></a><span class="kd">scope</span> <span class="nc">Test3</span><span class="o">:</span>
-<a name="tutorial_en.catala_en-369"></a>  <span class="kd">definition</span> <span class="nv">tax_computation</span><span class="o">.</span>individual <span class="kd">equals</span> <span class="nc">Individual</span> {
+<a name="tutorial_en.catala_en-369"></a>  <span class="kd">definition</span> <span class="nv">tax_computation</span><span class="o">.</span>individual <span class="kd">equals</span> <span class="nc">Individual</span> <span class="o">{</span>
 <a name="tutorial_en.catala_en-370"></a>    — <span class="nv">income</span><span class="o">:</span> <span class="o">$</span><span class="mi">4,000</span>
 <a name="tutorial_en.catala_en-371"></a>    — <span class="nv">number_of_children</span><span class="o">:</span> <span class="mi">0</span>
-<a name="tutorial_en.catala_en-372"></a>  }
+<a name="tutorial_en.catala_en-372"></a>  <span class="o">}</span>
 <a name="tutorial_en.catala_en-373"></a>  <span class="kd">assertion</span> <span class="nv">tax_computation</span><span class="o">.</span>income_tax <span class="o">=</span> <span class="o">$</span><span class="mi">0</span>
 <a name="tutorial_en.catala_en-374"></a>*/
 </pre></div>
