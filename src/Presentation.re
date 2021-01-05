@@ -2,6 +2,8 @@ let github_link = "https://github.com/CatalaLang/catala";
 
 let catala_jurix_link = "https://hal.inria.fr/hal-02936606";
 
+let zulip_link = "https://zulip.catala-lang.org/"
+
 let examples_card: Utils.presentation_card = {
   title:
     <Lang.String
@@ -223,6 +225,14 @@ let formalisation_link_info : link_info = {
   icon: "rule"
 };
 
+let zulip_link_info : link_info = {
+  target: External(zulip_link),
+  text: <Lang.String
+    english="Join the Zulip community"
+    french={js|Rejoindre la communauté Zulip|js} />,
+  icon: "chat"
+};
+
 let playground_link_info : link_info = {
   target: Internal([|Elements.home, Elements.playground|]),
   text: <Lang.String
@@ -265,7 +275,7 @@ let make = () => {
         <div
           className=[%tw "flex flex-col flex-wrap items-end"]>
           <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=github_link_info/></div>
-          <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=about_link_info/></div>
+          <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=zulip_link_info/></div>
           <div className=[%tw "mx-8 my-4"]><LinkBlock lang=lang info=white_paper_link_info/></div>
         </div>
         <div className=[%tw "flex flex-col justify-center"]>
@@ -274,10 +284,11 @@ let make = () => {
       </div>
     </div>
     <div className=[%tw "flex flex-row flex-wrap justify-around pt-12"]> 
-      <div className=[%tw "my-2"]><LinkBlock lang=lang info=examples_link_info/></div>
-      <div className=[%tw "my-2"]><LinkBlock lang=lang info=playground_link_info/></div>
-      <div className=[%tw "my-2"]><LinkBlock lang=lang info=doc_link_info/></div>
-      <div className=[%tw "my-2"]><LinkBlock lang=lang info=formalisation_link_info/></div>
+      <div className=[%tw "my-4"]><LinkBlock lang=lang info=about_link_info/></div>
+      <div className=[%tw "my-4"]><LinkBlock lang=lang info=examples_link_info/></div>
+      <div className=[%tw "my-4"]><LinkBlock lang=lang info=playground_link_info/></div>
+      <div className=[%tw "my-4"]><LinkBlock lang=lang info=doc_link_info/></div>
+      <div className=[%tw "my-4"]><LinkBlock lang=lang info=formalisation_link_info/></div>
     </div>
     <div className=[%tw "flex flex-col flex-wrap content-center pt-12"]>
       <div
