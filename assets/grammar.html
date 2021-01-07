@@ -187,6 +187,18 @@
       </tr>
       <tr>
         <th class="bar"></th>
+        <td>GET_DAY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GET_MONTH</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>GET_YEAR</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
         <td><span class="nonterminal">struct_or_enum_inject</span></td>
       </tr>
       <tr>
@@ -347,12 +359,16 @@
       <tr class="rule">
         <th><span class="nonterminal">aggregate_func</span></th>
         <td>MAXIMUM
-        <span class="nonterminal">typ_base</span></td>
+        <span class="nonterminal">typ_base</span>
+        INIT
+        <span class="nonterminal">primitive_expression</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td>MINIMUM
-        <span class="nonterminal">typ_base</span></td>
+        <span class="nonterminal">typ_base</span>
+        INIT
+        <span class="nonterminal">primitive_expression</span></td>
       </tr>
       <tr>
         <th class="bar"></th>

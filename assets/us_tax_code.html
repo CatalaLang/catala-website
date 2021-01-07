@@ -81,10 +81,10 @@ Source files weaved in this document
 </p>
 <ul>
 <li><tt>us_tax_code.catala_en</tt>, last modification 2020-12-03, 18:28</li>
-<li><tt>preamble.catala_en</tt>, last modification 2020-12-21, 16:48</li>
-<li><tt>section_121.catala_en</tt>, last modification 2020-12-21, 16:48</li>
-<li><tt>section_132.catala_en</tt>, last modification 2020-12-21, 16:48</li>
-<li><tt>section_1015.catala_en</tt>, last modification 2021-01-04, 21:19</li>
+<li><tt>preamble.catala_en</tt>, last modification 2021-01-05, 14:36</li>
+<li><tt>section_121.catala_en</tt>, last modification 2021-01-05, 19:05</li>
+<li><tt>section_132.catala_en</tt>, last modification 2021-01-05, 14:36</li>
+<li><tt>section_1015.catala_en</tt>, last modification 2021-01-05, 14:36</li>
 </ul>
 <h2 class='law-heading'>The US Tax Code</h2>
 
@@ -130,38 +130,32 @@ Source files weaved in this document
 <a href="#./section_121.catala_en-27">27</a>
 <a href="#./section_121.catala_en-28">28</a>
 <a href="#./section_121.catala_en-29">29</a>
-<a href="#./section_121.catala_en-30">30</a>
-<a href="#./section_121.catala_en-31">31</a>
-<a href="#./section_121.catala_en-32">32</a>
-<a href="#./section_121.catala_en-33">33</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-5"></a>/*
-<a name="./section_121.catala_en-6"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">PropertyOwnagePeriod</span><span class="o">:</span>
-<a name="./section_121.catala_en-7"></a>    <span class="kd">data</span> <span class="nv">owner</span> <span class="kd">content</span> <span class="nc">Person</span>
-<a name="./section_121.catala_en-8"></a>    <span class="kd">data</span> <span class="nv">user</span> <span class="kd">content</span> <span class="nc">Person</span> 
-<a name="./section_121.catala_en-9"></a>    <span class="kd">data</span> <span class="nv">start_date</span> <span class="kd">content</span> <span class="kt">date</span> 
-<a name="./section_121.catala_en-10"></a>    <span class="kd">data</span> <span class="nv">end_date</span> <span class="kd">content</span> <span class="kt">date</span> 
-<a name="./section_121.catala_en-11"></a>
-<a name="./section_121.catala_en-12"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Property</span><span class="o">:</span>
-<a name="./section_121.catala_en-13"></a>    <span class="kd">data</span> <span class="nv">ownages</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">PropertyOwnagePeriod</span>
-<a name="./section_121.catala_en-14"></a>
-<a name="./section_121.catala_en-15"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">SaleOrExchange</span><span class="o">:</span>
-<a name="./section_121.catala_en-16"></a>    <span class="kd">data</span> <span class="nv">property</span> <span class="kd">content</span> <span class="nc">Property</span>
-<a name="./section_121.catala_en-17"></a>    <span class="kd">data</span> <span class="nv">gain</span> <span class="kd">content</span> <span class="kt">money</span>
-<a name="./section_121.catala_en-18"></a>    <span class="kd">data</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
-<a name="./section_121.catala_en-19"></a>
-<a name="./section_121.catala_en-20"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
-<a name="./section_121.catala_en-21"></a>    <span class="kd">context</span> <span class="nv">taxpayer</span> <span class="kd">content</span> <span class="nc">Person</span>
-<a name="./section_121.catala_en-22"></a>    <span class="kd">context</span> <span class="nv">applicable</span> <span class="kd">condition</span>
-<a name="./section_121.catala_en-23"></a>    <span class="kd">context</span> <span class="nv">maximum_gain_excluded</span> <span class="kd">content</span> <span class="kt">money</span>
-<a name="./section_121.catala_en-24"></a>    <span class="kd">context</span> <span class="nv">gain_considered_for_exclusion</span> <span class="kd">content</span> <span class="kt">money</span>
-<a name="./section_121.catala_en-25"></a>    <span class="kd">context</span> <span class="nv">sale_or_exchange</span> <span class="kd">content</span> <span class="nc">SaleOrExchange</span> 
-<a name="./section_121.catala_en-26"></a>    <span class="kd">context</span> <span class="nv">included_in_gross_income</span> <span class="kd">condition</span> 
-<a name="./section_121.catala_en-27"></a>    <span class="kd">context</span> <span class="nv">ownage_considered_for_gain_inclusion</span> <span class="kd">condition</span> 
-<a name="./section_121.catala_en-28"></a>      <span class="kd">depends on</span> <span class="nc">PropertyOwnagePeriod</span>
-<a name="./section_121.catala_en-29"></a>    <span class="kd">context</span> <span class="nv">joint_return</span> <span class="kd">condition</span>
-<a name="./section_121.catala_en-30"></a>    <span class="kd">context</span> <span class="nv">taxable_year</span> <span class="kd">content</span> <span class="kt">integer</span>
-<a name="./section_121.catala_en-31"></a>    <span class="kd">context</span> <span class="nv">joint_return</span> <span class="kd">condition</span>
-<a name="./section_121.catala_en-32"></a>    <span class="kd">context</span> <span class="nv">condition_b_2</span> <span class="kd">condition</span>
-<a name="./section_121.catala_en-33"></a>*/
+<a href="#./section_121.catala_en-30">30</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-5"></a>/* 
+<a name="./section_121.catala_en-6"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">Period</span><span class="o">:</span>
+<a name="./section_121.catala_en-7"></a>  <span class="kd">data</span> <span class="nv">begin</span> <span class="kd">content</span> <span class="kt">date</span> 
+<a name="./section_121.catala_en-8"></a>  <span class="kd">data</span> <span class="nv">end</span> <span class="kd">content</span> <span class="kt">date</span>
+<a name="./section_121.catala_en-9"></a>
+<a name="./section_121.catala_en-10"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-11"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">content</span> <span class="kt">money</span>
+<a name="./section_121.catala_en-12"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span>
+<a name="./section_121.catala_en-13"></a>  <span class="kd">context</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
+<a name="./section_121.catala_en-14"></a>  <span class="kd">context</span> <span class="nv">joint_return</span> <span class="kd">condition</span> 
+<a name="./section_121.catala_en-15"></a>  <span class="kd">context</span> <span class="nv">gain_cap</span> <span class="kd">content</span> <span class="kt">money</span>
+<a name="./section_121.catala_en-16"></a>  <span class="kd">context</span> <span class="nv">return_date</span> <span class="kd">content</span> <span class="kt">date</span>
+<a name="./section_121.catala_en-17"></a>  <span class="kd">context</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
+<a name="./section_121.catala_en-18"></a>  <span class="kd">context</span> <span class="nv">property_ownage</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
+<a name="./section_121.catala_en-19"></a><span class="c1">  # This input is a fact and circumstance</span>
+<a name="./section_121.catala_en-20"></a>  <span class="kd">context</span> <span class="nv">property_usage_as_principal_residence</span> 
+<a name="./section_121.catala_en-21"></a>    <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
+<a name="./section_121.catala_en-22"></a><span class="c1">  # This input is a fact and circumstance</span>
+<a name="./section_121.catala_en-23"></a>  <span class="kd">context</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kd">content</span> <span class="nv">duration</span> 
+<a name="./section_121.catala_en-24"></a>    <span class="kd">depends on</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
+<a name="./section_121.catala_en-25"></a>
+<a name="./section_121.catala_en-26"></a><span class="c1"># Temporary definitions (to remove)</span>
+<a name="./section_121.catala_en-27"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-28"></a>  <span class="kd">definition</span> <span class="nv">return_date</span> <span class="kd">equals</span> <span class="mi">|01/01/2021|</span>
+<a name="./section_121.catala_en-29"></a>
+<a name="./section_121.catala_en-30"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -175,7 +169,14 @@ property has been owned and used by the taxpayer as the taxpayer’s principal
 residence for periods aggregating 2 years or more.</p>
 <div class='code-wrapper'>
 <div class='filename'>./section_121.catala_en</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-46">46</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-39">39</a>
+<a href="#./section_121.catala_en-40">40</a>
+<a href="#./section_121.catala_en-41">41</a>
+<a href="#./section_121.catala_en-42">42</a>
+<a href="#./section_121.catala_en-43">43</a>
+<a href="#./section_121.catala_en-44">44</a>
+<a href="#./section_121.catala_en-45">45</a>
+<a href="#./section_121.catala_en-46">46</a>
 <a href="#./section_121.catala_en-47">47</a>
 <a href="#./section_121.catala_en-48">48</a>
 <a href="#./section_121.catala_en-49">49</a>
@@ -190,22 +191,49 @@ residence for periods aggregating 2 years or more.</p>
 <a href="#./section_121.catala_en-58">58</a>
 <a href="#./section_121.catala_en-59">59</a>
 <a href="#./section_121.catala_en-60">60</a>
-<a href="#./section_121.catala_en-61">61</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-46"></a>/*<span class="c1"></span>
-<a name="./section_121.catala_en-47"></a><span class="c1"># It&#39;s actually agragated. Input: how many days have you lived in the property </span>
-<a name="./section_121.catala_en-48"></a><span class="c1"># for the last five years.</span>
-<a name="./section_121.catala_en-49"></a><span class="c1"># FIXME: how many days have you used the property as the principal residence in the </span>
-<a name="./section_121.catala_en-50"></a><span class="c1"># last five years</span>
-<a name="./section_121.catala_en-51"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
-<a name="./section_121.catala_en-52"></a>  <span class="kd">definition</span> <span class="nv">ownage_considered_for_gain_inclusion</span> <span class="kr">of</span> <span class="nv">ownage</span> <span class="kd">equals</span>
-<a name="./section_121.catala_en-53"></a>    <span class="nv">ownage</span><span class="o">.</span>owner <span class="o">=</span> <span class="nv">taxpayer</span> <span class="o">and</span> <span class="nv">ownage</span><span class="o">.</span>user <span class="o">=</span> <span class="nv">taxpayer</span> <span class="o">and</span> 
-<a name="./section_121.catala_en-54"></a>    <span class="nv">ownage</span><span class="o">.</span>end_date <span class="o">-</span> <span class="nv">ownage</span><span class="o">.</span>start_date ≥ <span class="mi">2</span> <span class="o">year</span> <span class="o">and</span> 
-<a name="./section_121.catala_en-55"></a>    <span class="nv">ownage</span><span class="o">.</span>start_data ≥ <span class="nv">sale_or_exchange</span><span class="o">.</span>date_of_sale_or_exchange <span class="o">-</span> <span class="mi">5</span> <span class="o">year</span>
-<a name="./section_121.catala_en-56"></a>
-<a name="./section_121.catala_en-57"></a>  <span class="kd">rule</span> <span class="nv">included_in_gross_income</span> <span class="kd">under condition</span>
-<a name="./section_121.catala_en-58"></a>    <span class="kr">exists</span> <span class="nv">ownage</span> <span class="kr">in</span> <span class="nv">sale_or_exchange</span><span class="o">.</span>property.ownages <span class="kr">such that</span> 
-<a name="./section_121.catala_en-59"></a>      <span class="nv">ownage_considered_for_gain_inclusion</span> <span class="kr">of</span> <span class="nv">ownage</span>
-<a name="./section_121.catala_en-60"></a>  <span class="kd">consequence</span> <span class="o">not</span> <span class="kd">fulfilled</span>
-<a name="./section_121.catala_en-61"></a>*/
+<a href="#./section_121.catala_en-61">61</a>
+<a href="#./section_121.catala_en-62">62</a>
+<a href="#./section_121.catala_en-63">63</a>
+<a href="#./section_121.catala_en-64">64</a>
+<a href="#./section_121.catala_en-65">65</a>
+<a href="#./section_121.catala_en-66">66</a>
+<a href="#./section_121.catala_en-67">67</a>
+<a href="#./section_121.catala_en-68">68</a>
+<a href="#./section_121.catala_en-69">69</a>
+<a href="#./section_121.catala_en-70">70</a>
+<a href="#./section_121.catala_en-71">71</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-39"></a>/*
+<a name="./section_121.catala_en-40"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span><span class="c1"></span>
+<a name="./section_121.catala_en-41"></a><span class="c1">  # Here we aggregate over all the periods of the collection. For </span>
+<a name="./section_121.catala_en-42"></a><span class="c1">  # each period, three cases:</span>
+<a name="./section_121.catala_en-43"></a><span class="c1">  # - either the period began less that 5 years before the </span>
+<a name="./section_121.catala_en-44"></a><span class="c1">  #   date_of_sale_or_exchange in which case we count if full</span>
+<a name="./section_121.catala_en-45"></a><span class="c1">  # - either the period ended more that 5 years before the </span>
+<a name="./section_121.catala_en-46"></a><span class="c1">  #   date_of_sale_or_exchange in which case we don&#39;t count it </span>
+<a name="./section_121.catala_en-47"></a><span class="c1">  # - either the 5 years mark is inside the period and we only </span>
+<a name="./section_121.catala_en-48"></a><span class="c1">  #   cound the half after 5 years</span>
+<a name="./section_121.catala_en-49"></a>  <span class="kd">definition</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">periods</span> <span class="kd">equals</span> 
+<a name="./section_121.catala_en-50"></a>    <span class="kt">sum</span> <span class="nv">duration</span> <span class="kr">for</span> <span class="nv">period</span> <span class="kr">in</span> <span class="nv">periods</span> <span class="kr">of</span> <span class="o">(</span>
+<a name="./section_121.catala_en-51"></a>      <span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">-@</span> <span class="nv">period</span><span class="o">.</span>begin ≤^ <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>
+<a name="./section_121.catala_en-52"></a>        <span class="nv">period</span><span class="o">.</span>end <span class="o">-@</span> <span class="nv">period</span><span class="o">.</span>begin
+<a name="./section_121.catala_en-53"></a>      <span class="kr">else</span> <span class="o">(</span><span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">-@</span> <span class="nv">period</span><span class="o">.</span>end ≥^ <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span> 
+<a name="./section_121.catala_en-54"></a>        <span class="mi">0</span> <span class="o">day</span> 
+<a name="./section_121.catala_en-55"></a>      <span class="kr">else</span> <span class="o">(</span><span class="nv">period</span><span class="o">.</span>end <span class="o">-@</span> <span class="o">(</span><span class="nv">date_of_sale_or_exchange</span> <span class="o">+@</span> <span class="o">(-^</span> <span class="mi">5</span> <span class="o">year))))</span>
+<a name="./section_121.catala_en-56"></a>    <span class="o">)</span>
+<a name="./section_121.catala_en-57"></a>  
+<a name="./section_121.catala_en-58"></a>  <span class="kd">label</span> <span class="nv">base_case1</span>
+<a name="./section_121.catala_en-59"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">0</span><span class="c1"></span>
+<a name="./section_121.catala_en-60"></a>
+<a name="./section_121.catala_en-61"></a><span class="c1">  # Regulation 1.121-1(c)(1): 2 years = 730 days</span>
+<a name="./section_121.catala_en-62"></a><span class="c1">  # Regulation 1.121-1(c)(1): the periods of ownage and usage </span>
+<a name="./section_121.catala_en-63"></a><span class="c1">  # don&#39;t have to overlap</span>
+<a name="./section_121.catala_en-64"></a>  <span class="kd">exception</span> <span class="nv">base_case1</span>
+<a name="./section_121.catala_en-65"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">under condition</span> 
+<a name="./section_121.catala_en-66"></a>    <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">property_ownage</span> ≥^ <span class="mi">730</span> <span class="o">day</span> <span class="o">and</span>
+<a name="./section_121.catala_en-67"></a>    <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span>
+<a name="./section_121.catala_en-68"></a>       <span class="nv">property_usage_as_principal_residence</span> ≥^ <span class="mi">730</span> <span class="o">day</span>
+<a name="./section_121.catala_en-69"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> 
+<a name="./section_121.catala_en-70"></a>     <span class="nv">gain_from_sale_or_exchange_of_property</span>
+<a name="./section_121.catala_en-71"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -220,25 +248,41 @@ residence for periods aggregating 2 years or more.</p>
 respect to any sale or exchange shall not exceed $250,000.</p>
 <div class='code-wrapper'>
 <div class='filename'>./section_121.catala_en</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-65">65</a>
-<a href="#./section_121.catala_en-66">66</a>
-<a href="#./section_121.catala_en-67">67</a>
-<a href="#./section_121.catala_en-68">68</a>
-<a href="#./section_121.catala_en-69">69</a>
-<a href="#./section_121.catala_en-70">70</a>
-<a href="#./section_121.catala_en-71">71</a>
-<a href="#./section_121.catala_en-72">72</a>
-<a href="#./section_121.catala_en-73">73</a>
-<a href="#./section_121.catala_en-74">74</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-65"></a>/*
-<a name="./section_121.catala_en-66"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
-<a name="./section_121.catala_en-67"></a>  <span class="kd">definition</span> <span class="nv">maximum_gain_excluded</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">250,000</span>
-<a name="./section_121.catala_en-68"></a>
-<a name="./section_121.catala_en-69"></a>  <span class="kd">definition</span> <span class="nv">gain_considered_for_exclusion</span> <span class="kd">equals</span> 
-<a name="./section_121.catala_en-70"></a>    <span class="kr">if</span> <span class="nv">sale_or_exchange</span><span class="o">.</span>gain ≥ <span class="nv">maximum_gain_excluded</span> <span class="kr">then</span> 
-<a name="./section_121.catala_en-71"></a>      <span class="nv">maximum_gain_excluded</span>
-<a name="./section_121.catala_en-72"></a>    <span class="kr">else</span>
-<a name="./section_121.catala_en-73"></a>      <span class="nv">sale_or_exchange</span><span class="o">.</span>gain
-<a name="./section_121.catala_en-74"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-79">79</a>
+<a href="#./section_121.catala_en-80">80</a>
+<a href="#./section_121.catala_en-81">81</a>
+<a href="#./section_121.catala_en-82">82</a>
+<a href="#./section_121.catala_en-83">83</a>
+<a href="#./section_121.catala_en-84">84</a>
+<a href="#./section_121.catala_en-85">85</a>
+<a href="#./section_121.catala_en-86">86</a>
+<a href="#./section_121.catala_en-87">87</a>
+<a href="#./section_121.catala_en-88">88</a>
+<a href="#./section_121.catala_en-89">89</a>
+<a href="#./section_121.catala_en-90">90</a>
+<a href="#./section_121.catala_en-91">91</a>
+<a href="#./section_121.catala_en-92">92</a>
+<a href="#./section_121.catala_en-93">93</a>
+<a href="#./section_121.catala_en-94">94</a>
+<a href="#./section_121.catala_en-95">95</a>
+<a href="#./section_121.catala_en-96">96</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-79"></a>/*
+<a name="./section_121.catala_en-80"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
+<a name="./section_121.catala_en-81"></a>  <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">250,000</span><span class="c1"></span>
+<a name="./section_121.catala_en-82"></a><span class="c1">  </span>
+<a name="./section_121.catala_en-83"></a><span class="c1">  # Big semantics insight for Catala. Here we could want to get rid of </span>
+<a name="./section_121.catala_en-84"></a><span class="c1">  # the &quot;_uncapped&quot; version of the variable. But in the current </span>
+<a name="./section_121.catala_en-85"></a><span class="c1">  # semantics we can&#39;t do that because we don&#39;t allow for recursion.</span>
+<a name="./section_121.catala_en-86"></a><span class="c1">  # However, one can also view recursion in justifications or consequence </span>
+<a name="./section_121.catala_en-87"></a><span class="c1">  # of defaults as a reference to the value provided by defaults of lower </span>
+<a name="./section_121.catala_en-88"></a><span class="c1">  # priority. We should extend the semantics to reflect that.</span>
+<a name="./section_121.catala_en-89"></a>  <span class="kd">label</span> <span class="nv">base_case2</span>
+<a name="./section_121.catala_en-90"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">0</span>
+<a name="./section_121.catala_en-91"></a>
+<a name="./section_121.catala_en-92"></a>  <span class="kd">exception</span> <span class="nv">base_case2</span>
+<a name="./section_121.catala_en-93"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">under condition</span> 
+<a name="./section_121.catala_en-94"></a>    <span class="nv">income_excluded_from_gross_income_uncapped</span> ≥<span class="o">$</span> <span class="nv">gain_cap</span>
+<a name="./section_121.catala_en-95"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="nv">gain_cap</span>
+<a name="./section_121.catala_en-96"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -251,19 +295,19 @@ respect to any sale or exchange shall not exceed $250,000.</p>
 of the sale or exchange of the property—</p>
 <div class='code-wrapper'>
 <div class='filename'>./section_121.catala_en</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-81">81</a>
-<a href="#./section_121.catala_en-82">82</a>
-<a href="#./section_121.catala_en-83">83</a>
-<a href="#./section_121.catala_en-84">84</a>
-<a href="#./section_121.catala_en-85">85</a>
-<a href="#./section_121.catala_en-86">86</a>
-<a href="#./section_121.catala_en-87">87</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-81"></a>/* 
-<a name="./section_121.catala_en-82"></a><span class="kd">scope</span> <span class="nc">Section121</span><span class="o">:</span>
-<a name="./section_121.catala_en-83"></a>  <span class="kd">rule</span> <span class="nv">condition_b_2</span> <span class="kd">under condition</span> 
-<a name="./section_121.catala_en-84"></a>    <span class="nv">joint_return</span> <span class="o">and</span> 
-<a name="./section_121.catala_en-85"></a>    <span class="nv">taxable_year</span> <span class="o">=</span> <span class="nv">get_year</span> <span class="kr">of</span> <span class="nv">sale_or_exchange</span><span class="o">.</span>date_of_sale_or_exchange 
-<a name="./section_121.catala_en-86"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a name="./section_121.catala_en-87"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-102">102</a>
+<a href="#./section_121.catala_en-103">103</a>
+<a href="#./section_121.catala_en-104">104</a>
+<a href="#./section_121.catala_en-105">105</a>
+<a href="#./section_121.catala_en-106">106</a>
+<a href="#./section_121.catala_en-107">107</a>
+<a href="#./section_121.catala_en-108">108</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-102"></a>/*<span class="c1"></span>
+<a name="./section_121.catala_en-103"></a><span class="c1"># What if the current taxable year is not the taxable </span>
+<a name="./section_121.catala_en-104"></a><span class="c1"># year of the sale or exchange ? One could think of a situation where the </span>
+<a name="./section_121.catala_en-105"></a><span class="c1"># property is sold but the payment is arriving much later so the seller </span>
+<a name="./section_121.catala_en-106"></a><span class="c1"># can choose in which taxable year to include the gain.</span>
+<a name="./section_121.catala_en-107"></a><span class="c1"># @Sarah: will have to do some research.</span>
+<a name="./section_121.catala_en-108"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -273,13 +317,39 @@ of the sale or exchange of the property—</p>
 
 <div class='article-title'><a href='#'>(A) $500,000 Limitation for certain joint returns</a></div>
 <p class='law-text'>Paragraph (1) shall be applied by substituting “$500,000” for “$250,000” if—<br/>
-
 (i) either spouse meets the ownership requirements of subsection (a) with
 respect to such property;<br/>
 (ii) both spouses meet the use requirements of subsection (a) with respect to 
 such property; and<br/>
 (iii) neither spouse is ineligible for the benefits of subsection (a) with 
 respect to such property by reason of paragraph (3).</p>
+<div class='code-wrapper'>
+<div class='filename'>./section_121.catala_en</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./section_121.catala_en-124">124</a>
+<a href="#./section_121.catala_en-125">125</a>
+<a href="#./section_121.catala_en-126">126</a>
+<a href="#./section_121.catala_en-127">127</a>
+<a href="#./section_121.catala_en-128">128</a>
+<a href="#./section_121.catala_en-129">129</a>
+<a href="#./section_121.catala_en-130">130</a>
+<a href="#./section_121.catala_en-131">131</a>
+<a href="#./section_121.catala_en-132">132</a>
+<a href="#./section_121.catala_en-133">133</a>
+<a href="#./section_121.catala_en-134">134</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./section_121.catala_en-124"></a>/*
+<a name="./section_121.catala_en-125"></a><span class="kd">scope</span> <span class="nc">Section121</span> <span class="kd">under condition</span> 
+<a name="./section_121.catala_en-126"></a>  <span class="nv">joint_return</span> <span class="o">and</span> <span class="nv">get_year</span> <span class="kr">of</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">=</span> <span class="nv">get_year</span> <span class="kr">of</span> <span class="nv">return_date</span><span class="o">:</span><span class="c1"></span>
+<a name="./section_121.catala_en-127"></a><span class="c1">  </span>
+<a name="./section_121.catala_en-128"></a><span class="c1">  # This rule has priority over the over rule defining gain_cap</span>
+<a name="./section_121.catala_en-129"></a>  <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">under condition</span> <span class="kc">true</span><span class="c1"></span>
+<a name="./section_121.catala_en-130"></a><span class="c1">    # i) TODO</span>
+<a name="./section_121.catala_en-131"></a><span class="c1">    # ii) TODO</span>
+<a name="./section_121.catala_en-132"></a><span class="c1">    # iii) TODO</span>
+<a name="./section_121.catala_en-133"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">500,000</span>
+<a name="./section_121.catala_en-134"></a>*/
+</pre></div>
+</td></tr></table>
+</div>
+
 </div>
 <div class='article-container'>
 

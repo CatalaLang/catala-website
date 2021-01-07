@@ -80,12 +80,12 @@
 Fichiers sources tissés dans ce document
 </p>
 <ul>
-<li><tt>allocations_familiales.catala_fr</tt>, dernière modification le 2021-01-04, 21:19</li>
-<li><tt>metadata.catala_fr</tt>, dernière modification le 2021-01-04, 21:19</li>
-<li><tt>decrets_divers.catala_fr</tt>, dernière modification le 2021-01-04, 21:19</li>
-<li><tt>securite_sociale_L.catala_fr</tt>, dernière modification le 2021-01-04, 21:19</li>
-<li><tt>securite_sociale_R.catala_fr</tt>, dernière modification le 2021-01-04, 21:19</li>
-<li><tt>securite_sociale_D.catala_fr</tt>, dernière modification le 2021-01-04, 21:19</li>
+<li><tt>allocations_familiales.catala_fr</tt>, dernière modification le 2021-01-05, 14:36</li>
+<li><tt>metadata.catala_fr</tt>, dernière modification le 2021-01-05, 14:36</li>
+<li><tt>decrets_divers.catala_fr</tt>, dernière modification le 2021-01-05, 14:36</li>
+<li><tt>securite_sociale_L.catala_fr</tt>, dernière modification le 2021-01-06, 17:18</li>
+<li><tt>securite_sociale_R.catala_fr</tt>, dernière modification le 2021-01-05, 14:36</li>
+<li><tt>securite_sociale_D.catala_fr</tt>, dernière modification le 2021-01-05, 14:36</li>
 </ul>
 <div class='code-wrapper'>
 <div class='filename'>./metadata.catala_fr</div>
@@ -641,7 +641,7 @@ Je  vous  demande  de  bien  vouloir  transmettre  à  la  connaissance  des  or
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000039640195/2021-01-04'>Article 1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000039640195/2021-01-07'>Article 1</a></div>
 <p class='law-text'>A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à l' article L. 2211-1 du code du travail , le montant du salaire minimum de croissance est relevé dans les conditions ci-après :
 1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,15 € l'heure ;</p>
 <div class='code-wrapper'>
@@ -704,7 +704,7 @@ Je  vous  demande  de  bien  vouloir  transmettre  à  la  connaissance  des  or
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834530/2021-01-04'>Article L511-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834530/2021-01-07'>Article L511-1</a></div>
 <p class='law-text'>Les prestations familiales comprennent :<br/>
 1°) la prestation d'accueil du jeune enfant ;<br/>
 2°) les allocations familiales ;<br/>
@@ -731,7 +731,7 @@ Je  vous  demande  de  bien  vouloir  transmettre  à  la  connaissance  des  or
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834523/2021-01-04'>Article L512-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834523/2021-01-07'>Article L512-3</a></div>
 <p class='law-text'>Sous réserve des règles particulières à chaque prestation, 
 ouvre droit aux prestations familiales :<br/>
 1°) tout enfant jusqu'à la fin de l'obligation scolaire ;</p>
@@ -802,21 +802,17 @@ peut être différent de celui mentionné au 2° du présent article.</p>
 <a href="#./securite_sociale_L.catala_fr-79">79</a>
 <a href="#./securite_sociale_L.catala_fr-80">80</a>
 <a href="#./securite_sociale_L.catala_fr-81">81</a>
-<a href="#./securite_sociale_L.catala_fr-82">82</a>
-<a href="#./securite_sociale_L.catala_fr-83">83</a>
-<a href="#./securite_sociale_L.catala_fr-84">84</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-72"></a>/*
+<a href="#./securite_sociale_L.catala_fr-82">82</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-72"></a>/*
 <a name="./securite_sociale_L.catala_fr-73"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
 <a name="./securite_sociale_L.catala_fr-74"></a>  <span class="kd">définition</span> <span class="nv">âge_l512_3_2</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-75"></a>    <span class="o">(</span><span class="kr">selon</span> <span class="nv">âge_l512_3_2_alternatif</span> <span class="kr">sous forme</span> 
-<a name="./securite_sociale_L.catala_fr-76"></a>      — <span class="nc">Présent</span> <span class="kr">de</span> <span class="nv">âge</span> <span class="o">:</span> <span class="kc">vrai</span> 
-<a name="./securite_sociale_L.catala_fr-77"></a>      — <span class="nc">Absent</span><span class="o">:</span> <span class="kc">faux</span><span class="o">)</span> <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-78"></a>    <span class="o">(</span><span class="nv">prestation_courante</span> <span class="o">=</span> <span class="nc">ComplémentFamilial</span> <span class="o">ou</span>
-<a name="./securite_sociale_L.catala_fr-79"></a>     <span class="nv">prestation_courante</span> <span class="o">=</span> <span class="nc">AllocationLogement</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-80"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
-<a name="./securite_sociale_L.catala_fr-81"></a>    <span class="kr">selon</span> <span class="nv">âge_l512_3_2_alternatif</span> <span class="kr">sous forme</span> 
-<a name="./securite_sociale_L.catala_fr-82"></a>      — <span class="nc">Présent</span> <span class="kr">de</span> <span class="nv">âge</span> <span class="o">:</span> <span class="nv">âge</span> 
-<a name="./securite_sociale_L.catala_fr-83"></a>      — <span class="nc">Absent</span><span class="o">:</span> <span class="mi">0</span>
-<a name="./securite_sociale_L.catala_fr-84"></a>*/
+<a name="./securite_sociale_L.catala_fr-75"></a>    <span class="o">(</span><span class="nv">âge_l512_3_2_alternatif</span> <span class="kr">sous forme</span> <span class="nc">Présent</span><span class="o">)</span> <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-76"></a>    <span class="o">(</span><span class="nv">prestation_courante</span> <span class="o">=</span> <span class="nc">ComplémentFamilial</span> <span class="o">ou</span>
+<a name="./securite_sociale_L.catala_fr-77"></a>     <span class="nv">prestation_courante</span> <span class="o">=</span> <span class="nc">AllocationLogement</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-78"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
+<a name="./securite_sociale_L.catala_fr-79"></a>    <span class="kr">selon</span> <span class="nv">âge_l512_3_2_alternatif</span> <span class="kr">sous forme</span> 
+<a name="./securite_sociale_L.catala_fr-80"></a>      — <span class="nc">Présent</span> <span class="kr">de</span> <span class="nv">âge</span> <span class="o">:</span> <span class="nv">âge</span> 
+<a name="./securite_sociale_L.catala_fr-81"></a>      — <span class="nc">Absent</span><span class="o">:</span> <span class="mi">0</span>
+<a name="./securite_sociale_L.catala_fr-82"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -828,23 +824,23 @@ peut être différent de celui mentionné au 2° du présent article.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029963006/2021-01-04'>Article L521-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029963006/2021-01-07'>Article L521-1</a></div>
 <p class='law-text'>Les allocations familiales sont dues à partir du deuxième enfant à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-92">92</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-90">90</a>
+<a href="#./securite_sociale_L.catala_fr-91">91</a>
+<a href="#./securite_sociale_L.catala_fr-92">92</a>
 <a href="#./securite_sociale_L.catala_fr-93">93</a>
 <a href="#./securite_sociale_L.catala_fr-94">94</a>
 <a href="#./securite_sociale_L.catala_fr-95">95</a>
-<a href="#./securite_sociale_L.catala_fr-96">96</a>
-<a href="#./securite_sociale_L.catala_fr-97">97</a>
-<a href="#./securite_sociale_L.catala_fr-98">98</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-92"></a>/*
-<a name="./securite_sociale_L.catala_fr-93"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-94"></a>  <span class="kd">étiquette</span> <span class="nv">définitition_droit_ouvert_base</span> 
-<a name="./securite_sociale_L.catala_fr-95"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_base</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-96"></a>    <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="mi">2</span>
-<a name="./securite_sociale_L.catala_fr-97"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-98"></a>*/
+<a href="#./securite_sociale_L.catala_fr-96">96</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-90"></a>/*
+<a name="./securite_sociale_L.catala_fr-91"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-92"></a>  <span class="kd">étiquette</span> <span class="nv">définitition_droit_ouvert_base</span> 
+<a name="./securite_sociale_L.catala_fr-93"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_base</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-94"></a>    <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="mi">2</span>
+<a name="./securite_sociale_L.catala_fr-95"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-96"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -857,7 +853,9 @@ limite mentionné au 2° de l'article L. 512-3 . Cette allocation est versée
 celles de l'âge pour l'ouverture du droit aux allocations familiales.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-107">107</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-105">105</a>
+<a href="#./securite_sociale_L.catala_fr-106">106</a>
+<a href="#./securite_sociale_L.catala_fr-107">107</a>
 <a href="#./securite_sociale_L.catala_fr-108">108</a>
 <a href="#./securite_sociale_L.catala_fr-109">109</a>
 <a href="#./securite_sociale_L.catala_fr-110">110</a>
@@ -872,26 +870,24 @@ celles de l'âge pour l'ouverture du droit aux allocations familiales.</p>
 <a href="#./securite_sociale_L.catala_fr-119">119</a>
 <a href="#./securite_sociale_L.catala_fr-120">120</a>
 <a href="#./securite_sociale_L.catala_fr-121">121</a>
-<a href="#./securite_sociale_L.catala_fr-122">122</a>
-<a href="#./securite_sociale_L.catala_fr-123">123</a>
-<a href="#./securite_sociale_L.catala_fr-124">124</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-107"></a>/*
-<a name="./securite_sociale_L.catala_fr-108"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-109"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé</span> <span class="kr">par</span> <span class="kt">décret</span><span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-110"></a>
-<a name="./securite_sociale_L.catala_fr-111"></a><span class="c1">  # Ici, l&#39;ouverture du droit aux allocations familiales est conditionné</span>
-<a name="./securite_sociale_L.catala_fr-112"></a><span class="c1">  # au fait d&#39;avoir deux enfants à charges qui répondent aux conditions</span>
-<a name="./securite_sociale_L.catala_fr-113"></a><span class="c1">  # d&#39;ouverture du droit à une prestation familiale. Pour cette raison,</span>
-<a name="./securite_sociale_L.catala_fr-114"></a><span class="c1">  # nous nous référons ici aux conditions_hors_âge de prestations_familiales</span>
-<a name="./securite_sociale_L.catala_fr-115"></a>  <span class="kd">règle</span> <span class="nv">conditions_hors_âge</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-116"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>conditions_hors_âge <span class="kr">de</span> <span class="nv">enfant</span>
-<a name="./securite_sociale_L.catala_fr-117"></a>  <span class="kd">conséquence</span>  <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-118"></a>
-<a name="./securite_sociale_L.catala_fr-119"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_forfaitaire</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-120"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="nv">nombre_enfants_l521_1</span><span class="o">)</span> <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-121"></a>    <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>âge <span class="o">=</span> <span class="nv">prestations_familiales</span><span class="o">.</span>âge_l512_3_2<span class="o">)</span> <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-122"></a>    <span class="o">(</span><span class="nv">conditions_hors_âge</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-123"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-124"></a>*/
+<a href="#./securite_sociale_L.catala_fr-122">122</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-105"></a>/*
+<a name="./securite_sociale_L.catala_fr-106"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-107"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé</span> <span class="kr">par</span> <span class="kt">décret</span><span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-108"></a>
+<a name="./securite_sociale_L.catala_fr-109"></a><span class="c1">  # Ici, l&#39;ouverture du droit aux allocations familiales est conditionné</span>
+<a name="./securite_sociale_L.catala_fr-110"></a><span class="c1">  # au fait d&#39;avoir deux enfants à charges qui répondent aux conditions</span>
+<a name="./securite_sociale_L.catala_fr-111"></a><span class="c1">  # d&#39;ouverture du droit à une prestation familiale. Pour cette raison,</span>
+<a name="./securite_sociale_L.catala_fr-112"></a><span class="c1">  # nous nous référons ici aux conditions_hors_âge de prestations_familiales</span>
+<a name="./securite_sociale_L.catala_fr-113"></a>  <span class="kd">règle</span> <span class="nv">conditions_hors_âge</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-114"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>conditions_hors_âge <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_L.catala_fr-115"></a>  <span class="kd">conséquence</span>  <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-116"></a>
+<a name="./securite_sociale_L.catala_fr-117"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_forfaitaire</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-118"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="nv">nombre_enfants_l521_1</span><span class="o">)</span> <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-119"></a>    <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>âge <span class="o">=</span> <span class="nv">prestations_familiales</span><span class="o">.</span>âge_l512_3_2<span class="o">)</span> <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-120"></a>    <span class="o">(</span><span class="nv">conditions_hors_âge</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-121"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-122"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -901,19 +897,19 @@ varient en fonction des ressources du ménage ou de la personne qui a la charge
 des enfants, selon un barème défini par décret.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-130">130</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-128">128</a>
+<a href="#./securite_sociale_L.catala_fr-129">129</a>
+<a href="#./securite_sociale_L.catala_fr-130">130</a>
 <a href="#./securite_sociale_L.catala_fr-131">131</a>
 <a href="#./securite_sociale_L.catala_fr-132">132</a>
 <a href="#./securite_sociale_L.catala_fr-133">133</a>
-<a href="#./securite_sociale_L.catala_fr-134">134</a>
-<a href="#./securite_sociale_L.catala_fr-135">135</a>
-<a href="#./securite_sociale_L.catala_fr-136">136</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-130"></a>/*
-<a name="./securite_sociale_L.catala_fr-131"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-132"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé_base</span>  <span class="kr">par</span> <span class="kt">décret</span>
-<a name="./securite_sociale_L.catala_fr-133"></a>  <span class="kd">assertion</span> <span class="kr">varie</span> <span class="nv">montant_versé_base</span> <span class="kr">avec</span> <span class="nv">ressources_ménage</span>
-<a name="./securite_sociale_L.catala_fr-134"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé_majorations</span> <span class="kr">par</span> <span class="kt">décret</span>
-<a name="./securite_sociale_L.catala_fr-135"></a>  <span class="kd">assertion</span> <span class="kr">varie</span> <span class="nv">montant_versé_majorations</span> <span class="kr">avec</span> <span class="nv">ressources_ménage</span>
-<a name="./securite_sociale_L.catala_fr-136"></a>*/
+<a href="#./securite_sociale_L.catala_fr-134">134</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-128"></a>/*
+<a name="./securite_sociale_L.catala_fr-129"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-130"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé_base</span>  <span class="kr">par</span> <span class="kt">décret</span>
+<a name="./securite_sociale_L.catala_fr-131"></a>  <span class="kd">assertion</span> <span class="kr">varie</span> <span class="nv">montant_versé_base</span> <span class="kr">avec</span> <span class="nv">ressources_ménage</span>
+<a name="./securite_sociale_L.catala_fr-132"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé_majorations</span> <span class="kr">par</span> <span class="kt">décret</span>
+<a name="./securite_sociale_L.catala_fr-133"></a>  <span class="kd">assertion</span> <span class="kr">varie</span> <span class="nv">montant_versé_majorations</span> <span class="kr">avec</span> <span class="nv">ressources_ménage</span>
+<a name="./securite_sociale_L.catala_fr-134"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -921,15 +917,15 @@ des enfants, selon un barème défini par décret.</p>
 à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-140">140</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-138">138</a>
+<a href="#./securite_sociale_L.catala_fr-139">139</a>
+<a href="#./securite_sociale_L.catala_fr-140">140</a>
 <a href="#./securite_sociale_L.catala_fr-141">141</a>
-<a href="#./securite_sociale_L.catala_fr-142">142</a>
-<a href="#./securite_sociale_L.catala_fr-143">143</a>
-<a href="#./securite_sociale_L.catala_fr-144">144</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-140"></a>/*
-<a name="./securite_sociale_L.catala_fr-141"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-142"></a>  <span class="kd">assertion</span> <span class="kr">varie</span> <span class="nv">montant_versé_base</span><span class="o">.</span>montant_versé <span class="kr">avec</span>
-<a name="./securite_sociale_L.catala_fr-143"></a>     <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span>
-<a name="./securite_sociale_L.catala_fr-144"></a>*/
+<a href="#./securite_sociale_L.catala_fr-142">142</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-138"></a>/*
+<a name="./securite_sociale_L.catala_fr-139"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-140"></a>  <span class="kd">assertion</span> <span class="kr">varie</span> <span class="nv">montant_versé_base</span><span class="o">.</span>montant_versé <span class="kr">avec</span>
+<a name="./securite_sociale_L.catala_fr-141"></a>     <span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span>
+<a name="./securite_sociale_L.catala_fr-142"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -938,17 +934,17 @@ d'enfants à charge, sont révisés conformément à l'évolution annuelle de
 l'indice des prix à la consommation, hors tabac.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-148">148</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-146">146</a>
+<a href="#./securite_sociale_L.catala_fr-147">147</a>
+<a href="#./securite_sociale_L.catala_fr-148">148</a>
 <a href="#./securite_sociale_L.catala_fr-149">149</a>
 <a href="#./securite_sociale_L.catala_fr-150">150</a>
-<a href="#./securite_sociale_L.catala_fr-151">151</a>
-<a href="#./securite_sociale_L.catala_fr-152">152</a>
-<a href="#./securite_sociale_L.catala_fr-153">153</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-148"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-149"></a><span class="c1"># Pour formaliser l&#39;évolution des prix, il faudrait recopier ici</span>
-<a name="./securite_sociale_L.catala_fr-150"></a><span class="c1"># tous les décrets d&#39;application qui fixent la valeur des plafonds</span>
-<a name="./securite_sociale_L.catala_fr-151"></a><span class="c1"># de ressources. Si cela reste possible à faire pour notre langage,</span>
-<a name="./securite_sociale_L.catala_fr-152"></a><span class="c1"># nous avons choisi de ne pas inclure tout ce code dans ce document.</span>
-<a name="./securite_sociale_L.catala_fr-153"></a>*/
+<a href="#./securite_sociale_L.catala_fr-151">151</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-146"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-147"></a><span class="c1"># Pour formaliser l&#39;évolution des prix, il faudrait recopier ici</span>
+<a name="./securite_sociale_L.catala_fr-148"></a><span class="c1"># tous les décrets d&#39;application qui fixent la valeur des plafonds</span>
+<a name="./securite_sociale_L.catala_fr-149"></a><span class="c1"># de ressources. Si cela reste possible à faire pour notre langage,</span>
+<a name="./securite_sociale_L.catala_fr-150"></a><span class="c1"># nous avons choisi de ne pas inclure tout ce code dans ce document.</span>
+<a name="./securite_sociale_L.catala_fr-151"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -958,21 +954,21 @@ Les modalités de calcul de ces montants et celles du complément dégressif
 sont définies par décret.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-164">164</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-162">162</a>
+<a href="#./securite_sociale_L.catala_fr-163">163</a>
+<a href="#./securite_sociale_L.catala_fr-164">164</a>
 <a href="#./securite_sociale_L.catala_fr-165">165</a>
 <a href="#./securite_sociale_L.catala_fr-166">166</a>
 <a href="#./securite_sociale_L.catala_fr-167">167</a>
 <a href="#./securite_sociale_L.catala_fr-168">168</a>
-<a href="#./securite_sociale_L.catala_fr-169">169</a>
-<a href="#./securite_sociale_L.catala_fr-170">170</a>
-<a href="#./securite_sociale_L.catala_fr-171">171</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-164"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-165"></a><span class="c1"># Ditto, le volume du code à inclure pour formaliser cette assertion</span>
-<a name="./securite_sociale_L.catala_fr-166"></a><span class="c1"># est assez important et nous avons choisi de ne pas l&#39;inclure dans ce</span>
-<a name="./securite_sociale_L.catala_fr-167"></a><span class="c1"># document.</span>
-<a name="./securite_sociale_L.catala_fr-168"></a>
-<a name="./securite_sociale_L.catala_fr-169"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-170"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé_complément</span> <span class="kr">par</span> <span class="kt">décret</span>
-<a name="./securite_sociale_L.catala_fr-171"></a>*/
+<a href="#./securite_sociale_L.catala_fr-169">169</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-162"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-163"></a><span class="c1"># Ditto, le volume du code à inclure pour formaliser cette assertion</span>
+<a name="./securite_sociale_L.catala_fr-164"></a><span class="c1"># est assez important et nous avons choisi de ne pas l&#39;inclure dans ce</span>
+<a name="./securite_sociale_L.catala_fr-165"></a><span class="c1"># document.</span>
+<a name="./securite_sociale_L.catala_fr-166"></a>
+<a name="./securite_sociale_L.catala_fr-167"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-168"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">montant_versé_complément</span> <span class="kr">par</span> <span class="kt">décret</span>
+<a name="./securite_sociale_L.catala_fr-169"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -980,26 +976,26 @@ sont définies par décret.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743210/2021-01-04'>Article L521-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743210/2021-01-07'>Article L521-2</a></div>
 <p class='law-text'>Les allocations sont versées à la personne qui assume, dans quelques conditions 
 que ce soit, la charge effective et permanente de l'enfant.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-172">172</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-170">170</a>
+<a href="#./securite_sociale_L.catala_fr-171">171</a>
+<a href="#./securite_sociale_L.catala_fr-172">172</a>
 <a href="#./securite_sociale_L.catala_fr-173">173</a>
 <a href="#./securite_sociale_L.catala_fr-174">174</a>
 <a href="#./securite_sociale_L.catala_fr-175">175</a>
 <a href="#./securite_sociale_L.catala_fr-176">176</a>
-<a href="#./securite_sociale_L.catala_fr-177">177</a>
-<a href="#./securite_sociale_L.catala_fr-178">178</a>
-<a href="#./securite_sociale_L.catala_fr-179">179</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-172"></a>/*
-<a name="./securite_sociale_L.catala_fr-173"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-174"></a>  <span class="kd">étiquette</span> <span class="nv">définition_prise_en_compte</span>
-<a name="./securite_sociale_L.catala_fr-175"></a>  <span class="kd">définition</span> <span class="nv">prise_en_compte</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> <span class="nc">Complète</span>
-<a name="./securite_sociale_L.catala_fr-176"></a>
-<a name="./securite_sociale_L.catala_fr-177"></a>  <span class="kd">étiquette</span> <span class="nv">définition_versement</span>
-<a name="./securite_sociale_L.catala_fr-178"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> <span class="nc">Normal</span>
-<a name="./securite_sociale_L.catala_fr-179"></a>*/
+<a href="#./securite_sociale_L.catala_fr-177">177</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-170"></a>/*
+<a name="./securite_sociale_L.catala_fr-171"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-172"></a>  <span class="kd">étiquette</span> <span class="nv">définition_prise_en_compte</span>
+<a name="./securite_sociale_L.catala_fr-173"></a>  <span class="kd">définition</span> <span class="nv">prise_en_compte</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> <span class="nc">Complète</span>
+<a name="./securite_sociale_L.catala_fr-174"></a>
+<a name="./securite_sociale_L.catala_fr-175"></a>  <span class="kd">étiquette</span> <span class="nv">définition_versement</span>
+<a name="./securite_sociale_L.catala_fr-176"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> <span class="nc">Normal</span>
+<a name="./securite_sociale_L.catala_fr-177"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1012,7 +1008,9 @@ désaccord sur la désignation de l'allocataire. Un décret en Conseil d'Etat fi
 les conditions d'application du présent alinéa.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-189">189</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-187">187</a>
+<a href="#./securite_sociale_L.catala_fr-188">188</a>
+<a href="#./securite_sociale_L.catala_fr-189">189</a>
 <a href="#./securite_sociale_L.catala_fr-190">190</a>
 <a href="#./securite_sociale_L.catala_fr-191">191</a>
 <a href="#./securite_sociale_L.catala_fr-192">192</a>
@@ -1034,57 +1032,31 @@ les conditions d'application du présent alinéa.</p>
 <a href="#./securite_sociale_L.catala_fr-208">208</a>
 <a href="#./securite_sociale_L.catala_fr-209">209</a>
 <a href="#./securite_sociale_L.catala_fr-210">210</a>
-<a href="#./securite_sociale_L.catala_fr-211">211</a>
-<a href="#./securite_sociale_L.catala_fr-212">212</a>
-<a href="#./securite_sociale_L.catala_fr-213">213</a>
-<a href="#./securite_sociale_L.catala_fr-214">214</a>
-<a href="#./securite_sociale_L.catala_fr-215">215</a>
-<a href="#./securite_sociale_L.catala_fr-216">216</a>
-<a href="#./securite_sociale_L.catala_fr-217">217</a>
-<a href="#./securite_sociale_L.catala_fr-218">218</a>
-<a href="#./securite_sociale_L.catala_fr-219">219</a>
-<a href="#./securite_sociale_L.catala_fr-220">220</a>
-<a href="#./securite_sociale_L.catala_fr-221">221</a>
-<a href="#./securite_sociale_L.catala_fr-222">222</a>
-<a href="#./securite_sociale_L.catala_fr-223">223</a>
-<a href="#./securite_sociale_L.catala_fr-224">224</a>
-<a href="#./securite_sociale_L.catala_fr-225">225</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-189"></a>/*
-<a name="./securite_sociale_L.catala_fr-190"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span><span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-191"></a><span class="c1">  # Premier cas : garde alternée, parents désignent un unique allocataire</span>
-<a name="./securite_sociale_L.catala_fr-192"></a>  <span class="kd">exception</span> <span class="nv">définition_prise_en_compte</span>
-<a name="./securite_sociale_L.catala_fr-193"></a>  <span class="kd">définition</span> <span class="nv">prise_en_compte</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
-<a name="./securite_sociale_L.catala_fr-194"></a>    <span class="kr">selon</span> <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span>
-<a name="./securite_sociale_L.catala_fr-195"></a>      — <span class="nc">OuiAllocataireUnique</span><span class="o">:</span> <span class="kc">vrai</span> 
-<a name="./securite_sociale_L.catala_fr-196"></a>      — <span class="nc">OuiPartageAllocations</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-197"></a>      — <span class="nc">NonGardeUnique</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-198"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Complète</span>
+<a href="#./securite_sociale_L.catala_fr-211">211</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-187"></a>/*
+<a name="./securite_sociale_L.catala_fr-188"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span><span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-189"></a><span class="c1">  # Premier cas : garde alternée, parents désignent un unique allocataire</span>
+<a name="./securite_sociale_L.catala_fr-190"></a>  <span class="kd">exception</span> <span class="nv">définition_prise_en_compte</span>
+<a name="./securite_sociale_L.catala_fr-191"></a>  <span class="kd">définition</span> <span class="nv">prise_en_compte</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
+<a name="./securite_sociale_L.catala_fr-192"></a>    <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span> <span class="nc">OuiAllocataireUnique</span>
+<a name="./securite_sociale_L.catala_fr-193"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Complète</span>
+<a name="./securite_sociale_L.catala_fr-194"></a>
+<a name="./securite_sociale_L.catala_fr-195"></a>  <span class="kd">exception</span> <span class="nv">définition_versement</span>
+<a name="./securite_sociale_L.catala_fr-196"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
+<a name="./securite_sociale_L.catala_fr-197"></a>    <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span> <span class="nc">OuiAllocataireUnique</span>
+<a name="./securite_sociale_L.catala_fr-198"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Normal</span><span class="c1"></span>
 <a name="./securite_sociale_L.catala_fr-199"></a>
-<a name="./securite_sociale_L.catala_fr-200"></a>  <span class="kd">exception</span> <span class="nv">définition_versement</span>
-<a name="./securite_sociale_L.catala_fr-201"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
-<a name="./securite_sociale_L.catala_fr-202"></a>    <span class="kr">selon</span> <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span>
-<a name="./securite_sociale_L.catala_fr-203"></a>      — <span class="nc">OuiAllocataireUnique</span><span class="o">:</span> <span class="kc">vrai</span> 
-<a name="./securite_sociale_L.catala_fr-204"></a>      — <span class="nc">OuiPartageAllocations</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-205"></a>      — <span class="nc">NonGardeUnique</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-206"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Normal</span><span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-207"></a>
-<a name="./securite_sociale_L.catala_fr-208"></a><span class="c1">  # Deuxième cas : garde alternée, parents partagent la charge pour</span>
-<a name="./securite_sociale_L.catala_fr-209"></a><span class="c1">  # l&#39;allocation</span>
-<a name="./securite_sociale_L.catala_fr-210"></a>  <span class="kd">exception</span> <span class="nv">définition_prise_en_compte</span>
-<a name="./securite_sociale_L.catala_fr-211"></a>  <span class="kd">définition</span> <span class="nv">prise_en_compte</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
-<a name="./securite_sociale_L.catala_fr-212"></a>    <span class="kr">selon</span> <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span>
-<a name="./securite_sociale_L.catala_fr-213"></a>      — <span class="nc">OuiPartageAllocations</span><span class="o">:</span> <span class="kc">vrai</span>
-<a name="./securite_sociale_L.catala_fr-214"></a>      — <span class="nc">OuiAllocataireUnique</span><span class="o">:</span> <span class="kc">faux</span> 
-<a name="./securite_sociale_L.catala_fr-215"></a>      — <span class="nc">NonGardeUnique</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-216"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Partagée</span>
-<a name="./securite_sociale_L.catala_fr-217"></a>
-<a name="./securite_sociale_L.catala_fr-218"></a>  <span class="kd">exception</span> <span class="nv">définition_versement</span>
-<a name="./securite_sociale_L.catala_fr-219"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
-<a name="./securite_sociale_L.catala_fr-220"></a>    <span class="kr">selon</span> <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span>
-<a name="./securite_sociale_L.catala_fr-221"></a>      — <span class="nc">OuiPartageAllocations</span><span class="o">:</span> <span class="kc">vrai</span>
-<a name="./securite_sociale_L.catala_fr-222"></a>      — <span class="nc">OuiAllocataireUnique</span><span class="o">:</span> <span class="kc">faux</span> 
-<a name="./securite_sociale_L.catala_fr-223"></a>      — <span class="nc">NonGardeUnique</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-224"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Partagée</span>
-<a name="./securite_sociale_L.catala_fr-225"></a>*/
+<a name="./securite_sociale_L.catala_fr-200"></a><span class="c1">  # Deuxième cas : garde alternée, parents partagent la charge pour</span>
+<a name="./securite_sociale_L.catala_fr-201"></a><span class="c1">  # l&#39;allocation</span>
+<a name="./securite_sociale_L.catala_fr-202"></a>  <span class="kd">exception</span> <span class="nv">définition_prise_en_compte</span>
+<a name="./securite_sociale_L.catala_fr-203"></a>  <span class="kd">définition</span> <span class="nv">prise_en_compte</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
+<a name="./securite_sociale_L.catala_fr-204"></a>    <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span> <span class="nc">OuiPartageAllocations</span>
+<a name="./securite_sociale_L.catala_fr-205"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Partagée</span>
+<a name="./securite_sociale_L.catala_fr-206"></a>
+<a name="./securite_sociale_L.catala_fr-207"></a>  <span class="kd">exception</span> <span class="nv">définition_versement</span>
+<a name="./securite_sociale_L.catala_fr-208"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
+<a name="./securite_sociale_L.catala_fr-209"></a>    <span class="nv">enfant</span><span class="o">.</span>garde_alternée <span class="kr">sous forme</span> <span class="nc">OuiPartageAllocations</span>
+<a name="./securite_sociale_L.catala_fr-210"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">Partagée</span>
+<a name="./securite_sociale_L.catala_fr-211"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1094,11 +1066,11 @@ du droit aux allocations familiales, ce droit s'ouvre du chef du père ou,
 à défaut, du chef de la mère.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-230">230</a>
-<a href="#./securite_sociale_L.catala_fr-231">231</a>
-<a href="#./securite_sociale_L.catala_fr-232">232</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-230"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-231"></a><span class="c1"># Non formalisé pour le calcul du montant des allocations</span>
-<a name="./securite_sociale_L.catala_fr-232"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-216">216</a>
+<a href="#./securite_sociale_L.catala_fr-217">217</a>
+<a href="#./securite_sociale_L.catala_fr-218">218</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-216"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-217"></a><span class="c1"># Non formalisé pour le calcul du montant des allocations</span>
+<a name="./securite_sociale_L.catala_fr-218"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1116,25 +1088,25 @@ charge morale ou matérielle de l'enfant ou en vue de faciliter le retour
 de l'enfant dans son foyer.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-248">248</a>
-<a href="#./securite_sociale_L.catala_fr-249">249</a>
-<a href="#./securite_sociale_L.catala_fr-250">250</a>
-<a href="#./securite_sociale_L.catala_fr-251">251</a>
-<a href="#./securite_sociale_L.catala_fr-252">252</a>
-<a href="#./securite_sociale_L.catala_fr-253">253</a>
-<a href="#./securite_sociale_L.catala_fr-254">254</a>
-<a href="#./securite_sociale_L.catala_fr-255">255</a>
-<a href="#./securite_sociale_L.catala_fr-256">256</a>
-<a href="#./securite_sociale_L.catala_fr-257">257</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-248"></a>/*
-<a name="./securite_sociale_L.catala_fr-249"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-250"></a>  <span class="kd">exception</span> <span class="nv">définition_versement</span>
-<a name="./securite_sociale_L.catala_fr-251"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
-<a name="./securite_sociale_L.catala_fr-252"></a>    <span class="kr">selon</span> <span class="nv">enfant</span><span class="o">.</span>pris_en_charge_par_services_sociaux <span class="kr">sous forme</span>
-<a name="./securite_sociale_L.catala_fr-253"></a>      — <span class="nc">OuiAllocationVerséeAuxServicesSociaux</span><span class="o">:</span> <span class="kc">vrai</span>
-<a name="./securite_sociale_L.catala_fr-254"></a>      — <span class="nc">OuiAllocationVerséeÀLaFamille</span><span class="o">:</span> <span class="kc">faux</span> 
-<a name="./securite_sociale_L.catala_fr-255"></a>      — <span class="nc">NonPriseEnChargeFamille</span><span class="o">:</span> <span class="kc">faux</span>
-<a name="./securite_sociale_L.catala_fr-256"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">AllocationVerséeAuxServicesSociaux</span>
-<a name="./securite_sociale_L.catala_fr-257"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-234">234</a>
+<a href="#./securite_sociale_L.catala_fr-235">235</a>
+<a href="#./securite_sociale_L.catala_fr-236">236</a>
+<a href="#./securite_sociale_L.catala_fr-237">237</a>
+<a href="#./securite_sociale_L.catala_fr-238">238</a>
+<a href="#./securite_sociale_L.catala_fr-239">239</a>
+<a href="#./securite_sociale_L.catala_fr-240">240</a>
+<a href="#./securite_sociale_L.catala_fr-241">241</a>
+<a href="#./securite_sociale_L.catala_fr-242">242</a>
+<a href="#./securite_sociale_L.catala_fr-243">243</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-234"></a>/*
+<a name="./securite_sociale_L.catala_fr-235"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-236"></a>  <span class="kd">exception</span> <span class="nv">définition_versement</span>
+<a name="./securite_sociale_L.catala_fr-237"></a>  <span class="kd">définition</span> <span class="nv">versement</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
+<a name="./securite_sociale_L.catala_fr-238"></a>    <span class="kr">selon</span> <span class="nv">enfant</span><span class="o">.</span>pris_en_charge_par_services_sociaux <span class="kr">sous forme</span>
+<a name="./securite_sociale_L.catala_fr-239"></a>      — <span class="nc">OuiAllocationVerséeAuxServicesSociaux</span><span class="o">:</span> <span class="kc">vrai</span>
+<a name="./securite_sociale_L.catala_fr-240"></a>      — <span class="nc">OuiAllocationVerséeÀLaFamille</span><span class="o">:</span> <span class="kc">faux</span> 
+<a name="./securite_sociale_L.catala_fr-241"></a>      — <span class="nc">NonPriseEnChargeFamille</span><span class="o">:</span> <span class="kc">faux</span>
+<a name="./securite_sociale_L.catala_fr-242"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nc">AllocationVerséeAuxServicesSociaux</span>
+<a name="./securite_sociale_L.catala_fr-243"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1146,13 +1118,13 @@ c) divorce, séparation de corps ou de fait des parents ;<br/>
 d) enfants confiés à un service public, à une institution privée, à un particulier.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-269">269</a>
-<a href="#./securite_sociale_L.catala_fr-270">270</a>
-<a href="#./securite_sociale_L.catala_fr-271">271</a>
-<a href="#./securite_sociale_L.catala_fr-272">272</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-269"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-270"></a><span class="c1"># Ce programme ne cherche pas à formaliser les détails pour lesquels un enfant</span>
-<a name="./securite_sociale_L.catala_fr-271"></a><span class="c1"># est confié à un service social.</span>
-<a name="./securite_sociale_L.catala_fr-272"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-255">255</a>
+<a href="#./securite_sociale_L.catala_fr-256">256</a>
+<a href="#./securite_sociale_L.catala_fr-257">257</a>
+<a href="#./securite_sociale_L.catala_fr-258">258</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-255"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-256"></a><span class="c1"># Ce programme ne cherche pas à formaliser les détails pour lesquels un enfant</span>
+<a name="./securite_sociale_L.catala_fr-257"></a><span class="c1"># est confié à un service social.</span>
+<a name="./securite_sociale_L.catala_fr-258"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1160,27 +1132,27 @@ d) enfants confiés à un service public, à une institution privée, à un part
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743289/2021-01-04'>Article L521-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743289/2021-01-07'>Article L521-3</a></div>
 <p class='law-text'>Chacun des enfants à charge, à 
 l'exception du plus âgé, ouvre droit à partir d'un âge minimum à une 
 majoration des allocations familiales.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-278">278</a>
-<a href="#./securite_sociale_L.catala_fr-279">279</a>
-<a href="#./securite_sociale_L.catala_fr-280">280</a>
-<a href="#./securite_sociale_L.catala_fr-281">281</a>
-<a href="#./securite_sociale_L.catala_fr-282">282</a>
-<a href="#./securite_sociale_L.catala_fr-283">283</a>
-<a href="#./securite_sociale_L.catala_fr-284">284</a>
-<a href="#./securite_sociale_L.catala_fr-285">285</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-278"></a>/*
-<a name="./securite_sociale_L.catala_fr-279"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-280"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
-<a name="./securite_sociale_L.catala_fr-281"></a>  <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-282"></a>    <span class="o">(non</span> <span class="o">(</span><span class="nv">est_enfant_le_plus_âgé</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">))</span> <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-283"></a>    <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>âge ≥ <span class="nv">âge_limite_alinéa_1_l521_3</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-284"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-285"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-264">264</a>
+<a href="#./securite_sociale_L.catala_fr-265">265</a>
+<a href="#./securite_sociale_L.catala_fr-266">266</a>
+<a href="#./securite_sociale_L.catala_fr-267">267</a>
+<a href="#./securite_sociale_L.catala_fr-268">268</a>
+<a href="#./securite_sociale_L.catala_fr-269">269</a>
+<a href="#./securite_sociale_L.catala_fr-270">270</a>
+<a href="#./securite_sociale_L.catala_fr-271">271</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-264"></a>/*
+<a name="./securite_sociale_L.catala_fr-265"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-266"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_L.catala_fr-267"></a>  <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-268"></a>    <span class="o">(non</span> <span class="o">(</span><span class="nv">est_enfant_le_plus_âgé</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">))</span> <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-269"></a>    <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>âge ≥ <span class="nv">âge_limite_alinéa_1_l521_3</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-270"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-271"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1189,21 +1161,21 @@ bénéficient de ladite majoration pour chaque enfant à charge à partir
 de l'âge mentionné au premier alinéa.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-290">290</a>
-<a href="#./securite_sociale_L.catala_fr-291">291</a>
-<a href="#./securite_sociale_L.catala_fr-292">292</a>
-<a href="#./securite_sociale_L.catala_fr-293">293</a>
-<a href="#./securite_sociale_L.catala_fr-294">294</a>
-<a href="#./securite_sociale_L.catala_fr-295">295</a>
-<a href="#./securite_sociale_L.catala_fr-296">296</a>
-<a href="#./securite_sociale_L.catala_fr-297">297</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-290"></a>/*
-<a name="./securite_sociale_L.catala_fr-291"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-292"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
-<a name="./securite_sociale_L.catala_fr-293"></a>  <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-294"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="nv">nombre_enfants_alinéa_2_l521_3</span><span class="o">)</span> <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-295"></a>    <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>âge ≥ <span class="nv">âge_limite_alinéa_1_l521_3</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-296"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-297"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-276">276</a>
+<a href="#./securite_sociale_L.catala_fr-277">277</a>
+<a href="#./securite_sociale_L.catala_fr-278">278</a>
+<a href="#./securite_sociale_L.catala_fr-279">279</a>
+<a href="#./securite_sociale_L.catala_fr-280">280</a>
+<a href="#./securite_sociale_L.catala_fr-281">281</a>
+<a href="#./securite_sociale_L.catala_fr-282">282</a>
+<a href="#./securite_sociale_L.catala_fr-283">283</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-276"></a>/*
+<a name="./securite_sociale_L.catala_fr-277"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-278"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_L.catala_fr-279"></a>  <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-280"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="nv">nombre_enfants_alinéa_2_l521_3</span><span class="o">)</span> <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-281"></a>    <span class="o">(</span><span class="nv">enfant</span><span class="o">.</span>âge ≥ <span class="nv">âge_limite_alinéa_1_l521_3</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-282"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-283"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1215,21 +1187,21 @@ de l'âge mentionné au premier alinéa.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031688371/2021-01-04'>Article L551-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031688371/2021-01-07'>Article L551-1</a></div>
 <p class='law-text'>Le montant des prestations familiales est déterminé d'après des bases 
 mensuelles de calcul revalorisées au 1er avril de chaque année par application 
 du coefficient mentionné à l'article L. 161-25 .</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-308">308</a>
-<a href="#./securite_sociale_L.catala_fr-309">309</a>
-<a href="#./securite_sociale_L.catala_fr-310">310</a>
-<a href="#./securite_sociale_L.catala_fr-311">311</a>
-<a href="#./securite_sociale_L.catala_fr-312">312</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-308"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-309"></a><span class="c1"># Idem que L521-1, on ne formalise pas ici l&#39;évolution de la BMPA</span>
-<a name="./securite_sociale_L.catala_fr-310"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-311"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle <span class="kr">par</span> <span class="kt">décret</span>
-<a name="./securite_sociale_L.catala_fr-312"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-294">294</a>
+<a href="#./securite_sociale_L.catala_fr-295">295</a>
+<a href="#./securite_sociale_L.catala_fr-296">296</a>
+<a href="#./securite_sociale_L.catala_fr-297">297</a>
+<a href="#./securite_sociale_L.catala_fr-298">298</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-294"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-295"></a><span class="c1"># Idem que L521-1, on ne formalise pas ici l&#39;évolution de la BMPA</span>
+<a name="./securite_sociale_L.catala_fr-296"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-297"></a>  <span class="kd">assertion</span> <span class="kr">fixé</span> <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle <span class="kr">par</span> <span class="kt">décret</span>
+<a name="./securite_sociale_L.catala_fr-298"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1243,34 +1215,34 @@ du coefficient mentionné à l'article L. 161-25 .</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323778/2021-01-04'>Article L751-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323778/2021-01-07'>Article L751-1</a></div>
 <p class='law-text'>Les dispositions du présent titre s'appliquent en Guadeloupe, en Guyane, 
 en Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin à 
 l'ensemble des bénéficiaires de la législation générale de sécurité 
 sociale, y compris les membres des professions agricoles.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-324">324</a>
-<a href="#./securite_sociale_L.catala_fr-325">325</a>
-<a href="#./securite_sociale_L.catala_fr-326">326</a>
-<a href="#./securite_sociale_L.catala_fr-327">327</a>
-<a href="#./securite_sociale_L.catala_fr-328">328</a>
-<a href="#./securite_sociale_L.catala_fr-329">329</a>
-<a href="#./securite_sociale_L.catala_fr-330">330</a>
-<a href="#./securite_sociale_L.catala_fr-331">331</a>
-<a href="#./securite_sociale_L.catala_fr-332">332</a>
-<a href="#./securite_sociale_L.catala_fr-333">333</a>
-<a href="#./securite_sociale_L.catala_fr-334">334</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-324"></a>/*
-<a name="./securite_sociale_L.catala_fr-325"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-326"></a>  <span class="kd">règle</span> <span class="nv">régime_outre_mer_l751_1</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-327"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./securite_sociale_L.catala_fr-328"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./securite_sociale_L.catala_fr-329"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./securite_sociale_L.catala_fr-330"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./securite_sociale_L.catala_fr-331"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./securite_sociale_L.catala_fr-332"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-333"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-334"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-310">310</a>
+<a href="#./securite_sociale_L.catala_fr-311">311</a>
+<a href="#./securite_sociale_L.catala_fr-312">312</a>
+<a href="#./securite_sociale_L.catala_fr-313">313</a>
+<a href="#./securite_sociale_L.catala_fr-314">314</a>
+<a href="#./securite_sociale_L.catala_fr-315">315</a>
+<a href="#./securite_sociale_L.catala_fr-316">316</a>
+<a href="#./securite_sociale_L.catala_fr-317">317</a>
+<a href="#./securite_sociale_L.catala_fr-318">318</a>
+<a href="#./securite_sociale_L.catala_fr-319">319</a>
+<a href="#./securite_sociale_L.catala_fr-320">320</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-310"></a>/*
+<a name="./securite_sociale_L.catala_fr-311"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-312"></a>  <span class="kd">règle</span> <span class="nv">régime_outre_mer_l751_1</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-313"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./securite_sociale_L.catala_fr-314"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./securite_sociale_L.catala_fr-315"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./securite_sociale_L.catala_fr-316"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./securite_sociale_L.catala_fr-317"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./securite_sociale_L.catala_fr-318"></a>    <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-319"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-320"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1280,7 +1252,7 @@ sociale, y compris les membres des professions agricoles.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000033728786/2021-01-04'>Article L755-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000033728786/2021-01-07'>Article L755-3</a></div>
 <p class='law-text'>Les dispositions des articles L. 512-1 à L. 512-4 , L. 513-1 , L. 521-2 , 
 L. 552-1 , L. 553-1 , L. 553-2 , L. 553-4 , L. 582-1 , L. 582-2 , L. 583-3 
 et L. 583-5 sont applicables aux collectivités mentionnées à l'article L. 751-1 .<br/>
@@ -1288,11 +1260,11 @@ La base de calcul des prestations familiales est la même que celle qui est
 fixée en application de l'article L. 551-1 .</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-345">345</a>
-<a href="#./securite_sociale_L.catala_fr-346">346</a>
-<a href="#./securite_sociale_L.catala_fr-347">347</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-345"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-346"></a><span class="c1"># Aucun changement dans le code, puisque les articles restent applicables</span>
-<a name="./securite_sociale_L.catala_fr-347"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-331">331</a>
+<a href="#./securite_sociale_L.catala_fr-332">332</a>
+<a href="#./securite_sociale_L.catala_fr-333">333</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-331"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-332"></a><span class="c1"># Aucun changement dans le code, puisque les articles restent applicables</span>
+<a name="./securite_sociale_L.catala_fr-333"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1300,17 +1272,17 @@ fixée en application de l'article L. 551-1 .</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323803/2021-01-04'>Article L755-11</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323803/2021-01-07'>Article L755-11</a></div>
 <p class='law-text'>Les conditions d'attribution des allocations familiales et de leurs majorations 
 fixées par les articles L. 521-1 et L. 521-3 sont applicables dans les 
 collectivités mentionnées à l'article L. 751-1 .</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-353">353</a>
-<a href="#./securite_sociale_L.catala_fr-354">354</a>
-<a href="#./securite_sociale_L.catala_fr-355">355</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-353"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-354"></a><span class="c1"># Aucun changement dans le code, puisque les articles restent applicables</span>
-<a name="./securite_sociale_L.catala_fr-355"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-339">339</a>
+<a href="#./securite_sociale_L.catala_fr-340">340</a>
+<a href="#./securite_sociale_L.catala_fr-341">341</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-339"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-340"></a><span class="c1"># Aucun changement dans le code, puisque les articles restent applicables</span>
+<a name="./securite_sociale_L.catala_fr-341"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1319,26 +1291,26 @@ longtemps que le présent chapitre V est applicable.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029962999/2021-01-04'>Article L755-12</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029962999/2021-01-07'>Article L755-12</a></div>
 <p class='law-text'>Les allocations familiales sont dues, pour tout enfant, à la personne qui a 
 effectivement la charge de celui-ci.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-364">364</a>
-<a href="#./securite_sociale_L.catala_fr-365">365</a>
-<a href="#./securite_sociale_L.catala_fr-366">366</a>
-<a href="#./securite_sociale_L.catala_fr-367">367</a>
-<a href="#./securite_sociale_L.catala_fr-368">368</a>
-<a href="#./securite_sociale_L.catala_fr-369">369</a>
-<a href="#./securite_sociale_L.catala_fr-370">370</a>
-<a href="#./securite_sociale_L.catala_fr-371">371</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-364"></a>/*
-<a name="./securite_sociale_L.catala_fr-365"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span><span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-366"></a>  <span class="kd">exception</span> <span class="nv">définitition_droit_ouvert_base</span>
-<a name="./securite_sociale_L.catala_fr-367"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_base</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-368"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-369"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="mi">1</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-370"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-371"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-350">350</a>
+<a href="#./securite_sociale_L.catala_fr-351">351</a>
+<a href="#./securite_sociale_L.catala_fr-352">352</a>
+<a href="#./securite_sociale_L.catala_fr-353">353</a>
+<a href="#./securite_sociale_L.catala_fr-354">354</a>
+<a href="#./securite_sociale_L.catala_fr-355">355</a>
+<a href="#./securite_sociale_L.catala_fr-356">356</a>
+<a href="#./securite_sociale_L.catala_fr-357">357</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-350"></a>/*
+<a name="./securite_sociale_L.catala_fr-351"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span><span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-352"></a>  <span class="kd">exception</span> <span class="nv">définitition_droit_ouvert_base</span>
+<a name="./securite_sociale_L.catala_fr-353"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_base</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-354"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-355"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> ≥ <span class="mi">1</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-356"></a>  <span class="kd">conséquence</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-357"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1346,35 +1318,35 @@ effectivement la charge de celui-ci.</p>
 applicables lorsque le ménage ou la personne a un seul enfant à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-377">377</a>
-<a href="#./securite_sociale_L.catala_fr-378">378</a>
-<a href="#./securite_sociale_L.catala_fr-379">379</a>
-<a href="#./securite_sociale_L.catala_fr-380">380</a>
-<a href="#./securite_sociale_L.catala_fr-381">381</a>
-<a href="#./securite_sociale_L.catala_fr-382">382</a>
-<a href="#./securite_sociale_L.catala_fr-383">383</a>
-<a href="#./securite_sociale_L.catala_fr-384">384</a>
-<a href="#./securite_sociale_L.catala_fr-385">385</a>
-<a href="#./securite_sociale_L.catala_fr-386">386</a>
-<a href="#./securite_sociale_L.catala_fr-387">387</a>
-<a href="#./securite_sociale_L.catala_fr-388">388</a>
-<a href="#./securite_sociale_L.catala_fr-389">389</a>
-<a href="#./securite_sociale_L.catala_fr-390">390</a>
-<a href="#./securite_sociale_L.catala_fr-391">391</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-377"></a>/*<span class="c1"></span>
-<a name="./securite_sociale_L.catala_fr-378"></a><span class="c1"># Ceci concerne l&#39;ouverture du droit à l&#39;allocation forfaitaire</span>
-<a name="./securite_sociale_L.catala_fr-379"></a><span class="c1"># et au complément dégressif.</span>
-<a name="./securite_sociale_L.catala_fr-380"></a>
-<a name="./securite_sociale_L.catala_fr-381"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./securite_sociale_L.catala_fr-382"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_forfaitaire</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-383"></a>     <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-384"></a>     <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-385"></a>  <span class="kd">conséquence</span> <span class="o">non</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-386"></a>
-<a name="./securite_sociale_L.catala_fr-387"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_complément</span> <span class="kd">sous condition</span>
-<a name="./securite_sociale_L.catala_fr-388"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
-<a name="./securite_sociale_L.catala_fr-389"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
-<a name="./securite_sociale_L.catala_fr-390"></a>  <span class="kd">conséquence</span> <span class="o">non</span> <span class="kd">rempli</span>
-<a name="./securite_sociale_L.catala_fr-391"></a>*/
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./securite_sociale_L.catala_fr-363">363</a>
+<a href="#./securite_sociale_L.catala_fr-364">364</a>
+<a href="#./securite_sociale_L.catala_fr-365">365</a>
+<a href="#./securite_sociale_L.catala_fr-366">366</a>
+<a href="#./securite_sociale_L.catala_fr-367">367</a>
+<a href="#./securite_sociale_L.catala_fr-368">368</a>
+<a href="#./securite_sociale_L.catala_fr-369">369</a>
+<a href="#./securite_sociale_L.catala_fr-370">370</a>
+<a href="#./securite_sociale_L.catala_fr-371">371</a>
+<a href="#./securite_sociale_L.catala_fr-372">372</a>
+<a href="#./securite_sociale_L.catala_fr-373">373</a>
+<a href="#./securite_sociale_L.catala_fr-374">374</a>
+<a href="#./securite_sociale_L.catala_fr-375">375</a>
+<a href="#./securite_sociale_L.catala_fr-376">376</a>
+<a href="#./securite_sociale_L.catala_fr-377">377</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_L.catala_fr-363"></a>/*<span class="c1"></span>
+<a name="./securite_sociale_L.catala_fr-364"></a><span class="c1"># Ceci concerne l&#39;ouverture du droit à l&#39;allocation forfaitaire</span>
+<a name="./securite_sociale_L.catala_fr-365"></a><span class="c1"># et au complément dégressif.</span>
+<a name="./securite_sociale_L.catala_fr-366"></a>
+<a name="./securite_sociale_L.catala_fr-367"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./securite_sociale_L.catala_fr-368"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_forfaitaire</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-369"></a>     <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-370"></a>     <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-371"></a>  <span class="kd">conséquence</span> <span class="o">non</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-372"></a>
+<a name="./securite_sociale_L.catala_fr-373"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_complément</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_L.catala_fr-374"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
+<a name="./securite_sociale_L.catala_fr-375"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+<a name="./securite_sociale_L.catala_fr-376"></a>  <span class="kd">conséquence</span> <span class="o">non</span> <span class="kd">rempli</span>
+<a name="./securite_sociale_L.catala_fr-377"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -1391,7 +1363,7 @@ applicables lorsque le ménage ou la personne a un seul enfant à charge.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750602/2021-01-04'>Article R512-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750602/2021-01-07'>Article R512-2</a></div>
 <p class='law-text'>Les enfants ouvrent droit aux prestations familiales jusqu'à l'âge de vingt 
 ans sous réserve que leur rémunération n'excède pas le plafond fixé au deuxième 
 alinéa du présent article.</p>
@@ -1447,7 +1419,7 @@ législation sur les assurances sociales.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000018735853/2021-01-04'>Article R521-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000018735853/2021-01-07'>Article R521-1</a></div>
 <p class='law-text'>L'âge mentionné au premier alinéa de l'article L. 521-3 à partir duquel les 
 enfants ouvrent droit à la majoration des allocations familiales est fixé à 
 14 ans.</p>
@@ -1518,7 +1490,7 @@ le onzième anniversaire est postérieur au 30 avril 2008.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750608/2021-01-04'>Article R521-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750608/2021-01-07'>Article R521-2</a></div>
 <p class='law-text'>Dans les situations visées au deuxième alinéa de l'article L. 521-2 , 
 l'allocataire est celui des deux parents qu'ils désignent d'un commun accord. 
 A défaut d'accord sur la désignation d'un allocataire unique, chacun des deux 
@@ -1558,7 +1530,7 @@ ou des enfants.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750610/2021-01-04'>Article R521-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750610/2021-01-07'>Article R521-3</a></div>
 <p class='law-text'>Sous réserve de l'article R. 521-4, dans les situations visées aux 1° et 2° de 
 l'article R. 521-2 , la prestation due à chacun des parents est égale au 
 montant des allocations familiales dues pour le total des enfants à charge, 
@@ -1631,7 +1603,7 @@ enfants à charge.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750613/2021-01-04'>Article R521-4</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750613/2021-01-07'>Article R521-4</a></div>
 <p class='law-text'>Pour l'ouverture du droit à la majoration prévue à l'article L. 521-3 , le 
 nombre d'enfants à charge est évalué dans les conditions prévues au premier 
 alinéa de l'article R. 521-3.</p>
@@ -1685,7 +1657,7 @@ alternée, le montant servi au titre de cette majoration est réduit de moitié.
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006752633/2021-01-04'>Article R755-0-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006752633/2021-01-07'>Article R755-0-2</a></div>
 <p class='law-text'>Le plafond de rémunération des enfants à charge mentionnés à l'article 
 L. 512-3 est égal, pour un mois, à 55 % du salaire minimum de croissance en 
 vigueur dans chacun des départements mentionnés à l'article L. 751-1 , 
@@ -1725,7 +1697,7 @@ multiplié par 169.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680318/2021-01-04'>Article D521-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680318/2021-01-07'>Article D521-1</a></div>
 <p class='law-text'>I.-Pour l'application de l'article L. 521-1 , le montant des allocations 
 familiales et de la majoration pour âge prévue à l'article L. 521-3 
 est défini selon le barème suivant :</p>
@@ -2062,7 +2034,7 @@ définie à l'alinéa précédent et, d'autre part, le montant des ressources.</
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680324/2021-01-04'>Article D521-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680324/2021-01-07'>Article D521-2</a></div>
 <p class='law-text'>I.-Le montant mensuel de l'allocation forfaitaire prévue au deuxième alinéa de 
 l'article L. 521-1 est défini selon le barème suivant :<br/>
 1° Lorsque le ménage ou la personne a disposé d'un montant de ressources 
@@ -2188,7 +2160,7 @@ l'article L. 521-1 est fixé à trois.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030678079/2021-01-04'>Article D521-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030678079/2021-01-07'>Article D521-3</a></div>
 <p class='law-text'>I.-Le plafond prévu au 1° du I des articles D. 521-1 et D. 521-2 est fixé à 
 55 950 euros. Il est majoré de 5 595 euros par enfant à charge.</p>
 <div class='code-wrapper'>
@@ -2235,7 +2207,7 @@ sociale, du budget et de l'agriculture.</p>
 
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006738575/2021-01-04'>Article D755-5</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006738575/2021-01-07'>Article D755-5</a></div>
 <p class='law-text'>I. - Les taux servant au calcul des allocations familiales et de la majoration 
 prévue à l'article L. 755-11 sont identiques à ceux mentionnés à l'article 
 D. 521-1.</p>
