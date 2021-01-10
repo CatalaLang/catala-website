@@ -21,7 +21,7 @@ let catala_exe: (string, React.ref(Js.Nullable.t(Dom.element)), string, bool) =>
     try {
       catala.interpret(contents, scope.current.value, lang, trace);
     } catch (error) {
-      return "<pre><span style='font-weight:bold;color:rgb(187,0,0)'>[ERROR] </span>"+error+"</pre>";
+      return "<pre>"+out.join('<br/>')+"</pre>"+"<pre><span style='font-weight:bold;color:rgb(187,0,0)'>[ERROR] </span>"+error+"</pre>";
     }
     console.log = oldLog;
     console.error = oldError;
@@ -48,6 +48,11 @@ let tutorial_fr_content: React.element = [%bs.raw
   {|require("../assets/playground/tutoriel_fr.catala_fr")|}
 ];
 
+let allocations_familiales_fr_content: React.element = [%bs.raw
+  {|require("../assets/playground/allocations_familiales.catala_fr")|}
+];
+
+
 type syn_lang =
   | French
   | English;
@@ -65,9 +70,18 @@ let tutorial_en: catala_module = {
       french={js|Tutoriel anglophone|js}
     />,
   content: tutorial_en_content,
-  lang: English
+  lang: English,
 };
 
+let allocations_familiales_fr: catala_module = {
+  title:
+    <Lang.String
+      english="French family benefits"
+      french={js|Allocations familiales|js}
+    />,
+  content: allocations_familiales_fr_content,
+  lang: French,
+};
 
 let tutorial_fr: catala_module = {
   title:
@@ -76,27 +90,26 @@ let tutorial_fr: catala_module = {
       french={js|Tutoriel francophone|js}
     />,
   content: tutorial_fr_content,
-  lang: French
+  lang: French,
 };
 
 let starter: catala_module = {
-  title:
-    <Lang.String
-      english="Starter"
-      french={js|Démarrage|js}
-    />,
+  title: <Lang.String english="Starter" french={js|Démarrage|js} />,
   content: [%bs.raw {|{default: "Hello, world!"}|}],
-  lang: English
+  lang: English,
 };
 
-
-let available_modules = [| tutorial_en, tutorial_fr |];
+let available_modules = [|tutorial_en, tutorial_fr, allocations_familiales_fr|];
 
 let set_editor_content: (editor, React.element, string) => unit = [%bs.raw
   {|
   function (editor, new_content, mode) {
     editor.session.setMode(mode);
     editor.setValue(new_content.default);
+    editor.clearSelection();
+    var row = editor.session.getLength() - 1;
+    var column = editor.session.getLine(row).length; // or simply Infinity
+    editor.gotoLine(row + 1, column);
   }
   |}
 ];
@@ -209,7 +222,7 @@ let make = () => {
                 | English => "en"
                 | French => "fr"
               },
-              false
+              true
             )}>
             <Lang.String english="Run" french={js|Exécuter|js}/>
           </button>
