@@ -86,7 +86,7 @@ Fichiers sources tissés dans ce document
 <li><tt>securite_sociale_R.catala_fr</tt>, dernière modification le 2021-01-14, 10:00</li>
 <li><tt>securite_sociale_D.catala_fr</tt>, dernière modification le 2021-01-14, 11:10</li>
 <li><tt>decrets_divers.catala_fr</tt>, dernière modification le 2021-01-14, 10:53</li>
-<li><tt>epilogue.catala_fr</tt>, dernière modification le 2021-01-14, 13:25</li>
+<li><tt>epilogue.catala_fr</tt>, dernière modification le 2021-01-14, 13:33</li>
 </ul>
 <h2 class='law-heading'>Prologue</h2>
 <p class='law-text'>Avant de présenter les textes réglementaires qui régissent le calcul des 
@@ -2491,7 +2491,8 @@ la fonction du bloc de code ci-dessous.</p>
 <a href="#./epilogue.catala_fr-55">55</a>
 <a href="#./epilogue.catala_fr-56">56</a>
 <a href="#./epilogue.catala_fr-57">57</a>
-<a href="#./epilogue.catala_fr-58">58</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./epilogue.catala_fr-12"></a>/*
+<a href="#./epilogue.catala_fr-58">58</a>
+<a href="#./epilogue.catala_fr-59">59</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./epilogue.catala_fr-12"></a>/*
 <a name="./epilogue.catala_fr-13"></a><span class="kd">champ d&#39;application</span> <span class="nc">EnfantLePlusÂgé</span><span class="o">:</span>
 <a name="./epilogue.catala_fr-14"></a>  <span class="kd">définition</span> <span class="nv">le_plus_âgé</span>  <span class="kd">égal à</span> 
 <a name="./epilogue.catala_fr-15"></a>    <span class="kd">contenu</span> <span class="nv">maximum</span> <span class="kt">entier</span> <span class="kr">initial</span> <span class="nc">Enfant</span> <span class="o">{</span>
@@ -2510,34 +2511,35 @@ la fonction du bloc de code ci-dessous.</p>
 <a name="./epilogue.catala_fr-28"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span><span class="o">:</span> 
 <a name="./epilogue.catala_fr-29"></a>  <span class="kd">définition</span> <span class="nv">âge_l512_3_2_alternatif</span> <span class="kd">égal à</span> <span class="nc">Absent</span>
 <a name="./epilogue.catala_fr-30"></a>
-<a name="./epilogue.catala_fr-31"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
-<a name="./epilogue.catala_fr-32"></a>    <span class="o">non</span> <span class="o">(</span><span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
-<a name="./epilogue.catala_fr-33"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">0</span> <span class="o">€</span>
-<a name="./epilogue.catala_fr-34"></a>
-<a name="./epilogue.catala_fr-35"></a>  <span class="kd">étiquette</span> <span class="nv">définition_droit_ouvert_complément</span>
-<a name="./epilogue.catala_fr-36"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_complément</span> <span class="kd">rempli</span>
-<a name="./epilogue.catala_fr-37"></a>
-<a name="./epilogue.catala_fr-38"></a>  <span class="kd">définition</span> <span class="nv">enfant_le_plus_âgé</span><span class="o">.</span>enfants <span class="kd">égal à</span> <span class="nv">enfants_à_charge</span> 
-<a name="./epilogue.catala_fr-39"></a>  <span class="kd">définition</span> <span class="nv">est_enfant_le_plus_âgé</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> 
-<a name="./epilogue.catala_fr-40"></a>    <span class="nv">enfant_le_plus_âgé</span><span class="o">.</span>le_plus_âgé <span class="o">=</span> <span class="nv">enfant</span>
-<a name="./epilogue.catala_fr-41"></a>
-<a name="./epilogue.catala_fr-42"></a>  <span class="kd">définition</span> <span class="nv">montant_versé_base</span> <span class="kd">égal à</span> 
-<a name="./epilogue.catala_fr-43"></a>    <span class="kr">si</span> <span class="nv">droit_ouvert_base</span> <span class="kr">alors</span> <span class="nv">montant_avec_garde_alternée_base</span> <span class="kr">sinon</span> <span class="mi">0</span><span class="o">€</span>
-<a name="./epilogue.catala_fr-44"></a>  <span class="kd">définition</span> <span class="nv">montant_versé_majoration</span> <span class="kd">égal à</span> 
-<a name="./epilogue.catala_fr-45"></a>    <span class="kr">si</span> <span class="nv">droit_ouvert_base</span> <span class="kr">alors</span>
-<a name="./epilogue.catala_fr-46"></a>      <span class="kt">somme</span> <span class="kt">argent</span> <span class="kr">pour</span> <span class="nv">enfant</span> <span class="kr">dans</span> <span class="nv">enfants_à_charge</span> <span class="kr">de</span> 
-<a name="./epilogue.catala_fr-47"></a>        <span class="nv">montant_avec_garde_alternée_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> 
-<a name="./epilogue.catala_fr-48"></a>    <span class="kr">sinon</span> <span class="mi">0</span><span class="o">€</span>
-<a name="./epilogue.catala_fr-49"></a>
-<a name="./epilogue.catala_fr-50"></a>  <span class="kd">définition</span> <span class="nv">montant_versé</span> <span class="kd">égal à</span> 
-<a name="./epilogue.catala_fr-51"></a>    <span class="kr">si</span> <span class="nv">droit_ouvert_base</span> <span class="kr">alors</span>
-<a name="./epilogue.catala_fr-52"></a>      <span class="nv">montant_versé_base</span> <span class="o">+€</span>
-<a name="./epilogue.catala_fr-53"></a>      <span class="nv">montant_versé_majoration</span> <span class="o">+€</span>
-<a name="./epilogue.catala_fr-54"></a>      <span class="nv">montant_versé_forfaitaire</span> <span class="o">+€</span>
-<a name="./epilogue.catala_fr-55"></a>      <span class="nv">montant_versé_complément_pour_base_et_majoration</span> <span class="o">+€</span>
-<a name="./epilogue.catala_fr-56"></a>      <span class="nv">montant_versé_complément_pour_forfaitaire</span> 
-<a name="./epilogue.catala_fr-57"></a>    <span class="kr">sinon</span> <span class="mi">0</span><span class="o">€</span>
-<a name="./epilogue.catala_fr-58"></a>*/
+<a name="./epilogue.catala_fr-31"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span><span class="o">:</span>
+<a name="./epilogue.catala_fr-32"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span> 
+<a name="./epilogue.catala_fr-33"></a>    <span class="o">non</span> <span class="o">(</span><span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
+<a name="./epilogue.catala_fr-34"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">0</span> <span class="o">€</span>
+<a name="./epilogue.catala_fr-35"></a>
+<a name="./epilogue.catala_fr-36"></a>  <span class="kd">étiquette</span> <span class="nv">définition_droit_ouvert_complément</span>
+<a name="./epilogue.catala_fr-37"></a>  <span class="kd">règle</span> <span class="nv">droit_ouvert_complément</span> <span class="kd">rempli</span>
+<a name="./epilogue.catala_fr-38"></a>
+<a name="./epilogue.catala_fr-39"></a>  <span class="kd">définition</span> <span class="nv">enfant_le_plus_âgé</span><span class="o">.</span>enfants <span class="kd">égal à</span> <span class="nv">enfants_à_charge</span> 
+<a name="./epilogue.catala_fr-40"></a>  <span class="kd">définition</span> <span class="nv">est_enfant_le_plus_âgé</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> 
+<a name="./epilogue.catala_fr-41"></a>    <span class="nv">enfant_le_plus_âgé</span><span class="o">.</span>le_plus_âgé <span class="o">=</span> <span class="nv">enfant</span>
+<a name="./epilogue.catala_fr-42"></a>
+<a name="./epilogue.catala_fr-43"></a>  <span class="kd">définition</span> <span class="nv">montant_versé_base</span> <span class="kd">égal à</span> 
+<a name="./epilogue.catala_fr-44"></a>    <span class="kr">si</span> <span class="nv">droit_ouvert_base</span> <span class="kr">alors</span> <span class="nv">montant_avec_garde_alternée_base</span> <span class="kr">sinon</span> <span class="mi">0</span><span class="o">€</span>
+<a name="./epilogue.catala_fr-45"></a>  <span class="kd">définition</span> <span class="nv">montant_versé_majoration</span> <span class="kd">égal à</span> 
+<a name="./epilogue.catala_fr-46"></a>    <span class="kr">si</span> <span class="nv">droit_ouvert_base</span> <span class="kr">alors</span>
+<a name="./epilogue.catala_fr-47"></a>      <span class="kt">somme</span> <span class="kt">argent</span> <span class="kr">pour</span> <span class="nv">enfant</span> <span class="kr">dans</span> <span class="nv">enfants_à_charge</span> <span class="kr">de</span> 
+<a name="./epilogue.catala_fr-48"></a>        <span class="nv">montant_avec_garde_alternée_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> 
+<a name="./epilogue.catala_fr-49"></a>    <span class="kr">sinon</span> <span class="mi">0</span><span class="o">€</span>
+<a name="./epilogue.catala_fr-50"></a>
+<a name="./epilogue.catala_fr-51"></a>  <span class="kd">définition</span> <span class="nv">montant_versé</span> <span class="kd">égal à</span> 
+<a name="./epilogue.catala_fr-52"></a>    <span class="kr">si</span> <span class="nv">droit_ouvert_base</span> <span class="kr">alors</span>
+<a name="./epilogue.catala_fr-53"></a>      <span class="nv">montant_versé_base</span> <span class="o">+€</span>
+<a name="./epilogue.catala_fr-54"></a>      <span class="nv">montant_versé_majoration</span> <span class="o">+€</span>
+<a name="./epilogue.catala_fr-55"></a>      <span class="nv">montant_versé_forfaitaire</span> <span class="o">+€</span>
+<a name="./epilogue.catala_fr-56"></a>      <span class="nv">montant_versé_complément_pour_base_et_majoration</span> <span class="o">+€</span>
+<a name="./epilogue.catala_fr-57"></a>      <span class="nv">montant_versé_complément_pour_forfaitaire</span> 
+<a name="./epilogue.catala_fr-58"></a>    <span class="kr">sinon</span> <span class="mi">0</span><span class="o">€</span>
+<a name="./epilogue.catala_fr-59"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -2551,8 +2553,7 @@ sorte que l'utilisateur puisse ne doive saisir que le nombre minimal
 d'informations sur les enfants à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./epilogue.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./epilogue.catala_fr-71">71</a>
-<a href="#./epilogue.catala_fr-72">72</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./epilogue.catala_fr-72">72</a>
 <a href="#./epilogue.catala_fr-73">73</a>
 <a href="#./epilogue.catala_fr-74">74</a>
 <a href="#./epilogue.catala_fr-75">75</a>
@@ -2575,31 +2576,32 @@ d'informations sur les enfants à charge.</p>
 <a href="#./epilogue.catala_fr-92">92</a>
 <a href="#./epilogue.catala_fr-93">93</a>
 <a href="#./epilogue.catala_fr-94">94</a>
-<a href="#./epilogue.catala_fr-95">95</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./epilogue.catala_fr-71"></a>/*
-<a name="./epilogue.catala_fr-72"></a><span class="kd">déclaration</span> <span class="kd">structure</span> <span class="nc">EnfantEntrée</span><span class="o">:</span> 
-<a name="./epilogue.catala_fr-73"></a>  <span class="kd">donnée</span> <span class="nv">d_identifiant</span> <span class="kd">contenu</span> <span class="kt">entier</span>
-<a name="./epilogue.catala_fr-74"></a>  <span class="kd">donnée</span> <span class="nv">d_rémuneration_mensuelle</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./epilogue.catala_fr-75"></a>  <span class="kd">donnée</span> <span class="nv">d_date_de_naissance</span> <span class="kd">contenu</span> <span class="kt">date</span>
-<a name="./epilogue.catala_fr-76"></a>  <span class="kd">donnée</span> <span class="nv">d_garde_alternée</span> <span class="kd">contenu</span> <span class="nc">GardeAlternée</span>
-<a name="./epilogue.catala_fr-77"></a>  <span class="kd">donnée</span> <span class="nv">d_pris_en_charge_par_services_sociaux</span> <span class="kd">contenu</span> 
-<a name="./epilogue.catala_fr-78"></a>    <span class="nc">PriseEnChargeServiceSociaux</span>
-<a name="./epilogue.catala_fr-79"></a>
-<a name="./epilogue.catala_fr-80"></a><span class="kd">déclaration</span> <span class="kd">champ d&#39;application</span> <span class="nc">InterfaceAllocationsFamiliales</span><span class="o">:</span>
-<a name="./epilogue.catala_fr-81"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">date_courante</span> <span class="kd">contenu</span> <span class="kt">date</span>
-<a name="./epilogue.catala_fr-82"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">enfants</span> <span class="kd">contenu</span> <span class="kd">collection</span> <span class="nc">EnfantEntrée</span> 
-<a name="./epilogue.catala_fr-83"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">enfants_à_charge</span> <span class="kd">contenu</span> <span class="kd">collection</span> <span class="nc">Enfant</span>
-<a name="./epilogue.catala_fr-84"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">allocations_familiales</span> <span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span>
-<a name="./epilogue.catala_fr-85"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">ressources_ménage</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./epilogue.catala_fr-86"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">résidence</span> <span class="kd">contenu</span> <span class="nc">Collectivité</span>
-<a name="./epilogue.catala_fr-87"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./epilogue.catala_fr-88"></a>
-<a name="./epilogue.catala_fr-89"></a><span class="kd">champ d&#39;application</span> <span class="nc">InterfaceAllocationsFamiliales</span><span class="o">:</span>
-<a name="./epilogue.catala_fr-90"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>date_courante <span class="kd">égal à</span> <span class="nv">date_courante</span> 
-<a name="./epilogue.catala_fr-91"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>enfants_à_charge <span class="kd">égal à</span> <span class="nv">enfants_à_charge</span>
-<a name="./epilogue.catala_fr-92"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>ressources_ménage <span class="kd">égal à</span> <span class="nv">ressources_ménage</span>
-<a name="./epilogue.catala_fr-93"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>résidence <span class="kd">égal à</span> <span class="nv">résidence</span>
-<a name="./epilogue.catala_fr-94"></a>  <span class="kd">définition</span> <span class="nv">montant_versé</span> <span class="kd">égal à</span> <span class="nv">allocations_familiales</span><span class="o">.</span>montant_versé
-<a name="./epilogue.catala_fr-95"></a>*/
+<a href="#./epilogue.catala_fr-95">95</a>
+<a href="#./epilogue.catala_fr-96">96</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./epilogue.catala_fr-72"></a>/*
+<a name="./epilogue.catala_fr-73"></a><span class="kd">déclaration</span> <span class="kd">structure</span> <span class="nc">EnfantEntrée</span><span class="o">:</span> 
+<a name="./epilogue.catala_fr-74"></a>  <span class="kd">donnée</span> <span class="nv">d_identifiant</span> <span class="kd">contenu</span> <span class="kt">entier</span>
+<a name="./epilogue.catala_fr-75"></a>  <span class="kd">donnée</span> <span class="nv">d_rémuneration_mensuelle</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./epilogue.catala_fr-76"></a>  <span class="kd">donnée</span> <span class="nv">d_date_de_naissance</span> <span class="kd">contenu</span> <span class="kt">date</span>
+<a name="./epilogue.catala_fr-77"></a>  <span class="kd">donnée</span> <span class="nv">d_garde_alternée</span> <span class="kd">contenu</span> <span class="nc">GardeAlternée</span>
+<a name="./epilogue.catala_fr-78"></a>  <span class="kd">donnée</span> <span class="nv">d_pris_en_charge_par_services_sociaux</span> <span class="kd">contenu</span> 
+<a name="./epilogue.catala_fr-79"></a>    <span class="nc">PriseEnChargeServiceSociaux</span>
+<a name="./epilogue.catala_fr-80"></a>
+<a name="./epilogue.catala_fr-81"></a><span class="kd">déclaration</span> <span class="kd">champ d&#39;application</span> <span class="nc">InterfaceAllocationsFamiliales</span><span class="o">:</span>
+<a name="./epilogue.catala_fr-82"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">date_courante</span> <span class="kd">contenu</span> <span class="kt">date</span>
+<a name="./epilogue.catala_fr-83"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">enfants</span> <span class="kd">contenu</span> <span class="kd">collection</span> <span class="nc">EnfantEntrée</span> 
+<a name="./epilogue.catala_fr-84"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">enfants_à_charge</span> <span class="kd">contenu</span> <span class="kd">collection</span> <span class="nc">Enfant</span>
+<a name="./epilogue.catala_fr-85"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">allocations_familiales</span> <span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span>
+<a name="./epilogue.catala_fr-86"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">ressources_ménage</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./epilogue.catala_fr-87"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">résidence</span> <span class="kd">contenu</span> <span class="nc">Collectivité</span>
+<a name="./epilogue.catala_fr-88"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./epilogue.catala_fr-89"></a>
+<a name="./epilogue.catala_fr-90"></a><span class="kd">champ d&#39;application</span> <span class="nc">InterfaceAllocationsFamiliales</span><span class="o">:</span>
+<a name="./epilogue.catala_fr-91"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>date_courante <span class="kd">égal à</span> <span class="nv">date_courante</span> 
+<a name="./epilogue.catala_fr-92"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>enfants_à_charge <span class="kd">égal à</span> <span class="nv">enfants_à_charge</span>
+<a name="./epilogue.catala_fr-93"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>ressources_ménage <span class="kd">égal à</span> <span class="nv">ressources_ménage</span>
+<a name="./epilogue.catala_fr-94"></a>  <span class="kd">définition</span> <span class="nv">allocations_familiales</span><span class="o">.</span>résidence <span class="kd">égal à</span> <span class="nv">résidence</span>
+<a name="./epilogue.catala_fr-95"></a>  <span class="kd">définition</span> <span class="nv">montant_versé</span> <span class="kd">égal à</span> <span class="nv">allocations_familiales</span><span class="o">.</span>montant_versé
+<a name="./epilogue.catala_fr-96"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
@@ -2615,8 +2617,7 @@ La présente disposition ne fait pas obstacle à l'application des prescriptions
 particulières imposant une scolarité plus longue.</p>
 <div class='code-wrapper'>
 <div class='filename'>./epilogue.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./epilogue.catala_fr-107">107</a>
-<a href="#./epilogue.catala_fr-108">108</a>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><a href="#./epilogue.catala_fr-108">108</a>
 <a href="#./epilogue.catala_fr-109">109</a>
 <a href="#./epilogue.catala_fr-110">110</a>
 <a href="#./epilogue.catala_fr-111">111</a>
@@ -2629,21 +2630,22 @@ particulières imposant une scolarité plus longue.</p>
 <a href="#./epilogue.catala_fr-118">118</a>
 <a href="#./epilogue.catala_fr-119">119</a>
 <a href="#./epilogue.catala_fr-120">120</a>
-<a href="#./epilogue.catala_fr-121">121</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./epilogue.catala_fr-107"></a>/* 
-<a name="./epilogue.catala_fr-108"></a><span class="kd">champ d&#39;application</span> <span class="nc">InterfaceAllocationsFamiliales</span><span class="o">:</span>
-<a name="./epilogue.catala_fr-109"></a>  <span class="kd">définition</span> <span class="nv">enfants_à_charge</span> <span class="kd">égal à</span> <span class="nv">application</span> <span class="kr">pour</span> <span class="nv">enfant</span> <span class="kr">dans</span> <span class="nv">enfants</span> <span class="kr">de</span> 
-<a name="./epilogue.catala_fr-110"></a>    <span class="nc">Enfant</span> <span class="o">{</span>
-<a name="./epilogue.catala_fr-111"></a>      — <span class="nv">identifiant</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_identifiant
-<a name="./epilogue.catala_fr-112"></a>      — <span class="nv">rémuneration_mensuelle</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_rémuneration_mensuelle
-<a name="./epilogue.catala_fr-113"></a>      — <span class="nv">date_de_naissance</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_date_de_naissance
-<a name="./epilogue.catala_fr-114"></a>      — <span class="nv">pris_en_charge_par_services_sociaux</span> <span class="o">:</span> 
-<a name="./epilogue.catala_fr-115"></a>        <span class="nv">enfant</span><span class="o">.</span>d_pris_en_charge_par_services_sociaux
-<a name="./epilogue.catala_fr-116"></a>      — <span class="nv">garde_alternée</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_garde_alternée
-<a name="./epilogue.catala_fr-117"></a>      — <span class="nv">âge</span><span class="o">:</span> <span class="nv">accès_année</span> <span class="kr">de</span> 
-<a name="./epilogue.catala_fr-118"></a>        <span class="o">(</span><span class="mi">|01/01/0000|</span> <span class="o">+@</span> <span class="o">(</span><span class="nv">date_courante</span> <span class="o">-@</span> <span class="nv">enfant</span><span class="o">.</span>d_date_de_naissance<span class="o">))</span>
-<a name="./epilogue.catala_fr-119"></a>      — <span class="nv">fin_obligation_scolaire</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_date_de_naissance <span class="o">+@</span> <span class="mi">16</span> <span class="o">an</span>
-<a name="./epilogue.catala_fr-120"></a>    <span class="o">}</span>
-<a name="./epilogue.catala_fr-121"></a>*/
+<a href="#./epilogue.catala_fr-121">121</a>
+<a href="#./epilogue.catala_fr-122">122</a></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./epilogue.catala_fr-108"></a>/* 
+<a name="./epilogue.catala_fr-109"></a><span class="kd">champ d&#39;application</span> <span class="nc">InterfaceAllocationsFamiliales</span><span class="o">:</span>
+<a name="./epilogue.catala_fr-110"></a>  <span class="kd">définition</span> <span class="nv">enfants_à_charge</span> <span class="kd">égal à</span> <span class="nv">application</span> <span class="kr">pour</span> <span class="nv">enfant</span> <span class="kr">dans</span> <span class="nv">enfants</span> <span class="kr">de</span> 
+<a name="./epilogue.catala_fr-111"></a>    <span class="nc">Enfant</span> <span class="o">{</span>
+<a name="./epilogue.catala_fr-112"></a>      — <span class="nv">identifiant</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_identifiant
+<a name="./epilogue.catala_fr-113"></a>      — <span class="nv">rémuneration_mensuelle</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_rémuneration_mensuelle
+<a name="./epilogue.catala_fr-114"></a>      — <span class="nv">date_de_naissance</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_date_de_naissance
+<a name="./epilogue.catala_fr-115"></a>      — <span class="nv">pris_en_charge_par_services_sociaux</span> <span class="o">:</span> 
+<a name="./epilogue.catala_fr-116"></a>        <span class="nv">enfant</span><span class="o">.</span>d_pris_en_charge_par_services_sociaux
+<a name="./epilogue.catala_fr-117"></a>      — <span class="nv">garde_alternée</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_garde_alternée
+<a name="./epilogue.catala_fr-118"></a>      — <span class="nv">âge</span><span class="o">:</span> <span class="nv">accès_année</span> <span class="kr">de</span> 
+<a name="./epilogue.catala_fr-119"></a>        <span class="o">(</span><span class="mi">|01/01/0000|</span> <span class="o">+@</span> <span class="o">(</span><span class="nv">date_courante</span> <span class="o">-@</span> <span class="nv">enfant</span><span class="o">.</span>d_date_de_naissance<span class="o">))</span>
+<a name="./epilogue.catala_fr-120"></a>      — <span class="nv">fin_obligation_scolaire</span> <span class="o">:</span> <span class="nv">enfant</span><span class="o">.</span>d_date_de_naissance <span class="o">+@</span> <span class="mi">16</span> <span class="o">an</span>
+<a name="./epilogue.catala_fr-121"></a>    <span class="o">}</span>
+<a name="./epilogue.catala_fr-122"></a>*/
 </pre></div>
 </td></tr></table>
 </div>
