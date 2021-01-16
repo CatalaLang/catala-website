@@ -80,7 +80,7 @@
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>tutorial_en.catala_en</tt>, last modification 2021-01-13, 18:10</li>
+<li><tt>tutorial_en.catala_en</tt>, last modification 2021-01-16, 17:39</li>
 </ul>
 <h2 class='law-heading'>The Catala language tutorial</h2>
 <p class='law-text'>Welcome to this tutorial, whose objective is to guide you through the features 
@@ -259,7 +259,7 @@ individual's income over a year.</p>
 </td></tr></table>
 </div>
 <p class='law-text'>In the code, we are defining inside our scope the amount of the income tax 
-according to the formula described in the article. When defining formulaes, 
+according to the formula described in the article. When defining formulae, 
 you have access to all the usual arithmetic operators: addition "+", 
 substraction "-", multiplication "*" and division (slash). <br/>
 However, in the Catala code, you can see that we use "*$" to multiply the 
@@ -300,7 +300,7 @@ the annotation of the legislative text, so that each
 definition is as close as possible to its location in the text.</p>
 </div>
 <h3 class='law-heading'>Conditional definitions</h3>
-<p class='law-text'>So far so good, but now the legislative text introduces some trickyness. Let us 
+<p class='law-text'>So far so good, but now the legislative text introduces some trickiness. Let us 
 suppose the third article says:</p>
 <div class='article-container'>
 
@@ -628,7 +628,7 @@ fixed version of the NewIncomeTaxComputation scope:</p>
 <a name="tutorial_en.catala_en-351"></a>  <span class="o">}</span><span class="c1"></span>
 <a name="tutorial_en.catala_en-352"></a>
 <a name="tutorial_en.catala_en-353"></a><span class="c1">  # To define an exception to a rule, you have to first label the rule that </span>
-<a name="tutorial_en.catala_en-354"></a><span class="c1">  # you want to attach to exception to. You can put any snake_case identifier</span>
+<a name="tutorial_en.catala_en-354"></a><span class="c1">  # you want to attach the exception to. You can put any snake_case identifier</span>
 <a name="tutorial_en.catala_en-355"></a><span class="c1">  # for the label</span>
 <a name="tutorial_en.catala_en-356"></a>  <span class="kd">label</span> <span class="nv">article_5</span> 
 <a name="tutorial_en.catala_en-357"></a>  <span class="kd">definition</span> <span class="nv">income_tax</span> <span class="kd">equals</span> <span class="nv">two_brackets</span><span class="o">.</span>tax_formula <span class="kr">of</span> <span class="nv">individual</span><span class="o">.</span>income<span class="c1"> </span>
