@@ -107,7 +107,7 @@ let render_presentation_card =
           "cursor-pointer border-solid border-t-2 border-primary pt-2"
         ]
         onClick={Elements.goToElement(navs, lang)}>
-        <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+        <div className=[%tw "flex flex-row flex-nowrap items-center"]>
           <i className="pr-2 material-icons text-primary">
             {"double_arrow" |> React.string}
           </i>
@@ -144,7 +144,7 @@ let render_presentation_card =
           <div>
             <div
               className=[%tw
-                " flex flex-row flex-no-wrap items-center text-2xl md:text-xl lg:text-lg pb-2 font-bold"
+                " flex flex-row flex-nowrap items-center text-2xl md:text-xl lg:text-lg pb-2 font-bold"
               ]>
               icon
               {card.title}

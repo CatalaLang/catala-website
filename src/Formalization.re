@@ -74,7 +74,7 @@ let make = () => {
               className=[%tw
                 "bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4"
               ]>
-              <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+              <div className=[%tw "flex flex-row flex-nowrap items-center"]>
                 <Lang.String
                   english="Access the complete formalization PDF"
                   french={js|Accéder au PDF contenantt la formalisation|js}

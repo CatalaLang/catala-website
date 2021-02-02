@@ -169,7 +169,7 @@ module LinkBlock = {
         className=[%tw
           "bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4"
         ]>
-        <div className=[%tw "flex flex-row flex-no-wrap items-center"]>
+        <div className=[%tw "flex flex-row flex-nowrap items-center"]>
           info.text
           <i className="pl-4 material-icons">
             {info.icon |> React.string}
