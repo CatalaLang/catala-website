@@ -9,7 +9,7 @@
     "clean": "bsb -clean-world",
     "webpack": "webpack -w",
     "webpack:production": "NODE_ENV=production webpack",
-    "server": "webpack-dev-server",
+    "server": "webpack serve",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -28,9 +28,10 @@
   "devDependencies": {
     "@dylanirlbeck/tailwind-ppx": "^0.7.9",
     "ansi_up": "^4.0.4",
+    "autoprefixer": "^10.2.4",
     "browser-builtins": "^3.2.0",
     "browserfs": "^1.4.3",
-    "bs-platform": "^7.3.2",
+    "bs-platform": "^8.4.2",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^3.6.0",
     "favicons-webpack-plugin": "^4.2.0",
