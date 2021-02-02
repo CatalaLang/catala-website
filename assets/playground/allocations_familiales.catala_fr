@@ -26,7 +26,7 @@ déclaration structure Enfant :
   donnée date_de_naissance contenu date
   donnée âge contenu entier
   donnée garde_alternée contenu GardeAlternée
-  donnée pris_en_charge_par_services_sociaux contenu 
+  donnée prise_en_charge_par_services_sociaux contenu 
     PriseEnChargeServiceSociaux
 
 déclaration énumération Collectivité :
@@ -157,6 +157,9 @@ champ d'application AllocationsFamiliales:
 */
 @@Fin métadonnées@@
 
+@@Instructions ministérielles@@
+
+
 @INSTRUCTION INTERMINISTERIELLE N° DSS/SD2B/2019/65 du 25 mars 2019 relative 
 à la revalorisation au 1er avril 2019 des prestations familiales servies en 
 métropole@
@@ -207,112 +210,6 @@ champ d'application PrestationsFamiliales :
   conséquence égal à 414,4 €
 */
 
-
-@@Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance@@
-
-@Article 1|JORFARTI000037833214@
-
-A compter du 1er janvier 2019, pour les catégories de travailleurs mentionnés à 
-l'article L. 2211-1 du code du travail, le montant du salaire minimum de 
-croissance est relevé dans les conditions ci-après :
-
-1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, 
-à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, 
-son montant est porté à 10,03 € l'heure.
-/*
-champ d'application Smic :
-  définition brut_horaire sous condition 
-    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
-      (résidence = Métropole) ou
-      (résidence = Guyane) ou
-      (résidence = Martinique) ou
-      (résidence = LaRéunion) ou
-      (résidence = SaintBarthélemy) ou
-      (résidence = SaintMartin) ou
-      (résidence = SaintPierreEtMiquelon)
-    )
-  conséquence égal à 10,03 €
-*/
-2° A Mayotte, son montant est fixé à 7,57 € l'heure.
-/*
-champ d'application Smic :
-  définition brut_horaire sous condition
-    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
-      (résidence = Mayotte)
-    )
-  conséquence égal à 7,57 €
-*/
-
-@@Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance@@
-
-@Article 1|LEGIARTI000039640195@
-A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à 
-l' article L. 2211-1 du code du travail , le montant du salaire minimum de 
-croissance est relevé dans les conditions ci-après :
-
-1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, 
-à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, 
-son montant est porté à 10,15 € l'heure ;
-/*
-champ d'application Smic :
-  définition brut_horaire sous condition 
-    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020| et (
-      (résidence = Métropole) ou
-      (résidence = Guyane) ou
-      (résidence = Martinique) ou
-      (résidence = LaRéunion) ou
-      (résidence = SaintBarthélemy) ou
-      (résidence = SaintMartin) ou
-      (résidence = SaintPierreEtMiquelon)
-    )
-  conséquence égal à 10,15 €
-*/
-2° A Mayotte, son montant est fixé à 7,66 € l'heure.
-/*
-champ d'application Smic :
-  définition brut_horaire sous condition
-    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
-      (résidence = Mayotte)
-    )
-  conséquence égal à 7,66 €
-*/
-
-@@Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations@@
-
-@Article 1|JORFARTI000042694985@
-
-I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2 
-du code de la sécurité sociale relatif aux allocations familiales, à la majoration 
-pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article 
-L. 521-1 est fixé à 58 279 euros pour la période du 1er janvier 2021 au 31 
-décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
-
-/*
-champ d'application AllocationsFamiliales :
-  exception base_plafond_I_d521_3
-  définition plafond_I_d521_3 sous condition 
-    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021|
-  conséquence égal à 58 279 € +€
-    5 827 € *€ (entier_vers_décimal de 
-      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
-*/
-
-II. - Le plafond de ressources prévu au 2° du I des articles D. 521-1 et 
-D. 521-2 du même code relatif aux allocations familiales, à la majoration 
-pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article 
-L. 521-1 est fixé à 81 558 euros pour la période du 1er janvier 2021 au 31 
-décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
-
-/*
-champ d'application AllocationsFamiliales :
-  exception base_plafond_II_d521_3 
-  définition plafond_II_d521_3 sous condition 
-    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021|
-  conséquence égal à 81 558 € +€
-    5 827 € *€ (entier_vers_décimal de 
-      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
-*/
-
 @Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019
 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources 
 d’attribution de certaines prestations familiales servies en métropole, 
@@ -335,20 +232,131 @@ tranche est celle dont les revenus sont supérieurs au plafond de base de
 
 /*
 champ d'application AllocationsFamiliales :
-  exception base_plafond_I_d521_3
+  exception
   définition plafond_I_d521_3 sous condition 
     date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020|
   conséquence égal à 57 759 € +€
     5 775 € *€ (entier_vers_décimal de 
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
 
-  exception base_plafond_II_d521_3 
+  exception 
   définition plafond_II_d521_3 sous condition 
     date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020|
   conséquence égal à 80 831 € +€
     5 775 € *€ (entier_vers_décimal de 
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
-*/@@Code de la sécurité sociale@@
+*/
+
+@@Décrets divers@@
+
+@@Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance@@+
+
+@Article 1|JORFARTI000037833214@
+
+A compter du 1er janvier 2019, pour les catégories de travailleurs mentionnés à 
+l'article L. 2211-1 du code du travail, le montant du salaire minimum de 
+croissance est relevé dans les conditions ci-après :
+
+1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, 
+à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, 
+son montant est porté à 10,03 € l'heure.
+/*
+champ d'application Smic :
+  définition brut_horaire sous condition 
+    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
+      (résidence = Métropole) ou
+      (résidence = Guadeloupe) ou
+      (résidence = Guyane) ou
+      (résidence = Martinique) ou
+      (résidence = LaRéunion) ou
+      (résidence = SaintBarthélemy) ou
+      (résidence = SaintMartin) ou
+      (résidence = SaintPierreEtMiquelon)
+    )
+  conséquence égal à 10,03 €
+*/
+2° A Mayotte, son montant est fixé à 7,57 € l'heure.
+/*
+champ d'application Smic :
+  définition brut_horaire sous condition
+    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
+      (résidence = Mayotte)
+    )
+  conséquence égal à 7,57 €
+*/
+
+@@Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance@@+
+
+@Article 1|LEGIARTI000039640195@
+A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à 
+l' article L. 2211-1 du code du travail , le montant du salaire minimum de 
+croissance est relevé dans les conditions ci-après :
+
+1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, 
+à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, 
+son montant est porté à 10,15 € l'heure ;
+/*
+champ d'application Smic :
+  définition brut_horaire sous condition 
+    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020| et (
+      (résidence = Métropole) ou
+      (résidence = Guadeloupe) ou
+      (résidence = Guyane) ou
+      (résidence = Martinique) ou
+      (résidence = LaRéunion) ou
+      (résidence = SaintBarthélemy) ou
+      (résidence = SaintMartin) ou
+      (résidence = SaintPierreEtMiquelon)
+    )
+  conséquence égal à 10,15 €
+*/
+2° A Mayotte, son montant est fixé à 7,66 € l'heure.
+/*
+champ d'application Smic :
+  définition brut_horaire sous condition
+    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020| et (
+      (résidence = Mayotte)
+    )
+  conséquence égal à 7,66 €
+*/
+
+@@Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations@@+
+
+@Article 1|JORFARTI000042694985@
+
+I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2 
+du code de la sécurité sociale relatif aux allocations familiales, à la majoration 
+pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article 
+L. 521-1 est fixé à 58 279 euros pour la période du 1er janvier 2021 au 31 
+décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
+
+/*
+champ d'application AllocationsFamiliales :
+  exception
+  définition plafond_I_d521_3 sous condition 
+    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021|
+  conséquence égal à 58 279 € +€
+    5 827 € *€ (entier_vers_décimal de 
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+*/
+
+II. - Le plafond de ressources prévu au 2° du I des articles D. 521-1 et 
+D. 521-2 du même code relatif aux allocations familiales, à la majoration 
+pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article 
+L. 521-1 est fixé à 81 558 euros pour la période du 1er janvier 2021 au 31 
+décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
+
+/*
+champ d'application AllocationsFamiliales :
+  exception 
+  définition plafond_II_d521_3 sous condition 
+    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021|
+  conséquence égal à 81 558 € +€
+    5 827 € *€ (entier_vers_décimal de 
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+*/
+
+@@Code de la sécurité sociale@@
 
 @@Partie législative@@+
 
@@ -443,7 +451,6 @@ champ d'application PrestationsFamiliales :
 Les allocations familiales sont dues à partir du deuxième enfant à charge.
 /*
 champ d'application AllocationsFamiliales :
-  étiquette définitition_droit_ouvert_base 
   règle droit_ouvert_base sous condition
     nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
   conséquence rempli
@@ -468,7 +475,6 @@ champ d'application AllocationsFamiliales :
     prestations_familiales.conditions_hors_âge de enfant
   conséquence  rempli
 
-  étiquette base_droit_ouvert_forfaitaire
   règle droit_ouvert_forfaitaire de enfant sous condition
     (nombre de enfants_à_charge >= nombre_enfants_l521_1) et
     (enfant.âge = prestations_familiales.âge_l512_3_2) et
@@ -524,10 +530,8 @@ Les allocations sont versées à la personne qui assume, dans quelques condition
 que ce soit, la charge effective et permanente de l'enfant.
 /*
 champ d'application AllocationsFamiliales :
-  étiquette définition_prise_en_compte
   définition prise_en_compte de enfant égal à Complète
 
-  étiquette définition_versement
   définition versement de enfant égal à Normal
 */
 
@@ -542,24 +546,24 @@ les conditions d'application du présent alinéa.
 /*
 champ d'application AllocationsFamiliales :
   # Premier cas : garde alternée, parents désignent un unique allocataire
-  exception définition_prise_en_compte
+  exception
   définition prise_en_compte de enfant sous condition 
     enfant.garde_alternée sous forme OuiAllocataireUnique
   conséquence égal à Complète
 
-  exception définition_versement
+  exception
   définition versement de enfant sous condition 
     enfant.garde_alternée sous forme OuiAllocataireUnique
   conséquence égal à Normal
 
   # Deuxième cas : garde alternée, parents partagent la charge pour
   # l'allocation
-  exception définition_prise_en_compte
+  exception
   définition prise_en_compte de enfant sous condition 
     enfant.garde_alternée sous forme OuiPartageAllocations
   conséquence égal à Partagée
 
-  exception définition_versement
+  exception
   définition versement de enfant sous condition 
     enfant.garde_alternée sous forme OuiPartageAllocations
   conséquence égal à Normal
@@ -588,12 +592,10 @@ de l'enfant dans son foyer.
 
 /*
 champ d'application AllocationsFamiliales :
-  exception définition_versement
+  exception
   définition versement de enfant sous condition 
-    selon enfant.pris_en_charge_par_services_sociaux sous forme
-      -- OuiAllocationVerséeAuxServicesSociaux: vrai
-      -- OuiAllocationVerséeÀLaFamille: faux 
-      -- NonPriseEnChargeFamille: faux
+    enfant.prise_en_charge_par_services_sociaux sous forme
+      OuiAllocationVerséeAuxServicesSociaux
   conséquence égal à AllocationVerséeAuxServicesSociaux
 */
 
@@ -618,7 +620,6 @@ l'exception du plus âgé, ouvre droit à partir d'un âge minimum à une
 majoration des allocations familiales.
 /*
 champ d'application AllocationsFamiliales :
-  étiquette base_droit_ouvert_majoration
   règle droit_ouvert_majoration de enfant
   sous condition
     (non (est_enfant_le_plus_âgé de enfant)) et
@@ -631,7 +632,7 @@ bénéficient de ladite majoration pour chaque enfant à charge à partir
 de l'âge mentionné au premier alinéa.
 /*
 champ d'application AllocationsFamiliales :
-  exception base_droit_ouvert_majoration
+  exception
   règle droit_ouvert_majoration de enfant
   sous condition
     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 
@@ -707,7 +708,7 @@ Les allocations familiales sont dues, pour tout enfant, à la personne qui a
 effectivement la charge de celui-ci.
 /*
 champ d'application AllocationsFamiliales:
-  exception définitition_droit_ouvert_base
+  exception
   règle droit_ouvert_base sous condition
     prestations_familiales.régime_outre_mer_l751_1 et
     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 1)
@@ -720,13 +721,13 @@ applicables lorsque le ménage ou la personne a un seul enfant à charge.
 # et au complément dégressif.
 
 champ d'application AllocationsFamiliales :
-  exception base_droit_ouvert_forfaitaire
+  exception
   règle droit_ouvert_forfaitaire de enfant sous condition
      prestations_familiales.régime_outre_mer_l751_1 et
      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale = 1)
   conséquence non rempli
 
-  exception définition_droit_ouvert_complément
+  exception
   règle droit_ouvert_complément sous condition
     prestations_familiales.régime_outre_mer_l751_1 et
     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale = 1)
@@ -755,7 +756,6 @@ articles L. 141-1 à L. 141-9 du code du travail, multiplié par 169.
 
 /*
 champ d'application PrestationsFamiliales :
-  étiquette définition_plafond_l512_3_2
   définition plafond_l512_3_2 égal à
    (smic.brut_horaire *€ 55 %) *€ 169,0
 */
@@ -844,7 +844,8 @@ champ d'application AllocationsFamiliales :
     montant_initial_base *€ rapport_enfants_total_moyen
 
   définition rapport_enfants_total_moyen égal à
-    nombre_moyen_enfants /. nombre_total_enfants
+    si nombre_total_enfants = 0,0 alors 0,0 sinon
+      (nombre_moyen_enfants /. nombre_total_enfants)
 */
 
 Le nombre moyen d'enfants, pour chaque foyer, est obtenu en faisant la somme 
@@ -891,10 +892,10 @@ alternée, le montant servi au titre de cette majoration est réduit de moitié.
 champ d'application AllocationsFamiliales :
   définition
     montant_avec_garde_alternée_majoration de enfant
-  égal à (
+  égal à montant_initial_majoration de enfant *€ (
     selon (prise_en_compte de enfant) sous forme
-    -- Complète : montant_initial_majoration de enfant
-    -- Partagée : montant_initial_majoration de enfant *€ 50%
+    -- Complète : 100%
+    -- Partagée : 50%
   )
 */
 
@@ -911,7 +912,7 @@ vigueur dans chacun des départements mentionnés à l'article L. 751-1 ,
 multiplié par 169.
 /*
 champ d'application PrestationsFamiliales :
-  exception définition_plafond_l512_3_2
+  exception
   définition plafond_l512_3_2
   sous condition régime_outre_mer_l751_1
   conséquence égal à
@@ -933,7 +934,6 @@ est défini selon le barème suivant :
 /*
 # Composantes des allocations familiales
 champ d'application AllocationsFamiliales :
-  étiquette définition_montant_initial_base
   définition montant_initial_base égal à
     montant_initial_base_deuxième_enfant +€
     montant_initial_base_troisième_enfant_et_plus
@@ -1073,7 +1073,7 @@ différence entre, d'une part, ce plafond de ressources majoré de la somme
 définie à l'alinéa précédent et, d'autre part, le montant des ressources.
 /*
 champ d'application AllocationsFamiliales :
-  exception base_dépassement
+  exception
   définition dépassement_plafond_ressources de allocation
   sous condition
     (ressources_ménage >€ plafond_I_d521_3) et
@@ -1081,7 +1081,7 @@ champ d'application AllocationsFamiliales :
   conséquence égal à
     plafond_I_d521_3 +€ allocation *€ 12,0 -€ ressources_ménage
 
-  exception base_dépassement
+  exception
   définition dépassement_plafond_ressources de allocation
   sous condition
     (ressources_ménage >€ plafond_II_d521_3) et
@@ -1090,7 +1090,6 @@ champ d'application AllocationsFamiliales :
     plafond_II_d521_3 +€ allocation *€ 12,0 -€ ressources_ménage
 
   # Dans les autres cas, le dépassement est nul
-  étiquette base_dépassement
   définition dépassement_plafond_ressources de allocations égal à 0 €
 
   définition montant_versé_complément_pour_base_et_majoration égal à
@@ -1181,7 +1180,6 @@ I.-Le plafond prévu au 1° du I des articles D. 521-1 et D. 521-2 est fixé à
 55 950 euros. Il est majoré de 5 595 euros par enfant à charge.
 /*
 champ d'application AllocationsFamiliales :
-  étiquette base_plafond_I_d521_3
   définition plafond_I_d521_3 égal à 55 950 € +€
     5 595 € *€ (entier_vers_décimal de 
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
@@ -1191,7 +1189,6 @@ II.-Le plafond prévu au 2° du I des articles D. 521-1 et D. 521-2 est fixé à
 78 300 euros. Il est majoré de 5 595 euros par enfant à charge.
 /*
 champ d'application AllocationsFamiliales :
-  étiquette base_plafond_II_d521_3
   définition plafond_II_d521_3 égal à 78 300 € +€
     5 595 € *€ (entier_vers_décimal de 
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
@@ -1226,7 +1223,7 @@ fixé à 5,88 p. 100 de la base mensuelle prévue à l'article L. 755-3.
 # Composantes des allocations familiales
 champ d'application AllocationsFamiliales :
   
-  exception définition_montant_initial_base
+  exception
   définition montant_initial_base sous condition
     prestations_familiales.régime_outre_mer_l751_1 et 
     nombre de enfants_à_charge_droit_ouvert_prestation_familiale = 1
@@ -1273,7 +1270,8 @@ champ d'application AllocationsFamiliales :
     montant_initial_majoration de enfant
   sous condition
     (droit_ouvert_majoration de enfant) et
-    prestations_familiales.régime_outre_mer_l751_1
+    prestations_familiales.régime_outre_mer_l751_1 et
+    (nombre de enfants_à_charge_droit_ouvert_prestation_familiale = 1)
   conséquence égal à
     prestations_familiales.base_mensuelle *€
     (si enfant.âge >= 16 alors 5,67 % sinon 3,69 %)
@@ -1298,7 +1296,7 @@ champ d'application EnfantLePlusÂgé:
       -- date_de_naissance: |01/01/1900|
       -- âge: 0 
       -- garde_alternée: NonGardeUnique
-      -- pris_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+      -- prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
     } 
     pour potentiel_plus_âgé dans enfants de 
     potentiel_plus_âgé.âge
@@ -1312,7 +1310,6 @@ champ d'application AllocationsFamiliales:
     non (droit_ouvert_majoration de enfant)
   conséquence égal à 0 €
 
-  étiquette définition_droit_ouvert_complément
   règle droit_ouvert_complément rempli
 
   définition enfant_le_plus_âgé.enfants égal à enfants_à_charge 
@@ -1354,7 +1351,7 @@ déclaration structure EnfantEntrée:
   donnée d_rémuneration_mensuelle contenu argent
   donnée d_date_de_naissance contenu date
   donnée d_garde_alternée contenu GardeAlternée
-  donnée d_pris_en_charge_par_services_sociaux contenu 
+  donnée d_prise_en_charge_par_services_sociaux contenu 
     PriseEnChargeServiceSociaux
 
 déclaration champ d'application InterfaceAllocationsFamiliales:
@@ -1372,6 +1369,10 @@ champ d'application InterfaceAllocationsFamiliales:
   définition allocations_familiales.ressources_ménage égal à ressources_ménage
   définition allocations_familiales.résidence égal à résidence
   définition montant_versé égal à allocations_familiales.montant_versé
+  assertion non (existe enfant dans enfants tel que 
+    enfant.d_garde_alternée != NonGardeUnique et 
+    enfant.d_prise_en_charge_par_services_sociaux != NonPriseEnChargeFamille
+  )
 */
 @@Fin métadonnées@@
 
@@ -1391,14 +1392,16 @@ champ d'application InterfaceAllocationsFamiliales:
       -- identifiant : enfant.d_identifiant
       -- rémuneration_mensuelle : enfant.d_rémuneration_mensuelle
       -- date_de_naissance : enfant.d_date_de_naissance
-      -- pris_en_charge_par_services_sociaux : 
-        enfant.d_pris_en_charge_par_services_sociaux
+      -- prise_en_charge_par_services_sociaux : 
+        enfant.d_prise_en_charge_par_services_sociaux
       -- garde_alternée : enfant.d_garde_alternée
       -- âge: accès_année de 
         (|01/01/0000| +@ (date_courante -@ enfant.d_date_de_naissance))
       -- fin_obligation_scolaire : enfant.d_date_de_naissance +@ 16 an
     }
 */
+
+@@Tests@@
 
 @Tests@
 
@@ -1415,35 +1418,35 @@ champ d'application Données:
     -- d_identifiant: 1
     -- d_date_de_naissance: |01/01/2007|
     -- d_rémuneration_mensuelle: 0€
-    -- d_pris_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
     -- d_garde_alternée: NonGardeUnique
   }
   définition enfant2 égal à EnfantEntrée {
     -- d_identifiant: 2
     -- d_date_de_naissance: |01/01/2009|
     -- d_rémuneration_mensuelle: 0€
-    -- d_pris_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
     -- d_garde_alternée: NonGardeUnique
   }
   définition enfant3 égal à EnfantEntrée {
     -- d_identifiant: 3
     -- d_date_de_naissance: |01/01/2003|
     -- d_rémuneration_mensuelle: 400€
-    -- d_pris_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
     -- d_garde_alternée: OuiPartageAllocations
   }
   définition enfant4 égal à EnfantEntrée {
     -- d_identifiant: 4
     -- d_date_de_naissance: |01/01/2001|
     -- d_rémuneration_mensuelle: 1100€
-    -- d_pris_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
     -- d_garde_alternée: NonGardeUnique
   }
   définition enfant5 égal à EnfantEntrée {
     -- d_identifiant: 5
     -- d_date_de_naissance: |01/01/2000|
     -- d_rémuneration_mensuelle: 0€
-    -- d_pris_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
     -- d_garde_alternée: NonGardeUnique
   }
 
@@ -1493,4 +1496,38 @@ champ d'application Test4:
   définition f.date_courante égal à |01/05/2020|
   définition f.résidence égal à Métropole
   assertion f.montant_versé = 99,37€
+
+déclaration champ d'application Test5:
+  contexte f champ d'application InterfaceAllocationsFamiliales
+  contexte données champ d'application Données 
+
+champ d'application Test5:
+  définition f.enfants égal à [données.enfant1]
+  définition f.ressources_ménage égal à 30 000 €
+  définition f.date_courante égal à |01/05/2020|
+  définition f.résidence égal à Métropole
+  assertion f.montant_versé = 0,00€
+
+déclaration champ d'application Test6:
+  contexte f champ d'application InterfaceAllocationsFamiliales
+
+champ d'application Test6:
+  définition f.enfants égal à [EnfantEntrée {
+    -- d_identifiant: 0
+    -- d_date_de_naissance: |10/11/2009|
+    -- d_rémuneration_mensuelle: 439€
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_garde_alternée: NonGardeUnique
+  };EnfantEntrée {
+    -- d_identifiant: 1
+    -- d_date_de_naissance: |25/09/2020|
+    -- d_rémuneration_mensuelle: 1949€
+    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+    -- d_garde_alternée: NonGardeUnique
+  }]
+  définition f.ressources_ménage égal à 78 830 €
+  définition f.date_courante égal à |01/05/2020|
+  définition f.résidence égal à Guadeloupe
+  assertion f.montant_versé = 132,49€
+
 */

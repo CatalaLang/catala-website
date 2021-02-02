@@ -139,6 +139,8 @@
         <th class="bar"></th>
         <td><span class="nonterminal">small_expression</span>
         DOT
+        <span class="option"><span class="nonterminal">constructor</span>
+        DOT</span>
         <span class="nonterminal">ident</span></td>
       </tr>
       
@@ -156,11 +158,7 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">struct_or_enum_inject_content</span></th>
-        <td><span class="option"><span class="nonterminal">enum_inject_content</span></span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
+        <th><span class="nonterminal">struct_inject_content</span></th>
         <td>LBRACKET
         ALT
         <span class="nonterminal">struct_content_field</span><sup>+</sup><sub>ALT</sub>
@@ -170,7 +168,14 @@
       <tr class="rule">
         <th><span class="nonterminal">struct_or_enum_inject</span></th>
         <td><span class="nonterminal">constructor</span>
-        <span class="nonterminal">struct_or_enum_inject_content</span></td>
+        <span class="option">DOT
+        <span class="nonterminal">constructor</span></span>
+        <span class="option"><span class="nonterminal">enum_inject_content</span></span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">constructor</span>
+        <span class="nonterminal">struct_inject_content</span></td>
       </tr>
       
       <tr class="rule">
@@ -433,7 +438,7 @@
         <th class="bar"></th>
         <td><span class="nonterminal">primitive_expression</span>
         WITH
-        <span class="nonterminal">constructor</span></td>
+        <span class="nonterminal">constructor_binding</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -582,6 +587,13 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">maybe_qualified_constructor</span></th>
+        <td><span class="nonterminal">constructor</span>
+        <span class="option">DOT
+        <span class="nonterminal">constructor</span></span></td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">optional_binding</span></th>
         <td>&epsilon;</td>
       </tr>
@@ -593,13 +605,13 @@
       <tr>
         <th class="bar"></th>
         <td>OF
-        <span class="nonterminal">constructor</span>
+        <span class="nonterminal">maybe_qualified_constructor</span>
         <span class="nonterminal">constructor_binding</span></td>
       </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">constructor_binding</span></th>
-        <td><span class="nonterminal">constructor</span>
+        <td><span class="nonterminal">maybe_qualified_constructor</span>
         <span class="nonterminal">optional_binding</span></td>
       </tr>
       
@@ -726,7 +738,7 @@
       <tr class="rule">
         <th><span class="nonterminal">exception_to</span></th>
         <td>EXCEPTION
-        <span class="nonterminal">ident</span></td>
+        <span class="option"><span class="nonterminal">ident</span></span></td>
       </tr>
       
       <tr class="rule">
