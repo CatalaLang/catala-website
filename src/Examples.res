@@ -178,16 +178,23 @@ module FrenchFamilyBenefits = {
               type_="number"
             />
           </div>
+        </div>
+        <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4")>
           {React.array(
             Belt.Array.mapWithIndex(af_input.children, (i, _) => {
-              <>
-                <div className=%tw("flex flex-col mx-4")>
-                  <label className=%tw("text-white text-center")>
+              <div
+                className=%tw("flex flex-col border-tertiary border-2 border-solid py-2 my-2")
+                key={"child_input" ++ string_of_int(i)}>
+                <div key={"birth_date_div" ++ string_of_int(i)} className=%tw("flex flex-col mx-4")>
+                  <label
+                    key={"birth_date_label" ++ string_of_int(i)}
+                    className=%tw("text-white text-center")>
                     <Lang.String english="Child n°" french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String english=": birthdate" french=` : date de naissance` />
                   </label>
                   <input
+                    key={"birth_date_input" ++ string_of_int(i)}
                     onChange={(evt: ReactEvent.Form.t) => {
                       ReactEvent.Form.preventDefault(evt)
                       let value = ReactEvent.Form.target(evt)["value"]
@@ -204,8 +211,12 @@ module FrenchFamilyBenefits = {
                     type_="date"
                   />
                 </div>
-                <div className=%tw("flex flex-col mx-4")>
-                  <label className=%tw("text-white text-center")>
+                <div
+                  key={"monthly_income_div" ++ string_of_int(i)}
+                  className=%tw("flex flex-col mx-4")>
+                  <label
+                    key={"monthly_income_label" ++ string_of_int(i)}
+                    className=%tw("text-white text-center")>
                     <Lang.String english="Child n°" french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String
@@ -213,6 +224,7 @@ module FrenchFamilyBenefits = {
                     />
                   </label>
                   <input
+                    key={"monthly_income_input" ++ string_of_int(i)}
                     onChange={(evt: ReactEvent.Form.t) => {
                       ReactEvent.Form.preventDefault(evt)
                       let value = ReactEvent.Form.target(evt)["value"]
@@ -229,13 +241,18 @@ module FrenchFamilyBenefits = {
                     type_="number"
                   />
                 </div>
-                <div className=%tw("flex flex-col mx-4")>
-                  <label className=%tw("text-white text-center")>
+                <div
+                  key={"alternating_custody_div" ++ string_of_int(i)}
+                  className=%tw("flex flex-col mx-4")>
+                  <label
+                    key={"alternating_custody_label" ++ string_of_int(i)}
+                    className=%tw("text-white text-center")>
                     <Lang.String english="Child n°" french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String english=": alternating custody" french=` : garde alternée` />
                   </label>
                   <input
+                    key={"alternating_custody_input" ++ string_of_int(i)}
                     onChange={_ => {
                       set_af_input(prev => {
                         let children = prev.children
@@ -259,13 +276,18 @@ module FrenchFamilyBenefits = {
                 </div>
                 {switch af_input.children[i].garde_alternee {
                 | Some(true) =>
-                  <div className=%tw("flex flex-col mx-4")>
-                    <label className=%tw("text-white text-center")>
+                  <div
+                    key={"split_benefits_div" ++ string_of_int(i)}
+                    className=%tw("flex flex-col mx-4")>
+                    <label
+                      key={"split_benefits_label" ++ string_of_int(i)}
+                      className=%tw("text-white text-center")>
                       <Lang.String english="Child n°" french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String english=": split benefits" french=` : partage allocations` />
                     </label>
                     <input
+                      key={"split_benefits_input" ++ string_of_int(i)}
                       onChange={_ => {
                         set_af_input(prev => {
                           let children = prev.children
@@ -283,10 +305,14 @@ module FrenchFamilyBenefits = {
                       type_="checkbox"
                     />
                   </div>
-                | None | Some(false) => <> </>
+                | None | Some(false) => React.null
                 }}
-                <div className=%tw("flex flex-col mx-4")>
-                  <label className=%tw("text-white text-center")>
+                <div
+                  key={"social_services_div" ++ string_of_int(i)}
+                  className=%tw("flex flex-col mx-4")>
+                  <label
+                    key={"social_services_label" ++ string_of_int(i)}
+                    className=%tw("text-white text-center")>
                     <Lang.String english="Child n°" french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String
@@ -294,6 +320,7 @@ module FrenchFamilyBenefits = {
                     />
                   </label>
                   <input
+                    key={"social_services_input" ++ string_of_int(i)}
                     onChange={_ => {
                       set_af_input(prev => {
                         let children = prev.children
@@ -317,8 +344,12 @@ module FrenchFamilyBenefits = {
                 </div>
                 {switch af_input.children[i].prise_en_charge_services_sociaux {
                 | Some(true) =>
-                  <div className=%tw("flex flex-col mx-4")>
-                    <label className=%tw("text-white text-center")>
+                  <div
+                    key={"benefits_for_social_div" ++ string_of_int(i)}
+                    className=%tw("flex flex-col mx-4")>
+                    <label
+                      key={"benefits_for_social_label" ++ string_of_int(i)}
+                      className=%tw("text-white text-center")>
                       <Lang.String english="Child n°" french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String
@@ -327,6 +358,7 @@ module FrenchFamilyBenefits = {
                       />
                     </label>
                     <input
+                      key={"benefits_for_social_input" ++ string_of_int(i)}
                       onChange={_ => {
                         set_af_input(prev => {
                           let children = prev.children
@@ -344,9 +376,9 @@ module FrenchFamilyBenefits = {
                       type_="checkbox"
                     />
                   </div>
-                | None | Some(false) => <> </>
+                | None | Some(false) => React.null
                 }}
-              </>
+              </div>
             }),
           )}
         </div>
