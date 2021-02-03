@@ -3,41 +3,359 @@
 module FrenchFamilyBenefits = {
   let family_benefits: string = %bs.raw(`require("../assets/allocations_familiales.html")`)
 
+  type child_input = {
+    birth_date: option<Js.Date.t>,
+    id: int,
+    monthly_income: option<int>,
+    garde_alternee: option<bool>,
+    partage_allocations: option<bool>,
+    prise_en_charge_services_sociaux: option<bool>,
+    allocation_versee_services_sociaux: option<bool>,
+  }
+
+  let empty_child = i => {
+    birth_date: None,
+    id: i,
+    monthly_income: None,
+    garde_alternee: None,
+    partage_allocations: None,
+    prise_en_charge_services_sociaux: None,
+    allocation_versee_services_sociaux: None,
+  }
+
+  type allocations_familiales_input = {
+    current_date: option<Js.Date.t>,
+    num_children: option<int>,
+    children: array<child_input>,
+    income: option<int>,
+    residence: option<string>,
+  }
+
   @react.component
-  let make = () => <>
-    <Utils.PageTitle>
-      <Lang.String
-        english="French family benefits computation" french=`Calcul des allocations familiales`
-      />
-    </Utils.PageTitle>
-    <p className=%tw("pb-16")>
-      <Lang.String
-        english="The source code for this example is available "
-        french=`Le code source de cet exemple est disponible `
-      />
-      <Utils.TextLink
-        target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
-        <Lang.String english="here" french=`ici` />
-      </Utils.TextLink>
-      <Lang.String
-        english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
+  let make = () => {
+    let (af_input, set_af_input) = React.useState(_ => {
+      current_date: None,
+      num_children: None,
+      income: None,
+      children: [],
+      residence: Some(`Métropole`),
+    })
+    <>
+      <Utils.PageTitle>
+        <Lang.String
+          english="French family benefits computation" french=`Calcul des allocations familiales`
+        />
+      </Utils.PageTitle>
+      <p>
+        <Lang.String
+          english="The source code for this example is available "
+          french=`Le code source de cet exemple est disponible `
+        />
+        <Utils.TextLink
+          target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
+          <Lang.String english="here" french=`ici` />
+        </Utils.TextLink>
+        <Lang.String
+          english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
-        french=`. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
+          french=`. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
         Le tissage est un concept issu de la `
-      />
-      <Utils.TextLink target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
-        <Lang.String english="literate programming" french=`programmation littéraire` />
-      </Utils.TextLink>
-      <Lang.String
-        english=" corresponding to the action of interleaving together the code and its textual documentation
+        />
+        <Utils.TextLink target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
+          <Lang.String english="literate programming" french=`programmation littéraire` />
+        </Utils.TextLink>
+        <Lang.String
+          english=" corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the tutorial for a hands-on introduction
           on how to read this document."
-        french=` , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
+          french=` , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
-      />
-    </p>
-    <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
-  </>
+        />
+      </p>
+      <Utils.PageSection title={<Lang.String english="Simulator" french=`Simulateur` />}>
+        <p>
+          <Lang.String
+            english="This simulator is powered with the Catala program compiled from the source code below."
+            french=`Ce simulateur utilise un programme Catala compilé à partir du code source ci-dessous.`
+          />
+        </p>
+        <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4")>
+          <div className=%tw("flex flex-col mx-4")>
+            <label className=%tw("text-white text-center")>
+              <Lang.String english="Household income (€)" french=`Ressources du ménage (€)` />
+            </label>
+            <input
+              type_="number"
+              className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+              onChange={(evt: ReactEvent.Form.t) => {
+                ReactEvent.Form.preventDefault(evt)
+                let value = ReactEvent.Form.target(evt)["value"]
+                set_af_input(prev => {
+                  {
+                    ...prev,
+                    income: value,
+                  }
+                })
+              }}
+            />
+          </div>
+          <div className=%tw("flex flex-col mx-4")>
+            <label className=%tw("text-white text-center")>
+              <Lang.String english="Résidence du ménage" french=`Household residence` />
+            </label>
+            <select
+              list="browsers"
+              className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+              onChange={(evt: ReactEvent.Form.t) => {
+                ReactEvent.Form.preventDefault(evt)
+                let value = ReactEvent.Form.target(evt)["value"]
+                set_af_input(prev => {
+                  {
+                    ...prev,
+                    residence: value,
+                  }
+                })
+              }}>
+              <option value=`Métropole`> {React.string(`Métropole`)} </option>
+              <option value=`Guyane`> {React.string(`Guyane`)} </option>
+              <option value=`Guadeloupe`> {React.string(`Guadeloupe`)} </option>
+              <option value=`La Réunion`> {React.string(`La Réunion`)} </option>
+              <option value=`Martinique`> {React.string(`Martinique`)} </option>
+              <option value=`Mayotte`> {React.string(`Mayotte`)} </option>
+              <option value=`Saint Barthélemy`> {React.string(`Saint Barthélemy`)} </option>
+              <option value=`Saint Martin`> {React.string(`Saint Martin`)} </option>
+              <option value=`Saint Pierre et Miquelon`>
+                {React.string(`Saint Pierre et Miquelon`)}
+              </option>
+            </select>
+          </div>
+          <div className=%tw("flex flex-col mx-4")>
+            <label className=%tw("text-white text-center")>
+              <Lang.String english="Date of the computation" french=`Date du calcul` />
+            </label>
+            <input
+              className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+              type_="date"
+              onChange={(evt: ReactEvent.Form.t) => {
+                ReactEvent.Form.preventDefault(evt)
+                let value = ReactEvent.Form.target(evt)["value"]
+                set_af_input(prev => {
+                  {
+                    ...prev,
+                    current_date: value,
+                  }
+                })
+              }}
+            />
+          </div>
+          <div className=%tw("flex flex-col mx-4")>
+            <label className=%tw("text-white text-center")>
+              <Lang.String english="Number of children" french=`Nombre d'enfants` />
+            </label>
+            <input
+              onChange={(evt: ReactEvent.Form.t) => {
+                ReactEvent.Form.preventDefault(evt)
+                let value = ReactEvent.Form.target(evt)["value"]
+                set_af_input(prev => {
+                  {
+                    ...prev,
+                    num_children: value,
+                    children: if value <= 0 {
+                      []
+                    } else {
+                      Array.init(value, i => {
+                        if i >= Array.length(prev.children) {
+                          empty_child(i)
+                        } else {
+                          prev.children[i]
+                        }
+                      })
+                    },
+                  }
+                })
+              }}
+              className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+              type_="number"
+            />
+          </div>
+          {React.array(
+            Belt.Array.mapWithIndex(af_input.children, (i, _) => {
+              <>
+                <div className=%tw("flex flex-col mx-4")>
+                  <label className=%tw("text-white text-center")>
+                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    {React.string(string_of_int(i + 1))}
+                    <Lang.String english=": birthdate" french=` : date de naissance` />
+                  </label>
+                  <input
+                    onChange={(evt: ReactEvent.Form.t) => {
+                      ReactEvent.Form.preventDefault(evt)
+                      let value = ReactEvent.Form.target(evt)["value"]
+                      set_af_input(prev => {
+                        let children = prev.children
+                        children[i] = {
+                          ...children[i],
+                          birth_date: value,
+                        }
+                        {...prev, children: children}
+                      })
+                    }}
+                    className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                    type_="date"
+                  />
+                </div>
+                <div className=%tw("flex flex-col mx-4")>
+                  <label className=%tw("text-white text-center")>
+                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    {React.string(string_of_int(i + 1))}
+                    <Lang.String
+                      english=": monthly income (€)" french=` : rémunération mensuelle (€)`
+                    />
+                  </label>
+                  <input
+                    onChange={(evt: ReactEvent.Form.t) => {
+                      ReactEvent.Form.preventDefault(evt)
+                      let value = ReactEvent.Form.target(evt)["value"]
+                      set_af_input(prev => {
+                        let children = prev.children
+                        children[i] = {
+                          ...children[i],
+                          monthly_income: value,
+                        }
+                        {...prev, children: children}
+                      })
+                    }}
+                    className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                    type_="number"
+                  />
+                </div>
+                <div className=%tw("flex flex-col mx-4")>
+                  <label className=%tw("text-white text-center")>
+                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    {React.string(string_of_int(i + 1))}
+                    <Lang.String english=": alternating custody" french=` : garde alternée` />
+                  </label>
+                  <input
+                    onChange={_ => {
+                      set_af_input(prev => {
+                        let children = prev.children
+                        children[i] = {
+                          ...children[i],
+                          garde_alternee: switch children[i].garde_alternee {
+                          | None | Some(false) => Some(true)
+                          | Some(true) => Some(false)
+                          },
+                          partage_allocations: switch children[i].garde_alternee {
+                          | None | Some(false) => children[i].partage_allocations
+                          | Some(true) => Some(false)
+                          },
+                        }
+                        {...prev, children: children}
+                      })
+                    }}
+                    className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                    type_="checkbox"
+                  />
+                </div>
+                {switch af_input.children[i].garde_alternee {
+                | Some(true) =>
+                  <div className=%tw("flex flex-col mx-4")>
+                    <label className=%tw("text-white text-center")>
+                      <Lang.String english="Child n°" french=`Enfant n°` />
+                      {React.string(string_of_int(i + 1))}
+                      <Lang.String english=": split benefits" french=` : partage allocations` />
+                    </label>
+                    <input
+                      onChange={_ => {
+                        set_af_input(prev => {
+                          let children = prev.children
+                          children[i] = {
+                            ...children[i],
+                            partage_allocations: switch children[i].partage_allocations {
+                            | None | Some(false) => Some(true)
+                            | Some(true) => Some(false)
+                            },
+                          }
+                          {...prev, children: children}
+                        })
+                      }}
+                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                      type_="checkbox"
+                    />
+                  </div>
+                | None | Some(false) => <> </>
+                }}
+                <div className=%tw("flex flex-col mx-4")>
+                  <label className=%tw("text-white text-center")>
+                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    {React.string(string_of_int(i + 1))}
+                    <Lang.String
+                      english=": custody of social services" french=` : garde service sociaux`
+                    />
+                  </label>
+                  <input
+                    onChange={_ => {
+                      set_af_input(prev => {
+                        let children = prev.children
+                        children[i] = {
+                          ...children[i],
+                          prise_en_charge_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
+                          | None | Some(false) => Some(true)
+                          | Some(true) => Some(false)
+                          },
+                          allocation_versee_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
+                          | None | Some(false) => children[i].allocation_versee_services_sociaux
+                          | Some(true) => Some(false)
+                          },
+                        }
+                        {...prev, children: children}
+                      })
+                    }}
+                    className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                    type_="checkbox"
+                  />
+                </div>
+                {switch af_input.children[i].prise_en_charge_services_sociaux {
+                | Some(true) =>
+                  <div className=%tw("flex flex-col mx-4")>
+                    <label className=%tw("text-white text-center")>
+                      <Lang.String english="Child n°" french=`Enfant n°` />
+                      {React.string(string_of_int(i + 1))}
+                      <Lang.String
+                        english=": benefits to social services"
+                        french=` : allocations aux services sociaux`
+                      />
+                    </label>
+                    <input
+                      onChange={_ => {
+                        set_af_input(prev => {
+                          let children = prev.children
+                          children[i] = {
+                            ...children[i],
+                            allocation_versee_services_sociaux: switch children[i].allocation_versee_services_sociaux {
+                            | None | Some(false) => Some(true)
+                            | Some(true) => Some(false)
+                            },
+                          }
+                          {...prev, children: children}
+                        })
+                      }}
+                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                      type_="checkbox"
+                    />
+                  </div>
+                | None | Some(false) => <> </>
+                }}
+              </>
+            }),
+          )}
+        </div>
+      </Utils.PageSection>
+      <Utils.PageSection title={<Lang.String english="Source code" french=`Code source` />}>
+        <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
+      </Utils.PageSection>
+    </>
+  }
 }
 
 module USTaxCode = {
