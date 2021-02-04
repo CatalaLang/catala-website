@@ -1,5 +1,7 @@
 %bs.raw(`require("../assets/catala_code.css")`)
 
+let french_law = %bs.raw(`require("../assets/french_law.js")`)
+
 module FrenchFamilyBenefits = {
   let family_benefits: string = %bs.raw(`require("../assets/allocations_familiales.html")`)
 
@@ -53,7 +55,6 @@ module FrenchFamilyBenefits = {
     | Error(React.element)
 
   let validate_input = (input: allocations_familiales_input) => {
-    Js.log(input)
     switch (input.current_date, input.num_children, input.income, input.residence) {
     | (Some(current_date), Some(_num_children), Some(income), Some(residence)) =>
       let children_validated = Belt.Array.map(input.children, child => {
@@ -114,6 +115,12 @@ module FrenchFamilyBenefits = {
     }
   }
 
+  let allocations_familiales_exe: allocations_familiales_input_validated => float = %bs.raw(`
+  function(input) {
+    return french_law.computeAllocationsFamiliales(input)
+  }
+`)
+
   let incomplete_input = Error(
     <Lang.String english="Input not complete" french=`Entrée non complète` />,
   )
@@ -121,7 +128,19 @@ module FrenchFamilyBenefits = {
   let compute_allications_familiales = (input: allocations_familiales_input) => {
     switch validate_input(input) {
     | None => incomplete_input
-    | Some(_input) => Result(0.0)
+    | Some(new_input) =>
+      try {Result(allocations_familiales_exe(new_input))} catch {
+      | _ =>
+        Error(
+          <Lang.String
+            english="Computation error: check that the current date is in 2019 or 2020 (2021 not fully supported yet),
+      and check that children are not in alternate custody and into the custody of social services at the same time "
+            french=`Erreur de calcul : vérifiez que la date du calcul est en 2019 ou 2020 (2021 n'est pas encore 
+            complètement prise en charge par le simulateur actuellement), et vérifiez que les enfants ne sont 
+            pas à la fois en garde alternée et confiés au services sociaux. `
+          />,
+        )
+      }
     }
   }
 
@@ -179,7 +198,7 @@ module FrenchFamilyBenefits = {
         <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4 mt-4")>
           <div className=%tw("flex flex-col mx-4")>
             <label className=%tw("text-white text-center")>
-              <Lang.String english="Household income (€)" french=`Ressources du ménage (€)` />
+              <Lang.String english=`Household income (€)` french=`Ressources du ménage (€)` />
             </label>
             <input
               type_="number"
@@ -189,7 +208,7 @@ module FrenchFamilyBenefits = {
                 let value = ReactEvent.Form.target(evt)["value"]
                 let new_input = {
                   ...af_input,
-                  income: value,
+                  income: Some(int_of_string(value)),
                 }
                 set_af_input(_ => new_input)
                 set_af_output(_ => compute_allications_familiales(new_input))
@@ -198,7 +217,7 @@ module FrenchFamilyBenefits = {
           </div>
           <div className=%tw("flex flex-col mx-4")>
             <label className=%tw("text-white text-center")>
-              <Lang.String english="Résidence du ménage" french=`Household residence` />
+              <Lang.String french=`Résidence du ménage` english=`Household residence` />
             </label>
             <select
               list="browsers"
@@ -286,7 +305,7 @@ module FrenchFamilyBenefits = {
                   <label
                     key={"birth_date_label" ++ string_of_int(i)}
                     className=%tw("text-white text-center")>
-                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    <Lang.String english=`Child n°` french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String english=": birthdate" french=` : date de naissance` />
                   </label>
@@ -298,7 +317,7 @@ module FrenchFamilyBenefits = {
                       let children = af_input.children
                       children[i] = {
                         ...children[i],
-                        birth_date: value,
+                        birth_date: Some(Js.Date.fromString(value)),
                       }
                       let new_input = {...af_input, children: children}
                       set_af_input(_ => new_input)
@@ -314,10 +333,10 @@ module FrenchFamilyBenefits = {
                   <label
                     key={"monthly_income_label" ++ string_of_int(i)}
                     className=%tw("text-white text-center")>
-                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    <Lang.String english=`Child n°` french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String
-                      english=": monthly income (€)" french=` : rémunération mensuelle (€)`
+                      english=`: monthly income (€)` french=` : rémunération mensuelle (€)`
                     />
                   </label>
                   <input
@@ -328,7 +347,7 @@ module FrenchFamilyBenefits = {
                       let children = af_input.children
                       children[i] = {
                         ...children[i],
-                        monthly_income: value,
+                        monthly_income: Some(int_of_string(value)),
                       }
                       let new_input = {...af_input, children: children}
                       set_af_input(_ => new_input)
@@ -344,7 +363,7 @@ module FrenchFamilyBenefits = {
                   <label
                     key={"alternating_custody_label" ++ string_of_int(i)}
                     className=%tw("text-white text-center")>
-                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    <Lang.String english=`Child n°` french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String english=": alternating custody" french=` : garde alternée` />
                   </label>
@@ -379,7 +398,7 @@ module FrenchFamilyBenefits = {
                     <label
                       key={"split_benefits_label" ++ string_of_int(i)}
                       className=%tw("text-white text-center")>
-                      <Lang.String english="Child n°" french=`Enfant n°` />
+                      <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String english=": split benefits" french=` : partage allocations` />
                     </label>
@@ -410,7 +429,7 @@ module FrenchFamilyBenefits = {
                   <label
                     key={"social_services_label" ++ string_of_int(i)}
                     className=%tw("text-white text-center")>
-                    <Lang.String english="Child n°" french=`Enfant n°` />
+                    <Lang.String english=`Child n°` french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String
                       english=": custody of social services" french=` : garde service sociaux`
@@ -447,7 +466,7 @@ module FrenchFamilyBenefits = {
                     <label
                       key={"benefits_for_social_label" ++ string_of_int(i)}
                       className=%tw("text-white text-center")>
-                      <Lang.String english="Child n°" french=`Enfant n°` />
+                      <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String
                         english=": benefits to social services"
@@ -485,7 +504,7 @@ module FrenchFamilyBenefits = {
           )>
           <div>
             {switch af_output {
-            | Error(msg) => msg
+            | Error(msg) => <span className=%tw("font-bold")> msg </span>
             | Result(amount) => <>
                 <span className=%tw("pr-2")>
                   <Lang.String
