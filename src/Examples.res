@@ -31,6 +31,100 @@ module FrenchFamilyBenefits = {
     residence: option<string>,
   }
 
+  type child_input_validated = {
+    dateNaissance: Js.Date.t,
+    id: int,
+    remunerationMensuelle: int,
+    gardeAlternee: bool,
+    gardeAlterneePartageAllocation: bool,
+    priseEnChargeServiceSociaux: bool,
+    allocationVerseeServiceSociaux: bool,
+  }
+
+  type allocations_familiales_input_validated = {
+    currentDate: Js.Date.t,
+    children: array<child_input_validated>,
+    income: int,
+    residence: string,
+  }
+
+  type allocations_familiales_output =
+    | Result(float)
+    | Error(React.element)
+
+  let validate_input = (input: allocations_familiales_input) => {
+    Js.log(input)
+    switch (input.current_date, input.num_children, input.income, input.residence) {
+    | (Some(current_date), Some(_num_children), Some(income), Some(residence)) =>
+      let children_validated = Belt.Array.map(input.children, child => {
+        switch (child.birth_date, child.monthly_income) {
+        | (Some(birth_date), Some(monthly_income)) =>
+          Some({
+            dateNaissance: birth_date,
+            id: child.id,
+            remunerationMensuelle: monthly_income,
+            gardeAlternee: {
+              switch child.garde_alternee {
+              | None | Some(false) => false
+              | Some(true) => true
+              }
+            },
+            gardeAlterneePartageAllocation: {
+              switch child.partage_allocations {
+              | None | Some(false) => false
+              | Some(true) => true
+              }
+            },
+            priseEnChargeServiceSociaux: {
+              switch child.prise_en_charge_services_sociaux {
+              | None | Some(false) => false
+              | Some(true) => true
+              }
+            },
+            allocationVerseeServiceSociaux: {
+              switch child.allocation_versee_services_sociaux {
+              | None | Some(false) => false
+              | Some(true) => true
+              }
+            },
+          })
+        | _ => None
+        }
+      })
+      if (
+        Belt.Array.length(children_validated) == 0 ||
+          Belt.Array.every(children_validated, child => {
+            switch child {
+            | None => false
+            | Some(_) => true
+            }
+          })
+      ) {
+        let children_validated = Belt.Array.map(children_validated, Belt.Option.getExn)
+        Some({
+          currentDate: current_date,
+          income: income,
+          residence: residence,
+          children: children_validated,
+        })
+      } else {
+        None
+      }
+    | _ => None
+    }
+  }
+
+  let incomplete_input = Error(
+    <Lang.String english="Input not complete" french=`Entrée non complète` />,
+  )
+
+  let compute_allications_familiales = (input: allocations_familiales_input) => {
+    switch validate_input(input) {
+    | None => incomplete_input
+    | Some(_input) => Result(0.0)
+    }
+  }
+
   @react.component
   let make = () => {
     let (af_input, set_af_input) = React.useState(_ => {
@@ -39,6 +133,9 @@ module FrenchFamilyBenefits = {
       income: None,
       children: [],
       residence: Some(`Métropole`),
+    })
+    let (af_output, set_af_output) = React.useState(_ => {
+      incomplete_input
     })
     <>
       <Utils.PageTitle>
@@ -79,7 +176,7 @@ module FrenchFamilyBenefits = {
             french=`Ce simulateur utilise un programme Catala compilé à partir du code source ci-dessous.`
           />
         </p>
-        <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4")>
+        <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4 mt-4")>
           <div className=%tw("flex flex-col mx-4")>
             <label className=%tw("text-white text-center")>
               <Lang.String english="Household income (€)" french=`Ressources du ménage (€)` />
@@ -90,12 +187,12 @@ module FrenchFamilyBenefits = {
               onChange={(evt: ReactEvent.Form.t) => {
                 ReactEvent.Form.preventDefault(evt)
                 let value = ReactEvent.Form.target(evt)["value"]
-                set_af_input(prev => {
-                  {
-                    ...prev,
-                    income: value,
-                  }
-                })
+                let new_input = {
+                  ...af_input,
+                  income: value,
+                }
+                set_af_input(_ => new_input)
+                set_af_output(_ => compute_allications_familiales(new_input))
               }}
             />
           </div>
@@ -109,12 +206,12 @@ module FrenchFamilyBenefits = {
               onChange={(evt: ReactEvent.Form.t) => {
                 ReactEvent.Form.preventDefault(evt)
                 let value = ReactEvent.Form.target(evt)["value"]
-                set_af_input(prev => {
-                  {
-                    ...prev,
-                    residence: value,
-                  }
-                })
+                let new_input = {
+                  ...af_input,
+                  residence: value,
+                }
+                set_af_input(_ => new_input)
+                set_af_output(_ => compute_allications_familiales(new_input))
               }}>
               <option value=`Métropole`> {React.string(`Métropole`)} </option>
               <option value=`Guyane`> {React.string(`Guyane`)} </option>
@@ -139,12 +236,12 @@ module FrenchFamilyBenefits = {
               onChange={(evt: ReactEvent.Form.t) => {
                 ReactEvent.Form.preventDefault(evt)
                 let value = ReactEvent.Form.target(evt)["value"]
-                set_af_input(prev => {
-                  {
-                    ...prev,
-                    current_date: value,
-                  }
-                })
+                let new_input = {
+                  ...af_input,
+                  current_date: Some(Js.Date.fromString(value)),
+                }
+                set_af_input(_ => new_input)
+                set_af_output(_ => compute_allications_familiales(new_input))
               }}
             />
           </div>
@@ -156,23 +253,23 @@ module FrenchFamilyBenefits = {
               onChange={(evt: ReactEvent.Form.t) => {
                 ReactEvent.Form.preventDefault(evt)
                 let value = ReactEvent.Form.target(evt)["value"]
-                set_af_input(prev => {
-                  {
-                    ...prev,
-                    num_children: value,
-                    children: if value <= 0 {
-                      []
-                    } else {
-                      Array.init(value, i => {
-                        if i >= Array.length(prev.children) {
-                          empty_child(i)
-                        } else {
-                          prev.children[i]
-                        }
-                      })
-                    },
-                  }
-                })
+                let new_input = {
+                  ...af_input,
+                  num_children: value,
+                  children: if value <= 0 {
+                    []
+                  } else {
+                    Array.init(value, i => {
+                      if i >= Array.length(af_input.children) {
+                        empty_child(i)
+                      } else {
+                        af_input.children[i]
+                      }
+                    })
+                  },
+                }
+                set_af_input(_ => new_input)
+                set_af_output(_ => compute_allications_familiales(new_input))
               }}
               className=%tw("border-solid border-2 border-tertiary m-1 px-2")
               type_="number"
@@ -198,14 +295,14 @@ module FrenchFamilyBenefits = {
                     onChange={(evt: ReactEvent.Form.t) => {
                       ReactEvent.Form.preventDefault(evt)
                       let value = ReactEvent.Form.target(evt)["value"]
-                      set_af_input(prev => {
-                        let children = prev.children
-                        children[i] = {
-                          ...children[i],
-                          birth_date: value,
-                        }
-                        {...prev, children: children}
-                      })
+                      let children = af_input.children
+                      children[i] = {
+                        ...children[i],
+                        birth_date: value,
+                      }
+                      let new_input = {...af_input, children: children}
+                      set_af_input(_ => new_input)
+                      set_af_output(_ => compute_allications_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="date"
@@ -228,14 +325,14 @@ module FrenchFamilyBenefits = {
                     onChange={(evt: ReactEvent.Form.t) => {
                       ReactEvent.Form.preventDefault(evt)
                       let value = ReactEvent.Form.target(evt)["value"]
-                      set_af_input(prev => {
-                        let children = prev.children
-                        children[i] = {
-                          ...children[i],
-                          monthly_income: value,
-                        }
-                        {...prev, children: children}
-                      })
+                      let children = af_input.children
+                      children[i] = {
+                        ...children[i],
+                        monthly_income: value,
+                      }
+                      let new_input = {...af_input, children: children}
+                      set_af_input(_ => new_input)
+                      set_af_output(_ => compute_allications_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="number"
@@ -254,21 +351,21 @@ module FrenchFamilyBenefits = {
                   <input
                     key={"alternating_custody_input" ++ string_of_int(i)}
                     onChange={_ => {
-                      set_af_input(prev => {
-                        let children = prev.children
-                        children[i] = {
-                          ...children[i],
-                          garde_alternee: switch children[i].garde_alternee {
-                          | None | Some(false) => Some(true)
-                          | Some(true) => Some(false)
-                          },
-                          partage_allocations: switch children[i].garde_alternee {
-                          | None | Some(false) => children[i].partage_allocations
-                          | Some(true) => Some(false)
-                          },
-                        }
-                        {...prev, children: children}
-                      })
+                      let children = af_input.children
+                      children[i] = {
+                        ...children[i],
+                        garde_alternee: switch children[i].garde_alternee {
+                        | None | Some(false) => Some(true)
+                        | Some(true) => Some(false)
+                        },
+                        partage_allocations: switch children[i].garde_alternee {
+                        | None | Some(false) => children[i].partage_allocations
+                        | Some(true) => Some(false)
+                        },
+                      }
+                      let new_input = {...af_input, children: children}
+                      set_af_input(_ => new_input)
+                      set_af_output(_ => compute_allications_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="checkbox"
@@ -289,17 +386,17 @@ module FrenchFamilyBenefits = {
                     <input
                       key={"split_benefits_input" ++ string_of_int(i)}
                       onChange={_ => {
-                        set_af_input(prev => {
-                          let children = prev.children
-                          children[i] = {
-                            ...children[i],
-                            partage_allocations: switch children[i].partage_allocations {
-                            | None | Some(false) => Some(true)
-                            | Some(true) => Some(false)
-                            },
-                          }
-                          {...prev, children: children}
-                        })
+                        let children = af_input.children
+                        children[i] = {
+                          ...children[i],
+                          partage_allocations: switch children[i].partage_allocations {
+                          | None | Some(false) => Some(true)
+                          | Some(true) => Some(false)
+                          },
+                        }
+                        let new_input = {...af_input, children: children}
+                        set_af_input(_ => new_input)
+                        set_af_output(_ => compute_allications_familiales(new_input))
                       }}
                       className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                       type_="checkbox"
@@ -322,21 +419,21 @@ module FrenchFamilyBenefits = {
                   <input
                     key={"social_services_input" ++ string_of_int(i)}
                     onChange={_ => {
-                      set_af_input(prev => {
-                        let children = prev.children
-                        children[i] = {
-                          ...children[i],
-                          prise_en_charge_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
-                          | None | Some(false) => Some(true)
-                          | Some(true) => Some(false)
-                          },
-                          allocation_versee_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
-                          | None | Some(false) => children[i].allocation_versee_services_sociaux
-                          | Some(true) => Some(false)
-                          },
-                        }
-                        {...prev, children: children}
-                      })
+                      let children = af_input.children
+                      children[i] = {
+                        ...children[i],
+                        prise_en_charge_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
+                        | None | Some(false) => Some(true)
+                        | Some(true) => Some(false)
+                        },
+                        allocation_versee_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
+                        | None | Some(false) => children[i].allocation_versee_services_sociaux
+                        | Some(true) => Some(false)
+                        },
+                      }
+                      let new_input = {...af_input, children: children}
+                      set_af_input(_ => new_input)
+                      set_af_output(_ => compute_allications_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="checkbox"
@@ -360,17 +457,17 @@ module FrenchFamilyBenefits = {
                     <input
                       key={"benefits_for_social_input" ++ string_of_int(i)}
                       onChange={_ => {
-                        set_af_input(prev => {
-                          let children = prev.children
-                          children[i] = {
-                            ...children[i],
-                            allocation_versee_services_sociaux: switch children[i].allocation_versee_services_sociaux {
-                            | None | Some(false) => Some(true)
-                            | Some(true) => Some(false)
-                            },
-                          }
-                          {...prev, children: children}
-                        })
+                        let children = af_input.children
+                        children[i] = {
+                          ...children[i],
+                          allocation_versee_services_sociaux: switch children[i].allocation_versee_services_sociaux {
+                          | None | Some(false) => Some(true)
+                          | Some(true) => Some(false)
+                          },
+                        }
+                        let new_input = {...af_input, children: children}
+                        set_af_input(_ => new_input)
+                        set_af_output(_ => compute_allications_familiales(new_input))
                       }}
                       className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                       type_="checkbox"
@@ -381,6 +478,26 @@ module FrenchFamilyBenefits = {
               </div>
             }),
           )}
+        </div>
+        <div
+          className=%tw(
+            "flex flex-row justify-center my-4 border-2 border-tertiary border-solid p-4"
+          )>
+          <div>
+            {switch af_output {
+            | Error(msg) => msg
+            | Result(amount) => <>
+                <span className=%tw("pr-2")>
+                  <Lang.String
+                    english="Family benefits amount:" french=`Montant des allocations familiales :`
+                  />
+                </span>
+                <span className=%tw("font-bold")>
+                  {React.float(amount)} {React.string(` €`)}
+                </span>
+              </>
+            }}
+          </div>
         </div>
       </Utils.PageSection>
       <Utils.PageSection title={<Lang.String english="Source code" french=`Code source` />}>
