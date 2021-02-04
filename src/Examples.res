@@ -133,10 +133,10 @@ module FrenchFamilyBenefits = {
       | _ =>
         Error(
           <Lang.String
-            english="Computation error: check that the current date is in 2019 or 2020 (2021 not fully supported yet),
+            english="Computation error: check that the current date is between May 2019 and Jan 2021,
       and check that children are not in alternate custody and into the custody of social services at the same time "
-            french=`Erreur de calcul : vérifiez que la date du calcul est en 2019 ou 2020 (2021 n'est pas encore 
-            complètement prise en charge par le simulateur actuellement), et vérifiez que les enfants ne sont 
+            french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et janvier 2021,
+             et vérifiez que les enfants ne sont 
             pas à la fois en garde alternée et confiés au services sociaux. `
           />,
         )
@@ -198,7 +198,10 @@ module FrenchFamilyBenefits = {
         <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4 mt-4")>
           <div className=%tw("flex flex-col mx-4")>
             <label className=%tw("text-white text-center")>
-              <Lang.String english=`Household income (€)` french=`Ressources du ménage (€)` />
+              <Lang.String
+                english=`Yearly household income (€)`
+                french=`Ressources annuelles du ménage (€)`
+              />
             </label>
             <input
               type_="number"
@@ -502,21 +505,20 @@ module FrenchFamilyBenefits = {
           className=%tw(
             "flex flex-row justify-center my-4 border-2 border-tertiary border-solid p-4"
           )>
-          <div>
-            {switch af_output {
-            | Error(msg) => <span className=%tw("font-bold")> msg </span>
-            | Result(amount) => <>
-                <span className=%tw("pr-2")>
-                  <Lang.String
-                    english="Family benefits amount:" french=`Montant des allocations familiales :`
-                  />
-                </span>
-                <span className=%tw("font-bold")>
-                  {React.float(amount)} {React.string(` €`)}
-                </span>
-              </>
-            }}
-          </div>
+          {switch af_output {
+          | Error(msg) => <div className=%tw("font-bold")> msg </div>
+          | Result(amount) => <>
+              <div className=%tw("pr-2 ")>
+                <Lang.String
+                  english="Family benefits monthly amount:"
+                  french=`Montant mensuel des allocations familiales :`
+                />
+              </div>
+              <div className=%tw("font-bold whitespace-nowrap")>
+                {React.float(amount)} {React.string(` €`)}
+              </div>
+            </>
+          }}
         </div>
       </Utils.PageSection>
       <Utils.PageSection title={<Lang.String english="Source code" french=`Code source` />}>
