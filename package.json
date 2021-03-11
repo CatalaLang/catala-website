@@ -27,7 +27,7 @@
   },
   "devDependencies": {
     "@dylanirlbeck/tailwind-ppx": "^0.7.9",
-    "ansi_up": "^4.0.4",
+    "ansi_up": "^5.0.0",
     "autoprefixer": "^10.2.4",
     "browser-builtins": "^3.2.0",
     "browserfs": "^1.4.3",
