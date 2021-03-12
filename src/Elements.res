@@ -13,6 +13,11 @@ let formalization: navigation_element = {
   text: <Lang.String english="Formalization" french=`Formalisation` />,
 }
 
+let publications: navigation_element = {
+  url: "publications",
+  text: <Lang.String english="Publications" french=`Publications` />,
+}
+
 let examples: navigation_element = {
   url: "examples",
   text: <Lang.String english="Examples" french=`Exemples` />,
@@ -94,6 +99,8 @@ let url_to_navigation_elements = (url: ReasonReactRouter.url): (
         Some([home, doc])
       } else if first_path == about.url {
         Some([home, about])
+      } else if first_path == publications.url {
+        Some([home, publications])
       } else if first_path == home.url {
         Some([home])
       } else {

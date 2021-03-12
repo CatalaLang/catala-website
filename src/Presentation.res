@@ -164,9 +164,9 @@ let about_link_info: link_info = {
   icon: "info",
 }
 
-let white_paper_link_info: link_info = {
-  target: External(catala_jurix_link),
-  text: <Lang.String english="The Catala white paper" french=`Catala en 10 pages` />,
+let publications_link_info: link_info = {
+  target: Internal([Elements.home, Elements.publications]),
+  text: <Lang.String english="Publications" french=`Publications` />,
   icon: "content_copy",
 }
 
@@ -219,7 +219,7 @@ let make = () => {
         <div className=%tw("flex flex-col flex-wrap items-end")>
           <div className=%tw("mx-8 my-4")> <LinkBlock lang info=github_link_info /> </div>
           <div className=%tw("mx-8 my-4")> <LinkBlock lang info=zulip_link_info /> </div>
-          <div className=%tw("mx-8 my-4")> <LinkBlock lang info=white_paper_link_info /> </div>
+          <div className=%tw("mx-8 my-4")> <LinkBlock lang info=publications_link_info /> </div>
         </div>
         <div className=%tw("flex flex-col justify-center")>
           <img className=%tw("w-48 h-48 mx-8 my-4") src={"/" ++ logo.default} />

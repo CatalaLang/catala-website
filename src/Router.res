@@ -11,6 +11,8 @@ let navigation_elements_to_component = (
       <Playground />
     } else if first == Elements.home && second == Elements.formalization {
       <Formalization />
+    } else if first == Elements.home && second == Elements.publications {
+      <Publications />
     } else if first == Elements.home && second == Elements.examples {
       <Examples />
     } else {
