@@ -9,20 +9,16 @@ module FrenchFamilyBenefits = {
     birth_date: option<Js.Date.t>,
     id: int,
     monthly_income: option<int>,
-    garde_alternee: option<bool>,
-    partage_allocations: option<bool>,
-    prise_en_charge_services_sociaux: option<bool>,
-    allocation_versee_services_sociaux: option<bool>,
+    prise_en_charge: option<string>,
+    a_deja_ouvert_droit_allocations_familiales: option<bool>,
   }
 
   let empty_child = i => {
     birth_date: None,
     id: i,
     monthly_income: None,
-    garde_alternee: None,
-    partage_allocations: None,
-    prise_en_charge_services_sociaux: None,
-    allocation_versee_services_sociaux: None,
+    prise_en_charge: None,
+    a_deja_ouvert_droit_allocations_familiales: None,
   }
 
   type allocations_familiales_input = {
@@ -37,10 +33,8 @@ module FrenchFamilyBenefits = {
     dateNaissance: Js.Date.t,
     id: int,
     remunerationMensuelle: int,
-    gardeAlternee: bool,
-    gardeAlterneePartageAllocation: bool,
-    priseEnChargeServiceSociaux: bool,
-    allocationVerseeServiceSociaux: bool,
+    priseEnCharge: string,
+    aDejaOuvertDroitAuxAllocationsFamiliales: bool,
   }
 
   type allocations_familiales_input_validated = {
@@ -48,6 +42,8 @@ module FrenchFamilyBenefits = {
     children: array<child_input_validated>,
     income: int,
     residence: string,
+    personneQuiAssumeLaChargeEffectivePermanenteEstParent: bool,
+    personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: bool,
   }
 
   type allocations_familiales_output =
@@ -64,26 +60,14 @@ module FrenchFamilyBenefits = {
             dateNaissance: birth_date,
             id: child.id,
             remunerationMensuelle: monthly_income,
-            gardeAlternee: {
-              switch child.garde_alternee {
-              | None | Some(false) => false
-              | Some(true) => true
+            priseEnCharge: {
+              switch child.prise_en_charge {
+              | None => "Effective et permanente"
+              | Some(s) => s
               }
             },
-            gardeAlterneePartageAllocation: {
-              switch child.partage_allocations {
-              | None | Some(false) => false
-              | Some(true) => true
-              }
-            },
-            priseEnChargeServiceSociaux: {
-              switch child.prise_en_charge_services_sociaux {
-              | None | Some(false) => false
-              | Some(true) => true
-              }
-            },
-            allocationVerseeServiceSociaux: {
-              switch child.allocation_versee_services_sociaux {
+            aDejaOuvertDroitAuxAllocationsFamiliales: {
+              switch child.a_deja_ouvert_droit_allocations_familiales {
               | None | Some(false) => false
               | Some(true) => true
               }
@@ -107,6 +91,9 @@ module FrenchFamilyBenefits = {
           income: income,
           residence: residence,
           children: children_validated,
+          // We assume the two below are always true
+          personneQuiAssumeLaChargeEffectivePermanenteEstParent: true,
+          personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: true,
         })
       } else {
         None
@@ -130,16 +117,14 @@ module FrenchFamilyBenefits = {
     | None => incomplete_input
     | Some(new_input) =>
       try {Result(allocations_familiales_exe(new_input))} catch {
-      | _ =>
-        Error(
+      | err =>
+        Js.log(err)
+        Error(<>
           <Lang.String
-            english="Computation error: check that the current date is between May 2019 and Jan 2021,
-      and check that children are not in alternate custody and into the custody of social services at the same time "
-            french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et janvier 2021,
-             et vérifiez que les enfants ne sont 
-            pas à la fois en garde alternée et confiés au services sociaux. `
-          />,
-        )
+            english="Computation error: check that the current date is between May 2019 and march 2021"
+            french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et mars 2021`
+          />
+        </>)
       }
     }
   }
@@ -330,6 +315,48 @@ module FrenchFamilyBenefits = {
                     type_="date"
                   />
                 </div>
+                <div key={"custody_" ++ string_of_int(i)} className=%tw("flex flex-col mx-4")>
+                  <label
+                    key={"custody_label" ++ string_of_int(i)}
+                    className=%tw("text-white text-center")>
+                    <Lang.String english=`Child n°` french=`Enfant n°` />
+                    {React.string(string_of_int(i + 1))}
+                    <Lang.String english=": custody" french=` :prise en charge` />
+                  </label>
+                  <select
+                    key={"custody_input" ++ string_of_int(i)}
+                    list="browsers"
+                    className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                    onChange={(evt: ReactEvent.Form.t) => {
+                      ReactEvent.Form.preventDefault(evt)
+                      let value = ReactEvent.Form.target(evt)["value"]
+                      let children = af_input.children
+                      children[i] = {
+                        ...children[i],
+                        prise_en_charge: Some(value),
+                      }
+                      let new_input = {...af_input, children: children}
+                      set_af_input(_ => new_input)
+                      set_af_output(_ => compute_allications_familiales(new_input))
+                    }}>
+                    <option value=`Effective et permanente`>
+                      {React.string(`Effective et permanente`)}
+                    </option>
+                    <option value=`Garde alternée, allocataire unique`>
+                      {React.string(`Garde alternée, allocataire unique`)}
+                    </option>
+                    <option value=`Garde alternée, partage des allocations`>
+                      {React.string(`Garde alternée, partage des allocations`)}
+                    </option>
+                    <option value=`Confié aux service sociaux, allocation versée à la famille`>
+                      {React.string(`Confié aux service sociaux, allocation versée à la famille`)}
+                    </option>
+                    <option
+                      value=`Confié aux service sociaux, allocation versée aux services sociaux`>
+                      {React.string(`Confié aux service sociaux, allocation versée aux services sociaux`)}
+                    </option>
+                  </select>
+                </div>
                 <div
                   key={"monthly_income_div" ++ string_of_int(i)}
                   className=%tw("flex flex-col mx-4")>
@@ -361,95 +388,25 @@ module FrenchFamilyBenefits = {
                   />
                 </div>
                 <div
-                  key={"alternating_custody_div" ++ string_of_int(i)}
-                  className=%tw("flex flex-col mx-4")>
+                  key={"already_used_key" ++ string_of_int(i)} className=%tw("flex flex-col mx-4")>
                   <label
-                    key={"alternating_custody_label" ++ string_of_int(i)}
-                    className=%tw("text-white text-center")>
-                    <Lang.String english=`Child n°` french=`Enfant n°` />
-                    {React.string(string_of_int(i + 1))}
-                    <Lang.String english=": alternating custody" french=` : garde alternée` />
-                  </label>
-                  <input
-                    key={"alternating_custody_input" ++ string_of_int(i)}
-                    onChange={_ => {
-                      let children = af_input.children
-                      children[i] = {
-                        ...children[i],
-                        garde_alternee: switch children[i].garde_alternee {
-                        | None | Some(false) => Some(true)
-                        | Some(true) => Some(false)
-                        },
-                        partage_allocations: switch children[i].garde_alternee {
-                        | None | Some(false) => children[i].partage_allocations
-                        | Some(true) => Some(false)
-                        },
-                      }
-                      let new_input = {...af_input, children: children}
-                      set_af_input(_ => new_input)
-                      set_af_output(_ => compute_allications_familiales(new_input))
-                    }}
-                    className=%tw("border-solid border-2 border-tertiary m-1 px-2")
-                    type_="checkbox"
-                  />
-                </div>
-                {switch af_input.children[i].garde_alternee {
-                | Some(true) =>
-                  <div
-                    key={"split_benefits_div" ++ string_of_int(i)}
-                    className=%tw("flex flex-col mx-4")>
-                    <label
-                      key={"split_benefits_label" ++ string_of_int(i)}
-                      className=%tw("text-white text-center")>
-                      <Lang.String english=`Child n°` french=`Enfant n°` />
-                      {React.string(string_of_int(i + 1))}
-                      <Lang.String english=": split benefits" french=` : partage allocations` />
-                    </label>
-                    <input
-                      key={"split_benefits_input" ++ string_of_int(i)}
-                      onChange={_ => {
-                        let children = af_input.children
-                        children[i] = {
-                          ...children[i],
-                          partage_allocations: switch children[i].partage_allocations {
-                          | None | Some(false) => Some(true)
-                          | Some(true) => Some(false)
-                          },
-                        }
-                        let new_input = {...af_input, children: children}
-                        set_af_input(_ => new_input)
-                        set_af_output(_ => compute_allications_familiales(new_input))
-                      }}
-                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
-                      type_="checkbox"
-                    />
-                  </div>
-                | None | Some(false) => React.null
-                }}
-                <div
-                  key={"social_services_div" ++ string_of_int(i)}
-                  className=%tw("flex flex-col mx-4")>
-                  <label
-                    key={"social_services_label" ++ string_of_int(i)}
+                    key={"already_used_key_label" ++ string_of_int(i)}
                     className=%tw("text-white text-center")>
                     <Lang.String english=`Child n°` french=`Enfant n°` />
                     {React.string(string_of_int(i + 1))}
                     <Lang.String
-                      english=": custody of social services" french=` : garde service sociaux`
+                      english=": has already been eligible for benefits"
+                      french=` : a déjà ouvert des droits aux allocations`
                     />
                   </label>
                   <input
-                    key={"social_services_input" ++ string_of_int(i)}
+                    key={"already_used_key_input" ++ string_of_int(i)}
                     onChange={_ => {
                       let children = af_input.children
                       children[i] = {
                         ...children[i],
-                        prise_en_charge_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
+                        a_deja_ouvert_droit_allocations_familiales: switch children[i].a_deja_ouvert_droit_allocations_familiales {
                         | None | Some(false) => Some(true)
-                        | Some(true) => Some(false)
-                        },
-                        allocation_versee_services_sociaux: switch children[i].prise_en_charge_services_sociaux {
-                        | None | Some(false) => children[i].allocation_versee_services_sociaux
                         | Some(true) => Some(false)
                         },
                       }
@@ -461,42 +418,6 @@ module FrenchFamilyBenefits = {
                     type_="checkbox"
                   />
                 </div>
-                {switch af_input.children[i].prise_en_charge_services_sociaux {
-                | Some(true) =>
-                  <div
-                    key={"benefits_for_social_div" ++ string_of_int(i)}
-                    className=%tw("flex flex-col mx-4")>
-                    <label
-                      key={"benefits_for_social_label" ++ string_of_int(i)}
-                      className=%tw("text-white text-center")>
-                      <Lang.String english=`Child n°` french=`Enfant n°` />
-                      {React.string(string_of_int(i + 1))}
-                      <Lang.String
-                        english=": benefits to social services"
-                        french=` : allocations aux services sociaux`
-                      />
-                    </label>
-                    <input
-                      key={"benefits_for_social_input" ++ string_of_int(i)}
-                      onChange={_ => {
-                        let children = af_input.children
-                        children[i] = {
-                          ...children[i],
-                          allocation_versee_services_sociaux: switch children[i].allocation_versee_services_sociaux {
-                          | None | Some(false) => Some(true)
-                          | Some(true) => Some(false)
-                          },
-                        }
-                        let new_input = {...af_input, children: children}
-                        set_af_input(_ => new_input)
-                        set_af_output(_ => compute_allications_familiales(new_input))
-                      }}
-                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
-                      type_="checkbox"
-                    />
-                  </div>
-                | None | Some(false) => React.null
-                }}
               </div>
             }),
           )}

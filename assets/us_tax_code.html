@@ -303,7 +303,7 @@ Source files weaved in this document
 <a name="./section_121.catala_en-42"></a>  <span class="kd">context</span> <span class="nv">property_usage_as_principal_residence</span>
 <a name="./section_121.catala_en-43"></a>    <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
 <a name="./section_121.catala_en-44"></a><span class="c1">  # Invariant: the periods in the collection are disjoint</span>
-<a name="./section_121.catala_en-45"></a>  <span class="kd">context</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kd">content</span> <span class="nv">duration</span>
+<a name="./section_121.catala_en-45"></a>  <span class="kd">context</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kd">content</span> <span class="kt">duration</span>
 <a name="./section_121.catala_en-46"></a>    <span class="kd">depends on</span> <span class="kd">collection</span> <span class="nc">Period</span>
 <a name="./section_121.catala_en-47"></a>  <span class="kd">context</span> <span class="nv">gain_cap</span> <span class="kd">content</span> <span class="kt">money</span>
 <a name="./section_121.catala_en-48"></a>  <span class="kd">context</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
@@ -489,7 +489,7 @@ residence for periods aggregating 2 years or more.</p>
 <a name="./section_121.catala_en-179"></a><span class="c1">  # - either the 5 years mark is inside the period and we only</span>
 <a name="./section_121.catala_en-180"></a><span class="c1">  #   cound the half after 5 years</span>
 <a name="./section_121.catala_en-181"></a>  <span class="kd">definition</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">periods</span> <span class="kd">equals</span>
-<a name="./section_121.catala_en-182"></a>    <span class="kt">sum</span> <span class="nv">duration</span> <span class="kr">for</span> <span class="nv">period</span> <span class="kr">in</span> <span class="nv">periods</span> <span class="kr">of</span> <span class="o">(</span>
+<a name="./section_121.catala_en-182"></a>    <span class="kt">sum</span> <span class="kt">duration</span> <span class="kr">for</span> <span class="nv">period</span> <span class="kr">in</span> <span class="nv">periods</span> <span class="kr">of</span> <span class="o">(</span>
 <a name="./section_121.catala_en-183"></a>      <span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> ≤@ <span class="nv">period</span><span class="o">.</span>begin <span class="o">+@</span> <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>
 <a name="./section_121.catala_en-184"></a>        <span class="nv">period</span><span class="o">.</span>end <span class="o">-@</span> <span class="nv">period</span><span class="o">.</span>begin
 <a name="./section_121.catala_en-185"></a>      <span class="kr">else</span> <span class="o">(</span><span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> ≥@ <span class="nv">period</span><span class="o">.</span>end <span class="o">+@</span> <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>

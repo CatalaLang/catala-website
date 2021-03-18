@@ -5,30 +5,27 @@ allocations familiales, il est nécessaire de définir les structures de donnée
 informatiques qui modélisent la situation dont parlent ces textes législatifs.
 
 > Début métadonnées
-
 ```catala
-déclaration structure Personne:
-  donnée numéro_sécurité_sociale contenu entier
+déclaration énumération PriseEnCharge :
+  -- GardeAlternéePartageAllocations
+  -- GardeAlternéeAllocataireUnique
+  -- EffectiveEtPermanente
+  -- ServicesSociauxAllocationVerséeÀLaFamille
+  -- ServicesSociauxAllocationVerséeAuxServicesSociaux
 
-déclaration énumération GardeAlternée :
-  -- OuiPartageAllocations
-  -- OuiAllocataireUnique
-  -- NonGardeUnique
-
-déclaration énumération PriseEnChargeServiceSociaux:
-  -- OuiAllocationVerséeÀLaFamille
-  -- OuiAllocationVerséeAuxServicesSociaux
-  -- NonPriseEnChargeFamille
+déclaration énumération SituationObligationScolaire:
+  -- Avant
+  -- Pendant
+  -- Après
 
 déclaration structure Enfant :
   donnée identifiant contenu entier
-  donnée fin_obligation_scolaire contenu date
+  donnée obligation_scolaire contenu SituationObligationScolaire
   donnée rémuneration_mensuelle contenu argent
   donnée date_de_naissance contenu date
   donnée âge contenu entier
-  donnée garde_alternée contenu GardeAlternée
-  donnée prise_en_charge_par_services_sociaux contenu
-    PriseEnChargeServiceSociaux
+  donnée prise_en_charge contenu PriseEnCharge
+  donnée a_déjà_ouvert_droit_aux_allocations_familiales contenu booléen
 
 déclaration énumération Collectivité :
   -- Guadeloupe
@@ -46,17 +43,14 @@ déclaration champ d'application Smic :
   contexte résidence contenu Collectivité
   contexte brut_horaire contenu argent
 
-déclaration énumération PriseEnCompteÉvaluationMontant:
+déclaration énumération PriseEnCompte:
   -- Complète
   -- Partagée
+  -- Zéro
 
 déclaration énumération VersementAllocations:
   -- Normal
   -- AllocationVerséeAuxServicesSociaux
-
-déclaration énumération ÂgeAlternatif:
-  -- Absent
-  -- Présent contenu entier
 
 déclaration énumération ÉlémentPrestationsFamiliales:
   -- PrestationAccueilJeuneEnfant
@@ -73,7 +67,6 @@ déclaration champ d'application PrestationsFamiliales:
   contexte conditions_hors_âge condition dépend de Enfant
   contexte plafond_l512_3_2 contenu argent
   contexte âge_l512_3_2 contenu entier
-  contexte âge_l512_3_2_alternatif contenu ÂgeAlternatif
   contexte régime_outre_mer_l751_1 condition
   contexte date_courante contenu date
   contexte prestation_courante contenu ÉlémentPrestationsFamiliales
@@ -86,32 +79,34 @@ champ d'application PrestationsFamiliales:
   définition smic.date_courante égal à date_courante
 
 déclaration champ d'application AllocationFamilialesAvril2008:
-  contexte âge_limite_alinéa_1_l521_3 contenu entier
-
-déclaration énumération StockageEnfant:
-  -- PasEnfant
-  -- UnEnfant contenu Enfant
+  contexte âge_minimum_alinéa_1_l521_3 contenu entier
 
 déclaration champ d'application EnfantLePlusÂgé:
   contexte enfants contenu collection Enfant
   contexte le_plus_âgé contenu Enfant
 
 déclaration champ d'application AllocationsFamiliales:
+
+  # Variables concernant le ménage
+  contexte personne_charge_effective_permanente_est_parent condition
+  contexte personne_charge_effective_permanente_remplit_titre_I condition
+  contexte ressources_ménage contenu argent
+  contexte résidence contenu Collectivité
+
+  # Date à laquelle le calcul est effectué
+  contexte date_courante contenu date
+
+  # Variables concernant les enfants du ménage
   contexte enfants_à_charge contenu collection Enfant
   contexte enfants_à_charge_droit_ouvert_prestation_familiale
     contenu collection Enfant
-  contexte date_courante contenu date
-  contexte résidence contenu Collectivité
-  contexte ressources_ménage contenu argent
-  contexte prise_en_compte contenu
-    PriseEnCompteÉvaluationMontant dépend de Enfant
-  contexte versement contenu
-    VersementAllocations dépend de Enfant
+  contexte prise_en_compte contenu PriseEnCompte dépend de Enfant
+  contexte versement contenu VersementAllocations dépend de Enfant
 
   contexte montant_versé contenu argent
 
+  # Variables liées à la base des allications familiales
   contexte droit_ouvert_base condition
-  contexte droit_ouvert_majoration condition dépend de Enfant
   contexte montant_versé_base contenu argent
   contexte montant_avec_garde_alternée_base contenu argent
   contexte montant_initial_base contenu argent
@@ -122,26 +117,31 @@ déclaration champ d'application AllocationsFamiliales:
   contexte nombre_moyen_enfants contenu décimal
   contexte nombre_total_enfants contenu décimal
 
+  # Variables liées à l'allocation forfaitaire
   contexte droit_ouvert_forfaitaire condition dépend de Enfant
   contexte montant_versé_forfaitaire contenu argent
 
+  # Variables liées aux majorations des allocations familiales
+  contexte droit_ouvert_majoration condition dépend de Enfant
   contexte montant_versé_majoration contenu argent
   contexte montant_avec_garde_alternée_majoration contenu argent dépend de Enfant
   contexte montant_initial_majoration contenu argent dépend de Enfant
 
+  # Variables liées au complément dégressif
   contexte droit_ouvert_complément condition
   contexte montant_versé_complément_pour_base_et_majoration contenu argent
   contexte montant_base_complément_pour_base_et_majoration contenu argent
   contexte montant_versé_complément_pour_forfaitaire contenu argent
   contexte dépassement_plafond_ressources contenu argent dépend de argent
 
+  # Sous-champs d'applications
   contexte prestations_familiales champ d'application PrestationsFamiliales
   contexte version_avril_2008 champ d'application AllocationFamilialesAvril2008
   contexte enfant_le_plus_âgé champ d'application EnfantLePlusÂgé
 
-  contexte conditions_hors_âge condition dépend de Enfant
+  # Plafonds, âges limites et autres constantes
   contexte nombre_enfants_l521_1 contenu entier
-  contexte âge_limite_alinéa_1_l521_3 contenu entier dépend de Enfant
+  contexte âge_minimum_alinéa_1_l521_3 contenu entier dépend de Enfant
   contexte nombre_enfants_alinéa_2_l521_3 contenu entier
   contexte est_enfant_le_plus_âgé contenu booléen dépend de Enfant
   contexte plafond_I_d521_3 contenu argent
@@ -156,7 +156,6 @@ champ d'application AllocationsFamiliales:
     résidence
 
 ```
-
 > Fin métadonnées
 ## Instructions ministérielles
 
@@ -182,8 +181,8 @@ familiales, est ainsi porté de 411,92 € à 413,16 € au 1er avril 2019.
 champ d'application PrestationsFamiliales :
   définition base_mensuelle
   sous condition
-    date_courante >=@ |01/04/2019| et
-    date_courante <@ |01/04/2020|
+    date_courante >=@ |2019-04-01| et
+    date_courante <@ |2020-04-01|
   conséquence égal à 413,16 €
 ```
 
@@ -206,8 +205,8 @@ est ainsi porté de 413,16 € à 414,4 € au 1er avril 2020.
 champ d'application PrestationsFamiliales :
   définition base_mensuelle
   sous condition
-    date_courante >=@ |01/04/2020| et
-    date_courante <@ |01/04/2021|
+    date_courante >=@ |2020-04-01| et
+    date_courante <@ |2021-04-01|
   conséquence égal à 414,4 €
 ```
 
@@ -235,14 +234,14 @@ tranche est celle dont les revenus sont supérieurs au plafond de base de
 champ d'application AllocationsFamiliales :
   exception
   définition plafond_I_d521_3 sous condition
-    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020|
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31|
   conséquence égal à 57 759 € +€
     5 775 € *€ (entier_vers_décimal de
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
 
   exception
   définition plafond_II_d521_3 sous condition
-    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020|
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31|
   conséquence égal à 80 831 € +€
     5 775 € *€ (entier_vers_décimal de
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
@@ -265,7 +264,7 @@ son montant est porté à 10,03 € l'heure.
 ```catala
 champ d'application Smic :
   définition brut_horaire sous condition
-    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31| et (
       (résidence = Métropole) ou
       (résidence = Guadeloupe) ou
       (résidence = Guyane) ou
@@ -283,7 +282,7 @@ champ d'application Smic :
 ```catala
 champ d'application Smic :
   définition brut_horaire sous condition
-    date_courante >=@ |01/01/2019| et date_courante <=@ |31/12/2019| et (
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31| et (
       (résidence = Mayotte)
     )
   conséquence égal à 7,57 €
@@ -304,7 +303,7 @@ son montant est porté à 10,15 € l'heure ;
 ```catala
 champ d'application Smic :
   définition brut_horaire sous condition
-    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020| et (
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31| et (
       (résidence = Métropole) ou
       (résidence = Guadeloupe) ou
       (résidence = Guyane) ou
@@ -322,7 +321,7 @@ champ d'application Smic :
 ```catala
 champ d'application Smic :
   définition brut_horaire sous condition
-    date_courante >=@ |01/01/2020| et date_courante <=@ |31/12/2020| et (
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31| et (
       (résidence = Mayotte)
     )
   conséquence égal à 7,66 €
@@ -343,7 +342,7 @@ son montant est porté à 10,25 € l'heure ;
 ```catala
 champ d'application Smic :
   définition brut_horaire sous condition
-    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021| et (
+    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31| et (
       (résidence = Métropole) ou
       (résidence = Guadeloupe) ou
       (résidence = Guyane) ou
@@ -361,7 +360,7 @@ champ d'application Smic :
 ```catala
 champ d'application Smic :
   définition brut_horaire sous condition
-    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021| et (
+    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31| et (
       (résidence = Mayotte)
     )
   conséquence égal à 7,74 €
@@ -381,7 +380,7 @@ décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
 champ d'application AllocationsFamiliales :
   exception
   définition plafond_I_d521_3 sous condition
-    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021|
+    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31|
   conséquence égal à 58 279 € +€
     5 827 € *€ (entier_vers_décimal de
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
@@ -397,7 +396,7 @@ décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
 champ d'application AllocationsFamiliales :
   exception
   définition plafond_II_d521_3 sous condition
-    date_courante >=@ |01/01/2021| et date_courante <=@ |31/12/2021|
+    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31|
   conséquence égal à 81 558 € +€
     5 827 € *€ (entier_vers_décimal de
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
@@ -450,7 +449,8 @@ ouvre droit aux prestations familiales :
 ```catala
 champ d'application PrestationsFamiliales :
   règle droit_ouvert de enfant sous condition
-    (date_courante <=@ enfant.fin_obligation_scolaire)
+    enfant.obligation_scolaire sous forme Avant ou
+    enfant.obligation_scolaire sous forme Pendant
   conséquence rempli
 ```
 
@@ -459,17 +459,19 @@ tout enfant dont la rémunération éventuelle n'excède pas un plafond.
 
 ```catala
 champ d'application PrestationsFamiliales :
+  règle droit_ouvert de enfant sous condition
+    enfant.obligation_scolaire sous forme Après et
+    (enfant.rémuneration_mensuelle <=€ plafond_l512_3_2) et
+    (enfant.âge < âge_l512_3_2)
+  conséquence rempli
+
   # On définit les conditions hors âge d'abord car elles
   # sont référencées plus tard dans l'article L521-1
   règle conditions_hors_âge de enfant sous condition
-    (date_courante <=@ enfant.fin_obligation_scolaire) ou
+    enfant.obligation_scolaire sous forme Avant ou
+    enfant.obligation_scolaire sous forme Pendant ou
+    enfant.obligation_scolaire sous forme Après et
     (enfant.rémuneration_mensuelle <=€ plafond_l512_3_2)
-  conséquence rempli
-
-  règle droit_ouvert de enfant sous condition
-    (date_courante >@ enfant.fin_obligation_scolaire) et
-    (conditions_hors_âge de enfant) et
-    (enfant.âge < âge_l512_3_2)
   conséquence rempli
 
 champ d'application AllocationsFamiliales:
@@ -483,15 +485,9 @@ de logement mentionnés aux 3° et 4° de l'article L. 511-1 , l'âge limite
 peut être différent de celui mentionné au 2° du présent article.
 
 ```catala
-champ d'application PrestationsFamiliales :
-  définition âge_l512_3_2 sous condition
-    (âge_l512_3_2_alternatif sous forme Présent) et
-    (prestation_courante = ComplémentFamilial ou
-     prestation_courante = AllocationLogement)
-  conséquence égal à
-    selon âge_l512_3_2_alternatif sous forme
-      -- Présent de âge : âge
-      -- Absent: 0
+# Sera géré avec une exception dans Catala. Le texte est équivalent
+# à une méta-propriété du code à vérifier : i.e. pas d'exceptions pour
+# cet âge azutre part que pour Complément Familial ou AllocationLogement.
 ```
 
 ##### Titre 2 : Prestations générales d'entretien
@@ -521,18 +517,15 @@ celles de l'âge pour l'ouverture du droit aux allocations familiales.
 champ d'application AllocationsFamiliales :
   assertion fixé montant_versé par décret
 
-  # Ici, l'ouverture du droit aux allocations familiales est conditionné
-  # au fait d'avoir deux enfants à charges qui répondent aux conditions
-  # d'ouverture du droit à une prestation familiale. Pour cette raison,
-  # nous nous référons ici aux conditions_hors_âge de prestations_familiales
-  règle conditions_hors_âge de enfant sous condition
-    prestations_familiales.conditions_hors_âge de enfant
-  conséquence  rempli
-
   règle droit_ouvert_forfaitaire de enfant sous condition
-    (nombre de enfants_à_charge >= nombre_enfants_l521_1) et
+    # nombre_enfants_alinéa_2_l521_3 sera défini dans l'article R521-3
+    (nombre de enfants_à_charge >= nombre_enfants_alinéa_2_l521_3) et
+    # Puisqu'un enfant ne garde un âge donné que pour une période d'un an,
+    # cette condition assure que l'allocation ne peut être distribuée que pour
+    # un an.
     (enfant.âge = prestations_familiales.âge_l512_3_2) et
-    (conditions_hors_âge de enfant)
+    (enfant.a_déjà_ouvert_droit_aux_allocations_familiales) et
+    (prestations_familiales.conditions_hors_âge de enfant)
   conséquence rempli
 ```
 
@@ -590,9 +583,13 @@ que ce soit, la charge effective et permanente de l'enfant.
 
 ```catala
 champ d'application AllocationsFamiliales :
-  définition prise_en_compte de enfant égal à Complète
+  définition prise_en_compte de enfant sous condition
+    enfant.prise_en_charge sous forme EffectiveEtPermanente
+  conséquence égal à PriseEnCompte.Complète
 
-  définition versement de enfant égal à Normal
+  définition versement de enfant sous condition
+    enfant.prise_en_charge sous forme EffectiveEtPermanente
+  conséquence égal à VersementAllocations.Normal
 ```
 
 En cas de résidence alternée de l'enfant au domicile de chacun des parents telle
@@ -606,27 +603,23 @@ les conditions d'application du présent alinéa.
 ```catala
 champ d'application AllocationsFamiliales :
   # Premier cas : garde alternée, parents désignent un unique allocataire
-  exception
   définition prise_en_compte de enfant sous condition
-    enfant.garde_alternée sous forme OuiAllocataireUnique
-  conséquence égal à Complète
+    enfant.prise_en_charge sous forme GardeAlternéeAllocataireUnique
+  conséquence égal à PriseEnCompte.Complète
 
-  exception
   définition versement de enfant sous condition
-    enfant.garde_alternée sous forme OuiAllocataireUnique
-  conséquence égal à Normal
+    enfant.prise_en_charge sous forme GardeAlternéeAllocataireUnique
+  conséquence égal à VersementAllocations.Normal
 
   # Deuxième cas : garde alternée, parents partagent la charge pour
   # l'allocation
-  exception
   définition prise_en_compte de enfant sous condition
-    enfant.garde_alternée sous forme OuiPartageAllocations
-  conséquence égal à Partagée
+    enfant.prise_en_charge sous forme GardeAlternéePartageAllocations
+  conséquence égal à PriseEnCompte.Partagée
 
-  exception
   définition versement de enfant sous condition
-    enfant.garde_alternée sous forme OuiPartageAllocations
-  conséquence égal à Normal
+    enfant.prise_en_charge sous forme GardeAlternéePartageAllocations
+  conséquence égal à VersementAllocations.Normal
 ```
 
 Lorsque la personne qui assume la charge effective et permanente de l'enfant ne
@@ -635,7 +628,13 @@ du droit aux allocations familiales, ce droit s'ouvre du chef du père ou,
 à défaut, du chef de la mère.
 
 ```catala
-# Non formalisé pour le calcul du montant des allocations
+champ d'application AllocationsFamiliales :
+  assertion
+    personne_charge_effective_permanente_est_parent ou
+    (
+      (non personne_charge_effective_permanente_est_parent) et
+      personne_charge_effective_permanente_remplit_titre_I
+    )
 ```
 
 Lorsqu'un enfant est confié au service d'aide sociale à l'enfance, les
@@ -653,11 +652,26 @@ de l'enfant dans son foyer.
 
 ```catala
 champ d'application AllocationsFamiliales :
-  exception
+ définition prise_en_compte de enfant sous condition
+    enfant.prise_en_charge sous forme
+      ServicesSociauxAllocationVerséeAuxServicesSociaux
+  conséquence égal à PriseEnCompte.Zéro
+
   définition versement de enfant sous condition
-    enfant.prise_en_charge_par_services_sociaux sous forme
-      OuiAllocationVerséeAuxServicesSociaux
-  conséquence égal à AllocationVerséeAuxServicesSociaux
+    enfant.prise_en_charge sous forme
+      ServicesSociauxAllocationVerséeAuxServicesSociaux
+  conséquence égal à VersementAllocations.AllocationVerséeAuxServicesSociaux
+
+  définition prise_en_compte de enfant sous condition
+    enfant.prise_en_charge sous forme
+      ServicesSociauxAllocationVerséeÀLaFamille
+  conséquence égal à PriseEnCompte.Complète
+
+
+  définition versement de enfant sous condition
+    enfant.prise_en_charge sous forme
+      ServicesSociauxAllocationVerséeÀLaFamille
+  conséquence égal à VersementAllocations.Normal
 ```
 
 Un décret en Conseil d'Etat fixe les conditions d'application du présent
@@ -686,7 +700,7 @@ champ d'application AllocationsFamiliales :
   règle droit_ouvert_majoration de enfant
   sous condition
     (non (est_enfant_le_plus_âgé de enfant)) et
-    (enfant.âge >= âge_limite_alinéa_1_l521_3 de enfant)
+    (enfant.âge >= âge_minimum_alinéa_1_l521_3 de enfant)
   conséquence rempli
 ```
 
@@ -701,7 +715,7 @@ champ d'application AllocationsFamiliales :
   sous condition
     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >=
       nombre_enfants_alinéa_2_l521_3) et
-    (enfant.âge >= âge_limite_alinéa_1_l521_3 de enfant)
+    (enfant.âge >= âge_minimum_alinéa_1_l521_3 de enfant)
   conséquence rempli
 ```
 
@@ -735,6 +749,9 @@ l'ensemble des bénéficiaires de la législation générale de sécurité
 sociale, y compris les membres des professions agricoles.
 
 ```catala
+# Angle mort: ici nous n'avons pas formalisé la partie sur la législation
+# générale de sécurité sociale et les membres des professions agricoles.
+
 champ d'application PrestationsFamiliales :
   règle régime_outre_mer_l751_1 sous condition
     (résidence = Guadeloupe) ou
@@ -780,6 +797,12 @@ Les allocations familiales sont dues, pour tout enfant, à la personne qui a
 effectivement la charge de celui-ci.
 
 ```catala
+# Angle mort: ici c'est marqué "effectivement la charge" mais dans l'article de
+# L521-2 il faut charge effective ET permanente. Pourquoi cette différence ?
+# Quelles conséquences pratiques ?
+# Apparemment en 1987 il y avait encore des exceptions pour certains agents
+# publics d'outre-mer
+
 champ d'application AllocationsFamiliales:
   exception
   règle droit_ouvert_base sous condition
@@ -857,8 +880,8 @@ enfants ouvrent droit à la majoration des allocations familiales est fixé à
 
 ```catala
 champ d'application AllocationsFamiliales :
-  étiquette base_âge_limite_alinéa_1_l521_3
-  définition âge_limite_alinéa_1_l521_3 de enfant égal à 14
+  étiquette cas_base_âge_minimum_alinéa_1_l521_3
+  définition âge_minimum_alinéa_1_l521_3 de enfant égal à 14
 ```
 
 Le nombre minimum d'enfants à charge, mentionné au deuxième alinéa de l'article
@@ -880,13 +903,15 @@ le onzième anniversaire est postérieur au 30 avril 2008.
 # du décret de 2008 pour des raisons de place seulement.
 champ d'application AllocationFamilialesAvril2008:
   # Âge limite avant décret n° 2008-409 du 28 avril 2008
-  définition âge_limite_alinéa_1_l521_3 égal à 16
+  définition âge_minimum_alinéa_1_l521_3 égal à 16
 
 champ d'application AllocationsFamiliales :
-  définition âge_limite_alinéa_1_l521_3 de enfant
-  sous condition (enfant.date_de_naissance +@ 11 an <=@ |30/04/2008|)
+  étiquette decret_2008_âge_minimum_alinéa_1_l521_3
+  exception cas_base_âge_minimum_alinéa_1_l521_3
+  définition âge_minimum_alinéa_1_l521_3 de enfant
+  sous condition (enfant.date_de_naissance +@ 11 an <=@ |2008-04-30|)
   conséquence égal à
-    version_avril_2008.âge_limite_alinéa_1_l521_3
+    version_avril_2008.âge_minimum_alinéa_1_l521_3
 ```
 
 #### [Article R521-2|LEGIARTI000006750608]
@@ -950,6 +975,10 @@ champ d'application AllocationsFamiliales :
       selon (prise_en_compte de enfant) sous forme
       -- Complète : 1,0
       -- Partagée : 0,5
+      # Pas directement dans cet arricle de loi, mais concerne le
+      # cas où l'enfant est pris en charge par les services sociaux et
+      # la part de l'allocation va également au service social
+      -- Zéro: 0,0
     )
 ```
 
@@ -986,6 +1015,10 @@ champ d'application AllocationsFamiliales :
     selon (prise_en_compte de enfant) sous forme
     -- Complète : 100%
     -- Partagée : 50%
+    # Pas directement dans cet arricle de loi, mais concerne le
+    # cas où l'enfant est pris en charge par les services sociaux et
+    # la part de l'allocation va également au service social
+    -- Zéro: 0%
   )
 ```
 
@@ -1382,8 +1415,8 @@ partir de onze ans et à 5,67 p. 100 à partir de seize ans.
 
 ```catala
 champ d'application AllocationsFamiliales :
-  exception base_âge_limite_alinéa_1_l521_3
-  définition âge_limite_alinéa_1_l521_3 de enfant
+  exception decret_2008_âge_minimum_alinéa_1_l521_3
+  définition âge_minimum_alinéa_1_l521_3 de enfant
   sous condition prestations_familiales.régime_outre_mer_l751_1
   conséquence égal à 11
 
@@ -1413,19 +1446,15 @@ champ d'application EnfantLePlusÂgé:
   définition le_plus_âgé  égal à
     contenu maximum entier initial Enfant {
       -- identifiant: -1
-      -- fin_obligation_scolaire: |01/01/1900|
+      -- obligation_scolaire: Pendant
       -- rémuneration_mensuelle: 0€
-      -- date_de_naissance: |01/01/1900|
+      -- date_de_naissance: |1900-01-01|
       -- âge: 0
-      -- garde_alternée: NonGardeUnique
-      -- prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
+      -- prise_en_charge: EffectiveEtPermanente
+      -- a_déjà_ouvert_droit_aux_allocations_familiales: faux
     }
-    pour potentiel_plus_âgé dans enfants de
-    potentiel_plus_âgé.âge
+    pour potentiel_plus_âgé dans enfants de potentiel_plus_âgé.âge
 
-
-champ d'application PrestationsFamiliales:
-  définition âge_l512_3_2_alternatif égal à Absent
 
 champ d'application AllocationsFamiliales:
   définition montant_initial_majoration de enfant sous condition
@@ -1474,9 +1503,8 @@ déclaration structure EnfantEntrée:
   donnée d_identifiant contenu entier
   donnée d_rémuneration_mensuelle contenu argent
   donnée d_date_de_naissance contenu date
-  donnée d_garde_alternée contenu GardeAlternée
-  donnée d_prise_en_charge_par_services_sociaux contenu
-    PriseEnChargeServiceSociaux
+  donnée d_prise_en_charge contenu PriseEnCharge
+  donnée d_a_déjà_ouvert_droit_aux_allocations_familiales contenu booléen
 
 déclaration champ d'application InterfaceAllocationsFamiliales:
   contexte date_courante contenu date
@@ -1486,6 +1514,8 @@ déclaration champ d'application InterfaceAllocationsFamiliales:
   contexte ressources_ménage contenu argent
   contexte résidence contenu Collectivité
   contexte montant_versé contenu argent
+  contexte personne_charge_effective_permanente_est_parent condition
+  contexte personne_charge_effective_permanente_remplit_titre_I condition
 
 champ d'application InterfaceAllocationsFamiliales:
   définition allocations_familiales.date_courante égal à date_courante
@@ -1493,10 +1523,12 @@ champ d'application InterfaceAllocationsFamiliales:
   définition allocations_familiales.ressources_ménage égal à ressources_ménage
   définition allocations_familiales.résidence égal à résidence
   définition montant_versé égal à allocations_familiales.montant_versé
-  assertion non (existe enfant dans enfants tel que
-    enfant.d_garde_alternée != NonGardeUnique et
-    enfant.d_prise_en_charge_par_services_sociaux != NonPriseEnChargeFamille
-  )
+  règle allocations_familiales.personne_charge_effective_permanente_est_parent
+    sous condition personne_charge_effective_permanente_est_parent conséquence
+    rempli
+  règle allocations_familiales.personne_charge_effective_permanente_remplit_titre_I
+    sous condition personne_charge_effective_permanente_remplit_titre_I conséquence
+    rempli
 ```
 
 > Fin métadonnées
@@ -1518,12 +1550,17 @@ champ d'application InterfaceAllocationsFamiliales:
       -- identifiant : enfant.d_identifiant
       -- rémuneration_mensuelle : enfant.d_rémuneration_mensuelle
       -- date_de_naissance : enfant.d_date_de_naissance
-      -- prise_en_charge_par_services_sociaux :
-        enfant.d_prise_en_charge_par_services_sociaux
-      -- garde_alternée : enfant.d_garde_alternée
+      -- prise_en_charge : enfant.d_prise_en_charge
       -- âge: accès_année de
-        (|01/01/0000| +@ (date_courante -@ enfant.d_date_de_naissance))
-      -- fin_obligation_scolaire : enfant.d_date_de_naissance +@ 16 an
+        (|0000-01-01| +@ (date_courante -@ enfant.d_date_de_naissance))
+      -- obligation_scolaire :
+        (si enfant.d_date_de_naissance +@ 3 an >=@ date_courante alors
+          Avant
+        sinon (si enfant.d_date_de_naissance +@ 16 an >=@ date_courante alors
+          Pendant
+        sinon Après))
+      -- a_déjà_ouvert_droit_aux_allocations_familiales:
+        enfant.d_a_déjà_ouvert_droit_aux_allocations_familiales
     }
 ```
 > Inclusion: ../allocations_familiales.catala_fr
@@ -1543,38 +1580,38 @@ déclaration champ d'application Données:
 champ d'application Données:
   définition enfant1 égal à EnfantEntrée {
     -- d_identifiant: 1
-    -- d_date_de_naissance: |01/01/2007|
+    -- d_date_de_naissance: |2007-01-01|
     -- d_rémuneration_mensuelle: 0€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: NonGardeUnique
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   }
   définition enfant2 égal à EnfantEntrée {
     -- d_identifiant: 2
-    -- d_date_de_naissance: |01/01/2009|
+    -- d_date_de_naissance: |2009-01-01|
     -- d_rémuneration_mensuelle: 0€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: NonGardeUnique
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   }
   définition enfant3 égal à EnfantEntrée {
     -- d_identifiant: 3
-    -- d_date_de_naissance: |01/01/2003|
+    -- d_date_de_naissance: |2003-01-01|
     -- d_rémuneration_mensuelle: 400€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: OuiPartageAllocations
+    -- d_prise_en_charge: GardeAlternéePartageAllocations
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   }
   définition enfant4 égal à EnfantEntrée {
     -- d_identifiant: 4
-    -- d_date_de_naissance: |01/01/2001|
+    -- d_date_de_naissance: |2001-01-01|
     -- d_rémuneration_mensuelle: 1100€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: NonGardeUnique
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   }
   définition enfant5 égal à EnfantEntrée {
     -- d_identifiant: 5
-    -- d_date_de_naissance: |01/01/2000|
+    -- d_date_de_naissance: |2000-01-01|
     -- d_rémuneration_mensuelle: 0€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: NonGardeUnique
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   }
 
 déclaration champ d'application Test1:
@@ -1585,8 +1622,9 @@ champ d'application Test1:
   définition f.enfants égal à
     [données.enfant1;données.enfant2;données.enfant3;données.enfant4]
   définition f.ressources_ménage égal à 30 000 €
-  définition f.date_courante égal à |01/05/2020|
+  définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 351,26€
 
 déclaration champ d'application Test2:
@@ -1597,8 +1635,9 @@ champ d'application Test2:
   définition f.enfants égal à
     [données.enfant1;données.enfant2;données.enfant5]
   définition f.ressources_ménage égal à 30 000 €
-  définition f.date_courante égal à |01/05/2020|
+  définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 216,27€
 
 
@@ -1609,8 +1648,9 @@ déclaration champ d'application Test3:
 champ d'application Test3:
   définition f.enfants égal à [données.enfant1]
   définition f.ressources_ménage égal à 63540 €
-  définition f.date_courante égal à |01/05/2020|
+  définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Guyane
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 12,18€
 
 déclaration champ d'application Test4:
@@ -1620,8 +1660,9 @@ déclaration champ d'application Test4:
 champ d'application Test4:
   définition f.enfants égal à [données.enfant1; données.enfant3]
   définition f.ressources_ménage égal à 67 250 €
-  définition f.date_courante égal à |01/05/2020|
+  définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 99,37€
 
 déclaration champ d'application Test5:
@@ -1631,8 +1672,9 @@ déclaration champ d'application Test5:
 champ d'application Test5:
   définition f.enfants égal à [données.enfant1]
   définition f.ressources_ménage égal à 30 000 €
-  définition f.date_courante égal à |01/05/2020|
+  définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 0,00€
 
 déclaration champ d'application Test6:
@@ -1641,20 +1683,21 @@ déclaration champ d'application Test6:
 champ d'application Test6:
   définition f.enfants égal à [EnfantEntrée {
     -- d_identifiant: 0
-    -- d_date_de_naissance: |10/11/2009|
+    -- d_date_de_naissance: |2009-11-10|
     -- d_rémuneration_mensuelle: 439€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: NonGardeUnique
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   };EnfantEntrée {
     -- d_identifiant: 1
-    -- d_date_de_naissance: |25/09/2020|
+    -- d_date_de_naissance: |2020-09-25|
     -- d_rémuneration_mensuelle: 1949€
-    -- d_prise_en_charge_par_services_sociaux: NonPriseEnChargeFamille
-    -- d_garde_alternée: NonGardeUnique
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
   }]
   définition f.ressources_ménage égal à 78 830 €
-  définition f.date_courante égal à |01/05/2020|
+  définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Guadeloupe
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 132,49€
 
 déclaration champ d'application Test7:
@@ -1665,8 +1708,9 @@ champ d'application Test7:
   définition f.enfants égal à
     [données.enfant1;données.enfant2;données.enfant3;données.enfant4]
   définition f.ressources_ménage égal à 30 000 €
-  définition f.date_courante égal à |01/02/2021|
+  définition f.date_courante égal à |2021-02-01|
   définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 417,51€
 
 
