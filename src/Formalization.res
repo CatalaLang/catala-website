@@ -51,13 +51,13 @@ let make = () => <>
       <div className=%tw("mx-8 my-4")>
         <a
           className=%tw("cursor-pointer uppercase text-white")
-          href="https://github.com/CatalaLang/catala/raw/master/doc/formalization/formalization.pdf"
+          href="https://arxiv.org/abs/2103.03198"
           target="_blank">
           <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
             <div className=%tw("flex flex-row flex-nowrap items-center")>
               <Lang.String
-                english="Access the complete formalization PDF"
-                french=`Accéder au PDF contenantt la formalisation`
+                english="Access the complete formalization paper"
+                french=`Accéder à l'article contenantt la formalisation`
               />
               <i className="pl-4 material-icons"> {"description" |> React.string} </i>
             </div>
