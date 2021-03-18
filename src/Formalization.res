@@ -30,6 +30,32 @@ let make = () => <>
     <Utils.Card collapsible=true>
       <div className=%tw("font-mono") dangerouslySetInnerHTML={"__html": grammar} />
     </Utils.Card>
+    <p>
+      <Lang.String
+        english="To complement this formal description of the syntax, a cheat sheet is also available
+        and is probably more practical to satisfy your hands-on syntax curiosity."
+        french=`En complément de cette description formelle de la syntaxe, un pense-bête est également
+        disponible. Celui-ci est probablement plus utile pour satisfaire votre curiosité opérationnelle
+        vis-à-vis de la syntaxe de Catala.`
+      />
+    </p>
+    <div className=%tw("flex flex-row justify-center")>
+      <div className=%tw("mx-8 my-4")>
+        <a
+          className=%tw("cursor-pointer uppercase text-white")
+          href="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"
+          target="_blank">
+          <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
+            <div className=%tw("flex flex-row flex-nowrap items-center")>
+              <Lang.String
+                english="Access the syntax cheat sheet" french=`Accéder au pense-bête syntaxique`
+              />
+              <i className="pl-4 material-icons"> {"description" |> React.string} </i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
   </Utils.PageSection>
   <Utils.PageSection
     title={<Lang.String english="Core semantics" french=`Sémantique du cœur du langage` />}>
@@ -57,7 +83,7 @@ let make = () => <>
             <div className=%tw("flex flex-row flex-nowrap items-center")>
               <Lang.String
                 english="Access the complete formalization paper"
-                french=`Accéder à l'article contenantt la formalisation`
+                french=`Accéder à l'article contenant la formalisation`
               />
               <i className="pl-4 material-icons"> {"description" |> React.string} </i>
             </div>
