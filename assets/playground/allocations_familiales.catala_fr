@@ -79,7 +79,7 @@ champ d'application PrestationsFamiliales:
   définition smic.date_courante égal à date_courante
 
 déclaration champ d'application AllocationFamilialesAvril2008:
-  contexte âge_minimum_alinéa_1_l521_3 contenu entier
+  contexte âge_minimum_alinéa_1_l521_3_métropole contenu entier
 
 déclaration champ d'application EnfantLePlusÂgé:
   contexte enfants contenu collection Enfant
@@ -142,6 +142,8 @@ déclaration champ d'application AllocationsFamiliales:
   # Plafonds, âges limites et autres constantes
   contexte nombre_enfants_l521_1 contenu entier
   contexte âge_minimum_alinéa_1_l521_3 contenu entier dépend de Enfant
+  contexte âge_minimum_alinéa_1_l521_3_métropole contenu entier dépend de Enfant
+  contexte âge_minimum_alinéa_1_l521_3_outre_mer contenu entier dépend de Enfant
   contexte nombre_enfants_alinéa_2_l521_3 contenu entier
   contexte est_enfant_le_plus_âgé contenu booléen dépend de Enfant
   contexte plafond_I_d521_3 contenu argent
@@ -845,6 +847,10 @@ ans sous réserve que leur rémunération n'excède pas le plafond fixé au deux
 alinéa du présent article.
 
 ```catala
+# Attention: ici la condition de ressources au dessous du plafond est une répétition
+# par rapport au texte de L512-3. On ne remet donc pas le code ici correspondant
+# à cette limitation.
+
 champ d'application PrestationsFamiliales :
   définition âge_l512_3_2 égal à 20
 ```
@@ -866,7 +872,8 @@ législation sur les assurances sociales.
 
 
 ```catala
-# Le programme ne tient pas en compte des avantages en nature
+# Le programme Catala ne tient pas en compte des avantages en nature.
+# TODO: Liane, faire de la recherche juridique sur le sujet.
 ```
 
 ##### Titre 2 : Prestations générales d'entretien
@@ -880,8 +887,10 @@ enfants ouvrent droit à la majoration des allocations familiales est fixé à
 
 ```catala
 champ d'application AllocationsFamiliales :
-  étiquette cas_base_âge_minimum_alinéa_1_l521_3
-  définition âge_minimum_alinéa_1_l521_3 de enfant égal à 14
+  définition âge_minimum_alinéa_1_l521_3_métropole de enfant égal à 14
+
+  définition âge_minimum_alinéa_1_l521_3 de enfant égal à
+    âge_minimum_alinéa_1_l521_3_métropole de enfant
 ```
 
 Le nombre minimum d'enfants à charge, mentionné au deuxième alinéa de l'article
@@ -903,15 +912,14 @@ le onzième anniversaire est postérieur au 30 avril 2008.
 # du décret de 2008 pour des raisons de place seulement.
 champ d'application AllocationFamilialesAvril2008:
   # Âge limite avant décret n° 2008-409 du 28 avril 2008
-  définition âge_minimum_alinéa_1_l521_3 égal à 16
+  définition âge_minimum_alinéa_1_l521_3_métropole égal à 16
 
 champ d'application AllocationsFamiliales :
-  étiquette decret_2008_âge_minimum_alinéa_1_l521_3
-  exception cas_base_âge_minimum_alinéa_1_l521_3
-  définition âge_minimum_alinéa_1_l521_3 de enfant
+  exception
+  définition âge_minimum_alinéa_1_l521_3_métropole de enfant
   sous condition (enfant.date_de_naissance +@ 11 an <=@ |2008-04-30|)
   conséquence égal à
-    version_avril_2008.âge_minimum_alinéa_1_l521_3
+    version_avril_2008.âge_minimum_alinéa_1_l521_3_métropole
 ```
 
 #### [Article R521-2|LEGIARTI000006750608]
@@ -928,7 +936,7 @@ une demande conjointe de partage.
 
 ```catala
 # Le fait que l'allocataire dans le cas d'un commun accord soit celui des
-# deux parents désigné par l'accord est déjà modélisé dans L512-2.
+# deux parents désigné par l'accord est déjà modélisé dans L521-2.
 ```
 
 Lorsque les parents ont désigné un allocataire unique ou fait une demande
@@ -975,7 +983,7 @@ champ d'application AllocationsFamiliales :
       selon (prise_en_compte de enfant) sous forme
       -- Complète : 1,0
       -- Partagée : 0,5
-      # Pas directement dans cet arricle de loi, mais concerne le
+      # Pas directement dans cet article de loi, mais concerne le
       # cas où l'enfant est pris en charge par les services sociaux et
       # la part de l'allocation va également au service social
       -- Zéro: 0,0
@@ -1000,8 +1008,11 @@ nombre d'enfants à charge est évalué dans les conditions prévues au premier
 alinéa de l'article R. 521-3.
 
 ```catala
-# enfants_à_charge ne contient que des enfants à charge donc rien à formaliser
-# ici
+# Le renvoi ci-dessus ne fait qu'annoncer qu'on va appliquer un système
+# de décote pour garde alternée au système de majorations.
+# Ce renvoi signifie que notre liste enfants_à_charge_droit_ouvert_prestation_familiale
+# qui était utilisée pour la prestation de base est la même que la liste
+# d'enfant utilisée pour le calcul des majorations
 ```
 
 Lorsque le ou les enfants ouvrant droit à ladite majoration sont en résidence
@@ -1070,25 +1081,18 @@ inférieur ou égal au plafond défini au I de l'article D. 521-3, les taux
 servant au calcul des allocations familiales sont fixés, en pourcentage
 de la base mensuelle prévue à l'article L. 551-1, à :
 a) 32 % pour le deuxième enfant à charge ;
-
-```catala
-champ d'application AllocationsFamiliales :
-  définition montant_initial_base_deuxième_enfant sous condition
-    ressources_ménage <=€ plafond_I_d521_3
-  conséquence égal à
-    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
-    alors prestations_familiales.base_mensuelle *€ 32 %
-    sinon 0 €
-```
-
 b) 41 % pour le troisième enfant à charge et chacun des suivants.
 
 ```catala
-champ d'application AllocationsFamiliales :
-  définition montant_initial_base_troisième_enfant_et_plus
-  sous condition
-    ressources_ménage <=€ plafond_I_d521_3
-  conséquence égal à
+champ d'application AllocationsFamiliales sous condition
+  ressources_ménage <=€ plafond_I_d521_3:
+
+  définition montant_initial_base_deuxième_enfant égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
+    alors prestations_familiales.base_mensuelle *€ 32 %
+    sinon 0 €
+
+  définition montant_initial_base_troisième_enfant_et_plus égal à
     si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 3
     alors (prestations_familiales.base_mensuelle *€ 41 %) *€ (
       entier_vers_décimal de
@@ -1100,14 +1104,14 @@ La majoration pour âge est fixée à 16 % de la base mensuelle de calcul des
 prestations familiales ;
 
 ```catala
-champ d'application AllocationsFamiliales :
-   définition montant_initial_majoration de enfant
-   sous condition
-     (droit_ouvert_majoration de enfant) et
-     (ressources_ménage <=€ plafond_I_d521_3) et
-     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2)
-   conséquence égal à
-     prestations_familiales.base_mensuelle *€ 16 %
+champ d'application AllocationsFamiliales sous condition
+  ressources_ménage <=€ plafond_I_d521_3:
+
+  définition montant_initial_majoration de enfant
+  sous condition
+    droit_ouvert_majoration de enfant
+  conséquence égal à
+    prestations_familiales.base_mensuelle *€ 16 %
 ```
 
 2° Lorsque le ménage ou la personne a disposé d'un montant de ressources
@@ -1116,27 +1120,19 @@ supérieur au plafond défini au I de l'article D. 521-3 et inférieur ou égal
 allocations familiales sont fixés, en pourcentage de la base mensuelle
 prévue à l'article L. 551-1, à :
 a) 16 % pour le deuxième enfant à charge ;
-
-```catala
-champ d'application AllocationsFamiliales :
-  définition montant_initial_base_deuxième_enfant sous condition
-    (ressources_ménage >€ plafond_I_d521_3) et
-    (ressources_ménage <=€ plafond_II_d521_3)
-  conséquence égal à
-    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
-    alors prestations_familiales.base_mensuelle *€ 16 %
-    sinon 0 €
-```
-
 b) 20,5 % pour le troisième enfant à charge et chacun des suivants.
 
 ```catala
-champ d'application AllocationsFamiliales :
-  définition montant_initial_base_troisième_enfant_et_plus
-  sous condition
-    (ressources_ménage >€ plafond_I_d521_3) et
-    (ressources_ménage <=€ plafond_II_d521_3)
-  conséquence égal à
+champ d'application AllocationsFamiliales sous condition
+  (ressources_ménage >€ plafond_I_d521_3) et
+  (ressources_ménage <=€ plafond_II_d521_3):
+
+  définition montant_initial_base_deuxième_enfant égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
+    alors prestations_familiales.base_mensuelle *€ 16 %
+    sinon 0 €
+
+  définition montant_initial_base_troisième_enfant_et_plus égal à
     si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 3
     alors (prestations_familiales.base_mensuelle *€ 20,5 %) *€ (
       entier_vers_décimal de
@@ -1148,14 +1144,14 @@ La majoration pour âge est fixée à 8 % de la base mensuelle de calcul des
 prestations familiales ;
 
 ```catala
-champ d'application AllocationsFamiliales :
-   définition montant_initial_majoration de enfant sous condition
-     (droit_ouvert_majoration de enfant) et
-     (ressources_ménage >€ plafond_I_d521_3) et
-     (ressources_ménage <=€ plafond_II_d521_3) et
-     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2)
-   conséquence égal à
-     prestations_familiales.base_mensuelle *€ 8 %
+champ d'application AllocationsFamiliales sous condition
+  (ressources_ménage >€ plafond_I_d521_3) et
+  (ressources_ménage <=€ plafond_II_d521_3):
+
+  définition montant_initial_majoration de enfant sous condition
+    droit_ouvert_majoration de enfant
+  conséquence égal à
+    prestations_familiales.base_mensuelle *€ 8 %
 ```
 
 3° Lorsque le ménage ou la personne a disposé d'un montant de ressources
@@ -1163,25 +1159,17 @@ supérieur au plafond défini au II de l'article D. 521-3, les taux servant
 au calcul des allocations familiales sont fixés, en pourcentage de la base
 mensuelle prévue à l'article L. 551-1, à :
 a) 8 % pour le deuxième enfant à charge ;
-
-```catala
-champ d'application AllocationsFamiliales :
-  définition montant_initial_base_deuxième_enfant sous condition
-    (ressources_ménage >€ plafond_II_d521_3)
-  conséquence égal à
-    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
-    alors prestations_familiales.base_mensuelle *€ 8 %
-    sinon 0 €
-```
-
 b) 10,25 % pour le troisième enfant à charge et chacun des suivants.
 
 ```catala
-champ d'application AllocationsFamiliales :
-  définition montant_initial_base_troisième_enfant_et_plus
-  sous condition
-    (ressources_ménage >€ plafond_II_d521_3)
-  conséquence égal à
+champ d'application AllocationsFamiliales sous condition
+  ressources_ménage >€ plafond_II_d521_3:
+  définition montant_initial_base_deuxième_enfant égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2
+    alors prestations_familiales.base_mensuelle *€ 8 %
+    sinon 0 €
+
+  définition montant_initial_base_troisième_enfant_et_plus égal à
     si nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 3
     alors (prestations_familiales.base_mensuelle *€ 10,25 %) *€ (
       entier_vers_décimal de
@@ -1193,13 +1181,13 @@ La majoration pour âge est fixée à 4 % de la base mensuelle de calcul des
 prestations familiales.
 
 ```catala
-champ d'application AllocationsFamiliales :
-   définition montant_initial_majoration de enfant sous condition
-     (droit_ouvert_majoration de enfant) et
-     (ressources_ménage >€ plafond_II_d521_3) et
-     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 2)
-   conséquence égal à
-     prestations_familiales.base_mensuelle *€ 4 %
+champ d'application AllocationsFamiliales sous condition
+  ressources_ménage >€ plafond_II_d521_3:
+
+  définition montant_initial_majoration de enfant sous condition
+    droit_ouvert_majoration de enfant
+  conséquence égal à
+    prestations_familiales.base_mensuelle *€ 4 %
 ```
 
 II.-En application du sixième alinéa de l'article L. 521-1, le montant
@@ -1414,10 +1402,13 @@ partir de onze ans et à 5,67 p. 100 à partir de seize ans.
 
 ```catala
 champ d'application AllocationsFamiliales :
-  exception decret_2008_âge_minimum_alinéa_1_l521_3
+
+  définition âge_minimum_alinéa_1_l521_3_outre_mer de enfant égal à 11
+
+  exception
   définition âge_minimum_alinéa_1_l521_3 de enfant
   sous condition prestations_familiales.régime_outre_mer_l751_1
-  conséquence égal à 11
+  conséquence égal à âge_minimum_alinéa_1_l521_3_outre_mer de enfant
 
   définition
     montant_initial_majoration de enfant
@@ -1697,7 +1688,7 @@ champ d'application Test6:
   définition f.date_courante égal à |2020-05-01|
   définition f.résidence égal à Guadeloupe
   règle f.personne_charge_effective_permanente_est_parent rempli
-  assertion f.montant_versé = 132,49€
+  assertion f.montant_versé = 66,25€
 
 déclaration champ d'application Test7:
   contexte f champ d'application InterfaceAllocationsFamiliales
