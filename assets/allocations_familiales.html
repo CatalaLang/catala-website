@@ -86,12 +86,12 @@ Fichiers sources tissés dans ce document
 </p>
 <ul>
 <li><tt>allocations_familiales.catala_fr</tt>, dernière modification le 2021-03-11, 19:39</li>
-<li><tt>prologue.catala_fr</tt>, dernière modification le 2021-04-02, 17:57</li>
+<li><tt>prologue.catala_fr</tt>, dernière modification le 2021-04-09, 9:43</li>
 <li><tt>securite_sociale_L.catala_fr</tt>, dernière modification le 2021-03-19, 16:23</li>
-<li><tt>securite_sociale_R.catala_fr</tt>, dernière modification le 2021-04-02, 17:57</li>
-<li><tt>securite_sociale_D.catala_fr</tt>, dernière modification le 2021-04-02, 17:57</li>
-<li><tt>decrets_divers.catala_fr</tt>, dernière modification le 2021-03-19, 16:23</li>
-<li><tt>epilogue.catala_fr</tt>, dernière modification le 2021-03-19, 16:23</li>
+<li><tt>securite_sociale_R.catala_fr</tt>, dernière modification le 2021-04-09, 9:43</li>
+<li><tt>securite_sociale_D.catala_fr</tt>, dernière modification le 2021-04-09, 9:43</li>
+<li><tt>decrets_divers.catala_fr</tt>, dernière modification le 2021-04-12, 0:21</li>
+<li><tt>epilogue.catala_fr</tt>, dernière modification le 2021-04-09, 9:43</li>
 </ul>
 <h2 class='law-heading'>Prologue</h2>
 <p class='law-text'>Avant de présenter les textes réglementaires qui régissent le calcul des
@@ -251,7 +251,8 @@ informatiques qui modélisent la situation dont parlent ces textes législatifs.
 <span class="normal"><a href="#./prologue.catala_fr-158">158</a></span>
 <span class="normal"><a href="#./prologue.catala_fr-159">159</a></span>
 <span class="normal"><a href="#./prologue.catala_fr-160">160</a></span>
-<span class="normal"><a href="#./prologue.catala_fr-161">161</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./prologue.catala_fr-9"></a>```catala
+<span class="normal"><a href="#./prologue.catala_fr-161">161</a></span>
+<span class="normal"><a href="#./prologue.catala_fr-162">162</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./prologue.catala_fr-9"></a>```catala
 <a name="./prologue.catala_fr-10"></a><span class="kd">déclaration</span> <span class="kd">énumération</span> <span class="nc">PriseEnCharge</span> <span class="o">:</span>
 <a name="./prologue.catala_fr-11"></a>  — <span class="nc">GardeAlternéePartageAllocations</span>
 <a name="./prologue.catala_fr-12"></a>  — <span class="nc">GardeAlternéeAllocataireUnique</span>
@@ -353,15 +354,15 @@ informatiques qui modélisent la situation dont parlent ces textes législatifs.
 <a name="./prologue.catala_fr-108"></a>
 <a name="./prologue.catala_fr-109"></a><span class="c1">  # Variables liées à la base des allications familiales</span>
 <a name="./prologue.catala_fr-110"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">droit_ouvert_base</span> <span class="kd">condition</span>
-<a name="./prologue.catala_fr-111"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_base</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-112"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_avec_garde_alternée_base</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-113"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-114"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base_premier_enfant</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-115"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base_deuxième_enfant</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-116"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base_troisième_enfant_et_plus</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-117"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">rapport_enfants_total_moyen</span> <span class="kd">contenu</span> <span class="kt">décimal</span>
-<a name="./prologue.catala_fr-118"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_moyen_enfants</span> <span class="kd">contenu</span> <span class="kt">décimal</span>
-<a name="./prologue.catala_fr-119"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_total_enfants</span> <span class="kd">contenu</span> <span class="kt">décimal</span><span class="c1"></span>
+<a name="./prologue.catala_fr-111"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-112"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base_premier_enfant</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-113"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base_deuxième_enfant</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-114"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_base_troisième_enfant_et_plus</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-115"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">rapport_enfants_total_moyen</span> <span class="kd">contenu</span> <span class="kt">décimal</span>
+<a name="./prologue.catala_fr-116"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_moyen_enfants</span> <span class="kd">contenu</span> <span class="kt">décimal</span>
+<a name="./prologue.catala_fr-117"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_total_enfants</span> <span class="kd">contenu</span> <span class="kt">décimal</span>
+<a name="./prologue.catala_fr-118"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_avec_garde_alternée_base</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-119"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_base</span> <span class="kd">contenu</span> <span class="kt">argent</span><span class="c1"></span>
 <a name="./prologue.catala_fr-120"></a>
 <a name="./prologue.catala_fr-121"></a><span class="c1">  # Variables liées à l&#39;allocation forfaitaire</span>
 <a name="./prologue.catala_fr-122"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">droit_ouvert_forfaitaire</span> <span class="kd">condition</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
@@ -369,41 +370,42 @@ informatiques qui modélisent la situation dont parlent ces textes législatifs.
 <a name="./prologue.catala_fr-124"></a>
 <a name="./prologue.catala_fr-125"></a><span class="c1">  # Variables liées aux majorations des allocations familiales</span>
 <a name="./prologue.catala_fr-126"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">droit_ouvert_majoration</span> <span class="kd">condition</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
-<a name="./prologue.catala_fr-127"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-128"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_avec_garde_alternée_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
-<a name="./prologue.catala_fr-129"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span><span class="c1"></span>
-<a name="./prologue.catala_fr-130"></a>
-<a name="./prologue.catala_fr-131"></a><span class="c1">  # Variables liées au complément dégressif</span>
-<a name="./prologue.catala_fr-132"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">droit_ouvert_complément</span> <span class="kd">condition</span>
-<a name="./prologue.catala_fr-133"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_complément_pour_base_et_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-127"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_métropole_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-128"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_initial_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-129"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_avec_garde_alternée_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-130"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span><span class="c1"></span>
+<a name="./prologue.catala_fr-131"></a>
+<a name="./prologue.catala_fr-132"></a><span class="c1">  # Variables liées au complément dégressif</span>
+<a name="./prologue.catala_fr-133"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">droit_ouvert_complément</span> <span class="kd">condition</span>
 <a name="./prologue.catala_fr-134"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_base_complément_pour_base_et_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-135"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_complément_pour_forfaitaire</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-136"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">complément_dégressif</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="kt">argent</span><span class="c1"></span>
-<a name="./prologue.catala_fr-137"></a>
-<a name="./prologue.catala_fr-138"></a><span class="c1">  # Sous-champs d&#39;applications</span>
-<a name="./prologue.catala_fr-139"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">prestations_familiales</span> <span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span>
-<a name="./prologue.catala_fr-140"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">version_avril_2008</span> <span class="kd">champ d&#39;application</span> <span class="nc">AllocationFamilialesAvril2008</span>
-<a name="./prologue.catala_fr-141"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">enfant_le_plus_âgé</span> <span class="kd">champ d&#39;application</span> <span class="nc">EnfantLePlusÂgé</span><span class="c1"></span>
-<a name="./prologue.catala_fr-142"></a>
-<a name="./prologue.catala_fr-143"></a><span class="c1">  # Plafonds, âges limites et autres constantes</span>
-<a name="./prologue.catala_fr-144"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_enfants_l521_1</span> <span class="kd">contenu</span> <span class="kt">entier</span>
-<a name="./prologue.catala_fr-145"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">âge_minimum_alinéa_1_l521_3</span> <span class="kd">contenu</span> <span class="kt">entier</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
-<a name="./prologue.catala_fr-146"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">âge_minimum_alinéa_1_l521_3_métropole</span> <span class="kd">contenu</span> <span class="kt">entier</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
-<a name="./prologue.catala_fr-147"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">âge_minimum_alinéa_1_l521_3_outre_mer</span> <span class="kd">contenu</span> <span class="kt">entier</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
-<a name="./prologue.catala_fr-148"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_enfants_alinéa_2_l521_3</span> <span class="kd">contenu</span> <span class="kt">entier</span>
-<a name="./prologue.catala_fr-149"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">est_enfant_le_plus_âgé</span> <span class="kd">contenu</span> <span class="kt">booléen</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
-<a name="./prologue.catala_fr-150"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">plafond_I_d521_3</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-151"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">plafond_II_d521_3</span> <span class="kd">contenu</span> <span class="kt">argent</span>
-<a name="./prologue.catala_fr-152"></a>
-<a name="./prologue.catala_fr-153"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span><span class="o">:</span>
-<a name="./prologue.catala_fr-154"></a>  <span class="kd">définition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>prestation_courante <span class="kd">égal à</span>
-<a name="./prologue.catala_fr-155"></a>    <span class="nc">AllocationsFamiliales</span>
-<a name="./prologue.catala_fr-156"></a>  <span class="kd">définition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>date_courante <span class="kd">égal à</span>
-<a name="./prologue.catala_fr-157"></a>    <span class="nv">date_courante</span>
-<a name="./prologue.catala_fr-158"></a>  <span class="kd">définition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>résidence <span class="kd">égal à</span>
-<a name="./prologue.catala_fr-159"></a>    <span class="nv">résidence</span>
-<a name="./prologue.catala_fr-160"></a>
-<a name="./prologue.catala_fr-161"></a>```
+<a name="./prologue.catala_fr-135"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">complément_dégressif</span> <span class="kd">contenu</span> <span class="kt">argent</span> <span class="kd">dépend de</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-136"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_complément_pour_base_et_majoration</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-137"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">montant_versé_complément_pour_forfaitaire</span> <span class="kd">contenu</span> <span class="kt">argent</span><span class="c1"></span>
+<a name="./prologue.catala_fr-138"></a>
+<a name="./prologue.catala_fr-139"></a><span class="c1">  # Sous-champs d&#39;applications</span>
+<a name="./prologue.catala_fr-140"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">prestations_familiales</span> <span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span>
+<a name="./prologue.catala_fr-141"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">version_avril_2008</span> <span class="kd">champ d&#39;application</span> <span class="nc">AllocationFamilialesAvril2008</span>
+<a name="./prologue.catala_fr-142"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">enfant_le_plus_âgé</span> <span class="kd">champ d&#39;application</span> <span class="nc">EnfantLePlusÂgé</span><span class="c1"></span>
+<a name="./prologue.catala_fr-143"></a>
+<a name="./prologue.catala_fr-144"></a><span class="c1">  # Plafonds, âges limites et autres constantes</span>
+<a name="./prologue.catala_fr-145"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_enfants_l521_1</span> <span class="kd">contenu</span> <span class="kt">entier</span>
+<a name="./prologue.catala_fr-146"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">âge_minimum_alinéa_1_l521_3</span> <span class="kd">contenu</span> <span class="kt">entier</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-147"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">âge_minimum_alinéa_1_l521_3_métropole</span> <span class="kd">contenu</span> <span class="kt">entier</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-148"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">âge_minimum_alinéa_1_l521_3_outre_mer</span> <span class="kd">contenu</span> <span class="kt">entier</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-149"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">nombre_enfants_alinéa_2_l521_3</span> <span class="kd">contenu</span> <span class="kt">entier</span>
+<a name="./prologue.catala_fr-150"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">est_enfant_le_plus_âgé</span> <span class="kd">contenu</span> <span class="kt">booléen</span> <span class="kd">dépend de</span> <span class="nc">Enfant</span>
+<a name="./prologue.catala_fr-151"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">plafond_I_d521_3</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-152"></a>  <span class="kd">contexte</span><span class="s"> </span><span class="nv">plafond_II_d521_3</span> <span class="kd">contenu</span> <span class="kt">argent</span>
+<a name="./prologue.catala_fr-153"></a>
+<a name="./prologue.catala_fr-154"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span><span class="o">:</span>
+<a name="./prologue.catala_fr-155"></a>  <span class="kd">définition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>prestation_courante <span class="kd">égal à</span>
+<a name="./prologue.catala_fr-156"></a>    <span class="nc">AllocationsFamiliales</span>
+<a name="./prologue.catala_fr-157"></a>  <span class="kd">définition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>date_courante <span class="kd">égal à</span>
+<a name="./prologue.catala_fr-158"></a>    <span class="nv">date_courante</span>
+<a name="./prologue.catala_fr-159"></a>  <span class="kd">définition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>résidence <span class="kd">égal à</span>
+<a name="./prologue.catala_fr-160"></a>    <span class="nv">résidence</span>
+<a name="./prologue.catala_fr-161"></a>
+<a name="./prologue.catala_fr-162"></a>```
 </pre></div>
 </td></tr></table>
 </div>
@@ -416,7 +418,7 @@ informatiques qui modélisent la situation dont parlent ces textes législatifs.
 <h6 class='law-heading'>Chapitre 1er : Liste des prestations</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834530/2021-04-02'>Article L511-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834530/2021-04-12'>Article L511-1</a></div>
 <p class='law-text'>Les prestations familiales comprennent :<br/>
 1°) la prestation d'accueil du jeune enfant ;<br/>
 2°) les allocations familiales ;<br/>
@@ -442,7 +444,7 @@ informatiques qui modélisent la situation dont parlent ces textes législatifs.
 <h6 class='law-heading'>Chapitre 2 : Champ d'application</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834523/2021-04-02'>Article L512-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038834523/2021-04-12'>Article L512-3</a></div>
 <p class='law-text'>Sous réserve des règles particulières à chaque prestation,
 ouvre droit aux prestations familiales :<br/>
 1°) tout enfant jusqu'à la fin de l'obligation scolaire ;</p>
@@ -537,7 +539,7 @@ peut être différent de celui mentionné au 2° du présent article.</p>
 <h6 class='law-heading'>Chapitre 1er : Allocations familiales</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029963006/2021-04-02'>Article L521-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029963006/2021-04-12'>Article L521-1</a></div>
 <p class='law-text'>Les allocations familiales sont dues à partir du deuxième enfant à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./securite_sociale_L.catala_fr</div>
@@ -681,7 +683,7 @@ sont définies par décret.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743210/2021-04-02'>Article L521-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743210/2021-04-12'>Article L521-2</a></div>
 <p class='law-text'>Les allocations sont versées à la personne qui assume, dans quelques conditions
 que ce soit, la charge effective et permanente de l'enfant.</p>
 <div class='code-wrapper'>
@@ -871,7 +873,7 @@ d) enfants confiés à un service public, à une institution privée, à un part
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743289/2021-04-02'>Article L521-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006743289/2021-04-12'>Article L521-3</a></div>
 <p class='law-text'>Chacun des enfants à charge, à l'exception du plus âgé, ouvre droit à partir
 d'un âge minimum à une majoration des allocations familiales.</p>
 <div class='code-wrapper'>
@@ -927,7 +929,7 @@ de l'âge mentionné au premier alinéa.</p>
 <h6 class='law-heading'>Chapitre 1er : Etablissement du salaire de base</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031688371/2021-04-02'>Article L551-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031688371/2021-04-12'>Article L551-1</a></div>
 <p class='law-text'>Le montant des prestations familiales est déterminé d'après des bases
 mensuelles de calcul revalorisées au 1er avril de chaque année par application
 du coefficient mentionné à l'article L. 161-25 .</p>
@@ -952,7 +954,7 @@ du coefficient mentionné à l'article L. 161-25 .</p>
 <h6 class='law-heading'>Chapitre 1er : Généralités</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323778/2021-04-02'>Article L751-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323778/2021-04-12'>Article L751-1</a></div>
 <p class='law-text'>Les dispositions du présent titre s'appliquent en Guadeloupe, en Guyane,
 en Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin à
 l'ensemble des bénéficiaires de la législation générale de sécurité
@@ -994,7 +996,7 @@ sociale, y compris les membres des professions agricoles.</p>
 <h6 class='law-heading'>Chapitre 5 : Prestations familiales et prestations assimilées</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000033728786/2021-04-02'>Article L755-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000033728786/2021-04-12'>Article L755-3</a></div>
 <p class='law-text'>Les dispositions des articles L. 512-1 à L. 512-4 , L. 513-1 , L. 521-2 ,
 L. 552-1 , L. 553-1 , L. 553-2 , L. 553-4 , L. 582-1 , L. 582-2 , L. 583-3
 et L. 583-5 sont applicables aux collectivités mentionnées à l'article L. 751-1 .<br/>
@@ -1014,7 +1016,7 @@ fixée en application de l'article L. 551-1 .</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323803/2021-04-02'>Article L755-11</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000031323803/2021-04-12'>Article L755-11</a></div>
 <p class='law-text'>Les conditions d'attribution des allocations familiales et de leurs majorations
 fixées par les articles L. 521-1 et L. 521-3 sont applicables dans les
 collectivités mentionnées à l'article L. 751-1.</p>
@@ -1033,7 +1035,7 @@ longtemps que le présent chapitre V est applicable.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029962999/2021-04-02'>Article L755-12</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000029962999/2021-04-12'>Article L755-12</a></div>
 <p class='law-text'>Les allocations familiales sont dues, pour tout enfant, à la personne qui a
 effectivement la charge de celui-ci.</p>
 <div class='code-wrapper'>
@@ -1116,7 +1118,7 @@ applicables lorsque le ménage ou la personne a un seul enfant à charge.</p>
 <h6 class='law-heading'>Chapitre 2 : Champ d'application.</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750602/2021-04-02'>Article R512-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750602/2021-04-12'>Article R512-2</a></div>
 <p class='law-text'>Les enfants ouvrent droit aux prestations familiales jusqu'à l'âge de vingt
 ans sous réserve que leur rémunération n'excède pas le plafond fixé au deuxième
 alinéa du présent article.</p>
@@ -1178,7 +1180,7 @@ législation sur les assurances sociales.</p>
 <h6 class='law-heading'>Chapitre 1er : Allocations familiales</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000018735853/2021-04-02'>Article R521-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000018735853/2021-04-12'>Article R521-1</a></div>
 <p class='law-text'>L'âge mentionné au premier alinéa de l'article L. 521-3 à partir duquel les
 enfants ouvrent droit à la majoration des allocations familiales est fixé à
 14 ans.</p>
@@ -1257,7 +1259,7 @@ le onzième anniversaire est postérieur au 30 avril 2008.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750608/2021-04-02'>Article R521-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750608/2021-04-12'>Article R521-2</a></div>
 <p class='law-text'>Dans les situations visées au deuxième alinéa de l'article L. 521-2 ,
 l'allocataire est celui des deux parents qu'ils désignent d'un commun accord.
 A défaut d'accord sur la désignation d'un allocataire unique, chacun des deux
@@ -1297,7 +1299,7 @@ ou des enfants.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750610/2021-04-02'>Article R521-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750610/2021-04-12'>Article R521-3</a></div>
 <p class='law-text'>Sous réserve de l'article R. 521-4, dans les situations visées aux 1° et 2° de
 l'article R. 521-2 , la prestation due à chacun des parents est égale au
 montant des allocations familiales dues pour le total des enfants à charge,
@@ -1386,7 +1388,7 @@ enfants à charge.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750613/2021-04-02'>Article R521-4</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006750613/2021-04-12'>Article R521-4</a></div>
 <p class='law-text'>Pour l'ouverture du droit à la majoration prévue à l'article L. 521-3 , le
 nombre d'enfants à charge est évalué dans les conditions prévues au premier
 alinéa de l'article R. 521-3.</p>
@@ -1449,7 +1451,7 @@ alternée, le montant servi au titre de cette majoration est réduit de moitié.
 <h6 class='law-heading'>Chapitre 5 : Prestations familiales et prestations assimilées</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006752633/2021-04-02'>Article R755-0-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006752633/2021-04-12'>Article R755-0-2</a></div>
 <p class='law-text'>Le plafond de rémunération des enfants à charge mentionnés à l'article
 L. 512-3 est égal, pour un mois, à 55 % du salaire minimum de croissance en
 vigueur dans chacun des départements mentionnés à l'article L. 751-1 ,
@@ -1483,7 +1485,7 @@ multiplié par 169.</p>
 <h6 class='law-heading'>Chapitre 1er : Allocations familiales</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680318/2021-04-02'>Article D521-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680318/2021-04-12'>Article D521-1</a></div>
 <p class='law-text'>I.-Pour l'application de l'article L. 521-1 , le montant des allocations
 familiales et de la majoration pour âge prévue à l'article L. 521-3
 est défini selon le barème suivant :</p>
@@ -1564,7 +1566,7 @@ prestations familiales ;</p>
 <a name="./securite_sociale_D.catala_fr-52"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="kd">sous condition</span>
 <a name="./securite_sociale_D.catala_fr-53"></a>  <span class="nv">ressources_ménage</span> ≤<span class="o">€</span> <span class="nv">plafond_I_d521_3</span><span class="o">:</span>
 <a name="./securite_sociale_D.catala_fr-54"></a>
-<a name="./securite_sociale_D.catala_fr-55"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_D.catala_fr-55"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_métropole_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_D.catala_fr-56"></a>  <span class="kd">sous condition</span>
 <a name="./securite_sociale_D.catala_fr-57"></a>    <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_D.catala_fr-58"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
@@ -1636,7 +1638,7 @@ prestations familiales ;</p>
 <a name="./securite_sociale_D.catala_fr-93"></a>  <span class="o">(</span><span class="nv">ressources_ménage</span> <span class="o">&gt;€</span> <span class="nv">plafond_I_d521_3</span><span class="o">)</span> <span class="o">et</span>
 <a name="./securite_sociale_D.catala_fr-94"></a>  <span class="o">(</span><span class="nv">ressources_ménage</span> ≤<span class="o">€</span> <span class="nv">plafond_II_d521_3</span><span class="o">):</span>
 <a name="./securite_sociale_D.catala_fr-95"></a>
-<a name="./securite_sociale_D.catala_fr-96"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_D.catala_fr-96"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_métropole_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
 <a name="./securite_sociale_D.catala_fr-97"></a>    <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_D.catala_fr-98"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
 <a name="./securite_sociale_D.catala_fr-99"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle ×<span class="o">€</span> <span class="mi">8</span> <span class="o">%</span>
@@ -1700,7 +1702,7 @@ prestations familiales.</p>
 <a name="./securite_sociale_D.catala_fr-129"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="kd">sous condition</span>
 <a name="./securite_sociale_D.catala_fr-130"></a>  <span class="nv">ressources_ménage</span> <span class="o">&gt;€</span> <span class="nv">plafond_II_d521_3</span><span class="o">:</span>
 <a name="./securite_sociale_D.catala_fr-131"></a>
-<a name="./securite_sociale_D.catala_fr-132"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
+<a name="./securite_sociale_D.catala_fr-132"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_métropole_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
 <a name="./securite_sociale_D.catala_fr-133"></a>    <span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_D.catala_fr-134"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
 <a name="./securite_sociale_D.catala_fr-135"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle ×<span class="o">€</span> <span class="mi">4</span> <span class="o">%</span>
@@ -1786,7 +1788,7 @@ définie à l'alinéa précédent et, d'autre part, le montant des ressources.</
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680324/2021-04-02'>Article D521-2</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030680324/2021-04-12'>Article D521-2</a></div>
 <p class='law-text'>I.-Le montant mensuel de l'allocation forfaitaire prévue au deuxième alinéa de
 l'article L. 521-1 est défini selon le barème suivant :<br/>
 1° Lorsque le ménage ou la personne a disposé d'un montant de ressources
@@ -1914,7 +1916,7 @@ l'article L. 521-1 est fixé à trois.</p>
 </div>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030678079/2021-04-02'>Article D521-3</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000030678079/2021-04-12'>Article D521-3</a></div>
 <p class='law-text'>I.-Le plafond prévu au 1° du I des articles D. 521-1 et D. 521-2 est fixé à
 55 950 euros. Il est majoré de 5 595 euros par enfant à charge.</p>
 <div class='code-wrapper'>
@@ -1962,7 +1964,7 @@ sociale, du budget et de l'agriculture.</p>
 <h6 class='law-heading'>Chapitre 5 : Prestations familiales et prestations assimilées</h6>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006738575/2021-04-02'>Article D755-5</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000006738575/2021-04-12'>Article D755-5</a></div>
 <p class='law-text'>I. - Les taux servant au calcul des allocations familiales et de la majoration
 prévue à l'article L. 755-11 sont identiques à ceux mentionnés à l'article
 D. 521-1.</p>
@@ -2081,7 +2083,9 @@ partir de onze ans et à 5,67 p. 100 à partir de seize ans.</p>
 <span class="normal"><a href="#./securite_sociale_D.catala_fr-364">364</a></span>
 <span class="normal"><a href="#./securite_sociale_D.catala_fr-365">365</a></span>
 <span class="normal"><a href="#./securite_sociale_D.catala_fr-366">366</a></span>
-<span class="normal"><a href="#./securite_sociale_D.catala_fr-367">367</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_D.catala_fr-348"></a>```catala
+<span class="normal"><a href="#./securite_sociale_D.catala_fr-367">367</a></span>
+<span class="normal"><a href="#./securite_sociale_D.catala_fr-368">368</a></span>
+<span class="normal"><a href="#./securite_sociale_D.catala_fr-369">369</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./securite_sociale_D.catala_fr-348"></a>```catala
 <a name="./securite_sociale_D.catala_fr-349"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
 <a name="./securite_sociale_D.catala_fr-350"></a>
 <a name="./securite_sociale_D.catala_fr-351"></a>  <span class="kd">définition</span> <span class="nv">âge_minimum_alinéa_1_l521_3_outre_mer</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span> <span class="mi">11</span>
@@ -2091,23 +2095,25 @@ partir de onze ans et à 5,67 p. 100 à partir de seize ans.</p>
 <a name="./securite_sociale_D.catala_fr-355"></a>  <span class="kd">sous condition</span> <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1
 <a name="./securite_sociale_D.catala_fr-356"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="nv">âge_minimum_alinéa_1_l521_3_outre_mer</span> <span class="kr">de</span> <span class="nv">enfant</span>
 <a name="./securite_sociale_D.catala_fr-357"></a>
-<a name="./securite_sociale_D.catala_fr-358"></a>  <span class="kd">définition</span>
-<a name="./securite_sociale_D.catala_fr-359"></a>    <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
-<a name="./securite_sociale_D.catala_fr-360"></a>  <span class="kd">sous condition</span>
-<a name="./securite_sociale_D.catala_fr-361"></a>    <span class="o">(</span><span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span> <span class="o">et</span>
-<a name="./securite_sociale_D.catala_fr-362"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
-<a name="./securite_sociale_D.catala_fr-363"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
-<a name="./securite_sociale_D.catala_fr-364"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
-<a name="./securite_sociale_D.catala_fr-365"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle ×<span class="o">€</span>
-<a name="./securite_sociale_D.catala_fr-366"></a>    <span class="o">(</span><span class="kr">si</span> <span class="nv">enfant</span><span class="o">.</span>âge ≥ <span class="mi">16</span> <span class="kr">alors</span> <span class="mi">5,67</span> <span class="o">%</span> <span class="kr">sinon</span> <span class="mi">3,69</span> <span class="o">%)</span>
-<a name="./securite_sociale_D.catala_fr-367"></a>```
+<a name="./securite_sociale_D.catala_fr-358"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">égal à</span>
+<a name="./securite_sociale_D.catala_fr-359"></a>    <span class="nv">montant_initial_métropole_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_D.catala_fr-360"></a>
+<a name="./securite_sociale_D.catala_fr-361"></a>  <span class="kd">exception</span> <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span>
+<a name="./securite_sociale_D.catala_fr-362"></a>  <span class="kd">sous condition</span>
+<a name="./securite_sociale_D.catala_fr-363"></a>    <span class="o">(</span><span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span> <span class="o">et</span>
+<a name="./securite_sociale_D.catala_fr-364"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>régime_outre_mer_l751_1 <span class="o">et</span>
+<a name="./securite_sociale_D.catala_fr-365"></a>    <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span> <span class="o">=</span> <span class="mi">1</span><span class="o">)</span>
+<a name="./securite_sociale_D.catala_fr-366"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span>
+<a name="./securite_sociale_D.catala_fr-367"></a>    <span class="nv">prestations_familiales</span><span class="o">.</span>base_mensuelle ×<span class="o">€</span>
+<a name="./securite_sociale_D.catala_fr-368"></a>    <span class="o">(</span><span class="kr">si</span> <span class="nv">enfant</span><span class="o">.</span>âge ≥ <span class="mi">16</span> <span class="kr">alors</span> <span class="mi">5,67</span> <span class="o">%</span> <span class="kr">sinon</span> <span class="mi">3,69</span> <span class="o">%)</span>
+<a name="./securite_sociale_D.catala_fr-369"></a>```
 </pre></div>
 </td></tr></table>
 </div>
 
 </div>
 
-<h2 class='law-heading'>Instructions ministérielles</h2>
+<h2 class='law-heading'>Montant de la base mensuelle des allocations familiales</h2>
 <div class='article-container'>
 
 <div class='article-title'><a href='#'>INSTRUCTION INTERMINISTERIELLE N° DSS/SD2B/2019/65 du 25 mars 2019 relative
@@ -2126,21 +2132,21 @@ familiales (BMAF), en pourcentage duquel sont fixés les montants des prestation
 familiales, est ainsi porté de 411,92 € à 413,16 € au 1er avril 2019.</p>
 <div class='code-wrapper'>
 <div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-22">22</a></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-21">21</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-22">22</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-23">23</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-24">24</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-25">25</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-26">26</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-27">27</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-28">28</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-29">29</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-22"></a>```catala
-<a name="./decrets_divers.catala_fr-23"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-24"></a>  <span class="kd">définition</span> <span class="nv">base_mensuelle</span>
-<a name="./decrets_divers.catala_fr-25"></a>  <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-26"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span>
-<a name="./decrets_divers.catala_fr-27"></a>    <span class="nv">date_courante</span> <span class="o">&lt;@</span> |<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>|
-<a name="./decrets_divers.catala_fr-28"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">413,16</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-29"></a>```
+<span class="normal"><a href="#./decrets_divers.catala_fr-28">28</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-21"></a>```catala
+<a name="./decrets_divers.catala_fr-22"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-23"></a>  <span class="kd">définition</span> <span class="nv">base_mensuelle</span>
+<a name="./decrets_divers.catala_fr-24"></a>  <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-25"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span>
+<a name="./decrets_divers.catala_fr-26"></a>    <span class="nv">date_courante</span> <span class="o">&lt;@</span> |<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>|
+<a name="./decrets_divers.catala_fr-27"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">413,16</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-28"></a>```
 </pre></div>
 </td></tr></table>
 </div>
@@ -2162,21 +2168,170 @@ Le montant précité de la base mensuelle de calcul des allocations familiales
 est ainsi porté de 413,16 € à 414,4 € au 1er avril 2020.</p>
 <div class='code-wrapper'>
 <div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-46">46</a></span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-45">45</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-46">46</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-47">47</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-48">48</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-49">49</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-50">50</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-51">51</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-52">52</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-53">53</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-46"></a>```catala
-<a name="./decrets_divers.catala_fr-47"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-48"></a>  <span class="kd">définition</span> <span class="nv">base_mensuelle</span>
-<a name="./decrets_divers.catala_fr-49"></a>  <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-50"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span>
-<a name="./decrets_divers.catala_fr-51"></a>    <span class="nv">date_courante</span> <span class="o">&lt;@</span> |<span class="mi">2021</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>|
-<a name="./decrets_divers.catala_fr-52"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">414,4</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-53"></a>```
+<span class="normal"><a href="#./decrets_divers.catala_fr-52">52</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-45"></a>```catala
+<a name="./decrets_divers.catala_fr-46"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-47"></a>  <span class="kd">définition</span> <span class="nv">base_mensuelle</span>
+<a name="./decrets_divers.catala_fr-48"></a>  <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-49"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span>
+<a name="./decrets_divers.catala_fr-50"></a>    <span class="nv">date_courante</span> <span class="o">&lt;@</span> |<span class="mi">2021</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>|
+<a name="./decrets_divers.catala_fr-51"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">414,4</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-52"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021
+relative à la revalorisation au 1er avril 2021 des prestations
+familiales servies en métropole, en Guadeloupe, en Guyane,
+en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin
+et dans le département de Mayotte</a></div>
+<p class='law-text'>Au 1er avril 2021, le coefficient de revalorisation de la BMAF est ainsi fixé à
+1,001 soit un taux de revalorisation de la BMAF de 0,1 %. Le montant de cette
+base mensuelle, en pourcentage duquel sont fixées les prestations familiales,
+est donc porté de 414,4 € au 1er avril 2020 à 414,81 € au 1er avril 2021.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-65">65</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-66">66</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-67">67</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-68">68</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-69">69</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-70">70</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-71">71</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-72">72</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-65"></a>```catala
+<a name="./decrets_divers.catala_fr-66"></a><span class="kd">champ d&#39;application</span> <span class="nc">PrestationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-67"></a>  <span class="kd">définition</span> <span class="nv">base_mensuelle</span>
+<a name="./decrets_divers.catala_fr-68"></a>  <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-69"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span>
+<a name="./decrets_divers.catala_fr-70"></a>    <span class="nv">date_courante</span> <span class="o">&lt;@</span> |<span class="mi">2022</span><span class="o">-</span><span class="mi">04</span><span class="o">-</span><span class="mi">01</span>|
+<a name="./decrets_divers.catala_fr-71"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">414,81</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-72"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+
+<h2 class='law-heading'>Montant des plafonds de ressources</h2>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>CIRCULAIRE INTERMINISTERIELLE N° DSS/SD2B/2017/352 du 22 décembre 2017
+relative à la revalorisation au 1er janvier 2018 des plafonds de ressources
+d’attribution de certaines prestations familiales servies en métropole, en
+Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy,
+à Saint-Martin et à Mayotte</a></div>
+<p class='law-text'>Plafonds de ressources applicables pour l’attribution du montant modulé
+des allocations familiales, de la majoration pour âge et de l’allocation
+forfaitaire, du 1er janvier 2018 au 31 décembre 2018 (à comparer au revenu
+ net catégoriel de l'année 2016).<br/>
+La première tranche est celle dont les revenus sont inférieurs ou égaux
+à un plafond de base de 56 286 € majoré de 5 628 euros par enfant
+à charge. La deuxième tranche est celle dont les revenus sont supérieurs à un
+plafond de base de 56 286 euros majoré de 5 628 euros par enfant à charge mais
+inférieurs ou égaux au plafond de base de 78 770 euros majoré de 5 628 euros
+par enfant à charge. La troisième tranche est celle dont les revenus
+sont supérieurs au plafond de base de 78 770 euros majoré de
+5 628 euros par enfant à charge.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-96"> 96</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-97"> 97</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-98"> 98</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-99"> 99</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-100">100</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-101">101</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-102">102</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-103">103</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-104">104</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-105">105</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-106">106</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-107">107</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-108">108</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-109">109</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-110">110</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-111">111</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-96"></a>```catala
+<a name="./decrets_divers.catala_fr-97"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-98"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-99"></a>  <span class="kd">définition</span> <span class="nv">plafond_I_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-100"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2018</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2018</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-101"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">56</span> <span class="mi">286</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-102"></a>    <span class="mi">5</span> <span class="mi">628</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-103"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-104"></a>
+<a name="./decrets_divers.catala_fr-105"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-106"></a>  <span class="kd">définition</span> <span class="nv">plafond_II_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-107"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2018</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2018</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-108"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">78</span> <span class="mi">770</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-109"></a>    <span class="mi">5</span> <span class="mi">628</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-110"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-111"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<div class='article-container'>
+
+<div class='article-title'><a href='#'>Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018
+relative à la revalorisation au 1er janvier 2019 des plafonds de ressources
+d’attribution de certaines prestations familiales servies en métropole, en
+Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy,
+à Saint-Martin et à Mayotte</a></div>
+<p class='law-text'>Plafonds de ressources applicables pour l’attribution du montant
+modulé des allocations familiales, de la majoration pour âge et
+de l’allocation forfaitaire, du 1er janvier 2019 au 31 décembre
+2019 (à comparer au revenu net catégoriel de l'année 2017).<br/>
+La première tranche est celle dont les revenus sont inférieurs ou
+égaux à un plafond de base de 56 849 € majoré de 5 684 euros
+par enfant à charge. La deuxième tranche est celle dont les revenus sont
+supérieurs à un plafond de base de 56 849 euros majoré de 5 684 euros
+par enfant à charge mais inférieurs ou égaux au plafond de base de
+79 558 euros majoré de 5 684 euros par enfant à charge. La troisième
+tranche est celle dont les revenus sont supérieurs au plafond de
+base de 79 558 euros majoré de 5 684 euros par enfant à charge.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-133">133</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-134">134</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-135">135</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-136">136</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-137">137</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-138">138</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-139">139</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-140">140</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-141">141</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-142">142</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-143">143</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-144">144</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-145">145</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-146">146</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-147">147</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-148">148</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-133"></a>```catala
+<a name="./decrets_divers.catala_fr-134"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-135"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-136"></a>  <span class="kd">définition</span> <span class="nv">plafond_I_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-137"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-138"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">56</span> <span class="mi">849</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-139"></a>    <span class="mi">5</span> <span class="mi">684</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-140"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-141"></a>
+<a name="./decrets_divers.catala_fr-142"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-143"></a>  <span class="kd">définition</span> <span class="nv">plafond_II_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-144"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-145"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">79</span> <span class="mi">558</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-146"></a>    <span class="mi">5</span> <span class="mi">684</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-147"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-148"></a>```
 </pre></div>
 </td></tr></table>
 </div>
@@ -2203,240 +2358,37 @@ tranche est celle dont les revenus sont supérieurs au plafond de base de
 80 831 € majoré de 5 775 € par enfant à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-75">75</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-76">76</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-77">77</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-78">78</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-79">79</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-80">80</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-81">81</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-82">82</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-83">83</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-84">84</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-85">85</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-86">86</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-87">87</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-88">88</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-89">89</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-90">90</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-75"></a>```catala
-<a name="./decrets_divers.catala_fr-76"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-77"></a>  <span class="kd">exception</span>
-<a name="./decrets_divers.catala_fr-78"></a>  <span class="kd">définition</span> <span class="nv">plafond_I_d521_3</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-79"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
-<a name="./decrets_divers.catala_fr-80"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">57</span> <span class="mi">759</span> <span class="o">€</span> <span class="o">+€</span>
-<a name="./decrets_divers.catala_fr-81"></a>    <span class="mi">5</span> <span class="mi">775</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
-<a name="./decrets_divers.catala_fr-82"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
-<a name="./decrets_divers.catala_fr-83"></a>
-<a name="./decrets_divers.catala_fr-84"></a>  <span class="kd">exception</span>
-<a name="./decrets_divers.catala_fr-85"></a>  <span class="kd">définition</span> <span class="nv">plafond_II_d521_3</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-86"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
-<a name="./decrets_divers.catala_fr-87"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">80</span> <span class="mi">831</span> <span class="o">€</span> <span class="o">+€</span>
-<a name="./decrets_divers.catala_fr-88"></a>    <span class="mi">5</span> <span class="mi">775</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
-<a name="./decrets_divers.catala_fr-89"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
-<a name="./decrets_divers.catala_fr-90"></a>```
-</pre></div>
-</td></tr></table>
-</div>
-
-</div>
-
-<h2 class='law-heading'>Décrets divers</h2>
-<h3 class='law-heading'>Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance</h3>
-<div class='article-container'>
-
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/JORFARTI000037833214/2021-04-02'>Article 1</a></div>
-<p class='law-text'>A compter du 1er janvier 2019, pour les catégories de travailleurs mentionnés à
-l'article L. 2211-1 du code du travail, le montant du salaire minimum de
-croissance est relevé dans les conditions ci-après :<br/>
-1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion,
-à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon,
-son montant est porté à 10,03 € l'heure.</p>
-<div class='code-wrapper'>
-<div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-106">106</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-107">107</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-108">108</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-109">109</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-110">110</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-111">111</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-112">112</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-113">113</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-114">114</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-115">115</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-116">116</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-117">117</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-118">118</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-119">119</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-120">120</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-106"></a>```catala
-<a name="./decrets_divers.catala_fr-107"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-108"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-109"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
-<a name="./decrets_divers.catala_fr-110"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Métropole</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-111"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-112"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-113"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-114"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-115"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-116"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-117"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintPierreEtMiquelon</span><span class="o">)</span>
-<a name="./decrets_divers.catala_fr-118"></a>    <span class="o">)</span>
-<a name="./decrets_divers.catala_fr-119"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">10,03</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-120"></a>```
-</pre></div>
-</td></tr></table>
-</div>
-<p class='law-text'>2° A Mayotte, son montant est fixé à 7,57 € l'heure.</p>
-<div class='code-wrapper'>
-<div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-124">124</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-125">125</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-126">126</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-127">127</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-128">128</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-129">129</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-130">130</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-131">131</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-124"></a>```catala
-<a name="./decrets_divers.catala_fr-125"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-126"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-127"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
-<a name="./decrets_divers.catala_fr-128"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Mayotte</span><span class="o">)</span>
-<a name="./decrets_divers.catala_fr-129"></a>    <span class="o">)</span>
-<a name="./decrets_divers.catala_fr-130"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">7,57</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-131"></a>```
-</pre></div>
-</td></tr></table>
-</div>
-
-</div>
-<h3 class='law-heading'>Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance</h3>
-<div class='article-container'>
-
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000039640195/2021-04-02'>Article 1</a></div>
-<p class='law-text'>A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à
-l' article L. 2211-1 du code du travail , le montant du salaire minimum de
-croissance est relevé dans les conditions ci-après :<br/>
-1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion,
-à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon,
-son montant est porté à 10,15 € l'heure ;</p>
-<div class='code-wrapper'>
-<div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-145">145</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-146">146</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-147">147</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-148">148</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-149">149</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-150">150</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-151">151</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-152">152</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-153">153</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-154">154</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-155">155</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-156">156</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-157">157</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-158">158</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-159">159</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-145"></a>```catala
-<a name="./decrets_divers.catala_fr-146"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-147"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-148"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
-<a name="./decrets_divers.catala_fr-149"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Métropole</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-150"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-151"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-152"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-153"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-154"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-155"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-156"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintPierreEtMiquelon</span><span class="o">)</span>
-<a name="./decrets_divers.catala_fr-157"></a>    <span class="o">)</span>
-<a name="./decrets_divers.catala_fr-158"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">10,15</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-159"></a>```
-</pre></div>
-</td></tr></table>
-</div>
-<p class='law-text'>2° A Mayotte, son montant est fixé à 7,66 € l'heure.</p>
-<div class='code-wrapper'>
-<div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-163">163</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-164">164</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-165">165</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-166">166</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-167">167</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-168">168</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-169">169</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-170">170</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-163"></a>```catala
-<a name="./decrets_divers.catala_fr-164"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-165"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-166"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
-<a name="./decrets_divers.catala_fr-167"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Mayotte</span><span class="o">)</span>
-<a name="./decrets_divers.catala_fr-168"></a>    <span class="o">)</span>
-<a name="./decrets_divers.catala_fr-169"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">7,66</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-170"></a>```
-</pre></div>
-</td></tr></table>
-</div>
-
-</div>
-<h3 class='law-heading'>Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance</h3>
-<div class='article-container'>
-
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/JORFARTI000042677367/2021-04-02'>Article 1</a></div>
-<p class='law-text'>A compter du 1er janvier 2021, pour les catégories de travailleurs mentionnés à
-l'article L. 2211-1 du code du travail, le montant du salaire minimum de
-croissance est relevé dans les conditions ci-après :<br/>
-1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion,
-à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon,
-son montant est porté à 10,25 € l'heure ;</p>
-<div class='code-wrapper'>
-<div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-184">184</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-185">185</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-186">186</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-187">187</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-188">188</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-189">189</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-190">190</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-191">191</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-192">192</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-193">193</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-194">194</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-195">195</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-196">196</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-197">197</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-198">198</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-184"></a>```catala
-<a name="./decrets_divers.catala_fr-185"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-186"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-187"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
-<a name="./decrets_divers.catala_fr-188"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Métropole</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-189"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-190"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-191"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-192"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-193"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-194"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span> <span class="o">ou</span>
-<a name="./decrets_divers.catala_fr-195"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintPierreEtMiquelon</span><span class="o">)</span>
-<a name="./decrets_divers.catala_fr-196"></a>    <span class="o">)</span>
-<a name="./decrets_divers.catala_fr-197"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">10,25</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-198"></a>```
-</pre></div>
-</td></tr></table>
-</div>
-<p class='law-text'>2° A Mayotte, son montant est fixé à 7,74 € l'heure.</p>
-<div class='code-wrapper'>
-<div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-202">202</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-203">203</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-204">204</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-205">205</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-206">206</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-207">207</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-208">208</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-209">209</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-202"></a>```catala
-<a name="./decrets_divers.catala_fr-203"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-204"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-205"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
-<a name="./decrets_divers.catala_fr-206"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Mayotte</span><span class="o">)</span>
-<a name="./decrets_divers.catala_fr-207"></a>    <span class="o">)</span>
-<a name="./decrets_divers.catala_fr-208"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">7,74</span> <span class="o">€</span>
-<a name="./decrets_divers.catala_fr-209"></a>```
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-170">170</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-171">171</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-172">172</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-173">173</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-174">174</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-175">175</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-176">176</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-177">177</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-178">178</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-179">179</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-180">180</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-181">181</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-182">182</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-183">183</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-184">184</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-185">185</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-170"></a>```catala
+<a name="./decrets_divers.catala_fr-171"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-172"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-173"></a>  <span class="kd">définition</span> <span class="nv">plafond_I_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-174"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-175"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">57</span> <span class="mi">759</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-176"></a>    <span class="mi">5</span> <span class="mi">775</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-177"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-178"></a>
+<a name="./decrets_divers.catala_fr-179"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-180"></a>  <span class="kd">définition</span> <span class="nv">plafond_II_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-181"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-182"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">80</span> <span class="mi">831</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-183"></a>    <span class="mi">5</span> <span class="mi">775</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-184"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-185"></a>```
 </pre></div>
 </td></tr></table>
 </div>
@@ -2445,7 +2397,7 @@ son montant est porté à 10,25 € l'heure ;</p>
 <h3 class='law-heading'>Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations</h3>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/JORFARTI000042694985/2021-04-02'>Article 1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/JORFARTI000042694985/2021-04-12'>Article 1</a></div>
 <p class='law-text'>I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2
 du code de la sécurité sociale relatif aux allocations familiales, à la majoration
 pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article
@@ -2453,23 +2405,23 @@ L. 521-1 est fixé à 58 279 euros pour la période du 1er janvier 2021 au 31
 décembre 2021. Il est majoré de 5 827 euros par enfant à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./decrets_divers.catala_fr</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-221">221</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-222">222</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-223">223</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-224">224</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-225">225</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-226">226</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-227">227</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-228">228</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-229">229</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-221"></a>```catala
-<a name="./decrets_divers.catala_fr-222"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-223"></a>  <span class="kd">exception</span>
-<a name="./decrets_divers.catala_fr-224"></a>  <span class="kd">définition</span> <span class="nv">plafond_I_d521_3</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-225"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
-<a name="./decrets_divers.catala_fr-226"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">58</span> <span class="mi">279</span> <span class="o">€</span> <span class="o">+€</span>
-<a name="./decrets_divers.catala_fr-227"></a>    <span class="mi">5</span> <span class="mi">827</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
-<a name="./decrets_divers.catala_fr-228"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
-<a name="./decrets_divers.catala_fr-229"></a>```
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-197">197</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-198">198</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-199">199</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-200">200</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-201">201</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-202">202</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-203">203</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-204">204</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-205">205</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-197"></a>```catala
+<a name="./decrets_divers.catala_fr-198"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-199"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-200"></a>  <span class="kd">définition</span> <span class="nv">plafond_I_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-201"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-202"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">58</span> <span class="mi">279</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-203"></a>    <span class="mi">5</span> <span class="mi">827</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-204"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-205"></a>```
 </pre></div>
 </td></tr></table>
 </div>
@@ -2480,6 +2432,42 @@ L. 521-1 est fixé à 81 558 euros pour la période du 1er janvier 2021 au 31
 décembre 2021. Il est majoré de 5 827 euros par enfant à charge.</p>
 <div class='code-wrapper'>
 <div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-213">213</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-214">214</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-215">215</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-216">216</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-217">217</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-218">218</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-219">219</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-220">220</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-221">221</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-213"></a>```catala
+<a name="./decrets_divers.catala_fr-214"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-215"></a>  <span class="kd">exception</span>
+<a name="./decrets_divers.catala_fr-216"></a>  <span class="kd">définition</span> <span class="nv">plafond_II_d521_3</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-217"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
+<a name="./decrets_divers.catala_fr-218"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">81</span> <span class="mi">558</span> <span class="o">€</span> <span class="o">+€</span>
+<a name="./decrets_divers.catala_fr-219"></a>    <span class="mi">5</span> <span class="mi">827</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
+<a name="./decrets_divers.catala_fr-220"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
+<a name="./decrets_divers.catala_fr-221"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+
+<h2 class='law-heading'>Montant du salaire minimum de croissance</h2>
+<h3 class='law-heading'>Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance</h3>
+<div class='article-container'>
+
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/JORFARTI000037833214/2021-04-12'>Article 1</a></div>
+<p class='law-text'>A compter du 1er janvier 2019, pour les catégories de travailleurs mentionnés à
+l'article L. 2211-1 du code du travail, le montant du salaire minimum de
+croissance est relevé dans les conditions ci-après :<br/>
+1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion,
+à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon,
+son montant est porté à 10,03 € l'heure.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-237">237</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-238">238</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-239">239</a></span>
@@ -2488,15 +2476,182 @@ décembre 2021. Il est majoré de 5 827 euros par enfant à charge.</p>
 <span class="normal"><a href="#./decrets_divers.catala_fr-242">242</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-243">243</a></span>
 <span class="normal"><a href="#./decrets_divers.catala_fr-244">244</a></span>
-<span class="normal"><a href="#./decrets_divers.catala_fr-245">245</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-237"></a>```catala
-<a name="./decrets_divers.catala_fr-238"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span> <span class="o">:</span>
-<a name="./decrets_divers.catala_fr-239"></a>  <span class="kd">exception</span>
-<a name="./decrets_divers.catala_fr-240"></a>  <span class="kd">définition</span> <span class="nv">plafond_II_d521_3</span> <span class="kd">sous condition</span>
-<a name="./decrets_divers.catala_fr-241"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>|
-<a name="./decrets_divers.catala_fr-242"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">81</span> <span class="mi">558</span> <span class="o">€</span> <span class="o">+€</span>
-<a name="./decrets_divers.catala_fr-243"></a>    <span class="mi">5</span> <span class="mi">827</span> <span class="o">€</span> ×<span class="o">€</span> <span class="o">(</span><span class="nv">entier_vers_décimal</span> <span class="kr">de</span>
-<a name="./decrets_divers.catala_fr-244"></a>      <span class="o">(</span><span class="kt">nombre</span> <span class="kr">de</span> <span class="nv">enfants_à_charge_droit_ouvert_prestation_familiale</span><span class="o">))</span>
-<a name="./decrets_divers.catala_fr-245"></a>```
+<span class="normal"><a href="#./decrets_divers.catala_fr-245">245</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-246">246</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-247">247</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-248">248</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-249">249</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-250">250</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-251">251</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-237"></a>```catala
+<a name="./decrets_divers.catala_fr-238"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-239"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-240"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
+<a name="./decrets_divers.catala_fr-241"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Métropole</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-242"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-243"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-244"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-245"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-246"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-247"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-248"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintPierreEtMiquelon</span><span class="o">)</span>
+<a name="./decrets_divers.catala_fr-249"></a>    <span class="o">)</span>
+<a name="./decrets_divers.catala_fr-250"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">10,03</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-251"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+<p class='law-text'>2° A Mayotte, son montant est fixé à 7,57 € l'heure.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-255">255</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-256">256</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-257">257</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-258">258</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-259">259</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-260">260</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-261">261</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-262">262</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-255"></a>```catala
+<a name="./decrets_divers.catala_fr-256"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-257"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-258"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2019</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
+<a name="./decrets_divers.catala_fr-259"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Mayotte</span><span class="o">)</span>
+<a name="./decrets_divers.catala_fr-260"></a>    <span class="o">)</span>
+<a name="./decrets_divers.catala_fr-261"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">7,57</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-262"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<h3 class='law-heading'>Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance</h3>
+<div class='article-container'>
+
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000039640195/2021-04-12'>Article 1</a></div>
+<p class='law-text'>A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à
+l' article L. 2211-1 du code du travail , le montant du salaire minimum de
+croissance est relevé dans les conditions ci-après :<br/>
+1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion,
+à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon,
+son montant est porté à 10,15 € l'heure ;</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-276">276</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-277">277</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-278">278</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-279">279</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-280">280</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-281">281</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-282">282</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-283">283</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-284">284</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-285">285</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-286">286</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-287">287</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-288">288</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-289">289</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-290">290</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-276"></a>```catala
+<a name="./decrets_divers.catala_fr-277"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-278"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-279"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
+<a name="./decrets_divers.catala_fr-280"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Métropole</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-281"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-282"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-283"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-284"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-285"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-286"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-287"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintPierreEtMiquelon</span><span class="o">)</span>
+<a name="./decrets_divers.catala_fr-288"></a>    <span class="o">)</span>
+<a name="./decrets_divers.catala_fr-289"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">10,15</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-290"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+<p class='law-text'>2° A Mayotte, son montant est fixé à 7,66 € l'heure.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-294">294</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-295">295</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-296">296</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-297">297</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-298">298</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-299">299</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-300">300</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-301">301</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-294"></a>```catala
+<a name="./decrets_divers.catala_fr-295"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-296"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-297"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2020</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
+<a name="./decrets_divers.catala_fr-298"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Mayotte</span><span class="o">)</span>
+<a name="./decrets_divers.catala_fr-299"></a>    <span class="o">)</span>
+<a name="./decrets_divers.catala_fr-300"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">7,66</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-301"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+
+</div>
+<h3 class='law-heading'>Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance</h3>
+<div class='article-container'>
+
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/JORFARTI000042677367/2021-04-12'>Article 1</a></div>
+<p class='law-text'>A compter du 1er janvier 2021, pour les catégories de travailleurs mentionnés à
+l'article L. 2211-1 du code du travail, le montant du salaire minimum de
+croissance est relevé dans les conditions ci-après :<br/>
+1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion,
+à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon,
+son montant est porté à 10,25 € l'heure ;</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-315">315</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-316">316</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-317">317</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-318">318</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-319">319</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-320">320</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-321">321</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-322">322</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-323">323</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-324">324</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-325">325</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-326">326</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-327">327</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-328">328</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-329">329</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-315"></a>```catala
+<a name="./decrets_divers.catala_fr-316"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-317"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-318"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
+<a name="./decrets_divers.catala_fr-319"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Métropole</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-320"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guadeloupe</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-321"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Guyane</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-322"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Martinique</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-323"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">LaRéunion</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-324"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintBarthélemy</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-325"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintMartin</span><span class="o">)</span> <span class="o">ou</span>
+<a name="./decrets_divers.catala_fr-326"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">SaintPierreEtMiquelon</span><span class="o">)</span>
+<a name="./decrets_divers.catala_fr-327"></a>    <span class="o">)</span>
+<a name="./decrets_divers.catala_fr-328"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">10,25</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-329"></a>```
+</pre></div>
+</td></tr></table>
+</div>
+<p class='law-text'>2° A Mayotte, son montant est fixé à 7,74 € l'heure.</p>
+<div class='code-wrapper'>
+<div class='filename'>./decrets_divers.catala_fr</div>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span class="normal"><a href="#./decrets_divers.catala_fr-333">333</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-334">334</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-335">335</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-336">336</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-337">337</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-338">338</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-339">339</a></span>
+<span class="normal"><a href="#./decrets_divers.catala_fr-340">340</a></span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><a name="./decrets_divers.catala_fr-333"></a>```catala
+<a name="./decrets_divers.catala_fr-334"></a><span class="kd">champ d&#39;application</span> <span class="nc">Smic</span> <span class="o">:</span>
+<a name="./decrets_divers.catala_fr-335"></a>  <span class="kd">définition</span> <span class="nv">brut_horaire</span> <span class="kd">sous condition</span>
+<a name="./decrets_divers.catala_fr-336"></a>    <span class="nv">date_courante</span> ≥@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">01</span><span class="o">-</span><span class="mi">01</span>| <span class="o">et</span> <span class="nv">date_courante</span> ≤@ |<span class="mi">2021</span><span class="o">-</span><span class="mi">12</span><span class="o">-</span><span class="mi">31</span>| <span class="o">et</span> <span class="o">(</span>
+<a name="./decrets_divers.catala_fr-337"></a>      <span class="o">(</span><span class="nv">résidence</span> <span class="o">=</span> <span class="nc">Mayotte</span><span class="o">)</span>
+<a name="./decrets_divers.catala_fr-338"></a>    <span class="o">)</span>
+<a name="./decrets_divers.catala_fr-339"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">7,74</span> <span class="o">€</span>
+<a name="./decrets_divers.catala_fr-340"></a>```
 </pre></div>
 </td></tr></table>
 </div>
@@ -2569,7 +2724,7 @@ la fonction du bloc de code ci-dessous.</p>
 <a name="./epilogue.catala_fr-26"></a>
 <a name="./epilogue.catala_fr-27"></a>
 <a name="./epilogue.catala_fr-28"></a><span class="kd">champ d&#39;application</span> <span class="nc">AllocationsFamiliales</span><span class="o">:</span>
-<a name="./epilogue.catala_fr-29"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
+<a name="./epilogue.catala_fr-29"></a>  <span class="kd">définition</span> <span class="nv">montant_initial_métropole_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span> <span class="kd">sous condition</span>
 <a name="./epilogue.catala_fr-30"></a>    <span class="o">non</span> <span class="o">(</span><span class="nv">droit_ouvert_majoration</span> <span class="kr">de</span> <span class="nv">enfant</span><span class="o">)</span>
 <a name="./epilogue.catala_fr-31"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">0</span> <span class="o">€</span>
 <a name="./epilogue.catala_fr-32"></a>
@@ -2679,7 +2834,7 @@ d'informations sur les enfants à charge.</p>
 <h4 class='law-heading'>Code de l'éducation</h4>
 <div class='article-container'>
 
-<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038901859/2021-04-02'>Article L131-1</a></div>
+<div class='article-title'><a href='https://legifrance.gouv.fr/codes/id/LEGIARTI000038901859/2021-04-12'>Article L131-1</a></div>
 <p class='law-text'>L'instruction est obligatoire pour chaque enfant dès l'âge de trois ans et
 jusqu'à l'âge de seize ans.<br/>
 La présente disposition ne fait pas obstacle à l'application des prescriptions

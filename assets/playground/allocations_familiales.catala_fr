@@ -107,8 +107,6 @@ déclaration champ d'application AllocationsFamiliales:
 
   # Variables liées à la base des allications familiales
   contexte droit_ouvert_base condition
-  contexte montant_versé_base contenu argent
-  contexte montant_avec_garde_alternée_base contenu argent
   contexte montant_initial_base contenu argent
   contexte montant_initial_base_premier_enfant contenu argent
   contexte montant_initial_base_deuxième_enfant contenu argent
@@ -116,6 +114,8 @@ déclaration champ d'application AllocationsFamiliales:
   contexte rapport_enfants_total_moyen contenu décimal
   contexte nombre_moyen_enfants contenu décimal
   contexte nombre_total_enfants contenu décimal
+  contexte montant_avec_garde_alternée_base contenu argent
+  contexte montant_versé_base contenu argent
 
   # Variables liées à l'allocation forfaitaire
   contexte droit_ouvert_forfaitaire condition dépend de Enfant
@@ -123,16 +123,17 @@ déclaration champ d'application AllocationsFamiliales:
 
   # Variables liées aux majorations des allocations familiales
   contexte droit_ouvert_majoration condition dépend de Enfant
-  contexte montant_versé_majoration contenu argent
-  contexte montant_avec_garde_alternée_majoration contenu argent dépend de Enfant
+  contexte montant_initial_métropole_majoration contenu argent dépend de Enfant
   contexte montant_initial_majoration contenu argent dépend de Enfant
+  contexte montant_avec_garde_alternée_majoration contenu argent dépend de Enfant
+  contexte montant_versé_majoration contenu argent
 
   # Variables liées au complément dégressif
   contexte droit_ouvert_complément condition
-  contexte montant_versé_complément_pour_base_et_majoration contenu argent
   contexte montant_base_complément_pour_base_et_majoration contenu argent
-  contexte montant_versé_complément_pour_forfaitaire contenu argent
   contexte complément_dégressif contenu argent dépend de argent
+  contexte montant_versé_complément_pour_base_et_majoration contenu argent
+  contexte montant_versé_complément_pour_forfaitaire contenu argent
 
   # Sous-champs d'applications
   contexte prestations_familiales champ d'application PrestationsFamiliales
@@ -159,10 +160,9 @@ champ d'application AllocationsFamiliales:
 
 ```
 > Fin métadonnées
-## Instructions ministérielles
+## Montant de la base mensuelle des allocations familiales
 
-
-#### [INSTRUCTION INTERMINISTERIELLE N° DSS/SD2B/2019/65 du 25 mars 2019 relative
+### [INSTRUCTION INTERMINISTERIELLE N° DSS/SD2B/2019/65 du 25 mars 2019 relative
 à la revalorisation au 1er avril 2019 des prestations familiales servies en
 métropole]
 
@@ -188,7 +188,7 @@ champ d'application PrestationsFamiliales :
   conséquence égal à 413,16 €
 ```
 
-#### [Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020
+### [Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020
 relative à la revalorisation au 1er avril 2020 des prestations
 familiales servies en métropole, en Guadeloupe, en Guyane, en
 Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans
@@ -212,7 +212,103 @@ champ d'application PrestationsFamiliales :
   conséquence égal à 414,4 €
 ```
 
-#### [Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019
+### [Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021
+relative à la revalorisation au 1er avril 2021 des prestations
+familiales servies en métropole, en Guadeloupe, en Guyane,
+en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin
+et dans le département de Mayotte]
+
+Au 1er avril 2021, le coefficient de revalorisation de la BMAF est ainsi fixé à
+1,001 soit un taux de revalorisation de la BMAF de 0,1 %. Le montant de cette
+base mensuelle, en pourcentage duquel sont fixées les prestations familiales,
+est donc porté de 414,4 € au 1er avril 2020 à 414,81 € au 1er avril 2021.
+
+```catala
+champ d'application PrestationsFamiliales :
+  définition base_mensuelle
+  sous condition
+    date_courante >=@ |2021-04-01| et
+    date_courante <@ |2022-04-01|
+  conséquence égal à 414,81 €
+```
+
+## Montant des plafonds de ressources
+
+### [CIRCULAIRE INTERMINISTERIELLE N° DSS/SD2B/2017/352 du 22 décembre 2017
+relative à la revalorisation au 1er janvier 2018 des plafonds de ressources
+d’attribution de certaines prestations familiales servies en métropole, en
+Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy,
+à Saint-Martin et à Mayotte]
+
+Plafonds de ressources applicables pour l’attribution du montant modulé
+des allocations familiales, de la majoration pour âge et de l’allocation
+forfaitaire, du 1er janvier 2018 au 31 décembre 2018 (à comparer au revenu
+ net catégoriel de l'année 2016).
+
+La première tranche est celle dont les revenus sont inférieurs ou égaux
+à un plafond de base de 56 286 € majoré de 5 628 euros par enfant
+à charge. La deuxième tranche est celle dont les revenus sont supérieurs à un
+plafond de base de 56 286 euros majoré de 5 628 euros par enfant à charge mais
+inférieurs ou égaux au plafond de base de 78 770 euros majoré de 5 628 euros
+par enfant à charge. La troisième tranche est celle dont les revenus
+sont supérieurs au plafond de base de 78 770 euros majoré de
+5 628 euros par enfant à charge.
+
+```catala
+champ d'application AllocationsFamiliales :
+  exception
+  définition plafond_I_d521_3 sous condition
+    date_courante >=@ |2018-01-01| et date_courante <=@ |2018-12-31|
+  conséquence égal à 56 286 € +€
+    5 628 € *€ (entier_vers_décimal de
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+
+  exception
+  définition plafond_II_d521_3 sous condition
+    date_courante >=@ |2018-01-01| et date_courante <=@ |2018-12-31|
+  conséquence égal à 78 770 € +€
+    5 628 € *€ (entier_vers_décimal de
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+```
+
+### [Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018
+relative à la revalorisation au 1er janvier 2019 des plafonds de ressources
+d’attribution de certaines prestations familiales servies en métropole, en
+Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy,
+à Saint-Martin et à Mayotte]
+
+Plafonds de ressources applicables pour l’attribution du montant
+modulé des allocations familiales, de la majoration pour âge et
+de l’allocation forfaitaire, du 1er janvier 2019 au 31 décembre
+2019 (à comparer au revenu net catégoriel de l'année 2017).
+
+La première tranche est celle dont les revenus sont inférieurs ou
+égaux à un plafond de base de 56 849 € majoré de 5 684 euros
+par enfant à charge. La deuxième tranche est celle dont les revenus sont
+supérieurs à un plafond de base de 56 849 euros majoré de 5 684 euros
+par enfant à charge mais inférieurs ou égaux au plafond de base de
+79 558 euros majoré de 5 684 euros par enfant à charge. La troisième
+tranche est celle dont les revenus sont supérieurs au plafond de
+base de 79 558 euros majoré de 5 684 euros par enfant à charge.
+
+```catala
+champ d'application AllocationsFamiliales :
+  exception
+  définition plafond_I_d521_3 sous condition
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31|
+  conséquence égal à 56 849 € +€
+    5 684 € *€ (entier_vers_décimal de
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+
+  exception
+  définition plafond_II_d521_3 sous condition
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31|
+  conséquence égal à 79 558 € +€
+    5 684 € *€ (entier_vers_décimal de
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+```
+
+### [Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019
 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources
 d’attribution de certaines prestations familiales servies en métropole,
 en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy,
@@ -249,7 +345,43 @@ champ d'application AllocationsFamiliales :
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
 ```
 
-## Décrets divers
+### Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations
+
+#### [Article 1|JORFARTI000042694985]
+
+I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2
+du code de la sécurité sociale relatif aux allocations familiales, à la majoration
+pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article
+L. 521-1 est fixé à 58 279 euros pour la période du 1er janvier 2021 au 31
+décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
+
+```catala
+champ d'application AllocationsFamiliales :
+  exception
+  définition plafond_I_d521_3 sous condition
+    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31|
+  conséquence égal à 58 279 € +€
+    5 827 € *€ (entier_vers_décimal de
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+```
+
+II. - Le plafond de ressources prévu au 2° du I des articles D. 521-1 et
+D. 521-2 du même code relatif aux allocations familiales, à la majoration
+pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article
+L. 521-1 est fixé à 81 558 euros pour la période du 1er janvier 2021 au 31
+décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
+
+```catala
+champ d'application AllocationsFamiliales :
+  exception
+  définition plafond_II_d521_3 sous condition
+    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31|
+  conséquence égal à 81 558 € +€
+    5 827 € *€ (entier_vers_décimal de
+      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
+```
+
+## Montant du salaire minimum de croissance
 
 ### Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance
 
@@ -366,42 +498,6 @@ champ d'application Smic :
       (résidence = Mayotte)
     )
   conséquence égal à 7,74 €
-```
-
-### Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations
-
-#### [Article 1|JORFARTI000042694985]
-
-I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2
-du code de la sécurité sociale relatif aux allocations familiales, à la majoration
-pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article
-L. 521-1 est fixé à 58 279 euros pour la période du 1er janvier 2021 au 31
-décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
-
-```catala
-champ d'application AllocationsFamiliales :
-  exception
-  définition plafond_I_d521_3 sous condition
-    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31|
-  conséquence égal à 58 279 € +€
-    5 827 € *€ (entier_vers_décimal de
-      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
-```
-
-II. - Le plafond de ressources prévu au 2° du I des articles D. 521-1 et
-D. 521-2 du même code relatif aux allocations familiales, à la majoration
-pour âge et à l'allocation forfaitaire prévue au deuxième alinéa de l'article
-L. 521-1 est fixé à 81 558 euros pour la période du 1er janvier 2021 au 31
-décembre 2021. Il est majoré de 5 827 euros par enfant à charge.
-
-```catala
-champ d'application AllocationsFamiliales :
-  exception
-  définition plafond_II_d521_3 sous condition
-    date_courante >=@ |2021-01-01| et date_courante <=@ |2021-12-31|
-  conséquence égal à 81 558 € +€
-    5 827 € *€ (entier_vers_décimal de
-      (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
 ```
 ## Code de la sécurité sociale
 
@@ -1107,7 +1203,7 @@ prestations familiales ;
 champ d'application AllocationsFamiliales sous condition
   ressources_ménage <=€ plafond_I_d521_3:
 
-  définition montant_initial_majoration de enfant
+  définition montant_initial_métropole_majoration de enfant
   sous condition
     droit_ouvert_majoration de enfant
   conséquence égal à
@@ -1148,7 +1244,7 @@ champ d'application AllocationsFamiliales sous condition
   (ressources_ménage >€ plafond_I_d521_3) et
   (ressources_ménage <=€ plafond_II_d521_3):
 
-  définition montant_initial_majoration de enfant sous condition
+  définition montant_initial_métropole_majoration de enfant sous condition
     droit_ouvert_majoration de enfant
   conséquence égal à
     prestations_familiales.base_mensuelle *€ 8 %
@@ -1184,7 +1280,7 @@ prestations familiales.
 champ d'application AllocationsFamiliales sous condition
   ressources_ménage >€ plafond_II_d521_3:
 
-  définition montant_initial_majoration de enfant sous condition
+  définition montant_initial_métropole_majoration de enfant sous condition
     droit_ouvert_majoration de enfant
   conséquence égal à
     prestations_familiales.base_mensuelle *€ 4 %
@@ -1410,8 +1506,10 @@ champ d'application AllocationsFamiliales :
   sous condition prestations_familiales.régime_outre_mer_l751_1
   conséquence égal à âge_minimum_alinéa_1_l521_3_outre_mer de enfant
 
-  définition
-    montant_initial_majoration de enfant
+  définition montant_initial_majoration de enfant égal à
+    montant_initial_métropole_majoration de enfant
+
+  exception définition montant_initial_majoration de enfant
   sous condition
     (droit_ouvert_majoration de enfant) et
     prestations_familiales.régime_outre_mer_l751_1 et
@@ -1447,7 +1545,7 @@ champ d'application EnfantLePlusÂgé:
 
 
 champ d'application AllocationsFamiliales:
-  définition montant_initial_majoration de enfant sous condition
+  définition montant_initial_métropole_majoration de enfant sous condition
     non (droit_ouvert_majoration de enfant)
   conséquence égal à 0 €
 
@@ -1726,5 +1824,26 @@ champ d'application Test8:
   règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 197,74€
 
+déclaration champ d'application Test9:
+  contexte f champ d'application InterfaceAllocationsFamiliales
 
+champ d'application Test9:
+  définition f.enfants égal à [EnfantEntrée {
+    -- d_identifiant: 0
+    -- d_date_de_naissance: |2001-07-27|
+    -- d_rémuneration_mensuelle: 1258€
+    -- d_prise_en_charge: ServicesSociauxAllocationVerséeAuxServicesSociaux
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };EnfantEntrée {
+    -- d_identifiant: 1
+    -- d_date_de_naissance: |2008-04-27|
+    -- d_rémuneration_mensuelle: 1766€
+    -- d_prise_en_charge: ServicesSociauxAllocationVerséeAuxServicesSociaux
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  }]
+  définition f.ressources_ménage égal à 75786 €
+  définition f.date_courante égal à |2020-05-01|
+  définition f.résidence égal à Guadeloupe
+  règle f.personne_charge_effective_permanente_est_parent rempli
+  assertion f.montant_versé = 0€
 ```
