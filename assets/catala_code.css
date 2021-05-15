@@ -7,20 +7,43 @@
   opacity: 30%;
 }
 
-.catala-code .article-title, .catala-code h1, .catala-code h2, .catala-code h3, .catala-code h4, .catala-code h5, .catala-code h6 {
+.catala-code .code-metadata {
+  border: solid;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+  border-color: #37445d;
+}
+
+.catala-code h1,
+.catala-code h2,
+.catala-code h3,
+.catala-code h4,
+.catala-code h5,
+.catala-code h6,
+.catala-code h7,
+.catala-code h8,
+.catala-code h9 {
+  display: block;
   font-weight: bold;
   color: #ffffff;
-  margin-top:0.5rem;
-  margin-bottom:0.5rem;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
   text-align: center;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .catala-code ul {
   padding-left: 3rem;
 }
 
-.catala-code ul, .catala_code li {
+.catala-code ul,
+.catala_code li {
   list-style-type: disc !important;
 }
 
@@ -30,39 +53,80 @@
   font-size: 1rem;
 }
 
-.catala-code .article-title {
-  background-color: #5c75a2;
-}
-
 .catala-code h1 {
-  font-size: 2.25rem;
+  font-size: 3rem;
+  background-color: #323e54;
+  line-height: 3rem;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 .catala-code h2 {
-  font-size: 2rem;
+  font-size: 2.75rem;
+  line-height: 2.75rem;
+  background-color: #37445d;
+  padding-bottom: 1.5rem;
+  padding-top: 1.5rem;
 }
 
 .catala-code h3 {
-  font-size: 1.75rem;
+  font-size: 2.5rem;
+  line-height: 2.5rem;
+  background-color: #3c4b67;
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
 }
 
 .catala-code h4 {
-  font-size: 1.5rem;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  background-color: #415271;
+  padding-bottom: 1.25rem;
+  padding-top: 1rem;
 }
 
 .catala-code h5 {
-  font-size: 1.25rem;
+  font-size: 2rem;
+  line-height: 2rem;
+  background-color: #47597b;
+  padding-bottom: 1rem;
+  padding-top: 0.75rem;
 }
 
 .catala-code h6 {
+  font-size: 1.75rem;
+  line-height: 1.75rem;
+  background-color: #4c6084;
+  padding-bottom: 0.75rem;
+  padding-top: 0.75rem;
+}
+
+.catala-code h7 {
+  font-size: 1.5rem;
+  line-height: 1.5rem;
+  background-color: #51678e;
+  padding-bottom: 0.5rem;
+  padding-top: 0.5rem;
+}
+
+.catala-code h8 {
+  font-size: 1.25rem;
+  line-height: 1.25rem;
+  background-color: #566e98;
+  padding-bottom: 0.25rem;
+  padding-top: 0.5rem;
+}
+
+.catala-code h9 {
   font-size: 1rem;
+  line-height: 1rem;
+  background-color: #5c75a2;
+  padding-bottom: 0rem;
+  padding-top: 0rem;
 }
 
-.catala-code h1, .catala-code h2, .catala-code h3, .catala-code h4, .catala-code h5, .catala-code h6 {
-  background-color: #323e54;
-}
-
-.catala-code td, th {
+.catala-code td,
+th {
   padding-left: 1rem !important;
 }
 

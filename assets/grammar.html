@@ -112,7 +112,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">atomic_expression</span></th>
-        <td><span class="nonterminal">ident</span></td>
+        <td>IDENT</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -179,22 +179,6 @@
       <tr>
         <th class="bar"></th>
         <td>CARDINAL</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>INT_TO_DEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GET_DAY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GET_MONTH</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GET_YEAR</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -922,28 +906,13 @@
       
       <tr class="rule">
         <th><span class="nonterminal">metadata_block</span></th>
-        <td>BEGIN_CODE
+        <td>BEGIN_METADATA
         <span class="option"><span class="nonterminal">law_text</span></span>
+        BEGIN_CODE
         <span class="nonterminal">code</span>
         END_CODE
         <span class="option"><span class="nonterminal">law_text</span></span>
         END_METADATA</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">law_article_item</span></th>
-        <td><span class="nonterminal">law_text</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>BEGIN_CODE
-        <span class="nonterminal">code</span>
-        END_CODE</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">law_article</span></th>
-        <td>LAW_ARTICLE</td>
       </tr>
       
       <tr class="rule">
@@ -952,88 +921,41 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">law_articles_items</span></th>
-        <td><span class="list"><span class="nonterminal">law_article_item</span></span></td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">law_text</span></th>
         <td>LAW_TEXT</td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">law_intermediate_text</span></th>
+        <th><span class="nonterminal">source_file_item</span></th>
         <td><span class="nonterminal">law_text</span></td>
       </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">source_file_article</span></th>
-        <td><span class="nonterminal">law_article</span>
-        <span class="nonterminal">law_articles_items</span></td>
+      <tr>
+        <th class="bar"></th>
+        <td>BEGIN_CODE
+        <span class="nonterminal">code</span>
+        END_CODE</td>
       </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">source_file_item</span></th>
+      <tr>
+        <th class="bar"></th>
         <td><span class="nonterminal">law_heading</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>BEGIN_METADATA
-        <span class="option"><span class="nonterminal">law_text</span></span>
-        <span class="nonterminal">metadata_block</span></td>
+        <td><span class="nonterminal">metadata_block</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td>LAW_INCLUDE</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">source_file_after_text</span></th>
-        <td><span class="nonterminal">source_file_article</span>
-        <span class="nonterminal">source_file_after_text</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">source_file_item</span>
-        <span class="list"><span class="nonterminal">law_intermediate_text</span></span>
-        <span class="nonterminal">source_file_after_text</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>EOF</td>
       </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">source_file</span></th>
-        <td><span class="list"><span class="nonterminal">law_intermediate_text</span></span>
-        <span class="nonterminal">source_file_after_text</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">master_file_include</span></th>
-        <td>LAW_INCLUDE</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">master_file_includes</span></th>
-        <td><span class="nonterminal">master_file_include</span>
-        <span class="option"><span class="nonterminal">law_text</span></span>
-        <span class="nonterminal">master_file_includes</span></td>
+        <td><span class="nonterminal">source_file_item</span>
+        <span class="nonterminal">source_file</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td>EOF</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">source_file_or_master</span></th>
-        <td>MASTER_FILE
-        <span class="option"><span class="nonterminal">law_text</span></span>
-        <span class="nonterminal">master_file_includes</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">source_file</span></td>
       </tr>
       
       

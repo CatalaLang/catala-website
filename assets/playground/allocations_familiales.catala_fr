@@ -161,9 +161,7 @@ champ d'application AllocationsFamiliales:
 > Fin métadonnées
 ## Montant de la base mensuelle des allocations familiales
 
-### [INSTRUCTION INTERMINISTERIELLE N° DSS/SD2B/2019/65 du 25 mars 2019 relative
-à la revalorisation au 1er avril 2019 des prestations familiales servies en
-métropole]
+### Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole
 
 Conformément à l’article L. 551-1 du code de la sécurité sociale, le montant
 des prestations familiales est déterminé d'après des bases mensuelles
@@ -187,11 +185,7 @@ champ d'application PrestationsFamiliales :
   conséquence égal à 413,16 €
 ```
 
-### [Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020
-relative à la revalorisation au 1er avril 2020 des prestations
-familiales servies en métropole, en Guadeloupe, en Guyane, en
-Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans
-le département de Mayotte]
+### Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020 relative à la revalorisation au 1er avril 2020 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte
 
 Au titre de l’année 2020, l’article 81 de la loi du 24 décembre 2019 de
 financement de la sécurité sociale a prévu, par dérogation aux dispositions
@@ -211,11 +205,7 @@ champ d'application PrestationsFamiliales :
   conséquence égal à 414,4 €
 ```
 
-### [Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021
-relative à la revalorisation au 1er avril 2021 des prestations
-familiales servies en métropole, en Guadeloupe, en Guyane,
-en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin
-et dans le département de Mayotte]
+### Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021 relative à la revalorisation au 1er avril 2021 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte
 
 Au 1er avril 2021, le coefficient de revalorisation de la BMAF est ainsi fixé à
 1,001 soit un taux de revalorisation de la BMAF de 0,1 %. Le montant de cette
@@ -233,11 +223,7 @@ champ d'application PrestationsFamiliales :
 
 ## Montant des plafonds de ressources
 
-### [CIRCULAIRE INTERMINISTERIELLE N° DSS/SD2B/2017/352 du 22 décembre 2017
-relative à la revalorisation au 1er janvier 2018 des plafonds de ressources
-d’attribution de certaines prestations familiales servies en métropole, en
-Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy,
-à Saint-Martin et à Mayotte]
+### Circulaire interministérielle N° DSS/SD2B/2017/352 du 22 décembre 2017 relative à la revalorisation au 1er janvier 2018 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte
 
 Plafonds de ressources applicables pour l’attribution du montant modulé
 des allocations familiales, de la majoration pour âge et de l’allocation
@@ -270,11 +256,7 @@ champ d'application AllocationsFamiliales :
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
 ```
 
-### [Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018
-relative à la revalorisation au 1er janvier 2019 des plafonds de ressources
-d’attribution de certaines prestations familiales servies en métropole, en
-Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy,
-à Saint-Martin et à Mayotte]
+### Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018 relative à la revalorisation au 1er janvier 2019 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte
 
 Plafonds de ressources applicables pour l’attribution du montant
 modulé des allocations familiales, de la majoration pour âge et
@@ -307,11 +289,7 @@ champ d'application AllocationsFamiliales :
       (nombre de enfants_à_charge_droit_ouvert_prestation_familiale))
 ```
 
-### [Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019
-relative à la revalorisation au 1er janvier 2020 des plafonds de ressources
-d’attribution de certaines prestations familiales servies en métropole,
-en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy,
-à Saint-Martin et à Mayotte]
+### Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte
 
 Plafonds de ressources applicables pour l’attribution du montant modulé des
 allocations familiales, de la majoration pour âge et de l’allocation forfaitaire,
@@ -346,7 +324,7 @@ champ d'application AllocationsFamiliales :
 
 ### Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations
 
-#### [Article 1|JORFARTI000042694985]
+#### Article 1|JORFARTI000042694985
 
 I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2
 du code de la sécurité sociale relatif aux allocations familiales, à la majoration
@@ -384,7 +362,7 @@ champ d'application AllocationsFamiliales :
 
 ### Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance
 
-#### [Article 1|JORFARTI000037833214]
+#### Article 1|JORFARTI000037833214
 
 A compter du 1er janvier 2019, pour les catégories de travailleurs mentionnés à
 l'article L. 2211-1 du code du travail, le montant du salaire minimum de
@@ -423,7 +401,7 @@ champ d'application Smic :
 
 ### Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance
 
-#### [Article 1|LEGIARTI000039640195]
+#### Article 1|LEGIARTI000039640195
 
 A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à
 l' article L. 2211-1 du code du travail , le montant du salaire minimum de
@@ -462,7 +440,7 @@ champ d'application Smic :
 
 ### Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance
 
-#### [Article 1|JORFARTI000042677367]
+#### Article 1|JORFARTI000042677367
 
 A compter du 1er janvier 2021, pour les catégories de travailleurs mentionnés à
 l'article L. 2211-1 du code du travail, le montant du salaire minimum de
@@ -508,7 +486,7 @@ champ d'application Smic :
 
 ###### Chapitre 1er : Liste des prestations
 
-#### [Article L511-1|LEGIARTI000038834530]
+####### Article L511-1|LEGIARTI000038834530
 
 Les prestations familiales comprennent :
 
@@ -536,7 +514,7 @@ Les prestations familiales comprennent :
 
 ###### Chapitre 2 : Champ d'application
 
-#### [Article L512-3|LEGIARTI000038834523]
+####### Article L512-3|LEGIARTI000038834523
 
 Sous réserve des règles particulières à chaque prestation,
 ouvre droit aux prestations familiales :
@@ -591,7 +569,7 @@ peut être différent de celui mentionné au 2° du présent article.
 
 ###### Chapitre 1er : Allocations familiales
 
-#### [Article L521-1|LEGIARTI000029963006]
+####### Article L521-1|LEGIARTI000029963006
 
 Les allocations familiales sont dues à partir du deuxième enfant à charge.
 
@@ -673,7 +651,7 @@ champ d'application AllocationsFamiliales :
   assertion fixé montant_versé_complément par décret
 ```
 
-#### [Article L521-2|LEGIARTI000006743210]
+####### Article L521-2|LEGIARTI000006743210
 
 Les allocations sont versées à la personne qui assume, dans quelques conditions
 que ce soit, la charge effective et permanente de l'enfant.
@@ -787,7 +765,7 @@ d) enfants confiés à un service public, à une institution privée, à un part
 # est confié à un service social.
 ```
 
-#### [Article L521-3|LEGIARTI000006743289]
+####### Article L521-3|LEGIARTI000006743289
 
 Chacun des enfants à charge, à l'exception du plus âgé, ouvre droit à partir
 d'un âge minimum à une majoration des allocations familiales.
@@ -820,7 +798,7 @@ champ d'application AllocationsFamiliales :
 
 ###### Chapitre 1er : Etablissement du salaire de base
 
-#### [Article L551-1|LEGIARTI000031688371]
+####### Article L551-1|LEGIARTI000031688371
 
 Le montant des prestations familiales est déterminé d'après des bases
 mensuelles de calcul revalorisées au 1er avril de chaque année par application
@@ -838,7 +816,7 @@ champ d'application PrestationsFamiliales :
 
 ###### Chapitre 1er : Généralités
 
-#### [Article L751-1|LEGIARTI000031323778]
+####### Article L751-1|LEGIARTI000031323778
 
 Les dispositions du présent titre s'appliquent en Guadeloupe, en Guyane,
 en Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin à
@@ -862,7 +840,7 @@ champ d'application PrestationsFamiliales :
 
 ###### Chapitre 5 : Prestations familiales et prestations assimilées
 
-#### [Article L755-3|LEGIARTI000033728786]
+####### Article L755-3|LEGIARTI000033728786
 
 Les dispositions des articles L. 512-1 à L. 512-4 , L. 513-1 , L. 521-2 ,
 L. 552-1 , L. 553-1 , L. 553-2 , L. 553-4 , L. 582-1 , L. 582-2 , L. 583-3
@@ -875,7 +853,7 @@ fixée en application de l'article L. 551-1 .
 # Aucun changement dans le code, puisque les articles restent applicables
 ```
 
-#### [Article L755-11|LEGIARTI000031323803]
+####### Article L755-11|LEGIARTI000031323803
 
 Les conditions d'attribution des allocations familiales et de leurs majorations
 fixées par les articles L. 521-1 et L. 521-3 sont applicables dans les
@@ -888,7 +866,7 @@ collectivités mentionnées à l'article L. 751-1.
 Toutefois, les dispositions de l'article L. 755-12 restent en vigueur aussi
 longtemps que le présent chapitre V est applicable.
 
-#### [Article L755-12|LEGIARTI000029962999]
+####### Article L755-12|LEGIARTI000029962999
 
 Les allocations familiales sont dues, pour tout enfant, à la personne qui a
 effectivement la charge de celui-ci.
@@ -935,7 +913,7 @@ champ d'application AllocationsFamiliales :
 
 ###### Chapitre 2 : Champ d'application.
 
-#### [Article R512-2|LEGIARTI000006750602]
+####### Article R512-2|LEGIARTI000006750602
 
 Les enfants ouvrent droit aux prestations familiales jusqu'à l'âge de vingt
 ans sous réserve que leur rémunération n'excède pas le plafond fixé au deuxième
@@ -975,7 +953,7 @@ législation sur les assurances sociales.
 
 ###### Chapitre 1er : Allocations familiales
 
-#### [Article R521-1|LEGIARTI000018735853]
+####### Article R521-1|LEGIARTI000018735853
 L'âge mentionné au premier alinéa de l'article L. 521-3 à partir duquel les
 enfants ouvrent droit à la majoration des allocations familiales est fixé à
 14 ans.
@@ -1014,7 +992,7 @@ champ d'application AllocationsFamiliales :
     version_avril_2008.âge_minimum_alinéa_1_l521_3
 ```
 
-#### [Article R521-2|LEGIARTI000006750608]
+####### Article R521-2|LEGIARTI000006750608
 
 Dans les situations visées au deuxième alinéa de l'article L. 521-2 ,
 l'allocataire est celui des deux parents qu'ils désignent d'un commun accord.
@@ -1041,7 +1019,7 @@ ou des enfants.
 # ce programme.
 ```
 
-#### [Article R521-3|LEGIARTI000006750610]
+####### Article R521-3|LEGIARTI000006750610
 
 Sous réserve de l'article R. 521-4, dans les situations visées aux 1° et 2° de
 l'article R. 521-2 , la prestation due à chacun des parents est égale au
@@ -1093,7 +1071,7 @@ champ d'application AllocationsFamiliales :
       enfants_à_charge_droit_ouvert_prestation_familiale)
 ```
 
-#### [Article R521-4|LEGIARTI000006750613]
+####### Article R521-4|LEGIARTI000006750613
 
 Pour l'ouverture du droit à la majoration prévue à l'article L. 521-3 , le
 nombre d'enfants à charge est évalué dans les conditions prévues au premier
@@ -1131,7 +1109,7 @@ champ d'application AllocationsFamiliales :
 
 ###### Chapitre 5 : Prestations familiales et prestations assimilées
 
-#### [Article R755-0-2|LEGIARTI000006752633]
+####### Article R755-0-2|LEGIARTI000006752633
 
 Le plafond de rémunération des enfants à charge mentionnés à l'article
 L. 512-3 est égal, pour un mois, à 55 % du salaire minimum de croissance en
@@ -1154,7 +1132,7 @@ champ d'application PrestationsFamiliales :
 
 ###### Chapitre 1er : Allocations familiales
 
-#### [Article D521-1|LEGIARTI000030680318]
+####### Article D521-1|LEGIARTI000030680318
 
 I.-Pour l'application de l'article L. 521-1 , le montant des allocations
 familiales et de la majoration pour âge prévue à l'article L. 521-3
@@ -1333,7 +1311,7 @@ champ d'application AllocationsFamiliales :
     montant_versé_base +€ montant_versé_majoration
 ```
 
-#### [Article D521-2|LEGIARTI000030680324]
+####### Article D521-2|LEGIARTI000030680324
 
 ```catala
 # L'allocation forfaitaire totale est la somme de toutes les allocations
@@ -1436,7 +1414,7 @@ champ d'application AllocationsFamiliales :
   définition nombre_enfants_l521_1 égal à 3
 ```
 
-#### [Article D521-3|LEGIARTI000030678079]
+####### Article D521-3|LEGIARTI000030678079
 
 I.-Le plafond prévu au 1° du I des articles D. 521-1 et D. 521-2 est fixé à
 55 950 euros. Il est majoré de 5 595 euros par enfant à charge.
@@ -1475,7 +1453,7 @@ sociale, du budget et de l'agriculture.
 
 ###### Chapitre 5 : Prestations familiales et prestations assimilées
 
-#### [Article D755-5|LEGIARTI000006738575]
+####### Article D755-5|LEGIARTI000006738575
 
 I. - Les taux servant au calcul des allocations familiales et de la majoration
 prévue à l'article L. 755-11 sont identiques à ceux mentionnés à l'article
@@ -1639,7 +1617,7 @@ champ d'application InterfaceAllocationsFamiliales:
 
 #### Code de l'éducation
 
-#### [Article L131-1|LEGIARTI000038901859]
+#### Article L131-1|LEGIARTI000038901859
 
 L'instruction est obligatoire pour chaque enfant dès l'âge de trois ans et
 jusqu'à l'âge de seize ans.
@@ -1671,7 +1649,7 @@ champ d'application InterfaceAllocationsFamiliales:
 
 ## Tests
 
-### [Tests]
+### Tests
 
 ```catala
 déclaration champ d'application Données:
