@@ -449,6 +449,10 @@
         <th class="bar"></th>
         <td>DIVMONEY</td>
       </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>DIVDURATION</td>
+      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">mult_expression</span></th>
@@ -599,6 +603,12 @@
       
       <tr class="rule">
         <th><span class="nonterminal">match_arm</span></th>
+        <td>WILDCARD
+        COLON
+        <span class="nonterminal">logical_expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
         <td><span class="nonterminal">constructor_binding</span>
         COLON
         <span class="nonterminal">logical_expression</span></td>
