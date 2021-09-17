@@ -636,7 +636,7 @@ let french_card: Utils.presentation_card = {
       french=`Cet exemple a été utilisé pour illustrer les concepts de Catala pour un sondage
        sur le thème "transformer la loi en code" envoyé par l'association `
     />
-    <Utils.TextLink target="hhttps://openlaw.fr/"> {React.string("OpenLaw")} </Utils.TextLink>
+    <Utils.TextLink target="https://openlaw.fr/"> {React.string("OpenLaw")} </Utils.TextLink>
     <Lang.String english=" association." french=`.` />
   </>,
 }
