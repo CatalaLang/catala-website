@@ -28,10 +28,10 @@ let about: navigation_element = {
   text: <Lang.String english="about" french=`À propos` />,
 }
 
-let playground: navigation_element = {
-  url: "playground",
-  text: <Lang.String english="Playground" french=`Bac à sable` />,
-}
+// let playground: navigation_element = {
+//   url: "playground",
+//   text: <Lang.String english="Playground" french=`Bac à sable` />,
+// }
 
 let doc: navigation_element = {
   url: "doc",
@@ -93,8 +93,8 @@ let url_to_navigation_elements = (url: ReasonReactRouter.url): (
         Some([home, formalization])
       } else if first_path == examples.url {
         Some([home, examples])
-      } else if first_path == playground.url {
-        Some([home, playground])
+        // } else if first_path == playground.url {
+        //   Some([home, playground])
       } else if first_path == doc.url {
         Some([home, doc])
       } else if first_path == about.url {
