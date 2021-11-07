@@ -127,8 +127,8 @@ module FrenchFamilyBenefits = {
         Js.log(err)
         Error(<>
           <Lang.String
-            english="Computation error: check that the current date is between May 2019 and march 2021"
-            french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et mars 2021`
+            english="Computation error: check that the current date is between May 2019 and December 2021"
+            french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et décembre 2021`
           />
         </>)
       }
