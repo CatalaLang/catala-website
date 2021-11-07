@@ -182,11 +182,11 @@ let zulip_link_info: link_info = {
   icon: "chat",
 }
 
-let playground_link_info: link_info = {
-  target: Internal([Elements.home, Elements.playground]),
-  text: <Lang.String english="Online playground" french=`Bac à sable en ligne` />,
-  icon: "play_circle",
-}
+// let playground_link_info: link_info = {
+//   target: Internal([Elements.home, Elements.playground]),
+//   text: <Lang.String english="Online playground" french=`Bac à sable en ligne` />,
+//   icon: "play_circle",
+// }
 
 let doc_link_info: link_info = {
   target: Internal([Elements.home, Elements.doc]),
@@ -229,7 +229,7 @@ let make = () => {
     <div className=%tw("flex flex-row flex-wrap justify-around pt-12")>
       <div className=%tw("my-4")> <LinkBlock lang info=about_link_info /> </div>
       <div className=%tw("my-4")> <LinkBlock lang info=examples_link_info /> </div>
-      <div className=%tw("my-4")> <LinkBlock lang info=playground_link_info /> </div>
+      // <div className=%tw("my-4")> <LinkBlock lang info=playground_link_info />[] </div>
       <div className=%tw("my-4")> <LinkBlock lang info=doc_link_info /> </div>
       <div className=%tw("my-4")> <LinkBlock lang info=formalisation_link_info /> </div>
     </div>
