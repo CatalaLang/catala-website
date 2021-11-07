@@ -1,11 +1,10 @@
-## Prologue
+# Prologue
 
 Avant de présenter les textes réglementaires qui régissent le calcul des
 allocations familiales, il est nécessaire de définir les structures de données
 informatiques qui modélisent la situation dont parlent ces textes législatifs.
 
-> Début métadonnées
-```catala
+```catala-metadata
 déclaration énumération PriseEnCharge :
   -- GardeAlternéePartageAllocations
   -- GardeAlternéeAllocataireUnique
@@ -117,6 +116,13 @@ déclaration champ d'application AllocationsFamiliales:
   contexte montant_avec_garde_alternée_base contenu argent
   contexte montant_versé_base contenu argent
 
+  # Variables liées à Mayotte
+  contexte avait_enfant_à_charge_avant_1er_janvier_2012 condition
+  contexte montant_initial_base_premier_enfant_mayotte contenu argent
+  contexte montant_initial_base_deuxième_enfant_mayotte contenu argent
+  contexte montant_initial_base_troisième_enfant_mayotte contenu argent
+  contexte montant_initial_base_quatrième_enfant_et_plus_mayotte contenu argent
+
   # Variables liées à l'allocation forfaitaire
   contexte droit_ouvert_forfaitaire condition dépend de Enfant
   contexte montant_versé_forfaitaire_par_enfant contenu argent
@@ -158,7 +164,8 @@ champ d'application AllocationsFamiliales:
     résidence
 
 ```
-> Fin métadonnées
+# Décrets divers
+
 ## Montant de la base mensuelle des allocations familiales
 
 ### Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole
@@ -476,17 +483,349 @@ champ d'application Smic :
     )
   conséquence égal à 7,74 €
 ```
-## Code de la sécurité sociale
 
-### Partie législative
+## Dispositions spéciales relatives à Mayotte
 
-#### Livre 5 : Prestations familiales et prestations assimilées
+### Décret n°2002-423 du 29 mars 2002 relatif aux prestations familiales à Mayotte
 
-##### Titre 1 : Champ d'application - Généralités
+#### Article 7|LEGIARTI000036330048
 
-###### Chapitre 1er : Liste des prestations
+Les taux servant au calcul des allocations familiales sont fixés, en
+pourcentage de la base mensuelle de calcul des allocations familiales
+prévue à l'article L. 551-1 du code de la sécurité sociale, ainsi qu'il suit :
 
-####### Article L511-1|LEGIARTI000038834530
+```catala
+champ d'application AllocationsFamiliales :
+  # La formule change à Mayotte par rapport au cas général.
+  exception définition montant_initial_base sous condition
+    résidence = Mayotte
+  conséquence égal à
+    montant_initial_base_premier_enfant_mayotte +€
+    montant_initial_base_deuxième_enfant_mayotte +€
+    montant_initial_base_troisième_enfant_mayotte +€
+    montant_initial_base_quatrième_enfant_et_plus_mayotte
+
+  exception
+  règle droit_ouvert_base sous condition
+    résidence = Mayotte et
+    (nombre de enfants_à_charge_droit_ouvert_prestation_familiale >= 1)
+  conséquence rempli
+
+  # TODO: ici l'on voudrait pouvoir définir montant_initial_base_deuxième_enfant
+  # comme une exception (sous condition de résidence Mayotte) au groupe
+  # de trois définitions sous conditions de l'article D521-1.
+  # Le langage de surface Catala ne permet pas de faire ça pour l'instant,
+  # mais il faudrait rajouter cette feature.
+```
+
+1° 5,88 % pour un seul enfant à charge ;
+```catala
+champ d'application AllocationsFamiliales :
+  définition montant_initial_base_premier_enfant_mayotte égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 5,88 %
+    sinon 0 €
+```
+
+2° 32 % pour deux enfants à charge ;
+```catala
+champ d'application AllocationsFamiliales :
+  définition montant_initial_base_deuxième_enfant_mayotte égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 32 %
+    sinon 0 €
+```
+
+3° 16 % pour le troisième enfant à charge ;
+```catala
+champ d'application AllocationsFamiliales :
+  définition montant_initial_base_troisième_enfant_mayotte égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 16 %
+    sinon 0 €
+```
+
+4° 4,63 % pour le quatrième enfant à charge et chacun des suivants.
+```catala
+champ d'application AllocationsFamiliales :
+  définition montant_initial_base_quatrième_enfant_et_plus_mayotte égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 3
+    alors (prestations_familiales.base_mensuelle *€ 4,63 %) *€ (
+      entier_vers_décimal de
+        ((nombre de enfants_à_charge_droit_ouvert_prestation_familiale) - 3)
+    ) sinon 0 €
+```
+
+#### Annexe|LEGIARTI000036326574
+
+TABLEAU D'ÉVOLUTION DES TAUX SERVANT AU CALCUL DES ALLOCATIONS FAMILIALES
+APPLICABLES DANS LE DÉPARTEMENT DE MAYOTTE POUR LA PÉRIODE DU 1ER JANVIER
+2012 AU 1ER JANVIER 2021, FIXÉS EN APPLICATION DE L'ARTICLE 7 DE L'ORDONNANCE
+N° 2002-149 DU 7 FÉVRIER 2002 MODIFIÉE SUSVISÉE
+
+
+Les taux servant au calcul des allocations familiales (AF) sont fixés, dans le
+tableau ci-après, au 1er janvier de chaque année, en pourcentage de la base
+mensuelle de calcul des allocations familiales (BMAF) prévue à l'article L.
+551-1 du code de la sécurité sociale.
+
+| Année             | Montant AF pour les familles ayant un enfant à charge avant le 1er janvier 2012 | Taux BMAF pour les familles ayant un enfant à charge à compter du 1er janvier 2012 | Taux BMAF pour les familles ayant deux enfants à charge | Taux BMAF pour les familles ayant trois enfants à charge | Taux BMAF pour le 3e enfant à charge | Taux BMAF par enfant supplémentaire à partir du 4e enfant à charge |
+|-------------------|---------------------------------------------------------------------------------|------------------------------------------------------------------------------------|---------------------------------------------------------|----------------------------------------------------------|--------------------------------------|--------------------------------------------------------------------|
+| 2011              | 57,28 €                                                                         | 14,50 %                                                                            | 23,2 %                                                  | 27,83 %                                                  | 4,63 %                               | 4,63 %                                                             |
+| 2012              | 57,28 €                                                                         | 13,93 %                                                                            | 23,79 %                                                 | 29,18 %                                                  | 5,39 %                               | 4,63 %                                                             |
+| 2013              | 57,28 €                                                                         | 13,35 %                                                                            | 24,37 %                                                 | 30,52 %                                                  | 6,15 %                               | 4,63 %                                                             |
+| 2014              | 57,28 €                                                                         | 12,78 %                                                                            | 24,96 %                                                 | 31,86 %                                                  | 6,90 %                               | 4,63 %                                                             |
+| 2015              | 57,28 €                                                                         | 12,20 %                                                                            | 25,55 %                                                 | 33,21 %                                                  | 7,66 %                               | 4,63 %                                                             |
+| 2016              | 57,28 €                                                                         | 11,63 %                                                                            | 26,13 %                                                 | 34,55 %                                                  | 8,42 %                               | 4,63 %                                                             |
+| 2017              | 57,28 €                                                                         | 11,05 %                                                                            | 26,72 %                                                 | 35,90 %                                                  | 9,18 %                               | 4,63 %                                                             |
+| 2018              | 57,28 €                                                                         | 9,76 %                                                                             | 28,04 %                                                 | 38,93 %                                                  | 10,89 %                              | 4,63 %                                                             |
+| 2019              | 57,28 €                                                                         | 8,47 %                                                                             | 29,36 %                                                 | 41,95 %                                                  | 12,59 %                              | 4,63 %                                                             |
+| 2020              | 57,28 €                                                                         | 7,17 %                                                                             | 30,68 %                                                 | 44,98 %                                                  | 14,30 %                              | 4,63 %                                                             |
+| A compter de 2021 | 57,28 €                                                                         | 5,88 %                                                                             | 32 %                                                    | 48 %                                                     | 16 %                                 | 4,63 %                                                             |
+
+```catala
+champ d'application AllocationsFamiliales :
+
+  # Premier enfant
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2011-01-01| et date_courante <=@ |2011-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 14,50 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2012-01-01| et date_courante <=@ |2012-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 13,93 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2013-01-01| et date_courante <=@ |2013-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 13,35 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2014-01-01| et date_courante <=@ |2014-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 12,78 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2015-01-01| et date_courante <=@ |2015-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 12,20 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2016-01-01| et date_courante <=@ |2016-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 11,63 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2017-01-01| et date_courante <=@ |2017-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 11,05 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2018-01-01| et date_courante <=@ |2018-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 9,76 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 8,47 %
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31| et
+    non avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors prestations_familiales.base_mensuelle *€ 7,17%
+    sinon 0 €
+
+  exception définition montant_initial_base_premier_enfant_mayotte sous condition
+    avait_enfant_à_charge_avant_1er_janvier_2012
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 0
+    alors 57,28€
+    sinon 0 €
+
+  # Deuxième enfant
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2011-01-01| et date_courante <=@ |2011-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 23,2 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2012-01-01| et date_courante <=@ |2012-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 23,79 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2013-01-01| et date_courante <=@ |2013-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 24,37 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2014-01-01| et date_courante <=@ |2014-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 24,96 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2015-01-01| et date_courante <=@ |2015-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 25,55 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2016-01-01| et date_courante <=@ |2016-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 26,13 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2017-01-01| et date_courante <=@ |2017-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 26,72 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2018-01-01| et date_courante <=@ |2018-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 28,04 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 29,36 %
+    sinon 0 €
+
+  exception définition montant_initial_base_deuxième_enfant_mayotte sous condition
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 1
+    alors prestations_familiales.base_mensuelle *€ 30,68 %
+    sinon 0 €
+
+  # Troisième enfant
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2011-01-01| et date_courante <=@ |2011-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 4,63 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2012-01-01| et date_courante <=@ |2012-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 5,39 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2013-01-01| et date_courante <=@ |2013-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 6,15 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2014-01-01| et date_courante <=@ |2014-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 6,90 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2015-01-01| et date_courante <=@ |2015-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 7,66 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2016-01-01| et date_courante <=@ |2016-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 8,42 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2017-01-01| et date_courante <=@ |2017-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 9,18 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2018-01-01| et date_courante <=@ |2018-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 10,89 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2019-01-01| et date_courante <=@ |2019-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 12,59 %
+    sinon 0 €
+
+  exception définition montant_initial_base_troisième_enfant_mayotte sous condition
+    date_courante >=@ |2020-01-01| et date_courante <=@ |2020-12-31|
+  conséquence égal à
+    si nombre de enfants_à_charge_droit_ouvert_prestation_familiale > 2
+    alors prestations_familiales.base_mensuelle *€ 14,30 %
+    sinon 0 €
+```# Code de la sécurité sociale
+
+## Partie législative
+
+### Livre 5 : Prestations familiales et prestations assimilées
+
+#### Titre 1 : Champ d'application - Généralités
+
+##### Chapitre 1er : Liste des prestations
+
+###### Article L511-1|LEGIARTI000038834530
 
 Les prestations familiales comprennent :
 
@@ -512,9 +851,9 @@ Les prestations familiales comprennent :
 # Voir l'énumération ÉlémentPrestationsFamiliale
 ```
 
-###### Chapitre 2 : Champ d'application
+##### Chapitre 2 : Champ d'application
 
-####### Article L512-3|LEGIARTI000038834523
+###### Article L512-3|LEGIARTI000038834523
 
 Sous réserve des règles particulières à chaque prestation,
 ouvre droit aux prestations familiales :
@@ -565,11 +904,11 @@ peut être différent de celui mentionné au 2° du présent article.
 # cet âge azutre part que pour Complément Familial ou AllocationLogement.
 ```
 
-##### Titre 2 : Prestations générales d'entretien
+#### Titre 2 : Prestations générales d'entretien
 
-###### Chapitre 1er : Allocations familiales
+##### Chapitre 1er : Allocations familiales
 
-####### Article L521-1|LEGIARTI000029963006
+###### Article L521-1|LEGIARTI000029963006
 
 Les allocations familiales sont dues à partir du deuxième enfant à charge.
 
@@ -651,7 +990,7 @@ champ d'application AllocationsFamiliales :
   assertion fixé montant_versé_complément par décret
 ```
 
-####### Article L521-2|LEGIARTI000006743210
+###### Article L521-2|LEGIARTI000006743210
 
 Les allocations sont versées à la personne qui assume, dans quelques conditions
 que ce soit, la charge effective et permanente de l'enfant.
@@ -765,7 +1104,7 @@ d) enfants confiés à un service public, à une institution privée, à un part
 # est confié à un service social.
 ```
 
-####### Article L521-3|LEGIARTI000006743289
+###### Article L521-3|LEGIARTI000006743289
 
 Chacun des enfants à charge, à l'exception du plus âgé, ouvre droit à partir
 d'un âge minimum à une majoration des allocations familiales.
@@ -794,11 +1133,11 @@ champ d'application AllocationsFamiliales :
   conséquence rempli
 ```
 
-##### Titre 5 : Dispositions communes
+#### Titre 5 : Dispositions communes
 
-###### Chapitre 1er : Etablissement du salaire de base
+##### Chapitre 1er : Etablissement du salaire de base
 
-####### Article L551-1|LEGIARTI000031688371
+###### Article L551-1|LEGIARTI000031688371
 
 Le montant des prestations familiales est déterminé d'après des bases
 mensuelles de calcul revalorisées au 1er avril de chaque année par application
@@ -810,13 +1149,13 @@ champ d'application PrestationsFamiliales :
   assertion fixé prestations_familiales.base_mensuelle par décret
 ```
 
-#### Livre 7 : Régimes divers - Dispositions diverses
+### Livre 7 : Régimes divers - Dispositions diverses
 
-##### Titre 5 : Dispositions particulières à la Guadeloupe, à la Guyane, à la Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin
+#### Titre 5 : Dispositions particulières à la Guadeloupe, à la Guyane, à la Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin
 
-###### Chapitre 1er : Généralités
+##### Chapitre 1er : Généralités
 
-####### Article L751-1|LEGIARTI000031323778
+###### Article L751-1|LEGIARTI000031323778
 
 Les dispositions du présent titre s'appliquent en Guadeloupe, en Guyane,
 en Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin à
@@ -838,9 +1177,9 @@ champ d'application PrestationsFamiliales :
   conséquence rempli
 ```
 
-###### Chapitre 5 : Prestations familiales et prestations assimilées
+##### Chapitre 5 : Prestations familiales et prestations assimilées
 
-####### Article L755-3|LEGIARTI000033728786
+###### Article L755-3|LEGIARTI000033728786
 
 Les dispositions des articles L. 512-1 à L. 512-4 , L. 513-1 , L. 521-2 ,
 L. 552-1 , L. 553-1 , L. 553-2 , L. 553-4 , L. 582-1 , L. 582-2 , L. 583-3
@@ -853,7 +1192,7 @@ fixée en application de l'article L. 551-1 .
 # Aucun changement dans le code, puisque les articles restent applicables
 ```
 
-####### Article L755-11|LEGIARTI000031323803
+###### Article L755-11|LEGIARTI000031323803
 
 Les conditions d'attribution des allocations familiales et de leurs majorations
 fixées par les articles L. 521-1 et L. 521-3 sont applicables dans les
@@ -866,7 +1205,7 @@ collectivités mentionnées à l'article L. 751-1.
 Toutefois, les dispositions de l'article L. 755-12 restent en vigueur aussi
 longtemps que le présent chapitre V est applicable.
 
-####### Article L755-12|LEGIARTI000029962999
+###### Article L755-12|LEGIARTI000029962999
 
 Les allocations familiales sont dues, pour tout enfant, à la personne qui a
 effectivement la charge de celui-ci.
@@ -905,15 +1244,15 @@ champ d'application AllocationsFamiliales :
     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale = 1)
   conséquence non rempli
 ```
-### Partie réglementaire - Décrets en Conseil d'Etat
+## Partie réglementaire - Décrets en Conseil d'Etat
 
-#### Livre 5 : Prestations familiales et prestations assimilées
+### Livre 5 : Prestations familiales et prestations assimilées
 
-##### Titre 1 : Champ d'application - Généralités
+#### Titre 1 : Champ d'application - Généralités
 
-###### Chapitre 2 : Champ d'application.
+##### Chapitre 2 : Champ d'application.
 
-####### Article R512-2|LEGIARTI000006750602
+###### Article R512-2|LEGIARTI000006750602
 
 Les enfants ouvrent droit aux prestations familiales jusqu'à l'âge de vingt
 ans sous réserve que leur rémunération n'excède pas le plafond fixé au deuxième
@@ -949,11 +1288,11 @@ législation sur les assurances sociales.
 # TODO: Liane, faire de la recherche juridique sur le sujet.
 ```
 
-##### Titre 2 : Prestations générales d'entretien
+#### Titre 2 : Prestations générales d'entretien
 
-###### Chapitre 1er : Allocations familiales
+##### Chapitre 1er : Allocations familiales
 
-####### Article R521-1|LEGIARTI000018735853
+###### Article R521-1|LEGIARTI000018735853
 L'âge mentionné au premier alinéa de l'article L. 521-3 à partir duquel les
 enfants ouvrent droit à la majoration des allocations familiales est fixé à
 14 ans.
@@ -992,7 +1331,7 @@ champ d'application AllocationsFamiliales :
     version_avril_2008.âge_minimum_alinéa_1_l521_3
 ```
 
-####### Article R521-2|LEGIARTI000006750608
+###### Article R521-2|LEGIARTI000006750608
 
 Dans les situations visées au deuxième alinéa de l'article L. 521-2 ,
 l'allocataire est celui des deux parents qu'ils désignent d'un commun accord.
@@ -1019,7 +1358,7 @@ ou des enfants.
 # ce programme.
 ```
 
-####### Article R521-3|LEGIARTI000006750610
+###### Article R521-3|LEGIARTI000006750610
 
 Sous réserve de l'article R. 521-4, dans les situations visées aux 1° et 2° de
 l'article R. 521-2 , la prestation due à chacun des parents est égale au
@@ -1071,7 +1410,7 @@ champ d'application AllocationsFamiliales :
       enfants_à_charge_droit_ouvert_prestation_familiale)
 ```
 
-####### Article R521-4|LEGIARTI000006750613
+###### Article R521-4|LEGIARTI000006750613
 
 Pour l'ouverture du droit à la majoration prévue à l'article L. 521-3 , le
 nombre d'enfants à charge est évalué dans les conditions prévues au premier
@@ -1103,13 +1442,13 @@ champ d'application AllocationsFamiliales :
   )
 ```
 
-#### Livre 7 : Régimes divers - Dispositions diverses
+### Livre 7 : Régimes divers - Dispositions diverses
 
-##### Titre 5 : Départements d'outre-mer
+#### Titre 5 : Départements d'outre-mer
 
-###### Chapitre 5 : Prestations familiales et prestations assimilées
+##### Chapitre 5 : Prestations familiales et prestations assimilées
 
-####### Article R755-0-2|LEGIARTI000006752633
+###### Article R755-0-2|LEGIARTI000006752633
 
 Le plafond de rémunération des enfants à charge mentionnés à l'article
 L. 512-3 est égal, pour un mois, à 55 % du salaire minimum de croissance en
@@ -1478,11 +1817,11 @@ champ d'application AllocationsFamiliales :
   conséquence égal à
     montant_initial_base_premier_enfant
 
-  définition montant_initial_base_premier_enfant sous condition
-    (nombre de enfants_à_charge_droit_ouvert_prestation_familiale != 1)
-  conséquence égal à 0€
+  # Valeur par défaut
+  définition montant_initial_base_premier_enfant égal à 0€
 
-  définition montant_initial_base_premier_enfant sous condition
+  exception définition montant_initial_base_premier_enfant sous condition
+    prestations_familiales.régime_outre_mer_l751_1 et
     (nombre de enfants_à_charge_droit_ouvert_prestation_familiale = 1)
   conséquence égal à
     prestations_familiales.base_mensuelle *€ 5,88 %
@@ -1521,9 +1860,7 @@ kécessaires au calcul. Cependant, certaines règles de calcul sont implicites
 dans ces textes et doivent être explicitées pour le calcul informatique. C'est
 la fonction du bloc de code ci-dessous.
 
-> Début métadonnées
-
-```catala
+```catala-metadata
 champ d'application EnfantLePlusÂgé:
   définition le_plus_âgé  égal à
     contenu maximum entier initial Enfant {
@@ -1567,8 +1904,6 @@ champ d'application AllocationsFamiliales:
     sinon 0€
 ```
 
-> Fin métadonnées
-
 ### Interface du programme
 
 Le calcul des allocations familiales nécessite un certain nombre d'informations
@@ -1578,9 +1913,7 @@ naissance. Le but du block ci-dessous est d'encoder ces dépendances, de telle
 sorte que l'utilisateur puisse ne doive saisir que le nombre minimal
 d'informations sur les enfants à charge.
 
-> Début métadonnées
-
-```catala
+```catala-metadata
 déclaration structure EnfantEntrée:
   donnée d_identifiant contenu entier
   donnée d_rémuneration_mensuelle contenu argent
@@ -1598,6 +1931,7 @@ déclaration champ d'application InterfaceAllocationsFamiliales:
   contexte montant_versé contenu argent
   contexte personne_charge_effective_permanente_est_parent condition
   contexte personne_charge_effective_permanente_remplit_titre_I condition
+  contexte avait_enfant_à_charge_avant_1er_janvier_2012 condition
 
 champ d'application InterfaceAllocationsFamiliales:
   définition allocations_familiales.date_courante égal à date_courante
@@ -1611,9 +1945,10 @@ champ d'application InterfaceAllocationsFamiliales:
   règle allocations_familiales.personne_charge_effective_permanente_remplit_titre_I
     sous condition personne_charge_effective_permanente_remplit_titre_I conséquence
     rempli
+  règle allocations_familiales.avait_enfant_à_charge_avant_1er_janvier_2012
+    sous condition avait_enfant_à_charge_avant_1er_janvier_2012 conséquence
+    rempli
 ```
-
-> Fin métadonnées
 
 #### Code de l'éducation
 
@@ -1645,11 +1980,8 @@ champ d'application InterfaceAllocationsFamiliales:
         enfant.d_a_déjà_ouvert_droit_aux_allocations_familiales
     }
 ```
-> Inclusion: ../allocations_familiales.catala_fr
 
-## Tests
-
-### Tests
+# Tests
 
 ```catala
 déclaration champ d'application Données:
@@ -1840,4 +2172,112 @@ champ d'application Test9:
   définition f.résidence égal à Guadeloupe
   règle f.personne_charge_effective_permanente_est_parent rempli
   assertion f.montant_versé = 0€
+
+déclaration champ d'application Test10:
+  contexte f champ d'application InterfaceAllocationsFamiliales
+
+champ d'application Test10:
+  définition f.enfants égal à [EnfantEntrée {
+    -- d_identifiant: 0
+    -- d_date_de_naissance: |2003-02-22|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };EnfantEntrée {
+    -- d_identifiant: 1
+    -- d_date_de_naissance: |2013-09-30|
+    -- d_rémuneration_mensuelle: 300€
+    -- d_prise_en_charge: GardeAlternéePartageAllocations
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  }]
+  définition f.ressources_ménage égal à 30000 €
+  définition f.date_courante égal à |2020-04-20|
+  définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
+  assertion f.montant_versé = 99,37€
+
+déclaration champ d'application Test11:
+  contexte f champ d'application InterfaceAllocationsFamiliales
+
+champ d'application Test11:
+  définition f.enfants égal à [EnfantEntrée {
+    -- d_identifiant: 0
+    -- d_date_de_naissance: |2003-02-22|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };EnfantEntrée {
+    -- d_identifiant: 1
+    -- d_date_de_naissance: |2013-09-30|
+    -- d_rémuneration_mensuelle: 300€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };
+  EnfantEntrée {
+    -- d_identifiant: 2
+    -- d_date_de_naissance: |2007-04-16|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  }]
+  définition f.ressources_ménage égal à 30000 €
+  définition f.date_courante égal à |2021-12-31|
+  définition f.résidence égal à Métropole
+  règle f.personne_charge_effective_permanente_est_parent rempli
+  assertion f.montant_versé = 435,55€
+
+déclaration champ d'application Test12:
+  contexte f champ d'application InterfaceAllocationsFamiliales
+
+champ d'application Test12:
+  définition f.enfants égal à [EnfantEntrée {
+    -- d_identifiant: 0
+    -- d_date_de_naissance: |2003-02-22|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };EnfantEntrée {
+    -- d_identifiant: 1
+    -- d_date_de_naissance: |2013-09-30|
+    -- d_rémuneration_mensuelle: 300€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };
+  EnfantEntrée {
+    -- d_identifiant: 2
+    -- d_date_de_naissance: |2007-04-16|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  };
+  EnfantEntrée {
+    -- d_identifiant: 3
+    -- d_date_de_naissance: |2012-02-02|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  }]
+  définition f.ressources_ménage égal à 20000 €
+  définition f.date_courante égal à |2019-08-26|
+  définition f.résidence égal à Mayotte
+  règle f.avait_enfant_à_charge_avant_1er_janvier_2012 rempli
+  règle f.personne_charge_effective_permanente_est_parent rempli
+  assertion f.montant_versé = 315,84€
+
+déclaration champ d'application Test13:
+  contexte f champ d'application InterfaceAllocationsFamiliales
+
+champ d'application Test13:
+  définition f.enfants égal à [EnfantEntrée {
+    -- d_identifiant: 0
+    -- d_date_de_naissance: |2008-02-22|
+    -- d_rémuneration_mensuelle: 0€
+    -- d_prise_en_charge: EffectiveEtPermanente
+    -- d_a_déjà_ouvert_droit_aux_allocations_familiales: vrai
+  }]
+  définition f.ressources_ménage égal à 65000 €
+  définition f.date_courante égal à |2019-08-26|
+  définition f.résidence égal à Mayotte
+  règle f.personne_charge_effective_permanente_est_parent rempli
+  assertion f.montant_versé = 34,99€
 ```

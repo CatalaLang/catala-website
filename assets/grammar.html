@@ -499,6 +499,10 @@
         <th class="bar"></th>
         <td>MINUS</td>
       </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>PLUSPLUS</td>
+      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">sum_unop</span></th>
@@ -918,11 +922,8 @@
         <th><span class="nonterminal">metadata_block</span></th>
         <td>BEGIN_METADATA
         <span class="option"><span class="nonterminal">law_text</span></span>
-        BEGIN_CODE
         <span class="nonterminal">code</span>
-        END_CODE
-        <span class="option"><span class="nonterminal">law_text</span></span>
-        END_METADATA</td>
+        END_CODE</td>
       </tr>
       
       <tr class="rule">
@@ -932,7 +933,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">law_text</span></th>
-        <td>LAW_TEXT</td>
+        <td><span class="ne_list">LAW_TEXT</span></td>
       </tr>
       
       <tr class="rule">
@@ -955,7 +956,12 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>LAW_INCLUDE</td>
+        <td>BEGIN_DIRECTIVE
+        LAW_INCLUDE
+        COLON
+        <span class="ne_list">DIRECTIVE_ARG</span>
+        <span class="option">AT_PAGE</span>
+        END_DIRECTIVE</td>
       </tr>
       
       <tr class="rule">

@@ -27,6 +27,7 @@ module FrenchFamilyBenefits = {
     children: array<child_input>,
     income: option<int>,
     residence: option<string>,
+    avaitEnfantAChargeAvant1erJanvier2012: option<bool>,
   }
 
   type child_input_validated = {
@@ -44,6 +45,7 @@ module FrenchFamilyBenefits = {
     residence: string,
     personneQuiAssumeLaChargeEffectivePermanenteEstParent: bool,
     personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: bool,
+    avaitEnfantAChargeAvant1erJanvier2012: bool,
   }
 
   type allocations_familiales_output =
@@ -94,6 +96,10 @@ module FrenchFamilyBenefits = {
           // We assume the two below are always true
           personneQuiAssumeLaChargeEffectivePermanenteEstParent: true,
           personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: true,
+          avaitEnfantAChargeAvant1erJanvier2012: switch input.avaitEnfantAChargeAvant1erJanvier2012 {
+          | None => false
+          | Some(x) => x
+          },
         })
       } else {
         None
@@ -137,6 +143,7 @@ module FrenchFamilyBenefits = {
       income: None,
       children: [],
       residence: Some(`Métropole`),
+      avaitEnfantAChargeAvant1erJanvier2012: None,
     })
     let (af_output, set_af_output) = React.useState(_ => {
       incomplete_input
@@ -246,6 +253,26 @@ module FrenchFamilyBenefits = {
                 let new_input = {
                   ...af_input,
                   current_date: Some(Js.Date.fromString(value)),
+                }
+                set_af_input(_ => new_input)
+                set_af_output(_ => compute_allications_familiales(new_input))
+              }}
+            />
+          </div>
+          <div className=%tw("flex flex-col mx-4")>
+            <label className=%tw("text-white text-center")>
+              <Lang.String english="Rights open before 2021" french=`Droits ouverts avant 2012` />
+            </label>
+            <input
+              className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+              type_="checkbox"
+              onChange={_ => {
+                let new_input = {
+                  ...af_input,
+                  avaitEnfantAChargeAvant1erJanvier2012: switch af_input.avaitEnfantAChargeAvant1erJanvier2012 {
+                  | None | Some(false) => Some(true)
+                  | Some(true) => Some(false)
+                  },
                 }
                 set_af_input(_ => new_input)
                 set_af_output(_ => compute_allications_familiales(new_input))
