@@ -13,7 +13,7 @@ let make = () => <>
         french=`La syntaxe du langage est générée à partir du `
       />
       <Utils.TextLink
-        target="https://github.com/CatalaLang/catala/blob/master/src/catala/surface/parser.mly">
+        target="https://github.com/CatalaLang/catala/blob/master/compiler/surface/parser.mly">
         <Lang.String english="parser source file" french=`fichier source du parseur` />
       </Utils.TextLink>
       <Lang.String english=" using " french=` grâce à  ` />
