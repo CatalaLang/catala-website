@@ -79,13 +79,13 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
 </head>
 <h1>Implémentation de texte législatif<br />
-<small>Document généré par Catala version 0.4.0</small>
+<small>Document généré par Catala version 0.5.0</small>
 </h1>
 <p>
 Fichiers sources tissés dans ce document
 </p>
 <ul>
-<li><tt>tutoriel_fr.catala_fr</tt>, dernière modification le 2021-10-26, 19:37</li>
+<li><tt>tutoriel_fr.catala_fr</tt>, dernière modification le 2021-10-11, 17:40</li>
 </ul>
 <h2 class='law-heading'><a href='#'>Tutoriel d'utilisation du langage Catala</a></h2>
 <p class='law-text'>Bienvenue dans ce tutoriel, son objectif est de vous accompagner dans les
@@ -197,10 +197,10 @@ sont modélisés en Catala par le type énumération, comme suit :</p>
 </pre></div></td><td class="code"><div class="highlight"><pre>
 <a id="tutoriel_fr.catala_fr-86" name="tutoriel_fr.catala_fr-86"></a><span class="kd">déclaration</span> <span class="kd">énumération</span> <span class="nc">CréditImpôt</span><span class="o">:</span><span class="c1"></span>
 <a id="tutoriel_fr.catala_fr-87" name="tutoriel_fr.catala_fr-87"></a><span class="c1"># Le nom &quot;CréditImpôt&quot; s&#39;écrit aussi en CamelCase</span>
-<a id="tutoriel_fr.catala_fr-88" name="tutoriel_fr.catala_fr-88"></a>— <span class="nc">AucunCréditImpôt</span><span class="c1"></span>
+<a id="tutoriel_fr.catala_fr-88" name="tutoriel_fr.catala_fr-88"></a><span class="o">--</span> <span class="nc">AucunCréditImpôt</span><span class="c1"></span>
 <a id="tutoriel_fr.catala_fr-89" name="tutoriel_fr.catala_fr-89"></a><span class="c1"># Cette ligne indique que &quot;CréditImpôt&quot; peut être en situation</span>
 <a id="tutoriel_fr.catala_fr-90" name="tutoriel_fr.catala_fr-90"></a><span class="c1"># &quot;AucunCréditImpôt&quot;</span>
-<a id="tutoriel_fr.catala_fr-91" name="tutoriel_fr.catala_fr-91"></a>— <span class="nc">CréditImpôtEnfants</span> <span class="kd">contenu</span> <span class="kt">entier</span><span class="c1"></span>
+<a id="tutoriel_fr.catala_fr-91" name="tutoriel_fr.catala_fr-91"></a><span class="o">--</span> <span class="nc">CréditImpôtEnfants</span> <span class="kd">contenu</span> <span class="kt">entier</span><span class="c1"></span>
 <a id="tutoriel_fr.catala_fr-92" name="tutoriel_fr.catala_fr-92"></a><span class="c1"># Cette ligne indique, de manière alternative, que &quot;CréditImpôt&quot; peut aussi</span>
 <a id="tutoriel_fr.catala_fr-93" name="tutoriel_fr.catala_fr-93"></a><span class="c1"># être une situation &quot;CréditImpôtEnfants&quot;. Cette situation porte un contenu</span>
 <a id="tutoriel_fr.catala_fr-94" name="tutoriel_fr.catala_fr-94"></a><span class="c1"># de type entier qui correspond au nombre d&#39;enfants concernés par le crédit</span>
@@ -256,7 +256,7 @@ des revenus de la personne pour une année.</p>
 </pre></div></td><td class="code"><div class="highlight"><pre>
 <a id="tutoriel_fr.catala_fr-131" name="tutoriel_fr.catala_fr-131"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculImpôtRevenu</span><span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-132" name="tutoriel_fr.catala_fr-132"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">égal à</span>
-<a id="tutoriel_fr.catala_fr-133" name="tutoriel_fr.catala_fr-133"></a>    <span class="nv">personne</span><span class="o">.</span>revenu ×<span class="o">€</span> <span class="nv">pourcentage_fixe</span>
+<a id="tutoriel_fr.catala_fr-133" name="tutoriel_fr.catala_fr-133"></a>    <span class="nv">personne</span><span class="o">.</span>revenu <span class="o">*€</span> <span class="nv">pourcentage_fixe</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -328,7 +328,7 @@ Catala permet de redéfinir précisément une variable sous une condition :</p>
 </pre></div></td><td class="code"><div class="highlight"><pre>
 <a id="tutoriel_fr.catala_fr-193" name="tutoriel_fr.catala_fr-193"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculImpôtRevenu</span><span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-194" name="tutoriel_fr.catala_fr-194"></a>  <span class="kd">définition</span> <span class="nv">pourcentage_fixe</span> <span class="kd">sous condition</span>
-<a id="tutoriel_fr.catala_fr-195" name="tutoriel_fr.catala_fr-195"></a>    <span class="nv">personne</span><span class="o">.</span>nombre_enfants ≥ <span class="mi">2</span>
+<a id="tutoriel_fr.catala_fr-195" name="tutoriel_fr.catala_fr-195"></a>    <span class="nv">personne</span><span class="o">.</span>nombre_enfants <span class="o">&gt;=</span> <span class="mi">2</span>
 <a id="tutoriel_fr.catala_fr-196" name="tutoriel_fr.catala_fr-196"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">15</span><span class="o">%</span><span class="c1"></span>
 <a id="tutoriel_fr.catala_fr-197" name="tutoriel_fr.catala_fr-197"></a><span class="c1">  # Ecrire 15% est juste une abbréviation pour 0.15</span>
 </pre></div>
@@ -386,11 +386,11 @@ par le taux de chaque branche.</p>
 </pre></div></td><td class="code"><div class="highlight"><pre>
 <a id="tutoriel_fr.catala_fr-233" name="tutoriel_fr.catala_fr-233"></a><span class="kd">champ d&#39;application</span> <span class="nc">CalculImpôtDeuxTranches</span> <span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-234" name="tutoriel_fr.catala_fr-234"></a>  <span class="kd">définition</span> <span class="nv">formule_imposition</span> <span class="kr">de</span> <span class="nv">revenu</span> <span class="kd">égal à</span>
-<a id="tutoriel_fr.catala_fr-235" name="tutoriel_fr.catala_fr-235"></a>    <span class="kr">si</span> <span class="nv">revenu</span> ≤<span class="o">€</span> <span class="nv">tranches</span><span class="o">.</span>seuil <span class="kr">alors</span>
-<a id="tutoriel_fr.catala_fr-236" name="tutoriel_fr.catala_fr-236"></a>      <span class="nv">revenu</span> ×<span class="o">€</span> <span class="nv">tranches</span><span class="o">.</span>taux1
+<a id="tutoriel_fr.catala_fr-235" name="tutoriel_fr.catala_fr-235"></a>    <span class="kr">si</span> <span class="nv">revenu</span> <span class="o">&lt;=€</span> <span class="nv">tranches</span><span class="o">.</span>seuil <span class="kr">alors</span>
+<a id="tutoriel_fr.catala_fr-236" name="tutoriel_fr.catala_fr-236"></a>      <span class="nv">revenu</span> <span class="o">*€</span> <span class="nv">tranches</span><span class="o">.</span>taux1
 <a id="tutoriel_fr.catala_fr-237" name="tutoriel_fr.catala_fr-237"></a>    <span class="kr">sinon</span> <span class="o">(</span>
-<a id="tutoriel_fr.catala_fr-238" name="tutoriel_fr.catala_fr-238"></a>      <span class="nv">tranches</span><span class="o">.</span>seuil ×<span class="o">€</span> <span class="nv">tranches</span><span class="o">.</span>taux1 <span class="o">+€</span>
-<a id="tutoriel_fr.catala_fr-239" name="tutoriel_fr.catala_fr-239"></a>      <span class="o">(</span><span class="nv">revenu</span> <span class="o">-€</span> <span class="nv">tranches</span><span class="o">.</span>seuil<span class="o">)</span> ×<span class="o">€</span> <span class="nv">tranches</span><span class="o">.</span>taux2
+<a id="tutoriel_fr.catala_fr-238" name="tutoriel_fr.catala_fr-238"></a>      <span class="nv">tranches</span><span class="o">.</span>seuil <span class="o">*€</span> <span class="nv">tranches</span><span class="o">.</span>taux1 <span class="o">+€</span>
+<a id="tutoriel_fr.catala_fr-239" name="tutoriel_fr.catala_fr-239"></a>      <span class="o">(</span><span class="nv">revenu</span> <span class="o">-€</span> <span class="nv">tranches</span><span class="o">.</span>seuil<span class="o">)</span> <span class="o">*€</span> <span class="nv">tranches</span><span class="o">.</span>taux2
 <a id="tutoriel_fr.catala_fr-240" name="tutoriel_fr.catala_fr-240"></a>    <span class="o">)</span>
 </pre></div>
 </td></tr></table>
@@ -436,9 +436,9 @@ l'impôt sur le revenu de l'article 1 est de 40% du revenu au-dessus de
 <a id="tutoriel_fr.catala_fr-264" name="tutoriel_fr.catala_fr-264"></a>
 <a id="tutoriel_fr.catala_fr-265" name="tutoriel_fr.catala_fr-265"></a><span class="kd">champ d&#39;application</span> <span class="nc">NouveauCalculImpôtRevenu</span> <span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-266" name="tutoriel_fr.catala_fr-266"></a>  <span class="kd">définition</span> <span class="nv">deux_tranches</span><span class="o">.</span>tranches <span class="kd">égal à</span> <span class="nc">DeuxTranches</span> <span class="o">{</span>
-<a id="tutoriel_fr.catala_fr-267" name="tutoriel_fr.catala_fr-267"></a>    — <span class="nv">seuil</span><span class="o">:</span> <span class="mi">100</span> <span class="mi">000</span><span class="o">€</span>
-<a id="tutoriel_fr.catala_fr-268" name="tutoriel_fr.catala_fr-268"></a>    — <span class="nv">taux1</span><span class="o">:</span> <span class="mi">20</span><span class="o">%</span>
-<a id="tutoriel_fr.catala_fr-269" name="tutoriel_fr.catala_fr-269"></a>    — <span class="nv">taux2</span><span class="o">:</span> <span class="mi">40</span><span class="o">%</span>
+<a id="tutoriel_fr.catala_fr-267" name="tutoriel_fr.catala_fr-267"></a>    <span class="o">--</span> <span class="nv">seuil</span><span class="o">:</span> <span class="mi">100</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-268" name="tutoriel_fr.catala_fr-268"></a>    <span class="o">--</span> <span class="nv">taux1</span><span class="o">:</span> <span class="mi">20</span><span class="o">%</span>
+<a id="tutoriel_fr.catala_fr-269" name="tutoriel_fr.catala_fr-269"></a>    <span class="o">--</span> <span class="nv">taux2</span><span class="o">:</span> <span class="mi">40</span><span class="o">%</span>
 <a id="tutoriel_fr.catala_fr-270" name="tutoriel_fr.catala_fr-270"></a>  <span class="o">}</span>
 <a id="tutoriel_fr.catala_fr-271" name="tutoriel_fr.catala_fr-271"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">égal à</span>
 <a id="tutoriel_fr.catala_fr-272" name="tutoriel_fr.catala_fr-272"></a>    <span class="nv">deux_tranches</span><span class="o">.</span>formule_imposition <span class="kr">de</span> <span class="nv">personne</span><span class="o">.</span>revenu
@@ -459,7 +459,7 @@ sur le revenu prévu à l'article 1.</p>
 </pre></div></td><td class="code"><div class="highlight"><pre>
 <a id="tutoriel_fr.catala_fr-281" name="tutoriel_fr.catala_fr-281"></a><span class="kd">champ d&#39;application</span> <span class="nc">NouveauCalculImpôtRevenu</span><span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-282" name="tutoriel_fr.catala_fr-282"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">sous condition</span>
-<a id="tutoriel_fr.catala_fr-283" name="tutoriel_fr.catala_fr-283"></a>    <span class="nv">personne</span><span class="o">.</span>revenu ≤<span class="o">€</span> <span class="mi">10</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-283" name="tutoriel_fr.catala_fr-283"></a>    <span class="nv">personne</span><span class="o">.</span>revenu <span class="o">&lt;=€</span> <span class="mi">10</span> <span class="mi">000</span><span class="o">€</span>
 <a id="tutoriel_fr.catala_fr-284" name="tutoriel_fr.catala_fr-284"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">0</span><span class="o">€</span>
 </pre></div>
 </td></tr></table>
@@ -518,15 +518,15 @@ champ d'application :</p>
 <a id="tutoriel_fr.catala_fr-317" name="tutoriel_fr.catala_fr-317"></a><span class="c1">    # Les quatre lignes ci-dessous définissent une structure entière</span>
 <a id="tutoriel_fr.catala_fr-318" name="tutoriel_fr.catala_fr-318"></a><span class="c1">    # en valorisant chacun des champs</span>
 <a id="tutoriel_fr.catala_fr-319" name="tutoriel_fr.catala_fr-319"></a>    <span class="nc">Personne</span> <span class="o">{</span>
-<a id="tutoriel_fr.catala_fr-320" name="tutoriel_fr.catala_fr-320"></a>      — <span class="nv">revenu</span><span class="o">:</span> <span class="mi">230</span> <span class="mi">000</span><span class="o">€</span>
-<a id="tutoriel_fr.catala_fr-321" name="tutoriel_fr.catala_fr-321"></a>      — <span class="nv">nombre_enfants</span><span class="o">:</span> <span class="mi">0</span>
+<a id="tutoriel_fr.catala_fr-320" name="tutoriel_fr.catala_fr-320"></a>      <span class="o">--</span> <span class="nv">revenu</span><span class="o">:</span> <span class="mi">230</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-321" name="tutoriel_fr.catala_fr-321"></a>      <span class="o">--</span> <span class="nv">nombre_enfants</span><span class="o">:</span> <span class="mi">0</span>
 <a id="tutoriel_fr.catala_fr-322" name="tutoriel_fr.catala_fr-322"></a>    <span class="o">}</span>
 <a id="tutoriel_fr.catala_fr-323" name="tutoriel_fr.catala_fr-323"></a>
 <a id="tutoriel_fr.catala_fr-324" name="tutoriel_fr.catala_fr-324"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">égal à</span> <span class="nv">calcul_impôt</span><span class="o">.</span>impôt_revenu<span class="c1"></span>
 <a id="tutoriel_fr.catala_fr-325" name="tutoriel_fr.catala_fr-325"></a><span class="c1">  # Ensuite, nous récupérons le montant d&#39;impôt, calculé par</span>
 <a id="tutoriel_fr.catala_fr-326" name="tutoriel_fr.catala_fr-326"></a><span class="c1">  # sous-champ d&#39;application et nous assertons qu&#39;il vaut bien</span>
 <a id="tutoriel_fr.catala_fr-327" name="tutoriel_fr.catala_fr-327"></a><span class="c1">  # la valeur attendue :</span>
-<a id="tutoriel_fr.catala_fr-328" name="tutoriel_fr.catala_fr-328"></a><span class="c1">  # (230 000€ - 100 000€) × 40% + 100 000€ × 20% = 72 000€</span>
+<a id="tutoriel_fr.catala_fr-328" name="tutoriel_fr.catala_fr-328"></a><span class="c1">  # (230 000€ - 100 000€) * 40% + 100 000€ * 20% = 72 000€</span>
 <a id="tutoriel_fr.catala_fr-329" name="tutoriel_fr.catala_fr-329"></a>  <span class="kd">assertion</span> <span class="nv">impôt_revenu</span> <span class="o">=</span> <span class="mi">72</span> <span class="mi">000</span><span class="o">€</span>
 </pre></div>
 </td></tr></table>
@@ -554,8 +554,8 @@ champ d'application :</p>
 <a id="tutoriel_fr.catala_fr-338" name="tutoriel_fr.catala_fr-338"></a>
 <a id="tutoriel_fr.catala_fr-339" name="tutoriel_fr.catala_fr-339"></a><span class="kd">champ d&#39;application</span> <span class="nc">Test2</span><span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-340" name="tutoriel_fr.catala_fr-340"></a>  <span class="kd">définition</span> <span class="nv">calcul_impôt</span><span class="o">.</span>personne <span class="kd">égal à</span> <span class="nc">Personne</span> <span class="o">{</span>
-<a id="tutoriel_fr.catala_fr-341" name="tutoriel_fr.catala_fr-341"></a>    — <span class="nv">revenu</span><span class="o">:</span> <span class="mi">4</span> <span class="mi">000</span><span class="o">€</span>
-<a id="tutoriel_fr.catala_fr-342" name="tutoriel_fr.catala_fr-342"></a>    — <span class="nv">nombre_enfants</span><span class="o">:</span> <span class="mi">0</span>
+<a id="tutoriel_fr.catala_fr-341" name="tutoriel_fr.catala_fr-341"></a>    <span class="o">--</span> <span class="nv">revenu</span><span class="o">:</span> <span class="mi">4</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-342" name="tutoriel_fr.catala_fr-342"></a>    <span class="o">--</span> <span class="nv">nombre_enfants</span><span class="o">:</span> <span class="mi">0</span>
 <a id="tutoriel_fr.catala_fr-343" name="tutoriel_fr.catala_fr-343"></a>  <span class="o">}</span>
 <a id="tutoriel_fr.catala_fr-344" name="tutoriel_fr.catala_fr-344"></a>
 <a id="tutoriel_fr.catala_fr-345" name="tutoriel_fr.catala_fr-345"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">égal à</span> <span class="nv">calcul_impôt</span><span class="o">.</span>impôt_revenu
@@ -611,9 +611,9 @@ version correcte du champ d'application NouveauCalculImpotRevenu :</p>
 <a id="tutoriel_fr.catala_fr-371" name="tutoriel_fr.catala_fr-371"></a>
 <a id="tutoriel_fr.catala_fr-372" name="tutoriel_fr.catala_fr-372"></a><span class="kd">champ d&#39;application</span> <span class="nc">NouveauCalculImpôtRevenuCorrect</span> <span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-373" name="tutoriel_fr.catala_fr-373"></a>  <span class="kd">définition</span> <span class="nv">deux_tranches</span><span class="o">.</span>tranches <span class="kd">égal à</span> <span class="nc">DeuxTranches</span> <span class="o">{</span>
-<a id="tutoriel_fr.catala_fr-374" name="tutoriel_fr.catala_fr-374"></a>    — <span class="nv">seuil</span><span class="o">:</span> <span class="mi">100</span> <span class="mi">000</span><span class="o">€</span>
-<a id="tutoriel_fr.catala_fr-375" name="tutoriel_fr.catala_fr-375"></a>    — <span class="nv">taux1</span><span class="o">:</span> <span class="mi">20</span><span class="o">%</span>
-<a id="tutoriel_fr.catala_fr-376" name="tutoriel_fr.catala_fr-376"></a>    — <span class="nv">taux2</span><span class="o">:</span> <span class="mi">40</span><span class="o">%</span>
+<a id="tutoriel_fr.catala_fr-374" name="tutoriel_fr.catala_fr-374"></a>    <span class="o">--</span> <span class="nv">seuil</span><span class="o">:</span> <span class="mi">100</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-375" name="tutoriel_fr.catala_fr-375"></a>    <span class="o">--</span> <span class="nv">taux1</span><span class="o">:</span> <span class="mi">20</span><span class="o">%</span>
+<a id="tutoriel_fr.catala_fr-376" name="tutoriel_fr.catala_fr-376"></a>    <span class="o">--</span> <span class="nv">taux2</span><span class="o">:</span> <span class="mi">40</span><span class="o">%</span>
 <a id="tutoriel_fr.catala_fr-377" name="tutoriel_fr.catala_fr-377"></a>  <span class="o">}</span><span class="c1"></span>
 <a id="tutoriel_fr.catala_fr-378" name="tutoriel_fr.catala_fr-378"></a>
 <a id="tutoriel_fr.catala_fr-379" name="tutoriel_fr.catala_fr-379"></a>
@@ -627,7 +627,7 @@ version correcte du champ d'application NouveauCalculImpotRevenu :</p>
 <a id="tutoriel_fr.catala_fr-387" name="tutoriel_fr.catala_fr-387"></a><span class="c1">  # Puis, vous pouvez déclarez l&#39;exception par référence à l&#39;étiquette</span>
 <a id="tutoriel_fr.catala_fr-388" name="tutoriel_fr.catala_fr-388"></a>  <span class="kd">exception</span> <span class="nv">article_5</span>
 <a id="tutoriel_fr.catala_fr-389" name="tutoriel_fr.catala_fr-389"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">sous condition</span>
-<a id="tutoriel_fr.catala_fr-390" name="tutoriel_fr.catala_fr-390"></a>    <span class="nv">personne</span><span class="o">.</span>revenu ≤<span class="o">€</span> <span class="mi">10</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-390" name="tutoriel_fr.catala_fr-390"></a>    <span class="nv">personne</span><span class="o">.</span>revenu <span class="o">&lt;=€</span> <span class="mi">10</span> <span class="mi">000</span><span class="o">€</span>
 <a id="tutoriel_fr.catala_fr-391" name="tutoriel_fr.catala_fr-391"></a>  <span class="kd">conséquence</span> <span class="kd">égal à</span> <span class="mi">0</span><span class="o">€</span>
 </pre></div>
 </td></tr></table>
@@ -654,8 +654,8 @@ version correcte du champ d'application NouveauCalculImpotRevenu :</p>
 <a id="tutoriel_fr.catala_fr-400" name="tutoriel_fr.catala_fr-400"></a>
 <a id="tutoriel_fr.catala_fr-401" name="tutoriel_fr.catala_fr-401"></a><span class="kd">champ d&#39;application</span> <span class="nc">Test3</span><span class="o">:</span>
 <a id="tutoriel_fr.catala_fr-402" name="tutoriel_fr.catala_fr-402"></a>  <span class="kd">définition</span> <span class="nv">calcul_impôt</span><span class="o">.</span>personne <span class="kd">égal à</span> <span class="nc">Personne</span> <span class="o">{</span>
-<a id="tutoriel_fr.catala_fr-403" name="tutoriel_fr.catala_fr-403"></a>    — <span class="nv">revenu</span><span class="o">:</span> <span class="mi">4</span> <span class="mi">000</span><span class="o">€</span>
-<a id="tutoriel_fr.catala_fr-404" name="tutoriel_fr.catala_fr-404"></a>    — <span class="nv">nombre_enfants</span><span class="o">:</span> <span class="mi">0</span>
+<a id="tutoriel_fr.catala_fr-403" name="tutoriel_fr.catala_fr-403"></a>    <span class="o">--</span> <span class="nv">revenu</span><span class="o">:</span> <span class="mi">4</span> <span class="mi">000</span><span class="o">€</span>
+<a id="tutoriel_fr.catala_fr-404" name="tutoriel_fr.catala_fr-404"></a>    <span class="o">--</span> <span class="nv">nombre_enfants</span><span class="o">:</span> <span class="mi">0</span>
 <a id="tutoriel_fr.catala_fr-405" name="tutoriel_fr.catala_fr-405"></a>  <span class="o">}</span>
 <a id="tutoriel_fr.catala_fr-406" name="tutoriel_fr.catala_fr-406"></a>  <span class="kd">définition</span> <span class="nv">impôt_revenu</span> <span class="kd">égal à</span> <span class="nv">calcul_impôt</span><span class="o">.</span>impôt_revenu
 <a id="tutoriel_fr.catala_fr-407" name="tutoriel_fr.catala_fr-407"></a>  <span class="kd">assertion</span> <span class="nv">impôt_revenu</span> <span class="o">=</span> <span class="mi">0</span><span class="o">€</span>
