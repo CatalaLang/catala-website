@@ -118,7 +118,7 @@ module FrenchFamilyBenefits = {
     <Lang.String english="Input not complete" french=`Entrée non complète` />,
   )
 
-  let compute_allications_familiales = (input: allocations_familiales_input) => {
+  let compute_allocations_familiales = (input: allocations_familiales_input) => {
     switch validate_input(input) {
     | None => incomplete_input
     | Some(new_input) =>
@@ -206,7 +206,7 @@ module FrenchFamilyBenefits = {
                   income: Some(int_of_string(value)),
                 }
                 set_af_input(_ => new_input)
-                set_af_output(_ => compute_allications_familiales(new_input))
+                set_af_output(_ => compute_allocations_familiales(new_input))
               }}
             />
           </div>
@@ -225,7 +225,7 @@ module FrenchFamilyBenefits = {
                   residence: value,
                 }
                 set_af_input(_ => new_input)
-                set_af_output(_ => compute_allications_familiales(new_input))
+                set_af_output(_ => compute_allocations_familiales(new_input))
               }}>
               <option value=`Métropole`> {React.string(`Métropole`)} </option>
               <option value=`Guyane`> {React.string(`Guyane`)} </option>
@@ -255,7 +255,7 @@ module FrenchFamilyBenefits = {
                   current_date: Some(Js.Date.fromString(value)),
                 }
                 set_af_input(_ => new_input)
-                set_af_output(_ => compute_allications_familiales(new_input))
+                set_af_output(_ => compute_allocations_familiales(new_input))
               }}
             />
           </div>
@@ -275,7 +275,7 @@ module FrenchFamilyBenefits = {
                   },
                 }
                 set_af_input(_ => new_input)
-                set_af_output(_ => compute_allications_familiales(new_input))
+                set_af_output(_ => compute_allocations_familiales(new_input))
               }}
             />
           </div>
@@ -303,7 +303,7 @@ module FrenchFamilyBenefits = {
                   },
                 }
                 set_af_input(_ => new_input)
-                set_af_output(_ => compute_allications_familiales(new_input))
+                set_af_output(_ => compute_allocations_familiales(new_input))
               }}
               className=%tw("border-solid border-2 border-tertiary m-1 px-2")
               type_="number"
@@ -336,7 +336,7 @@ module FrenchFamilyBenefits = {
                       }
                       let new_input = {...af_input, children: children}
                       set_af_input(_ => new_input)
-                      set_af_output(_ => compute_allications_familiales(new_input))
+                      set_af_output(_ => compute_allocations_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="date"
@@ -364,7 +364,7 @@ module FrenchFamilyBenefits = {
                       }
                       let new_input = {...af_input, children: children}
                       set_af_input(_ => new_input)
-                      set_af_output(_ => compute_allications_familiales(new_input))
+                      set_af_output(_ => compute_allocations_familiales(new_input))
                     }}>
                     <option value=`Effective et permanente`>
                       {React.string(`Effective et permanente`)}
@@ -408,7 +408,7 @@ module FrenchFamilyBenefits = {
                       }
                       let new_input = {...af_input, children: children}
                       set_af_input(_ => new_input)
-                      set_af_output(_ => compute_allications_familiales(new_input))
+                      set_af_output(_ => compute_allocations_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="number"
@@ -439,7 +439,7 @@ module FrenchFamilyBenefits = {
                       }
                       let new_input = {...af_input, children: children}
                       set_af_input(_ => new_input)
-                      set_af_output(_ => compute_allications_familiales(new_input))
+                      set_af_output(_ => compute_allocations_familiales(new_input))
                     }}
                     className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                     type_="checkbox"
