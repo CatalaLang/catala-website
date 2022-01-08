@@ -130,9 +130,10 @@ let make = () => <>
       french=`Source : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)`
     />
   </p>
-  <Utils.PageSection title={<Lang.String english="Naming" french=`Nommage`}>
+  <Utils.PageSection title={<Lang.String english="Naming" french=`Nommage` />}>
     <p>
-      <Lang.String english=`This programming language is named after Pierre Catala who is, together with
+      <Lang.String
+        english=`This programming language is named after Pierre Catala who is, together with
         Lucien Mehl, a pioneer of French legal informatics. Beware, the name Catala is typographically close to
         the name of the Catalan language written in Catalan : Català. However, the very narrow scope of our programming language should not be prone to
         set any confusion given the existing wide influence of the Catalan language and culture.`
