@@ -13,7 +13,7 @@ catala &#45; Compiler for Catala, a specification language for tax and social be
 
 <P>
 
-<B>catala</B> [<I>OPTION</I>]&#46;&#46;&#46; <I>BACKEND</I> <I>FILE</I>
+<B>catala</B> [<I>OPTION</I>]&#46;&#46;&#46; <I>COMMAND</I> <I>FILE</I>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
@@ -21,42 +21,65 @@ catala &#45; Compiler for Catala, a specification language for tax and social be
 
 Catala is a domain&#45;specific language for deriving faithful&#45;by&#45;construction algorithms from legislative texts&#46;
 <A NAME="lbAE">&nbsp;</A>
+<H2>COMMANDS</H2>
+
+<DL COMPACT>
+<DT><B>Intepret</B><DD>
+Runs the interpreter on the Catala program, executing the scope specified by the <B>&#45;s</B> option assuming no additional external inputs&#46;
+<DT><B>Proof</B><DD>
+Generates and proves verification conditions about the well&#45;behaved execution of the Catala program&#46;
+<DT><B>OCaml</B><DD>
+Generates an OCaml translation of the Catala program&#46;
+<DT><B>Python</B><DD>
+Generates a Python translation of the Catala program&#46;
+<DT><B>LaTeX</B><DD>
+Weaves a LaTeX literate programming output of the Catala program&#46;
+<DT><B>HTML</B><DD>
+Weaves an HTML literate programming output of the Catala program&#46;
+<DT><B>Makefile</B><DD>
+Generates a Makefile&#45;compatible list of the file dependencies of a Catala program&#46;
+<DT><B>Scopelang</B><DD>
+Prints a debugging verbatim of the scope language intermediate representation of the Catala program&#46; Use the <B>&#45;s</B> option to restrict the output to a particular scope&#46;
+<DT><B>Dcalc</B><DD>
+Prints a debugging verbatim of the scope language intermediate representation of the Catala program&#46; Use the <B>&#45;s</B> option to restrict the output to a particular scope&#46;
+</DL>
+<A NAME="lbAF">&nbsp;</A>
 <H2>ARGUMENTS</H2>
 
 <DL COMPACT>
-<DT><I>BACKEND</I> (required)<DD>
-Backend selection among: Interpret, OCaml, Python, LaTeX, Makefile, Html, Dcalc, Scopelang
+<DT><I>COMMAND</I> (required)<DD>
+Backend selection (see the list of commands for available options)&#46;
 <DT><I>FILE</I> (required)<DD>
-Catala master file to be compiled
+Catala master file to be compiled&#46;
 </DL>
-<A NAME="lbAF">&nbsp;</A>
+<A NAME="lbAG">&nbsp;</A>
 <H2>OPTIONS</H2>
 
 <DL COMPACT>
 <DT><B>&#45;d</B>, <B>&#45;&#45;debug</B><DD>
-Prints debug information
+Prints debug information&#46;
 <DT><B>&#45;&#45;help</B>[=<I>FMT</I>] (default=auto)<DD>
 Show this help in format <I>FMT</I>&#46; The value <I>FMT</I> must be one of `auto&#39;, `pager&#39;, `groff&#39; or `plain&#39;&#46; With `auto&#39;, the format is `pager` or `plain&#39; whenever the <B>TERM</B> env var is `dumb&#39; or undefined&#46;
 <DT><B>&#45;l</B> <I>LANG</I>, <B>&#45;&#45;language</B>=<I>LANG</I><DD>
-Input language among: en, fr, pl
+Input language among: en, fr, pl&#46;
 <DT><B>&#45;o</B> <I>OUTPUT</I>, <B>&#45;&#45;output</B>=<I>OUTPUT</I><DD>
-<I> OUTPUT</I> is the file that will contain the output of the compiler
+<I> OUTPUT</I> is the file that will contain the output of the compiler&#46; Defaults to <I>FILE</I>&#46;<I>EXT</I> where <I>EXT</I> depends on the chosen backend&#46;
 <DT><B>&#45;O</B>, <B>&#45;&#45;optimize</B><DD>
-Run compiler optimizations
-<DT><B>&#45;p</B> <I>LANG</I>, <B>&#45;&#45;max_digits_printed</B>=<I>LANG</I><DD>
-Maximum number of significant digits printed for decimal results (default 20)
+Run compiler optimizations&#46;
+<DT><B>&#45;p</B> <I>DIGITS</I>, <B>&#45;&#45;max_digits_printed</B>=<I>DIGITS</I><DD>
+Maximum number of significant digits printed for decimal results (default 20)&#46;
 <DT><B>&#45;s</B> <I>SCOPE</I>, <B>&#45;&#45;scope</B>=<I>SCOPE</I><DD>
-Scope to be executed
+Scope to be focused on&#46;
 <DT><B>&#45;t</B>, <B>&#45;&#45;trace</B><DD>
-Displays a trace of the interpreter&#39;s computation
-<DT><B>&#45;&#45;unstyled</B><DD>
-Removes styling from terminal output
+Displays a trace of the interpreter&#39;s computation or generates logging instructions in translate programs&#46;
+<DT><B>&#45;u</B>, <B>&#45;&#45;unstyled</B><DD>
+Removes styling (colors, etc&#46;) from terminal output&#46;
 <DT><B>&#45;&#45;version</B><DD>
 Show version information&#46;
 <DT><B>&#45;w</B>, <B>&#45;&#45;wrap</B><DD>
-Wraps literate programming output with a minimal preamble
+Wraps literate programming output with a minimal preamble&#46;
 </DL>
-<A NAME="lbAG">&nbsp;</A>
+<A NAME="lbAH">&nbsp;</A>
 <H2>EXIT STATUS</H2>
 
 <P>
@@ -72,31 +95,50 @@ on command line parsing errors&#46;
 <DT>125<DD>
 on unexpected internal errors (bugs)&#46;
 </DL>
-<A NAME="lbAH">&nbsp;</A>
+<A NAME="lbAI">&nbsp;</A>
 <H2>AUTHORS</H2>
 
+<P>
+
+The authors are listed by alphabetical order&#46;
+<P>
+
+Nicolas Chataing &lt;nicolas&#46;chataing@ens&#46;fr&gt;
+<P>
+
+Alain Delaët&#45;Tixeuil &lt;alain&#46;delaet&#45;&#45;<A HREF="mailto:tixeuil@inria">tixeuil@inria</A>&#46;fr&gt;
+<P>
+
+Aymeric Fromherz &lt;aymeric&#46;<A HREF="mailto:fromherz@inria">fromherz@inria</A>&#46;fr&gt;
+<P>
+
+Louis Gesbert &lt;louis&#46;<A HREF="mailto:gesbert@ocamlpro">gesbert@ocamlpro</A>&#46;com&gt;
 <P>
 
 Denis Merigoux &lt;denis&#46;<A HREF="mailto:merigoux@inria">merigoux@inria</A>&#46;fr&gt;
 <P>
 
-Nicolas Chataing &lt;nicolas&#46;chataing@ens&#46;fr&gt;
-<A NAME="lbAI">&nbsp;</A>
+Emile Rolley &lt;<A HREF="mailto:erolley@tutamail">erolley@tutamail</A>&#46;com&gt;
+<A NAME="lbAJ">&nbsp;</A>
 <H2>EXAMPLES</H2>
 
 <P>
 
-Typical usage:
+<PRE>
+catala Interpret &#45;s Foo file&#46;catala_en
+</PRE>
+
 <P>
 
 <PRE>
-catala LaTeX file&#46;catala
+catala Ocaml &#45;o target/file&#46;ml file&#46;catala_en
 </PRE>
 
-<A NAME="lbAJ">&nbsp;</A>
+<A NAME="lbAK">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
 
 Please file bug reports at <A HREF="https://github">https://github</A>&#46;com/CatalaLang/catala/issues
 
+<HR>
