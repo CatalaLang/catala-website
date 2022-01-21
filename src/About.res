@@ -7,8 +7,8 @@ type person = {
 let denis_merigoux = {
   name: "Denis Merigoux",
   website: Some("https://merigoux.fr"),
-  affiliation: <Utils.TextLink target="https://prosecco.gforge.inria.fr">
-    {"Inria Prosecco" |> React.string}
+  affiliation: <Utils.TextLink target="https://team.inria.fr/prosecco/">
+    {"Inria (Prosecco)" |> React.string}
   </Utils.TextLink>,
 }
 
@@ -18,6 +18,31 @@ let nicolas_chataing = {
   affiliation: <Utils.TextLink
     target="https://www.ens.psl.eu/departement/departement-d-informatique">
     {`École Normale Supérieure` |> React.string}
+  </Utils.TextLink>,
+}
+
+let alain_delaet = {
+  name: `Alain Delaët-Tixeuil`,
+  website: None,
+  affiliation: <Utils.TextLink
+    target="https://www.ens.psl.eu/departement/departement-d-informatique">
+    {`École Normale Supérieure` |> React.string}
+  </Utils.TextLink>,
+}
+
+let aymeric_fromherz = {
+  name: `Aymeric Fromherz`,
+  website: Some("https://users.ece.cmu.edu/~afromher/"),
+  affiliation: <Utils.TextLink target="https://team.inria.fr/prosecco/">
+    {`Inria (Prosecco)` |> React.string}
+  </Utils.TextLink>,
+}
+
+let raphael_monat = {
+  name: `Raphaël Monat`,
+  website: Some("https://rmonat.fr/"),
+  affiliation: <Utils.TextLink target="https://www-apr.lip6.fr/web/doku.php">
+    {`LIP6 (APR)` |> React.string}
   </Utils.TextLink>,
 }
 
@@ -147,12 +172,17 @@ let make = () => <>
   <div className=%tw("clear-right") />
   <Utils.PageSection title={<Lang.String english="People" french=`Membres du projet` />}>
     <ul className=%tw("list-disc list-inside")>
-      <Person person=denis_merigoux />
+      <Person person=alain_delaet />
+      <Person person=aymeric_fromherz />
       <Person person=liane_huttner />
-      <Person person=nicolas_chataing />
-      <Person person=jonathan_protzenko />
       <Person person=sarah_lawsky />
+      <Person person=denis_merigoux />
+      <Person person=raphael_monat />
+      <Person person=jonathan_protzenko />
     </ul>
+  </Utils.PageSection>
+  <Utils.PageSection title={<Lang.String english="Alumni" french=`Alumni` />}>
+    <ul className=%tw("list-disc list-inside")> <Person person=nicolas_chataing /> </ul>
   </Utils.PageSection>
   <Utils.PageSection
     title={<Lang.String
