@@ -8,7 +8,15 @@ let denis_merigoux = {
   name: "Denis Merigoux",
   website: Some("https://merigoux.fr"),
   affiliation: <Utils.TextLink target="https://team.inria.fr/prosecco/">
-    {"Inria (Prosecco)" |> React.string}
+    {"Inria - Prosecco" |> React.string}
+  </Utils.TextLink>,
+}
+
+let marie_alauzen = {
+  name: "Marie Alauzen",
+  website: Some("https://cv.archives-ouvertes.fr/marie-alauzen"),
+  affiliation: <Utils.TextLink target="https://www.ehess.fr/fr/centre-maurice-halbwachs-cmh">
+    {"Centre Maurice Halbawchs - EHESS/ENS" |> React.string}
   </Utils.TextLink>,
 }
 
@@ -34,7 +42,7 @@ let aymeric_fromherz = {
   name: `Aymeric Fromherz`,
   website: Some("https://users.ece.cmu.edu/~afromher/"),
   affiliation: <Utils.TextLink target="https://team.inria.fr/prosecco/">
-    {`Inria (Prosecco)` |> React.string}
+    {`Inria - Prosecco` |> React.string}
   </Utils.TextLink>,
 }
 
@@ -42,7 +50,7 @@ let raphael_monat = {
   name: `Raphaël Monat`,
   website: Some("https://rmonat.fr/"),
   affiliation: <Utils.TextLink target="https://www-apr.lip6.fr/web/doku.php">
-    {`LIP6 (APR)` |> React.string}
+    {`LIP6 - APR` |> React.string}
   </Utils.TextLink>,
 }
 
@@ -172,6 +180,7 @@ let make = () => <>
   <div className=%tw("clear-right") />
   <Utils.PageSection title={<Lang.String english="People" french=`Membres du projet` />}>
     <ul className=%tw("list-disc list-inside")>
+      <Person person=marie_alauzen />
       <Person person=alain_delaet />
       <Person person=aymeric_fromherz />
       <Person person=liane_huttner />
