@@ -25,16 +25,15 @@ let nicolas_chataing = {
   website: Some("https://github.com/skodt"),
   affiliation: <Utils.TextLink
     target="https://www.ens.psl.eu/departement/departement-d-informatique">
-    {`École Normale Supérieure` |> React.string}
+    {`ENS Paris` |> React.string}
   </Utils.TextLink>,
 }
 
 let alain_delaet = {
   name: `Alain Delaët-Tixeuil`,
   website: None,
-  affiliation: <Utils.TextLink
-    target="https://www.ens.psl.eu/departement/departement-d-informatique">
-    {`École Normale Supérieure` |> React.string}
+  affiliation: <Utils.TextLink target="http://informatique.ens-lyon.fr/">
+    {`ENS Lyon` |> React.string}
   </Utils.TextLink>,
 }
 
