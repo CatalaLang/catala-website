@@ -839,8 +839,36 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">scope_decl_item_attribute_input</span></th>
+        <td>CONTEXT</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>INPUT</td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">scope_decl_item_attribute_output</span></th>
+        <td><span class="option">OUTPUT</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">scope_decl_item_attribute</span></th>
+        <td><span class="nonterminal">scope_decl_item_attribute_input</span>
+        <span class="nonterminal">scope_decl_item_attribute_output</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>INTERNAL</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>OUTPUT</td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">scope_decl_item</span></th>
-        <td>CONTEXT
+        <td><span class="nonterminal">scope_decl_item_attribute</span>
         <span class="nonterminal">ident</span>
         CONTENT
         <span class="nonterminal">typ</span>
@@ -848,14 +876,13 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>CONTEXT
-        <span class="nonterminal">ident</span>
+        <td><span class="nonterminal">ident</span>
         SCOPE
         <span class="nonterminal">constructor</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>CONTEXT
+        <td><span class="nonterminal">scope_decl_item_attribute</span>
         <span class="nonterminal">ident</span>
         CONDITION
         <span class="option"><span class="nonterminal">struct_scope_func</span></span></td>

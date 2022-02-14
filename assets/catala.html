@@ -13,7 +13,7 @@ catala &#45; Compiler for Catala, a specification language for tax and social be
 
 <P>
 
-<B>catala</B> [<I>OPTION</I>]&#46;&#46;&#46; <I>COMMAND</I> <I>FILE</I>
+<B>catala</B> [<I>OPTION</I>]… <I>COMMAND</I> <I>FILE</I>
 <A NAME="lbAD">&nbsp;</A>
 <H2>DESCRIPTION</H2>
 
@@ -26,6 +26,8 @@ Catala is a domain&#45;specific language for deriving faithful&#45;by&#45;constr
 <DL COMPACT>
 <DT><B>Intepret</B><DD>
 Runs the interpreter on the Catala program, executing the scope specified by the <B>&#45;s</B> option assuming no additional external inputs&#46;
+<DT><B>Typecheck</B><DD>
+Parses and typechecks a Catala program, without interpreting it&#46;
 <DT><B>Proof</B><DD>
 Generates and proves verification conditions about the well&#45;behaved execution of the Catala program&#46;
 <DT><B>OCaml</B><DD>
@@ -58,8 +60,8 @@ Catala master file to be compiled&#46;
 <DL COMPACT>
 <DT><B>&#45;d</B>, <B>&#45;&#45;debug</B><DD>
 Prints debug information&#46;
-<DT><B>&#45;&#45;help</B>[=<I>FMT</I>] (default=auto)<DD>
-Show this help in format <I>FMT</I>&#46; The value <I>FMT</I> must be one of `auto&#39;, `pager&#39;, `groff&#39; or `plain&#39;&#46; With `auto&#39;, the format is `pager` or `plain&#39; whenever the <B>TERM</B> env var is `dumb&#39; or undefined&#46;
+<DT><B>&#45;&#45;disable_counterexamples</B><DD>
+Disables the search for counterexamples in proof mode&#46; Useful when you want a deterministic output from the Catala compiler, since provers can have some randomness in them&#46;
 <DT><B>&#45;l</B> <I>LANG</I>, <B>&#45;&#45;language</B>=<I>LANG</I><DD>
 Input language among: en, fr, pl&#46;
 <DT><B>&#45;o</B> <I>OUTPUT</I>, <B>&#45;&#45;output</B>=<I>OUTPUT</I><DD>
@@ -74,12 +76,19 @@ Scope to be focused on&#46;
 Displays a trace of the interpreter&#39;s computation or generates logging instructions in translate programs&#46;
 <DT><B>&#45;u</B>, <B>&#45;&#45;unstyled</B><DD>
 Removes styling (colors, etc&#46;) from terminal output&#46;
-<DT><B>&#45;&#45;version</B><DD>
-Show version information&#46;
 <DT><B>&#45;w</B>, <B>&#45;&#45;wrap</B><DD>
 Wraps literate programming output with a minimal preamble&#46;
 </DL>
 <A NAME="lbAH">&nbsp;</A>
+<H2>COMMON OPTIONS</H2>
+
+<DL COMPACT>
+<DT><B>&#45;&#45;help</B>[=<I>FMT</I>] (default=<B>auto</B>)<DD>
+Show this help in format <I>FMT</I>&#46; The value <I>FMT</I> must be one of <B>auto</B>, <B>pager</B>, <B>groff</B> or <B>plain</B>&#46; With <B>auto</B>, the format is <B>pager</B> or <B>plain</B> whenever the <B>TERM</B> env var is <B>dumb</B> or undefined&#46;
+<DT><B>&#45;&#45;version</B><DD>
+Show version information&#46;
+</DL>
+<A NAME="lbAI">&nbsp;</A>
 <H2>EXIT STATUS</H2>
 
 <P>
@@ -90,12 +99,14 @@ Wraps literate programming output with a minimal preamble&#46;
 on success&#46;
 <DT>1<DD>
 on error&#46;
+<DT>123<DD>
+on indiscriminate errors reported on standard error&#46;
 <DT>124<DD>
 on command line parsing errors&#46;
 <DT>125<DD>
 on unexpected internal errors (bugs)&#46;
 </DL>
-<A NAME="lbAI">&nbsp;</A>
+<A NAME="lbAJ">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <P>
@@ -119,7 +130,7 @@ Denis Merigoux &lt;denis&#46;<A HREF="mailto:merigoux@inria">merigoux@inria</A>&
 <P>
 
 Emile Rolley &lt;<A HREF="mailto:erolley@tutamail">erolley@tutamail</A>&#46;com&gt;
-<A NAME="lbAJ">&nbsp;</A>
+<A NAME="lbAK">&nbsp;</A>
 <H2>EXAMPLES</H2>
 
 <P>
@@ -134,7 +145,7 @@ catala Interpret &#45;s Foo file&#46;catala_en
 catala Ocaml &#45;o target/file&#46;ml file&#46;catala_en
 </PRE>
 
-<A NAME="lbAK">&nbsp;</A>
+<A NAME="lbAL">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
@@ -142,3 +153,4 @@ catala Ocaml &#45;o target/file&#46;ml file&#46;catala_en
 Please file bug reports at <A HREF="https://github">https://github</A>&#46;com/CatalaLang/catala/issues
 
 <HR>
+<A NAME="index">&nbsp;</A><H2>Index</H2>

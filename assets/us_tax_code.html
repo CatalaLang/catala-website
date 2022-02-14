@@ -85,11 +85,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 Source files weaved in this document
 </p>
 <ul>
-<li><tt>us_tax_code.catala_en</tt>, last modification 2021-03-11, 19:39</li>
-<li><tt>preamble.catala_en</tt>, last modification 2021-10-26, 19:37</li>
-<li><tt>section_121.catala_en</tt>, last modification 2021-10-26, 19:37</li>
-<li><tt>section_132.catala_en</tt>, last modification 2021-10-26, 19:37</li>
-<li><tt>section_1015.catala_en</tt>, last modification 2021-10-26, 19:37</li>
+<li><tt>us_tax_code.catala_en</tt>, last modification 2021-09-28, 11:49</li>
+<li><tt>preamble.catala_en</tt>, last modification 2021-10-01, 16:29</li>
+<li><tt>section_121.catala_en</tt>, last modification 2022-02-14, 12:07</li>
+<li><tt>section_132.catala_en</tt>, last modification 2022-02-14, 12:07</li>
+<li><tt>section_1015.catala_en</tt>, last modification 2021-10-01, 16:29</li>
 </ul>
 <h1 class='law-heading'><a href='#'>Master file</a></h1>
 
@@ -275,7 +275,7 @@ Source files weaved in this document
 <a id="./section_121.catala_en-9" name="./section_121.catala_en-9"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">PeriodMerge</span><span class="o">:</span>
 <a id="./section_121.catala_en-10" name="./section_121.catala_en-10"></a>  <span class="kd">context</span> <span class="nv">periods1</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span>
 <a id="./section_121.catala_en-11" name="./section_121.catala_en-11"></a>  <span class="kd">context</span> <span class="nv">periods2</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span>
-<a id="./section_121.catala_en-12" name="./section_121.catala_en-12"></a>  <span class="kd">context</span> <span class="nv">output</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span>
+<a id="./section_121.catala_en-12" name="./section_121.catala_en-12"></a>  <span class="kd">output</span> <span class="nv">output_periods</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span>
 <a id="./section_121.catala_en-13" name="./section_121.catala_en-13"></a>
 <a id="./section_121.catala_en-14" name="./section_121.catala_en-14"></a><span class="kd">scope</span> <span class="nc">PeriodMerge</span><span class="o">:</span><span class="c1"></span>
 <a id="./section_121.catala_en-15" name="./section_121.catala_en-15"></a><span class="c1">  # Placeholders, overwritten by caller</span>
@@ -285,7 +285,7 @@ Source files weaved in this document
 <a id="./section_121.catala_en-19" name="./section_121.catala_en-19"></a><span class="c1">  # TODO: find a way to implement the merging of two collections of date</span>
 <a id="./section_121.catala_en-20" name="./section_121.catala_en-20"></a><span class="c1">  # periods into a single non-overlapping collection of date periods such</span>
 <a id="./section_121.catala_en-21" name="./section_121.catala_en-21"></a><span class="c1">  # that the output covers both input date ranges.</span>
-<a id="./section_121.catala_en-22" name="./section_121.catala_en-22"></a>  <span class="kd">definition</span> <span class="nv">output</span> <span class="kd">equals</span> <span class="o">[]</span>
+<a id="./section_121.catala_en-22" name="./section_121.catala_en-22"></a>  <span class="kd">definition</span> <span class="nv">output_periods</span> <span class="kd">equals</span> <span class="o">[]</span>
 <a id="./section_121.catala_en-23" name="./section_121.catala_en-23"></a>
 <a id="./section_121.catala_en-24" name="./section_121.catala_en-24"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">PreviousSaleWhereSection121aApplied</span><span class="o">:</span>
 <a id="./section_121.catala_en-25" name="./section_121.catala_en-25"></a>  <span class="kd">data</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
@@ -297,23 +297,23 @@ Source files weaved in this document
 <a id="./section_121.catala_en-31" name="./section_121.catala_en-31"></a>    <span class="nc">PreviousSaleWhereSection121aApplied</span>
 <a id="./section_121.catala_en-32" name="./section_121.catala_en-32"></a>
 <a id="./section_121.catala_en-33" name="./section_121.catala_en-33"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span>
-<a id="./section_121.catala_en-34" name="./section_121.catala_en-34"></a>  <span class="kd">context</span> <span class="nv">requirements_met</span> <span class="kd">condition</span>
-<a id="./section_121.catala_en-35" name="./section_121.catala_en-35"></a>  <span class="kd">context</span> <span class="nv">requirements_ownership_met</span> <span class="kd">condition</span>
-<a id="./section_121.catala_en-36" name="./section_121.catala_en-36"></a>  <span class="kd">context</span> <span class="nv">requirements_usage_met</span> <span class="kd">condition</span>
-<a id="./section_121.catala_en-37" name="./section_121.catala_en-37"></a>  <span class="kd">context</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
-<a id="./section_121.catala_en-38" name="./section_121.catala_en-38"></a>  <span class="kd">context</span> <span class="nv">property_ownage</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
+<a id="./section_121.catala_en-34" name="./section_121.catala_en-34"></a>  <span class="kd">output</span> <span class="nv">requirements_met</span> <span class="kd">condition</span>
+<a id="./section_121.catala_en-35" name="./section_121.catala_en-35"></a>  <span class="kd">output</span> <span class="nv">requirements_ownership_met</span> <span class="kd">condition</span>
+<a id="./section_121.catala_en-36" name="./section_121.catala_en-36"></a>  <span class="kd">output</span> <span class="nv">requirements_usage_met</span> <span class="kd">condition</span>
+<a id="./section_121.catala_en-37" name="./section_121.catala_en-37"></a>  <span class="kd">input</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
+<a id="./section_121.catala_en-38" name="./section_121.catala_en-38"></a>  <span class="kd">input</span> <span class="nv">property_ownage</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
 <a id="./section_121.catala_en-39" name="./section_121.catala_en-39"></a><span class="c1">  # Invariant: the periods in the collection are disjoint</span>
-<a id="./section_121.catala_en-40" name="./section_121.catala_en-40"></a>  <span class="kd">context</span> <span class="nv">property_usage_as_principal_residence</span>
+<a id="./section_121.catala_en-40" name="./section_121.catala_en-40"></a>  <span class="kd">input</span> <span class="nv">property_usage_as_principal_residence</span>
 <a id="./section_121.catala_en-41" name="./section_121.catala_en-41"></a>    <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span><span class="c1"></span>
 <a id="./section_121.catala_en-42" name="./section_121.catala_en-42"></a><span class="c1">  # Invariant: the periods in the collection are disjoint</span>
-<a id="./section_121.catala_en-43" name="./section_121.catala_en-43"></a>  <span class="kd">context</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kd">content</span> <span class="kt">duration</span>
+<a id="./section_121.catala_en-43" name="./section_121.catala_en-43"></a>  <span class="kd">internal</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kd">content</span> <span class="kt">duration</span>
 <a id="./section_121.catala_en-44" name="./section_121.catala_en-44"></a>    <span class="kd">depends on</span> <span class="kd">collection</span> <span class="nc">Period</span>
-<a id="./section_121.catala_en-45" name="./section_121.catala_en-45"></a>  <span class="kd">context</span> <span class="nv">gain_cap</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-46" name="./section_121.catala_en-46"></a>  <span class="kd">context</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-47" name="./section_121.catala_en-47"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-48" name="./section_121.catala_en-48"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-49" name="./section_121.catala_en-49"></a>  <span class="kd">context</span> <span class="nv">section_121_b_3_applies</span> <span class="kd">condition</span>
-<a id="./section_121.catala_en-50" name="./section_121.catala_en-50"></a>  <span class="kd">context</span> <span class="nv">other_section_121a_sale</span> <span class="kd">content</span> <span class="nc">OtherSection121aSale</span>
+<a id="./section_121.catala_en-45" name="./section_121.catala_en-45"></a>  <span class="kd">context</span> <span class="kd">output</span> <span class="nv">gain_cap</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-46" name="./section_121.catala_en-46"></a>  <span class="kd">input</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-47" name="./section_121.catala_en-47"></a>  <span class="kd">output</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-48" name="./section_121.catala_en-48"></a>  <span class="kd">output</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-49" name="./section_121.catala_en-49"></a>  <span class="kd">context</span> <span class="kd">output</span> <span class="nv">section_121_b_3_applies</span> <span class="kd">condition</span>
+<a id="./section_121.catala_en-50" name="./section_121.catala_en-50"></a>  <span class="kd">input</span> <span class="nv">other_section_121a_sale</span> <span class="kd">content</span> <span class="nc">OtherSection121aSale</span>
 <a id="./section_121.catala_en-51" name="./section_121.catala_en-51"></a>
 <a id="./section_121.catala_en-52" name="./section_121.catala_en-52"></a><span class="kd">declaration</span> <span class="kd">structure</span> <span class="nc">PersonalData</span><span class="o">:</span>
 <a id="./section_121.catala_en-53" name="./section_121.catala_en-53"></a>  <span class="kd">data</span> <span class="nv">property_ownage</span> <span class="kd">content</span> <span class="kd">collection</span> <span class="nc">Period</span>
@@ -336,22 +336,22 @@ Source files weaved in this document
 <a id="./section_121.catala_en-70" name="./section_121.catala_en-70"></a>  <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kd">content</span> <span class="nc">DeadSpouseInfo</span>
 <a id="./section_121.catala_en-71" name="./section_121.catala_en-71"></a>
 <a id="./section_121.catala_en-72" name="./section_121.catala_en-72"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
-<a id="./section_121.catala_en-73" name="./section_121.catala_en-73"></a>  <span class="kd">context</span> <span class="nv">person1</span> <span class="kd">content</span> <span class="nc">PersonalData</span>
-<a id="./section_121.catala_en-74" name="./section_121.catala_en-74"></a>  <span class="kd">context</span> <span class="nv">section121Person1</span> <span class="kd">scope</span> <span class="nc">Section121SinglePerson</span>
-<a id="./section_121.catala_en-75" name="./section_121.catala_en-75"></a>  <span class="kd">context</span> <span class="nv">person2</span> <span class="kd">content</span> <span class="nc">PersonalData</span>
-<a id="./section_121.catala_en-76" name="./section_121.catala_en-76"></a>  <span class="kd">context</span> <span class="nv">section121Person2</span> <span class="kd">scope</span> <span class="nc">Section121SinglePerson</span>
-<a id="./section_121.catala_en-77" name="./section_121.catala_en-77"></a>  <span class="kd">context</span> <span class="nv">section121a_requirements_met</span> <span class="kd">condition</span>
-<a id="./section_121.catala_en-78" name="./section_121.catala_en-78"></a>  <span class="kd">context</span> <span class="nv">section_121_b_2_A_condition</span> <span class="kd">condition</span>
-<a id="./section_121.catala_en-79" name="./section_121.catala_en-79"></a>  <span class="kd">context</span> <span class="nv">gain_cap_person_1</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-80" name="./section_121.catala_en-80"></a>  <span class="kd">context</span> <span class="nv">gain_cap_person_2</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-73" name="./section_121.catala_en-73"></a>  <span class="kd">context</span> <span class="kd">output</span> <span class="nv">person1</span> <span class="kd">content</span> <span class="nc">PersonalData</span>
+<a id="./section_121.catala_en-74" name="./section_121.catala_en-74"></a>  <span class="nv">section121Person1</span> <span class="kd">scope</span> <span class="nc">Section121SinglePerson</span>
+<a id="./section_121.catala_en-75" name="./section_121.catala_en-75"></a>  <span class="kd">context</span> <span class="kd">output</span> <span class="nv">person2</span> <span class="kd">content</span> <span class="nc">PersonalData</span>
+<a id="./section_121.catala_en-76" name="./section_121.catala_en-76"></a>  <span class="nv">section121Person2</span> <span class="kd">scope</span> <span class="nc">Section121SinglePerson</span>
+<a id="./section_121.catala_en-77" name="./section_121.catala_en-77"></a>  <span class="kd">internal</span> <span class="nv">section121a_requirements_met</span> <span class="kd">condition</span>
+<a id="./section_121.catala_en-78" name="./section_121.catala_en-78"></a>  <span class="kd">output</span> <span class="nv">section_121_b_2_A_condition</span> <span class="kd">condition</span>
+<a id="./section_121.catala_en-79" name="./section_121.catala_en-79"></a>  <span class="kd">output</span> <span class="nv">gain_cap_person_1</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-80" name="./section_121.catala_en-80"></a>  <span class="kd">output</span> <span class="nv">gain_cap_person_2</span> <span class="kd">content</span> <span class="kt">money</span>
 <a id="./section_121.catala_en-81" name="./section_121.catala_en-81"></a>  <span class="kd">context</span> <span class="nv">gain_cap</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-82" name="./section_121.catala_en-82"></a>  <span class="kd">context</span> <span class="nv">return_type</span> <span class="kd">content</span> <span class="nc">ReturnType</span>
-<a id="./section_121.catala_en-83" name="./section_121.catala_en-83"></a>  <span class="kd">context</span> <span class="nv">return_date</span> <span class="kd">content</span> <span class="kt">date</span>
-<a id="./section_121.catala_en-84" name="./section_121.catala_en-84"></a>  <span class="kd">context</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
-<a id="./section_121.catala_en-85" name="./section_121.catala_en-85"></a>  <span class="kd">context</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-86" name="./section_121.catala_en-86"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-87" name="./section_121.catala_en-87"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-88" name="./section_121.catala_en-88"></a>  <span class="kd">context</span> <span class="nv">period_merge</span> <span class="kd">scope</span> <span class="nc">PeriodMerge</span><span class="c1"></span>
+<a id="./section_121.catala_en-82" name="./section_121.catala_en-82"></a>  <span class="kd">input</span> <span class="nv">return_type</span> <span class="kd">content</span> <span class="nc">ReturnType</span>
+<a id="./section_121.catala_en-83" name="./section_121.catala_en-83"></a>  <span class="kd">input</span> <span class="nv">return_date</span> <span class="kd">content</span> <span class="kt">date</span>
+<a id="./section_121.catala_en-84" name="./section_121.catala_en-84"></a>  <span class="kd">input</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
+<a id="./section_121.catala_en-85" name="./section_121.catala_en-85"></a>  <span class="kd">input</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-86" name="./section_121.catala_en-86"></a>  <span class="kd">output</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-87" name="./section_121.catala_en-87"></a>  <span class="kd">output</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-88" name="./section_121.catala_en-88"></a>  <span class="nv">period_merge</span> <span class="kd">scope</span> <span class="nc">PeriodMerge</span><span class="c1"></span>
 <a id="./section_121.catala_en-89" name="./section_121.catala_en-89"></a>
 <a id="./section_121.catala_en-90" name="./section_121.catala_en-90"></a><span class="c1"># Defining sub-scopes arguments</span>
 <a id="./section_121.catala_en-91" name="./section_121.catala_en-91"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
@@ -395,14 +395,14 @@ Source files weaved in this document
 <a id="./section_121.catala_en-129" name="./section_121.catala_en-129"></a>  <span class="kd">definition</span> <span class="nv">gain_cap_person_2</span> <span class="kd">equals</span> <span class="nv">section121Person2</span><span class="o">.</span>gain_cap
 <a id="./section_121.catala_en-130" name="./section_121.catala_en-130"></a>
 <a id="./section_121.catala_en-131" name="./section_121.catala_en-131"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">Section121TwoPasses</span><span class="o">:</span>
-<a id="./section_121.catala_en-132" name="./section_121.catala_en-132"></a>  <span class="kd">context</span> <span class="nv">first_pass</span> <span class="kd">scope</span> <span class="nc">Section121TwoPersons</span>
-<a id="./section_121.catala_en-133" name="./section_121.catala_en-133"></a>  <span class="kd">context</span> <span class="nv">second_pass</span> <span class="kd">scope</span> <span class="nc">Section121TwoPersons</span>
-<a id="./section_121.catala_en-134" name="./section_121.catala_en-134"></a>  <span class="kd">context</span> <span class="nv">return_type</span> <span class="kd">content</span> <span class="nc">ReturnType</span>
-<a id="./section_121.catala_en-135" name="./section_121.catala_en-135"></a>  <span class="kd">context</span> <span class="nv">return_date</span> <span class="kd">content</span> <span class="kt">date</span>
-<a id="./section_121.catala_en-136" name="./section_121.catala_en-136"></a>  <span class="kd">context</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
-<a id="./section_121.catala_en-137" name="./section_121.catala_en-137"></a>  <span class="kd">context</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_121.catala_en-138" name="./section_121.catala_en-138"></a>  <span class="kd">context</span> <span class="nv">period_merge</span> <span class="kd">scope</span> <span class="nc">PeriodMerge</span>
-<a id="./section_121.catala_en-139" name="./section_121.catala_en-139"></a>  <span class="kd">context</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span><span class="c1"></span>
+<a id="./section_121.catala_en-132" name="./section_121.catala_en-132"></a>  <span class="nv">first_pass</span> <span class="kd">scope</span> <span class="nc">Section121TwoPersons</span>
+<a id="./section_121.catala_en-133" name="./section_121.catala_en-133"></a>  <span class="nv">second_pass</span> <span class="kd">scope</span> <span class="nc">Section121TwoPersons</span>
+<a id="./section_121.catala_en-134" name="./section_121.catala_en-134"></a>  <span class="kd">input</span> <span class="nv">return_type</span> <span class="kd">content</span> <span class="nc">ReturnType</span>
+<a id="./section_121.catala_en-135" name="./section_121.catala_en-135"></a>  <span class="kd">input</span> <span class="nv">return_date</span> <span class="kd">content</span> <span class="kt">date</span>
+<a id="./section_121.catala_en-136" name="./section_121.catala_en-136"></a>  <span class="kd">input</span> <span class="nv">date_of_sale_or_exchange</span> <span class="kd">content</span> <span class="kt">date</span>
+<a id="./section_121.catala_en-137" name="./section_121.catala_en-137"></a>  <span class="kd">input</span> <span class="nv">gain_from_sale_or_exchange_of_property</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_121.catala_en-138" name="./section_121.catala_en-138"></a>  <span class="nv">period_merge</span> <span class="kd">scope</span> <span class="nc">PeriodMerge</span>
+<a id="./section_121.catala_en-139" name="./section_121.catala_en-139"></a>  <span class="kd">output</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">content</span> <span class="kt">money</span><span class="c1"></span>
 <a id="./section_121.catala_en-140" name="./section_121.catala_en-140"></a>
 <a id="./section_121.catala_en-141" name="./section_121.catala_en-141"></a><span class="c1"># Defining sub-scopes arguments</span>
 <a id="./section_121.catala_en-142" name="./section_121.catala_en-142"></a><span class="kd">scope</span> <span class="nc">Section121TwoPasses</span><span class="o">:</span>
@@ -726,13 +726,13 @@ property during the period that either spouse owned the property.</p>
 <a id="./section_121.catala_en-324" name="./section_121.catala_en-324"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
 <a id="./section_121.catala_en-325" name="./section_121.catala_en-325"></a>
 <a id="./section_121.catala_en-326" name="./section_121.catala_en-326"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>person1 <span class="kd">equals</span> <span class="nc">PersonalData</span> <span class="o">{</span>
-<a id="./section_121.catala_en-327" name="./section_121.catala_en-327"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output
+<a id="./section_121.catala_en-327" name="./section_121.catala_en-327"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output_periods
 <a id="./section_121.catala_en-328" name="./section_121.catala_en-328"></a>    <span class="o">--</span> <span class="nv">property_usage_as_principal_residence</span><span class="o">:</span>
 <a id="./section_121.catala_en-329" name="./section_121.catala_en-329"></a>      <span class="nv">first_pass</span><span class="o">.</span>person1.property_usage_as_principal_residence
 <a id="./section_121.catala_en-330" name="./section_121.catala_en-330"></a>    <span class="o">--</span> <span class="nv">other_section_121a_sale</span><span class="o">:</span> <span class="nv">first_pass</span><span class="o">.</span>person1.other_section_121a_sale
 <a id="./section_121.catala_en-331" name="./section_121.catala_en-331"></a>  <span class="o">}</span>
 <a id="./section_121.catala_en-332" name="./section_121.catala_en-332"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>person2 <span class="kd">equals</span> <span class="nc">PersonalData</span> <span class="o">{</span>
-<a id="./section_121.catala_en-333" name="./section_121.catala_en-333"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output
+<a id="./section_121.catala_en-333" name="./section_121.catala_en-333"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output_periods
 <a id="./section_121.catala_en-334" name="./section_121.catala_en-334"></a>    <span class="o">--</span> <span class="nv">property_usage_as_principal_residence</span><span class="o">:</span>
 <a id="./section_121.catala_en-335" name="./section_121.catala_en-335"></a>      <span class="nv">first_pass</span><span class="o">.</span>person2.property_usage_as_principal_residence
 <a id="./section_121.catala_en-336" name="./section_121.catala_en-336"></a>    <span class="o">--</span> <span class="nv">other_section_121a_sale</span><span class="o">:</span> <span class="nv">first_pass</span><span class="o">.</span>person2.other_section_121a_sale
@@ -923,15 +923,15 @@ subsection (d)(6) applies.</p>
 <a id="./section_132.catala_en-9" name="./section_132.catala_en-9"></a>  <span class="o">--</span> <span class="nc">Services</span>
 <a id="./section_132.catala_en-10" name="./section_132.catala_en-10"></a>
 <a id="./section_132.catala_en-11" name="./section_132.catala_en-11"></a><span class="kd">declaration</span> <span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
-<a id="./section_132.catala_en-12" name="./section_132.catala_en-12"></a>  <span class="kd">context</span> <span class="nv">customer_price</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_132.catala_en-13" name="./section_132.catala_en-13"></a>  <span class="kd">context</span> <span class="nv">employee_price</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_132.catala_en-14" name="./section_132.catala_en-14"></a>  <span class="kd">context</span> <span class="nv">gross_profit_percentage</span> <span class="kd">content</span> <span class="kt">decimal</span>
-<a id="./section_132.catala_en-15" name="./section_132.catala_en-15"></a>  <span class="kd">context</span> <span class="nv">qualified_employee_discount</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_132.catala_en-16" name="./section_132.catala_en-16"></a>  <span class="kd">context</span> <span class="nv">employee_discount</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_132.catala_en-12" name="./section_132.catala_en-12"></a>  <span class="kd">input</span> <span class="nv">customer_price</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_132.catala_en-13" name="./section_132.catala_en-13"></a>  <span class="kd">input</span> <span class="nv">employee_price</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_132.catala_en-14" name="./section_132.catala_en-14"></a>  <span class="kd">output</span> <span class="nv">gross_profit_percentage</span> <span class="kd">content</span> <span class="kt">decimal</span>
+<a id="./section_132.catala_en-15" name="./section_132.catala_en-15"></a>  <span class="kd">output</span> <span class="nv">qualified_employee_discount</span> <span class="kd">content</span> <span class="kt">money</span>
+<a id="./section_132.catala_en-16" name="./section_132.catala_en-16"></a>  <span class="kd">output</span> <span class="nv">employee_discount</span> <span class="kd">content</span> <span class="kt">money</span>
 <a id="./section_132.catala_en-17" name="./section_132.catala_en-17"></a>  <span class="kd">context</span> <span class="nv">aggregate_cost</span> <span class="kd">content</span> <span class="kt">money</span>
-<a id="./section_132.catala_en-18" name="./section_132.catala_en-18"></a>  <span class="kd">context</span> <span class="nv">discount_type</span> <span class="kd">content</span> <span class="nc">DiscountType</span>
-<a id="./section_132.catala_en-19" name="./section_132.catala_en-19"></a>  <span class="kd">context</span> <span class="nv">is_property</span> <span class="kd">content</span> <span class="kt">boolean</span>
-<a id="./section_132.catala_en-20" name="./section_132.catala_en-20"></a>  <span class="kd">context</span> <span class="nv">is_services</span> <span class="kd">content</span> <span class="kt">boolean</span>
+<a id="./section_132.catala_en-18" name="./section_132.catala_en-18"></a>  <span class="kd">input</span> <span class="nv">discount_type</span> <span class="kd">content</span> <span class="nc">DiscountType</span>
+<a id="./section_132.catala_en-19" name="./section_132.catala_en-19"></a>  <span class="kd">internal</span> <span class="nv">is_property</span> <span class="kd">content</span> <span class="kt">boolean</span>
+<a id="./section_132.catala_en-20" name="./section_132.catala_en-20"></a>  <span class="kd">internal</span> <span class="nv">is_services</span> <span class="kd">content</span> <span class="kt">boolean</span>
 <a id="./section_132.catala_en-21" name="./section_132.catala_en-21"></a>
 <a id="./section_132.catala_en-22" name="./section_132.catala_en-22"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
 <a id="./section_132.catala_en-23" name="./section_132.catala_en-23"></a>  <span class="kd">definition</span> <span class="nv">is_property</span> <span class="kd">equals</span> <span class="kr">match</span> <span class="nv">discount_type</span> <span class="kr">with pattern</span>
