@@ -3,7 +3,7 @@
 ## Generating assets
 
 The `assets` folder of the website is generated partially from the Catala
-compiler. To generate theses assets, please refer to the [dedicated
+compiler. To generate these assets, please refer to the [dedicated
 section of the Catala compiler `README.md`](https://github.com/CatalaLang/catala#generating-website-assets).
 
 ## Run Project
