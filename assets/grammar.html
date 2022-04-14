@@ -721,6 +721,7 @@
         RULE
         <span class="nonterminal">rule_expr</span>
         <span class="option"><span class="nonterminal">condition_consequence</span></span>
+        <span class="option"><span class="nonterminal">state</span></span>
         <span class="nonterminal">rule_consequence</span></td>
       </tr>
       
@@ -737,6 +738,12 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">state</span></th>
+        <td>STATE
+        <span class="nonterminal">ident</span></td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">exception_to</span></th>
         <td>EXCEPTION
         <span class="option"><span class="nonterminal">ident</span></span></td>
@@ -749,6 +756,7 @@
         DEFINITION
         <span class="nonterminal">qident</span>
         <span class="option"><span class="nonterminal">definition_parameters</span></span>
+        <span class="option"><span class="nonterminal">state</span></span>
         <span class="option"><span class="nonterminal">condition_consequence</span></span>
         DEFINED_AS
         <span class="nonterminal">expression</span></td>
@@ -872,7 +880,8 @@
         <span class="nonterminal">ident</span>
         CONTENT
         <span class="nonterminal">typ</span>
-        <span class="option"><span class="nonterminal">struct_scope_func</span></span></td>
+        <span class="option"><span class="nonterminal">struct_scope_func</span></span>
+        <span class="list"><span class="nonterminal">state</span></span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -885,7 +894,8 @@
         <td><span class="nonterminal">scope_decl_item_attribute</span>
         <span class="nonterminal">ident</span>
         CONDITION
-        <span class="option"><span class="nonterminal">struct_scope_func</span></span></td>
+        <span class="option"><span class="nonterminal">struct_scope_func</span></span>
+        <span class="list"><span class="nonterminal">state</span></span></td>
       </tr>
       
       <tr class="rule">
@@ -942,7 +952,7 @@
         ENUM
         <span class="nonterminal">constructor</span>
         COLON
-        <span class="ne_list"><span class="nonterminal">enum_decl_line</span></span></td>
+        <span class="list"><span class="nonterminal">enum_decl_line</span></span></td>
       </tr>
       
       <tr class="rule">

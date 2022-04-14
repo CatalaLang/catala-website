@@ -522,7 +522,7 @@ scope Test3:
 ### Defining exceptions to groups of rules
 
 Note that the label system also lets you define more complicated exceptions
-patterns. Sometimes, you want to declare an exception to a groupe of
+patterns. Sometimes, you want to declare an exception to a group of
 piecewise definitions. To do that, simply use the same label for all
 the piecewise definitions.
 
@@ -586,6 +586,51 @@ scope BasisForFineDetermination :
   definition tax_computation.income_tax under condition
     individual.income <=$ $10,000
   consequence equals $500
+```
+
+## One variable, multiple states
+
+When a quantity is mentioned it the law, it does not always maps exactly to
+an unique Catala variable. More precisely, it often happens that the law defines
+an unique quantity with multiple computation steps, each new one building on the
+previous one. Here is an example of such a setup and how to deal with it thanks
+to a dedicated Catala feature.
+
+Under the hood, the different states of a Catala variable are implemented by
+distinct variables inside the lower intermediate representations of the
+language.
+
+### Article 8
+
+For taxation purposes, the values of the building operated for charity
+purposes can be deducted from the wealth of the individual, which is then
+capped at $2,500,000.
+
+```catala
+declaration scope WealthTax:
+  input value_of_buildings_used_for_charity content money
+  input total_wealth content money
+  internal wealth content money
+    # After the type of the variable, we can define the ordered list of states
+    # that the variable shall take before computing its final value. In each
+    # state, we'll be able to refer to the value of the previous state.
+    state total
+    state after_charity_deductions
+    state after_capping
+
+scope WealthTax:
+  definition wealth state total equals total_wealth
+  definition wealth state after_charity_deductions equals
+    wealth -$ # Here, "wealth" refers to the state "total"
+      value_of_buildings_used_for_charity
+  definition wealth state after_capping equals
+    if wealth >=$ $2,500,000 then $2,500,000 else wealth
+    # Here, "wealth" refers to the state "after_charity_decuctions"
+
+  assertion wealth >$ $0
+  # Outside of the definition of "wealth", "wealth" always refer to the final
+  # state of the variable, here "after_capping".
+
 ```
 
 ## Catala values
@@ -682,7 +727,7 @@ in terms of days, months and years. A difference between dates is a duration
 measured in days, and the addition of a date and a duration yields a new date.
 Durations measured in days, months or years are not mixable with each other,
 as months and years do not always have the same number of days. This non-mixability
-is not captured by the type system of Catala but will yield erros at runtime.
+is not captured by the type system of Catala but will yield errors at runtime.
 Date literals are specified using the ISO 8601 standard to avoid confusion between
 american and european notations. Date operators are prefixed by "@" while
 duration operators are prefixed by "^".
