@@ -98,6 +98,23 @@ let prolala_2022 = {
 }",
 }
 
+let crcl_2021 = {
+  link: "https://hal.inria.fr/hal-03541637/",
+  citation: "Denis Merigoux. The Specification Problem of Legal Expert Systems. 2022.",
+  bibtex: "@unpublished{merigoux:hal-03541637,
+  TITLE = {{The Specification Problem of Legal Expert Systems}},
+  AUTHOR = {Merigoux, Denis},
+  URL = {https://hal.inria.fr/hal-03541637},
+  NOTE = {working paper or preprint},
+  YEAR = {2022},
+  MONTH = Jan,
+  PDF = {https://hal.inria.fr/hal-03541637/file/main.pdf},
+  HAL_ID = {hal-03541637},
+  HAL_VERSION = {v1},
+}
+",
+}
+
 let icfp2021 = {
   link: "https://hal.inria.fr/hal-03159939",
   citation: `Denis Merigoux, Nicolas Chataing, and Jonathan Protzenko. 2021. Catala: a programming language for the law.
@@ -166,5 +183,6 @@ let make = () => <>
   </Utils.PageSection>
   <Utils.PageSection title={<Lang.String english="Preprints" french=`Pré-prints` />}>
     <ul className=%tw("list-none list-inside")> <PubItem item=ai_law_2022 /> </ul>
+    <ul className=%tw("list-none list-inside")> <PubItem item=crcl_2021 /> </ul>
   </Utils.PageSection>
 </>
