@@ -24,6 +24,10 @@ let navigation_elements_to_component = (
     } else if first == Elements.home && (second == Elements.doc && third == Elements.ocaml_docs) {
       <Doc.OCamlDocs />
     } else if (
+      first == Elements.home && (second == Elements.doc && third == Elements.syntax_cheat_sheet)
+    ) {
+      <Doc.SyntaxSheatCheet />
+    } else if (
       first == Elements.home &&
         (second == Elements.examples &&
         third == Elements.french_family_benefits_example)
@@ -41,10 +45,6 @@ let navigation_elements_to_component = (
         third == Elements.tutorial_fr_example)
     ) {
       <Examples.TutorialFr />
-    } else if (
-      first == Elements.home && (second == Elements.examples && third == Elements.french_example)
-    ) {
-      <Examples.DummyFrench />
     } else if (
       first == Elements.home && (second == Elements.examples && third == Elements.us_tax_code)
     ) {

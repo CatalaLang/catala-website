@@ -47,6 +47,32 @@ module OCamlDocs = {
   </>
 }
 
+module SyntaxSheatCheet = {
+  @react.component
+  let make = () => <>
+    <Utils.PageTitle>
+      <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` />
+    </Utils.PageTitle>
+    <div className=%tw("flex flex-row justify-center")>
+      <div className=%tw("mx-8 my-4")>
+        <a
+          className=%tw("cursor-pointer uppercase text-white")
+          href="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"
+          target="_blank">
+          <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
+            <div className=%tw("flex flex-row flex-nowrap items-center")>
+              <Lang.String
+                english="Access the syntax sheat cheet" french=`Accéder au pense-bête syntaxique`
+              />
+              <i className="pl-4 material-icons"> {"description" |> React.string} </i>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </>
+}
+
 let catala_doc: string = %bs.raw(`require("../assets/catala.html")`)
 
 let catala_card: Utils.presentation_card = {
@@ -87,10 +113,26 @@ let ocaml_docs_card: Utils.presentation_card = {
   </p>,
 }
 
+let syntax_cheat_sheet_card: Utils.presentation_card = {
+  title: <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` />,
+  icon: None,
+  quote: None,
+  action: Some((
+    [Elements.home, Elements.doc, Elements.syntax_cheat_sheet],
+    <Lang.String english="Download the cheet" french=`Télécharger le pense-bête` />,
+  )),
+  content: <p>
+    <Lang.String
+      english="This cheet is a handy reference to the Catala syntax and how programs should be written."
+      french=`Cette feuille est une référence complète et pratique pour la syntaxe de Catala.`
+    />
+  </p>,
+}
+
 @react.component
 let make = () => <>
   <Utils.PageTitle>
     <Lang.String english="Catala tooling documentation" french=`Documentation des outils Catala` />
   </Utils.PageTitle>
-  <Utils.PresentationCards cards=[catala_card, ocaml_docs_card] />
+  <Utils.PresentationCards cards=[catala_card, ocaml_docs_card, syntax_cheat_sheet_card] />
 </>

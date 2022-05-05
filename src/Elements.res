@@ -73,6 +73,11 @@ let ocaml_docs: navigation_element = {
   text: "ocaml" |> React.string,
 }
 
+let syntax_cheat_sheet: navigation_element = {
+  url: "syntax-sheet",
+  text: <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxtique` />,
+}
+
 let url_to_navigation_elements = (url: ReasonReactRouter.url): (
   option<Lang.lang>,
   array<navigation_element>,
@@ -123,6 +128,8 @@ let url_to_navigation_elements = (url: ReasonReactRouter.url): (
         Some([catala_man_page])
       } else if second_path == ocaml_docs.url {
         Some([ocaml_docs])
+      } else if second_path == syntax_cheat_sheet.url {
+        Some([syntax_cheat_sheet])
       } else {
         None
       }

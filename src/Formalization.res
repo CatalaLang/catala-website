@@ -77,7 +77,7 @@ let make = () => <>
       <div className=%tw("mx-8 my-4")>
         <a
           className=%tw("cursor-pointer uppercase text-white")
-          href="https://arxiv.org/abs/2103.03198"
+          href="https://dl.acm.org/doi/10.1145/3473582"
           target="_blank">
           <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
             <div className=%tw("flex flex-row flex-nowrap items-center")>
