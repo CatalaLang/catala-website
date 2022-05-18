@@ -722,7 +722,7 @@ peut être différent de celui mentionné au 2° du présent article.
 ```catala
 # Sera géré avec une exception dans Catala. Le texte est équivalent
 # à une méta-propriété du code à vérifier : i.e. pas d'exceptions pour
-# cet âge azutre part que pour Complément Familial ou AllocationLogement.
+# cet âge autre part que pour Complément Familial ou AllocationLogement.
 ```
 
 #### Titre 2 : Prestations générales d'entretien
@@ -1875,7 +1875,7 @@ champ d'application Test1:
   définition f.i_date_courante égal à |2020-05-01|
   définition f.i_résidence égal à Métropole
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 351,26€
+  assertion f.i_montant_versé = 351,54€
 
 déclaration champ d'application Test2:
   f champ d'application InterfaceAllocationsFamiliales
@@ -1888,7 +1888,7 @@ champ d'application Test2:
   définition f.i_date_courante égal à |2020-05-01|
   définition f.i_résidence égal à Métropole
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 216,27€
+  assertion f.i_montant_versé = 216,46€
 
 
 déclaration champ d'application Test3:
@@ -1901,7 +1901,7 @@ champ d'application Test3:
   définition f.i_date_courante égal à |2020-05-01|
   définition f.i_résidence égal à Guyane
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 24,35 €
+  assertion f.i_montant_versé = 24,37 €
 
 déclaration champ d'application Test4:
   f champ d'application InterfaceAllocationsFamiliales
@@ -1913,7 +1913,7 @@ champ d'application Test4:
   définition f.i_date_courante égal à |2020-05-01|
   définition f.i_résidence égal à Métropole
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 99,37€
+  assertion f.i_montant_versé = 99,46€
 
 déclaration champ d'application Test5:
   f champ d'application InterfaceAllocationsFamiliales
@@ -1950,7 +1950,7 @@ champ d'application Test6:
   définition f.i_date_courante égal à |2020-05-01|
   définition f.i_résidence égal à Guadeloupe
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 66,25€
+  assertion f.i_montant_versé = 66,30€
 
 déclaration champ d'application Test7:
   f champ d'application InterfaceAllocationsFamiliales
@@ -1963,7 +1963,7 @@ champ d'application Test7:
   définition f.i_date_courante égal à |2021-02-01|
   définition f.i_résidence égal à Métropole
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 417,51€
+  assertion f.i_montant_versé = 417,84€
 
 déclaration champ d'application Test8:
   f champ d'application InterfaceAllocationsFamiliales
@@ -1988,7 +1988,7 @@ champ d'application Test8:
   définition f.i_date_courante égal à |2021-01-01|
   définition f.i_résidence égal à Métropole
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 197,74€
+  assertion f.i_montant_versé = 197,90 €
 
 déclaration champ d'application Test9:
   f champ d'application InterfaceAllocationsFamiliales
@@ -2038,7 +2038,7 @@ champ d'application Test10:
   définition f.i_date_courante égal à |2020-04-20|
   définition f.i_résidence égal à Métropole
   règle f.i_personne_charge_effective_permanente_est_parent rempli
-  assertion f.i_montant_versé = 99,37€
+  assertion f.i_montant_versé = 99,46€
 
 déclaration champ d'application Test11:
   f champ d'application InterfaceAllocationsFamiliales

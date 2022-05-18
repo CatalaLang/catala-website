@@ -426,6 +426,37 @@
       </tr>
       
       <tr class="rule">
+        <th><span class="nonterminal">unop</span></th>
+        <td>NOT</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUS</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDEC</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSMONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MINUSDURATION</td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">unop_expression</span></th>
+        <td><span class="nonterminal">base_expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">unop</span>
+        <span class="nonterminal">unop_expression</span></td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">mult_op</span></th>
         <td>MULT</td>
       </tr>
@@ -456,7 +487,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">mult_expression</span></th>
-        <td><span class="nonterminal">base_expression</span><sup>+</sup><sub><span class="nonterminal">mult_op</span></sub></td>
+        <td><span class="nonterminal">unop_expression</span><sup>+</sup><sub><span class="nonterminal">mult_op</span></sub></td>
       </tr>
       
       <tr class="rule">
@@ -505,36 +536,8 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">sum_unop</span></th>
-        <td>MINUS</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSMONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDURATION</td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">sum_expression</span></th>
-        <td><span class="nonterminal">mult_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">mult_expression</span>
-        <span class="nonterminal">sum_op</span>
-        <span class="nonterminal">sum_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">sum_unop</span>
-        <span class="nonterminal">sum_expression</span></td>
+        <td><span class="nonterminal">mult_expression</span><sup>+</sup><sub><span class="nonterminal">sum_op</span></sub></td>
       </tr>
       
       <tr class="rule">
@@ -552,11 +555,6 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">logical_unop</span></th>
-        <td>NOT</td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">compare_expression</span></th>
         <td><span class="nonterminal">sum_expression</span><sup>+</sup><sub><span class="nonterminal">compare_op</span></sub></td>
       </tr>
@@ -564,11 +562,6 @@
       <tr class="rule">
         <th><span class="nonterminal">logical_atom</span></th>
         <td><span class="nonterminal">compare_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">logical_unop</span>
-        <span class="nonterminal">logical_atom</span></td>
       </tr>
       
       <tr class="rule">
@@ -683,7 +676,7 @@
         THEN
         <span class="nonterminal">expression</span>
         ELSE
-        <span class="nonterminal">base_expression</span></td>
+        <span class="nonterminal">expression</span></td>
       </tr>
       <tr>
         <th class="bar"></th>

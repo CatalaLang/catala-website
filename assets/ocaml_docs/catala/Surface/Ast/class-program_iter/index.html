@@ -53,7 +53,7 @@
     ; visit_Data : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-base_typ_data">base_typ_data</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Day : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Decimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Decreasing : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Definition : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-definition">definition</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -102,7 +102,7 @@
       unit
     ; visit_Increasing : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Input : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IntToDec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Integer : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Internal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -151,6 +151,7 @@
     ; visit_PdfFile : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span>string <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span> <span><span>int option</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Percent : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Primitive : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_RoundDecimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_RoundMoney : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Rule : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-rule">rule</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_ScopeDecl : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-scope_decl">scope_decl</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -294,7 +295,7 @@
     ; visit_Data : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-base_typ_data">base_typ_data</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Day : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Decimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Decreasing : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Definition : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-definition">definition</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -343,7 +344,7 @@
       unit
     ; visit_Increasing : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Input : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IntToDec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Integer : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Internal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -392,6 +393,7 @@
     ; visit_PdfFile : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span>string <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span> <span><span>int option</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Percent : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Primitive : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_RoundDecimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_RoundMoney : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Rule : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-rule">rule</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_ScopeDecl : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-scope_decl">scope_decl</a> <span class="arrow">&#45;&gt;</span></span> unit

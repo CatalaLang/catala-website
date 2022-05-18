@@ -39,7 +39,7 @@
     ; visit_Concat : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-binop">binop</a>
     ; visit_Date : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-primitive_typ">primitive_typ</a>
     ; visit_Day : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_unit">literal_unit</a>
-    ; visit_Dec : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
+    ; visit_Dec : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
     ; visit_Decimal : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-primitive_typ">primitive_typ</a>
     ; visit_Decreasing : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-variation_typ">variation_typ</a>
     ; visit_Definition : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-definition">definition</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-scope_use_item">scope_use_item</a>
@@ -85,7 +85,7 @@
       <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
       <a href="../index.html#type-expression">expression</a>
     ; visit_Increasing : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-variation_typ">variation_typ</a>
-    ; visit_Int : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
+    ; visit_Int : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
     ; visit_IntToDec : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-builtin_expression">builtin_expression</a>
     ; visit_Integer : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-primitive_typ">primitive_typ</a>
     ; visit_KDate : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-op_kind">op_kind</a>
@@ -127,6 +127,7 @@
     ; visit_NotAnException : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-exception_to">exception_to</a>
     ; visit_Or : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-binop">binop</a>
     ; visit_Percent : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_unit">literal_unit</a>
+    ; visit_RoundDecimal : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-builtin_expression">builtin_expression</a>
     ; visit_RoundMoney : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-builtin_expression">builtin_expression</a>
     ; visit_Rule : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-rule">rule</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-scope_use_item">scope_use_item</a>
     ; visit_StructLit : 
@@ -239,7 +240,7 @@
     ; visit_Concat : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-binop">binop</a>
     ; visit_Date : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-primitive_typ">primitive_typ</a>
     ; visit_Day : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_unit">literal_unit</a>
-    ; visit_Dec : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
+    ; visit_Dec : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
     ; visit_Decimal : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-primitive_typ">primitive_typ</a>
     ; visit_Decreasing : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-variation_typ">variation_typ</a>
     ; visit_Definition : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-definition">definition</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-scope_use_item">scope_use_item</a>
@@ -285,7 +286,7 @@
       <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
       <a href="../index.html#type-expression">expression</a>
     ; visit_Increasing : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-variation_typ">variation_typ</a>
-    ; visit_Int : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
+    ; visit_Int : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_number">literal_number</a>
     ; visit_IntToDec : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-builtin_expression">builtin_expression</a>
     ; visit_Integer : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-primitive_typ">primitive_typ</a>
     ; visit_KDate : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-op_kind">op_kind</a>
@@ -327,6 +328,7 @@
     ; visit_NotAnException : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-exception_to">exception_to</a>
     ; visit_Or : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-binop">binop</a>
     ; visit_Percent : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-literal_unit">literal_unit</a>
+    ; visit_RoundDecimal : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-builtin_expression">builtin_expression</a>
     ; visit_RoundMoney : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-builtin_expression">builtin_expression</a>
     ; visit_Rule : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-rule">rule</a> <span class="arrow">&#45;&gt;</span></span> <a href="../index.html#type-scope_use_item">scope_use_item</a>
     ; visit_StructLit : 

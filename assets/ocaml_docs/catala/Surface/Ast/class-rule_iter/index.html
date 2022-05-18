@@ -38,7 +38,7 @@
     ; visit_Concat : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Day : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Decimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Div : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Dotted : 
@@ -76,7 +76,7 @@
       <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
       <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
-    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IntToDec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Integer : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_KDate : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -117,6 +117,7 @@
     ; visit_NotAnException : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Or : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Percent : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_RoundDecimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_RoundMoney : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_StructLit : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
@@ -208,7 +209,7 @@
     ; visit_Concat : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Day : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Dec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Decimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Div : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Dotted : 
@@ -246,7 +247,7 @@
       <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
       <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
-    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../../Runtime/index.html#type-integer">Runtime.integer</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IntToDec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Integer : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_KDate : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -287,6 +288,7 @@
     ; visit_NotAnException : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Or : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Percent : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_RoundDecimal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_RoundMoney : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_StructLit : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
