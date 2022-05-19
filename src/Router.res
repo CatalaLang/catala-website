@@ -32,23 +32,23 @@ let navigation_elements_to_component = (
         (second == Elements.examples &&
         third == Elements.french_family_benefits_example)
     ) {
-      <Examples.FrenchFamilyBenefits />
+      <FrenchFamilyBenefitsExample />
     } else if (
       first == Elements.home &&
         (second == Elements.examples &&
         third == Elements.tutorial_en_example)
     ) {
-      <Examples.TutorialEn />
+      <TutorialEnExample />
     } else if (
       first == Elements.home &&
         (second == Elements.examples &&
         third == Elements.tutorial_fr_example)
     ) {
-      <Examples.TutorialFr />
+      <TutorialFrExample />
     } else if (
       first == Elements.home && (second == Elements.examples && third == Elements.us_tax_code)
     ) {
-      <Examples.USTaxCode />
+      <USTaxCodeExample />
     } else {
       <Presentation />
     }
