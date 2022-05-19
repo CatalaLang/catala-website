@@ -1,7 +1,6 @@
 open PageComponents
 
 let french_law = %raw(`require("../../assets/french_law.js")`)
-let family_benefits: string = %raw(`require("../../assets/allocations_familiales.html")`)
 
 type child_input = {
   birth_date: option<Js.Date.t>,
@@ -136,7 +135,7 @@ let compute_allocations_familiales = (input: allocations_familiales_input) => {
 let card: Card.Presentation.t = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
   action: Some((
-    [Elements.home, Elements.examples, Elements.french_family_benefits_example],
+    [Nav.home, Nav.examples, Nav.french_family_benefits_example],
     <Lang.String english="see example" french=`Voir l'exemple` />,
   )),
   icon: None,
@@ -487,7 +486,12 @@ let make = () => {
       </div>
     </Section>
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
-      <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
+      <div
+        className="catala-code"
+        dangerouslySetInnerHTML={
+          "__html": %raw(`require("../../assets/allocations_familiales.html")`),
+        }
+      />
     </Section>
   </>
 }

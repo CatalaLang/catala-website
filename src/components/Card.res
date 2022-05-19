@@ -37,7 +37,7 @@ module Presentation = {
     title: React.element,
     icon: option<string>,
     quote: option<React.element>,
-    action: option<(array<Elements.navigation_element>, React.element)>,
+    action: option<(array<Nav.nav_elem>, React.element)>,
     content: React.element,
   }
 
@@ -47,7 +47,7 @@ module Presentation = {
     | Some((navs, action)) =>
       <a
         className=%tw("cursor-pointer border-solid border-t-2 border-primary pt-2")
-        onClick={Elements.goToElement(navs, lang)}>
+        onClick={Nav.go_to(navs, lang)}>
         <div className=%tw("flex flex-row flex-nowrap items-center")>
           <i className="pr-2 material-icons text-primary"> {"double_arrow" |> React.string} </i>
           <span className=%tw("uppercase text-primary border-solid border-secondary border-b")>

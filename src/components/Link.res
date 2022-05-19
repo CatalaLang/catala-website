@@ -8,11 +8,11 @@ module Text = {
 
 module Internal = {
   @react.component
-  let make = (~target: array<Elements.navigation_element>, ~children) => {
+  let make = (~target: array<Nav.nav_elem>, ~children) => {
     let (lang, _) = React.useContext(Lang.langContext)
     <a
       className=%tw("cursor-pointer border-solid border-secondary border-b")
-      onClick={Elements.goToElement(target, lang)}>
+      onClick={Nav.go_to(target, lang)}>
       children
     </a>
   }

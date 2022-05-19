@@ -118,7 +118,7 @@ let english_homepage: string = %raw(`require("../../assets/english_homepage.html
 
 type link_target =
   | External(string)
-  | Internal(array<Elements.navigation_element>)
+  | Internal(array<Nav.nav_elem>)
 
 type link_info = {
   target: link_target,
@@ -138,9 +138,7 @@ module LinkBlock = {
     <div>
       {switch info.target {
       | Internal(elements) =>
-        <a
-          className=%tw("cursor-pointer uppercase text-white")
-          onClick={Elements.goToElement(elements, lang)}>
+        <a className=%tw("cursor-pointer uppercase text-white") onClick={Nav.go_to(elements, lang)}>
           link_content
         </a>
       | External(link) =>
@@ -159,19 +157,19 @@ let github_link_info: link_info = {
 }
 
 let about_link_info: link_info = {
-  target: Internal([Elements.home, Elements.about]),
+  target: Internal([Nav.home, Nav.about]),
   text: <Lang.String english="About the project" french=`À propos du projet` />,
   icon: "info",
 }
 
 let publications_link_info: link_info = {
-  target: Internal([Elements.home, Elements.publications]),
+  target: Internal([Nav.home, Nav.publications]),
   text: <Lang.String english="Publications" french=`Publications` />,
   icon: "content_copy",
 }
 
 let formalisation_link_info: link_info = {
-  target: Internal([Elements.home, Elements.formalization]),
+  target: Internal([Nav.home, Nav.formalization]),
   text: <Lang.String english="Formalized specification" french=`Formalisation` />,
   icon: "rule",
 }
@@ -183,19 +181,19 @@ let zulip_link_info: link_info = {
 }
 
 // let playground_link_info: link_info = {
-//   target: Internal([Elements.home, Elements.playground]),
+//   target: Internal([Nav.home, Nav.playground]),
 //   text: <Lang.String english="Online playground" french=`Bac à sable en ligne` />,
 //   icon: "play_circle",
 // }
 
 let doc_link_info: link_info = {
-  target: Internal([Elements.home, Elements.doc]),
+  target: Internal([Nav.home, Nav.doc]),
   text: <Lang.String english="Documentation" french="Documentation" />,
   icon: "description",
 }
 
 let examples_link_info: link_info = {
-  target: Internal([Elements.home, Elements.examples]),
+  target: Internal([Nav.home, Nav.examples]),
   text: <Lang.String english="Catala program examples" french=`Exemples de programmes Catala` />,
   icon: "ballot",
 }
