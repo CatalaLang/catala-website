@@ -1,25 +1,24 @@
+open PageComponents
+
 let grammar = %raw(`require("../../assets/grammar.html")`)
 
 @react.component
 let make = () => <>
-  <Utils.PageTitle>
-    <Lang.String english="Formalization" french="Formalisation" />
-  </Utils.PageTitle>
-  <Utils.PageSection
-    title={<Lang.String english="Surface syntax" french=`Syntaxe du langage de surface` />}>
+  <Title> <Lang.String english="Formalization" french="Formalisation" /> </Title>
+  <Section title={<Lang.String english="Surface syntax" french=`Syntaxe du langage de surface` />}>
     <p>
       <Lang.String
         english="The syntax of the langage is derived from the "
         french=`La syntaxe du langage est générée à partir du `
       />
-      <Utils.TextLink
+      <Link.Text
         target="https://github.com/CatalaLang/catala/blob/master/compiler/surface/parser.mly">
         <Lang.String english="parser source file" french=`fichier source du parseur` />
-      </Utils.TextLink>
+      </Link.Text>
       <Lang.String english=" using " french=` grâce à  ` />
-      <Utils.TextLink target="https://github.com/Lelio-Brun/Obelisk">
+      <Link.Text target="https://github.com/Lelio-Brun/Obelisk">
         <Lang.String english="Obelisk" french=`Obelisk` />
-      </Utils.TextLink>
+      </Link.Text>
       <Lang.String
         english=". This syntax is language-agnostic, meaning that it is valid for both English and French versions
         of Catala. Indeed, the language only affects the tokens, not their order."
@@ -27,9 +26,9 @@ let make = () => <>
         française et anglaise de Catala. En effet, la langue d'entrée n'affecte que la création des jetons du parseur, pas leur ordre.`
       />
     </p>
-    <Utils.Card collapsible=true>
+    <Card.Basic collapsible=true>
       <div className=%tw("font-mono") dangerouslySetInnerHTML={"__html": grammar} />
-    </Utils.Card>
+    </Card.Basic>
     <p>
       <Lang.String
         english="To complement this formal description of the syntax, a cheat sheet is also available
@@ -56,8 +55,8 @@ let make = () => <>
         </a>
       </div>
     </div>
-  </Utils.PageSection>
-  <Utils.PageSection
+  </Section>
+  <Section
     title={<Lang.String english="Core semantics" french=`Sémantique du cœur du langage` />}>
     <p>
       <Lang.String
@@ -91,5 +90,5 @@ let make = () => <>
         </a>
       </div>
     </div>
-  </Utils.PageSection>
+  </Section>
 </>

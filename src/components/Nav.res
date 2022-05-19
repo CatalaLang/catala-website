@@ -66,12 +66,12 @@ let make = () => {
       className=%tw(
         "py-2 h-full flex flex-row items-center justify-center md:justify-start pl-4 text-3xl md:text-2xl lg:text-xl text-white"
       )>
-      <Utils.InternalLink target=[Elements.home]>
+      <Link.Internal target=[Elements.home]>
         <div className=%tw("flex flex-row flex-nowrap items-center")>
           <img className=%tw("h-8 pr-4") src={"/" ++ logo.default} />
           <Lang.String english="The Catala Language" french=`Le langage Catala` />
         </div>
-      </Utils.InternalLink>
+      </Link.Internal>
     </div>
     <div className=%tw("h-full flex flex-grow flex-row flex-wrap justify-center bg-secondary")>
       <SwitchLanguage />

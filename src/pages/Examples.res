@@ -1,5 +1,7 @@
 %raw(`require("../../assets/catala_code.css")`)
 
+open PageComponents
+
 let french_law = %raw(`require("../../assets/french_law.js")`)
 
 module FrenchFamilyBenefits = {
@@ -149,29 +151,29 @@ module FrenchFamilyBenefits = {
       incomplete_input
     })
     <>
-      <Utils.PageTitle>
+      <Title>
         <Lang.String
           english="French family benefits computation" french=`Calcul des allocations familiales`
         />
-      </Utils.PageTitle>
+      </Title>
       <p>
         <Lang.String
           english="The source code for this example is available "
           french=`Le code source de cet exemple est disponible `
         />
-        <Utils.TextLink
+        <Link.Text
           target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
           <Lang.String english="here" french=`ici` />
-        </Utils.TextLink>
+        </Link.Text>
         <Lang.String
           english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
           french=`. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
         Le tissage est un concept issu de la `
         />
-        <Utils.TextLink target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
+        <Link.Text target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
           <Lang.String english="literate programming" french=`programmation littéraire` />
-        </Utils.TextLink>
+        </Link.Text>
         <Lang.String
           english=" corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the tutorial for a hands-on introduction
@@ -180,7 +182,7 @@ module FrenchFamilyBenefits = {
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
         />
       </p>
-      <Utils.PageSection title={<Lang.String english="Simulator" french=`Simulateur` />}>
+      <Section title={<Lang.String english="Simulator" french=`Simulateur` />}>
         <p>
           <Lang.String
             english="This simulator is powered with the Catala program compiled from the source code below."
@@ -468,10 +470,10 @@ module FrenchFamilyBenefits = {
             </>
           }}
         </div>
-      </Utils.PageSection>
-      <Utils.PageSection title={<Lang.String english="Source code" french=`Code source` />}>
+      </Section>
+      <Section title={<Lang.String english="Source code" french=`Code source` />}>
         <div className="catala-code" dangerouslySetInnerHTML={"__html": family_benefits} />
-      </Utils.PageSection>
+      </Section>
     </>
   }
 }
@@ -481,27 +483,24 @@ module USTaxCode = {
 
   @react.component
   let make = () => <>
-    <Utils.PageTitle>
-      <Lang.String english="US Tax Code" french=`Code des impôts américain` />
-    </Utils.PageTitle>
+    <Title> <Lang.String english="US Tax Code" french=`Code des impôts américain` /> </Title>
     <p className=%tw("pb-16")>
       <Lang.String
         english="The source code for this example is available "
         french=`Le code source de cet exemple est disponible `
       />
-      <Utils.TextLink
-        target="https://github.com/CatalaLang/catala/tree/master/examples/us_tax_code">
+      <Link.Text target="https://github.com/CatalaLang/catala/tree/master/examples/us_tax_code">
         <Lang.String english="here" french=`ici` />
-      </Utils.TextLink>
+      </Link.Text>
       <Lang.String
         english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
         french=`. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
         Le tissage est un concept issu de la `
       />
-      <Utils.TextLink target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
+      <Link.Text target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
         <Lang.String english="literate programming" french=`programmation littéraire` />
-      </Utils.TextLink>
+      </Link.Text>
       <Lang.String
         english=" corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to the tutorial for a hands-on introduction
@@ -519,12 +518,12 @@ module TutorialEn = {
 
   @react.component
   let make = () => <>
-    <Utils.PageTitle>
+    <Title>
       <Lang.String
         english="English tutorial for Catala developers"
         french=`Catala: tutoriel pour programmeurs anglophones`
       />
-    </Utils.PageTitle>
+    </Title>
     <div className="catala-code" dangerouslySetInnerHTML={"__html": tutorial_en} />
   </>
 }
@@ -534,19 +533,17 @@ module TutorialFr = {
 
   @react.component
   let make = () => <>
-    <Utils.PageTitle>
+    <Title>
       <Lang.String
         english="French tutorial for Catala developers"
         french=`Catala: tutoriel pour programmeurs francophones`
       />
-    </Utils.PageTitle>
+    </Title>
     <div className="catala-code" dangerouslySetInnerHTML={"__html": tutorial_fr} />
   </>
 }
 
-let family_benefits: string = %raw(`require("../../assets/allocations_familiales.html")`)
-
-let family_benefits_card: Utils.presentation_card = {
+let family_benefits_card: Card.Presentation.t = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
   action: Some((
     [Elements.home, Elements.examples, Elements.french_family_benefits_example],
@@ -559,17 +556,17 @@ let family_benefits_card: Utils.presentation_card = {
       english="The content of the example is generated by the Catala compiler from the "
       french=`Le contenu de cet exemple est généré par le compilateur Catala à partir des `
     />
-    <Utils.TextLink
+    <Link.Text
       target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
       <Lang.String english="source code files of the example" french=`sources de l'exemple` />
-    </Utils.TextLink>
+    </Link.Text>
     <Lang.String
       english=". The code, like the legislative text it follows, is written in French." french="."
     />
   </>,
 }
 
-let english_card: Utils.presentation_card = {
+let english_card: Card.Presentation.t = {
   title: <Lang.String english="US Tax Code" french=`Code des impôts américain` />,
   action: Some((
     [Elements.home, Elements.examples, Elements.us_tax_code],
@@ -582,16 +579,16 @@ let english_card: Utils.presentation_card = {
       english="The content of this example is generated by the Catala compiler from the "
       french=`Le contenu de cet exemple est généré par le compilateur de Catala à partir des `
     />
-    <Utils.TextLink target="https://github.com/CatalaLang/catala/tree/master/examples/us_tax_code">
+    <Link.Text target="https://github.com/CatalaLang/catala/tree/master/examples/us_tax_code">
       <Lang.String
         english="source code files of the example" french=`fichiers source de l'exemple`
       />
-    </Utils.TextLink>
+    </Link.Text>
     <Lang.String english="." french=`.` />
   </>,
 }
 
-let tutorial_en_card: Utils.presentation_card = {
+let tutorial_en_card: Card.Presentation.t = {
   title: <Lang.String
     english="English tutorial for Catala developers"
     french=`Catala: tutoriel pour programmeurs anglophones`
@@ -613,7 +610,7 @@ let tutorial_en_card: Utils.presentation_card = {
   />,
 }
 
-let tutorial_fr_card: Utils.presentation_card = {
+let tutorial_fr_card: Card.Presentation.t = {
   title: <Lang.String
     english="French tutorial for Catala developers"
     french=`Catala: tutoriel pour programmeurs francophones`
@@ -637,10 +634,8 @@ let tutorial_fr_card: Utils.presentation_card = {
 
 @react.component
 let make = () => <>
-  <Utils.PageTitle>
-    <Lang.String english="Catala examples" french=`Exemples de programmes Catala` />
-  </Utils.PageTitle>
-  <Utils.PresentationCards
+  <Title> <Lang.String english="Catala examples" french=`Exemples de programmes Catala` /> </Title>
+  <Card.Presentation.FromList
     cards=[tutorial_en_card, tutorial_fr_card, family_benefits_card, english_card]
   />
 </>

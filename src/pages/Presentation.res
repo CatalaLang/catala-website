@@ -4,7 +4,7 @@ let catala_jurix_link = "https://hal.inria.fr/hal-02936606"
 
 let zulip_link = "https://zulip.catala-lang.org/"
 
-let examples_card: Utils.presentation_card = {
+let examples_card: Card.Presentation.t = {
   title: <Lang.String
     english="Closer to the source of truth" french=`Plus près de la source de vérité`
   />,
@@ -28,7 +28,7 @@ let examples_card: Utils.presentation_card = {
   />,
 }
 
-let doc_card: Utils.presentation_card = {
+let doc_card: Card.Presentation.t = {
   title: <Lang.String
     english="One code, multiple execution targets"
     french=`Un seul code, plusieurs environnements d'exécution`
@@ -55,7 +55,7 @@ let doc_card: Utils.presentation_card = {
   />,
 }
 
-let legal_guide_card: Utils.presentation_card = {
+let legal_guide_card: Card.Presentation.t = {
   title: <Lang.String english="Validation from legal" french=`Sécurité juridique` />,
   icon: Some("work"),
   quote: Some(
@@ -80,7 +80,7 @@ let legal_guide_card: Utils.presentation_card = {
   />,
 }
 
-let foundations_card: Utils.presentation_card = {
+let foundations_card: Card.Presentation.t = {
   title: <Lang.String english="Solid foundations" french=`Des fondations solides` />,
   icon: Some("functions"),
   quote: Some(
@@ -92,7 +92,7 @@ let foundations_card: Utils.presentation_card = {
   action: None,
   content: <>
     <Lang.String english="Catala originates from " french=`Catala est développé à ` />
-    <Utils.TextLink target="https://www.inria.fr"> {"Inria" |> React.string} </Utils.TextLink>
+    <Link.Text target="https://www.inria.fr"> {React.string("Inria")} </Link.Text>
     <Lang.String
       english=", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
@@ -101,10 +101,10 @@ let foundations_card: Utils.presentation_card = {
    La conception du langage de programmation suit les techniques  de l'état de l'art du domaine.
    Inspiré des langages de la famille ML, Catala possède un mécanisme inédit de logique par défaut basé sur `
     />
-    <Utils.TextLink target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
+    <Link.Text target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
       <Lang.String english="the work of Sarah Lawsky" french=`le travail de Sarah Lawsky` />
-    </Utils.TextLink>
-    {"." |> React.string}
+    </Link.Text>
+    {React.string(".")}
   </>,
 }
 
@@ -267,7 +267,7 @@ let make = () => {
       </div>
     </div>
     <div className=%tw("pb-10 pt-4")>
-      <Utils.PresentationCards
+      <Card.Presentation.FromList
         cards=[examples_card, doc_card, legal_guide_card, foundations_card]
       />
     </div>
