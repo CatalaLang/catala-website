@@ -139,7 +139,7 @@ keywords = {law, domain specific language, legal expert systems}
 }",
 }
 
-let save_to_clipboard: string => unit = %bs.raw(`function(text) {navigator.clipboard.writeText(text)}`)
+let save_to_clipboard: string => unit = %raw(`function(text) {navigator.clipboard.writeText(text)}`)
 
 module PubItem = {
   @react.component

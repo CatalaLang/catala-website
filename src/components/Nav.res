@@ -52,7 +52,7 @@ module SwitchLanguage = {
 
 type imgLocation = {default: string}
 
-let logo: imgLocation = %raw("require('../assets/logo.png')")
+let logo: imgLocation = %raw("require('../../assets/logo.png')")
 
 @react.component
 let make = () => {

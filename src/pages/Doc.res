@@ -1,4 +1,4 @@
-%bs.raw(`require("../assets/man_page.css")`)
+%raw(`require("../../assets/man_page.css")`)
 
 module type ManPage = {
   let title: React.element
@@ -20,7 +20,7 @@ module CatalaManPage = MakeManPageDoc({
     <Lang.String
       english="Catala compiler documentation" french=`Documentation du compilateur Catala`
     />
-  let html: string = %bs.raw(`require("../assets/catala.html")`)
+  let html: string = %raw(`require("../../assets/catala.html")`)
 })
 
 module OCamlDocs = {
@@ -73,7 +73,7 @@ module SyntaxSheatCheet = {
   </>
 }
 
-let catala_doc: string = %bs.raw(`require("../assets/catala.html")`)
+let catala_doc: string = %raw(`require("../../assets/catala.html")`)
 
 let catala_card: Utils.presentation_card = {
   title: <Lang.String english="The Catala Compiler" french="Le compilateur Catala" />,

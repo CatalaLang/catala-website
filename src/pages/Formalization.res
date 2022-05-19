@@ -1,4 +1,4 @@
-let grammar = %bs.raw(`require("../assets/grammar.html")`)
+let grammar = %raw(`require("../../assets/grammar.html")`)
 
 @react.component
 let make = () => <>

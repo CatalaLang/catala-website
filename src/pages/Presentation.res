@@ -110,11 +110,11 @@ let foundations_card: Utils.presentation_card = {
 
 type imgLocation = {default: string}
 
-let logo: imgLocation = %raw("require('../assets/logo.png')")
+let logo: imgLocation = %raw("require('../../assets/logo.png')")
 
-let french_homepage: string = %bs.raw(`require("../assets/french_homepage.html")`)
+let french_homepage: string = %raw(`require("../../assets/french_homepage.html")`)
 
-let english_homepage: string = %bs.raw(`require("../assets/english_homepage.html")`)
+let english_homepage: string = %raw(`require("../../assets/english_homepage.html")`)
 
 type link_target =
   | External(string)

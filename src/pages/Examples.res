@@ -1,9 +1,9 @@
-%bs.raw(`require("../assets/catala_code.css")`)
+%raw(`require("../../assets/catala_code.css")`)
 
-let french_law = %bs.raw(`require("../assets/french_law.js")`)
+let french_law = %raw(`require("../../assets/french_law.js")`)
 
 module FrenchFamilyBenefits = {
-  let family_benefits: string = %bs.raw(`require("../assets/allocations_familiales.html")`)
+  let family_benefits: string = %raw(`require("../../assets/allocations_familiales.html")`)
 
   type child_input = {
     birth_date: option<Js.Date.t>,
@@ -108,7 +108,7 @@ module FrenchFamilyBenefits = {
     }
   }
 
-  let allocations_familiales_exe: allocations_familiales_input_validated => float = %bs.raw(`
+  let allocations_familiales_exe: allocations_familiales_input_validated => float = %raw(`
   function(input) {
     return french_law.computeAllocationsFamiliales(input)
   }
@@ -477,7 +477,7 @@ module FrenchFamilyBenefits = {
 }
 
 module USTaxCode = {
-  let us_tax_code: string = %bs.raw(`require("../assets/us_tax_code.html")`)
+  let us_tax_code: string = %raw(`require("../../assets/us_tax_code.html")`)
 
   @react.component
   let make = () => <>
@@ -515,7 +515,7 @@ module USTaxCode = {
 }
 
 module TutorialEn = {
-  let tutorial_en: string = %bs.raw(`require("../assets/tutorial_en.html")`)
+  let tutorial_en: string = %raw(`require("../../assets/tutorial_en.html")`)
 
   @react.component
   let make = () => <>
@@ -530,7 +530,7 @@ module TutorialEn = {
 }
 
 module TutorialFr = {
-  let tutorial_fr: string = %bs.raw(`require("../assets/tutoriel_fr.html")`)
+  let tutorial_fr: string = %raw(`require("../../assets/tutoriel_fr.html")`)
 
   @react.component
   let make = () => <>
@@ -544,7 +544,7 @@ module TutorialFr = {
   </>
 }
 
-let family_benefits: string = %bs.raw(`require("../assets/allocations_familiales.html")`)
+let family_benefits: string = %raw(`require("../../assets/allocations_familiales.html")`)
 
 let family_benefits_card: Utils.presentation_card = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
