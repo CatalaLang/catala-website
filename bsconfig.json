@@ -27,9 +27,11 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "reason-react"
+    "reason-react",
+    "decco"
   ],
   "ppx-flags": [
+    "decco/ppx",
     ["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "-path src/css/tailwind.css"]
   ],
   "refmt": 3

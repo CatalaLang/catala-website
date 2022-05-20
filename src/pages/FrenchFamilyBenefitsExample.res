@@ -54,24 +54,52 @@ type source_position = {
   lawHeadings: array<string>,
 }
 
+@decco.decode
 type rec logged_value =
   | Unit
   | Bool(bool)
-  | Money(float)
   | Integer(int)
+  // NOTE: a lost of precision could be a problem here
+  | Money(float)
   | Decimal(float)
-  | Date(Js.Date.t)
+  | Date(string)
   | Duration(string)
   | Enum(list<string>, (string, logged_value))
   | Struct(list<string>, list<(string, logged_value)>)
   | Array(array<logged_value>)
   | Unembeddable
 
+let rec log_val = (val: logged_value, tab: int) => {
+  Js.log(Js.String.repeat(tab, "\t"))
+  switch val {
+  | Unit => Js.log("Unit")
+  | Bool(b) => Js.log("Bool: " ++ string_of_bool(b))
+  | Money(f) => Js.log("Money: " ++ Js.Float.toString(f))
+  | Integer(i) => Js.log("Integer: " ++ string_of_int(i))
+  | Decimal(f) => Js.log("Decimal: " ++ Js.Float.toString(f))
+  | Date(d) => Js.log("Date: " ++ d)
+  | Duration(d) => Js.log("Duration: " ++ d)
+  | Enum(ls, (s, vals)) =>
+    Js.log("Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n")
+    vals->log_val(tab + 1)
+  /* | Struct(list<string>, list<(string, logged_value)>) */
+  /* | Array(array<logged_value>) */
+  /* | Unembeddable */
+  /*  */
+  | _ => Js.log("Other")
+  }
+}
+
+/* let parseLoggedValueFromJSON = (json: string) => { */
+/* Js.Json. (json) */
+/* Unit */
+/* } */
+
 type log_event = {
   eventType: string,
   information: array<string>,
   sourcePosition: Js.Nullable.t<source_position>,
-  loggedValueJson: Js.Json.t,
+  loggedValueJson: string,
 }
 
 type allocations_familiales_output =
@@ -513,6 +541,45 @@ let make = () => {
           </>
         }}
       </div>
+    </Section>
+    <Section title={<Lang.String english="Execution trace" french=`Trace d'exécution` />}>
+      {
+        let logs: array<log_event> = %raw(`french_law.retrieveLog(0)`)
+        let logs_len = Belt.Array.length(logs)
+        if 0 < logs_len {
+          React.array(
+            Belt.Array.map(logs, log => {
+              Js.log("JSON received as a string: " ++ log.loggedValueJson)
+              try {
+                let loggedValue = logged_value_decode(Js.Json.parseExn(log.loggedValueJson))
+                switch loggedValue {
+                | Ok(val) => val->log_val(0)
+                | Error(_decodeError) => Js.log("Error: ")
+                }
+              } catch {
+              | Js.Exn.Error(obj) =>
+                switch Js.Exn.message(obj) {
+                | Some(m) => Js.log("Caught a JS exception! Message: " ++ m)
+                | None => ()
+                }
+              }
+              <div>
+                <div className=%tw("font-bold")> {React.string(log.eventType)} </div>
+                <div className=%tw("font-semibold")>
+                  {React.string(
+                    0 < Js.Array.length(log.information)
+                      ? Js.Array.joinWith("/", log.information) ++ ` = `
+                      : ``,
+                  )}
+                  <span className=%tw("text-base") />
+                </div>
+              </div>
+            }),
+          )
+        } else {
+          {React.string(`No logs`)}
+        }
+      }
     </Section>
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
       <div
