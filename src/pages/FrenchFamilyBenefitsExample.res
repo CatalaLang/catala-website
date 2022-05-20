@@ -45,6 +45,35 @@ type allocations_familiales_input_validated = {
   avaitEnfantAChargeAvant1erJanvier2012: bool,
 }
 
+type source_position = {
+  fileName: string,
+  startLine: int,
+  endLine: int,
+  startColumn: int,
+  endColumn: int,
+  lawHeadings: array<string>,
+}
+
+type rec logged_value =
+  | Unit
+  | Bool(bool)
+  | Money(float)
+  | Integer(int)
+  | Decimal(float)
+  | Date(Js.Date.t)
+  | Duration(string)
+  | Enum(list<string>, (string, logged_value))
+  | Struct(list<string>, list<(string, logged_value)>)
+  | Array(array<logged_value>)
+  | Unembeddable
+
+type log_event = {
+  eventType: string,
+  information: array<string>,
+  sourcePosition: Js.Nullable.t<source_position>,
+  loggedValueJson: Js.Json.t,
+}
+
 type allocations_familiales_output =
   | Result(float)
   | Error(React.element)
