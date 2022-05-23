@@ -41,20 +41,11 @@ module Presentation = {
     content: React.element,
   }
 
-  let render_presentation_card = (card: t, lang: Lang.lang, id: string) => {
+  let render_presentation_card = (card: t, id: string) => {
     let action = switch card.action {
     | None => <div />
     | Some((navs, action)) =>
-      <a
-        className=%tw("cursor-pointer border-solid border-t-2 border-primary pt-2")
-        onClick={_ => Nav.goTo(navs, lang)}>
-        <div className=%tw("flex flex-row flex-nowrap items-center")>
-          <i className="pr-2 material-icons text-primary"> {"double_arrow" |> React.string} </i>
-          <span className=%tw("uppercase text-primary border-solid border-secondary border-b")>
-            action
-          </span>
-        </div>
-      </a>
+      <Link.Internal.WithArrow target=navs> action </Link.Internal.WithArrow>
     }
     let quote = switch card.quote {
     | Some(quote) =>
@@ -89,12 +80,9 @@ module Presentation = {
   module FromList = {
     @react.component
     let make = (~cards: array<t>) => {
-      let (lang, _) = React.useContext(Lang.langContext)
       <div className=%tw("flex flex-row flex-wrap items-stretch")>
         {cards
-        ->Belt.Array.mapWithIndex((i, card) =>
-          render_presentation_card(card, lang, string_of_int(i))
-        )
+        ->Belt.Array.mapWithIndex((i, card) => render_presentation_card(card, string_of_int(i)))
         ->React.array}
       </div>
     }
