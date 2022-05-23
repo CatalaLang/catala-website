@@ -1,5 +1,5 @@
-let navigation_elements_to_component = (elements: array<Nav.nav_elem>): React.element =>
-  switch Belt.List.fromArray(elements) {
+let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
+  switch elements->Belt.List.fromArray {
   | list{first, second} =>
     if first == Nav.home && second == Nav.about {
       <About />
@@ -17,21 +17,21 @@ let navigation_elements_to_component = (elements: array<Nav.nav_elem>): React.el
       <Presentation />
     }
   | list{first, second, third} =>
-    if first == Nav.home && (second == Nav.doc && third == Nav.catala_man_page) {
+    if first == Nav.home && (second == Nav.doc && third == Nav.catalaManPage) {
       <Doc.CatalaManPage />
-    } else if first == Nav.home && (second == Nav.doc && third == Nav.ocaml_docs) {
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.ocamlDocs) {
       <Doc.OCamlDocs />
-    } else if first == Nav.home && (second == Nav.doc && third == Nav.syntax_cheat_sheet) {
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.syntaxCheatSheet) {
       <Doc.SyntaxSheatCheet />
     } else if (
-      first == Nav.home && (second == Nav.examples && third == Nav.french_family_benefits_example)
+      first == Nav.home && (second == Nav.examples && third == Nav.frenchFamilyBenefitsExample)
     ) {
       <FrenchFamilyBenefitsExample />
-    } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorial_en_example) {
+    } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorialEnExample) {
       <TutorialEnExample />
-    } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorial_fr_example) {
+    } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorialFrExample) {
       <TutorialFrExample />
-    } else if first == Nav.home && (second == Nav.examples && third == Nav.us_tax_code) {
+    } else if first == Nav.home && (second == Nav.examples && third == Nav.usTaxCode) {
       <USTaxCodeExample />
     } else {
       <Presentation />
@@ -41,7 +41,6 @@ let navigation_elements_to_component = (elements: array<Nav.nav_elem>): React.el
 
 @react.component
 let make = () => {
-  let url = ReasonReactRouter.useUrl()
-  let (_, navs) = Nav.url_to_navigation_elements(url)
-  navigation_elements_to_component(navs)
+  let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
+  navElemToComposant(navs)
 }

@@ -76,7 +76,7 @@ let catala_doc: string = %raw(`require("../../assets/catala.html")`)
 let catala_card: Card.Presentation.t = {
   title: <Lang.String english="The Catala Compiler" french="Le compilateur Catala" />,
   action: Some((
-    [Nav.home, Nav.doc, Nav.catala_man_page],
+    [Nav.home, Nav.doc, Nav.catalaManPage],
     <Lang.String english="See manpage" french=`Voir la page man` />,
   )),
   icon: None,
@@ -96,7 +96,7 @@ let ocaml_docs_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   action: Some((
-    [Nav.home, Nav.doc, Nav.ocaml_docs],
+    [Nav.home, Nav.doc, Nav.ocamlDocs],
     <Lang.String english="See documentation" french=`Voir la documentation` />,
   )),
   content: <p>
@@ -114,7 +114,7 @@ let syntax_cheat_sheet_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   action: Some((
-    [Nav.home, Nav.doc, Nav.syntax_cheat_sheet],
+    [Nav.home, Nav.doc, Nav.syntaxCheatSheet],
     <Lang.String english="Download the cheet" french=`Télécharger le pense-bête` />,
   )),
   content: <p>

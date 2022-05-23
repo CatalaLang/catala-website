@@ -4,7 +4,7 @@ module App = {
   @react.component
   let make = () => {
     let url = ReasonReactRouter.useUrl()
-    let (lang_url, _) = Nav.url_to_navigation_elements(url)
+    let (lang_url, _) = Nav.urlToNavElem(url)
     let lang_url = switch lang_url {
     | None => Lang.English
     | Some(lang_url) => lang_url

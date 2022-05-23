@@ -1,27 +1,27 @@
 open PageComponents
 
-let french_law = %raw(`require("../../assets/french_law.js")`)
+let frenchLaw = %raw(`require("../../assets/french_law.js")`)
 
-type child_input = {
-  birth_date: option<Js.Date.t>,
+type childInput = {
+  birthDate: option<Js.Date.t>,
   id: int,
-  monthly_income: option<int>,
-  prise_en_charge: option<string>,
-  a_deja_ouvert_droit_allocations_familiales: option<bool>,
+  monthlyIncome: option<int>,
+  priseEnCharge: option<string>,
+  aDejaOuvertDroitAllocationsFamiliales: option<bool>,
 }
 
 let empty_child = i => {
-  birth_date: None,
+  birthDate: None,
   id: i,
-  monthly_income: None,
-  prise_en_charge: None,
-  a_deja_ouvert_droit_allocations_familiales: None,
+  monthlyIncome: None,
+  priseEnCharge: None,
+  aDejaOuvertDroitAllocationsFamiliales: None,
 }
 
 type allocations_familiales_input = {
-  current_date: option<Js.Date.t>,
-  num_children: option<int>,
-  children: array<child_input>,
+  currentDate: option<Js.Date.t>,
+  numChildren: option<int>,
+  children: array<childInput>,
   income: option<int>,
   residence: option<string>,
   avaitEnfantAChargeAvant1erJanvier2012: option<bool>,
@@ -82,18 +82,9 @@ let rec log_val = (val: logged_value, tab: int) => {
   | Enum(ls, (s, vals)) =>
     Js.log("Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n")
     vals->log_val(tab + 1)
-  /* | Struct(list<string>, list<(string, logged_value)>) */
-  /* | Array(array<logged_value>) */
-  /* | Unembeddable */
-  /*  */
   | _ => Js.log("Other")
   }
 }
-
-/* let parseLoggedValueFromJSON = (json: string) => { */
-/* Js.Json. (json) */
-/* Unit */
-/* } */
 
 type log_event = {
   eventType: string,
@@ -107,23 +98,23 @@ type allocations_familiales_output =
   | Error(React.element)
 
 let validate_input = (input: allocations_familiales_input) => {
-  switch (input.current_date, input.num_children, input.income, input.residence) {
+  switch (input.currentDate, input.numChildren, input.income, input.residence) {
   | (Some(current_date), Some(_num_children), Some(income), Some(residence)) =>
     let children_validated = Belt.Array.map(input.children, child => {
-      switch (child.birth_date, child.monthly_income) {
+      switch (child.birthDate, child.monthlyIncome) {
       | (Some(birth_date), Some(monthly_income)) =>
         Some({
           dateNaissance: birth_date,
           id: child.id,
           remunerationMensuelle: monthly_income,
           priseEnCharge: {
-            switch child.prise_en_charge {
+            switch child.priseEnCharge {
             | None => "Effective et permanente"
             | Some(s) => s
             }
           },
           aDejaOuvertDroitAuxAllocationsFamiliales: {
-            switch child.a_deja_ouvert_droit_allocations_familiales {
+            switch child.aDejaOuvertDroitAllocationsFamiliales {
             | None | Some(false) => false
             | Some(true) => true
             }
@@ -164,7 +155,7 @@ let validate_input = (input: allocations_familiales_input) => {
 
 let allocations_familiales_exe: allocations_familiales_input_validated => float = %raw(`
   function(input) {
-    return french_law.computeAllocationsFamiliales(input);
+    return frenchLaw.computeAllocationsFamiliales(input);
   }
 `)
 
@@ -192,7 +183,7 @@ let compute_allocations_familiales = (input: allocations_familiales_input) => {
 let card: Card.Presentation.t = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
   action: Some((
-    [Nav.home, Nav.examples, Nav.french_family_benefits_example],
+    [Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample],
     <Lang.String english="see example" french=`Voir l'exemple` />,
   )),
   icon: None,
@@ -215,8 +206,8 @@ let card: Card.Presentation.t = {
 @react.component
 let make = () => {
   let (af_input, set_af_input) = React.useState(_ => {
-    current_date: None,
-    num_children: None,
+    currentDate: None,
+    numChildren: None,
     income: None,
     children: [],
     residence: Some(`Métropole`),
@@ -328,7 +319,7 @@ let make = () => {
               let value = ReactEvent.Form.target(evt)["value"]
               let new_input = {
                 ...af_input,
-                current_date: Some(Js.Date.fromString(value)),
+                currentDate: Some(Js.Date.fromString(value)),
               }
               set_af_input(_ => new_input)
               set_af_output(_ => compute_allocations_familiales(new_input))
@@ -365,7 +356,7 @@ let make = () => {
               let value = ReactEvent.Form.target(evt)["value"]
               let new_input = {
                 ...af_input,
-                num_children: value,
+                numChildren: value,
                 children: if value <= 0 {
                   []
                 } else {
@@ -408,7 +399,7 @@ let make = () => {
                     let children = af_input.children
                     children[i] = {
                       ...children[i],
-                      birth_date: Some(Js.Date.fromString(value)),
+                      birthDate: Some(Js.Date.fromString(value)),
                     }
                     let new_input = {...af_input, children: children}
                     set_af_input(_ => new_input)
@@ -435,7 +426,7 @@ let make = () => {
                     let children = af_input.children
                     children[i] = {
                       ...children[i],
-                      prise_en_charge: Some(value),
+                      priseEnCharge: Some(value),
                     }
                     let new_input = {...af_input, children: children}
                     set_af_input(_ => new_input)
@@ -478,7 +469,7 @@ let make = () => {
                     let children = af_input.children
                     children[i] = {
                       ...children[i],
-                      monthly_income: Some(int_of_string(value)),
+                      monthlyIncome: Some(int_of_string(value)),
                     }
                     let new_input = {...af_input, children: children}
                     set_af_input(_ => new_input)
@@ -505,7 +496,7 @@ let make = () => {
                     let children = af_input.children
                     children[i] = {
                       ...children[i],
-                      a_deja_ouvert_droit_allocations_familiales: switch children[i].a_deja_ouvert_droit_allocations_familiales {
+                      aDejaOuvertDroitAllocationsFamiliales: switch children[i].aDejaOuvertDroitAllocationsFamiliales {
                       | None | Some(false) => Some(true)
                       | Some(true) => Some(false)
                       },
@@ -544,7 +535,7 @@ let make = () => {
     </Section>
     <Section title={<Lang.String english="Execution trace" french=`Trace d'exécution` />}>
       {
-        let logs: array<log_event> = %raw(`french_law.retrieveLog(0)`)
+        let logs: array<log_event> = %raw(`frenchLaw.retrieveLog(0)`)
         let logs_len = Belt.Array.length(logs)
         if 0 < logs_len {
           React.array(

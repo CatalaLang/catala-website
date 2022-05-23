@@ -6,7 +6,7 @@ let card: Card.Presentation.t = {
     french=`Catala: tutoriel pour programmeurs anglophones`
   />,
   action: Some((
-    [Nav.home, Nav.examples, Nav.tutorial_en_example],
+    [Nav.home, Nav.examples, Nav.tutorialEnExample],
     <Lang.String english="See the tutorial" french=`Voir le tutoriel` />,
   )),
   icon: None,

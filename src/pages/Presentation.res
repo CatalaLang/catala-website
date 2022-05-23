@@ -118,7 +118,7 @@ let english_homepage: string = %raw(`require("../../assets/english_homepage.html
 
 type link_target =
   | External(string)
-  | Internal(array<Nav.nav_elem>)
+  | Internal(array<Nav.navElem>)
 
 type link_info = {
   target: link_target,
@@ -138,7 +138,9 @@ module LinkBlock = {
     <div>
       {switch info.target {
       | Internal(elements) =>
-        <a className=%tw("cursor-pointer uppercase text-white") onClick={Nav.go_to(elements, lang)}>
+        <a
+          className=%tw("cursor-pointer uppercase text-white")
+          onClick={_ => Nav.goTo(elements, lang)}>
           link_content
         </a>
       | External(link) =>

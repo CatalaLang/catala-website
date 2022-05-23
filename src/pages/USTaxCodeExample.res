@@ -3,7 +3,7 @@ open PageComponents
 let card: Card.Presentation.t = {
   title: <Lang.String english="US Tax Code" french=`Code des impôts américain` />,
   action: Some((
-    [Nav.home, Nav.examples, Nav.us_tax_code],
+    [Nav.home, Nav.examples, Nav.usTaxCode],
     <Lang.String english="see example" french=`Voir l'exemple` />,
   )),
   icon: None,
