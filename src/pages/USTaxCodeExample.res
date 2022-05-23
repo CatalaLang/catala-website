@@ -1,7 +1,9 @@
 open PageComponents
 
+let pageTitle = <Lang.String english="US Tax Code" french=`Code des impôts américain` />
+
 let card: Card.Presentation.t = {
-  title: <Lang.String english="US Tax Code" french=`Code des impôts américain` />,
+  title: pageTitle,
   action: Some((
     [Nav.home, Nav.examples, Nav.usTaxCode],
     <Lang.String english="see example" french=`Voir l'exemple` />,
@@ -18,13 +20,13 @@ let card: Card.Presentation.t = {
         english="source code files of the example" french=`fichiers source de l'exemple`
       />
     </Link.Text>
-    <Lang.String english="." french=`.` />
+    {"."->React.string}
   </>,
 }
 
 @react.component
 let make = () => <>
-  <Title> <Lang.String english="US Tax Code" french=`Code des impôts américain` /> </Title>
+  <Title> pageTitle </Title>
   <p className=%tw("pb-16")>
     <Lang.String
       english="The source code for this example is available "
