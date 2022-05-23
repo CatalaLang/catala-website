@@ -10,7 +10,7 @@ type childInput = {
   aDejaOuvertDroitAllocationsFamiliales: option<bool>,
 }
 
-let empty_child = i => {
+let emptyChild = i => {
   birthDate: None,
   id: i,
   monthlyIncome: None,
@@ -18,7 +18,7 @@ let empty_child = i => {
   aDejaOuvertDroitAllocationsFamiliales: None,
 }
 
-type allocations_familiales_input = {
+type allocationsFamilialesInput = {
   currentDate: option<Js.Date.t>,
   numChildren: option<int>,
   children: array<childInput>,
@@ -27,7 +27,7 @@ type allocations_familiales_input = {
   avaitEnfantAChargeAvant1erJanvier2012: option<bool>,
 }
 
-type child_input_validated = {
+type childInputValidated = {
   dateNaissance: Js.Date.t,
   id: int,
   remunerationMensuelle: int,
@@ -35,9 +35,9 @@ type child_input_validated = {
   aDejaOuvertDroitAuxAllocationsFamiliales: bool,
 }
 
-type allocations_familiales_input_validated = {
+type allocationsFamilialesInputValidated = {
   currentDate: Js.Date.t,
-  children: array<child_input_validated>,
+  children: array<childInputValidated>,
   income: int,
   residence: string,
   personneQuiAssumeLaChargeEffectivePermanenteEstParent: bool,
@@ -45,7 +45,7 @@ type allocations_familiales_input_validated = {
   avaitEnfantAChargeAvant1erJanvier2012: bool,
 }
 
-type source_position = {
+type sourcePosition = {
   fileName: string,
   startLine: int,
   endLine: int,
@@ -55,7 +55,7 @@ type source_position = {
 }
 
 @decco.decode
-type rec logged_value =
+type rec loggedValue =
   | Unit
   | Bool(bool)
   | Integer(int)
@@ -64,12 +64,12 @@ type rec logged_value =
   | Decimal(float)
   | Date(string)
   | Duration(string)
-  | Enum(list<string>, (string, logged_value))
-  | Struct(list<string>, list<(string, logged_value)>)
-  | Array(array<logged_value>)
+  | Enum(list<string>, (string, loggedValue))
+  | Struct(list<string>, list<(string, loggedValue)>)
+  | Array(array<loggedValue>)
   | Unembeddable
 
-let rec log_val = (val: logged_value, tab: int) => {
+let rec logValue = (val: loggedValue, tab: int) => {
   Js.log(Js.String.repeat(tab, "\t"))
   switch val {
   | Unit => Js.log("Unit")
@@ -81,32 +81,32 @@ let rec log_val = (val: logged_value, tab: int) => {
   | Duration(d) => Js.log("Duration: " ++ d)
   | Enum(ls, (s, vals)) =>
     Js.log("Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n")
-    vals->log_val(tab + 1)
+    vals->logValue(tab + 1)
   | _ => Js.log("Other")
   }
 }
 
-type log_event = {
+type logEvent = {
   eventType: string,
   information: array<string>,
-  sourcePosition: Js.Nullable.t<source_position>,
+  sourcePosition: Js.Nullable.t<sourcePosition>,
   loggedValueJson: string,
 }
 
-type allocations_familiales_output =
+type allocationsFamilialesOutput =
   | Result(float)
   | Error(React.element)
 
-let validate_input = (input: allocations_familiales_input) => {
+let validateInput = (input: allocationsFamilialesInput) => {
   switch (input.currentDate, input.numChildren, input.income, input.residence) {
-  | (Some(current_date), Some(_num_children), Some(income), Some(residence)) =>
-    let children_validated = Belt.Array.map(input.children, child => {
+  | (Some(currentDate), Some(_numChildren), Some(income), Some(residence)) =>
+    let childrenValidated = input.children->Belt.Array.map(child => {
       switch (child.birthDate, child.monthlyIncome) {
-      | (Some(birth_date), Some(monthly_income)) =>
+      | (Some(birthDate), Some(monthlyIncome)) =>
         Some({
-          dateNaissance: birth_date,
+          dateNaissance: birthDate,
           id: child.id,
-          remunerationMensuelle: monthly_income,
+          remunerationMensuelle: monthlyIncome,
           priseEnCharge: {
             switch child.priseEnCharge {
             | None => "Effective et permanente"
@@ -124,20 +124,20 @@ let validate_input = (input: allocations_familiales_input) => {
       }
     })
     if (
-      Belt.Array.length(children_validated) == 0 ||
-        Belt.Array.every(children_validated, child => {
+      Belt.Array.length(childrenValidated) == 0 ||
+        childrenValidated->Belt.Array.every(child => {
           switch child {
           | None => false
           | Some(_) => true
           }
         })
     ) {
-      let children_validated = Belt.Array.map(children_validated, Belt.Option.getExn)
+      let childrenValidated = childrenValidated->Belt.Array.map(Belt.Option.getExn)
       Some({
-        currentDate: current_date,
+        currentDate: currentDate,
         income: income,
         residence: residence,
-        children: children_validated,
+        children: childrenValidated,
         // We assume the two below are always true
         personneQuiAssumeLaChargeEffectivePermanenteEstParent: true,
         personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: true,
@@ -153,21 +153,21 @@ let validate_input = (input: allocations_familiales_input) => {
   }
 }
 
-let allocations_familiales_exe: allocations_familiales_input_validated => float = %raw(`
+let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %raw(`
   function(input) {
     return frenchLaw.computeAllocationsFamiliales(input);
   }
 `)
 
-let incomplete_input = Error(
+let incompleteInput = Error(
   <Lang.String english="Input not complete" french=`Entrée non complète` />,
 )
 
-let compute_allocations_familiales = (input: allocations_familiales_input) => {
-  switch validate_input(input) {
-  | None => incomplete_input
+let computeAllocationsFamiliales = (input: allocationsFamilialesInput) => {
+  switch validateInput(input) {
+  | None => incompleteInput
   | Some(new_input) =>
-    try {Result(allocations_familiales_exe(new_input))} catch {
+    try {Result(allocationsFamilialesExe(new_input))} catch {
     | err =>
       Js.log(err)
       Error(<>
@@ -205,7 +205,7 @@ let card: Card.Presentation.t = {
 
 @react.component
 let make = () => {
-  let (af_input, set_af_input) = React.useState(_ => {
+  let (allocFamInput, setAllocFamInput) = React.useState(_ => {
     currentDate: None,
     numChildren: None,
     income: None,
@@ -213,9 +213,17 @@ let make = () => {
     residence: Some(`Métropole`),
     avaitEnfantAChargeAvant1erJanvier2012: None,
   })
-  let (af_output, set_af_output) = React.useState(_ => {
-    incomplete_input
+  let (allocFamOutput, setAllocFamOutput) = React.useState(_ => {
+    incompleteInput
   })
+  let updateCurrentState = (newInput: allocationsFamilialesInput) => {
+    setAllocFamInput(_ => newInput)
+    setAllocFamOutput(_ => computeAllocationsFamiliales(newInput))
+  }
+  let value = (event: ReactEvent.Form.t) => {
+    event->ReactEvent.Form.preventDefault
+    (event->ReactEvent.Form.target)["value"]
+  }
   <>
     <Title>
       <Lang.String
@@ -265,15 +273,11 @@ let make = () => {
           <input
             type_="number"
             className=%tw("border-solid border-2 border-tertiary m-1 px-2")
-            onChange={(evt: ReactEvent.Form.t) => {
-              ReactEvent.Form.preventDefault(evt)
-              let value = ReactEvent.Form.target(evt)["value"]
-              let new_input = {
-                ...af_input,
-                income: Some(int_of_string(value)),
-              }
-              set_af_input(_ => new_input)
-              set_af_output(_ => compute_allocations_familiales(new_input))
+            onChange={(event: ReactEvent.Form.t) => {
+              updateCurrentState({
+                ...allocFamInput,
+                income: Some(int_of_string(event->value)),
+              })
             }}
           />
         </div>
@@ -284,15 +288,11 @@ let make = () => {
           <select
             list="browsers"
             className=%tw("border-solid border-2 border-tertiary m-1 px-2")
-            onChange={(evt: ReactEvent.Form.t) => {
-              ReactEvent.Form.preventDefault(evt)
-              let value = ReactEvent.Form.target(evt)["value"]
-              let new_input = {
-                ...af_input,
-                residence: value,
-              }
-              set_af_input(_ => new_input)
-              set_af_output(_ => compute_allocations_familiales(new_input))
+            onChange={(event: ReactEvent.Form.t) => {
+              updateCurrentState({
+                ...allocFamInput,
+                residence: event->value,
+              })
             }}>
             <option value=`Métropole`> {React.string(`Métropole`)} </option>
             <option value=`Guyane`> {React.string(`Guyane`)} </option>
@@ -314,15 +314,11 @@ let make = () => {
           <input
             className=%tw("border-solid border-2 border-tertiary m-1 px-2")
             type_="date"
-            onChange={(evt: ReactEvent.Form.t) => {
-              ReactEvent.Form.preventDefault(evt)
-              let value = ReactEvent.Form.target(evt)["value"]
-              let new_input = {
-                ...af_input,
-                currentDate: Some(Js.Date.fromString(value)),
-              }
-              set_af_input(_ => new_input)
-              set_af_output(_ => compute_allocations_familiales(new_input))
+            onChange={(event: ReactEvent.Form.t) => {
+              updateCurrentState({
+                ...allocFamInput,
+                currentDate: Some(event->value->Js.Date.fromString),
+              })
             }}
           />
         </div>
@@ -334,15 +330,13 @@ let make = () => {
             className=%tw("border-solid border-2 border-tertiary m-1 px-2")
             type_="checkbox"
             onChange={_ => {
-              let new_input = {
-                ...af_input,
-                avaitEnfantAChargeAvant1erJanvier2012: switch af_input.avaitEnfantAChargeAvant1erJanvier2012 {
+              updateCurrentState({
+                ...allocFamInput,
+                avaitEnfantAChargeAvant1erJanvier2012: switch allocFamInput.avaitEnfantAChargeAvant1erJanvier2012 {
                 | None | Some(false) => Some(true)
                 | Some(true) => Some(false)
                 },
-              }
-              set_af_input(_ => new_input)
-              set_af_output(_ => compute_allocations_familiales(new_input))
+              })
             }}
           />
         </div>
@@ -351,26 +345,23 @@ let make = () => {
             <Lang.String english="Number of children" french=`Nombre d'enfants` />
           </label>
           <input
-            onChange={(evt: ReactEvent.Form.t) => {
-              ReactEvent.Form.preventDefault(evt)
-              let value = ReactEvent.Form.target(evt)["value"]
-              let new_input = {
-                ...af_input,
+            onChange={(event: ReactEvent.Form.t) => {
+              let value = event->value
+              updateCurrentState({
+                ...allocFamInput,
                 numChildren: value,
                 children: if value <= 0 {
                   []
                 } else {
                   Array.init(value, i => {
-                    if i >= Array.length(af_input.children) {
-                      empty_child(i)
+                    if i >= Array.length(allocFamInput.children) {
+                      emptyChild(i)
                     } else {
-                      af_input.children[i]
+                      allocFamInput.children[i]
                     }
                   })
                 },
-              }
-              set_af_input(_ => new_input)
-              set_af_output(_ => compute_allocations_familiales(new_input))
+              })
             }}
             className=%tw("border-solid border-2 border-tertiary m-1 px-2")
             type_="number"
@@ -379,7 +370,7 @@ let make = () => {
       </div>
       <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4")>
         {React.array(
-          Belt.Array.mapWithIndex(af_input.children, (i, _) => {
+          allocFamInput.children->Belt.Array.mapWithIndex((i, _) => {
             <div
               className=%tw("flex flex-col border-tertiary border-2 border-solid py-2 my-2")
               key={"child_input" ++ string_of_int(i)}>
@@ -393,17 +384,13 @@ let make = () => {
                 </label>
                 <input
                   key={"birth_date_input" ++ string_of_int(i)}
-                  onChange={(evt: ReactEvent.Form.t) => {
-                    ReactEvent.Form.preventDefault(evt)
-                    let value = ReactEvent.Form.target(evt)["value"]
-                    let children = af_input.children
+                  onChange={(event: ReactEvent.Form.t) => {
+                    let children = allocFamInput.children
                     children[i] = {
                       ...children[i],
-                      birthDate: Some(Js.Date.fromString(value)),
+                      birthDate: Some(event->value->Js.Date.fromString),
                     }
-                    let new_input = {...af_input, children: children}
-                    set_af_input(_ => new_input)
-                    set_af_output(_ => compute_allocations_familiales(new_input))
+                    updateCurrentState({...allocFamInput, children: children})
                   }}
                   className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                   type_="date"
@@ -420,17 +407,13 @@ let make = () => {
                   key={"custody_input" ++ string_of_int(i)}
                   list="browsers"
                   className=%tw("border-solid border-2 border-tertiary m-1 px-2")
-                  onChange={(evt: ReactEvent.Form.t) => {
-                    ReactEvent.Form.preventDefault(evt)
-                    let value = ReactEvent.Form.target(evt)["value"]
-                    let children = af_input.children
+                  onChange={(event: ReactEvent.Form.t) => {
+                    let children = allocFamInput.children
                     children[i] = {
                       ...children[i],
-                      priseEnCharge: Some(value),
+                      priseEnCharge: Some(event->value),
                     }
-                    let new_input = {...af_input, children: children}
-                    set_af_input(_ => new_input)
-                    set_af_output(_ => compute_allocations_familiales(new_input))
+                    updateCurrentState({...allocFamInput, children: children})
                   }}>
                   <option value=`Effective et permanente`>
                     {React.string(`Effective et permanente`)}
@@ -463,17 +446,13 @@ let make = () => {
                 </label>
                 <input
                   key={"monthly_income_input" ++ string_of_int(i)}
-                  onChange={(evt: ReactEvent.Form.t) => {
-                    ReactEvent.Form.preventDefault(evt)
-                    let value = ReactEvent.Form.target(evt)["value"]
-                    let children = af_input.children
+                  onChange={(event: ReactEvent.Form.t) => {
+                    let children = allocFamInput.children
                     children[i] = {
                       ...children[i],
-                      monthlyIncome: Some(int_of_string(value)),
+                      monthlyIncome: Some(int_of_string(event->value)),
                     }
-                    let new_input = {...af_input, children: children}
-                    set_af_input(_ => new_input)
-                    set_af_output(_ => compute_allocations_familiales(new_input))
+                    updateCurrentState({...allocFamInput, children: children})
                   }}
                   className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                   type_="number"
@@ -493,7 +472,7 @@ let make = () => {
                 <input
                   key={"already_used_key_input" ++ string_of_int(i)}
                   onChange={_ => {
-                    let children = af_input.children
+                    let children = allocFamInput.children
                     children[i] = {
                       ...children[i],
                       aDejaOuvertDroitAllocationsFamiliales: switch children[i].aDejaOuvertDroitAllocationsFamiliales {
@@ -501,9 +480,7 @@ let make = () => {
                       | Some(true) => Some(false)
                       },
                     }
-                    let new_input = {...af_input, children: children}
-                    set_af_input(_ => new_input)
-                    set_af_output(_ => compute_allocations_familiales(new_input))
+                    updateCurrentState({...allocFamInput, children: children})
                   }}
                   className=%tw("border-solid border-2 border-tertiary m-1 px-2")
                   type_="checkbox"
@@ -517,7 +494,7 @@ let make = () => {
         className=%tw(
           "flex flex-row justify-center my-4 border-2 border-tertiary border-solid p-4"
         )>
-        {switch af_output {
+        {switch allocFamOutput {
         | Error(msg) => <div className=%tw("font-bold")> msg </div>
         | Result(amount) => <>
             <div className=%tw("pr-2 ")>
@@ -533,45 +510,45 @@ let make = () => {
         }}
       </div>
     </Section>
-    <Section title={<Lang.String english="Execution trace" french=`Trace d'exécution` />}>
-      {
-        let logs: array<log_event> = %raw(`frenchLaw.retrieveLog(0)`)
-        let logs_len = Belt.Array.length(logs)
-        if 0 < logs_len {
-          React.array(
-            Belt.Array.map(logs, log => {
-              Js.log("JSON received as a string: " ++ log.loggedValueJson)
-              try {
-                let loggedValue = logged_value_decode(Js.Json.parseExn(log.loggedValueJson))
-                switch loggedValue {
-                | Ok(val) => val->log_val(0)
-                | Error(_decodeError) => Js.log("Error: ")
-                }
-              } catch {
-              | Js.Exn.Error(obj) =>
-                switch Js.Exn.message(obj) {
-                | Some(m) => Js.log("Caught a JS exception! Message: " ++ m)
-                | None => ()
-                }
-              }
-              <div>
-                <div className=%tw("font-bold")> {React.string(log.eventType)} </div>
-                <div className=%tw("font-semibold")>
-                  {React.string(
-                    0 < Js.Array.length(log.information)
-                      ? Js.Array.joinWith("/", log.information) ++ ` = `
-                      : ``,
-                  )}
-                  <span className=%tw("text-base") />
-                </div>
-              </div>
-            }),
-          )
-        } else {
-          {React.string(`No logs`)}
-        }
-      }
-    </Section>
+    /* <Section title={<Lang.String english="Execution trace" french=`Trace d'exécution` />}> */
+    /* { */
+    /* let logs: array<logEvent> = %raw(`frenchLaw.retrieveLog(0)`) */
+    /* let logs_len = Belt.Array.length(logs) */
+    /* if 0 < logs_len { */
+    /* React.array( */
+    /* Belt.Array.map(logs, log => { */
+    /* Js.log("JSON received as a string: " ++ log.loggedValueJson) */
+    /* try { */
+    /* let loggedValue = loggedValue_decode(Js.Json.parseExn(log.loggedValueJson)) */
+    /* switch loggedValue { */
+    /* | Ok(val) => val->logValue(0) */
+    /* | Error(_decodeError) => Js.log("Error: ") */
+    /* } */
+    /* } catch { */
+    /* | Js.Exn.Error(obj) => */
+    /* switch Js.Exn.message(obj) { */
+    /* | Some(m) => Js.log("Caught a JS exception! Message: " ++ m) */
+    /* | None => () */
+    /* } */
+    /* } */
+    /* <div> */
+    /* <div className=%tw("font-bold")> {React.string(log.eventType)} </div> */
+    /* <div className=%tw("font-semibold")> */
+    /* {React.string( */
+    /* 0 < Js.Array.length(log.information) */
+    /* ? Js.Array.joinWith("/", log.information) ++ ` = ` */
+    /* : ``, */
+    /* )} */
+    /* <span className=%tw("text-base") /> */
+    /* </div> */
+    /* </div> */
+    /* }), */
+    /* ) */
+    /* } else { */
+    /* {React.string(`No logs`)} */
+    /* } */
+    /* } */
+    /* </Section> */
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
       <div
         className="catala-code"
