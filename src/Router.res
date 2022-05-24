@@ -1,4 +1,4 @@
-let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
+let toComposant = (elements: array<Nav.navElem>): React.element =>
   switch elements->Belt.List.fromArray {
   | list{first, second} =>
     if first == Nav.home && second == Nav.about {
@@ -36,11 +36,24 @@ let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
     } else {
       <Presentation />
     }
-  | _ => <Presentation />
+  | list{first, second, third, fourth} =>
+    if (
+      first == Nav.home &&
+      second == Nav.examples &&
+      third == Nav.frenchFamilyBenefitsExample &&
+      fourth == Nav.visualization
+    ) {
+      <Visualization simulator={<FrenchFamilyBenefitsExample.Simulator />} />
+    } else {
+      <Presentation />
+    }
+  | _ =>
+    // TODO: error 404 page not found
+    <Presentation />
   }
 
 @react.component
 let make = () => {
   let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
-  navElemToComposant(navs)
+  navs->toComposant
 }
