@@ -36,3 +36,12 @@ npm run webpack:production
 This will replace the development artifact `build/Index.js` for an optimized version as well as copy `src/index.html` into `build/`. You can then deploy the contents of the `build` directory (`index.html` and `Index.js`).
 
 **To enable dead code elimination**, change `bsconfig.json`'s `package-specs` `module` from `"commonjs"` to `"es6"`. Then re-run the above 2 commands. This will allow Webpack to remove unused code.
+
+## Current deployment
+
+The website is currently served from catala-lang.paris.inria.fr, whose underlying
+IP is also pointed to by catala-lang.org. The site contents are stored in the
+home directory of Denis Merigoux, so to update the contents of the website
+you would just need to issue a command like this:
+
+    rsync -ah --delete build/ demerigo@catala-lang.paris.inria.fr:/home/ROCQ/prosecco/demerigo/
