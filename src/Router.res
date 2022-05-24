@@ -1,54 +1,38 @@
-let navigation_elements_to_component = (
-  elements: array<Elements.navigation_element>,
-): React.element =>
-  switch Belt.List.fromArray(elements) {
+let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
+  switch elements->Belt.List.fromArray {
   | list{first, second} =>
-    if first == Elements.home && second == Elements.about {
+    if first == Nav.home && second == Nav.about {
       <About />
-    } else if first == Elements.home && second == Elements.doc {
+    } else if first == Nav.home && second == Nav.doc {
       <Doc />
-      // } else if first == Elements.home && second == Elements.playground {
+      // } else if first == Nav.home && second == Nav.playground {
       //   <Playground />
-    } else if first == Elements.home && second == Elements.formalization {
+    } else if first == Nav.home && second == Nav.formalization {
       <Formalization />
-    } else if first == Elements.home && second == Elements.publications {
+    } else if first == Nav.home && second == Nav.publications {
       <Publications />
-    } else if first == Elements.home && second == Elements.examples {
+    } else if first == Nav.home && second == Nav.examples {
       <Examples />
     } else {
       <Presentation />
     }
   | list{first, second, third} =>
-    if first == Elements.home && (second == Elements.doc && third == Elements.catala_man_page) {
+    if first == Nav.home && (second == Nav.doc && third == Nav.catalaManPage) {
       <Doc.CatalaManPage />
-    } else if first == Elements.home && (second == Elements.doc && third == Elements.ocaml_docs) {
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.ocamlDocs) {
       <Doc.OCamlDocs />
-    } else if (
-      first == Elements.home && (second == Elements.doc && third == Elements.syntax_cheat_sheet)
-    ) {
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.syntaxCheatSheet) {
       <Doc.SyntaxSheatCheet />
     } else if (
-      first == Elements.home &&
-        (second == Elements.examples &&
-        third == Elements.french_family_benefits_example)
+      first == Nav.home && (second == Nav.examples && third == Nav.frenchFamilyBenefitsExample)
     ) {
-      <Examples.FrenchFamilyBenefits />
-    } else if (
-      first == Elements.home &&
-        (second == Elements.examples &&
-        third == Elements.tutorial_en_example)
-    ) {
-      <Examples.TutorialEn />
-    } else if (
-      first == Elements.home &&
-        (second == Elements.examples &&
-        third == Elements.tutorial_fr_example)
-    ) {
-      <Examples.TutorialFr />
-    } else if (
-      first == Elements.home && (second == Elements.examples && third == Elements.us_tax_code)
-    ) {
-      <Examples.USTaxCode />
+      <FrenchFamilyBenefitsExample />
+    } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorialEnExample) {
+      <TutorialEnExample />
+    } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorialFrExample) {
+      <TutorialFrExample />
+    } else if first == Nav.home && (second == Nav.examples && third == Nav.usTaxCode) {
+      <USTaxCodeExample />
     } else {
       <Presentation />
     }
@@ -57,7 +41,6 @@ let navigation_elements_to_component = (
 
 @react.component
 let make = () => {
-  let url = ReasonReactRouter.useUrl()
-  let (_, navs) = Elements.url_to_navigation_elements(url)
-  navigation_elements_to_component(navs)
+  let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
+  navElemToComposant(navs)
 }

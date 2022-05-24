@@ -1,28 +1,23 @@
 {
-  "name": "reason-react-starter",
-  "reason": {
-    "react-jsx": 3
-  },
-  "ppx-flags": [
-    ["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "-path src/tailwind.css"]
-  ],
+  "name": "catala-website",
+  "reason": { "react-jsx": 3 },
+  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
   "sources": {
-    "dir": "src",
+    "dir": "src/",
     "subdirs": true,
     "generators": [
       {
         "name": "gen-tailwind",
-        "edge": ["tailwind.css", ":", "index.css"]
+        "edge": ["css/tailwind.css", ":", "css/index.css"]
       }
     ]
   },
   "generators": [
     {
       "name": "gen-tailwind",
-      "command": "tailwindcss build $in -o $out -c ../../src/tailwind.config.js"
+      "command": "tailwindcss build $in -o $out -c ../../src/css/tailwind.config.js"
     }
   ],
-  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
   "package-specs": [
     {
       "module": "commonjs",
@@ -31,6 +26,13 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["reason-react"],
+  "bs-dependencies": [
+    "reason-react",
+    "decco"
+  ],
+  "ppx-flags": [
+    "decco/ppx",
+    ["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "-path src/css/tailwind.css"]
+  ],
   "refmt": 3
 }

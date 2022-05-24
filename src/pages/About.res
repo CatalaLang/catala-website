@@ -1,3 +1,5 @@
+open PageComponents
+
 type person = {
   name: string,
   website: option<string>,
@@ -7,67 +9,66 @@ type person = {
 let denis_merigoux = {
   name: "Denis Merigoux",
   website: Some("https://merigoux.fr"),
-  affiliation: <Utils.TextLink target="https://team.inria.fr/prosecco/">
+  affiliation: <Link.Text target="https://team.inria.fr/prosecco/">
     {"Inria - Prosecco" |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let marie_alauzen = {
   name: "Marie Alauzen",
   website: Some("https://cv.archives-ouvertes.fr/marie-alauzen"),
-  affiliation: <Utils.TextLink target="https://www.ehess.fr/fr/centre-maurice-halbwachs-cmh">
+  affiliation: <Link.Text target="https://www.ehess.fr/fr/centre-maurice-halbwachs-cmh">
     {"Centre Maurice Halbawchs - EHESS/ENS" |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let nicolas_chataing = {
   name: "Nicolas Chataing",
   website: Some("https://github.com/skodt"),
-  affiliation: <Utils.TextLink
-    target="https://www.ens.psl.eu/departement/departement-d-informatique">
+  affiliation: <Link.Text target="https://www.ens.psl.eu/departement/departement-d-informatique">
     {`ENS Paris` |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let alain_delaet = {
   name: `Alain Delaët-Tixeuil`,
   website: None,
-  affiliation: <Utils.TextLink target="http://informatique.ens-lyon.fr/">
+  affiliation: <Link.Text target="http://informatique.ens-lyon.fr/">
     {`ENS Lyon` |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let aymeric_fromherz = {
   name: `Aymeric Fromherz`,
   website: Some("https://users.ece.cmu.edu/~afromher/"),
-  affiliation: <Utils.TextLink target="https://team.inria.fr/prosecco/">
+  affiliation: <Link.Text target="https://team.inria.fr/prosecco/">
     {`Inria - Prosecco` |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let raphael_monat = {
   name: `Raphaël Monat`,
   website: Some("https://rmonat.fr/"),
-  affiliation: <Utils.TextLink target="https://www-apr.lip6.fr/web/doku.php">
+  affiliation: <Link.Text target="https://www-apr.lip6.fr/web/doku.php">
     {`LIP6 - APR` |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let sarah_lawsky = {
   name: "Sarah Lawsky",
   website: Some("http://www.law.northwestern.edu/faculty/profiles/SarahLawsky/"),
-  affiliation: <Utils.TextLink target="www.law.northwestern.edu/">
+  affiliation: <Link.Text target="www.law.northwestern.edu/">
     {`Northwestern Pritzker School of Law` |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let jonathan_protzenko = {
   name: "Jonathan Protzenko",
   website: Some("https://jonathan.protzenko.fr"),
-  affiliation: <Utils.TextLink
+  affiliation: <Link.Text
     target="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/">
     {"Microsoft Research RiSE" |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 let liane_huttner = {
@@ -75,9 +76,9 @@ let liane_huttner = {
   website: Some(
     "https://www.pantheonsorbonne.fr/recherche/page-perso/page/?tx_oxcspagepersonnel_pi1[uid]=lhuttner",
   ),
-  affiliation: <Utils.TextLink target="https://www.pantheonsorbonne.fr/accueil">
+  affiliation: <Link.Text target="https://www.pantheonsorbonne.fr/accueil">
     {`Université Panthéon-Sorbonne` |> React.string}
-  </Utils.TextLink>,
+  </Link.Text>,
 }
 
 module Person = {
@@ -86,18 +87,17 @@ module Person = {
     <li className=%tw("pl-6 pb-4")>
       {switch person.website {
       | None => person.name |> React.string
-      | Some(website) =>
-        <Utils.TextLink target=website> {person.name |> React.string} </Utils.TextLink>
+      | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
       }}
       <span className=%tw("pl-2")>
-        {"(" |> React.string} person.affiliation {")" |> React.string}
+        {"(" |> React.string} person.affiliation {React.string(")")}
       </span>
     </li>
 }
 
 @react.component
 let make = () => <>
-  <Utils.PageTitle> <Lang.String english="About" french=`À propos` /> </Utils.PageTitle>
+  <Title> <Lang.String english="About" french=`À propos` /> </Title>
   <p>
     <Lang.String
       english="In 2019, the French National Research Institute for Computer Science (Inria) has initiated an
@@ -112,9 +112,9 @@ let make = () => <>
         dans de nombreux secteurs où la sécurité est cruciale, comme l'aviation ou le nucléaire. Le projet
         est mené par Denis Merigoux de `
     />
-    <Utils.TextLink target="https://prosecco.gforge.inria.fr/">
+    <Link.Text target="https://prosecco.gforge.inria.fr/">
       <Lang.String english="Inria Prosecco group" french=`l'équipe Prosecco d'Inria` />
-    </Utils.TextLink>
+    </Link.Text>
     <Lang.String
       english=` , in collaboration with academics from the Paris Panthéon-Sorbonne
        University, the Northwestern Pritzker School of Law and Microsoft Research, Catala is designed to achieve semantic
@@ -162,7 +162,7 @@ let make = () => <>
       french=`Source : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)`
     />
   </p>
-  <Utils.PageSection title={<Lang.String english="Naming" french=`Nommage` />}>
+  <Section title={<Lang.String english="Naming" french=`Nommage` />}>
     <p>
       <Lang.String
         english=`This programming language is named after Pierre Catala who is, together with
@@ -175,9 +175,9 @@ let make = () => <>
         conséquents de la langue et culture catalane.`
       />
     </p>
-  </Utils.PageSection>
+  </Section>
   <div className=%tw("clear-right") />
-  <Utils.PageSection title={<Lang.String english="People" french=`Membres du projet` />}>
+  <Section title={<Lang.String english="People" french=`Membres du projet` />}>
     <ul className=%tw("list-disc list-inside")>
       <Person person=marie_alauzen />
       <Person person=alain_delaet />
@@ -188,11 +188,11 @@ let make = () => <>
       <Person person=raphael_monat />
       <Person person=jonathan_protzenko />
     </ul>
-  </Utils.PageSection>
-  <Utils.PageSection title={<Lang.String english="Alumni" french=`Alumni` />}>
+  </Section>
+  <Section title={<Lang.String english="Alumni" french=`Alumni` />}>
     <ul className=%tw("list-disc list-inside")> <Person person=nicolas_chataing /> </ul>
-  </Utils.PageSection>
-  <Utils.PageSection
+  </Section>
+  <Section
     title={<Lang.String
       english="Related work on rules as code" french=`Travaux connexes : transformer la loi en code`
     />}>
@@ -203,25 +203,24 @@ let make = () => <>
           french=`Une tentative d'exploitation du code source du calcul de l'impôt sur le revenu : `
         />
         <Lang.Element
-          english={<Utils.TextLink
+          english={<Link.Text
             target="https://blog.merigoux.ovh/en/2019/12/20/taxes-formal-proofs.html">
-            {"blog post" |> React.string}
-          </Utils.TextLink>}
-          french={<Utils.TextLink
-            target="https://blog.merigoux.ovh/fr/2019/12/20/impots-formels.html">
-            {"billet de blog" |> React.string}
-          </Utils.TextLink>}
+            {React.string("blog post")}
+          </Link.Text>}
+          french={<Link.Text target="https://blog.merigoux.ovh/fr/2019/12/20/impots-formels.html">
+            {React.string("billet de blog")}
+          </Link.Text>}
         />
-        {", " |> React.string}
-        <Utils.TextLink target="https://hal.inria.fr/hal-02320347">
+        {React.string(", ")}
+        <Link.Text target="https://hal.inria.fr/hal-02320347">
           <Lang.String english="scientific article (in French)" french=`article scientifique` />
-        </Utils.TextLink>
+        </Link.Text>
       </li>
       <li className=%tw("pl-6 pb-4")>
-        <Utils.TextLink
+        <Link.Text
           target="https://oecd-opsi.org/seeking-your-feedback-on-draft-rules-as-code-primer/">
-          {"Rules as code Primer" |> React.string}
-        </Utils.TextLink>
+          {React.string("Rules as code Primer")}
+        </Link.Text>
         <Lang.String
           english=": a comprehensive report on the rules as code field in 2020 by the OECD Observatory for
           Public Sector Innovation (OPSI)"
@@ -230,5 +229,5 @@ let make = () => <>
         />
       </li>
     </ul>
-  </Utils.PageSection>
+  </Section>
 </>

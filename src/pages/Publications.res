@@ -1,3 +1,5 @@
+open PageComponents
+
 type pub_item = {
   link: string,
   citation: string,
@@ -139,15 +141,15 @@ keywords = {law, domain specific language, legal expert systems}
 }",
 }
 
-let save_to_clipboard: string => unit = %bs.raw(`function(text) {navigator.clipboard.writeText(text)}`)
+let save_to_clipboard: string => unit = %raw(`function(text) {navigator.clipboard.writeText(text)}`)
 
 module PubItem = {
   @react.component
   let make = (~item: pub_item) =>
     <li className=%tw("pl-6 pb-4")>
-      <Utils.TextLink target=item.link>
+      <Link.Text target=item.link>
         <i className="material-icons"> {"public" |> React.string} </i>
-      </Utils.TextLink>
+      </Link.Text>
       <a className=%tw("cursor-pointer") onClick={_ => save_to_clipboard(item.bibtex)}>
         <i className="pl-2 material-icons"> {"content_paste" |> React.string} </i>
       </a>
@@ -157,7 +159,7 @@ module PubItem = {
 
 @react.component
 let make = () => <>
-  <Utils.PageTitle> <Lang.String english="Publications" french=`Publications` /> </Utils.PageTitle>
+  <Title> <Lang.String english="Publications" french=`Publications` /> </Title>
   <p>
     <Lang.String
       english="Copy the BibTeX citation of any publication by clicking on the "
@@ -166,7 +168,7 @@ let make = () => <>
     <i className="material-icons"> {"content_paste" |> React.string} </i>
     <Lang.String english=" button." french=`.` />
   </p>
-  <Utils.PageSection
+  <Section
     title={<Lang.String
       english="Peer-reviewed conferences and journals"
       french=`Conférences et journaux à comité de lecture`
@@ -174,15 +176,15 @@ let make = () => <>
     <ul className=%tw("list-none list-inside")>
       <PubItem item=icfp2021 /> <PubItem item=cc2021 /> <PubItem item=jfla2020 />
     </ul>
-  </Utils.PageSection>
-  <Utils.PageSection title={<Lang.String english="Workshops" french=`Ateliers` />}>
+  </Section>
+  <Section title={<Lang.String english="Workshops" french=`Ateliers` />}>
     <ul className=%tw("list-none list-inside")> <PubItem item=prolala_2022 /> </ul>
-  </Utils.PageSection>
-  <Utils.PageSection title={<Lang.String english="Invited articles" french=`Articles invités` />}>
+  </Section>
+  <Section title={<Lang.String english="Invited articles" french=`Articles invités` />}>
     <ul className=%tw("list-none list-inside")> <PubItem item=iafipu2020 /> </ul>
-  </Utils.PageSection>
-  <Utils.PageSection title={<Lang.String english="Preprints" french=`Pré-prints` />}>
+  </Section>
+  <Section title={<Lang.String english="Preprints" french=`Pré-prints` />}>
     <ul className=%tw("list-none list-inside")> <PubItem item=ai_law_2022 /> </ul>
     <ul className=%tw("list-none list-inside")> <PubItem item=crcl_2021 /> </ul>
-  </Utils.PageSection>
+  </Section>
 </>

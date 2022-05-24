@@ -4,7 +4,7 @@ let catala_jurix_link = "https://hal.inria.fr/hal-02936606"
 
 let zulip_link = "https://zulip.catala-lang.org/"
 
-let examples_card: Utils.presentation_card = {
+let examples_card: Card.Presentation.t = {
   title: <Lang.String
     english="Closer to the source of truth" french=`Plus près de la source de vérité`
   />,
@@ -28,7 +28,7 @@ let examples_card: Utils.presentation_card = {
   />,
 }
 
-let doc_card: Utils.presentation_card = {
+let doc_card: Card.Presentation.t = {
   title: <Lang.String
     english="One code, multiple execution targets"
     french=`Un seul code, plusieurs environnements d'exécution`
@@ -55,7 +55,7 @@ let doc_card: Utils.presentation_card = {
   />,
 }
 
-let legal_guide_card: Utils.presentation_card = {
+let legal_guide_card: Card.Presentation.t = {
   title: <Lang.String english="Validation from legal" french=`Sécurité juridique` />,
   icon: Some("work"),
   quote: Some(
@@ -80,7 +80,7 @@ let legal_guide_card: Utils.presentation_card = {
   />,
 }
 
-let foundations_card: Utils.presentation_card = {
+let foundations_card: Card.Presentation.t = {
   title: <Lang.String english="Solid foundations" french=`Des fondations solides` />,
   icon: Some("functions"),
   quote: Some(
@@ -92,7 +92,7 @@ let foundations_card: Utils.presentation_card = {
   action: None,
   content: <>
     <Lang.String english="Catala originates from " french=`Catala est développé à ` />
-    <Utils.TextLink target="https://www.inria.fr"> {"Inria" |> React.string} </Utils.TextLink>
+    <Link.Text target="https://www.inria.fr"> {React.string("Inria")} </Link.Text>
     <Lang.String
       english=", the French National Institute for Computer Science Research.
    The language has been designed according to state-of-the-art programming languages design principles.
@@ -101,24 +101,24 @@ let foundations_card: Utils.presentation_card = {
    La conception du langage de programmation suit les techniques  de l'état de l'art du domaine.
    Inspiré des langages de la famille ML, Catala possède un mécanisme inédit de logique par défaut basé sur `
     />
-    <Utils.TextLink target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
+    <Link.Text target="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3088206">
       <Lang.String english="the work of Sarah Lawsky" french=`le travail de Sarah Lawsky` />
-    </Utils.TextLink>
-    {"." |> React.string}
+    </Link.Text>
+    {React.string(".")}
   </>,
 }
 
 type imgLocation = {default: string}
 
-let logo: imgLocation = %raw("require('../assets/logo.png')")
+let logo: imgLocation = %raw("require('../../assets/logo.png')")
 
-let french_homepage: string = %bs.raw(`require("../assets/french_homepage.html")`)
+let french_homepage: string = %raw(`require("../../assets/french_homepage.html")`)
 
-let english_homepage: string = %bs.raw(`require("../assets/english_homepage.html")`)
+let english_homepage: string = %raw(`require("../../assets/english_homepage.html")`)
 
 type link_target =
   | External(string)
-  | Internal(array<Elements.navigation_element>)
+  | Internal(array<Nav.navElem>)
 
 type link_info = {
   target: link_target,
@@ -140,7 +140,7 @@ module LinkBlock = {
       | Internal(elements) =>
         <a
           className=%tw("cursor-pointer uppercase text-white")
-          onClick={Elements.goToElement(elements, lang)}>
+          onClick={_ => Nav.goTo(elements, lang)}>
           link_content
         </a>
       | External(link) =>
@@ -159,19 +159,19 @@ let github_link_info: link_info = {
 }
 
 let about_link_info: link_info = {
-  target: Internal([Elements.home, Elements.about]),
+  target: Internal([Nav.home, Nav.about]),
   text: <Lang.String english="About the project" french=`À propos du projet` />,
   icon: "info",
 }
 
 let publications_link_info: link_info = {
-  target: Internal([Elements.home, Elements.publications]),
+  target: Internal([Nav.home, Nav.publications]),
   text: <Lang.String english="Publications" french=`Publications` />,
   icon: "content_copy",
 }
 
 let formalisation_link_info: link_info = {
-  target: Internal([Elements.home, Elements.formalization]),
+  target: Internal([Nav.home, Nav.formalization]),
   text: <Lang.String english="Formalized specification" french=`Formalisation` />,
   icon: "rule",
 }
@@ -183,19 +183,19 @@ let zulip_link_info: link_info = {
 }
 
 // let playground_link_info: link_info = {
-//   target: Internal([Elements.home, Elements.playground]),
+//   target: Internal([Nav.home, Nav.playground]),
 //   text: <Lang.String english="Online playground" french=`Bac à sable en ligne` />,
 //   icon: "play_circle",
 // }
 
 let doc_link_info: link_info = {
-  target: Internal([Elements.home, Elements.doc]),
+  target: Internal([Nav.home, Nav.doc]),
   text: <Lang.String english="Documentation" french="Documentation" />,
   icon: "description",
 }
 
 let examples_link_info: link_info = {
-  target: Internal([Elements.home, Elements.examples]),
+  target: Internal([Nav.home, Nav.examples]),
   text: <Lang.String english="Catala program examples" french=`Exemples de programmes Catala` />,
   icon: "ballot",
 }
@@ -267,7 +267,7 @@ let make = () => {
       </div>
     </div>
     <div className=%tw("pb-10 pt-4")>
-      <Utils.PresentationCards
+      <Card.Presentation.FromList
         cards=[examples_card, doc_card, legal_guide_card, foundations_card]
       />
     </div>

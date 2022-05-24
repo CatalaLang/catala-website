@@ -1,4 +1,6 @@
-%bs.raw(`require("../assets/man_page.css")`)
+%raw(`require("../../assets/man_page.css")`)
+
+open PageComponents
 
 module type ManPage = {
   let title: React.element
@@ -8,10 +10,10 @@ module type ManPage = {
 module MakeManPageDoc = (Man: ManPage) => {
   @react.component
   let make = () => <>
-    <Utils.PageTitle> Man.title </Utils.PageTitle>
-    <Utils.Card collapsible=false>
+    <Title> Man.title </Title>
+    <Card.Basic collapsible=false>
       <div className="font-mono man-page" dangerouslySetInnerHTML={"__html": Man.html} />
-    </Utils.Card>
+    </Card.Basic>
   </>
 }
 
@@ -20,15 +22,13 @@ module CatalaManPage = MakeManPageDoc({
     <Lang.String
       english="Catala compiler documentation" french=`Documentation du compilateur Catala`
     />
-  let html: string = %bs.raw(`require("../assets/catala.html")`)
+  let html: string = %raw(`require("../../assets/catala.html")`)
 })
 
 module OCamlDocs = {
   @react.component
   let make = () => <>
-    <Utils.PageTitle>
-      <Lang.String english="OCaml documentation" french="Documentation OCaml" />
-    </Utils.PageTitle>
+    <Title> <Lang.String english="OCaml documentation" french="Documentation OCaml" /> </Title>
     <div className=%tw("flex flex-row justify-center")>
       <div className=%tw("mx-8 my-4")>
         <a className=%tw("cursor-pointer uppercase text-white") href="/ocaml_docs/" target="_blank">
@@ -50,9 +50,7 @@ module OCamlDocs = {
 module SyntaxSheatCheet = {
   @react.component
   let make = () => <>
-    <Utils.PageTitle>
-      <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` />
-    </Utils.PageTitle>
+    <Title> <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` /> </Title>
     <div className=%tw("flex flex-row justify-center")>
       <div className=%tw("mx-8 my-4")>
         <a
@@ -73,12 +71,12 @@ module SyntaxSheatCheet = {
   </>
 }
 
-let catala_doc: string = %bs.raw(`require("../assets/catala.html")`)
+let catala_doc: string = %raw(`require("../../assets/catala.html")`)
 
-let catala_card: Utils.presentation_card = {
+let catala_card: Card.Presentation.t = {
   title: <Lang.String english="The Catala Compiler" french="Le compilateur Catala" />,
   action: Some((
-    [Elements.home, Elements.doc, Elements.catala_man_page],
+    [Nav.home, Nav.doc, Nav.catalaManPage],
     <Lang.String english="See manpage" french=`Voir la page man` />,
   )),
   icon: None,
@@ -93,12 +91,12 @@ let catala_card: Utils.presentation_card = {
   </p>,
 }
 
-let ocaml_docs_card: Utils.presentation_card = {
+let ocaml_docs_card: Card.Presentation.t = {
   title: <Lang.String english="OCaml documentation" french=`Documentation OCaml` />,
   icon: None,
   quote: None,
   action: Some((
-    [Elements.home, Elements.doc, Elements.ocaml_docs],
+    [Nav.home, Nav.doc, Nav.ocamlDocs],
     <Lang.String english="See documentation" french=`Voir la documentation` />,
   )),
   content: <p>
@@ -106,19 +104,17 @@ let ocaml_docs_card: Utils.presentation_card = {
       english="The Catala tooling is developped using the OCaml language. Internal documentation is auto-generated from the code using "
       french=`L'outillage autour de Catala est développé avec le langage OCaml. La documentation interne est auto-generée à partir du code source en utilisant `
     />
-    <Utils.TextLink target="https://github.com/ocaml/odoc">
-      {"odoc" |> React.string}
-    </Utils.TextLink>
+    <Link.Text target="https://github.com/ocaml/odoc"> {React.string("odoc")} </Link.Text>
     {"." |> React.string}
   </p>,
 }
 
-let syntax_cheat_sheet_card: Utils.presentation_card = {
+let syntax_cheat_sheet_card: Card.Presentation.t = {
   title: <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` />,
   icon: None,
   quote: None,
   action: Some((
-    [Elements.home, Elements.doc, Elements.syntax_cheat_sheet],
+    [Nav.home, Nav.doc, Nav.syntaxCheatSheet],
     <Lang.String english="Download the cheet" french=`Télécharger le pense-bête` />,
   )),
   content: <p>
@@ -131,8 +127,8 @@ let syntax_cheat_sheet_card: Utils.presentation_card = {
 
 @react.component
 let make = () => <>
-  <Utils.PageTitle>
+  <Title>
     <Lang.String english="Catala tooling documentation" french=`Documentation des outils Catala` />
-  </Utils.PageTitle>
-  <Utils.PresentationCards cards=[catala_card, ocaml_docs_card, syntax_cheat_sheet_card] />
+  </Title>
+  <Card.Presentation.FromList cards=[catala_card, ocaml_docs_card, syntax_cheat_sheet_card] />
 </>
