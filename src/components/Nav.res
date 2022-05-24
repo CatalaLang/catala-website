@@ -48,11 +48,6 @@ let usTaxCode: navElem = {
   text: <Lang.String english="US Tax" french=`Impôts US` />,
 }
 
-let frenchExample: navElem = {
-  url: "french",
-  text: <Lang.String english="French" french=`Français` />,
-}
-
 let tutorialEnExample: navElem = {
   url: "tutorial",
   text: <Lang.String english="English Tutorial" french=`Tutoriel en anglais` />,
@@ -78,82 +73,82 @@ let syntaxCheatSheet: navElem = {
   text: <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxtique` />,
 }
 
+let visualization: navElem = {
+  url: "visualization",
+  text: <Lang.String english="Visualization" french=`Visualisation` />,
+}
+
 let urlToNavElem = (url: ReasonReactRouter.url): (option<Lang.lang>, array<navElem>) => {
-  let default_elements = [home]
+  let defaultElems = [home]
   switch url.path {
-  | list{lang_part, ...rest} =>
-    let lang = if lang_part == Lang.lang_url(Lang.English) {
-      Some(Lang.English)
-    } else if lang_part == Lang.lang_url(Lang.French) {
-      Some(Lang.French)
-    } else {
-      None
+  | list{langPart, ...rest} =>
+    let lang = Lang.fromUrl(langPart)
+    let getNavElemsFrom = (~withDefaultElems=false, navElems: array<navElem>, path: string): option<
+      array<navElem>,
+    > => {
+      let path = path->String.lowercase_ascii
+      navElems
+      ->Belt.Array.getBy(e => e.url == path)
+      ->Belt.Option.map(e =>
+        if withDefaultElems {
+          defaultElems->Belt.Array.concat([e])
+        } else {
+          [e]
+        }
+      )
     }
-    let first_path_elements = (first_path: string): option<array<navElem>> => {
-      let first_path = String.lowercase_ascii(first_path)
-      if first_path == formalization.url {
-        Some([home, formalization])
-      } else if first_path == examples.url {
-        Some([home, examples])
-        // } else if first_path == playground.url {
-        //   Some([home, playground])
-      } else if first_path == doc.url {
-        Some([home, doc])
-      } else if first_path == about.url {
-        Some([home, about])
-      } else if first_path == publications.url {
-        Some([home, publications])
-      } else if first_path == home.url {
-        Some([home])
-      } else {
-        None
-      }
+    let getFirstNavElems: string => option<array<navElem>> = {
+      getNavElemsFrom(
+        ~withDefaultElems=true,
+        [home, formalization, publications, examples, about, doc, visualization],
+      )
     }
-    let second_path_elements = (second_path: string): option<array<navElem>> => {
-      let second_path = String.lowercase_ascii(second_path)
-      if second_path == frenchFamilyBenefitsExample.url {
-        Some([frenchFamilyBenefitsExample])
-      } else if second_path == usTaxCode.url {
-        Some([usTaxCode])
-      } else if second_path == frenchExample.url {
-        Some([frenchExample])
-      } else if second_path == tutorialEnExample.url {
-        Some([tutorialEnExample])
-      } else if second_path == tutorialFrExample.url {
-        Some([tutorialFrExample])
-      } else if second_path == catalaManPage.url {
-        Some([catalaManPage])
-      } else if second_path == ocamlDocs.url {
-        Some([ocamlDocs])
-      } else if second_path == syntaxCheatSheet.url {
-        Some([syntaxCheatSheet])
-      } else {
-        None
-      }
+    let getSecondNavElems: string => option<array<navElem>> = {
+      getNavElemsFrom([
+        frenchFamilyBenefitsExample,
+        usTaxCode,
+        tutorialEnExample,
+        tutorialFrExample,
+        catalaManPage,
+        ocamlDocs,
+        syntaxCheatSheet,
+      ])
+    }
+    let getThirdNavElems: string => option<array<navElem>> = {
+      getNavElemsFrom([visualization])
     }
     let elements = switch rest {
-    | list{single_page} =>
-      switch first_path_elements(single_page) {
-      | None => default_elements
+    | list{onePart} =>
+      switch getFirstNavElems(onePart) {
+      | None => defaultElems
       | Some(elts) => elts
       }
-    | list{first_path, second_path} =>
-      switch (first_path_elements(first_path), second_path_elements(second_path)) {
+    | list{firsPart, secondPart} =>
+      switch (getFirstNavElems(firsPart), getSecondNavElems(secondPart)) {
       | (Some(elts1), Some(elts2)) => Belt.Array.concat(elts1, elts2)
-      | _ => default_elements
+      | _ => defaultElems
       }
-    | _ => default_elements
+    | list{firstPart, secondPart, thirdPart} =>
+      switch (
+        getFirstNavElems(firstPart),
+        getSecondNavElems(secondPart),
+        getThirdNavElems(thirdPart),
+      ) {
+      | (Some(elts1), Some(elts2), Some(elts3)) =>
+        elts1->Belt.Array.concat(elts2)->Belt.Array.concat(elts3)
+      | _ => defaultElems
+      }
+    | _ => defaultElems
     }
     (lang, elements)
-  | _ => (None, default_elements)
+  | _ => (None, defaultElems)
   }
 }
 
-let navigationElementsToUrl = (lang: option<Lang.lang>, navs: array<navElem>): string => {
+let navElemsToUrl = (lang: option<Lang.lang>, navs: array<navElem>): string => {
   let firstPart = switch lang {
-  // If no language then English is default
-  | None => Lang.lang_url(Lang.English)
-  | Some(lang) => Lang.lang_url(lang)
+  | None => Lang.toUrl(Lang.English)
+  | Some(lang) => Lang.toUrl(lang)
   }
   let rest = navs->Belt.Array.reduce("", (acc, nav) =>
     acc ++
@@ -168,7 +163,7 @@ let navigationElementsToUrl = (lang: option<Lang.lang>, navs: array<navElem>): s
 }
 
 let goTo = (elementPath: array<navElem>, lang: Lang.lang) => {
-  let new_url = navigationElementsToUrl(Some(lang), elementPath)
-  Js.log("Pushing " ++ new_url)
-  ReasonReactRouter.push(new_url)
+  let newUrl = navElemsToUrl(Some(lang), elementPath)
+  Js.log("Pushing " ++ newUrl)
+  ReasonReactRouter.push(newUrl)
 }

@@ -2,21 +2,31 @@ type lang =
   | French
   | English
 
-let lang_num = (l: lang): int =>
+let toNum = (l: lang): int =>
   switch l {
   | French => 0
   | English => 1
   }
 
-let lang_url = (l: lang): string =>
+let toUrl = (l: lang): string =>
   switch l {
   | French => "fr"
   | English => "en"
   }
 
+let fromUrl = (s: string): option<lang> => {
+  if s == toUrl(English) {
+    Some(English)
+  } else if s == toUrl(French) {
+    Some(French)
+  } else {
+    None
+  }
+}
+
 module LangCmp = Belt.Id.MakeComparable({
   type t = lang
-  let cmp = (a, b) => lang_num(a) - lang_num(b)
+  let cmp = (a, b) => toNum(a) - toNum(b)
 })
 
 type i18n_str = Belt.Map.t<lang, string, LangCmp.identity>
