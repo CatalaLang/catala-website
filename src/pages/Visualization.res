@@ -24,6 +24,12 @@ type rec loggedValue =
   | Array(array<loggedValue>)
   | Unembeddable
 
+type eventType =
+  | BeginCall
+  | EndCall
+  | VariableDefinition
+  | DecisionTaken
+
 type logEventRaw = {
   eventType: string,
   information: array<string>,
@@ -32,10 +38,22 @@ type logEventRaw = {
 }
 
 type logEvent = {
-  eventType: string,
+  eventType: eventType,
   information: array<string>,
-  sourcePosition: Js.Nullable.t<sourcePosition>,
+  sourcePosition: option<sourcePosition>,
   loggedValue: loggedValue,
+}
+
+let eventTypeFromString = (str: string): eventType => {
+  switch str {
+  | "Begin call" => BeginCall
+  | "End call" => EndCall
+  | "Variable definition" => VariableDefinition
+  | "Decision taken" => DecisionTaken
+  | _ =>
+    // NOTE: find a better way to handle errors?
+    Js.Exn.raiseError(`Unknown event type: ${str}`)
+  }
 }
 
 let fromRaw = (rawLogEvents: array<logEventRaw>) => {
@@ -43,10 +61,7 @@ let fromRaw = (rawLogEvents: array<logEventRaw>) => {
     let loggedValue = try {
       switch loggedValue_decode(Js.Json.parseExn(rawLogEvent.loggedValueJson)) {
       | Ok(val) => val
-      | Error(_decodeError) =>
-        // TODO: manage errors
-        /* Js.log("Caught a JS exception! Message: " ++ decodeError) */
-        Unembeddable
+      | Error(_decodeError) => Unembeddable
       }
     } catch {
     | Js.Exn.Error(obj) =>
@@ -58,9 +73,9 @@ let fromRaw = (rawLogEvents: array<logEventRaw>) => {
       }
     }
     {
-      eventType: rawLogEvent.eventType,
+      eventType: rawLogEvent.eventType->eventTypeFromString,
       information: rawLogEvent.information,
-      sourcePosition: rawLogEvent.sourcePosition,
+      sourcePosition: rawLogEvent.sourcePosition->Js.Nullable.toOption,
       loggedValue: loggedValue,
     }
   })
@@ -83,14 +98,10 @@ let rec loggedValueToString = (val: loggedValue, tab: int) => {
 }
 
 module type LOGGABLE = {
-  let makeProps: (
+  @react.component
+  let make: (
     ~setLogEventsOpt: (option<array<logEvent>> => option<array<logEvent>>) => unit,
-    ~key: string=?,
-    unit,
-  ) => {"setLogEventsOpt": (option<array<logEvent>> => option<array<logEvent>>) => unit}
-  let make: {
-    "setLogEventsOpt": (option<array<logEvent>> => option<array<logEvent>>) => unit,
-  } => React.element
+  ) => React.element
 }
 
 module Make = (Simulator: LOGGABLE) => {
