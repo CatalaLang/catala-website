@@ -130,9 +130,8 @@ let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %ra
 let incompleteInput = Error(
   <Lang.String english="Input not complete" french=`Entrée non complète` />,
 )
-
-let computeAllocationsFamiliales = (input: allocationsFamilialesInput) => {
-  switch validateInput(input) {
+let computeAllocationsFamiliales = (input: option<allocationsFamilialesInputValidated>) => {
+  switch input {
   | None => incompleteInput
   | Some(new_input) =>
     try {Result(allocationsFamilialesExe(new_input))} catch {
@@ -180,24 +179,20 @@ let tmpInput = {
   avaitEnfantAChargeAvant1erJanvier2012: None,
 }
 
-module Simulator = {
+module Form = {
   @react.component
-  let make = () => {
-    let (allocFamInput, setAllocFamInput) = React.useState(_ => tmpInput)
-    /* { */
-    /* currentDate: None, */
-    /* numChildren: None, */
-    /* income: None, */
-    /* children: [], */
-    /* residence: Some(`Métropole`), */
-    /* avaitEnfantAChargeAvant1erJanvier2012: None, */
-    /* }) */
-    let (allocFamOutput, setAllocFamOutput) = React.useState(_ => {
-      incompleteInput
+  let make = (~setFormOutput: ('a => option<allocationsFamilialesInputValidated>) => unit) => {
+    let (allocFamInput, setAllocFamInput) = React.useState(_ => {
+      currentDate: None,
+      numChildren: None,
+      income: None,
+      children: [],
+      residence: Some(`Métropole`),
+      avaitEnfantAChargeAvant1erJanvier2012: None,
     })
     let updateCurrentState = (newInput: allocationsFamilialesInput) => {
       setAllocFamInput(_ => newInput)
-      setAllocFamOutput(_ => computeAllocationsFamiliales(newInput))
+      setFormOutput(_ => validateInput(newInput))
     }
     let value = (event: ReactEvent.Form.t) => {
       event->ReactEvent.Form.preventDefault
@@ -442,45 +437,44 @@ module Simulator = {
             }),
           )}
         </div>
-        <div
-          className=%tw(
-            "flex flex-col justify-center place-items-center my-4 border-2 border-tertiary border-solid p-4"
-          )>
-          {switch allocFamOutput {
-          | Error(msg) => <div className=%tw("font-bold")> msg </div>
-          | Result(amount) => <>
-              <div className=%tw("pr-2 ")>
-                <Lang.String
-                  english="Family benefits monthly amount:"
-                  french=`Montant mensuel des allocations familiales :`
-                />
-              </div>
-              <div className=%tw("flex flex-row justify-center")>
-                <div className=%tw("font-bold whitespace-nowrap")>
-                  {React.float(amount)} {React.string(` €`)}
-                </div>
-              </div>
-            </>
-          }}
-          <div className=%tw("inline-flex")>
-            <Link.Internal.WithIcon
-              name="explore"
-              className=%tw("cursor-pointer text-secondary pt-2")
-              // TODO: find a way to use the logEvent array
-              target=[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]>
-              <Lang.String
-                english="Explore the execution trace" french=`Explorer la trace d'exécution`
-              />
-            </Link.Internal.WithIcon>
-          </div>
-        </div>
       </Section>
     </>
   }
 }
 
+module ComputationResult = {
+  @react.component
+  let make = (~formOutput: option<allocationsFamilialesInputValidated>) => {
+    <div
+      className=%tw(
+        "flex flex-col justify-center place-items-center my-4 border-2 border-tertiary border-solid p-4"
+      )>
+      {switch computeAllocationsFamiliales(formOutput) {
+      | Error(msg) => <div className=%tw("font-bold")> msg </div>
+      | Result(amount) => /* { */
+        <>
+          <div className=%tw("pr-2 ")>
+            <Lang.String
+              english="Family benefits monthly amount:"
+              french=`Montant mensuel des allocations familiales :`
+            />
+          </div>
+          <div className=%tw("flex flex-row justify-center")>
+            <div className=%tw("font-bold whitespace-nowrap")>
+              {React.float(amount)} {React.string(` €`)}
+            </div>
+          </div>
+        </>
+      }}
+    </div>
+  }
+}
+
 @react.component
 let make = () => {
+  let (formOutput, setFormOutput) = React.useState(_ => {
+    None
+  })
   <>
     <Title>
       <Lang.String
@@ -513,7 +507,18 @@ let make = () => {
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
       />
     </p>
-    <Simulator />
+    <Form setFormOutput />
+    <ComputationResult formOutput />
+    <div className=%tw("inline-flex")>
+      <Link.Internal.WithIcon
+        name="explore"
+        className=%tw("cursor-pointer text-secondary pt-2")
+        target=[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]>
+        <Lang.String
+          english="Explore the execution trace" french=`Explorer la trace d'exécution`
+        />
+      </Link.Internal.WithIcon>
+    </div>
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
       <div
         className="catala-code"
