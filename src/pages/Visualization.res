@@ -24,60 +24,111 @@ type rec loggedValue =
   | Array(array<loggedValue>)
   | Unembeddable
 
+type logEventRaw = {
+  eventType: string,
+  information: array<string>,
+  sourcePosition: Js.Nullable.t<sourcePosition>,
+  loggedValueJson: string,
+}
+
 type logEvent = {
   eventType: string,
   information: array<string>,
   sourcePosition: Js.Nullable.t<sourcePosition>,
-  loggedValueJson: array<loggedValue>,
+  loggedValue: loggedValue,
 }
 
-let rec logValue = (val: loggedValue, tab: int) => {
-  Js.log(Js.String.repeat(tab, "\t"))
+let fromRaw = (rawLogEvents: array<logEventRaw>) => {
+  rawLogEvents->Belt.Array.map((rawLogEvent: logEventRaw) => {
+    let loggedValue = try {
+      switch loggedValue_decode(Js.Json.parseExn(rawLogEvent.loggedValueJson)) {
+      | Ok(val) => val
+      | Error(_decodeError) =>
+        // TODO: manage errors
+        /* Js.log("Caught a JS exception! Message: " ++ decodeError) */
+        Unembeddable
+      }
+    } catch {
+    | Js.Exn.Error(obj) =>
+      switch Js.Exn.message(obj) {
+      | Some(m) =>
+        Js.log("Caught a JS exception! Message: " ++ m)
+        Unembeddable
+      | None => Unembeddable
+      }
+    }
+    {
+      eventType: rawLogEvent.eventType,
+      information: rawLogEvent.information,
+      sourcePosition: rawLogEvent.sourcePosition,
+      loggedValue: loggedValue,
+    }
+  })
+}
+
+let rec loggedValueToString = (val: loggedValue, tab: int) => {
+  Js.String.repeat(tab, "\t") ++
   switch val {
-  | Unit => Js.log("Unit")
-  | Bool(b) => Js.log("Bool: " ++ string_of_bool(b))
-  | Money(f) => Js.log("Money: " ++ Js.Float.toString(f))
-  | Integer(i) => Js.log("Integer: " ++ string_of_int(i))
-  | Decimal(f) => Js.log("Decimal: " ++ Js.Float.toString(f))
-  | Date(d) => Js.log("Date: " ++ d)
-  | Duration(d) => Js.log("Duration: " ++ d)
+  | Unit => "Unit"
+  | Bool(b) => "Bool: " ++ string_of_bool(b)
+  | Money(f) => "Money: " ++ Js.Float.toString(f)
+  | Integer(i) => "Integer: " ++ string_of_int(i)
+  | Decimal(f) => "Decimal: " ++ Js.Float.toString(f)
+  | Date(d) => "Date: " ++ d
+  | Duration(d) => "Duration: " ++ d
   | Enum(ls, (s, vals)) =>
-    Js.log("Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n")
-    vals->logValue(tab + 1)
-  | _ => Js.log("Other")
-  }
-}
-module type Simulable = {
-  module type Simulator = {
-    let makeProps: (~key: string=?, unit) => {.}
-    let make: {.} => React.element
+    "Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n" ++ vals->loggedValueToString(tab + 1)
+  | _ => "Other"
   }
 }
 
-/* module Make = (S: Simulable) => { */
-/* @react.component */
-/* let make = () => { */
-/* <> */
-/* <Title> */
-/* <Lang.String */
-/* english="Execution trace visualization tool" */
-/* french=`Outil de visualisation de la trace d'exécution` */
-/* /> */
-/* </Title> */
-/* <S.Simulator /> */
-/* </> */
-/* } */
-/* } */
+module type LOGGABLE = {
+  let makeProps: (
+    ~setLogEventsOpt: (option<array<logEvent>> => option<array<logEvent>>) => unit,
+    ~key: string=?,
+    unit,
+  ) => {"setLogEventsOpt": (option<array<logEvent>> => option<array<logEvent>>) => unit}
+  let make: {
+    "setLogEventsOpt": (option<array<logEvent>> => option<array<logEvent>>) => unit,
+  } => React.element
+}
 
-@react.component
-let make = (~simulator: React.element) => {
-  <>
-    <Title>
-      <Lang.String
-        english="Execution trace visualization tool"
-        french=`Outil de visualisation de la trace d'exécution`
-      />
-    </Title>
-    simulator
-  </>
+module Make = (Simulator: LOGGABLE) => {
+  @react.component
+  let make = () => {
+    let (logEventsOpt: option<array<logEvent>>, setLogEventsOpt) = React.useState(_ => None)
+    <>
+      <Title>
+        <Lang.String
+          english="Execution trace visualization tool"
+          french=`Outil de visualisation de la trace d'exécution`
+        />
+      </Title>
+      {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
+      <div className=%tw("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full")>
+        <div className=%tw("w-full h-full")>
+          <Section title={<Lang.String english="Source code" french=`Code source` />}>
+            <div
+              className="catala-code"
+              dangerouslySetInnerHTML={
+                "__html": %raw(`require("../../assets/allocations_familiales.html")`),
+              }
+            />
+          </Section>
+        </div>
+        <div className=%tw("w-full h-full")>
+          <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
+            {switch logEventsOpt {
+            | None =>
+              Js.log("No log events")
+              ["Empty"->React.string]
+            | Some(logEvts) =>
+              Js.log("Log events")
+              logEvts->Belt.Array.map(evt => evt.loggedValue->loggedValueToString(0)->React.string)
+            }->React.array}
+          </Section>
+        </div>
+      </div>
+    </>
+  }
 }
