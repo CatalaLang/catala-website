@@ -97,6 +97,87 @@ let rec loggedValueToString = (val: loggedValue, tab: int) => {
   }
 }
 
+module rec LoggedValue: {
+  @react.component
+  let make: (~val: loggedValue) => React.element
+} = {
+  @react.component
+  let make = (~val: loggedValue) => {
+    <>
+      {switch val {
+      | Bool(b) => string_of_bool(b)->React.string
+      | Integer(i) => string_of_int(i)->React.string
+      | Money(m) => Js.Float.toString(m)->React.string
+      | Decimal(d) => Js.Float.toString(d)->React.string
+      | Date(d) => d->React.string
+      | Duration(d) => d->React.string
+      | Enum(ls, (s, val)) => <>
+          {(String.concat(".", ls) ++ "{")->React.string}
+          {String.concat(",", ls)->React.string}
+          {"}:"->React.string}
+          {s->React.string}
+          <LoggedValue val />
+        </>
+      | Struct(ls, _vals) => <>
+          {(String.concat(".", ls) ++ "{")->React.string}
+          {String.concat(",", ls)->React.string}
+          {"}:"->React.string}
+          /* {vals->Belt.Array.map((n, v => v->make(tab + 1))} */
+        </>
+      | Array(vals) => <>
+          {"[ "->React.string}
+          {vals->Belt.Array.map(val => <LoggedValue val />)->React.array}
+          {" ]"->React.string}
+        </>
+      | _ => <> </>
+      }}
+    </>
+  }
+}
+
+module LogEvent = {
+  @react.component
+  let make = (~event: logEvent) => {
+    <>
+      {switch event.eventType {
+      | VariableDefinition =>
+        <div>
+          <div className={%tw("text-sm")}>
+            {switch event.sourcePosition {
+            | Some(pos) => pos.lawHeadings->Js.String.concatMany("#")->React.string
+            | None => <> </>
+            }}
+          </div>
+          <div className={%tw("font-mono text-sm")}>
+            {event.information->Belt.Array.map(s => s->React.string)->React.array}
+            <LoggedValue val=event.loggedValue />
+          </div>
+        </div>
+      | DecisionTaken =>
+        <div className={%tw("text-sm border-t")}>
+          {switch event.sourcePosition {
+          | Some(pos) => <>
+              <div className=%tw("font-bold text-primary")>
+                <Lang.String french="Définition appliquée" english="Definition applied" />
+              </div>
+              {pos.lawHeadings
+              ->Belt.Array.mapWithIndex((i, hd) => {
+                <h3 className=%tw("font-bold text-secondary")>
+                  {(Js.String.repeat(i + 1, "#") ++ " " ++ hd)->React.string}
+                </h3>
+              })
+              ->React.array}
+            </>
+          | None => <> </>
+          }}
+        </div>
+
+      | _ => <> </>
+      }}
+    </>
+  }
+}
+
 module type LOGGABLE = {
   @react.component
   let make: (
@@ -130,12 +211,10 @@ module Make = (Simulator: LOGGABLE) => {
         <div className=%tw("w-full h-full")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
             {switch logEventsOpt {
-            | None =>
-              Js.log("No log events")
-              ["Empty"->React.string]
             | Some(logEvts) =>
-              Js.log("Log events")
-              logEvts->Belt.Array.map(evt => evt.loggedValue->loggedValueToString(0)->React.string)
+              /* logEvts->Belt.Array.map(evt => <LoggedValue val=evt.loggedValue />) */
+              logEvts->Belt.Array.map(event => <LogEvent event />)
+            | None => ["Empty"->React.string]
             }->React.array}
           </Section>
         </div>

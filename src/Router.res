@@ -1,3 +1,6 @@
+// TODO: find a better way
+let frenchLaw = %raw(`require("../assets/french_law.js")`)
+
 let toComposant = (elements: array<Nav.navElem>): React.element =>
   switch elements->Belt.List.fromArray {
   | list{first, second} =>
@@ -43,7 +46,7 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       third == Nav.frenchFamilyBenefitsExample &&
       fourth == Nav.visualization
     ) {
-      <Visualization simulator={<FrenchFamilyBenefitsExample.Simulator />} />
+      <FrenchFamilyBenefitsExample.Visualizer />
     } else {
       <Presentation />
     }
