@@ -178,6 +178,29 @@ module LogEvent = {
   }
 }
 
+module Navigation = {
+  let buttonStyle = %twc("text-secondary py-1 px-2")
+
+  @react.component
+  let make = (~logIndex, ~setLogIndex) => {
+    <div className=%twc("inline-flex flex-row justify-center content-center text-2xl font-sans")>
+      <button
+        className=buttonStyle onClick={_ => setLogIndex(_ => logIndex > 1 ? logIndex - 1 : 0)}>
+        <Icon name="arrow_circle_left" />
+      </button>
+      <div className=%twc("font-bold")>
+        <Lang.String
+          english={"Step: " ++ logIndex->string_of_int}
+          french={`Étape : ` ++ logIndex->string_of_int}
+        />
+      </div>
+      <button className=buttonStyle onClick={_ => setLogIndex(_ => logIndex + 1)}>
+        <Icon name="arrow_circle_right" />
+      </button>
+    </div>
+  }
+}
+
 module type LOGGABLE = {
   @react.component
   let make: (
@@ -189,6 +212,8 @@ module Make = (Simulator: LOGGABLE) => {
   @react.component
   let make = () => {
     let (logEventsOpt: option<array<logEvent>>, setLogEventsOpt) = React.useState(_ => None)
+    let (logIndex, setLogIndex) = React.useState(_ => 0)
+
     <>
       <Title>
         <Lang.String
@@ -202,7 +227,7 @@ module Make = (Simulator: LOGGABLE) => {
           <Section title={<Lang.String english="Source code" french=`Code source` />}>
             <div
               className=%twc(
-                "block max-h-screen overflow-y-scroll border-solid border-4 p-4 rounded"
+                "block max-h-screen overflow-y-scroll border-solid border-2 p-4 rounded"
               )>
               <div
                 className="catala-code"
@@ -213,14 +238,22 @@ module Make = (Simulator: LOGGABLE) => {
             </div>
           </Section>
         </div>
-        <div className=%twc("w-full h-full")>
+        <div className=%twc("w-full h-full ")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
             {switch logEventsOpt {
             | Some(logEvts) =>
-              /* logEvts->Belt.Array.map(evt => <LoggedValue val=evt.loggedValue />) */
-              logEvts->Belt.Array.map(event => <LogEvent event />)
-            | None => ["Empty"->React.string]
-            }->React.array}
+              switch logEvts->Belt.Array.get(logIndex) {
+              | Some(event) =>
+                <div className=%twc("flex flex-col")>
+                  <Navigation logIndex setLogIndex />
+                  <div className=%twc("border-solid border-2 rounded p-4")>
+                    <LogEvent event />
+                  </div>
+                </div>
+              | None => <> </>
+              }
+            | None => "Empty"->React.string
+            }}
           </Section>
         </div>
       </div>
