@@ -97,44 +97,115 @@ let rec loggedValueToString = (val: loggedValue, tab: int) => {
   }
 }
 
+module CatalaCode = {
+  // TODO: could be factorized with a module for each type
+  module Span = {
+    @react.component
+    let make = (~kind, ~code) => {
+      <span className=kind> {code->React.string} </span>
+    }
+  }
+  module Ids = {
+    @react.component
+    let make = (~ids: array<string>) => {
+      ids
+      ->Belt.Array.mapWithIndex((i, s) => {
+        <>
+          {if i > 0 {
+            <span className="op"> {"."->React.string} </span>
+          } else {
+            <> </>
+          }}
+          {if s == s->Js.String.toLowerCase {
+            <span className="nv"> {s->React.string} </span>
+          } else {
+            <span className="nc"> {s->React.string} </span>
+          }}
+        </>
+      })
+      ->React.array
+    }
+  }
+
+  module Op = {
+    @react.component
+    let make = (~op) => {
+      <span className="op"> {op->React.string} </span>
+    }
+  }
+
+  @react.component
+  let make = (~children) => {
+    <div className="catala-code">
+      <div className="code-wrapper"> <div className="highlight"> <pre> children </pre> </div> </div>
+    </div>
+  }
+}
+
 module rec LoggedValue: {
   @react.component
-  let make: (~val: loggedValue) => React.element
+  let make: (~depth: int=?, ~val: loggedValue) => React.element
 } = {
   @react.component
-  let make = (~val: loggedValue) => {
+  let make = (~depth=1, ~val: loggedValue) => {
     <>
       {switch val {
-      | Bool(b) => string_of_bool(b)->React.string
-      | Integer(i) => string_of_int(i)->React.string
-      | Money(m) => Js.Float.toString(m)->React.string
-      | Decimal(d) => Js.Float.toString(d)->React.string
-      | Date(d) => d->React.string
-      | Duration(d) => d->React.string
-      | Enum(ls, (s, val)) => <>
-          {(String.concat(".", ls) ++ "{")->React.string}
-          {String.concat(",", ls)->React.string}
-          {"}:"->React.string}
-          {s->React.string}
-          <LoggedValue val />
+      | Bool(b) => <CatalaCode.Span kind="mb" code={b->string_of_bool} />
+      | Integer(i) => <CatalaCode.Span kind="mi" code={i->string_of_int} />
+      | Money(m) => <>
+          <CatalaCode.Span kind="mf" code={m->Js.Float.toString} /> <CatalaCode.Op op={` €`} />
         </>
-      | Struct(ls, _vals) => <>
-          {(String.concat(".", ls) ++ "{")->React.string}
-          {String.concat(",", ls)->React.string}
-          {"}:"->React.string}
-          /* {vals->Belt.Array.map((n, v => v->make(tab + 1))} */
+      | Decimal(d) => <CatalaCode.Span kind="mf" code={d->Js.Float.toString} />
+      | Date(d) => <CatalaCode.Span kind="mi" code=d />
+      | Duration(d) => <CatalaCode.Span kind="mi" code=d />
+      | Enum(ls, (_s, Unit)) => <CatalaCode.Ids ids={ls->Belt.List.toArray} />
+      | Enum(ls, (_s, val)) => <>
+          <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
+          <CatalaCode.Ids ids={ls->Belt.List.toArray} />
+          <CatalaCode.Op op=" = " />
+          <LoggedValue depth={depth + 1} val />
+        </>
+      | Struct(ls, attributes) => <>
+          <CatalaCode.Ids ids={ls->Belt.List.toArray} />
+          <CatalaCode.Op op=" = {" />
+          <br />
+          {attributes
+          ->Belt.List.toArray
+          ->Belt.Array.map(attribute => {
+            let (id, val) = attribute
+            <>
+              <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
+              <CatalaCode.Op op=" -- " />
+              <CatalaCode.Ids ids={[id]} />
+              <CatalaCode.Op op=" = " />
+              <LoggedValue depth={depth + 1} val />
+              <CatalaCode.Op op=", " />
+              <br />
+            </>
+          })
+          ->React.array}
+          <br />
+          <CatalaCode.Op op={Js.String.repeat((depth - 1) * 2, " ")} />
+          <CatalaCode.Op op="}" />
         </>
       | Array(vals) => <>
-          {"[ "->React.string}
-          {vals->Belt.Array.map(val => <LoggedValue val />)->React.array}
-          {" ]"->React.string}
+          <CatalaCode.Op op="[" />
+          <br />
+          {vals
+          ->Belt.Array.map(val => <>
+            <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
+            <LoggedValue depth={depth + 1} val />
+            <CatalaCode.Op op="," />
+            <br />
+          </>)
+          ->React.array}
+          <CatalaCode.Op op="]" />
         </>
       | _ => <> </>
       }}
     </>
   }
 }
-
 module LogEvent = {
   @react.component
   let make = (~event: logEvent) => {
@@ -142,23 +213,39 @@ module LogEvent = {
       {switch event.eventType {
       | VariableDefinition =>
         <div>
-          <div className={%twc("text-sm")}>
-            {switch event.sourcePosition {
-            | Some(pos) => pos.lawHeadings->Js.String.concatMany("#")->React.string
-            | None => <> </>
-            }}
-          </div>
+          {"Variable definition: "->React.string}
           <div className={%twc("font-mono text-sm")}>
-            {event.information->Belt.Array.map(s => s->React.string)->React.array}
-            <LoggedValue val=event.loggedValue />
+            <CatalaCode>
+              <CatalaCode.Ids ids={event.information} />
+              <CatalaCode.Op op={" = "} />
+              <LoggedValue val=event.loggedValue />
+            </CatalaCode>
           </div>
         </div>
       | DecisionTaken =>
         <div className={%twc("text-sm border-t")}>
+          {"Decision taken"->React.string}
           {switch event.sourcePosition {
           | Some(pos) => <>
               <div className=%twc("font-bold text-primary")>
-                <Lang.String french="Définition appliquée" english="Definition applied" />
+                // TODO: find a way to display the source position
+                /* { */
+                /* Nav.goTo( */
+                /* [ */
+                /* Nav.home, */
+                /* Nav.examples, */
+                /* Nav.frenchFamilyBenefitsExample, */
+                /* Nav.visualization, */
+                /* { */
+                /* url: pos.fileName ++ "-" ++ pos.startLine->string_of_int, */
+                /* text: Nav.frenchFamilyBenefitsExample.text, */
+                /* }, */
+                /* ], */
+                /* Lang.English, */
+                /* ) */
+                /* <> </> */
+                /* } */
+                <Lang.String english="Definition applied" french=`Définition appliquée` />
               </div>
               {pos.lawHeadings
               ->Belt.Array.mapWithIndex((i, hd) => {
@@ -172,7 +259,8 @@ module LogEvent = {
           }}
         </div>
 
-      | _ => <> </>
+      | BeginCall => <div className={%twc("text-sm border-t")}> {"Begin call"->React.string} </div>
+      | EndCall => <div className={%twc("text-sm border-t")}> {"End Call"->React.string} </div>
       }}
     </>
   }
@@ -182,7 +270,7 @@ module Navigation = {
   let buttonStyle = %twc("text-secondary py-1 px-2")
 
   @react.component
-  let make = (~logIndex, ~setLogIndex) => {
+  let make = (~logIndex, ~setLogIndex, ~maxLogIndex) => {
     <div className=%twc("inline-flex flex-row justify-center content-center text-2xl font-sans")>
       <button
         className=buttonStyle onClick={_ => setLogIndex(_ => logIndex > 1 ? logIndex - 1 : 0)}>
@@ -190,11 +278,19 @@ module Navigation = {
       </button>
       <div className=%twc("font-bold")>
         <Lang.String
-          english={"Step: " ++ logIndex->string_of_int}
-          french={`Étape : ` ++ logIndex->string_of_int}
+          english={"Step: [ " ++
+          logIndex->string_of_int ++
+          "/" ++
+          maxLogIndex->string_of_int ++ " ]"}
+          french={`Étape [ ` ++
+          logIndex->string_of_int ++
+          "/" ++
+          maxLogIndex->string_of_int ++ " ]"}
         />
       </div>
-      <button className=buttonStyle onClick={_ => setLogIndex(_ => logIndex + 1)}>
+      <button
+        className=buttonStyle
+        onClick={_ => setLogIndex(_ => logIndex < maxLogIndex ? logIndex + 1 : logIndex)}>
         <Icon name="arrow_circle_right" />
       </button>
     </div>
@@ -222,7 +318,61 @@ module Make = (Simulator: LOGGABLE) => {
         />
       </Title>
       {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
-      <div className=%twc("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full mb-8")>
+      /*  */
+      /* <div className=%twc("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full mb-8")> */
+      /* <div className=%twc("w-full h-full")> */
+      /* <Section title={<Lang.String english="Source code" french=`Code source` />}> */
+      /* <div */
+      /* className=%twc( */
+      /* "block max-h-screen overflow-y-scroll border-solid border-2 p-4 rounded" */
+      /* )> */
+      /* <div */
+      /* className="catala-code" */
+      /* dangerouslySetInnerHTML={ */
+      /* "__html": %raw(`require("../../assets/allocations_familiales.html")`), */
+      /* } */
+      /* /> */
+      /* </div> */
+      /* </Section> */
+      /* </div> */
+      /* <div className=%twc("w-full h-full ")> */
+      /* <Section title={<Lang.String english="Log events" french=`Évènements de log` />}> */
+      /* {switch logEventsOpt { */
+      /* | Some(logEvts) => */
+      /* switch logEvts->Belt.Array.get(logIndex) { */
+      /* | Some(event) => */
+      /* <div className=%twc("flex flex-col")> */
+      /* <Navigation logIndex setLogIndex /> */
+      /* <div className=%twc("border-solid border-2 rounded p-4")> */
+      /* <LogEvent event /> */
+      /* </div> */
+      /* </div> */
+      /* | None => <> </> */
+      /* } */
+      /* | None => "Empty"->React.string */
+      /* }} */
+      /* </Section> */
+      /* </div> */
+      /* </div> */
+      <div className=%twc("flex flex-col")>
+        <div className=%twc("w-full h-full ")>
+          <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
+            {switch logEventsOpt {
+            | Some(logEvts) =>
+              switch logEvts->Belt.Array.get(logIndex) {
+              | Some(event) =>
+                <div className=%twc("flex flex-col")>
+                  <Navigation logIndex setLogIndex maxLogIndex={logEvts->Belt.Array.size} />
+                  <div className=%twc("border-solid border-2 rounded p-4")>
+                    <LogEvent event />
+                  </div>
+                </div>
+              | None => <> </>
+              }
+            | None => "Empty"->React.string
+            }}
+          </Section>
+        </div>
         <div className=%twc("w-full h-full")>
           <Section title={<Lang.String english="Source code" french=`Code source` />}>
             <div
@@ -236,24 +386,6 @@ module Make = (Simulator: LOGGABLE) => {
                 }
               />
             </div>
-          </Section>
-        </div>
-        <div className=%twc("w-full h-full ")>
-          <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
-            {switch logEventsOpt {
-            | Some(logEvts) =>
-              switch logEvts->Belt.Array.get(logIndex) {
-              | Some(event) =>
-                <div className=%twc("flex flex-col")>
-                  <Navigation logIndex setLogIndex />
-                  <div className=%twc("border-solid border-2 rounded p-4")>
-                    <LogEvent event />
-                  </div>
-                </div>
-              | None => <> </>
-              }
-            | None => "Empty"->React.string
-            }}
           </Section>
         </div>
       </div>
