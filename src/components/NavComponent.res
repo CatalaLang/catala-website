@@ -21,7 +21,7 @@ module NavBar = {
         acc
         <div key={string_of_int(i)}>
           {if i != 0 {
-            <i className="float-left py-0.5 text-primary material-icons">
+            <i className="float-left text-primary material-icons">
               {React.string("chevron_right")}
             </i>
           } else {
@@ -66,9 +66,9 @@ let make = () => {
         "py-2 h-full flex flex-row items-center justify-center md:justify-start pl-4 text-3xl md:text-2xl lg:text-xl text-white"
       )>
       <Link.Internal target=[Nav.home]>
-        <div className=%twc("flex flex-row flex-nowrap items-center hover:text-primary")>
+        <div className=%twc("flex flex-row flex-nowrap items-center text-3xl hover:text-primary")>
           <img className=%twc("h-8 pr-4") src={"/" ++ logo.default} />
-          <Lang.String english="The Catala Language" french=`Le langage Catala` />
+          <Lang.String english="Catala" french=`Catala` />
         </div>
       </Link.Internal>
     </div>

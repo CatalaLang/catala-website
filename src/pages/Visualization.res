@@ -197,15 +197,20 @@ module Make = (Simulator: LOGGABLE) => {
         />
       </Title>
       {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
-      <div className=%twc("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full")>
+      <div className=%twc("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full mb-8")>
         <div className=%twc("w-full h-full")>
           <Section title={<Lang.String english="Source code" french=`Code source` />}>
             <div
-              className="catala-code"
-              dangerouslySetInnerHTML={
-                "__html": %raw(`require("../../assets/allocations_familiales.html")`),
-              }
-            />
+              className=%twc(
+                "block max-h-screen overflow-y-scroll border-solid border-4 p-4 rounded"
+              )>
+              <div
+                className="catala-code"
+                dangerouslySetInnerHTML={
+                  "__html": %raw(`require("../../assets/allocations_familiales.html")`),
+                }
+              />
+            </div>
           </Section>
         </div>
         <div className=%twc("w-full h-full")>
