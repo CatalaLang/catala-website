@@ -84,12 +84,12 @@ let liane_huttner = {
 module Person = {
   @react.component
   let make = (~person: person) =>
-    <li className=%tw("pl-6 pb-4")>
+    <li className=%twc("pl-6 pb-4")>
       {switch person.website {
       | None => person.name |> React.string
       | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
       }}
-      <span className=%tw("pl-2")>
+      <span className=%twc("pl-2")>
         {"(" |> React.string} person.affiliation {React.string(")")}
       </span>
     </li>
@@ -156,7 +156,7 @@ let make = () => <>
             de législation en code afin de prouver l'utilié du langage.`
     />
   </p>
-  <p className=%tw("float-right text-secondary pt-4 italic")>
+  <p className=%twc("float-right text-secondary pt-4 italic")>
     <Lang.String
       english="Text credits: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
       french=`Source : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)`
@@ -176,9 +176,9 @@ let make = () => <>
       />
     </p>
   </Section>
-  <div className=%tw("clear-right") />
+  <div className=%twc("clear-right") />
   <Section title={<Lang.String english="People" french=`Membres du projet` />}>
-    <ul className=%tw("list-disc list-inside")>
+    <ul className=%twc("list-disc list-inside")>
       <Person person=marie_alauzen />
       <Person person=alain_delaet />
       <Person person=aymeric_fromherz />
@@ -190,14 +190,14 @@ let make = () => <>
     </ul>
   </Section>
   <Section title={<Lang.String english="Alumni" french=`Alumni` />}>
-    <ul className=%tw("list-disc list-inside")> <Person person=nicolas_chataing /> </ul>
+    <ul className=%twc("list-disc list-inside")> <Person person=nicolas_chataing /> </ul>
   </Section>
   <Section
     title={<Lang.String
       english="Related work on rules as code" french=`Travaux connexes : transformer la loi en code`
     />}>
-    <ul className=%tw("list-disc list-inside")>
-      <li className=%tw("pl-6 pb-4")>
+    <ul className=%twc("list-disc list-inside")>
+      <li className=%twc("pl-6 pb-4")>
         <Lang.String
           english="An attempt to exploit the source code of the French income tax computation: "
           french=`Une tentative d'exploitation du code source du calcul de l'impôt sur le revenu : `
@@ -216,7 +216,7 @@ let make = () => <>
           <Lang.String english="scientific article (in French)" french=`article scientifique` />
         </Link.Text>
       </li>
-      <li className=%tw("pl-6 pb-4")>
+      <li className=%twc("pl-6 pb-4")>
         <Link.Text
           target="https://oecd-opsi.org/seeking-your-feedback-on-draft-rules-as-code-primer/">
           {React.string("Rules as code Primer")}

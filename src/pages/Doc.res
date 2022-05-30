@@ -29,11 +29,12 @@ module OCamlDocs = {
   @react.component
   let make = () => <>
     <Title> <Lang.String english="OCaml documentation" french="Documentation OCaml" /> </Title>
-    <div className=%tw("flex flex-row justify-center")>
-      <div className=%tw("mx-8 my-4")>
-        <a className=%tw("cursor-pointer uppercase text-white") href="/ocaml_docs/" target="_blank">
-          <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%tw("flex flex-row flex-nowrap items-center")>
+    <div className=%twc("flex flex-row justify-center")>
+      <div className=%twc("mx-8 my-4")>
+        <a
+          className=%twc("cursor-pointer uppercase text-white") href="/ocaml_docs/" target="_blank">
+          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
+            <div className=%twc("flex flex-row flex-nowrap items-center")>
               <Lang.String
                 english="Access the OCaml documentation website"
                 french=`Accéder à la documentation OCaml`
@@ -51,14 +52,14 @@ module SyntaxSheatCheet = {
   @react.component
   let make = () => <>
     <Title> <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` /> </Title>
-    <div className=%tw("flex flex-row justify-center")>
-      <div className=%tw("mx-8 my-4")>
+    <div className=%twc("flex flex-row justify-center")>
+      <div className=%twc("mx-8 my-4")>
         <a
-          className=%tw("cursor-pointer uppercase text-white")
+          className=%twc("cursor-pointer uppercase text-white")
           href="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"
           target="_blank">
-          <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%tw("flex flex-row flex-nowrap items-center")>
+          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
+            <div className=%twc("flex flex-row flex-nowrap items-center")>
               <Lang.String
                 english="Access the syntax sheat cheet" french=`Accéder au pense-bête syntaxique`
               />

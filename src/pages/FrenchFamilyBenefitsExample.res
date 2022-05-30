@@ -208,9 +208,9 @@ module Simulator = {
               french=`Ce simulateur utilise un programme Catala compilé à partir du code source ci-dessous.`
             />
           </p>
-          <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4 mt-4")>
-            <div className=%tw("flex flex-col mx-4")>
-              <label className=%tw("text-white text-center")>
+          <div className=%twc("flex flex-row flex-wrap justify-around bg-secondary py-4 mt-4")>
+            <div className=%twc("flex flex-col mx-4")>
+              <label className=%twc("text-white text-center")>
                 <Lang.String
                   english=`Yearly household income (€)`
                   french=`Ressources annuelles du ménage (€)`
@@ -218,7 +218,7 @@ module Simulator = {
               </label>
               <input
                 type_="number"
-                className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
                     ...allocFamInput,
@@ -227,13 +227,13 @@ module Simulator = {
                 }}
               />
             </div>
-            <div className=%tw("flex flex-col mx-4")>
-              <label className=%tw("text-white text-center")>
+            <div className=%twc("flex flex-col mx-4")>
+              <label className=%twc("text-white text-center")>
                 <Lang.String french=`Résidence du ménage` english=`Household residence` />
               </label>
               <select
                 list="browsers"
-                className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
                     ...allocFamInput,
@@ -253,12 +253,12 @@ module Simulator = {
                 </option>
               </select>
             </div>
-            <div className=%tw("flex flex-col mx-4")>
-              <label className=%tw("text-white text-center")>
+            <div className=%twc("flex flex-col mx-4")>
+              <label className=%twc("text-white text-center")>
                 <Lang.String english="Date of the computation" french=`Date du calcul` />
               </label>
               <input
-                className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                 type_="date"
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
@@ -268,12 +268,12 @@ module Simulator = {
                 }}
               />
             </div>
-            <div className=%tw("flex flex-col mx-4")>
-              <label className=%tw("text-white text-center")>
+            <div className=%twc("flex flex-col mx-4")>
+              <label className=%twc("text-white text-center")>
                 <Lang.String english="Rights open before 2021" french=`Droits ouverts avant 2012` />
               </label>
               <input
-                className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                 type_="checkbox"
                 onChange={_ => {
                   updateCurrentState({
@@ -286,8 +286,8 @@ module Simulator = {
                 }}
               />
             </div>
-            <div className=%tw("flex flex-col mx-4")>
-              <label className=%tw("text-white text-center")>
+            <div className=%twc("flex flex-col mx-4")>
+              <label className=%twc("text-white text-center")>
                 <Lang.String english="Number of children" french=`Nombre d'enfants` />
               </label>
               <input
@@ -309,22 +309,22 @@ module Simulator = {
                     },
                   })
                 }}
-                className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                 type_="number"
               />
             </div>
           </div>
-          <div className=%tw("flex flex-row flex-wrap justify-around bg-secondary py-4")>
+          <div className=%twc("flex flex-row flex-wrap justify-around bg-secondary py-4")>
             {React.array(
               allocFamInput.children->Belt.Array.mapWithIndex((i, _) => {
                 <div
-                  className=%tw("flex flex-col border-tertiary border-2 border-solid py-2 my-2")
+                  className=%twc("flex flex-col border-tertiary border-2 border-solid py-2 my-2")
                   key={"child_input" ++ string_of_int(i)}>
                   <div
-                    key={"birth_date_div" ++ string_of_int(i)} className=%tw("flex flex-col mx-4")>
+                    key={"birth_date_div" ++ string_of_int(i)} className=%twc("flex flex-col mx-4")>
                     <label
                       key={"birth_date_label" ++ string_of_int(i)}
-                      className=%tw("text-white text-center")>
+                      className=%twc("text-white text-center")>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String english=": birthdate" french=` : date de naissance` />
@@ -339,14 +339,14 @@ module Simulator = {
                         }
                         updateCurrentState({...allocFamInput, children: children})
                       }}
-                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                       type_="date"
                     />
                   </div>
-                  <div key={"custody_" ++ string_of_int(i)} className=%tw("flex flex-col mx-4")>
+                  <div key={"custody_" ++ string_of_int(i)} className=%twc("flex flex-col mx-4")>
                     <label
                       key={"custody_label" ++ string_of_int(i)}
-                      className=%tw("text-white text-center")>
+                      className=%twc("text-white text-center")>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String english=": custody" french=` :prise en charge` />
@@ -354,7 +354,7 @@ module Simulator = {
                     <select
                       key={"custody_input" ++ string_of_int(i)}
                       list="browsers"
-                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                       onChange={(event: ReactEvent.Form.t) => {
                         let children = allocFamInput.children
                         children[i] = {
@@ -383,10 +383,10 @@ module Simulator = {
                   </div>
                   <div
                     key={"monthly_income_div" ++ string_of_int(i)}
-                    className=%tw("flex flex-col mx-4")>
+                    className=%twc("flex flex-col mx-4")>
                     <label
                       key={"monthly_income_label" ++ string_of_int(i)}
-                      className=%tw("text-white text-center")>
+                      className=%twc("text-white text-center")>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String
@@ -403,16 +403,16 @@ module Simulator = {
                         }
                         updateCurrentState({...allocFamInput, children: children})
                       }}
-                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                       type_="number"
                     />
                   </div>
                   <div
                     key={"already_used_key" ++ string_of_int(i)}
-                    className=%tw("flex flex-col mx-4")>
+                    className=%twc("flex flex-col mx-4")>
                     <label
                       key={"already_used_key_label" ++ string_of_int(i)}
-                      className=%tw("text-white text-center")>
+                      className=%twc("text-white text-center")>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String
@@ -433,7 +433,7 @@ module Simulator = {
                         }
                         updateCurrentState({...allocFamInput, children: children})
                       }}
-                      className=%tw("border-solid border-2 border-tertiary m-1 px-2")
+                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
                       type_="checkbox"
                     />
                   </div>
@@ -469,20 +469,20 @@ module Simulator = {
       }
 
       <div
-        className=%tw(
+        className=%twc(
           "flex flex-col justify-center place-items-center my-4 border-2 border-tertiary border-solid p-4"
         )>
         {switch computeAllocationsFamiliales(formOutput) {
-        | Error(msg) => <div className=%tw("font-bold")> msg </div>
+        | Error(msg) => <div className=%twc("font-bold")> msg </div>
         | Result(amount) => <>
-            <div className=%tw("pr-2 ")>
+            <div className=%twc("pr-2 ")>
               <Lang.String
                 english="Family benefits monthly amount:"
                 french=`Montant mensuel des allocations familiales :`
               />
             </div>
-            <div className=%tw("flex flex-row justify-center")>
-              <div className=%tw("font-bold whitespace-nowrap")>
+            <div className=%twc("flex flex-row justify-center")>
+              <div className=%twc("font-bold whitespace-nowrap")>
                 {React.float(amount)} {React.string(` €`)}
               </div>
             </div>
@@ -543,10 +543,10 @@ let make = () => {
       />
     </p>
     <Simulator setLogEventsOpt={_ => ()} />
-    <div className=%tw("inline-flex")>
+    <div className=%twc("inline-flex")>
       <Link.Internal.WithIcon
         name="explore"
-        className=%tw("cursor-pointer text-secondary pt-2")
+        className=%twc("cursor-pointer text-secondary pt-2")
         target=[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]>
         <Lang.String
           english="Explore the execution trace" french=`Explorer la trace d'exécution`

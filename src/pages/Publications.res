@@ -146,14 +146,14 @@ let save_to_clipboard: string => unit = %raw(`function(text) {navigator.clipboar
 module PubItem = {
   @react.component
   let make = (~item: pub_item) =>
-    <li className=%tw("pl-6 pb-4")>
+    <li className=%twc("pl-6 pb-4")>
       <Link.Text target=item.link>
         <i className="material-icons"> {"public" |> React.string} </i>
       </Link.Text>
-      <a className=%tw("cursor-pointer") onClick={_ => save_to_clipboard(item.bibtex)}>
+      <a className=%twc("cursor-pointer") onClick={_ => save_to_clipboard(item.bibtex)}>
         <i className="pl-2 material-icons"> {"content_paste" |> React.string} </i>
       </a>
-      <span className=%tw("pl-2")> {item.citation |> React.string} </span>
+      <span className=%twc("pl-2")> {item.citation |> React.string} </span>
     </li>
 }
 
@@ -173,18 +173,18 @@ let make = () => <>
       english="Peer-reviewed conferences and journals"
       french=`Conférences et journaux à comité de lecture`
     />}>
-    <ul className=%tw("list-none list-inside")>
+    <ul className=%twc("list-none list-inside")>
       <PubItem item=icfp2021 /> <PubItem item=cc2021 /> <PubItem item=jfla2020 />
     </ul>
   </Section>
   <Section title={<Lang.String english="Workshops" french=`Ateliers` />}>
-    <ul className=%tw("list-none list-inside")> <PubItem item=prolala_2022 /> </ul>
+    <ul className=%twc("list-none list-inside")> <PubItem item=prolala_2022 /> </ul>
   </Section>
   <Section title={<Lang.String english="Invited articles" french=`Articles invités` />}>
-    <ul className=%tw("list-none list-inside")> <PubItem item=iafipu2020 /> </ul>
+    <ul className=%twc("list-none list-inside")> <PubItem item=iafipu2020 /> </ul>
   </Section>
   <Section title={<Lang.String english="Preprints" french=`Pré-prints` />}>
-    <ul className=%tw("list-none list-inside")> <PubItem item=ai_law_2022 /> </ul>
-    <ul className=%tw("list-none list-inside")> <PubItem item=crcl_2021 /> </ul>
+    <ul className=%twc("list-none list-inside")> <PubItem item=ai_law_2022 /> </ul>
+    <ul className=%twc("list-none list-inside")> <PubItem item=crcl_2021 /> </ul>
   </Section>
 </>

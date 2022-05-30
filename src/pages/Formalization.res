@@ -27,7 +27,7 @@ let make = () => <>
       />
     </p>
     <Card.Basic collapsible=true>
-      <div className=%tw("font-mono") dangerouslySetInnerHTML={"__html": grammar} />
+      <div className=%twc("font-mono") dangerouslySetInnerHTML={"__html": grammar} />
     </Card.Basic>
     <p>
       <Lang.String
@@ -38,14 +38,14 @@ let make = () => <>
         vis-à-vis de la syntaxe de Catala.`
       />
     </p>
-    <div className=%tw("flex flex-row justify-center")>
-      <div className=%tw("mx-8 my-4")>
+    <div className=%twc("flex flex-row justify-center")>
+      <div className=%twc("mx-8 my-4")>
         <a
-          className=%tw("cursor-pointer uppercase text-white")
+          className=%twc("cursor-pointer uppercase text-white")
           href="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"
           target="_blank">
-          <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%tw("flex flex-row flex-nowrap items-center")>
+          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
+            <div className=%twc("flex flex-row flex-nowrap items-center")>
               <Lang.String
                 english="Access the syntax cheat sheet" french=`Accéder au pense-bête syntaxique`
               />
@@ -72,14 +72,14 @@ let make = () => <>
            le choix s'effectue selon des règles de précédences spécifiées dans le code source.`
       />
     </p>
-    <div className=%tw("flex flex-row justify-center")>
-      <div className=%tw("mx-8 my-4")>
+    <div className=%twc("flex flex-row justify-center")>
+      <div className=%twc("mx-8 my-4")>
         <a
-          className=%tw("cursor-pointer uppercase text-white")
+          className=%twc("cursor-pointer uppercase text-white")
           href="https://dl.acm.org/doi/10.1145/3473582"
           target="_blank">
-          <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%tw("flex flex-row flex-nowrap items-center")>
+          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
+            <div className=%twc("flex flex-row flex-nowrap items-center")>
               <Lang.String
                 english="Access the complete formalization paper"
                 french=`Accéder à l'article contenant la formalisation`

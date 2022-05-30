@@ -1,43 +1,42 @@
 module Text = {
   @react.component
   let make = (~target: string, ~children) =>
-    <a className=%tw("border-solid border-secondary border-b") href=target target="_blank">
+    <a className=%twc("border-solid border-secondary border-b") href=target target="_blank">
       children
     </a>
 }
 
 module Internal = {
-  module WithArrow = {
+  module WithIcon = {
     @react.component
-    let make = (~withArrow=true, ~target: array<Nav.navElem>, ~children) => {
+    let make = (
+      ~className=%twc("cursor-pointer border-solid border-t-2 border-primary pt-2"),
+      ~name="double_arrow",
+      ~target: array<Nav.navElem>,
+      ~children,
+    ) => {
       let (lang, _) = React.useContext(Lang.langContext)
-      <a
-        className=%tw("cursor-pointer border-solid border-t-2 border-primary pt-2")
-        onClick={_ => Nav.goTo(target, lang)}>
-        {if withArrow {
-          <div className=%tw("flex flex-row flex-nowrap items-center")>
-            <i className="pr-2 material-icons text-primary"> {"double_arrow" |> React.string} </i>
-            <span
-              className=%tw(
-                "uppercase text-primary border-solid border-secondary border-b hover:text-secondary"
-              )>
-              children
-            </span>
-          </div>
-        } else {
-          children
-        }}
+      <a className onClick={_ => Nav.goTo(target, lang)}>
+        <div className=%twc("flex flex-row flex-nowrap items-center")>
+          <Icon className="pr-2 material-icons text-primary" name />
+          <span
+            className=%twc(
+              "uppercase text-primary border-solid border-secondary border-b hover:text-secondary"
+            )>
+            children
+          </span>
+        </div>
       </a>
     }
   }
 
   @react.component
-  let make = (~target: array<Nav.navElem>, ~children) => {
+  let make = (
+    ~className=%twc("cursor-pointer border-solid border-secondary border-b"),
+    ~target: array<Nav.navElem>,
+    ~children,
+  ) => {
     let (lang, _) = React.useContext(Lang.langContext)
-    <a
-      className=%tw("cursor-pointer border-solid border-secondary border-b")
-      onClick={_ => Nav.goTo(target, lang)}>
-      children
-    </a>
+    <a className onClick={_ => Nav.goTo(target, lang)}> children </a>
   }
 }

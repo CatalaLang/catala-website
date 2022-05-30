@@ -131,7 +131,7 @@
 //           })
 //           setModule(_ => modu)
 //         }}
-//         className=%tw("bg-secondary shadow text-white px-4 py-2 mt-1 uppercase")>
+//         className=%twc("bg-secondary shadow text-white px-4 py-2 mt-1 uppercase")>
 //         modu.title
 //       </button>
 //     </div>
@@ -148,7 +148,7 @@
 //     }
 //   }
 //   <>
-//     <div className=%tw("flex flex-col flex-grow")>
+//     <div className=%twc("flex flex-col flex-grow")>
 //       <Utils.PageTitle>
 //         <Lang.String english="Online playground" french=`Bac à sable en ligne` />
 //       </Utils.PageTitle>
@@ -196,26 +196,26 @@
 //       cliquant sur les boutons ci-dessous.`
 //         />
 //       </p>
-//       <div className=%tw("flex flex-col flex-grow mt-8")>
-//         <div className=%tw("flex flex-row flex-wrap justify-around")>
+//       <div className=%twc("flex flex-col flex-grow mt-8")>
+//         <div className=%twc("flex flex-row flex-wrap justify-around")>
 //           {available_modules
 //           ->Belt.Array.mapWithIndex((i, modu) => render_module_select(modu, string_of_int(i)))
 //           ->React.array}
 //         </div>
-//         <div id="editor" className=%tw("flex-grow my-4 w-full min-h-screen")>
+//         <div id="editor" className=%twc("flex-grow my-4 w-full min-h-screen")>
 //           {"Hello, world!" |> React.string}
 //         </div>
-//         <div className=%tw("flex flex-row flex-wrap justify-center p-2 bg-secondary shadow")>
-//           <div className=%tw("pr-4 text-white my-1")>
+//         <div className=%twc("flex flex-row flex-wrap justify-center p-2 bg-secondary shadow")>
+//           <div className=%twc("pr-4 text-white my-1")>
 //             <Lang.String english="Scope to execute:" french=`Champ d'application à exécuter :` />
 //           </div>
 //           <input
 //             ref={ReactDOM.Ref.domRef(scope_name)}
 //             type_="text"
-//             className=%tw("border-solid border-2 border-tertiary my-1")
+//             className=%twc("border-solid border-2 border-tertiary my-1")
 //           />
 //           <button
-//             className=%tw("ml-4 px-4 bg-tertiary text-white uppercase my-1")
+//             className=%twc("ml-4 px-4 bg-tertiary text-white uppercase my-1")
 //             onClick={_ =>
 //               exec_catala_and_retrive_output(
 //                 get_editor_content(editor),
@@ -231,7 +231,7 @@
 //         </div>
 //         <div
 //           id="catala-output"
-//           className=%tw("my-4 overflow-x-auto border-tertiary border-solid border-2 p-2")>
+//           className=%twc("my-4 overflow-x-auto border-tertiary border-solid border-2 p-2")>
 //           <pre> {"Click on RUN to launch the interpreter!" |> React.string} </pre>
 //         </div>
 //       </div>

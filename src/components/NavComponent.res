@@ -3,7 +3,7 @@ module NavElem = {
   let make = (~elements: array<Nav.navElem>) => {
     let (lang, _) = React.useContext(Lang.langContext)
     <a
-      className=%tw("cursor-pointer text-white uppercase p-1 hover:text-primary")
+      className=%twc("cursor-pointer text-white uppercase p-1 hover:text-primary")
       onClick={_ => Nav.goTo(elements, lang)}>
       {Belt.Array.getExn(elements, Belt.Array.length(elements) - 1).text}
     </a>
@@ -14,7 +14,7 @@ module NavBar = {
   @react.component
   let make = (~elements: array<Nav.navElem>) =>
     <div
-      className=%tw(
+      className=%twc(
         "w-full py-1 px-2 mx-2 inline-flex flex-row flex-wrap content-center bg-tertiary rounded"
       )>
       {elements->Belt.Array.reduceWithIndex(<div />, (acc, _, i) => <>
@@ -39,7 +39,7 @@ module SwitchLang = {
     let (old_lang, setLang) = React.useContext(Lang.langContext)
     let url = ReasonReactRouter.useUrl()
     <a
-      className=%tw(
+      className=%twc(
         "px-2 cursor-pointer text-white uppercase hover:text-primary bg-tertiary rounded"
       )
       onClick={_ => {
@@ -60,24 +60,24 @@ let logo: imgLocation = %raw("require('../../assets/logo.png')")
 @react.component
 let make = () => {
   let url = ReasonReactRouter.useUrl()
-  <div className=%tw("flex flex-row w-full justify-between bg-secondary top-0")>
+  <div className=%twc("flex flex-row w-full justify-between bg-secondary top-0")>
     <div
-      className=%tw(
+      className=%twc(
         "py-2 h-full flex flex-row items-center justify-center md:justify-start pl-4 text-3xl md:text-2xl lg:text-xl text-white"
       )>
       <Link.Internal target=[Nav.home]>
-        <div className=%tw("flex flex-row flex-nowrap items-center hover:text-primary")>
-          <img className=%tw("h-8 pr-4") src={"/" ++ logo.default} />
+        <div className=%twc("flex flex-row flex-nowrap items-center hover:text-primary")>
+          <img className=%twc("h-8 pr-4") src={"/" ++ logo.default} />
           <Lang.String english="The Catala Language" french=`Le langage Catala` />
         </div>
       </Link.Internal>
     </div>
-    <div className=%tw("flex flex-row justify-center items-center")>
-      <div className=%tw("inline-flex justify-start bg-secondary text-xl pr-4")>
+    <div className=%twc("flex flex-row justify-center items-center")>
+      <div className=%twc("inline-flex justify-start bg-secondary text-xl pr-4")>
         <SwitchLang />
       </div>
       <div
-        className=%tw(
+        className=%twc(
           "inline-flex flex-row flex-wrap h-full items-center justify-end md:justify-end md:pt-0 "
         )>
         {

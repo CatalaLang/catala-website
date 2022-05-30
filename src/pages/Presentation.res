@@ -130,8 +130,11 @@ module LinkBlock = {
   @react.component
   let make = (~info: link_info, ~lang) => {
     let link_content =
-      <div className=%tw("bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4")>
-        <div className=%tw("flex flex-row flex-nowrap items-center")>
+      <div
+        className=%twc(
+          "rounded-lg bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4 hover:text-primary hover:shadow-lg"
+        )>
+        <div className=%twc("flex flex-row flex-nowrap items-center")>
           info.text <i className="pl-4 material-icons"> {info.icon |> React.string} </i>
         </div>
       </div>
@@ -139,12 +142,12 @@ module LinkBlock = {
       {switch info.target {
       | Internal(elements) =>
         <a
-          className=%tw("cursor-pointer uppercase text-white")
+          className=%twc("cursor-pointer uppercase text-white")
           onClick={_ => Nav.goTo(elements, lang)}>
           link_content
         </a>
       | External(link) =>
-        <a className=%tw("cursor-pointer uppercase text-white") href=link target="_blank">
+        <a className=%twc("cursor-pointer uppercase text-white") href=link target="_blank">
           link_content
         </a>
       }}
@@ -204,8 +207,8 @@ let examples_link_info: link_info = {
 let make = () => {
   let (lang, _) = React.useContext(Lang.langContext)
   <>
-    <div className=%tw("flex flex-col items-center")>
-      <div className=%tw("text-center text-xl italic py-8 max-w-xl")>
+    <div className=%twc("flex flex-col items-center")>
+      <div className=%twc("text-center text-xl italic py-8 max-w-xl")>
         <p>
           <Lang.String
             english="Catala is a domain-specific programming language designed for deriving correct-by-construction
@@ -215,33 +218,33 @@ let make = () => {
           />
         </p>
       </div>
-      <div className=%tw("flex flex-row flex-wrap justify-center")>
-        <div className=%tw("flex flex-col flex-wrap items-end")>
-          <div className=%tw("mx-8 my-4")> <LinkBlock lang info=github_link_info /> </div>
-          <div className=%tw("mx-8 my-4")> <LinkBlock lang info=zulip_link_info /> </div>
-          <div className=%tw("mx-8 my-4")> <LinkBlock lang info=publications_link_info /> </div>
+      <div className=%twc("flex flex-row flex-wrap justify-center")>
+        <div className=%twc("flex flex-col flex-wrap items-end")>
+          <div className=%twc("mx-8 my-4")> <LinkBlock lang info=github_link_info /> </div>
+          <div className=%twc("mx-8 my-4")> <LinkBlock lang info=zulip_link_info /> </div>
+          <div className=%twc("mx-8 my-4")> <LinkBlock lang info=publications_link_info /> </div>
         </div>
-        <div className=%tw("flex flex-col justify-center")>
-          <img className=%tw("w-48 h-48 mx-8 my-4") src={"/" ++ logo.default} />
+        <div className=%twc("flex flex-col justify-center")>
+          <img className=%twc("w-48 h-48 mx-8 my-4") src={"/" ++ logo.default} />
         </div>
       </div>
     </div>
-    <div className=%tw("flex flex-row flex-wrap justify-around pt-12")>
-      <div className=%tw("my-4")> <LinkBlock lang info=about_link_info /> </div>
-      <div className=%tw("my-4")> <LinkBlock lang info=examples_link_info /> </div>
-      // <div className=%tw("my-4")> <LinkBlock lang info=playground_link_info />[] </div>
-      <div className=%tw("my-4")> <LinkBlock lang info=doc_link_info /> </div>
-      <div className=%tw("my-4")> <LinkBlock lang info=formalisation_link_info /> </div>
+    <div className=%twc("flex flex-row flex-wrap justify-around pt-12")>
+      <div className=%twc("my-4")> <LinkBlock lang info=about_link_info /> </div>
+      <div className=%twc("my-4")> <LinkBlock lang info=examples_link_info /> </div>
+      // <div className=%twc("my-4")> <LinkBlock lang info=playground_link_info />[] </div>
+      <div className=%twc("my-4")> <LinkBlock lang info=doc_link_info /> </div>
+      <div className=%twc("my-4")> <LinkBlock lang info=formalisation_link_info /> </div>
     </div>
-    <div className=%tw("flex flex-col flex-wrap content-center pt-12")>
+    <div className=%twc("flex flex-col flex-wrap content-center pt-12")>
       <div
-        className=%tw(
+        className=%twc(
           "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
         )>
         <Lang.String english="Catala in action" french=`Catala en action` />
       </div>
-      <div className=%tw("w-full md:w-4/5 lg:w-3/5")>
-        <p className=%tw("my-4 italic")>
+      <div className=%twc("w-full md:w-4/5 lg:w-3/5")>
+        <p className=%twc("my-4 italic")>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation.
             Here is a quick example from the US Tax Code:"
@@ -260,13 +263,13 @@ let make = () => {
         />
       </div>
       <div
-        className=%tw(
+        className=%twc(
           "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
         )>
         <Lang.String english="Why using Catala?" french=`Pourquoi utiliser Catala ?` />
       </div>
     </div>
-    <div className=%tw("pb-10 pt-4")>
+    <div className=%twc("pb-10 pt-4")>
       <Card.Presentation.FromList
         cards=[examples_card, doc_card, legal_guide_card, foundations_card]
       />

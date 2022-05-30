@@ -142,27 +142,27 @@ module LogEvent = {
       {switch event.eventType {
       | VariableDefinition =>
         <div>
-          <div className={%tw("text-sm")}>
+          <div className={%twc("text-sm")}>
             {switch event.sourcePosition {
             | Some(pos) => pos.lawHeadings->Js.String.concatMany("#")->React.string
             | None => <> </>
             }}
           </div>
-          <div className={%tw("font-mono text-sm")}>
+          <div className={%twc("font-mono text-sm")}>
             {event.information->Belt.Array.map(s => s->React.string)->React.array}
             <LoggedValue val=event.loggedValue />
           </div>
         </div>
       | DecisionTaken =>
-        <div className={%tw("text-sm border-t")}>
+        <div className={%twc("text-sm border-t")}>
           {switch event.sourcePosition {
           | Some(pos) => <>
-              <div className=%tw("font-bold text-primary")>
+              <div className=%twc("font-bold text-primary")>
                 <Lang.String french="Définition appliquée" english="Definition applied" />
               </div>
               {pos.lawHeadings
               ->Belt.Array.mapWithIndex((i, hd) => {
-                <h3 className=%tw("font-bold text-secondary")>
+                <h3 className=%twc("font-bold text-secondary")>
                   {(Js.String.repeat(i + 1, "#") ++ " " ++ hd)->React.string}
                 </h3>
               })
@@ -197,8 +197,8 @@ module Make = (Simulator: LOGGABLE) => {
         />
       </Title>
       {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
-      <div className=%tw("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full")>
-        <div className=%tw("w-full h-full")>
+      <div className=%twc("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full")>
+        <div className=%twc("w-full h-full")>
           <Section title={<Lang.String english="Source code" french=`Code source` />}>
             <div
               className="catala-code"
@@ -208,7 +208,7 @@ module Make = (Simulator: LOGGABLE) => {
             />
           </Section>
         </div>
-        <div className=%tw("w-full h-full")>
+        <div className=%twc("w-full h-full")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
             {switch logEventsOpt {
             | Some(logEvts) =>
