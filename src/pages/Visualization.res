@@ -14,7 +14,6 @@ type rec loggedValue =
   | Unit
   | Bool(bool)
   | Integer(int)
-  // NOTE: a lost of precision could be a problem here
   | Money(float)
   | Decimal(float)
   | Date(string)
@@ -150,6 +149,7 @@ module rec LoggedValue: {
   let make = (~depth=1, ~val: loggedValue) => {
     <>
       {switch val {
+      | Unit => <CatalaCode.Span kind="nc" code={"()"} />
       | Bool(b) => <CatalaCode.Span kind="mb" code={b->string_of_bool} />
       | Integer(i) => <CatalaCode.Span kind="mi" code={i->string_of_int} />
       | Money(m) => <>
@@ -201,99 +201,122 @@ module rec LoggedValue: {
           ->React.array}
           <CatalaCode.Op op="]" />
         </>
-      | _ => <> </>
+      | Unembeddable => <> {"Unembeddable"->React.string} </>
       }}
     </>
   }
 }
 module LogEvent = {
   @react.component
-  let make = (~event: logEvent) => {
+  let make = (~depth: React.ref<int>, ~currentPage: array<Nav.navElem>, ~event: logEvent) => {
     <>
       {switch event.eventType {
-      | VariableDefinition =>
-        <div>
-          {"Variable definition: "->React.string}
-          <div className={%twc("font-mono text-sm")}>
-            <CatalaCode>
-              <CatalaCode.Ids ids={event.information} />
-              <CatalaCode.Op op={" = "} />
-              <LoggedValue val=event.loggedValue />
-            </CatalaCode>
+      | VariableDefinition => <>
+          <div>
+            <div className={%twc("font-mono text-sm")}>
+              <CatalaCode>
+                <CatalaCode.Ids ids={event.information} />
+                <CatalaCode.Op op={" = "} />
+                <LoggedValue depth=depth.current val=event.loggedValue />
+              </CatalaCode>
+            </div>
           </div>
-        </div>
+        </>
       | DecisionTaken =>
-        <div className={%twc("text-sm border-t")}>
-          {"Decision taken"->React.string}
-          {switch event.sourcePosition {
-          | Some(pos) => <>
-              <div className=%twc("font-bold text-primary")>
-                // TODO: find a way to display the source position
-                /* { */
-                /* Nav.goTo( */
-                /* [ */
-                /* Nav.home, */
-                /* Nav.examples, */
-                /* Nav.frenchFamilyBenefitsExample, */
-                /* Nav.visualization, */
-                /* { */
-                /* url: pos.fileName ++ "-" ++ pos.startLine->string_of_int, */
-                /* text: Nav.frenchFamilyBenefitsExample.text, */
-                /* }, */
-                /* ], */
-                /* Lang.English, */
-                /* ) */
-                /* <> </> */
-                /* } */
-                <Lang.String english="Definition applied" french=`Définition appliquée` />
-              </div>
-              {pos.lawHeadings
-              ->Belt.Array.mapWithIndex((i, hd) => {
-                <h3 className=%twc("font-bold text-secondary")>
-                  {(Js.String.repeat(i + 1, "#") ++ " " ++ hd)->React.string}
-                </h3>
-              })
-              ->React.array}
-            </>
-          | None => <> </>
-          }}
-        </div>
+        switch event.sourcePosition {
+        | Some(pos) => <>
+            <div
+              className=%twc(
+                "inline-flex flex-row justify-center content-center items-center text-green font-bold"
+              )>
+              <Icon name="verified" />
+              <Lang.String english="Definition applied" french=`Définition appliquée` />
+            </div>
+            <div className=%twc("font-bold text-primary") />
+            {pos.lawHeadings
+            ->Belt.Array.reverse
+            ->Belt.Array.mapWithIndex((i, hd) => {
+              <h3 className=%twc("font-bold text-secondary")>
+                {(Js.String.repeat(i + 1, "#") ++ " " ++ hd)->React.string}
+              </h3>
+            })
+            ->React.array}
+            <a
+              className={%twc("text-secondary font-mono")}
+              href={Nav.navElemsToUrl(Some(Lang.getCurrentLang()), currentPage) ++
+              "#" ++
+              pos.fileName ++
+              "-" ++
+              pos.startLine->string_of_int}>
+              {pos.fileName->React.string}
+            </a>
+          </>
+        | None => <> </>
+        }
 
-      | BeginCall => <div className={%twc("text-sm border-t")}> {"Begin call"->React.string} </div>
-      | EndCall => <div className={%twc("text-sm border-t")}> {"End Call"->React.string} </div>
+      | BeginCall =>
+        {depth.current = depth.current + 1}
+        <>
+          <div className={%twc("text-sm border-t")}>
+            <div className={%twc("font-mono text-sm")}>
+              <CatalaCode>
+                <Icon className=%twc("text-orange") name="flight_takeoff" />
+                <CatalaCode.Ids ids={event.information} />
+              </CatalaCode>
+            </div>
+          </div>
+        </>
+      | EndCall =>
+        {depth.current = depth.current - 1}
+        <>
+          <div className={%twc("text-sm border-t")}>
+            <div className={%twc("font-mono text-sm")}>
+              <CatalaCode>
+                <Icon className=%twc("text-orange") name="flight_land" />
+                <CatalaCode.Ids ids={event.information} />
+              </CatalaCode>
+            </div>
+          </div>
+        </>
       }}
     </>
   }
 }
 
 module Navigation = {
+  type index =
+    | Prev(int)
+    | Next(int)
+
+  let getIndex = idx => {
+    switch idx {
+    | Next(idx) | Prev(idx) => idx
+    }
+  }
+
   let buttonStyle = %twc("text-secondary py-1 px-2")
 
   @react.component
   let make = (~logIndex, ~setLogIndex, ~maxLogIndex) => {
-    <div className=%twc("inline-flex flex-row justify-center content-center text-2xl font-sans")>
-      <button
-        className=buttonStyle onClick={_ => setLogIndex(_ => logIndex > 1 ? logIndex - 1 : 0)}>
-        <Icon name="arrow_circle_left" />
-      </button>
-      <div className=%twc("font-bold")>
-        <Lang.String
-          english={"Step: [ " ++
-          logIndex->string_of_int ++
-          "/" ++
-          maxLogIndex->string_of_int ++ " ]"}
-          french={`Étape [ ` ++
-          logIndex->string_of_int ++
-          "/" ++
-          maxLogIndex->string_of_int ++ " ]"}
-        />
+    let idx = logIndex->getIndex
+    <>
+      <div className=%twc("inline-flex flex-row justify-center content-center text-2xl font-sans")>
+        <button className=buttonStyle onClick={_ => setLogIndex(_ => Prev(idx > 2 ? idx - 2 : 0))}>
+          <Icon name="arrow_circle_left" />
+        </button>
+        <div className=%twc("font-bold")>
+          <Lang.String
+            english={"Step: [ " ++ idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int ++ " ]"}
+            french={`Étape [ ` ++ idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int ++ " ]"}
+          />
+        </div>
+        <button
+          className=buttonStyle
+          onClick={_ => setLogIndex(_ => Next(idx < maxLogIndex ? idx + 2 : 0))}>
+          <Icon name="arrow_circle_right" />
+        </button>
       </div>
-      <button
-        className=buttonStyle
-        onClick={_ => setLogIndex(_ => logIndex < maxLogIndex ? logIndex + 1 : logIndex)}>
-        <Icon name="arrow_circle_right" />
-      </button>
-    </div>
+    </>
   }
 }
 
@@ -306,9 +329,10 @@ module type LOGGABLE = {
 
 module Make = (Simulator: LOGGABLE) => {
   @react.component
-  let make = () => {
+  let make = (~currentPage: array<Nav.navElem>) => {
     let (logEventsOpt: option<array<logEvent>>, setLogEventsOpt) = React.useState(_ => None)
-    let (logIndex, setLogIndex) = React.useState(_ => 0)
+    let (logIndex, setLogIndex) = React.useState(_ => Navigation.Next(0))
+    let depth = React.useRef(1)
 
     <>
       <Title>
@@ -318,56 +342,29 @@ module Make = (Simulator: LOGGABLE) => {
         />
       </Title>
       {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
-      /*  */
-      /* <div className=%twc("grid grid-cols-2 grid-rows-1 gap-4 h-full w-full mb-8")> */
-      /* <div className=%twc("w-full h-full")> */
-      /* <Section title={<Lang.String english="Source code" french=`Code source` />}> */
-      /* <div */
-      /* className=%twc( */
-      /* "block max-h-screen overflow-y-scroll border-solid border-2 p-4 rounded" */
-      /* )> */
-      /* <div */
-      /* className="catala-code" */
-      /* dangerouslySetInnerHTML={ */
-      /* "__html": %raw(`require("../../assets/allocations_familiales.html")`), */
-      /* } */
-      /* /> */
-      /* </div> */
-      /* </Section> */
-      /* </div> */
-      /* <div className=%twc("w-full h-full ")> */
-      /* <Section title={<Lang.String english="Log events" french=`Évènements de log` />}> */
-      /* {switch logEventsOpt { */
-      /* | Some(logEvts) => */
-      /* switch logEvts->Belt.Array.get(logIndex) { */
-      /* | Some(event) => */
-      /* <div className=%twc("flex flex-col")> */
-      /* <Navigation logIndex setLogIndex /> */
-      /* <div className=%twc("border-solid border-2 rounded p-4")> */
-      /* <LogEvent event /> */
-      /* </div> */
-      /* </div> */
-      /* | None => <> </> */
-      /* } */
-      /* | None => "Empty"->React.string */
-      /* }} */
-      /* </Section> */
-      /* </div> */
-      /* </div> */
       <div className=%twc("flex flex-col")>
         <div className=%twc("w-full h-full ")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
             {switch logEventsOpt {
             | Some(logEvts) =>
-              switch logEvts->Belt.Array.get(logIndex) {
-              | Some(event) =>
+              let idx = logIndex->Navigation.getIndex
+              switch (logEvts->Belt.Array.get(idx), logEvts->Belt.Array.get(idx + 1)) {
+              | (Some(decision), Some(event)) =>
+                // Each log event is preceded by a [DecisionTaken] event
                 <div className=%twc("flex flex-col")>
                   <Navigation logIndex setLogIndex maxLogIndex={logEvts->Belt.Array.size} />
-                  <div className=%twc("border-solid border-2 rounded p-4")>
-                    <LogEvent event />
+                  <div
+                    className=%twc(
+                      "border-solid overflow-y-scroll max-h-128 border-2 border-secondary rounded p-4"
+                    )>
+                    {<>
+                      <LogEvent depth currentPage event=decision />
+                      <LogEvent depth currentPage event />
+                    </>}
                   </div>
                 </div>
-              | None => <> </>
+
+              | _ => <> </>
               }
             | None => "Empty"->React.string
             }}
@@ -377,7 +374,7 @@ module Make = (Simulator: LOGGABLE) => {
           <Section title={<Lang.String english="Source code" french=`Code source` />}>
             <div
               className=%twc(
-                "block max-h-screen overflow-y-scroll border-solid border-2 p-4 rounded"
+                "block max-h-128 overflow-y-scroll border-solid border-2 border-secondary rounded p-4 mb-4"
               )>
               <div
                 className="catala-code"

@@ -470,7 +470,7 @@ module Simulator = {
 
       <div
         className=%twc(
-          "flex flex-col justify-center place-items-center my-4 border-2 border-tertiary border-solid p-4"
+          "flex flex-col justify-center place-items-center my-4 border-2 border-secondary border-solid rounded p-4"
         )>
         {switch computeAllocationsFamiliales(formOutput) {
         | Error(msg) => <div className=%twc("font-bold")> msg </div>
