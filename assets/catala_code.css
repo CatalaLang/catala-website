@@ -2,6 +2,10 @@
   border-bottom: none;
 }
 
+.catala-code p {
+  font-family: Open Sans;
+}
+
 .catala-code .linenodiv pre {
   color: #323e54;
   opacity: 30%;
@@ -30,12 +34,13 @@
 .catala-code h9 {
   display: block;
   font-weight: bold;
-  color: #ffffff;
+  color: #323e54;
+  font-family: Open Sans, sans-serif;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
   text-align: center;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  /* box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), */
+  /*   0 4px 6px -2px rgba(0, 0, 0, 0.05); */
 }
 
 .catala-code ul {
@@ -54,25 +59,26 @@
 }
 
 .catala-code h1 {
-  font-size: 3rem;
-  background-color: #323e54;
-  line-height: 3rem;
+  font-size: 2.5em;
+  /* background-color: #323e54; */
+  line-height: 1.5em;
   padding-bottom: 1.5rem;
   padding-top: 1.5rem;
 }
 
 .catala-code h2 {
-  font-size: 2.75rem;
-  line-height: 2.75rem;
-  background-color: #37445d;
-  padding-bottom: 1.5rem;
-  padding-top: 1.5rem;
+  font-size: 2.25rem;
+  line-height: 2.25rem;
+  /* background-color: #bfcad9; */
+  border-radius: 5px;
+  padding: 1.5rem;
+  font-family: Georgia;
 }
 
 .catala-code h3 {
-  font-size: 2.5rem;
-  line-height: 2.5rem;
-  background-color: #3c4b67;
+  font-size: 2rem;
+  line-height: 2rem;
+  /* background-color: #3c4b67; */
   padding-bottom: 1.5rem;
   padding-top: 1rem;
 }
@@ -80,7 +86,7 @@
 .catala-code h4 {
   font-size: 2.25rem;
   line-height: 2.25rem;
-  background-color: #415271;
+  /* background-color: #415271; */
   padding-bottom: 1.25rem;
   padding-top: 1rem;
 }
@@ -88,7 +94,7 @@
 .catala-code h5 {
   font-size: 2rem;
   line-height: 2rem;
-  background-color: #47597b;
+  /* background-color: #47597b; */
   padding-bottom: 1rem;
   padding-top: 0.75rem;
 }
@@ -96,7 +102,7 @@
 .catala-code h6 {
   font-size: 1.75rem;
   line-height: 1.75rem;
-  background-color: #4c6084;
+  /* background-color: #4c6084; */
   padding-bottom: 0.75rem;
   padding-top: 0.75rem;
 }
@@ -104,7 +110,7 @@
 .catala-code h7 {
   font-size: 1.5rem;
   line-height: 1.5rem;
-  background-color: #51678e;
+  /* background-color: #51678e; */
   padding-bottom: 0.5rem;
   padding-top: 0.5rem;
 }
@@ -112,7 +118,7 @@
 .catala-code h8 {
   font-size: 1.25rem;
   line-height: 1.25rem;
-  background-color: #566e98;
+  /* background-color: #566e98; */
   padding-bottom: 0.25rem;
   padding-top: 0.5rem;
 }
@@ -120,7 +126,7 @@
 .catala-code h9 {
   font-size: 1rem;
   line-height: 1rem;
-  background-color: #5c75a2;
+  /* background-color: #5c75a2; */
   padding-bottom: 0rem;
   padding-top: 0rem;
 }
