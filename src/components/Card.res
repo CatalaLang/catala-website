@@ -1,34 +1,12 @@
 module Basic = {
   @react.component
-  let make = (~collapsible: bool, ~children) => {
-    let (visible, setVisible) = React.useState(() => false)
-    <div className=%twc("bg-tertiary text-white my-4 p-4 shadow-lg")>
-      {if !collapsible || visible {
-        if collapsible {
-          <>
-            <div className=%twc("text-xl pb-2 font-bold")>
-              <a className=%twc("cursor-pointer") onClick={_ => setVisible(_ => false)}>
-                <i className="float-left pr-1 text-white material-icons">
-                  {"expand_less" |> React.string}
-                </i>
-                {"Collapse" |> React.string}
-              </a>
-            </div>
-            <div className=%twc("overflow-x-auto")> children </div>
-          </>
-        } else {
-          <div className=%twc("overflow-x-auto")> children </div>
-        }
-      } else {
-        <div className=%twc("text-xl pb-2 font-bold")>
-          <a className=%twc("cursor-pointer") onClick={_ => setVisible(_ => true)}>
-            <i className="float-left pr-1 text-white material-icons">
-              {"expand_more" |> React.string}
-            </i>
-            {"Expand" |> React.string}
-          </a>
-        </div>
-      }}
+  let make = (~children) => {
+    <div
+      className=%twc(
+        "text-background my-4 p-1 border bg-gray_light border-gray rounded \
+        shadow-sm"
+      )>
+      <div className=%twc("overflow-x-auto")> children </div>
     </div>
   }
 }
@@ -44,11 +22,19 @@ module Presentation = {
   let render_presentation_card = (card: t, id: string) => {
     let action = switch card.action {
     | None => <div />
-    | Some((navs, action)) => <Link.Internal.WithIcon target=navs> action </Link.Internal.WithIcon>
+    | Some((navs, text)) =>
+      let lang = Lang.getCurrentLang()
+      <button
+        className=%twc(
+          "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover"
+        )
+        onClick={_ => Nav.goTo(navs, lang)}>
+        <Icon className=%twc("pr-2") name="double_arrow" /> text
+      </button>
     }
     let quote = switch card.quote {
     | Some(quote) =>
-      <blockquote className=%twc("text-primary pb-4")> <strong> quote </strong> </blockquote>
+      <blockquote className=%twc("text-green pb-4")> <strong> quote </strong> </blockquote>
     | None => <div />
     }
     let icon = switch card.icon {
@@ -57,19 +43,22 @@ module Presentation = {
     }
     <div className=%twc("w-full lg:w-1/2") key=id>
       <div className=%twc("p-4 h-full")>
-        <div className=%twc("bg-tertiary h-full overflow-hidden shadow-lg")>
-          <div className=%twc("flex flex-col justify-between h-full px-6 py-4 text-white")>
+        <div
+          className=%twc(
+            "bg-white h-full overflow-hidden shadow-sm border-solid border-gray border rounded"
+          )>
+          <div className=%twc("flex flex-col justify-between h-full px-6 py-4 text-background ")>
             <div>
               <div
                 className=%twc(
-                  " flex flex-row flex-nowrap items-center text-2xl md:text-xl lg:text-lg pb-2 font-bold"
+                  " flex flex-row flex-nowrap items-center text-3xl md:text-xl lg:text-lg pb-2 font-bold"
                 )>
                 icon card.title
               </div>
               quote
               <p className=%twc("pb-4")> card.content </p>
             </div>
-            action
+            <div className=%twc("inline-flex justify-end")> action </div>
           </div>
         </div>
       </div>

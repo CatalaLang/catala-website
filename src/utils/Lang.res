@@ -75,7 +75,7 @@ module String = {
   @react.component
   let make = (~french: string, ~english: string) => {
     let str = make_i18_str(~french, ~english)
-    let (lang, _setLang) = React.useContext(langContext)
+    let lang = getCurrentLang()
     switch Belt.Map.get(str, lang) {
     | None =>
       let (_, x) = Belt.List.headExn(Belt.Map.toList(str))

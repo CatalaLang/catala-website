@@ -78,6 +78,10 @@ let visualization: navElem = {
   text: <Lang.String english="Visualization" french=`Visualisation` />,
 }
 
+let cmp = (a: navElem, b: navElem) => {
+  String.compare(a.url, b.url)
+}
+
 let urlToNavElem = (url: ReasonReactRouter.url): (option<Lang.lang>, array<navElem>) => {
   let defaultElems = [home]
   switch url.path {

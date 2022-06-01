@@ -26,9 +26,9 @@ let make = () => <>
         française et anglaise de Catala. En effet, la langue d'entrée n'affecte que la création des jetons du parseur, pas leur ordre.`
       />
     </p>
-    <Card.Basic collapsible=true>
+    <Box.Collapsible>
       <div className=%twc("font-mono") dangerouslySetInnerHTML={"__html": grammar} />
-    </Card.Basic>
+    </Box.Collapsible>
     <p>
       <Lang.String
         english="To complement this formal description of the syntax, a cheat sheet is also available
@@ -38,22 +38,14 @@ let make = () => <>
         vis-à-vis de la syntaxe de Catala.`
       />
     </p>
-    <div className=%twc("flex flex-row justify-center")>
-      <div className=%twc("mx-8 my-4")>
-        <a
-          className=%twc("cursor-pointer uppercase text-white")
-          href="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"
-          target="_blank">
-          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%twc("flex flex-row flex-nowrap items-center")>
-              <Lang.String
-                english="Access the syntax cheat sheet" french=`Accéder au pense-bête syntaxique`
-              />
-              <i className="pl-4 material-icons"> {"description" |> React.string} </i>
-            </div>
-          </div>
-        </a>
-      </div>
+    <div className=%twc("flex flex-row justify-end")>
+      <Link.Button.Small
+        target="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf">
+        <Lang.String
+          english="Access the syntax cheat sheet" french=`Accéder au pense-bête syntaxique`
+        />
+        <Icon className=%twc("pl-2") name="description" />
+      </Link.Button.Small>
     </div>
   </Section>
   <Section
@@ -72,23 +64,14 @@ let make = () => <>
            le choix s'effectue selon des règles de précédences spécifiées dans le code source.`
       />
     </p>
-    <div className=%twc("flex flex-row justify-center")>
-      <div className=%twc("mx-8 my-4")>
-        <a
-          className=%twc("cursor-pointer uppercase text-white")
-          href="https://dl.acm.org/doi/10.1145/3473582"
-          target="_blank">
-          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%twc("flex flex-row flex-nowrap items-center")>
-              <Lang.String
-                english="Access the complete formalization paper"
-                french=`Accéder à l'article contenant la formalisation`
-              />
-              <i className="pl-4 material-icons"> {"description" |> React.string} </i>
-            </div>
-          </div>
-        </a>
-      </div>
+    <div className=%twc("flex flex-row justify-end")>
+      <Link.Button.Small target="https://dl.acm.org/doi/10.1145/3473582">
+        <Lang.String
+          english="Access the complete formalization paper"
+          french=`Accéder à l'article contenant la formalisation`
+        />
+        <Icon className=%twc("pl-2") name="description" />
+      </Link.Button.Small>
     </div>
   </Section>
 </>

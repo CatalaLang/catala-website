@@ -1,85 +1,5 @@
 open PageComponents
-
-type person = {
-  name: string,
-  website: option<string>,
-  affiliation: React.element,
-}
-
-let denis_merigoux = {
-  name: "Denis Merigoux",
-  website: Some("https://merigoux.fr"),
-  affiliation: <Link.Text target="https://team.inria.fr/prosecco/">
-    {"Inria - Prosecco" |> React.string}
-  </Link.Text>,
-}
-
-let marie_alauzen = {
-  name: "Marie Alauzen",
-  website: Some("https://cv.archives-ouvertes.fr/marie-alauzen"),
-  affiliation: <Link.Text target="https://www.ehess.fr/fr/centre-maurice-halbwachs-cmh">
-    {"Centre Maurice Halbawchs - EHESS/ENS" |> React.string}
-  </Link.Text>,
-}
-
-let nicolas_chataing = {
-  name: "Nicolas Chataing",
-  website: Some("https://github.com/skodt"),
-  affiliation: <Link.Text target="https://www.ens.psl.eu/departement/departement-d-informatique">
-    {`ENS Paris` |> React.string}
-  </Link.Text>,
-}
-
-let alain_delaet = {
-  name: `Alain Delaët-Tixeuil`,
-  website: None,
-  affiliation: <Link.Text target="http://informatique.ens-lyon.fr/">
-    {`ENS Lyon` |> React.string}
-  </Link.Text>,
-}
-
-let aymeric_fromherz = {
-  name: `Aymeric Fromherz`,
-  website: Some("https://users.ece.cmu.edu/~afromher/"),
-  affiliation: <Link.Text target="https://team.inria.fr/prosecco/">
-    {`Inria - Prosecco` |> React.string}
-  </Link.Text>,
-}
-
-let raphael_monat = {
-  name: `Raphaël Monat`,
-  website: Some("https://rmonat.fr/"),
-  affiliation: <Link.Text target="https://www-apr.lip6.fr/web/doku.php">
-    {`LIP6 - APR` |> React.string}
-  </Link.Text>,
-}
-
-let sarah_lawsky = {
-  name: "Sarah Lawsky",
-  website: Some("http://www.law.northwestern.edu/faculty/profiles/SarahLawsky/"),
-  affiliation: <Link.Text target="www.law.northwestern.edu/">
-    {`Northwestern Pritzker School of Law` |> React.string}
-  </Link.Text>,
-}
-
-let jonathan_protzenko = {
-  name: "Jonathan Protzenko",
-  website: Some("https://jonathan.protzenko.fr"),
-  affiliation: <Link.Text
-    target="https://www.microsoft.com/en-us/research/group/research-software-engineering-rise/">
-    {"Microsoft Research RiSE" |> React.string}
-  </Link.Text>,
-}
-
-let liane_huttner = {
-  name: "Liane Huttner",
-  website: Some(
-    "https://www.pantheonsorbonne.fr/recherche/page-perso/page/?tx_oxcspagepersonnel_pi1[uid]=lhuttner",
-  ),
-  affiliation: <Link.Text target="https://www.pantheonsorbonne.fr/accueil">
-    {`Université Panthéon-Sorbonne` |> React.string}
-  </Link.Text>,
-}
+open People
 
 module Person = {
   @react.component
@@ -90,7 +10,11 @@ module Person = {
       | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
       }}
       <span className=%twc("pl-2")>
-        {"(" |> React.string} person.affiliation {React.string(")")}
+        {"(" |> React.string}
+        <Link.Text target=person.affiliation.url>
+          {person.affiliation.name->React.string}
+        </Link.Text>
+        {React.string(")")}
       </span>
     </li>
 }
@@ -156,7 +80,7 @@ let make = () => <>
             de législation en code afin de prouver l'utilié du langage.`
     />
   </p>
-  <p className=%twc("float-right text-secondary pt-4 italic")>
+  <p className=%twc("float-right text-green pt-4 italic")>
     <Lang.String
       english="Text credits: the Catala team and James Mohun from the OECD Public Sector Innovation Observatory (2020)"
       french=`Source : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)`
@@ -179,18 +103,18 @@ let make = () => <>
   <div className=%twc("clear-right") />
   <Section title={<Lang.String english="People" french=`Membres du projet` />}>
     <ul className=%twc("list-disc list-inside")>
-      <Person person=marie_alauzen />
-      <Person person=alain_delaet />
-      <Person person=aymeric_fromherz />
-      <Person person=liane_huttner />
-      <Person person=sarah_lawsky />
-      <Person person=denis_merigoux />
-      <Person person=raphael_monat />
-      <Person person=jonathan_protzenko />
+      <Person person=marieAlauzen />
+      <Person person=alainDelaet />
+      <Person person=aymericFromherz />
+      <Person person=lianeHuttner />
+      <Person person=sarahLawsky />
+      <Person person=denisMerigoux />
+      <Person person=raphaelMonat />
+      <Person person=jonathanProtzenko />
     </ul>
   </Section>
   <Section title={<Lang.String english="Alumni" french=`Alumni` />}>
-    <ul className=%twc("list-disc list-inside")> <Person person=nicolas_chataing /> </ul>
+    <ul className=%twc("list-disc list-inside")> <Person person=nicolasChataing /> </ul>
   </Section>
   <Section
     title={<Lang.String

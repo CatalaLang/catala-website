@@ -4,6 +4,7 @@ let catala_jurix_link = "https://hal.inria.fr/hal-02936606"
 
 let zulip_link = "https://zulip.catala-lang.org/"
 
+// TODO: clean up unused code
 let examples_card: Card.Presentation.t = {
   title: <Lang.String
     english="Closer to the source of truth" french=`Plus près de la source de vérité`
@@ -132,7 +133,9 @@ module LinkBlock = {
     let link_content =
       <div
         className=%twc(
-          "rounded-lg bg-secondary shadow text-2xl md:text-xl lg:text-lg xl:text-lg py-4 px-4 hover:text-primary hover:shadow-lg"
+          "cursor-pointer bg-button_bg my-4 p-2 text-button_fg text-3xl inline-flex \
+          items-center rounded font-semibold font-sans shadow-sm \
+          hover:bg-button_bg_hover hover:text-button_fg_hover"
         )>
         <div className=%twc("flex flex-row flex-nowrap items-center")>
           info.text <i className="pl-4 material-icons"> {info.icon |> React.string} </i>
@@ -205,45 +208,52 @@ let examples_link_info: link_info = {
 
 @react.component
 let make = () => {
-  let (lang, _) = React.useContext(Lang.langContext)
   <>
-    <div className=%twc("flex flex-col items-center")>
-      <div className=%twc("text-center text-xl italic py-8 max-w-xl")>
-        <p>
+    <div className=%twc("flex flex-col justify-center items-center")>
+      <div className=%twc("p-10")>
+        /* <img className=%twc("block w-24 h-24") src={"/" ++ logo.default} /> */
+        <p
+          className=%twc(
+            "text-center text-3xl text-background italic font-sans font-semibold max-w-3xl"
+          )>
           <Lang.String
-            english="Catala is a domain-specific programming language designed for deriving correct-by-construction
-          implementations from legislative texts."
+            english="\"Catala is a domain-specific programming language designed for deriving correct-by-construction
+          implementations from legislative texts.\""
             french=`Catala est un langage dédié à l'écriture d'implémentations correctes
              d'algorithmes dérivés de textes législatifs`
           />
         </p>
       </div>
-      <div className=%twc("flex flex-row flex-wrap justify-center")>
-        <div className=%twc("flex flex-col flex-wrap items-end")>
-          <div className=%twc("mx-8 my-4")> <LinkBlock lang info=github_link_info /> </div>
-          <div className=%twc("mx-8 my-4")> <LinkBlock lang info=zulip_link_info /> </div>
-          <div className=%twc("mx-8 my-4")> <LinkBlock lang info=publications_link_info /> </div>
-        </div>
-        <div className=%twc("flex flex-col justify-center")>
-          <img className=%twc("w-48 h-48 mx-8 my-4") src={"/" ++ logo.default} />
-        </div>
+      <div
+        className=%twc("inline-flex flex-row justify-between content-center text-xl font-semibold")>
+        <Link.Internal
+          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pr-4")
+          target={[Nav.home, Nav.publications]}>
+          <Lang.String english="Read publications" french=`Lire les publications` />
+        </Link.Internal>
+        <Link.Text
+          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-4")
+          target={"https://zulip.catala-lang.org/login/"}>
+          <Lang.String english="Join us on Zulip" french=`Rejoins-nous sur Zulip` />
+        </Link.Text>
+      </div>
+      <Link.Button target={github_link}>
+        <Lang.String english="Get started on GitHub" french=`Démarrer sur GitHub` />
+      </Link.Button>
+      <div className=%twc("text-base font-sans")>
+        <Lang.String english="Apache-2.0 License" french=`Apache-2.0 Licence` />
+        <Link.Text
+          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
+          target={github_link}>
+          <Lang.String english="GitHub v0.5.0" french=`GitHub v0.5.0` />
+        </Link.Text>
       </div>
     </div>
-    <div className=%twc("flex flex-row flex-wrap justify-around pt-12")>
-      <div className=%twc("my-4")> <LinkBlock lang info=about_link_info /> </div>
-      <div className=%twc("my-4")> <LinkBlock lang info=examples_link_info /> </div>
-      // <div className=%twc("my-4")> <LinkBlock lang info=playground_link_info />[] </div>
-      <div className=%twc("my-4")> <LinkBlock lang info=doc_link_info /> </div>
-      <div className=%twc("my-4")> <LinkBlock lang info=formalisation_link_info /> </div>
-    </div>
-    <div className=%twc("flex flex-col flex-wrap content-center pt-12")>
-      <div
-        className=%twc(
-          "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl"
-        )>
+    <div className=%twc("flex flex-col flex-wrap content-center justify-center items-center pt-12")>
+      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold")>
         <Lang.String english="Catala in action" french=`Catala en action` />
       </div>
-      <div className=%twc("w-full md:w-4/5 lg:w-3/5")>
+      <div className=%twc("w-full lg:w-3/5 border-solid")>
         <p className=%twc("my-4 italic")>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation.
@@ -262,10 +272,7 @@ let make = () => {
           />}
         />
       </div>
-      <div
-        className=%twc(
-          "w-full md:w-4/5 lg:w-3/5 border-solid border-b-2 border-secondary text-secondary text-center text-3xl mt-8"
-        )>
+      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pt-8")>
         <Lang.String english="Why using Catala?" french=`Pourquoi utiliser Catala ?` />
       </div>
     </div>

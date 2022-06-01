@@ -11,7 +11,7 @@ module MakeManPageDoc = (Man: ManPage) => {
   @react.component
   let make = () => <>
     <Title> Man.title </Title>
-    <Card.Basic collapsible=false>
+    <Card.Basic>
       <div className="font-mono man-page" dangerouslySetInnerHTML={"__html": Man.html} />
     </Card.Basic>
   </>
@@ -92,6 +92,7 @@ let catala_card: Card.Presentation.t = {
   </p>,
 }
 
+// TODO: automatically generate redirect to the href=ocaml_docs
 let ocaml_docs_card: Card.Presentation.t = {
   title: <Lang.String english="OCaml documentation" french=`Documentation OCaml` />,
   icon: None,

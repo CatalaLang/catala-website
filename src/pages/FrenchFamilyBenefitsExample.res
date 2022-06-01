@@ -1,4 +1,5 @@
 open PageComponents
+open Form
 
 let frenchLaw = %raw(`require("../../assets/french_law.js")`)
 
@@ -161,7 +162,7 @@ let card: Card.Presentation.t = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
   action: Some((
     [Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample],
-    <Lang.String english="see example" french=`Voir l'exemple` />,
+    <Lang.String english="See example" french=`Voir l'exemple` />,
   )),
   icon: None,
   quote: None,
@@ -208,17 +209,17 @@ module Simulator = {
               french=`Ce simulateur utilise un programme Catala compilé à partir du code source ci-dessous.`
             />
           </p>
-          <div className=%twc("flex flex-row flex-wrap justify-around bg-secondary py-4 mt-4")>
+          <div
+            className=%twc(
+              "flex flex-row flex-wrap justify-around rounded border border-gray shadow-sm \
+               bg-gray_light py-4 mt-4"
+            )>
             <div className=%twc("flex flex-col mx-4")>
-              <label className=%twc("text-white text-center")>
-                <Lang.String
+              <Input.Num
+                label={<Lang.String
                   english=`Yearly household income (€)`
                   french=`Ressources annuelles du ménage (€)`
-                />
-              </label>
-              <input
-                type_="number"
-                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
+                />}
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
                     ...allocFamInput,
@@ -228,38 +229,30 @@ module Simulator = {
               />
             </div>
             <div className=%twc("flex flex-col mx-4")>
-              <label className=%twc("text-white text-center")>
-                <Lang.String french=`Résidence du ménage` english=`Household residence` />
-              </label>
-              <select
-                list="browsers"
-                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
+              <Input.Browsers
+                label={<Lang.String french=`Résidence du ménage` english=`Household residence` />}
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
                     ...allocFamInput,
                     residence: event->value,
                   })
-                }}>
-                <option value=`Métropole`> {React.string(`Métropole`)} </option>
-                <option value=`Guyane`> {React.string(`Guyane`)} </option>
-                <option value=`Guadeloupe`> {React.string(`Guadeloupe`)} </option>
-                <option value=`La Réunion`> {React.string(`La Réunion`)} </option>
-                <option value=`Martinique`> {React.string(`Martinique`)} </option>
-                <option value=`Mayotte`> {React.string(`Mayotte`)} </option>
-                <option value=`Saint Barthélemy`> {React.string(`Saint Barthélemy`)} </option>
-                <option value=`Saint Martin`> {React.string(`Saint Martin`)} </option>
-                <option value=`Saint Pierre et Miquelon`>
-                  {React.string(`Saint Pierre et Miquelon`)}
-                </option>
-              </select>
+                }}
+                options={[
+                  `Métropole`,
+                  `Guyane`,
+                  `Guadeloupe`,
+                  `La Réunion`,
+                  `Martinique`,
+                  `Mayotte`,
+                  `Saint Barthélemy`,
+                  `Saint Martin`,
+                  `Saint Pierre et Miquelon`,
+                ]}
+              />
             </div>
             <div className=%twc("flex flex-col mx-4")>
-              <label className=%twc("text-white text-center")>
-                <Lang.String english="Date of the computation" french=`Date du calcul` />
-              </label>
-              <input
-                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                type_="date"
+              <Input.Date
+                label={<Lang.String english="Date of the computation" french=`Date du calcul` />}
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
                     ...allocFamInput,
@@ -269,12 +262,10 @@ module Simulator = {
               />
             </div>
             <div className=%twc("flex flex-col mx-4")>
-              <label className=%twc("text-white text-center")>
-                <Lang.String english="Rights open before 2021" french=`Droits ouverts avant 2012` />
-              </label>
-              <input
-                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                type_="checkbox"
+              <Input.CheckBox
+                label={<Lang.String
+                  english="Rights open before 2021" french=`Droits ouverts avant 2012`
+                />}
                 onChange={_ => {
                   updateCurrentState({
                     ...allocFamInput,
@@ -287,10 +278,8 @@ module Simulator = {
               />
             </div>
             <div className=%twc("flex flex-col mx-4")>
-              <label className=%twc("text-white text-center")>
-                <Lang.String english="Number of children" french=`Nombre d'enfants` />
-              </label>
-              <input
+              <Input.Num
+                label={<Lang.String english="Number of children" french=`Nombre d'enfants` />}
                 onChange={(event: ReactEvent.Form.t) => {
                   let value = event->value
                   updateCurrentState({
@@ -309,134 +298,90 @@ module Simulator = {
                     },
                   })
                 }}
-                className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                type_="number"
               />
             </div>
-          </div>
-          <div className=%twc("flex flex-row flex-wrap justify-around bg-secondary py-4")>
             {React.array(
               allocFamInput.children->Belt.Array.mapWithIndex((i, _) => {
                 <div
-                  className=%twc("flex flex-col border-tertiary border-2 border-solid py-2 my-2")
+                  className=%twc(
+                    "flex flex-col border-gray shadow-sm border border-solid rounded py-2 my-2"
+                  )
                   key={"child_input" ++ string_of_int(i)}>
-                  <div
-                    key={"birth_date_div" ++ string_of_int(i)} className=%twc("flex flex-col mx-4")>
-                    <label
-                      key={"birth_date_label" ++ string_of_int(i)}
-                      className=%twc("text-white text-center")>
+                  <Input.Date
+                    label={<>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String english=": birthdate" french=` : date de naissance` />
-                    </label>
-                    <input
-                      key={"birth_date_input" ++ string_of_int(i)}
-                      onChange={(event: ReactEvent.Form.t) => {
-                        let children = allocFamInput.children
-                        children[i] = {
-                          ...children[i],
-                          birthDate: Some(event->value->Js.Date.fromString),
-                        }
-                        updateCurrentState({...allocFamInput, children: children})
-                      }}
-                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                      type_="date"
-                    />
-                  </div>
-                  <div key={"custody_" ++ string_of_int(i)} className=%twc("flex flex-col mx-4")>
-                    <label
-                      key={"custody_label" ++ string_of_int(i)}
-                      className=%twc("text-white text-center")>
+                    </>}
+                    onChange={(event: ReactEvent.Form.t) => {
+                      let children = allocFamInput.children
+                      children[i] = {
+                        ...children[i],
+                        birthDate: Some(event->value->Js.Date.fromString),
+                      }
+                      updateCurrentState({...allocFamInput, children: children})
+                    }}
+                  />
+                  <Input.Browsers
+                    label={<>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String english=": custody" french=` :prise en charge` />
-                    </label>
-                    <select
-                      key={"custody_input" ++ string_of_int(i)}
-                      list="browsers"
-                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                      onChange={(event: ReactEvent.Form.t) => {
-                        let children = allocFamInput.children
-                        children[i] = {
-                          ...children[i],
-                          priseEnCharge: Some(event->value),
-                        }
-                        updateCurrentState({...allocFamInput, children: children})
-                      }}>
-                      <option value=`Effective et permanente`>
-                        {React.string(`Effective et permanente`)}
-                      </option>
-                      <option value=`Garde alternée, allocataire unique`>
-                        {React.string(`Garde alternée, allocataire unique`)}
-                      </option>
-                      <option value=`Garde alternée, partage des allocations`>
-                        {React.string(`Garde alternée, partage des allocations`)}
-                      </option>
-                      <option value=`Confié aux service sociaux, allocation versée à la famille`>
-                        {React.string(`Confié aux service sociaux, allocation versée à la famille`)}
-                      </option>
-                      <option
-                        value=`Confié aux service sociaux, allocation versée aux services sociaux`>
-                        {React.string(`Confié aux service sociaux, allocation versée aux services sociaux`)}
-                      </option>
-                    </select>
-                  </div>
-                  <div
-                    key={"monthly_income_div" ++ string_of_int(i)}
-                    className=%twc("flex flex-col mx-4")>
-                    <label
-                      key={"monthly_income_label" ++ string_of_int(i)}
-                      className=%twc("text-white text-center")>
+                    </>}
+                    onChange={(event: ReactEvent.Form.t) => {
+                      let children = allocFamInput.children
+                      children[i] = {
+                        ...children[i],
+                        priseEnCharge: Some(event->value),
+                      }
+                      updateCurrentState({...allocFamInput, children: children})
+                    }}
+                    options={[
+                      `Effective et permanente`,
+                      `Garde alternée, allocataire unique`,
+                      `Garde alternée, partage des allocations`,
+                      `Confié aux service sociaux, allocation versée à la famille`,
+                      `Confié aux service sociaux, allocation versée aux services sociaux`,
+                    ]}
+                  />
+                  <Input.Num
+                    label={<>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String
                         english=`: monthly income (€)` french=` : rémunération mensuelle (€)`
                       />
-                    </label>
-                    <input
-                      key={"monthly_income_input" ++ string_of_int(i)}
-                      onChange={(event: ReactEvent.Form.t) => {
-                        let children = allocFamInput.children
-                        children[i] = {
-                          ...children[i],
-                          monthlyIncome: Some(int_of_string(event->value)),
-                        }
-                        updateCurrentState({...allocFamInput, children: children})
-                      }}
-                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                      type_="number"
-                    />
-                  </div>
-                  <div
-                    key={"already_used_key" ++ string_of_int(i)}
-                    className=%twc("flex flex-col mx-4")>
-                    <label
-                      key={"already_used_key_label" ++ string_of_int(i)}
-                      className=%twc("text-white text-center")>
+                    </>}
+                    onChange={(event: ReactEvent.Form.t) => {
+                      let children = allocFamInput.children
+                      children[i] = {
+                        ...children[i],
+                        monthlyIncome: Some(int_of_string(event->value)),
+                      }
+                      updateCurrentState({...allocFamInput, children: children})
+                    }}
+                  />
+                  <Input.CheckBox
+                    label={<>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
                       {React.string(string_of_int(i + 1))}
                       <Lang.String
                         english=": has already been eligible for benefits"
                         french=` : a déjà ouvert des droits aux allocations`
                       />
-                    </label>
-                    <input
-                      key={"already_used_key_input" ++ string_of_int(i)}
-                      onChange={_ => {
-                        let children = allocFamInput.children
-                        children[i] = {
-                          ...children[i],
-                          aDejaOuvertDroitAllocationsFamiliales: switch children[i].aDejaOuvertDroitAllocationsFamiliales {
-                          | None | Some(false) => Some(true)
-                          | Some(true) => Some(false)
-                          },
-                        }
-                        updateCurrentState({...allocFamInput, children: children})
-                      }}
-                      className=%twc("border-solid border-2 border-tertiary m-1 px-2")
-                      type_="checkbox"
-                    />
-                  </div>
+                    </>}
+                    onChange={_ => {
+                      let children = allocFamInput.children
+                      children[i] = {
+                        ...children[i],
+                        aDejaOuvertDroitAllocationsFamiliales: switch children[i].aDejaOuvertDroitAllocationsFamiliales {
+                        | None | Some(false) => Some(true)
+                        | Some(true) => Some(false)
+                        },
+                      }
+                      updateCurrentState({...allocFamInput, children: children})
+                    }}
+                  />
                 </div>
               }),
             )}
@@ -470,7 +415,9 @@ module Simulator = {
 
       <div
         className=%twc(
-          "flex flex-col justify-center place-items-center my-4 border-2 border-secondary border-solid rounded p-4"
+          "inline-flex flex-col justify-center place-items-center \
+          my-4 border border-gray border-solid rounded p-4 shadow-sm \
+          bg-gray_light"
         )>
         {switch computeAllocationsFamiliales(formOutput) {
         | Error(msg) => <div className=%twc("font-bold")> msg </div>
@@ -543,15 +490,14 @@ let make = () => {
       />
     </p>
     <Simulator setLogEventsOpt={_ => ()} />
-    <div className=%twc("inline-flex")>
-      <Link.Internal.WithIcon
-        name="explore"
-        className=%twc("cursor-pointer text-secondary pt-2")
-        target=[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]>
+    <div className=%twc("inline-flex justify-end")>
+      <Button.Internal
+        target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>
+        <Icon className=%twc("pr-2") name="explore" />
         <Lang.String
           english="Explore the execution trace" french=`Explorer la trace d'exécution`
         />
-      </Link.Internal.WithIcon>
+      </Button.Internal>
     </div>
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
       <div

@@ -6,7 +6,7 @@ let card: Card.Presentation.t = {
   title: pageTitle,
   action: Some((
     [Nav.home, Nav.examples, Nav.usTaxCode],
-    <Lang.String english="see example" french=`Voir l'exemple` />,
+    <Lang.String english="See example" french=`Voir l'exemple` />,
   )),
   icon: None,
   quote: None,

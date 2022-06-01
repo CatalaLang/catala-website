@@ -2,19 +2,22 @@ let github_link = "https://github.com/CatalaLang/catala-website/issues"
 
 @react.component
 let make = () =>
-  <footer className=%twc("bg-secondary pt-4")>
-    <div className=%twc("text-white pb-4 pr-6 text-right")>
-      {React.string("Copyright 2020 Inria")}
+  <footer className=%twc("pt-2 font-sans text-center")>
+    <div className=%twc("text-gray_dark pb-2 text-xs font-semibold")>
+      {
+        let today = Js.Date.now()->Js.Date.fromFloat->Js.Date.getFullYear->Js.String2.make
+        React.string("Copyright " ++ today ++ " Inria")
+      }
     </div>
-    <div className=%twc("bg-yellow text-center")>
+    <div className=%twc("bg-red pb-1")>
       <span>
-        <Icon className="float-left pl-4" name="warning" />
-        <a className=%twc("w-auto") href=github_link>
+        <a className=%twc("w-auto h-full text-background text-xs") href=github_link>
+          <Icon className="float-left pl-4 pt-1" name="warning" />
           <Lang.String
             english="This website is under construction, click here to give some feedback"
             french=`Ce site Internet est en cours de construction. Cliquez ici pour faire parvenir vos remarques et commentaires.`
           />
-          <Icon className="float-right pr-4" name="warning" />
+          <Icon className="float-right pr-4 pt-1" name="warning" />
         </a>
       </span>
     </div>
