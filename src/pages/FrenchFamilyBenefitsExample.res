@@ -161,7 +161,7 @@ let computeAllocationsFamiliales = (
 let card: Card.Presentation.t = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
   action: Some((
-    [Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample],
+    Internal([Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample]),
     <Lang.String english="See example" french=`Voir l'exemple` />,
   )),
   icon: None,

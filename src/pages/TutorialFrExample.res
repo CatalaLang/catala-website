@@ -9,7 +9,7 @@ let pageTitle =
 let card: Card.Presentation.t = {
   title: pageTitle,
   action: Some((
-    [Nav.home, Nav.examples, Nav.tutorialFrExample],
+    Internal([Nav.home, Nav.examples, Nav.tutorialFrExample]),
     <Lang.String english="See the tutorial" french=`Voir le tutoriel` />,
   )),
   icon: None,

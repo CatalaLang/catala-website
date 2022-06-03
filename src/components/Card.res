@@ -11,26 +11,33 @@ module Basic = {
   }
 }
 module Presentation = {
+  type action =
+    | Internal(array<Nav.navElem>)
+    | External(string)
+
   type t = {
     title: React.element,
     icon: option<string>,
     quote: option<React.element>,
-    action: option<(array<Nav.navElem>, React.element)>,
+    action: option<(action, React.element)>,
     content: React.element,
   }
 
   let render_presentation_card = (card: t, id: string) => {
+    let buttonStyle = %twc(
+      "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover"
+    )
     let action = switch card.action {
     | None => <div />
-    | Some((navs, text)) =>
+    | Some((Internal(navs), text)) =>
       let lang = Lang.getCurrentLang()
-      <button
-        className=%twc(
-          "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover"
-        )
-        onClick={_ => Nav.goTo(navs, lang)}>
+      <button className=buttonStyle onClick={_ => Nav.goTo(navs, lang)}>
         <Icon className=%twc("pr-2") name="double_arrow" /> text
       </button>
+    | Some((External(url), text)) =>
+      <Link.Button className=buttonStyle target=url>
+        <Icon className=%twc("pr-2") name="double_arrow" /> text
+      </Link.Button>
     }
     let quote = switch card.quote {
     | Some(quote) =>

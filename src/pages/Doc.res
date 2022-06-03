@@ -25,59 +25,12 @@ module CatalaManPage = MakeManPageDoc({
   let html: string = %raw(`require("../../assets/catala.html")`)
 })
 
-module OCamlDocs = {
-  @react.component
-  let make = () => <>
-    <Title> <Lang.String english="OCaml documentation" french="Documentation OCaml" /> </Title>
-    <div className=%twc("flex flex-row justify-center")>
-      <div className=%twc("mx-8 my-4")>
-        <a
-          className=%twc("cursor-pointer uppercase text-white") href="/ocaml_docs/" target="_blank">
-          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%twc("flex flex-row flex-nowrap items-center")>
-              <Lang.String
-                english="Access the OCaml documentation website"
-                french=`Accéder à la documentation OCaml`
-              />
-              <i className="pl-4 material-icons"> {"description" |> React.string} </i>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </>
-}
-
-module SyntaxSheatCheet = {
-  @react.component
-  let make = () => <>
-    <Title> <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxique` /> </Title>
-    <div className=%twc("flex flex-row justify-center")>
-      <div className=%twc("mx-8 my-4")>
-        <a
-          className=%twc("cursor-pointer uppercase text-white")
-          href="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"
-          target="_blank">
-          <div className=%twc("bg-secondary shadow text-2xl md:text-xl lg:text-lg py-4 px-4")>
-            <div className=%twc("flex flex-row flex-nowrap items-center")>
-              <Lang.String
-                english="Access the syntax sheat cheet" french=`Accéder au pense-bête syntaxique`
-              />
-              <i className="pl-4 material-icons"> {"description" |> React.string} </i>
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-  </>
-}
-
 let catala_doc: string = %raw(`require("../../assets/catala.html")`)
 
 let catala_card: Card.Presentation.t = {
   title: <Lang.String english="The Catala Compiler" french="Le compilateur Catala" />,
   action: Some((
-    [Nav.home, Nav.doc, Nav.catalaManPage],
+    Internal([Nav.home, Nav.doc, Nav.catalaManPage]),
     <Lang.String english="See manpage" french=`Voir la page man` />,
   )),
   icon: None,
@@ -92,13 +45,12 @@ let catala_card: Card.Presentation.t = {
   </p>,
 }
 
-// TODO: automatically generate redirect to the href=ocaml_docs
 let ocaml_docs_card: Card.Presentation.t = {
   title: <Lang.String english="OCaml documentation" french=`Documentation OCaml` />,
   icon: None,
   quote: None,
   action: Some((
-    [Nav.home, Nav.doc, Nav.ocamlDocs],
+    External("/ocaml_docs/"),
     <Lang.String english="See documentation" french=`Voir la documentation` />,
   )),
   content: <p>
@@ -116,7 +68,7 @@ let syntax_cheat_sheet_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   action: Some((
-    [Nav.home, Nav.doc, Nav.syntaxCheatSheet],
+    External("https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"),
     <Lang.String english="Download the cheet" french=`Télécharger le pense-bête` />,
   )),
   content: <p>

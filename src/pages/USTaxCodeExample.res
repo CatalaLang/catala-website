@@ -5,7 +5,7 @@ let pageTitle = <Lang.String english="US Tax Code" french=`Code des impôts amé
 let card: Card.Presentation.t = {
   title: pageTitle,
   action: Some((
-    [Nav.home, Nav.examples, Nav.usTaxCode],
+    Internal([Nav.home, Nav.examples, Nav.usTaxCode]),
     <Lang.String english="See example" french=`Voir l'exemple` />,
   )),
   icon: None,

@@ -210,7 +210,7 @@ let examples_link_info: link_info = {
 let make = () => {
   <>
     <div className=%twc("flex flex-col justify-center items-center")>
-      <div className=%twc("p-10")>
+      <div className=%twc("py-16")>
         /* <img className=%twc("block w-24 h-24") src={"/" ++ logo.default} /> */
         <p
           className=%twc(
