@@ -25,7 +25,8 @@ module Presentation = {
 
   let render_presentation_card = (card: t, id: string) => {
     let buttonStyle = %twc(
-      "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover"
+      "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center \
+      rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100"
     )
     let action = switch card.action {
     | None => <div />

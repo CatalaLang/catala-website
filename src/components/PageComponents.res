@@ -3,7 +3,8 @@ module Title = {
   let make = (~children) =>
     <h1
       className=%twc(
-        "text-4xl uppercase py-10 text-center font-sans font-bold shadow-none text-background"
+        "inline-flex flex-row flex-wrap justify-center items-center text-4xl \
+        uppercase py-10 text-center font-sans font-bold shadow-none text-background"
       )>
       children
     </h1>

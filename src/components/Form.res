@@ -4,7 +4,8 @@ module Input = {
     "font-sans font-semibold text-gray_dark px-2 my-1 \
     bg-gray_light border-solid border-2 border-gray rounded \
     hover:border-gray_dark \
-    focus:outline-none focus:border-gray_dark "
+    focus:outline-none focus:border-gray_dark \
+    ease-in duration-100"
   )
   let labelStyle = %twc("text-background text-center font-sans text-sm font-semibold")
 

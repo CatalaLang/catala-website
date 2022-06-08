@@ -1,7 +1,7 @@
 module Text = {
   @react.component
   let make = (
-    ~className=%twc("border-solid border-green border-b hover:text-green"),
+    ~className=%twc("border-solid border-green border-b hover:text-green ease-in duration-100 "),
     ~target: string,
     ~children,
   ) => <a className href=target target="_blank"> children </a>
@@ -14,7 +14,7 @@ module Button = {
       ~className=%twc(
         "cursor-pointer bg-button_bg mt-8 mb-4 p-2 text-button_fg text-base inline-flex \
         items-center rounded font-semibold font-sans shadow-sm \
-        hover:bg-button_bg_hover hover:text-button_fg_hover"
+        hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100 "
       ),
       ~target: string,
       ~children,
@@ -28,7 +28,7 @@ module Button = {
     ~className=%twc(
       "cursor-pointer bg-button_bg mt-4 mb-4 p-3 text-button_fg text-xl inline-flex \
           items-center rounded font-semibold font-sans shadow-sm \
-          hover:bg-button_bg_hover hover:text-button_fg_hover"
+          hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100 "
     ),
     ~target: string,
     ~children,

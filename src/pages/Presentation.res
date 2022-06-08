@@ -1,7 +1,6 @@
 let github_link = "https://github.com/CatalaLang/catala"
-
+let github_link_lastest_release = "https://github.com/CatalaLang/catala/releases/tag/0.6.0"
 let catala_jurix_link = "https://hal.inria.fr/hal-02936606"
-
 let zulip_link = "https://zulip.catala-lang.org/"
 
 // TODO: clean up unused code
@@ -244,8 +243,8 @@ let make = () => {
         <Lang.String english="Apache-2.0 License" french=`Apache-2.0 Licence` />
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
-          target={github_link}>
-          <Lang.String english="GitHub v0.5.0" french=`GitHub v0.5.0` />
+          target={github_link_lastest_release}>
+          <Lang.String english="GitHub v0.6.0" french=`GitHub v0.6.0` />
         </Link.Text>
       </div>
     </div>
