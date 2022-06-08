@@ -43,6 +43,14 @@ type logEvent = {
   loggedValue: loggedValue,
 }
 
+/* type rec logEvent = */
+/* | VarAssign({pos: sourcePosition, name: array<string>, value: loggedValue}) */
+/* | FunCall({ */
+/* // Position of the assignment at the end of the function call */
+/* pos: sourcePosition, */
+/* body: logEvent, */
+/* }) */
+
 let eventTypeFromString = (str: string): eventType => {
   switch str {
   | "Begin call" => BeginCall
@@ -93,6 +101,62 @@ let rec loggedValueToString = (val: loggedValue, tab: int) => {
   | Enum(ls, (s, vals)) =>
     "Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n" ++ vals->loggedValueToString(tab + 1)
   | _ => "Other"
+  }
+}
+
+module Navigation = {
+  type index =
+    | Prev(int)
+    | Next(int)
+
+  let getIndex = idx => {
+    switch idx {
+    | Next(idx) | Prev(idx) => idx
+    }
+  }
+
+  let buttonStyle = %twc(
+    "inline-flex justify-center text-gray_dark border text-base border-secondary \
+    font-semibold bg-gray shadow-sm hover:bg-gray_medium hover:shadow \
+    ease-out duration-150"
+  )
+
+  @react.component
+  let make = (~logIndex, ~setLogIndex, ~maxLogIndex) => {
+    let idx = logIndex->getIndex
+    <>
+      <div className=%twc("inline-flex flex-row justify-center content-center text-base font-sans")>
+        <button
+          className={buttonStyle ++ %twc(" rounded-l-lg pr-2")}
+          onClick={_ => setLogIndex(_ => Prev(idx > 2 ? idx - 2 : 0))}>
+          <Icon className=%twc("h-4") name="arrow_left" /> {"Prev"->React.string}
+        </button>
+        <button className={buttonStyle ++ " px-2"} onClick={_ => setLogIndex(_ => Prev(0))}>
+          <Lang.String
+            english={idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int}
+            french={idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int}
+          />
+        </button>
+        <button
+          className={buttonStyle ++ %twc(" rounded-r-lg pl-2")}
+          onClick={_ => setLogIndex(_ => Next(idx < maxLogIndex ? idx + 2 : 0))}>
+          {"Next"->React.string} <Icon name="arrow_right" />
+        </button>
+      </div>
+    </>
+  }
+}
+
+module Box = {
+  @react.component
+  let make = (~children) => {
+    <div
+      className=%twc(
+        "text-background my-4 p-2 border bg-gray_light border-gray rounded \
+        shadow-sm"
+      )>
+      children
+    </div>
   }
 }
 
@@ -158,11 +222,13 @@ module rec LoggedValue: {
       | Decimal(d) => <CatalaCode.Span kind="mf" code={d->Js.Float.toString} />
       | Date(d) => <CatalaCode.Span kind="mi" code=d />
       | Duration(d) => <CatalaCode.Span kind="mi" code=d />
-      | Enum(ls, (_s, Unit)) => <CatalaCode.Ids ids={ls->Belt.List.toArray} />
-      | Enum(ls, (_s, val)) => <>
+      | Enum(_ls, (s, Unit)) => <> <CatalaCode.Ids ids={[s]} /> </>
+
+      | Enum(ls, (s, val)) => <>
           <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
           <CatalaCode.Ids ids={ls->Belt.List.toArray} />
           <CatalaCode.Op op=" = " />
+          <CatalaCode.Ids ids={[s]} />
           <LoggedValue depth={depth + 1} val />
         </>
       | Struct(ls, attributes) => <>
@@ -206,25 +272,65 @@ module rec LoggedValue: {
     </>
   }
 }
+
+let scrollTo: array<string> => unit = %raw(`
+  function(ids) {
+    console.log("ids.length/2 = ", Math.floor(ids.length/2))
+    let el = document.getElementById(ids[Math.floor(ids.length/2)])
+    console.log("ids: ", ids)
+    console.log("el: ", el)
+    if (null != el) {
+      var links = document.getElementsByTagName("A")
+      for (var i = 0; i < links.length; i++) {
+        if (ids.some(id => links[i].href.includes(id))) {
+          console.log("found")
+          links[i].className = "selected"
+        } else {
+          links[i].className = ""
+        }
+      }
+      el.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
+    }
+  }
+`)
+
 module LogEvent = {
   @react.component
-  let make = (~depth: React.ref<int>, ~currentPage: array<Nav.navElem>, ~event: logEvent) => {
+  let make = (
+    ~depth: React.ref<int>,
+    ~currentPage: array<Nav.navElem>,
+    /* ~pos: sourcePosition, */
+    ~event: logEvent,
+  ) => {
     <>
       {switch event.eventType {
       | VariableDefinition => <>
-          <div>
-            <div className={%twc("font-mono text-sm")}>
-              <CatalaCode>
-                <CatalaCode.Ids ids={event.information} />
-                <CatalaCode.Op op={" = "} />
-                <LoggedValue depth=depth.current val=event.loggedValue />
-              </CatalaCode>
-            </div>
-          </div>
+          <CatalaCode>
+            <CatalaCode.Ids ids={event.information} />
+            <CatalaCode.Op op={" : "} />
+            <LoggedValue depth=depth.current val=event.loggedValue />
+          </CatalaCode>
         </>
       | DecisionTaken =>
         switch event.sourcePosition {
-        | Some(pos) => <>
+        | Some(pos) =>
+          let ids = {
+            if pos.startLine != pos.endLine {
+              Belt.Array.makeBy(pos.endLine - pos.startLine + 1, lnum => {
+                pos.fileName ++ "-" ++ (pos.startLine + lnum)->string_of_int
+              })
+            } else {
+              [pos.fileName ++ "-" ++ pos.startLine->string_of_int]
+            }
+          }
+          if pos.fileName != "" {
+            React.useEffect(() => {
+              ids->scrollTo
+              None
+            })
+          }
+
+          <>
             <div
               className=%twc(
                 "inline-flex flex-row justify-center content-center items-center text-green font-bold"
@@ -243,12 +349,12 @@ module LogEvent = {
             ->React.array}
             <a
               className={%twc("text-secondary font-mono")}
-              href={Nav.navElemsToUrl(Some(Lang.getCurrentLang()), currentPage) ++
-              "#" ++
-              pos.fileName ++
+              href={Nav.navElemsToUrl(Some(Lang.getCurrentLang()), currentPage) ++ "#" ++ ids[0]}>
+              {(pos.fileName ++
+              " .l " ++
+              pos.startLine->string_of_int ++
               "-" ++
-              pos.startLine->string_of_int}>
-              {pos.fileName->React.string}
+              pos.endLine->string_of_int)->React.string}
             </a>
           </>
         | None => <> </>
@@ -283,44 +389,9 @@ module LogEvent = {
   }
 }
 
-module Navigation = {
-  type index =
-    | Prev(int)
-    | Next(int)
-
-  let getIndex = idx => {
-    switch idx {
-    | Next(idx) | Prev(idx) => idx
-    }
-  }
-
-  let buttonStyle = %twc("text-secondary py-1 px-2")
-
-  @react.component
-  let make = (~logIndex, ~setLogIndex, ~maxLogIndex) => {
-    let idx = logIndex->getIndex
-    <>
-      <div className=%twc("inline-flex flex-row justify-center content-center text-2xl font-sans")>
-        <button className=buttonStyle onClick={_ => setLogIndex(_ => Prev(idx > 2 ? idx - 2 : 0))}>
-          <Icon name="arrow_circle_left" />
-        </button>
-        <div className=%twc("font-bold")>
-          <Lang.String
-            english={"Step: [ " ++ idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int ++ " ]"}
-            french={`Étape [ ` ++ idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int ++ " ]"}
-          />
-        </div>
-        <button
-          className=buttonStyle
-          onClick={_ => setLogIndex(_ => Next(idx < maxLogIndex ? idx + 2 : 0))}>
-          <Icon name="arrow_circle_right" />
-        </button>
-      </div>
-    </>
-  }
-}
-
 module type LOGGABLE = {
+  let pageTitle: React.element
+
   @react.component
   let make: (
     ~setLogEventsOpt: (option<array<logEvent>> => option<array<logEvent>>) => unit,
@@ -336,45 +407,78 @@ module Make = (Simulator: LOGGABLE) => {
 
     <>
       <Title>
-        <Lang.String
-          english="Execution trace visualization tool"
-          french=`Outil de visualisation de la trace d'exécution`
-        />
+        Simulator.pageTitle
+        <p
+          className=%twc(
+            "text-2xl font-semibold italic font-sans rounded bg-purple_bg text-purple_text \
+             px-2 ml-2 shadow-sm "
+          )>
+          {"Viz"->React.string}
+        </p>
       </Title>
       {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
       <div className=%twc("flex flex-col")>
         <div className=%twc("w-full h-full ")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
-            {switch logEventsOpt {
-            | Some(logEvts) =>
-              let idx = logIndex->Navigation.getIndex
-              switch (logEvts->Belt.Array.get(idx), logEvts->Belt.Array.get(idx + 1)) {
-              | (Some(decision), Some(event)) =>
-                // Each log event is preceded by a [DecisionTaken] event
-                <div className=%twc("flex flex-col")>
-                  <Navigation logIndex setLogIndex maxLogIndex={logEvts->Belt.Array.size} />
-                  <div
-                    className=%twc(
-                      "border-solid overflow-y-scroll max-h-128 border-2 border-secondary rounded p-4"
-                    )>
-                    {<>
+            <div
+              className=%twc(
+                "flex flex-col border-solid overflow-y-scroll max-h-128 border \
+              border-gray rounded p-4 bg-gray_light"
+              )>
+              {switch logEventsOpt {
+              /* None | */ | Some(logEvents) =>
+                let idx = logIndex->Navigation.getIndex
+                /* let logEvts = [ */
+                /* { */
+                /* eventType: DecisionTaken, */
+                /* information: [], */
+                /* sourcePosition: Some({ */
+                /* fileName: "./epilogue.catala_fr", */
+                /* startLine: 117, */
+                /* endLine: 117, */
+                /* startColumn: 1, */
+                /* endColumn: 10, */
+                /* lawHeadings: [ */
+                /* `Dispositions spéciales relatives à Mayotte`, */
+                /* "Epilogue", */
+                /* "Interface du programme", */
+                /* "Article L131-1", */
+                /* ], */
+                /* }), */
+                /* loggedValue: Unit, */
+                /* }, */
+                /* { */
+                /* eventType: VariableDefinition, */
+                /* information: [`InterfaceAllocationsFamiliales`, `enfants_à_charge`], */
+                /* sourcePosition: None, */
+                /* loggedValue: Array([]), */
+                /* }, */
+                /* ] */
+                switch (logEvents->Belt.Array.get(idx), logEvents->Belt.Array.get(idx + 1)) {
+                | (Some(decision), Some(event)) => <>
+                    <Navigation logIndex setLogIndex maxLogIndex={logEvents->Belt.Array.size} />
+                    <Box>
+                      // Each log event is preceded by a [DecisionTaken] event
                       <LogEvent depth currentPage event=decision />
                       <LogEvent depth currentPage event />
-                    </>}
-                  </div>
-                </div>
+                    </Box>
+                  </>
+                | _ => <> </>
+                }
+
+              //TODO: make two case: for variable definition and function call
 
               | _ => <> </>
-              }
-            | None => "Empty"->React.string
-            }}
+              }}
+              /* | None => "Empty"->React.string */
+            </div>
           </Section>
         </div>
         <div className=%twc("w-full h-full")>
           <Section title={<Lang.String english="Source code" french=`Code source` />}>
             <div
               className=%twc(
-                "block max-h-128 overflow-y-scroll border-solid border-2 border-secondary rounded p-4 mb-4"
+                "block max-h-80 overflow-y-scroll border-solid border-t border-b border-gray rounded mb-4"
               )>
               <div
                 className="catala-code"
