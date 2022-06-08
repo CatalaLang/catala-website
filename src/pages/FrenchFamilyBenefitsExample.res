@@ -3,6 +3,11 @@ open Form
 
 let frenchLaw = %raw(`require("../../assets/french_law.js")`)
 
+let title =
+  <Lang.String
+    english="French family benefits computation" french=`Calcul des allocations familiales`
+  />
+
 type childInput = {
   birthDate: option<Js.Date.t>,
   id: int,
@@ -124,16 +129,14 @@ let validateInput = (input: allocationsFamilialesInput) => {
 
 let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %raw(`
   function(input) {
+    frenchLaw.resetLog(0);
     return frenchLaw.computeAllocationsFamiliales(input);
   }
 `)
 
 let retrieveLogEventsRaw: unit => array<Visualization.logEventRaw> = %raw(`
   function() {
-    var logs = frenchLaw.retrieveLog(0);
-    // FIXME: keep the history of two log events
-    frenchLaw.resetLog(0);
-    return logs;
+    return frenchLaw.retrieveLog(0);
   }
 `)
 
@@ -182,6 +185,8 @@ let card: Card.Presentation.t = {
 }
 
 module Simulator = {
+  let pageTitle = title
+
   module Form = {
     @react.component
     let make = (~setFormOutput: ('a => option<allocationsFamilialesInputValidated>) => unit) => {
@@ -458,11 +463,7 @@ module Visualizer = Visualization.Make(Simulator)
 @react.component
 let make = () => {
   <>
-    <Title>
-      <Lang.String
-        english="French family benefits computation" french=`Calcul des allocations familiales`
-      />
-    </Title>
+    <Title> title </Title>
     <p>
       <Lang.String
         english="The source code for this example is available "
