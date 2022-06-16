@@ -1,11 +1,11 @@
 @decco.decode
 type sourcePosition = {
-  fileName: string,
-  startLine: int,
-  endLine: int,
-  startColumn: int,
-  endColumn: int,
-  lawHeadings: array<string>,
+  filename: string,
+  start_line: int,
+  end_line: int,
+  start_column: int,
+  end_column: int,
+  law_headings: array<string>,
 }
 
 module rec LoggedValue: {
@@ -210,7 +210,7 @@ and fun_call = {
   fun_name: information,
   input: var_def,
   body: list<event>,
-  ouput: var_def,
+  output: var_def,
 }
 @decco.decode
 and sub_scope_call = {
@@ -219,16 +219,26 @@ and sub_scope_call = {
   @decco.key("body") sbody: list<event>,
 }
 
-let deserializedEvents = (rawEventsSerialized: array<eventSerialized>) => {
-  rawEventsSerialized->Belt.Array.map((rawEventSerialized: eventSerialized) => {
-    let data = rawEventSerialized.data
+let deserializedEvents = (eventsSerialized: array<eventSerialized>) => {
+  eventsSerialized->Belt.Array.map((eventSerialized: eventSerialized) => {
     let event = try {
-      switch event_decode(Js.Json.parseExn(data)) {
+      switch event_decode(Js.Json.parseExn(eventSerialized.data)) {
       | Ok(val) => val
-      | Error(_decodeError) => Js.Exn.raiseError("TODO: handle error")
+      | Error(decodeError) =>
+        Js.Exn.raiseError(
+          Printf.sprintf(
+            "Error while decoding serialized events at %s:  %s",
+            decodeError.path,
+            decodeError.message,
+          ),
+        )
       }
     } catch {
-    | Js.Exn.Error(_) => Js.Exn.raiseError("TODO: handle error")
+    | Js.Exn.Error(exn) =>
+      switch exn->Js.Exn.message {
+      | Some(msg) => Js.Exn.raiseError("Error while parsing event: " ++ msg)
+      | None => Js.Exn.raiseError("Error while parsing event.")
+      }
     }
     event
   })

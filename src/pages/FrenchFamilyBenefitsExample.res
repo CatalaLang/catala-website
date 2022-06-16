@@ -406,14 +406,13 @@ module Simulator = {
     @react.component
     let make = (
       ~formOutput: option<allocationsFamilialesInputValidated>,
-      ~setEventsOpt: (
-        option<array<LogEvent.Raw.event>> => option<array<LogEvent.Raw.event>>
-      ) => unit,
+      ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
     ) => {
       {
         React.useEffect1(() => {
           setEventsOpt(_ => {
-            let logs = retrieveRawEventsSerialized()->LogEvent.Raw.deserializedEvents
+            let _logs = retrieveRawEventsSerialized()
+            let logs = retrieveEventsSerialized()->LogEvent.deserializedEvents
             if 0 == logs->Belt.Array.size {
               None
             } else {
@@ -452,7 +451,7 @@ module Simulator = {
 
   @react.component
   let make = (
-    ~setEventsOpt: (option<array<LogEvent.Raw.event>> => option<array<LogEvent.Raw.event>>) => unit,
+    ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
   ) => {
     let (formOutput, setFormOutput) = React.useState(_ => {
       None

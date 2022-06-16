@@ -25,7 +25,7 @@ module Navigation = {
       <div className=%twc("inline-flex flex-row justify-center content-center text-base font-sans")>
         <button
           className={buttonStyle ++ %twc(" rounded-l-lg pr-2")}
-          onClick={_ => setLogIndex(_ => Prev(idx > 2 ? idx - 2 : 0))}>
+          onClick={_ => setLogIndex(_ => Prev(idx > 1 ? idx - 1 : 0))}>
           <Icon className=%twc("h-4") name="arrow_left" /> {"Prev"->React.string}
         </button>
         <button className={buttonStyle ++ " px-2"} onClick={_ => setLogIndex(_ => Prev(0))}>
@@ -36,7 +36,7 @@ module Navigation = {
         </button>
         <button
           className={buttonStyle ++ %twc(" rounded-r-lg pl-2")}
-          onClick={_ => setLogIndex(_ => Next(idx < maxLogIndex ? idx + 2 : 0))}>
+          onClick={_ => setLogIndex(_ => Next(idx < maxLogIndex ? idx + 1 : 0))}>
           {"Next"->React.string} <Icon name="arrow_right" />
         </button>
       </div>
@@ -103,15 +103,15 @@ module LogEvent = {
         switch event.sourcePosition {
         | Some(pos) =>
           let ids = {
-            if pos.startLine != pos.endLine {
-              Belt.Array.makeBy(pos.endLine - pos.startLine + 1, lnum => {
-                pos.fileName ++ "-" ++ (pos.startLine + lnum)->string_of_int
+            if pos.start_line != pos.end_line {
+              Belt.Array.makeBy(pos.end_line - pos.start_line + 1, lnum => {
+                pos.filename ++ "-" ++ (pos.start_line + lnum)->string_of_int
               })
             } else {
-              [pos.fileName ++ "-" ++ pos.startLine->string_of_int]
+              [pos.filename ++ "-" ++ pos.start_line->string_of_int]
             }
           }
-          if pos.fileName != "" {
+          if pos.filename != "" {
             React.useEffect(() => {
               ids->scrollTo
               None
@@ -127,7 +127,7 @@ module LogEvent = {
               <Lang.String english="Definition applied" french=`Définition appliquée` />
             </div>
             <div className=%twc("font-bold text-primary") />
-            {pos.lawHeadings
+            {pos.law_headings
             ->Belt.Array.reverse
             ->Belt.Array.mapWithIndex((i, hd) => {
               <h3 className=%twc("font-bold text-secondary")>
@@ -138,11 +138,11 @@ module LogEvent = {
             <a
               className={%twc("text-secondary font-mono")}
               href={Nav.navElemsToUrl(Some(Lang.getCurrentLang()), currentPage) ++ "#" ++ ids[0]}>
-              {(pos.fileName ++
+              {(pos.filename ++
               " .l " ++
-              pos.startLine->string_of_int ++
+              pos.start_line->string_of_int ++
               "-" ++
-              pos.endLine->string_of_int)->React.string}
+              pos.end_line->string_of_int)->React.string}
             </a>
           </>
         | None => <> </>
@@ -177,15 +177,14 @@ module type LOGGABLE = {
   let pageTitle: React.element
 
   @react.component
-  let make: (
-    ~setEventsOpt: (option<array<Raw.event>> => option<array<Raw.event>>) => unit,
-  ) => React.element
+  let make: (~setEventsOpt: (option<array<event>> => option<array<event>>) => unit) => React.element
 }
 
 module Make = (Simulator: LOGGABLE) => {
   @react.component
   let make = (~currentPage: array<Nav.navElem>) => {
-    let (eventsOpt: option<array<Raw.event>>, setEventsOpt) = React.useState(_ => None)
+    ignore(currentPage)
+    let (eventsOpt: option<array<event>>, setEventsOpt) = React.useState(_ => None)
     let (logIndex, setLogIndex) = React.useState(_ => Navigation.Next(0))
 
     <>
@@ -209,23 +208,24 @@ module Make = (Simulator: LOGGABLE) => {
               border-gray rounded p-4 bg-gray_light"
               )>
               {switch eventsOpt {
-              /* None | */ | Some(logEvents) =>
+              | Some(logEvents) =>
                 let idx = logIndex->Navigation.getIndex
-                switch (logEvents->Belt.Array.get(idx), logEvents->Belt.Array.get(idx + 1)) {
-                | (Some(decision), Some(event)) => <>
+                switch logEvents->Belt.Array.get(idx) {
+                | Some(event) => <>
                     <Navigation logIndex setLogIndex maxLogIndex={logEvents->Belt.Array.size} />
-                    <Box>
-                      <LogEvent currentPage event=decision /> <LogEvent currentPage event />
-                    </Box>
+                    {switch event {
+                    | VarComputation(_var_def) => "VarComputation"
+                    | FunCall(_fun_call) => "FunCall"
+                    | SubScopeCall(_sub_scope_call) => "SubScopeCall"
+                    }->React.string}
                   </>
+                /* <Box> */
+                /* <LogEvent currentPage event=decision /> <LogEvent currentPage event /> */
+                /* </Box> */
                 | _ => <> </>
                 }
-
-              //TODO: make two case: for variable definition and function call
-
               | _ => <> </>
               }}
-              /* | None => "Empty"->React.string */
             </div>
           </Section>
         </div>
