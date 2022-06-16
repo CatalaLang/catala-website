@@ -134,9 +134,9 @@ let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %ra
   }
 `)
 
-let retrieveLogEventsRaw: unit => array<Visualization.logEventRaw> = %raw(`
+let retrieveRawEventsSerialized: unit => array<Visualization.rawEventSerialized> = %raw(`
   function() {
-    return frenchLaw.retrieveLog(0);
+    return frenchLaw.retrieveRawEvents(0);
   }
 `)
 
@@ -400,14 +400,14 @@ module Simulator = {
     @react.component
     let make = (
       ~formOutput: option<allocationsFamilialesInputValidated>,
-      ~setLogEventsOpt: (
-        option<array<Visualization.logEvent>> => option<array<Visualization.logEvent>>
+      ~setRawEventsOpt: (
+        option<array<Visualization.rawEvent>> => option<array<Visualization.rawEvent>>
       ) => unit,
     ) => {
       {
         React.useEffect1(() => {
-          setLogEventsOpt(_ => {
-            let logs = retrieveLogEventsRaw()->Visualization.fromRaw
+          setRawEventsOpt(_ => {
+            let logs = retrieveRawEventsSerialized()->Visualization.deserializedRawEvents
             if 0 == logs->Belt.Array.size {
               None
             } else {
@@ -446,15 +446,15 @@ module Simulator = {
 
   @react.component
   let make = (
-    ~setLogEventsOpt: (
-      option<array<Visualization.logEvent>> => option<array<Visualization.logEvent>>
+    ~setRawEventsOpt: (
+      option<array<Visualization.rawEvent>> => option<array<Visualization.rawEvent>>
     ) => unit,
   ) => {
     let (formOutput, setFormOutput) = React.useState(_ => {
       None
     })
 
-    <> <Form setFormOutput /> <ComputationResult formOutput setLogEventsOpt /> </>
+    <> <Form setFormOutput /> <ComputationResult formOutput setRawEventsOpt /> </>
   }
 }
 
@@ -490,7 +490,7 @@ let make = () => {
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
       />
     </p>
-    <Simulator setLogEventsOpt={_ => ()} />
+    <Simulator setRawEventsOpt={_ => ()} />
     <div className=%twc("inline-flex justify-end")>
       <Button.Internal
         target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>

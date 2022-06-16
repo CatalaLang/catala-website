@@ -1,5 +1,6 @@
 open PageComponents
 
+@decco.decode
 type sourcePosition = {
   fileName: string,
   startLine: int,
@@ -23,35 +24,27 @@ type rec loggedValue =
   | Array(array<loggedValue>)
   | Unembeddable
 
-type eventType =
+type rawEventType =
   | BeginCall
   | EndCall
   | VariableDefinition
   | DecisionTaken
 
-type logEventRaw = {
+type rawEventSerialized = {
   eventType: string,
   information: array<string>,
   sourcePosition: Js.Nullable.t<sourcePosition>,
   loggedValueJson: string,
 }
 
-type logEvent = {
-  eventType: eventType,
+type rawEvent = {
+  eventType: rawEventType,
   information: array<string>,
   sourcePosition: option<sourcePosition>,
   loggedValue: loggedValue,
 }
 
-/* type rec logEvent = */
-/* | VarAssign({pos: sourcePosition, name: array<string>, value: loggedValue}) */
-/* | FunCall({ */
-/* // Position of the assignment at the end of the function call */
-/* pos: sourcePosition, */
-/* body: logEvent, */
-/* }) */
-
-let eventTypeFromString = (str: string): eventType => {
+let eventTypeFromString = (str: string): rawEventType => {
   switch str {
   | "Begin call" => BeginCall
   | "End call" => EndCall
@@ -63,10 +56,10 @@ let eventTypeFromString = (str: string): eventType => {
   }
 }
 
-let fromRaw = (rawLogEvents: array<logEventRaw>) => {
-  rawLogEvents->Belt.Array.map((rawLogEvent: logEventRaw) => {
+let deserializedRawEvents = (rawEventsSerialized: array<rawEventSerialized>) => {
+  rawEventsSerialized->Belt.Array.map((rawEventSerialized: rawEventSerialized) => {
     let loggedValue = try {
-      switch loggedValue_decode(Js.Json.parseExn(rawLogEvent.loggedValueJson)) {
+      switch loggedValue_decode(Js.Json.parseExn(rawEventSerialized.loggedValueJson)) {
       | Ok(val) => val
       | Error(_decodeError) => Unembeddable
       }
@@ -80,9 +73,9 @@ let fromRaw = (rawLogEvents: array<logEventRaw>) => {
       }
     }
     {
-      eventType: rawLogEvent.eventType->eventTypeFromString,
-      information: rawLogEvent.information,
-      sourcePosition: rawLogEvent.sourcePosition->Js.Nullable.toOption,
+      eventType: rawEventSerialized.eventType->eventTypeFromString,
+      information: rawEventSerialized.information,
+      sourcePosition: rawEventSerialized.sourcePosition->Js.Nullable.toOption,
       loggedValue: loggedValue,
     }
   })
@@ -171,6 +164,7 @@ module CatalaCode = {
   module Ids = {
     @react.component
     let make = (~ids: array<string>) => {
+      Js.log("ids.length: " ++ ids->Belt.Array.length->string_of_int)
       ids
       ->Belt.Array.mapWithIndex((i, s) => {
         <>
@@ -300,7 +294,7 @@ module LogEvent = {
     ~depth: React.ref<int>,
     ~currentPage: array<Nav.navElem>,
     /* ~pos: sourcePosition, */
-    ~event: logEvent,
+    ~event: rawEvent,
   ) => {
     <>
       {switch event.eventType {
@@ -394,14 +388,14 @@ module type LOGGABLE = {
 
   @react.component
   let make: (
-    ~setLogEventsOpt: (option<array<logEvent>> => option<array<logEvent>>) => unit,
+    ~setRawEventsOpt: (option<array<rawEvent>> => option<array<rawEvent>>) => unit,
   ) => React.element
 }
 
 module Make = (Simulator: LOGGABLE) => {
   @react.component
   let make = (~currentPage: array<Nav.navElem>) => {
-    let (logEventsOpt: option<array<logEvent>>, setLogEventsOpt) = React.useState(_ => None)
+    let (rawEventsOpt: option<array<rawEvent>>, setRawEventsOpt) = React.useState(_ => None)
     let (logIndex, setLogIndex) = React.useState(_ => Navigation.Next(0))
     let depth = React.useRef(1)
 
@@ -416,7 +410,7 @@ module Make = (Simulator: LOGGABLE) => {
           {"Viz"->React.string}
         </p>
       </Title>
-      {Simulator.make(Simulator.makeProps(~setLogEventsOpt, ()))}
+      {Simulator.make(Simulator.makeProps(~setRawEventsOpt, ()))}
       <div className=%twc("flex flex-col")>
         <div className=%twc("w-full h-full ")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
@@ -425,40 +419,13 @@ module Make = (Simulator: LOGGABLE) => {
                 "flex flex-col border-solid overflow-y-scroll max-h-128 border \
               border-gray rounded p-4 bg-gray_light"
               )>
-              {switch logEventsOpt {
+              {switch rawEventsOpt {
               /* None | */ | Some(logEvents) =>
                 let idx = logIndex->Navigation.getIndex
-                /* let logEvts = [ */
-                /* { */
-                /* eventType: DecisionTaken, */
-                /* information: [], */
-                /* sourcePosition: Some({ */
-                /* fileName: "./epilogue.catala_fr", */
-                /* startLine: 117, */
-                /* endLine: 117, */
-                /* startColumn: 1, */
-                /* endColumn: 10, */
-                /* lawHeadings: [ */
-                /* `Dispositions spéciales relatives à Mayotte`, */
-                /* "Epilogue", */
-                /* "Interface du programme", */
-                /* "Article L131-1", */
-                /* ], */
-                /* }), */
-                /* loggedValue: Unit, */
-                /* }, */
-                /* { */
-                /* eventType: VariableDefinition, */
-                /* information: [`InterfaceAllocationsFamiliales`, `enfants_à_charge`], */
-                /* sourcePosition: None, */
-                /* loggedValue: Array([]), */
-                /* }, */
-                /* ] */
                 switch (logEvents->Belt.Array.get(idx), logEvents->Belt.Array.get(idx + 1)) {
                 | (Some(decision), Some(event)) => <>
                     <Navigation logIndex setLogIndex maxLogIndex={logEvents->Belt.Array.size} />
                     <Box>
-                      // Each log event is preceded by a [DecisionTaken] event
                       <LogEvent depth currentPage event=decision />
                       <LogEvent depth currentPage event />
                     </Box>
