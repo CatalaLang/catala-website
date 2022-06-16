@@ -1,101 +1,5 @@
 open PageComponents
-
-@decco.decode
-type sourcePosition = {
-  fileName: string,
-  startLine: int,
-  endLine: int,
-  startColumn: int,
-  endColumn: int,
-  lawHeadings: array<string>,
-}
-
-@decco.decode
-type rec loggedValue =
-  | Unit
-  | Bool(bool)
-  | Integer(int)
-  | Money(float)
-  | Decimal(float)
-  | Date(string)
-  | Duration(string)
-  | Enum(list<string>, (string, loggedValue))
-  | Struct(list<string>, list<(string, loggedValue)>)
-  | Array(array<loggedValue>)
-  | Unembeddable
-
-type rawEventType =
-  | BeginCall
-  | EndCall
-  | VariableDefinition
-  | DecisionTaken
-
-type rawEventSerialized = {
-  eventType: string,
-  information: array<string>,
-  sourcePosition: Js.Nullable.t<sourcePosition>,
-  loggedValueJson: string,
-}
-
-type rawEvent = {
-  eventType: rawEventType,
-  information: array<string>,
-  sourcePosition: option<sourcePosition>,
-  loggedValue: loggedValue,
-}
-
-let eventTypeFromString = (str: string): rawEventType => {
-  switch str {
-  | "Begin call" => BeginCall
-  | "End call" => EndCall
-  | "Variable definition" => VariableDefinition
-  | "Decision taken" => DecisionTaken
-  | _ =>
-    // NOTE: find a better way to handle errors?
-    Js.Exn.raiseError(`Unknown event type: ${str}`)
-  }
-}
-
-let deserializedRawEvents = (rawEventsSerialized: array<rawEventSerialized>) => {
-  rawEventsSerialized->Belt.Array.map((rawEventSerialized: rawEventSerialized) => {
-    let loggedValue = try {
-      switch loggedValue_decode(Js.Json.parseExn(rawEventSerialized.loggedValueJson)) {
-      | Ok(val) => val
-      | Error(_decodeError) => Unembeddable
-      }
-    } catch {
-    | Js.Exn.Error(obj) =>
-      switch Js.Exn.message(obj) {
-      | Some(m) =>
-        Js.log("Caught a JS exception! Message: " ++ m)
-        Unembeddable
-      | None => Unembeddable
-      }
-    }
-    {
-      eventType: rawEventSerialized.eventType->eventTypeFromString,
-      information: rawEventSerialized.information,
-      sourcePosition: rawEventSerialized.sourcePosition->Js.Nullable.toOption,
-      loggedValue: loggedValue,
-    }
-  })
-}
-
-let rec loggedValueToString = (val: loggedValue, tab: int) => {
-  Js.String.repeat(tab, "\t") ++
-  switch val {
-  | Unit => "Unit"
-  | Bool(b) => "Bool: " ++ string_of_bool(b)
-  | Money(f) => "Money: " ++ Js.Float.toString(f)
-  | Integer(i) => "Integer: " ++ string_of_int(i)
-  | Decimal(f) => "Decimal: " ++ Js.Float.toString(f)
-  | Date(d) => "Date: " ++ d
-  | Duration(d) => "Duration: " ++ d
-  | Enum(ls, (s, vals)) =>
-    "Enum[" ++ String.concat(",", ls) ++ "]:" ++ s ++ "\n" ++ vals->loggedValueToString(tab + 1)
-  | _ => "Other"
-  }
-}
+open LogEvent
 
 module Navigation = {
   type index =
@@ -153,120 +57,6 @@ module Box = {
   }
 }
 
-module CatalaCode = {
-  // TODO: could be factorized with a module for each type
-  module Span = {
-    @react.component
-    let make = (~kind, ~code) => {
-      <span className=kind> {code->React.string} </span>
-    }
-  }
-  module Ids = {
-    @react.component
-    let make = (~ids: array<string>) => {
-      Js.log("ids.length: " ++ ids->Belt.Array.length->string_of_int)
-      ids
-      ->Belt.Array.mapWithIndex((i, s) => {
-        <>
-          {if i > 0 {
-            <span className="op"> {"."->React.string} </span>
-          } else {
-            <> </>
-          }}
-          {if s == s->Js.String.toLowerCase {
-            <span className="nv"> {s->React.string} </span>
-          } else {
-            <span className="nc"> {s->React.string} </span>
-          }}
-        </>
-      })
-      ->React.array
-    }
-  }
-
-  module Op = {
-    @react.component
-    let make = (~op) => {
-      <span className="op"> {op->React.string} </span>
-    }
-  }
-
-  @react.component
-  let make = (~children) => {
-    <div className="catala-code">
-      <div className="code-wrapper"> <div className="highlight"> <pre> children </pre> </div> </div>
-    </div>
-  }
-}
-
-module rec LoggedValue: {
-  @react.component
-  let make: (~depth: int=?, ~val: loggedValue) => React.element
-} = {
-  @react.component
-  let make = (~depth=1, ~val: loggedValue) => {
-    <>
-      {switch val {
-      | Unit => <CatalaCode.Span kind="nc" code={"()"} />
-      | Bool(b) => <CatalaCode.Span kind="mb" code={b->string_of_bool} />
-      | Integer(i) => <CatalaCode.Span kind="mi" code={i->string_of_int} />
-      | Money(m) => <>
-          <CatalaCode.Span kind="mf" code={m->Js.Float.toString} /> <CatalaCode.Op op={` €`} />
-        </>
-      | Decimal(d) => <CatalaCode.Span kind="mf" code={d->Js.Float.toString} />
-      | Date(d) => <CatalaCode.Span kind="mi" code=d />
-      | Duration(d) => <CatalaCode.Span kind="mi" code=d />
-      | Enum(_ls, (s, Unit)) => <> <CatalaCode.Ids ids={[s]} /> </>
-
-      | Enum(ls, (s, val)) => <>
-          <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
-          <CatalaCode.Ids ids={ls->Belt.List.toArray} />
-          <CatalaCode.Op op=" = " />
-          <CatalaCode.Ids ids={[s]} />
-          <LoggedValue depth={depth + 1} val />
-        </>
-      | Struct(ls, attributes) => <>
-          <CatalaCode.Ids ids={ls->Belt.List.toArray} />
-          <CatalaCode.Op op=" = {" />
-          <br />
-          {attributes
-          ->Belt.List.toArray
-          ->Belt.Array.map(attribute => {
-            let (id, val) = attribute
-            <>
-              <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
-              <CatalaCode.Op op=" -- " />
-              <CatalaCode.Ids ids={[id]} />
-              <CatalaCode.Op op=" = " />
-              <LoggedValue depth={depth + 1} val />
-              <CatalaCode.Op op=", " />
-              <br />
-            </>
-          })
-          ->React.array}
-          <br />
-          <CatalaCode.Op op={Js.String.repeat((depth - 1) * 2, " ")} />
-          <CatalaCode.Op op="}" />
-        </>
-      | Array(vals) => <>
-          <CatalaCode.Op op="[" />
-          <br />
-          {vals
-          ->Belt.Array.map(val => <>
-            <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
-            <LoggedValue depth={depth + 1} val />
-            <CatalaCode.Op op="," />
-            <br />
-          </>)
-          ->React.array}
-          <CatalaCode.Op op="]" />
-        </>
-      | Unembeddable => <> {"Unembeddable"->React.string} </>
-      }}
-    </>
-  }
-}
-
 let scrollTo: array<string> => unit = %raw(`
   function(ids) {
     console.log("ids.length/2 = ", Math.floor(ids.length/2))
@@ -291,18 +81,22 @@ let scrollTo: array<string> => unit = %raw(`
 module LogEvent = {
   @react.component
   let make = (
-    ~depth: React.ref<int>,
     ~currentPage: array<Nav.navElem>,
     /* ~pos: sourcePosition, */
-    ~event: rawEvent,
+    ~event: Raw.event,
   ) => {
+    ignore(currentPage)
     <>
       {switch event.eventType {
+      /* | VarComputation(_var_def) => <> </> */
+      /* | FunCall(_fun_call) => <> </> */
+      /* | SubScopeCall(_sub_scope_call) => <> </> */
+      /* }} */
       | VariableDefinition => <>
           <CatalaCode>
             <CatalaCode.Ids ids={event.information} />
             <CatalaCode.Op op={" : "} />
-            <LoggedValue depth=depth.current val=event.loggedValue />
+            <LoggedValue val=event.loggedValue />
           </CatalaCode>
         </>
       | DecisionTaken =>
@@ -354,9 +148,7 @@ module LogEvent = {
         | None => <> </>
         }
 
-      | BeginCall =>
-        {depth.current = depth.current + 1}
-        <>
+      | BeginCall => <>
           <div className={%twc("text-sm border-t")}>
             <div className={%twc("font-mono text-sm")}>
               <CatalaCode>
@@ -366,9 +158,7 @@ module LogEvent = {
             </div>
           </div>
         </>
-      | EndCall =>
-        {depth.current = depth.current - 1}
-        <>
+      | EndCall => <>
           <div className={%twc("text-sm border-t")}>
             <div className={%twc("font-mono text-sm")}>
               <CatalaCode>
@@ -388,16 +178,15 @@ module type LOGGABLE = {
 
   @react.component
   let make: (
-    ~setRawEventsOpt: (option<array<rawEvent>> => option<array<rawEvent>>) => unit,
+    ~setEventsOpt: (option<array<Raw.event>> => option<array<Raw.event>>) => unit,
   ) => React.element
 }
 
 module Make = (Simulator: LOGGABLE) => {
   @react.component
   let make = (~currentPage: array<Nav.navElem>) => {
-    let (rawEventsOpt: option<array<rawEvent>>, setRawEventsOpt) = React.useState(_ => None)
+    let (eventsOpt: option<array<Raw.event>>, setEventsOpt) = React.useState(_ => None)
     let (logIndex, setLogIndex) = React.useState(_ => Navigation.Next(0))
-    let depth = React.useRef(1)
 
     <>
       <Title>
@@ -410,7 +199,7 @@ module Make = (Simulator: LOGGABLE) => {
           {"Viz"->React.string}
         </p>
       </Title>
-      {Simulator.make(Simulator.makeProps(~setRawEventsOpt, ()))}
+      {Simulator.make(Simulator.makeProps(~setEventsOpt, ()))}
       <div className=%twc("flex flex-col")>
         <div className=%twc("w-full h-full ")>
           <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
@@ -419,15 +208,14 @@ module Make = (Simulator: LOGGABLE) => {
                 "flex flex-col border-solid overflow-y-scroll max-h-128 border \
               border-gray rounded p-4 bg-gray_light"
               )>
-              {switch rawEventsOpt {
+              {switch eventsOpt {
               /* None | */ | Some(logEvents) =>
                 let idx = logIndex->Navigation.getIndex
                 switch (logEvents->Belt.Array.get(idx), logEvents->Belt.Array.get(idx + 1)) {
                 | (Some(decision), Some(event)) => <>
                     <Navigation logIndex setLogIndex maxLogIndex={logEvents->Belt.Array.size} />
                     <Box>
-                      <LogEvent depth currentPage event=decision />
-                      <LogEvent depth currentPage event />
+                      <LogEvent currentPage event=decision /> <LogEvent currentPage event />
                     </Box>
                   </>
                 | _ => <> </>

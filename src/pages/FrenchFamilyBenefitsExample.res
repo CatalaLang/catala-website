@@ -134,9 +134,15 @@ let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %ra
   }
 `)
 
-let retrieveRawEventsSerialized: unit => array<Visualization.rawEventSerialized> = %raw(`
+let retrieveRawEventsSerialized: unit => array<LogEvent.Raw.eventSerialized> = %raw(`
   function() {
     return frenchLaw.retrieveRawEvents(0);
+  }
+`)
+
+let retrieveEventsSerialized: unit => array<LogEvent.eventSerialized> = %raw(`
+  function() {
+    return frenchLaw.retrieveEvents(0);
   }
 `)
 
@@ -400,14 +406,14 @@ module Simulator = {
     @react.component
     let make = (
       ~formOutput: option<allocationsFamilialesInputValidated>,
-      ~setRawEventsOpt: (
-        option<array<Visualization.rawEvent>> => option<array<Visualization.rawEvent>>
+      ~setEventsOpt: (
+        option<array<LogEvent.Raw.event>> => option<array<LogEvent.Raw.event>>
       ) => unit,
     ) => {
       {
         React.useEffect1(() => {
-          setRawEventsOpt(_ => {
-            let logs = retrieveRawEventsSerialized()->Visualization.deserializedRawEvents
+          setEventsOpt(_ => {
+            let logs = retrieveRawEventsSerialized()->LogEvent.Raw.deserializedEvents
             if 0 == logs->Belt.Array.size {
               None
             } else {
@@ -446,15 +452,13 @@ module Simulator = {
 
   @react.component
   let make = (
-    ~setRawEventsOpt: (
-      option<array<Visualization.rawEvent>> => option<array<Visualization.rawEvent>>
-    ) => unit,
+    ~setEventsOpt: (option<array<LogEvent.Raw.event>> => option<array<LogEvent.Raw.event>>) => unit,
   ) => {
     let (formOutput, setFormOutput) = React.useState(_ => {
       None
     })
 
-    <> <Form setFormOutput /> <ComputationResult formOutput setRawEventsOpt /> </>
+    <> <Form setFormOutput /> <ComputationResult formOutput setEventsOpt /> </>
   }
 }
 
@@ -490,7 +494,7 @@ let make = () => {
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
       />
     </p>
-    <Simulator setRawEventsOpt={_ => ()} />
+    <Simulator setEventsOpt={_ => ()} />
     <div className=%twc("inline-flex justify-end")>
       <Button.Internal
         target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>
