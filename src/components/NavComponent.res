@@ -1,10 +1,35 @@
+module Style = {
+  module SwitchLang = {
+    let link = %twc(
+      "px-2 cursor-pointer text-tertiary uppercase font-semibold pr-4 \
+      hover:text-primary_light"
+    )
+  }
+  module NavElem = {
+    let link_base = %twc(
+      "inline-flex block px-2 font-semibold text-base cursor-pointer hover:text-primary_light "
+    )
+    let link_inactive = link_base ++ %twc("text-tertiary")
+    let link_active = link_base ++ %twc("text-primary_light")
+  }
+
+  let nav_container = %twc("w-full justify-between bg-background top-0")
+  let nav_logo_container = %twc(
+    "py-2 h-full flex flex-row flex-nowrap items-center justify-center text-text_light \
+    pl-4 text-3xl font-sans font-bold \
+    hover:text-primary_light"
+  )
+  let logo_hover_opacity = %twc("opacity-75 hover:opacity-100")
+  let img_hover_oppacity = logo_hover_opacity ++ %twc(" h-5 pr-4")
+}
+
 module SwitchLang = {
   @react.component
   let make = _ => {
     let (old_lang, setLang) = React.useContext(Lang.langContext)
     let url = ReasonReactRouter.useUrl()
     <a
-      className=%twc("px-2 cursor-pointer text-tertiary uppercase hover:text-primary")
+      className=Style.SwitchLang.link
       onClick={_ => {
         let (_, navs) = Nav.urlToNavElem(url)
         setLang()
@@ -28,14 +53,11 @@ module NavElem = {
       }
       currentElems
     }
-    let style =
-      %twc(
-        "inline-flex block px-2 font-semibold text-base cursor-pointer hover:text-primary "
-      ) ++ if 0 == currentElems->Belt.Array.cmp(target, Nav.cmp) {
-        " text-primary"
-      } else {
-        " text-tertiary"
-      }
+    let style = if 0 == currentElems->Belt.Array.cmp(target, Nav.cmp) {
+      Style.NavElem.link_active
+    } else {
+      Style.NavElem.link_inactive
+    }
 
     <> <Link.Internal target className={style}> title </Link.Internal> </>
   }
@@ -48,22 +70,13 @@ let github: imgLocation = %raw("require('../../assets/GitHub-Mark-Light-32px.png
 
 @react.component
 let make = () => {
-  <div className=%twc("flex flex-row w-full justify-between bg-background top-0")>
-    <div
-      className=%twc(
-        "py-2 h-full flex flex-row items-center justify-center md:justify-start pl-4 text-3xl md:text-2xl lg:text-xl text-white"
-      )>
-      <Link.Internal className=%twc("cursor-pointer") target=[Nav.home]>
-        <div
-          className=%twc(
-            "flex flex-row flex-nowrap items-center text-3xl font-sans font-bold hover:text-primary"
-          )>
-          <img className=%twc("h-8 pr-4") src={"/" ++ logo.default} />
-          <Lang.String english="Catala" french=`Catala` />
-        </div>
-      </Link.Internal>
-    </div>
-    <div className=%twc("flex flex-row justify-center items-center")>
+  <Flex.Row.Center style=Style.nav_container>
+    <Link.Internal
+      className={Style.nav_logo_container ++ %twc(" cursor-pointer")} target=[Nav.home]>
+      <img className=%twc("h-8 pr-4") src={"/" ++ logo.default} />
+      <Lang.String english="Catala" french=`Catala` />
+    </Link.Internal>
+    <Flex.Row.Center>
       <NavElem
         title={<Lang.String english="About" french=`À propos` />} target={[Nav.home, Nav.about]}
       />
@@ -80,16 +93,16 @@ let make = () => {
         title={<Lang.String english="Formalisation" french=`Formalisation` />}
         target={[Nav.home, Nav.formalization]}
       />
-    </div>
-    <div className=%twc("flex flex-row justify-center items-center")>
-      <div className=%twc("inline-flex justify-start font-semibold pr-4")> <SwitchLang /> </div>
-      <a className=%twc("") href="https://github.com/CatalaLang/catala" target="_blank">
-        <img className=%twc("h-5 pr-4 opacity-75 hover:opacity-100") src={"/" ++ github.default} />
+    </Flex.Row.Center>
+    <Flex.Row.Center>
+      <SwitchLang />
+      <a href="https://github.com/CatalaLang/catala" target="_blank">
+        <img className=Style.img_hover_oppacity src={"/" ++ github.default} />
       </a>
       <a
         className=%twc("cursor-pointer pr-4") href="https://zulip.catala-lang.org/" target="_blank">
         <svg
-          className=%twc("opacity-75 hover:opacity-100")
+          className=Style.logo_hover_opacity
           xmlns="http://www.w3.org/2000/svg"
           ariaHidden=true
           role="img"
@@ -108,6 +121,6 @@ let make = () => {
           />
         </svg>
       </a>
-    </div>
-  </div>
+    </Flex.Row.Center>
+  </Flex.Row.Center>
 }
