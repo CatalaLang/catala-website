@@ -1,7 +1,7 @@
 module Internal = {
   @react.component
   let make = (~target, ~children) => {
-    let lang = Lang.getCurrentLang()
+    let (lang, _) = React.useContext(Lang.langContext)
     <button
       className=%twc(
         "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex \

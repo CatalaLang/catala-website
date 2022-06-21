@@ -4,14 +4,15 @@ module App = {
   @react.component
   let make = () => {
     let url = ReasonReactRouter.useUrl()
-    let (lang_url, _) = Nav.urlToNavElem(url)
-    let lang_url = switch lang_url {
+    let (langUrl, _) = Nav.urlToNavElem(url)
+    let langUrl = switch langUrl {
     | None => Lang.English
-    | Some(lang_url) => lang_url
+    | Some(langUrl) => langUrl
     }
-    let (app_lang, set_lang) = React.useState(_ => lang_url)
-    let set_lang: unit => unit = _ => set_lang(old_lang => Lang.new_lang_from_old_lang(old_lang))
-    <Lang.Context value=(app_lang, set_lang)>
+    let (appLang, setLang) = React.useState(_ => langUrl)
+    let setLang = _ => setLang(oldLang => Lang.newLangFromOldLang(oldLang))
+
+    <Lang.Context value=(appLang, setLang)>
       <div className=%twc("flex flex-col min-h-screen text-xl md:text-lg lg:text-base")>
         <NavComponent />
         <main className=%twc("flex flex-col flex-grow container mx-auto px-4 ")> <Router /> </main>

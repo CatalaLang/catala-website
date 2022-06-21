@@ -49,22 +49,18 @@ module Context = {
   let make = React.Context.provider(langContext)
 }
 
-let new_lang_from_old_lang = (old_lang: lang): lang =>
+let newLangFromOldLang = (old_lang: lang): lang =>
   if old_lang == English {
     French
   } else {
     English
   }
 
-let getCurrentLang = () => {
-  let (lang, _) = React.useContext(langContext)
-  lang
-}
-
 module Element = {
   @react.component
   let make = (~french: React.element, ~english: React.element) => {
-    switch getCurrentLang() {
+    let (lang, _) = React.useContext(langContext)
+    switch lang {
     | French => french
     | English => english
     }
@@ -75,7 +71,7 @@ module String = {
   @react.component
   let make = (~french: string, ~english: string) => {
     let str = make_i18_str(~french, ~english)
-    let lang = getCurrentLang()
+    let (lang, _) = React.useContext(langContext)
     switch Belt.Map.get(str, lang) {
     | None =>
       let (_, x) = Belt.List.headExn(Belt.Map.toList(str))

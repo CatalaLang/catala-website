@@ -26,15 +26,15 @@ module Style = {
 module SwitchLang = {
   @react.component
   let make = _ => {
-    let (old_lang, setLang) = React.useContext(Lang.langContext)
+    let (oldLang, setLang) = React.useContext(Lang.langContext)
     let url = ReasonReactRouter.useUrl()
     <a
       className=Style.SwitchLang.link
       onClick={_ => {
         let (_, navs) = Nav.urlToNavElem(url)
         setLang()
-        let new_lang = Lang.new_lang_from_old_lang(old_lang)
-        Nav.goTo(navs, new_lang)
+        let newLang = Lang.newLangFromOldLang(oldLang)
+        Nav.goTo(navs, newLang)
       }}>
       <Lang.String french="En" english=`Fr` />
     </a>

@@ -23,7 +23,7 @@ module Presentation = {
     content: React.element,
   }
 
-  let render_presentation_card = (card: t, id: string) => {
+  let renderPresentationCard = (lang, card: t, id: string) => {
     let buttonStyle = %twc(
       "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center \
       rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100"
@@ -31,7 +31,6 @@ module Presentation = {
     let action = switch card.action {
     | None => <div />
     | Some((Internal(navs), text)) =>
-      let lang = Lang.getCurrentLang()
       <button className=buttonStyle onClick={_ => Nav.goTo(navs, lang)}>
         <Icon className=%twc("pr-2") name="double_arrow" /> text
       </button>
@@ -76,9 +75,10 @@ module Presentation = {
   module FromList = {
     @react.component
     let make = (~cards: array<t>) => {
+      let (lang, _) = React.useContext(Lang.langContext)
       <div className=%twc("flex flex-row flex-wrap items-stretch")>
         {cards
-        ->Belt.Array.mapWithIndex((i, card) => render_presentation_card(card, string_of_int(i)))
+        ->Belt.Array.mapWithIndex((i, card) => renderPresentationCard(lang, card, string_of_int(i)))
         ->React.array}
       </div>
     }

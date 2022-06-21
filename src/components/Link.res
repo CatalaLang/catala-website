@@ -46,7 +46,7 @@ module Internal = {
       ~target: array<Nav.navElem>,
       ~children,
     ) => {
-      let lang = Lang.getCurrentLang()
+      let (lang, _) = React.useContext(Lang.langContext)
       <a className onClick={_ => Nav.goTo(target, lang)}>
         <div className=%twc("flex flex-row flex-nowrap items-center text-green")>
           <Icon className="pr-2" name />
@@ -62,7 +62,7 @@ module Internal = {
     ~target: array<Nav.navElem>,
     ~children,
   ) => {
-    let lang = Lang.getCurrentLang()
+    let (lang, _) = React.useContext(Lang.langContext)
     <a className onClick={_ => Nav.goTo(target, lang)}> children </a>
   }
 }
