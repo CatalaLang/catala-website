@@ -409,9 +409,8 @@ module Simulator = {
       ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
     ) => {
       {
-        React.useEffect1(() => {
+        React.useEffect2(() => {
           setEventsOpt(_ => {
-            let _logs = retrieveRawEventsSerialized()
             let logs = retrieveEventsSerialized()->LogEvent.deserializedEvents
             if 0 == logs->Belt.Array.size {
               None
@@ -420,7 +419,7 @@ module Simulator = {
             }
           })
           None
-        }, [formOutput])
+        }, (formOutput, setEventsOpt))
       }
 
       <div
@@ -504,11 +503,8 @@ let make = () => {
       </Button.Internal>
     </div>
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
-      <div
-        className="catala-code"
-        dangerouslySetInnerHTML={
-          "__html": %raw(`require("../../assets/allocations_familiales.html")`),
-        }
+      <CatalaCode.DangerouslySetInnerHtml
+        html=%raw(`require("../../assets/allocations_familiales.html")`)
       />
     </Section>
   </>

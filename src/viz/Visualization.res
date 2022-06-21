@@ -1,7 +1,7 @@
 open PageComponents
 open LogEvent
 
-module Navigation = {
+module EventNavigator = {
   type index =
     | Prev(int)
     | Next(int)
@@ -18,28 +18,62 @@ module Navigation = {
     ease-out duration-150"
   )
 
+  module Navigation = {
+    @react.component
+    let make = (~index, ~setIndex, ~maxIndex) => {
+      let idx = index->getIndex
+      <>
+        <div
+          className=%twc("inline-flex flex-row justify-center content-center text-base font-sans")>
+          <button
+            className={buttonStyle ++ %twc(" rounded-l-lg pr-2")}
+            onClick={_ => setIndex(_ => Prev(idx > 1 ? idx - 1 : 0))}>
+            <Icon className=%twc("h-4") name="arrow_left" /> {"Prev"->React.string}
+          </button>
+          <button className={buttonStyle ++ " px-2"} onClick={_ => setIndex(_ => Prev(0))}>
+            {((idx + 1)->string_of_int ++ "/" ++ maxIndex->string_of_int)->React.string}
+          </button>
+          <button
+            className={buttonStyle ++ %twc(" rounded-r-lg pl-2")}
+            onClick={_ => setIndex(_ => Next(idx < maxIndex - 1 ? idx + 1 : 0))}>
+            {"Next"->React.string} <Icon name="arrow_right" />
+          </button>
+        </div>
+      </>
+    }
+  }
+
   @react.component
-  let make = (~logIndex, ~setLogIndex, ~maxLogIndex) => {
-    let idx = logIndex->getIndex
+  let make = (~events, ~eventToComponent: event => React.element, ~setVarDefs=?) => {
+    let (index, setIndex) = React.useState(_ => Next(0))
+    let nbEvents = events->Belt.Array.length
+    let idx = index->getIndex
+    React.useEffect1(_ => {
+      setVarDefs->Belt.Option.forEach(set =>
+        set(_ =>
+          events
+          ->Belt.Array.keepWithIndex((e, i) => {
+            switch e {
+            | VarComputation(_) => i < idx
+            | _ => false
+            }
+          })
+          ->Belt.Array.map(e =>
+            switch e {
+            | VarComputation(v) => v
+            | _ => Js.Exn.raiseError("unreachable")
+            }
+          )
+        )
+      )
+      None
+    }, [index])
     <>
-      <div className=%twc("inline-flex flex-row justify-center content-center text-base font-sans")>
-        <button
-          className={buttonStyle ++ %twc(" rounded-l-lg pr-2")}
-          onClick={_ => setLogIndex(_ => Prev(idx > 1 ? idx - 1 : 0))}>
-          <Icon className=%twc("h-4") name="arrow_left" /> {"Prev"->React.string}
-        </button>
-        <button className={buttonStyle ++ " px-2"} onClick={_ => setLogIndex(_ => Prev(0))}>
-          <Lang.String
-            english={idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int}
-            french={idx->string_of_int ++ "/" ++ maxLogIndex->string_of_int}
-          />
-        </button>
-        <button
-          className={buttonStyle ++ %twc(" rounded-r-lg pl-2")}
-          onClick={_ => setLogIndex(_ => Next(idx < maxLogIndex ? idx + 1 : 0))}>
-          {"Next"->React.string} <Icon name="arrow_right" />
-        </button>
-      </div>
+      <Navigation index setIndex maxIndex={nbEvents} />
+      {switch events->Belt.Array.get(idx) {
+      | Some(event) => event->eventToComponent
+      | _ => <> </>
+      }}
     </>
   }
 }
@@ -57,119 +91,350 @@ module Box = {
   }
 }
 
-let scrollTo: array<string> => unit = %raw(`
-  function(ids) {
-    console.log("ids.length/2 = ", Math.floor(ids.length/2))
-    let el = document.getElementById(ids[Math.floor(ids.length/2)])
-    console.log("ids: ", ids)
-    console.log("el: ", el)
-    if (null != el) {
-      var links = document.getElementsByTagName("A")
-      for (var i = 0; i < links.length; i++) {
-        if (ids.some(id => links[i].href.includes(id))) {
-          console.log("found")
-          links[i].className = "selected"
-        } else {
-          links[i].className = ""
+let scrollTo: (Dom.element, array<string>) => unit = %raw(`
+  function(parentElem, ids) {
+    if (null != parent) {
+      let id = ids[Math.floor(ids.length/2)]
+      let idEscaped = id.replaceAll(/\./g, "\\\.").replaceAll(/\//g, "\\\/")
+      let lineToScroll = parentElem.querySelector("#" + idEscaped)
+      if (null != lineToScroll) {
+        lineToScroll.scrollIntoView({block: "center"})
+        var links = parentElem.getElementsByTagName("A")
+        for (var i = 0; i < links.length; i++) {
+          if (ids.some(id => links[i].href.includes(id))) {
+            links[i].className = "selected"
+          } else {
+            links[i].className = ""
+          }
         }
       }
-      el.scrollIntoView({behavior: "smooth", block: "center", inline: "nearest"})
     }
   }
 `)
 
-module LogEvent = {
+module rec LogEventComponent: {
+  module VarComputation: {
+    @react.component
+    let make: (~varDef: var_def, ~kindIcon: React.element=?) => React.element
+  }
+  module SubScopeCall: {
+    @react.component
+    let make: (~subScopeCall: sub_scope_call) => React.element
+  }
+  module FunCall: {
+    @react.component
+    let make: (~funCall: fun_call) => React.element
+  }
   @react.component
-  let make = (
-    ~currentPage: array<Nav.navElem>,
-    /* ~pos: sourcePosition, */
-    ~event: Raw.event,
-  ) => {
-    ignore(currentPage)
-    <>
-      {switch event.eventType {
-      /* | VarComputation(_var_def) => <> </> */
-      /* | FunCall(_fun_call) => <> </> */
-      /* | SubScopeCall(_sub_scope_call) => <> </> */
-      /* }} */
-      | VariableDefinition => <>
-          <CatalaCode>
-            <CatalaCode.Ids ids={event.information} />
-            <CatalaCode.Op op={" : "} />
-            <LoggedValue val=event.loggedValue />
-          </CatalaCode>
-        </>
-      | DecisionTaken =>
-        switch event.sourcePosition {
-        | Some(pos) =>
-          let ids = {
-            if pos.start_line != pos.end_line {
-              Belt.Array.makeBy(pos.end_line - pos.start_line + 1, lnum => {
-                pos.filename ++ "-" ++ (pos.start_line + lnum)->string_of_int
-              })
+  let make: (~event: event) => React.element
+} = {
+  module CollapsibleItem = {
+    @react.component
+    let make = (
+      ~idsOpt=None,
+      ~headerContent,
+      ~headerValueOpt=None,
+      ~kindIcon=<> </>,
+      ~children,
+    ) => {
+      let (isOpen, setIsOpen) = React.useState(_ => false)
+      let parentDomElemRef = React.useRef(Js.Nullable.null)
+      React.useEffect2(() => {
+        if isOpen {
+          switch (parentDomElemRef.current->Js.Nullable.toOption, idsOpt) {
+          | (Some(parentDomElem), Some(ids)) => parentDomElem->scrollTo(ids)
+          | _ => ()
+          }
+        }
+        None
+      }, (isOpen, idsOpt))
+      <div className=%twc("w-full") ref={ReactDOM.Ref.domRef(parentDomElemRef)}>
+        <Flex.Column.AlignLeft
+          style=%twc(
+            "border-solid border-secondary border rounded mt-4 hover:border-gray_dark shadow"
+          )>
+          <Flex.Column.AlignLeft
+            style={%twc(
+              "w-full py-2 bg-gray_2 text-gray_dark font-semibold rounded-t border-secondary"
+            ) ++ if !isOpen {
+              %twc(" rounded-b")
             } else {
-              [pos.filename ++ "-" ++ pos.start_line->string_of_int]
-            }
-          }
-          if pos.filename != "" {
-            React.useEffect(() => {
-              ids->scrollTo
-              None
-            })
-          }
+              %twc(" border-b")
+            }}>
+            <Flex.Row.AlignTop style=%twc("w-full justify-between pr-2")>
+              <a className=%twc("cursor-pointer") onClick={_ => setIsOpen(_ => !isOpen)}>
+                <Flex.Row.AlignTop style=%twc("w-full cursor-pointer")>
+                  {if isOpen {
+                    <Icon className=%twc("cursor-pointer") name="arrow_drop_down" />
+                  } else {
+                    <Icon className=%twc("cursor-pointer") name="arrow_right" />
+                  }}
+                  headerContent
+                </Flex.Row.AlignTop>
+              </a>
+              kindIcon
+            </Flex.Row.AlignTop>
+            {switch headerValueOpt {
+            | Some(headerValue) => <div className=%twc("px-4")> headerValue </div>
+            | None => <> </>
+            }}
+          </Flex.Column.AlignLeft>
+          {if isOpen {
+            children
+          } else {
+            <> </>
+          }}
+        </Flex.Column.AlignLeft>
+      </div>
+    }
+  }
 
-          <>
-            <div
-              className=%twc(
-                "inline-flex flex-row justify-center content-center items-center text-green font-bold"
-              )>
-              <Icon name="verified" />
-              <Lang.String english="Definition applied" french=`Définition appliquée` />
-            </div>
-            <div className=%twc("font-bold text-primary") />
-            {pos.law_headings
-            ->Belt.Array.reverse
-            ->Belt.Array.mapWithIndex((i, hd) => {
-              <h3 className=%twc("font-bold text-secondary")>
-                {(Js.String.repeat(i + 1, "#") ++ " " ++ hd)->React.string}
-              </h3>
+  module VarComputation = {
+    @react.component
+    let make = (~varDef: var_def, ~kindIcon=?) => {
+      let (allHeadings, idsOpt) = switch varDef.pos {
+      | Some(pos) =>
+        let ids = {
+          if pos.start_line != pos.end_line {
+            Belt.Array.makeBy(pos.end_line - pos.start_line + 1, lnum => {
+              pos.filename ++ "-" ++ (pos.start_line + lnum)->string_of_int
             })
-            ->React.array}
-            <a
-              className={%twc("text-secondary font-mono")}
-              href={Nav.navElemsToUrl(Some(Lang.getCurrentLang()), currentPage) ++ "#" ++ ids[0]}>
-              {(pos.filename ++
-              " .l " ++
-              pos.start_line->string_of_int ++
-              "-" ++
-              pos.end_line->string_of_int)->React.string}
-            </a>
-          </>
-        | None => <> </>
+          } else {
+            [pos.filename ++ "-" ++ pos.start_line->string_of_int]
+          }
         }
 
-      | BeginCall => <>
-          <div className={%twc("text-sm border-t")}>
-            <div className={%twc("font-mono text-sm")}>
-              <CatalaCode>
-                <Icon className=%twc("text-orange") name="flight_takeoff" />
-                <CatalaCode.Ids ids={event.information} />
-              </CatalaCode>
-            </div>
+        (
+          <Flex.Row.Wrap>
+            {pos.law_headings
+            ->Belt.Array.reverse
+            ->Belt.Array.mapWithIndex((i, h) =>
+              <Flex.Row.Center>
+                {if i < pos.law_headings->Belt.Array.length - 1 {
+                  <> <p> {h->React.string} </p> <Icon name="chevron_right" /> </>
+                } else {
+                  <p className=%twc("font-bold")> {h->React.string} </p>
+                }}
+              </Flex.Row.Center>
+            )
+            ->React.array}
+          </Flex.Row.Wrap>,
+          Some(ids),
+        )
+      | None => (<> </>, None)
+      }
+      let headerValue =
+        <CatalaCode>
+          <CatalaCode.Ids ids={varDef.name->Belt.List.toArray} />
+          <CatalaCode.Op op={" : "} />
+          <LogEvent.LoggedValue val={varDef.value} />
+        </CatalaCode>
+
+      let kindIcon = switch kindIcon {
+      | Some(icon) => icon
+      | None =>
+        <div
+          className={%twc("px-2 font-semibold italic border rounded") ++ if (
+            varDef.fun_calls->Belt.Option.isSome
+          ) {
+            %twc(" text-rainforest border-rainforest bg-rainforest_50")
+          } else {
+            %twc(" text-orange border-orange bg-orange_50")
+          }}>
+          <Lang.String english="definition" french=`définition` />
+        </div>
+      }
+
+      <CollapsibleItem idsOpt headerContent=allHeadings headerValueOpt=Some(headerValue) kindIcon>
+        <Flex.Column.AlignLeft>
+          <div className=%twc("max-h-80 overflow-y-scroll rounded-b")>
+            <div
+              className="catala-code"
+              dangerouslySetInnerHTML={
+                "__html": %raw(`require("../../assets/allocations_familiales.html")`),
+              }
+            />
           </div>
-        </>
-      | EndCall => <>
-          <div className={%twc("text-sm border-t")}>
-            <div className={%twc("font-mono text-sm")}>
-              <CatalaCode>
-                <Icon className=%twc("text-orange") name="flight_land" />
-                <CatalaCode.Ids ids={event.information} />
-              </CatalaCode>
+          {varDef.fun_calls->Belt.Option.mapWithDefault(<> </>, funCalls => {
+            <div className=%twc("w-full px-4 pb-4 border border-gray border-t")>
+              <CollapsibleItem
+                headerContent={<p className=%twc("w-full text-gray_dark font-bold pr-4")>
+                  <Lang.String english="Computed from ..." french=`Calculée à partir de ...` />
+                </p>}>
+                <Flex.Column.AlignLeft
+                  style=%twc(
+                    "w-full max-h-screen overflow-y-scroll \
+                  px-4 pb-4"
+                  )>
+                  {funCalls
+                  ->Belt.List.toArray
+                  ->Belt.Array.map(funCall => <LogEventComponent.FunCall funCall />)
+                  ->React.array}
+                </Flex.Column.AlignLeft>
+              </CollapsibleItem>
             </div>
-          </div>
-        </>
-      }}
-    </>
+          })}
+        </Flex.Column.AlignLeft>
+      </CollapsibleItem>
+    }
+  }
+
+  module SubScopeCall = {
+    @react.component
+    let make = (~subScopeCall: sub_scope_call) => {
+      let (varDefs, setVarDefs) = React.useState(_ => [])
+      let headerContent =
+        <CatalaCode> <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} /> </CatalaCode>
+      let iconStyle = %twc(
+        "px-2 font-semibold text-purple_text border border-purple_text rounded bg-purple_bg"
+      )
+      let kindIcon = <div className={iconStyle ++ %twc(" italic")}> {"scope"->React.string} </div>
+
+      let inputHeaderContent =
+        <Flex.Row.Center>
+          <p className=%twc("w-full text-gray_dark font-bold pr-4")>
+            <Lang.String english="Definitions of" french=`Définitions de` />
+          </p>
+          <div className=%twc("opacity-70")> headerContent </div>
+        </Flex.Row.Center>
+
+      let contentHeaderContent =
+        <Flex.Row.Center>
+          <p className=%twc("w-full text-gray_dark font-bold pr-4")>
+            <Lang.String english="Content of" french=`Contenu de` />
+          </p>
+          <div className=%twc("opacity-70")> headerContent </div>
+        </Flex.Row.Center>
+
+      <CollapsibleItem headerContent kindIcon>
+        <div className=%twc("w-full px-4 pb-4")>
+          <CollapsibleItem headerContent={contentHeaderContent}>
+            <Flex.Column.Center style=%twc("max-h-screen overflow-y-scroll w-full p-4")>
+              <EventNavigator
+                events={subScopeCall.sbody->Belt.List.toArray}
+                eventToComponent={event => <LogEventComponent event />}
+                setVarDefs
+              />
+            </Flex.Column.Center>
+          </CollapsibleItem>
+          <CollapsibleItem headerContent=inputHeaderContent>
+            <Flex.Column.AlignLeft
+              style=%twc(
+                "w-full max-h-screen overflow-y-scroll px-4 pb-4 border-t border-b border-gray bg-gray_light"
+              )>
+              {varDefs
+              ->Belt.Array.reverse
+              ->Belt.Array.map(varDef => <LogEventComponent.VarComputation varDef />)
+              ->React.array}
+              {subScopeCall.inputs
+              ->Belt.List.toArray
+              ->Belt.Array.map(varDef =>
+                <LogEventComponent.VarComputation
+                  varDef
+                  kindIcon={<div
+                    className=%twc(
+                      "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
+                    )>
+                    <Lang.String english="input" french=`entrée` />
+                  </div>}
+                />
+              )
+              ->React.array}
+            </Flex.Column.AlignLeft>
+          </CollapsibleItem>
+        </div>
+      </CollapsibleItem>
+    }
+  }
+
+  module FunCall = {
+    @react.component
+    let make = (~funCall: fun_call) => {
+      let headerContent =
+        <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
+      let iconStyle = %twc(
+        "px-2 font-semibold text-rainforest border border-rainforest rounded bg-rainforest_50"
+      )
+      let kindIcon =
+        <div className={iconStyle ++ %twc(" italic")}>
+          {<Lang.String english="function" french=`fonction` />}
+        </div>
+
+      let contentHeaderContent =
+        <Flex.Row.Center>
+          <p className=%twc("w-full text-gray_dark font-bold pr-4")>
+            <Lang.String english="Content of" french=`Contenu de` />
+          </p>
+          <div className=%twc("opacity-50")> headerContent </div>
+        </Flex.Row.Center>
+
+      let functionInput =
+        <Flex.Column.AlignLeft
+          style=%twc(
+            "border-solid border-secondary border rounded mt-4 hover:border-gray_dark shadow"
+          )>
+          <Flex.Column.AlignLeft
+            style=%twc("w-full bg-gray_2 text-gray_dark font-semibold py-2 rounded pr-2")>
+            <Flex.Row.Center style=%twc("w-full justify-between pl-2")>
+              <CatalaCode>
+                <CatalaCode.Ids ids={funCall.input.name->Belt.List.toArray} />
+                <CatalaCode.Op op={" : "} />
+                <LogEvent.LoggedValue val={funCall.input.value} />
+              </CatalaCode>
+              <div
+                className=%twc(
+                  "px-2 font-semibold italic text-rainforest border border-rainforest \
+                      rounded bg-rainforest_50"
+                )>
+                <Lang.String english="input" french=`entrée` />
+              </div>
+            </Flex.Row.Center>
+          </Flex.Column.AlignLeft>
+        </Flex.Column.AlignLeft>
+
+      let functionOutput =
+        <LogEventComponent.VarComputation
+          varDef={funCall.output}
+          kindIcon={<div
+            className=%twc(
+              "px-2 font-semibold italic text-rainforest border border-rainforest \
+                rounded bg-rainforest_50"
+            )>
+            <Lang.String english="output" french="sortie" />
+          </div>}
+        />
+
+      <CollapsibleItem headerContent kindIcon>
+        <div className=%twc("w-full px-4 pb-4")>
+          functionInput
+          functionOutput
+          {if 0 < funCall.body->Belt.List.length {
+            <CollapsibleItem headerContent=contentHeaderContent>
+              <Flex.Column.AlignLeft
+                style=%twc(
+                  "w-full max-h-screen overflow-y-scroll px-4 pb-4 border-t border-b border-gray bg-gray_light"
+                )>
+                {funCall.body
+                ->Belt.List.toArray
+                ->Belt.Array.map(event => <LogEventComponent event />)
+                ->React.array}
+              </Flex.Column.AlignLeft>
+            </CollapsibleItem>
+          } else {
+            <> </>
+          }}
+        </div>
+      </CollapsibleItem>
+    }
+  }
+
+  @react.component
+  let make = (~event: event) => {
+    switch event {
+    | VarComputation(var_def) => <VarComputation varDef={var_def} />
+    | FunCall(fun_call) => <FunCall funCall={fun_call} />
+    | SubScopeCall(sub_scope_call) => <SubScopeCall subScopeCall={sub_scope_call} />
+    }
   }
 }
 
@@ -185,7 +450,6 @@ module Make = (Simulator: LOGGABLE) => {
   let make = (~currentPage: array<Nav.navElem>) => {
     ignore(currentPage)
     let (eventsOpt: option<array<event>>, setEventsOpt) = React.useState(_ => None)
-    let (logIndex, setLogIndex) = React.useState(_ => Navigation.Next(0))
 
     <>
       <Title>
@@ -199,51 +463,33 @@ module Make = (Simulator: LOGGABLE) => {
         </p>
       </Title>
       {Simulator.make(Simulator.makeProps(~setEventsOpt, ()))}
-      <div className=%twc("flex flex-col")>
-        <div className=%twc("w-full h-full ")>
-          <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
-            <div
-              className=%twc(
-                "flex flex-col border-solid overflow-y-scroll max-h-128 border \
-              border-gray rounded p-4 bg-gray_light"
-              )>
-              {switch eventsOpt {
-              | Some(logEvents) =>
-                let idx = logIndex->Navigation.getIndex
-                switch logEvents->Belt.Array.get(idx) {
-                | Some(event) => <>
-                    <Navigation logIndex setLogIndex maxLogIndex={logEvents->Belt.Array.size} />
-                    {switch event {
-                    | VarComputation(_var_def) => "VarComputation"
-                    | FunCall(_fun_call) => "FunCall"
-                    | SubScopeCall(_sub_scope_call) => "SubScopeCall"
-                    }->React.string}
-                  </>
-                /* <Box> */
-                /* <LogEvent currentPage event=decision /> <LogEvent currentPage event /> */
-                /* </Box> */
-                | _ => <> </>
-                }
-              | _ => <> </>
-              }}
-            </div>
-          </Section>
-        </div>
-        <div className=%twc("w-full h-full")>
-          <Section title={<Lang.String english="Source code" french=`Code source` />}>
-            <div
-              className=%twc(
-                "block max-h-80 overflow-y-scroll border-solid border-t border-b border-gray rounded mb-4"
-              )>
-              <div
-                className="catala-code"
-                dangerouslySetInnerHTML={
-                  "__html": %raw(`require("../../assets/allocations_familiales.html")`),
-                }
+      <div className=%twc("w-full h-full")>
+        <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
+          <Flex.Column.Center
+            style=%twc("border-solid max-h-full border border-gray rounded p-4 bg-gray_light")>
+            /* { */
+
+            {
+              let logEvents = LogEvent.hardcodedLogEvents
+              <EventNavigator
+                events={logEvents} eventToComponent={event => <LogEventComponent event />}
               />
-            </div>
-          </Section>
-        </div>
+            }
+
+            /* switch eventsOpt { */
+            /* | Some(logEvents) => */
+            /* <EventNavigator */
+            /* events={logEvents} eventToComponent={event => <LogEventComponent event />} */
+            /* /> */
+            /* | _ => */
+            /* <p className=%twc("font-semibold text-gray_dark")> */
+            /* <Lang.String */
+            /* english="No events to explore..." french=`Pas d'évènements à explorer...` */
+            /* /> */
+            /* </p> */
+            /* }} */
+          </Flex.Column.Center>
+        </Section>
       </div>
     </>
   }

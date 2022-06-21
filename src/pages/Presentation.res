@@ -263,12 +263,8 @@ let make = () => {
           />
         </p>
         <Lang.Element
-          french={<div
-            className="catala-code" dangerouslySetInnerHTML={"__html": french_homepage}
-          />}
-          english={<div
-            className="catala-code" dangerouslySetInnerHTML={"__html": english_homepage}
-          />}
+          french={<CatalaCode.DangerouslySetInnerHtml html=french_homepage />}
+          english={<CatalaCode.DangerouslySetInnerHtml html=english_homepage />}
         />
       </div>
       <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pt-8")>

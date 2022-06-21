@@ -243,3 +243,118 @@ let deserializedEvents = (eventsSerialized: array<eventSerialized>) => {
     event
   })
 }
+
+let hardcodedLogEvents = [
+  VarComputation({
+    pos: Some({
+      filename: "./epilogue.catala_fr",
+      start_line: 117,
+      end_line: 117,
+      start_column: 1,
+      end_column: 1,
+      law_headings: [
+        "Article L131-1",
+        "Interface du programme",
+        "Epilogue",
+        `Dispositions spéciales relatives à Mayotte`,
+      ],
+    }),
+    name: list{"InterfaceAllocationsFamiliales", `enfant_à_charge`},
+    value: LoggedValue.Array([]),
+    fun_calls: None,
+  }),
+  SubScopeCall({
+    sname: list{"IntefaceAllocationsFamiliales", `allocations_familiales`, `AllocationsFamiliales`},
+    inputs: list{
+      {
+        pos: Some({
+          filename: "./prologue.catala_fr",
+          start_line: 116,
+          end_line: 116,
+          start_column: 1,
+          end_column: 1,
+          law_headings: ["Allocations familiales", "Champs d'applications", "Prologue"],
+        }),
+        name: list{
+          "InterfaceAllocationsFamiliales",
+          `allocations_familiales.avait_enfant_à_charge_avant_1er_janvier_2012`,
+        },
+        value: LoggedValue.Bool(false),
+        fun_calls: None,
+      },
+      {
+        pos: Some({
+          filename: "./epilogue.catala_fr",
+          start_line: 87,
+          end_line: 87,
+          start_column: 1,
+          end_column: 1,
+          law_headings: [
+            "Interface du programme",
+            "Champs d'applications",
+            `Dispositions spéciales relatives à Mayotte`,
+          ],
+        }),
+        name: list{"InterfaceAllocationsFamiliales", `allocations_familiales.enfants_à_charge`},
+        value: LoggedValue.Array([]),
+        fun_calls: None,
+      },
+      {
+        pos: Some({
+          filename: "./epilogue.catala_fr",
+          start_line: 86,
+          end_line: 86,
+          start_column: 1,
+          end_column: 1,
+          law_headings: [
+            "Interface du programme",
+            "Champs d'applications",
+            `Dispositions spéciales relatives à Mayotte`,
+          ],
+        }),
+        name: list{"InterfaceAllocationsFamiliales", `allocations_familiales.date_courante`},
+        value: LoggedValue.Date("2019-12-05"),
+        fun_calls: None,
+      },
+      {
+        pos: Some({
+          filename: "./epilogue.catala_fr",
+          start_line: 89,
+          end_line: 89,
+          start_column: 1,
+          end_column: 1,
+          law_headings: [
+            "Interface du programme",
+            "Champs d'applications",
+            `Dispositions spéciales relatives à Mayotte`,
+          ],
+        }),
+        name: list{"InterfaceAllocationsFamiliales", `allocations_familiales.date_courante`},
+        value: LoggedValue.Enum(list{}, (`Métropole`, LoggedValue.Unit)),
+        fun_calls: None,
+      },
+    },
+    sbody: list{
+      VarComputation({
+        pos: Some({
+          filename: "./securite_sociale_D.catala_fr",
+          start_line: 291,
+          end_line: 291,
+          start_column: 1,
+          end_column: 1,
+          law_headings: [
+            "Article D521-2",
+            "Chapitre 1er: Allocations familiales",
+            `Titre 2 : Prestations générales d'entretien`,
+            `Livre 5 : Prestations familiales et prestations assimilées`,
+            `Partie réglementaire - Décret simples`,
+            `Code de la sécurité sociale`,
+          ],
+        }),
+        name: list{"AllocationsFamiliales", `nombre_enfants_l521_1`},
+        value: LoggedValue.Integer(3),
+        fun_calls: None,
+      }),
+    },
+  }),
+]

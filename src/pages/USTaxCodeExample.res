@@ -52,8 +52,5 @@ let make = () => <>
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
     />
   </p>
-  <div
-    className="catala-code"
-    dangerouslySetInnerHTML={"__html": %raw(`require("../../assets/us_tax_code.html")`)}
-  />
+  <CatalaCode.DangerouslySetInnerHtml html=%raw(`require("../../assets/us_tax_code.html")`) />
 </>

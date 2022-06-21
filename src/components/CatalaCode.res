@@ -1,15 +1,25 @@
-// TODO: could be factorized with a module for each type
+module DangerouslySetInnerHtml = {
+  @react.component
+  let make = (~html) => {
+    <div
+      className={%twc("border-gray rounded border") ++ " catala-code"}
+      dangerouslySetInnerHTML={
+        "__html": html,
+      }
+    />
+  }
+}
 module Span = {
   @react.component
   let make = (~kind, ~code) => {
-    <span className=kind> {code->React.string} </span>
+    <span className={"text-" ++ kind}> {code->React.string} </span>
   }
 }
 
 module Ids = {
   @react.component
   let make = (~ids: array<string>) => {
-    Js.log("ids.length: " ++ ids->Belt.Array.length->string_of_int)
+    //TODO: could be improved.
     ids
     ->Belt.Array.mapWithIndex((i, s) => {
       <>
@@ -19,9 +29,9 @@ module Ids = {
           <> </>
         }}
         {if s == s->Js.String.toLowerCase {
-          <span className="nv"> {s->React.string} </span>
+          <span className=%twc("text-nv font-medium")> {s->React.string} </span>
         } else {
-          <span className="nc"> {s->React.string} </span>
+          <span className=%twc("text-nc font-bold")> {s->React.string} </span>
         }}
       </>
     })
@@ -38,7 +48,5 @@ module Op = {
 
 @react.component
 let make = (~children) => {
-  <div className="catala-code">
-    <div className="code-wrapper"> <div className="highlight"> <pre> children </pre> </div> </div>
-  </div>
+  <div className=%twc("font-mono")> <pre> children </pre> </div>
 }

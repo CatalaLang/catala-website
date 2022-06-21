@@ -28,10 +28,5 @@ let card: Card.Presentation.t = {
 @react.component
 let make = () => <>
   <Title> pageTitle </Title>
-  <div
-    className="catala-code"
-    dangerouslySetInnerHTML={
-      "__html": %raw(`require("../../assets/tutoriel_fr.html")`),
-    }
-  />
+  <CatalaCode.DangerouslySetInnerHtml html=%raw(`require("../../assets/tutoriel_fr.html")`) />
 </>
