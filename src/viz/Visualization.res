@@ -148,26 +148,29 @@ module rec LogEventComponent: {
         }
         None
       }, (isOpen, idsOpt))
+      let toggleStyle = %twc(
+        "ml-2 cursor-pointer rounded hover:bg-secondary hover:text-gray_light ease-out duration-150"
+      )
+
       <div className=%twc("w-full") ref={ReactDOM.Ref.domRef(parentDomElemRef)}>
         <Flex.Column.AlignLeft
           style=%twc(
             "border-solid border-secondary border rounded mt-4 hover:border-gray_dark shadow"
           )>
           <Flex.Column.AlignLeft
-            style={%twc(
-              "w-full py-2 bg-gray_2 text-gray_dark font-semibold rounded-t border-secondary"
-            ) ++ if !isOpen {
+            style={%twc("w-full py-2 bg-gray_2 text-gray_dark font-semibold rounded-t border-secondary
+              ") ++ if !isOpen {
               %twc(" rounded-b")
             } else {
               %twc(" border-b")
             }}>
             <Flex.Row.AlignTop style=%twc("w-full justify-between pr-2")>
-              <a className=%twc("cursor-pointer") onClick={_ => setIsOpen(_ => !isOpen)}>
+              <a className=%twc("cursor-pointer rounded ") onClick={_ => setIsOpen(_ => !isOpen)}>
                 <Flex.Row.AlignTop style=%twc("w-full cursor-pointer")>
                   {if isOpen {
-                    <Icon className=%twc("cursor-pointer") name="arrow_drop_down" />
+                    <Icon className=toggleStyle name="arrow_drop_down" />
                   } else {
-                    <Icon className=%twc("cursor-pointer") name="arrow_right" />
+                    <Icon className=toggleStyle name="arrow_right" />
                   }}
                   headerContent
                 </Flex.Row.AlignTop>
@@ -226,7 +229,7 @@ module rec LogEventComponent: {
       let headerValue =
         <CatalaCode>
           <CatalaCode.Ids ids={varDef.name->Belt.List.toArray} />
-          <CatalaCode.Op op={" : "} />
+          <CatalaCode.Op op={" = "} />
           <LogEvent.LoggedValue val={varDef.value} />
         </CatalaCode>
 

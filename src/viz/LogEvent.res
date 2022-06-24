@@ -80,10 +80,10 @@ module rec LoggedValue: {
           <CatalaCode.Ids ids={[s]} />
           <LoggedValue depth={depth + 1} val />
         </>
-      | Struct(ls, attributes) => <>
-          <CatalaCode.Ids ids={ls->Belt.List.toArray} />
-          <CatalaCode.Op op=" = {" />
-          <br />
+      | Struct(ls, attributes) =>
+        <CatalaCode.Collapsible
+          start={<> <CatalaCode.Ids ids={ls->Belt.List.toArray} /> <CatalaCode.Op op=" = {" /> </>}
+          end={<> <CatalaCode.Op op="}" /> </>}>
           {attributes
           ->Belt.List.toArray
           ->Belt.Array.map(attribute => {
@@ -99,13 +99,10 @@ module rec LoggedValue: {
             </>
           })
           ->React.array}
-          <br />
           <CatalaCode.Op op={Js.String.repeat((depth - 1) * 2, " ")} />
-          <CatalaCode.Op op="}" />
-        </>
-      | Array(vals) => <>
-          <CatalaCode.Op op="[" />
-          <br />
+        </CatalaCode.Collapsible>
+      | Array(vals) =>
+        <CatalaCode.Collapsible start={<CatalaCode.Op op="[" />} end={<CatalaCode.Op op="]" />}>
           {vals
           ->Belt.Array.map(val => <>
             <CatalaCode.Op op={Js.String.repeat(depth * 2, " ")} />
@@ -114,8 +111,7 @@ module rec LoggedValue: {
             <br />
           </>)
           ->React.array}
-          <CatalaCode.Op op="]" />
-        </>
+        </CatalaCode.Collapsible>
       | Unembeddable => <> {"Unembeddable"->React.string} </>
       }}
     </>
@@ -245,6 +241,55 @@ let deserializedEvents = (eventsSerialized: array<eventSerialized>) => {
 }
 
 let hardcodedLogEvents = [
+  /* FunCall({ */
+  /* fun_name: list{"AllocationFamiliales", `complément_dégressif`}, */
+  /* input: { */
+  /* pos: None, */
+  /* name: list{"AllocationFamiliales", `complément_dégressif`, `input`}, */
+  /* value: LoggedValue.Money(351.54), */
+  /* fun_calls: None, */
+  /* }, */
+  /* body: list{ */
+  /* VarComputation({ */
+  /* pos: Some({ */
+  /* filename: "./securite_sociale_D.catala_fr", */
+  /* start_line: 291, */
+  /* end_line: 291, */
+  /* start_column: 1, */
+  /* end_column: 1, */
+  /* law_headings: [ */
+  /* "Article D521-2", */
+  /* "Chapitre 1er: Allocations familiales", */
+  /* `Titre 2 : Prestations générales d'entretien`, */
+  /* `Livre 5 : Prestations familiales et prestations assimilées`, */
+  /* `Partie réglementaire - Décret simples`, */
+  /* `Code de la sécurité sociale`, */
+  /* ], */
+  /* }), */
+  /* name: list{"AllocationsFamiliales", `nombre_enfants_l521_1`}, */
+  /* value: LoggedValue.Integer(3), */
+  /* fun_calls: None, */
+  /* }), */
+  /* }, */
+  /* output: { */
+  /* pos: Some({ */
+  /* filename: "./epilogue.catala_fr", */
+  /* start_line: 117, */
+  /* end_line: 117, */
+  /* start_column: 1, */
+  /* end_column: 1, */
+  /* law_headings: [ */
+  /* "Article L131-1", */
+  /* "Interface du programme", */
+  /* "Epilogue", */
+  /* `Dispositions spéciales relatives à Mayotte`, */
+  /* ], */
+  /* }), */
+  /* name: list{"AllocationFamiliales", `complément_dégressif`, `output`}, */
+  /* value: LoggedValue.Money(0.0), */
+  /* fun_calls: None, */
+  /* }, */
+  /* }), */
   VarComputation({
     pos: Some({
       filename: "./epilogue.catala_fr",
@@ -260,7 +305,23 @@ let hardcodedLogEvents = [
       ],
     }),
     name: list{"InterfaceAllocationsFamiliales", `enfant_à_charge`},
-    value: LoggedValue.Array([]),
+    value: LoggedValue.Array([
+      LoggedValue.Struct(
+        list{`Enfant`},
+        list{
+          (`identifiant`, LoggedValue.Integer(0)),
+          (`obligation_scolaire`, LoggedValue.Enum(list{}, ("Avant", LoggedValue.Unit))),
+          (`rémunération_mensuelle`, LoggedValue.Money(0.0)),
+          (`date_de_naissance`, LoggedValue.Date("2020-01-01")),
+          (`âge`, LoggedValue.Integer(0)),
+          (
+            `prise_en_charge`,
+            LoggedValue.Enum(list{}, ("EffectiveEtPermanente", LoggedValue.Unit)),
+          ),
+          (`à_déjà_ouvert_droit_aux_allocations_familiales`, LoggedValue.Bool(false)),
+        },
+      ),
+    ]),
     fun_calls: None,
   }),
   SubScopeCall({

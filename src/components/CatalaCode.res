@@ -16,10 +16,36 @@ module Span = {
   }
 }
 
+module Collapsible = {
+  @react.component
+  let make = (~start, ~end, ~children) => {
+    let (isOpen, setIsOpen) = React.useState(_ => false)
+    let toggleButton = s => {
+      <button
+        href="#"
+        className=%twc(
+          "cursor-pointer rounded font-semibold hover:bg-secondary hover:text-gray_light \
+      ease-out duration-150"
+        )
+        onClick={_ => setIsOpen(_ => !isOpen)}>
+        {s->React.string}
+      </button>
+    }
+    <>
+      start
+      {if isOpen {
+        <> {" - "->toggleButton} <br /> children </>
+      } else {
+        <> {"..."->toggleButton} </>
+      }}
+      end
+    </>
+  }
+}
+
 module Ids = {
   @react.component
   let make = (~ids: array<string>) => {
-    //TODO: could be improved.
     ids
     ->Belt.Array.mapWithIndex((i, s) => {
       <>
