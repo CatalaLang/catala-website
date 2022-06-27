@@ -43,7 +43,7 @@ module.exports = {
         gray_2: '#ebeef3',
         gray_light: '#fcfcfc',
         gray_medium: '#d1d6dd',
-        gray_dark: '#878079',
+        gray_dark: '#706a63',
         secondary: '#B6B9B9',
         tertiary: '#B6A999',
         nv: '#996633',

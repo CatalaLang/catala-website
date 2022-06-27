@@ -91,7 +91,7 @@ module Box = {
   }
 }
 
-let scrollTo: (Dom.element, array<string>) => unit = %raw(`
+let scrollToAndHighlightLineNum: (Dom.element, array<string>) => unit = %raw(`
   function(parentElem, ids) {
     if (null != parent) {
       let id = ids[Math.floor(ids.length/2)]
@@ -142,7 +142,7 @@ module rec LogEventComponent: {
       React.useEffect2(() => {
         if isOpen {
           switch (parentDomElemRef.current->Js.Nullable.toOption, idsOpt) {
-          | (Some(parentDomElem), Some(ids)) => parentDomElem->scrollTo(ids)
+          | (Some(parentDomElem), Some(ids)) => parentDomElem->scrollToAndHighlightLineNum(ids)
           | _ => ()
           }
         }
@@ -212,7 +212,7 @@ module rec LogEventComponent: {
             {pos.law_headings
             ->Belt.Array.reverse
             ->Belt.Array.mapWithIndex((i, h) =>
-              <Flex.Row.Center>
+              <Flex.Row.Center key={"law-heading-" ++ i->string_of_int}>
                 {if i < pos.law_headings->Belt.Array.length - 1 {
                   <> <p> {h->React.string} </p> <Icon name="chevron_right" /> </>
                 } else {
@@ -271,7 +271,9 @@ module rec LogEventComponent: {
                   )>
                   {funCalls
                   ->Belt.List.toArray
-                  ->Belt.Array.map(funCall => <LogEventComponent.FunCall funCall />)
+                  ->Belt.Array.mapWithIndex((i, funCall) =>
+                    <LogEventComponent.FunCall key={"fun-call-" ++ i->string_of_int} funCall />
+                  )
                   ->React.array}
                 </Flex.Column.AlignLeft>
               </CollapsibleItem>
@@ -302,12 +304,12 @@ module rec LogEventComponent: {
         </Flex.Row.Center>
 
       let contentHeaderContent =
-        <Flex.Row.Center>
+        <Flex.Row.AlignTop>
           <p className=%twc("w-full text-gray_dark font-bold pr-4")>
             <Lang.String english="Content of" french=`Contenu de` />
           </p>
           <div className=%twc("opacity-70")> headerContent </div>
-        </Flex.Row.Center>
+        </Flex.Row.AlignTop>
 
       <CollapsibleItem headerContent kindIcon>
         <div className=%twc("w-full px-4 pb-4")>
@@ -327,12 +329,15 @@ module rec LogEventComponent: {
               )>
               {varDefs
               ->Belt.Array.reverse
-              ->Belt.Array.map(varDef => <LogEventComponent.VarComputation varDef />)
+              ->Belt.Array.mapWithIndex((i, varDef) =>
+                <LogEventComponent.VarComputation key={"varcomp-def-" ++ i->string_of_int} varDef />
+              )
               ->React.array}
               {subScopeCall.inputs
               ->Belt.List.toArray
-              ->Belt.Array.map(varDef =>
+              ->Belt.Array.mapWithIndex((i, varDef) =>
                 <LogEventComponent.VarComputation
+                  key={"varcomp-subscope-input-" ++ i->string_of_int}
                   varDef
                   kindIcon={<div
                     className=%twc(
@@ -363,13 +368,14 @@ module rec LogEventComponent: {
           {<Lang.String english="function" french=`fonction` />}
         </div>
 
+      //TODO: potential refactoring
       let contentHeaderContent =
-        <Flex.Row.Center>
+        <Flex.Row.AlignTop>
           <p className=%twc("w-full text-gray_dark font-bold pr-4")>
             <Lang.String english="Content of" french=`Contenu de` />
           </p>
           <div className=%twc("opacity-50")> headerContent </div>
-        </Flex.Row.Center>
+        </Flex.Row.AlignTop>
 
       let functionInput =
         <Flex.Column.AlignLeft
@@ -419,7 +425,9 @@ module rec LogEventComponent: {
                 )>
                 {funCall.body
                 ->Belt.List.toArray
-                ->Belt.Array.map(event => <LogEventComponent event />)
+                ->Belt.Array.mapWithIndex((i, event) =>
+                  <LogEventComponent key={"funcall-item-" ++ i->string_of_int} event />
+                )
                 ->React.array}
               </Flex.Column.AlignLeft>
             </CollapsibleItem>
@@ -470,27 +478,18 @@ module Make = (Simulator: LOGGABLE) => {
         <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
           <Flex.Column.Center
             style=%twc("border-solid max-h-full border border-gray rounded p-4 bg-gray_light")>
-            /* { */
-
-            {
-              let logEvents = LogEvent.hardcodedLogEvents
+            {switch eventsOpt {
+            | Some(logEvents) =>
               <EventNavigator
                 events={logEvents} eventToComponent={event => <LogEventComponent event />}
               />
-            }
-
-            /* switch eventsOpt { */
-            /* | Some(logEvents) => */
-            /* <EventNavigator */
-            /* events={logEvents} eventToComponent={event => <LogEventComponent event />} */
-            /* /> */
-            /* | _ => */
-            /* <p className=%twc("font-semibold text-gray_dark")> */
-            /* <Lang.String */
-            /* english="No events to explore..." french=`Pas d'évènements à explorer...` */
-            /* /> */
-            /* </p> */
-            /* }} */
+            | _ =>
+              <p className=%twc("font-bold text-gray_dark")>
+                <Lang.String
+                  english="No events to explore..." french=`Pas d'évènements à explorer...`
+                />
+              </p>
+            }}
           </Flex.Column.Center>
         </Section>
       </div>

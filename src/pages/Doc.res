@@ -35,14 +35,12 @@ let catala_card: Card.Presentation.t = {
   )),
   icon: None,
   quote: None,
-  content: <p>
-    <Lang.String
-      english="The compiler is the main tool that parses Catala source code files and translate
+  content: <Lang.String
+    english="The compiler is the main tool that parses Catala source code files and translate
      the contents into various literate programming or executable targets."
-      french=`Le compilateur est l'outil principal qui prend en entrée un fichier source Catala et
+    french=`Le compilateur est l'outil principal qui prend en entrée un fichier source Catala et
      en traduit le contenu vers diverses cibles de programmation littéraire ou exécutable.`
-    />
-  </p>,
+  />,
 }
 
 let ocaml_docs_card: Card.Presentation.t = {
@@ -53,14 +51,14 @@ let ocaml_docs_card: Card.Presentation.t = {
     External("/ocaml_docs/"),
     <Lang.String english="See documentation" french=`Voir la documentation` />,
   )),
-  content: <p>
+  content: <>
     <Lang.String
       english="The Catala tooling is developped using the OCaml language. Internal documentation is auto-generated from the code using "
       french=`L'outillage autour de Catala est développé avec le langage OCaml. La documentation interne est auto-generée à partir du code source en utilisant `
     />
     <Link.Text target="https://github.com/ocaml/odoc"> {React.string("odoc")} </Link.Text>
     {"." |> React.string}
-  </p>,
+  </>,
 }
 
 let syntax_cheat_sheet_card: Card.Presentation.t = {
@@ -71,12 +69,10 @@ let syntax_cheat_sheet_card: Card.Presentation.t = {
     External("https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"),
     <Lang.String english="Download the cheet" french=`Télécharger le pense-bête` />,
   )),
-  content: <p>
-    <Lang.String
-      english="This cheet is a handy reference to the Catala syntax and how programs should be written."
-      french=`Cette feuille est une référence complète et pratique pour la syntaxe de Catala.`
-    />
-  </p>,
+  content: <Lang.String
+    english="This cheet is a handy reference to the Catala syntax and how programs should be written."
+    french=`Cette feuille est une référence complète et pratique pour la syntaxe de Catala.`
+  />,
 }
 
 @react.component

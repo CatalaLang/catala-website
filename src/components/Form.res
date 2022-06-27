@@ -26,8 +26,10 @@ module Input = {
         <label className=labelStyle> label </label>
         <select list="browsers" className=fieldStyle onChange>
           {options
-          ->Belt.Array.map(option => {
-            <option value=option> {option->React.string} </option>
+          ->Belt.Array.mapWithIndex((i, option) => {
+            <option key={"browser-option-" ++ i->string_of_int} value=option>
+              {option->React.string}
+            </option>
           })
           ->React.array}
         </select>

@@ -317,7 +317,7 @@ module Simulator = {
                   className=%twc(
                     "flex flex-col border-gray shadow-sm border border-solid rounded py-2 my-2"
                   )
-                  key={"child_input" ++ string_of_int(i)}>
+                  key={"child-input-" ++ string_of_int(i)}>
                   <Input.Date
                     label={<>
                       <Lang.String english=`Child n°` french=`Enfant n°` />
@@ -426,12 +426,12 @@ module Simulator = {
         className=%twc(
           "inline-flex flex-col justify-center place-items-center \
           my-4 border border-gray border-solid rounded p-4 shadow-sm \
-          bg-gray_light"
+          bg-gray_light text-gray_dark"
         )>
         {switch computeAllocationsFamiliales(formOutput) {
         | Error(msg) => <div className=%twc("font-bold")> msg </div>
         | Result(amount) => <>
-            <div className=%twc("pr-2 ")>
+            <div className=%twc("pr-2 font-semibold")>
               <Lang.String
                 english="Family benefits monthly amount:"
                 french=`Montant mensuel des allocations familiales :`
@@ -439,7 +439,8 @@ module Simulator = {
             </div>
             <div className=%twc("flex flex-row justify-center")>
               <div className=%twc("font-bold whitespace-nowrap")>
-                {React.float(amount)} {React.string(` €`)}
+                <span className=%twc("text-mb font-mono")> {React.float(amount)} </span>
+                {React.string(` €`)}
               </div>
             </div>
           </>

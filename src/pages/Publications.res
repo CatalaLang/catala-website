@@ -205,6 +205,7 @@ module PubItem = {
       <div className=%twc("inline-flex flex-row justify-start items-center")>
         {pub.authors
         ->Belt.Array.mapWithIndex((i, author) => {
+          let key = "pub-author-" ++ i->string_of_int
           let style =
             %twc(
               "px-4 rounded-xl font-semibold bg-primary_light \
@@ -216,10 +217,10 @@ module PubItem = {
             }
           switch author.website {
           | Some(target) =>
-            <Link.Text className={style ++ " hover:bg-secondary hover:text-background"} target>
+            <Link.Text key className={style ++ " hover:bg-secondary hover:text-background"} target>
               {author.name->React.string}
             </Link.Text>
-          | None => <span className=style> {author.name->React.string} </span>
+          | None => <span key className=style> {author.name->React.string} </span>
           }
         })
         ->React.array}
@@ -243,7 +244,11 @@ module PubItems = {
         "flex flex-col justify-center content-center border-solid border \
         rounded border-gray bg-gray_light p-4"
       )>
-      {items->Belt.Array.map(item => <PubItem pub=item />)->React.array}
+      {items
+      ->Belt.Array.mapWithIndex((i, item) =>
+        <PubItem key={"pub-item-" ++ i->string_of_int} pub=item />
+      )
+      ->React.array}
     </div>
   }
 }

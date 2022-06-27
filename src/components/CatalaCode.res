@@ -48,7 +48,7 @@ module Ids = {
   let make = (~ids: array<string>) => {
     ids
     ->Belt.Array.mapWithIndex((i, s) => {
-      <>
+      <span key={"code-id-" ++ i->string_of_int}>
         {if i > 0 {
           <span className="op"> {"."->React.string} </span>
         } else {
@@ -59,7 +59,7 @@ module Ids = {
         } else {
           <span className=%twc("text-nc font-bold")> {s->React.string} </span>
         }}
-      </>
+      </span>
     })
     ->React.array
   }
