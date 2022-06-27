@@ -115,7 +115,11 @@ let scrollToAndHighlightLineNum: (Dom.element, array<string>) => unit = %raw(`
 module rec LogEventComponent: {
   module VarComputation: {
     @react.component
-    let make: (~varDef: var_def, ~kindIcon: React.element=?) => React.element
+    let make: (
+      ~varDef: var_def,
+      ~printHeadings: bool=?,
+      ~kindIcon: React.element=?,
+    ) => React.element
   }
   module SubScopeCall: {
     @react.component
@@ -165,16 +169,16 @@ module rec LogEventComponent: {
               %twc(" border-b")
             }}>
             <Flex.Row.AlignTop style=%twc("w-full justify-between pr-2")>
-              <a className=%twc("cursor-pointer rounded ") onClick={_ => setIsOpen(_ => !isOpen)}>
-                <Flex.Row.AlignTop style=%twc("w-full cursor-pointer")>
+              <Flex.Row.AlignTop style=%twc("w-full")>
+                <a className=%twc("cursor-pointer rounded") onClick={_ => setIsOpen(_ => !isOpen)}>
                   {if isOpen {
                     <Icon className=toggleStyle name="arrow_drop_down" />
                   } else {
                     <Icon className=toggleStyle name="arrow_right" />
                   }}
-                  headerContent
-                </Flex.Row.AlignTop>
-              </a>
+                </a>
+                headerContent
+              </Flex.Row.AlignTop>
               kindIcon
             </Flex.Row.AlignTop>
             {switch headerValueOpt {
@@ -194,7 +198,7 @@ module rec LogEventComponent: {
 
   module VarComputation = {
     @react.component
-    let make = (~varDef: var_def, ~kindIcon=?) => {
+    let make = (~varDef: var_def, ~printHeadings=true, ~kindIcon=?) => {
       let (allHeadings, idsOpt) = switch varDef.pos {
       | Some(pos) =>
         let ids = {
@@ -226,12 +230,25 @@ module rec LogEventComponent: {
         )
       | None => (<> </>, None)
       }
+
       let headerValue =
         <CatalaCode>
           <CatalaCode.Ids ids={varDef.name->Belt.List.toArray} />
           <CatalaCode.Op op={" = "} />
           <LogEvent.LoggedValue val={varDef.value} />
         </CatalaCode>
+
+      let headerValueOpt = if printHeadings {
+        Some(headerValue)
+      } else {
+        None
+      }
+
+      let headerContent = if printHeadings {
+        allHeadings
+      } else {
+        headerValue
+      }
 
       let kindIcon = switch kindIcon {
       | Some(icon) => icon
@@ -248,7 +265,7 @@ module rec LogEventComponent: {
         </div>
       }
 
-      <CollapsibleItem idsOpt headerContent=allHeadings headerValueOpt=Some(headerValue) kindIcon>
+      <CollapsibleItem idsOpt headerContent headerValueOpt kindIcon>
         <Flex.Column.AlignLeft>
           <div className=%twc("max-h-80 overflow-y-scroll rounded-b")>
             <div
@@ -330,7 +347,9 @@ module rec LogEventComponent: {
               {varDefs
               ->Belt.Array.reverse
               ->Belt.Array.mapWithIndex((i, varDef) =>
-                <LogEventComponent.VarComputation key={"varcomp-def-" ++ i->string_of_int} varDef />
+                <LogEventComponent.VarComputation
+                  key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
+                />
               )
               ->React.array}
               {subScopeCall.inputs
@@ -384,7 +403,7 @@ module rec LogEventComponent: {
           )>
           <Flex.Column.AlignLeft
             style=%twc("w-full bg-gray_2 text-gray_dark font-semibold py-2 rounded pr-2")>
-            <Flex.Row.Center style=%twc("w-full justify-between pl-2")>
+            <Flex.Row.AlignTop style=%twc("w-full justify-between pl-2")>
               <CatalaCode>
                 <CatalaCode.Ids ids={funCall.input.name->Belt.List.toArray} />
                 <CatalaCode.Op op={" : "} />
@@ -397,7 +416,7 @@ module rec LogEventComponent: {
                 )>
                 <Lang.String english="input" french=`entrée` />
               </div>
-            </Flex.Row.Center>
+            </Flex.Row.AlignTop>
           </Flex.Column.AlignLeft>
         </Flex.Column.AlignLeft>
 
