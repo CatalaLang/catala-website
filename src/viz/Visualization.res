@@ -20,7 +20,7 @@ module EventNavigator = {
 
   module Navigation = {
     @react.component
-    let make = (~index, ~setIndex, ~maxIndex) => {
+    let make = React.memo((~index, ~setIndex, ~maxIndex) => {
       let idx = index->getIndex
       <>
         <div
@@ -40,7 +40,7 @@ module EventNavigator = {
           </button>
         </div>
       </>
-    }
+    })
   }
 
   @react.component
@@ -198,7 +198,7 @@ module rec LogEventComponent: {
 
   module VarComputation = {
     @react.component
-    let make = (~varDef: var_def, ~printHeadings=true, ~kindIcon=?) => {
+    let make = React.memo((~varDef: var_def, ~printHeadings=true, ~kindIcon=?) => {
       let (allHeadings, idsOpt) = switch varDef.pos {
       | Some(pos) =>
         let ids = {
@@ -298,12 +298,12 @@ module rec LogEventComponent: {
           })}
         </Flex.Column.AlignLeft>
       </CollapsibleItem>
-    }
+    })
   }
 
   module SubScopeCall = {
     @react.component
-    let make = (~subScopeCall: sub_scope_call) => {
+    let make = React.memo((~subScopeCall: sub_scope_call) => {
       let (varDefs, setVarDefs) = React.useState(_ => [])
       let headerContent =
         <CatalaCode> <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} /> </CatalaCode>
@@ -371,12 +371,12 @@ module rec LogEventComponent: {
           </CollapsibleItem>
         </div>
       </CollapsibleItem>
-    }
+    })
   }
 
   module FunCall = {
     @react.component
-    let make = (~funCall: fun_call) => {
+    let make = React.memo((~funCall: fun_call) => {
       let headerContent =
         <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
       let iconStyle = %twc(
@@ -455,7 +455,7 @@ module rec LogEventComponent: {
           }}
         </div>
       </CollapsibleItem>
-    }
+    })
   }
 
   @react.component

@@ -58,18 +58,18 @@ let newLangFromOldLang = (old_lang: lang): lang =>
 
 module Element = {
   @react.component
-  let make = (~french: React.element, ~english: React.element) => {
+  let make = React.memo((~french: React.element, ~english: React.element) => {
     let (lang, _) = React.useContext(langContext)
     switch lang {
     | French => french
     | English => english
     }
-  }
+  })
 }
 
 module String = {
   @react.component
-  let make = (~french: string, ~english: string) => {
+  let make = React.memo((~french: string, ~english: string) => {
     let str = make_i18_str(~french, ~english)
     let (lang, _) = React.useContext(langContext)
     switch Belt.Map.get(str, lang) {
@@ -78,5 +78,5 @@ module String = {
       x
     | Some(str) => str
     }->React.string
-  }
+  })
 }
