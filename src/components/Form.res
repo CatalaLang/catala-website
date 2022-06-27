@@ -52,7 +52,6 @@ module Input = {
     let make = (~label, ~onChange) => {
       <div className=%twc("flex flex-row items-center mx-4")>
         <label className=labelStyle> label </label>
-        // FIXME: style this
         <input className=%twc("ml-2") type_="checkbox" onChange />
       </div>
     }

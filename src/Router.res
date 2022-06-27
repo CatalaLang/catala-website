@@ -1,4 +1,3 @@
-// TODO: find a better way
 let toComposant = (elements: array<Nav.navElem>): React.element =>
   switch elements->Belt.List.fromArray {
   | list{first, second} =>
@@ -44,9 +43,7 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
     } else {
       <Presentation />
     }
-  | _ =>
-    // TODO: error 404 page not found
-    <Presentation />
+  | _ => <Presentation />
   }
 
 @react.component

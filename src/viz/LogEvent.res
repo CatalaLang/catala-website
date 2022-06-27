@@ -150,9 +150,7 @@ module Raw = {
     | "End call" => EndCall
     | "Variable definition" => VariableDefinition
     | "Decision taken" => DecisionTaken
-    | _ =>
-      // NOTE: find a better way to handle errors?
-      Js.Exn.raiseError(`Unknown event type: ${str}`)
+    | _ => Js.Exn.raiseError(`Unknown event type: ${str}`)
     }
   }
 

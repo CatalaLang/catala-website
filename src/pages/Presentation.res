@@ -1,10 +1,8 @@
-let github_link = "https://github.com/CatalaLang/catala"
-let github_link_lastest_release = "https://github.com/CatalaLang/catala/releases/tag/0.6.0"
-let catala_jurix_link = "https://hal.inria.fr/hal-02936606"
-let zulip_link = "https://zulip.catala-lang.org/"
+let githubLink = "https://github.com/CatalaLang/catala"
+let githubLinkLastestRelease = "https://github.com/CatalaLang/catala/releases/tag/0.6.0"
+let zulipLink = "https://zulip.catala-lang.org/"
 
-// TODO: clean up unused code
-let examples_card: Card.Presentation.t = {
+let examplesCard: Card.Presentation.t = {
   title: <Lang.String
     english="Closer to the source of truth" french=`Plus près de la source de vérité`
   />,
@@ -28,7 +26,7 @@ let examples_card: Card.Presentation.t = {
   />,
 }
 
-let doc_card: Card.Presentation.t = {
+let docCard: Card.Presentation.t = {
   title: <Lang.String
     english="One code, multiple execution targets"
     french=`Un seul code, plusieurs environnements d'exécution`
@@ -55,7 +53,7 @@ let doc_card: Card.Presentation.t = {
   />,
 }
 
-let legal_guide_card: Card.Presentation.t = {
+let legalGuideCard: Card.Presentation.t = {
   title: <Lang.String english="Validation from legal" french=`Sécurité juridique` />,
   icon: Some("work"),
   quote: Some(
@@ -80,7 +78,7 @@ let legal_guide_card: Card.Presentation.t = {
   />,
 }
 
-let foundations_card: Card.Presentation.t = {
+let foundationsCard: Card.Presentation.t = {
   title: <Lang.String english="Solid foundations" french=`Des fondations solides` />,
   icon: Some("functions"),
   quote: Some(
@@ -108,109 +106,15 @@ let foundations_card: Card.Presentation.t = {
   </>,
 }
 
-type imgLocation = {default: string}
+let frenchHomepage: string = %raw(`require("../../assets/french_homepage.html")`)
 
-let logo: imgLocation = %raw("require('../../assets/logo.png')")
-
-let french_homepage: string = %raw(`require("../../assets/french_homepage.html")`)
-
-let english_homepage: string = %raw(`require("../../assets/english_homepage.html")`)
-
-type link_target =
-  | External(string)
-  | Internal(array<Nav.navElem>)
-
-type link_info = {
-  target: link_target,
-  text: React.element,
-  icon: string,
-}
-
-module LinkBlock = {
-  @react.component
-  let make = (~info: link_info, ~lang) => {
-    let link_content =
-      <div
-        className=%twc(
-          "cursor-pointer bg-button_bg my-4 p-2 text-button_fg text-3xl inline-flex \
-          items-center rounded font-semibold font-sans shadow-sm \
-          hover:bg-button_bg_hover hover:text-button_fg_hover"
-        )>
-        <div className=%twc("flex flex-row flex-nowrap items-center")>
-          info.text <i className="pl-4 material-icons"> {info.icon |> React.string} </i>
-        </div>
-      </div>
-    <div>
-      {switch info.target {
-      | Internal(elements) =>
-        <a
-          className=%twc("cursor-pointer uppercase text-white")
-          onClick={_ => Nav.goTo(elements, lang)}>
-          link_content
-        </a>
-      | External(link) =>
-        <a className=%twc("cursor-pointer uppercase text-white") href=link target="_blank">
-          link_content
-        </a>
-      }}
-    </div>
-  }
-}
-
-let github_link_info: link_info = {
-  target: External(github_link),
-  text: <Lang.String english="Get started on GitHub" french=`Démarrer sur GitHub` />,
-  icon: "code",
-}
-
-let about_link_info: link_info = {
-  target: Internal([Nav.home, Nav.about]),
-  text: <Lang.String english="About the project" french=`À propos du projet` />,
-  icon: "info",
-}
-
-let publications_link_info: link_info = {
-  target: Internal([Nav.home, Nav.publications]),
-  text: <Lang.String english="Publications" french=`Publications` />,
-  icon: "content_copy",
-}
-
-let formalisation_link_info: link_info = {
-  target: Internal([Nav.home, Nav.formalization]),
-  text: <Lang.String english="Formalized specification" french=`Formalisation` />,
-  icon: "rule",
-}
-
-let zulip_link_info: link_info = {
-  target: External(zulip_link),
-  text: <Lang.String english="Join the Zulip community" french=`Rejoindre la communauté Zulip` />,
-  icon: "chat",
-}
-
-// let playground_link_info: link_info = {
-//   target: Internal([Nav.home, Nav.playground]),
-//   text: <Lang.String english="Online playground" french=`Bac à sable en ligne` />,
-//   icon: "play_circle",
-// }
-
-let doc_link_info: link_info = {
-  target: Internal([Nav.home, Nav.doc]),
-  text: <Lang.String english="Documentation" french="Documentation" />,
-  icon: "description",
-}
-
-let examples_link_info: link_info = {
-  target: Internal([Nav.home, Nav.examples]),
-  text: <Lang.String english="Catala program examples" french=`Exemples de programmes Catala` />,
-  icon: "ballot",
-}
+let englishHomepage: string = %raw(`require("../../assets/english_homepage.html")`)
 
 @react.component
 let make = () => {
   <>
     <div className=%twc("flex flex-col justify-center items-center")>
       <div className=%twc("py-16")>
-        /* <img className=%twc("block w-24 h-24") src={"/" ++ logo.default} /> */
         <p
           className=%twc(
             "text-center text-3xl text-background italic font-sans font-semibold max-w-3xl"
@@ -232,18 +136,18 @@ let make = () => {
         </Link.Internal>
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-4")
-          target={"https://zulip.catala-lang.org/login/"}>
+          target=zulipLink>
           <Lang.String english="Join us on Zulip" french=`Rejoins-nous sur Zulip` />
         </Link.Text>
       </div>
-      <Link.Button target={github_link}>
+      <Link.Button target={githubLink}>
         <Lang.String english="Get started on GitHub" french=`Démarrer sur GitHub` />
       </Link.Button>
       <div className=%twc("text-base font-sans")>
         <Lang.String english="Apache-2.0 License" french=`Apache-2.0 Licence` />
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
-          target={github_link_lastest_release}>
+          target={githubLinkLastestRelease}>
           <Lang.String english="GitHub v0.6.0" french=`GitHub v0.6.0` />
         </Link.Text>
       </div>
@@ -263,8 +167,8 @@ let make = () => {
           />
         </p>
         <Lang.Element
-          french={<CatalaCode.DangerouslySetInnerHtml html=french_homepage />}
-          english={<CatalaCode.DangerouslySetInnerHtml html=english_homepage />}
+          french={<CatalaCode.DangerouslySetInnerHtml html=frenchHomepage />}
+          english={<CatalaCode.DangerouslySetInnerHtml html=englishHomepage />}
         />
       </div>
       <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pt-8")>
@@ -272,9 +176,7 @@ let make = () => {
       </div>
     </div>
     <div className=%twc("pb-10 pt-4")>
-      <Card.Presentation.FromList
-        cards=[examples_card, doc_card, legal_guide_card, foundations_card]
-      />
+      <Card.Presentation.FromList cards=[examplesCard, docCard, legalGuideCard, foundationsCard] />
     </div>
   </>
 }

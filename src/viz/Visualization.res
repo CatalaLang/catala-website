@@ -377,8 +377,6 @@ module rec LogEventComponent: {
   module FunCall = {
     @react.component
     let make = React.memo((~funCall: fun_call) => {
-      let headerContent =
-        <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
       let iconStyle = %twc(
         "px-2 font-semibold text-rainforest border border-rainforest rounded bg-rainforest_50"
       )
@@ -387,14 +385,8 @@ module rec LogEventComponent: {
           {<Lang.String english="function" french=`fonction` />}
         </div>
 
-      //TODO: potential refactoring
-      let contentHeaderContent =
-        <Flex.Row.AlignTop>
-          <p className=%twc("w-full text-gray_dark font-bold pr-4")>
-            <Lang.String english="Content of" french=`Contenu de` />
-          </p>
-          <div className=%twc("opacity-50")> headerContent </div>
-        </Flex.Row.AlignTop>
+      let headerContent =
+        <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
 
       let functionInput =
         <Flex.Column.AlignLeft
@@ -437,7 +429,7 @@ module rec LogEventComponent: {
           functionInput
           functionOutput
           {if 0 < funCall.body->Belt.List.length {
-            <CollapsibleItem headerContent=contentHeaderContent>
+            <CollapsibleItem headerContent>
               <Flex.Column.AlignLeft
                 style=%twc(
                   "w-full max-h-screen overflow-y-scroll px-4 pb-4 border-t border-b border-gray bg-gray_light"
