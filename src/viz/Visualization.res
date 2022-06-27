@@ -1,6 +1,10 @@
 open PageComponents
 open LogEvent
 
+/*
+  React component used to navigate through an array of [event]. Furthermore, it
+  stores already visited [var_def] -- via a setter in props.
+*/
 module EventNavigator = {
   type index =
     | Prev(int)
@@ -18,6 +22,7 @@ module EventNavigator = {
     ease-out duration-150"
   )
 
+  /* React component used to increase or decrease the navitgator index. */
   module Navigation = {
     @react.component
     let make = React.memo((~index, ~setIndex, ~maxIndex) => {
@@ -78,19 +83,11 @@ module EventNavigator = {
   }
 }
 
-module Box = {
-  @react.component
-  let make = (~children) => {
-    <div
-      className=%twc(
-        "text-background my-4 p-2 border bg-gray_light border-gray rounded \
-        shadow-sm"
-      )>
-      children
-    </div>
-  }
-}
-
+/*
+  [scrollToAndHighlightLineNum(parentElem, ids)] scrolls into the corresponding
+  Catala code line of [ids] inside the [parentElem] DOM element and highlight the
+  line numbers.
+ */
 let scrollToAndHighlightLineNum: (Dom.element, array<string>) => unit = %raw(`
   function(parentElem, ids) {
     if (null != parent) {
@@ -112,6 +109,12 @@ let scrollToAndHighlightLineNum: (Dom.element, array<string>) => unit = %raw(`
   }
 `)
 
+/*
+  React component to render an [event].
+
+  Use internal React components for rendering specific event types:
+  [VarComputation], [FunCall] and [SubScopeCall].
+*/
 module rec LogEventComponent: {
   module VarComputation: {
     @react.component
@@ -121,10 +124,6 @@ module rec LogEventComponent: {
       ~kindIcon: React.element=?,
     ) => React.element
   }
-  module SubScopeCall: {
-    @react.component
-    let make: (~subScopeCall: sub_scope_call) => React.element
-  }
   module FunCall: {
     @react.component
     let make: (~funCall: fun_call) => React.element
@@ -132,13 +131,19 @@ module rec LogEventComponent: {
   @react.component
   let make: (~event: event) => React.element
 } = {
+  /* Base React component used to render collapsible item. */
   module CollapsibleItem = {
     @react.component
     let make = (
+      // optional array of ids used to highlight the corresponding code lines.
       ~idsOpt=None,
+      // content of the header -- always visible.
       ~headerContent,
+      // optional value to display below the [headerContent].
       ~headerValueOpt=None,
+      // optional React element to display to the top-right corner of the item.
       ~kindIcon=<> </>,
+      // content of the item -- visible only when the item is expanded.
       ~children,
     ) => {
       let (isOpen, setIsOpen) = React.useState(_ => false)
@@ -196,9 +201,18 @@ module rec LogEventComponent: {
     }
   }
 
+  /*
+    React component used to render variable computation which includes:
+    variable definitions, subscope and function input/output definitions.
+ */
   module VarComputation = {
     @react.component
-    let make = React.memo((~varDef: var_def, ~printHeadings=true, ~kindIcon=?) => {
+    let make = React.memo((// variable definition to render
+    ~varDef: var_def,
+    // whether to print all law headings or not
+    ~printHeadings=true,
+    // optional React element to display to the top-right corner of the item -- see [CollapsibleItem].
+    ~kindIcon=?) => {
       let (allHeadings, idsOpt) = switch varDef.pos {
       | Some(pos) =>
         let ids = {
@@ -301,9 +315,11 @@ module rec LogEventComponent: {
     })
   }
 
+  /* React component used to render subscope calls. */
   module SubScopeCall = {
     @react.component
     let make = React.memo((~subScopeCall: sub_scope_call) => {
+      // Stores all already visited variables definitions in the current subscope call.
       let (varDefs, setVarDefs) = React.useState(_ => [])
       let headerContent =
         <CatalaCode> <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} /> </CatalaCode>
@@ -312,21 +328,20 @@ module rec LogEventComponent: {
       )
       let kindIcon = <div className={iconStyle ++ %twc(" italic")}> {"scope"->React.string} </div>
 
-      let inputHeaderContent =
+      let getHeaderContent = (label: React.element) => {
         <Flex.Row.Center>
-          <p className=%twc("w-full text-gray_dark font-bold pr-4")>
-            <Lang.String english="Definitions of" french=`Définitions de` />
-          </p>
+          <p className=%twc("w-full text-gray_dark font-bold pr-4")> label </p>
           <div className=%twc("opacity-70")> headerContent </div>
         </Flex.Row.Center>
+      }
 
-      let contentHeaderContent =
-        <Flex.Row.AlignTop>
-          <p className=%twc("w-full text-gray_dark font-bold pr-4")>
-            <Lang.String english="Content of" french=`Contenu de` />
-          </p>
-          <div className=%twc("opacity-70")> headerContent </div>
-        </Flex.Row.AlignTop>
+      let inputHeaderContent = getHeaderContent(
+        <Lang.String english="Definitions of" french=`Définitions de` />,
+      )
+
+      let contentHeaderContent = getHeaderContent(
+        <Lang.String english="Content of" french=`Contenu de` />,
+      )
 
       <CollapsibleItem headerContent kindIcon>
         <div className=%twc("w-full px-4 pb-4")>
@@ -344,29 +359,35 @@ module rec LogEventComponent: {
               style=%twc(
                 "w-full max-h-screen overflow-y-scroll px-4 pb-4 border-t border-b border-gray bg-gray_light"
               )>
-              {varDefs
-              ->Belt.Array.reverse
-              ->Belt.Array.mapWithIndex((i, varDef) =>
-                <LogEventComponent.VarComputation
-                  key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
-                />
-              )
-              ->React.array}
-              {subScopeCall.inputs
-              ->Belt.List.toArray
-              ->Belt.Array.mapWithIndex((i, varDef) =>
-                <LogEventComponent.VarComputation
-                  key={"varcomp-subscope-input-" ++ i->string_of_int}
-                  varDef
-                  kindIcon={<div
-                    className=%twc(
-                      "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
-                    )>
-                    <Lang.String english="input" french=`entrée` />
-                  </div>}
-                />
-              )
-              ->React.array}
+              {
+                // Already visited variables definitions rendered in a compact format.
+                varDefs
+                ->Belt.Array.reverse
+                ->Belt.Array.mapWithIndex((i, varDef) =>
+                  <LogEventComponent.VarComputation
+                    key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
+                  />
+                )
+                ->React.array
+              }
+              {
+                // Subscope input variables definitions.
+                subScopeCall.inputs
+                ->Belt.List.toArray
+                ->Belt.Array.mapWithIndex((i, varDef) =>
+                  <LogEventComponent.VarComputation
+                    key={"varcomp-subscope-input-" ++ i->string_of_int}
+                    varDef
+                    kindIcon={<div
+                      className=%twc(
+                        "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
+                      )>
+                      <Lang.String english="input" french=`entrée` />
+                    </div>}
+                  />
+                )
+                ->React.array
+              }
             </Flex.Column.AlignLeft>
           </CollapsibleItem>
         </div>
@@ -374,6 +395,7 @@ module rec LogEventComponent: {
     })
   }
 
+  /* React component used to function calls. */
   module FunCall = {
     @react.component
     let make = React.memo((~funCall: fun_call) => {
@@ -389,6 +411,7 @@ module rec LogEventComponent: {
         <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
 
       let functionInput =
+        // Function input doesn't have source code position, so we use a custom React element.
         <Flex.Column.AlignLeft
           style=%twc(
             "border-solid border-secondary border rounded mt-4 hover:border-gray_dark shadow"
@@ -469,8 +492,7 @@ module type LOGGABLE = {
 
 module Make = (Simulator: LOGGABLE) => {
   @react.component
-  let make = (~currentPage: array<Nav.navElem>) => {
-    ignore(currentPage)
+  let make = () => {
     let (eventsOpt: option<array<event>>, setEventsOpt) = React.useState(_ => None)
 
     <>

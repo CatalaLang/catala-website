@@ -39,7 +39,7 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       third == Nav.frenchFamilyBenefitsExample &&
       fourth == Nav.visualization
     ) {
-      <FrenchFamilyBenefitsExample.Visualizer currentPage=elements />
+      <FrenchFamilyBenefitsExample.Visualizer />
     } else {
       <Presentation />
     }

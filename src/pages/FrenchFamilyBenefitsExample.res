@@ -223,7 +223,7 @@ module Simulator = {
           <div
             className=%twc(
               "flex flex-row flex-wrap justify-around rounded border border-gray shadow-sm \
-               bg-gray_light py-4 mt-4"
+               bg-gray_light py-4 mt-4 shadow"
             )>
             <div className=%twc("flex flex-col mx-4")>
               <Input.Num
@@ -426,7 +426,7 @@ module Simulator = {
         className=%twc(
           "inline-flex flex-col justify-center place-items-center \
           my-4 border border-gray border-solid rounded p-4 shadow-sm \
-          bg-gray_light text-gray_dark"
+          bg-gray_light text-gray_dark shadow"
         )>
         {switch computeAllocationsFamiliales(formOutput) {
         | Error(msg) => <div className=%twc("font-bold")> msg </div>
