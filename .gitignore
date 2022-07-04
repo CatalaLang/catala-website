@@ -7,3 +7,4 @@ npm-debug.log
 *.bs.js
 build/
 .tailwind_ppx_cache/
+.vscode

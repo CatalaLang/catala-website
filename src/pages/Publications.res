@@ -148,6 +148,27 @@ let crcl_2021 = {
 ",
 }
 
+let crcl_2022 = {
+  title: `Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits`,
+  authors: [denisMerigoux, marieAlauzen, lilyaSlimani],
+  date: `2022`,
+  link: "https://hal.inria.fr/hal-03712130",
+  citation: `Denis Merigoux, Marie Alauzen, Lilya Slimani. Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits. 2022.`,
+  abstract: None,
+  bibtex: "@unpublished{merigoux:hal-03712130,
+  TITLE = {{Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits}},
+  AUTHOR = {Merigoux, Denis and Alauzen, Marie and Slimani, Lilya},
+  URL = {https://hal.inria.fr/hal-03712130},
+  NOTE = {working paper or preprint},
+  YEAR = {2022},
+  MONTH = Jul,
+  KEYWORDS = {legal expert systems ; welfare state ; critical code studies ; regulatory law},
+  PDF = {https://hal.inria.fr/hal-03712130/file/main.pdf},
+  HAL_ID = {hal-03712130},
+  HAL_VERSION = {v1},
+}",
+}
+
 let icfp2021 = {
   title: `Catala: a programming language for the law`,
   authors: [denisMerigoux, nicolasChataing, jonathanProtzenko],
@@ -271,7 +292,7 @@ let make = () => <>
       <PubItems items={[iafipu2020]} />
     </Section>
     <Section title={<Lang.String english="Preprints" french=`Pré-prints` />}>
-      <PubItems items={[ai_law_2022, crcl_2021]} />
+      <PubItems items={[crcl_2022, ai_law_2022, crcl_2021]} />
     </Section>
   </div>
 </>

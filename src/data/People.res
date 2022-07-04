@@ -27,6 +27,15 @@ let marieAlauzen = {
   },
 }
 
+let lilyaSlimani = {
+  name: "Lilya Slimani",
+  website: None,
+  affiliation: {
+    name: "Inria - Prosecco",
+    url: "https://team.inria.fr/prosecco/",
+  },
+}
+
 let nicolasChataing = {
   name: "Nicolas Chataing",
   website: Some("https://github.com/skodt"),

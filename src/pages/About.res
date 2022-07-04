@@ -115,6 +115,7 @@ let make = () => <>
   </Section>
   <Section title={<Lang.String english="Alumni" french=`Alumni` />}>
     <ul className=%twc("list-disc list-inside")> <Person person=nicolasChataing /> </ul>
+    <ul className=%twc("list-disc list-inside")> <Person person=lilyaSlimani /> </ul>
   </Section>
   <Section
     title={<Lang.String
