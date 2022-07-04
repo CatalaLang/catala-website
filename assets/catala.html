@@ -78,6 +78,8 @@ Input language among: en, fr, pl&#46;
 Run compiler optimizations&#46;
 <DT><B>&#45;p</B> <I>DIGITS</I>, <B>&#45;&#45;max_digits_printed</B>=<I>DIGITS</I><DD>
 Maximum number of significant digits printed for decimal results (default 20)&#46;
+<DT><B>&#45;&#45;plugin&#45;dir</B>=<I>DIR</I> (absent <B>CATALA_PLUGINS</B> env)<DD>
+Set the given directory to be searched for backend plugins&#46;
 <DT><B>&#45;s</B> <I>SCOPE</I>, <B>&#45;&#45;scope</B>=<I>SCOPE</I><DD>
 Scope to be focused on&#46;
 <DT><B>&#45;t</B>, <B>&#45;&#45;trace</B><DD>
@@ -115,6 +117,16 @@ on command line parsing errors&#46;
 on unexpected internal errors (bugs)&#46;
 </DL>
 <A NAME="lbAJ">&nbsp;</A>
+<H2>ENVIRONMENT</H2>
+
+<P>
+
+These environment variables affect the execution of <B>catala</B>:
+<DL COMPACT>
+<DT><B>CATALA_PLUGINS</B><DD>
+Set the given directory to be searched for backend plugins&#46;
+</DL>
+<A NAME="lbAK">&nbsp;</A>
 <H2>AUTHORS</H2>
 
 <P>
@@ -138,7 +150,7 @@ Denis Merigoux &lt;denis&#46;<A HREF="mailto:merigoux@inria">merigoux@inria</A>&
 <P>
 
 Emile Rolley &lt;<A HREF="mailto:erolley@tutamail">erolley@tutamail</A>&#46;com&gt;
-<A NAME="lbAK">&nbsp;</A>
+<A NAME="lbAL">&nbsp;</A>
 <H2>EXAMPLES</H2>
 
 <P>
@@ -153,7 +165,7 @@ catala Interpret &#45;s Foo file&#46;catala_en
 catala Ocaml &#45;o target/file&#46;ml file&#46;catala_en
 </PRE>
 
-<A NAME="lbAL">&nbsp;</A>
+<A NAME="lbAM">&nbsp;</A>
 <H2>BUGS</H2>
 
 <P>
@@ -162,3 +174,4 @@ Please file bug reports at <A HREF="https://github">https://github</A>&#46;com/C
 
 <HR>
 <A NAME="index">&nbsp;</A><H2>Index</H2>
+<DL>
