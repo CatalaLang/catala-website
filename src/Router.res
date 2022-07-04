@@ -1,4 +1,4 @@
-let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
+let toComposant = (elements: array<Nav.navElem>): React.element =>
   switch elements->Belt.List.fromArray {
   | list{first, second} =>
     if first == Nav.home && second == Nav.about {
@@ -19,10 +19,6 @@ let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
   | list{first, second, third} =>
     if first == Nav.home && (second == Nav.doc && third == Nav.catalaManPage) {
       <Doc.CatalaManPage />
-    } else if first == Nav.home && (second == Nav.doc && third == Nav.ocamlDocs) {
-      <Doc.OCamlDocs />
-    } else if first == Nav.home && (second == Nav.doc && third == Nav.syntaxCheatSheet) {
-      <Doc.SyntaxSheatCheet />
     } else if (
       first == Nav.home && (second == Nav.examples && third == Nav.frenchFamilyBenefitsExample)
     ) {
@@ -36,11 +32,22 @@ let navElemToComposant = (elements: array<Nav.navElem>): React.element =>
     } else {
       <Presentation />
     }
+  | list{first, second, third, fourth} =>
+    if (
+      first == Nav.home &&
+      second == Nav.examples &&
+      third == Nav.frenchFamilyBenefitsExample &&
+      fourth == Nav.visualization
+    ) {
+      <FrenchFamilyBenefitsExample.Visualizer />
+    } else {
+      <Presentation />
+    }
   | _ => <Presentation />
   }
 
 @react.component
 let make = () => {
   let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
-  navElemToComposant(navs)
+  navs->toComposant
 }

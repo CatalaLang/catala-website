@@ -1,12 +1,15 @@
 open PageComponents
 
-let card: Card.Presentation.t = {
-  title: <Lang.String
+let pageTitle =
+  <Lang.String
     english="English tutorial for Catala developers"
     french=`Catala: tutoriel pour programmeurs anglophones`
-  />,
+  />
+
+let card: Card.Presentation.t = {
+  title: pageTitle,
   action: Some((
-    [Nav.home, Nav.examples, Nav.tutorialEnExample],
+    Internal([Nav.home, Nav.examples, Nav.tutorialEnExample]),
     <Lang.String english="See the tutorial" french=`Voir le tutoriel` />,
   )),
   icon: None,
@@ -24,16 +27,6 @@ let card: Card.Presentation.t = {
 
 @react.component
 let make = () => <>
-  <Title>
-    <Lang.String
-      english="English tutorial for Catala developers"
-      french=`Catala: tutoriel pour programmeurs anglophones`
-    />
-  </Title>
-  <div
-    className="catala-code"
-    dangerouslySetInnerHTML={
-      "__html": %raw(`require("../../assets/tutorial_en.html")`),
-    }
-  />
+  <Title> pageTitle </Title>
+  <CatalaCode.DangerouslySetInnerHtml html=%raw(`require("../../assets/tutorial_en.html")`) />
 </>

@@ -2,21 +2,31 @@ type lang =
   | French
   | English
 
-let lang_num = (l: lang): int =>
+let toNum = (l: lang): int =>
   switch l {
   | French => 0
   | English => 1
   }
 
-let lang_url = (l: lang): string =>
+let toUrl = (l: lang): string =>
   switch l {
   | French => "fr"
   | English => "en"
   }
 
+let fromUrl = (s: string): option<lang> => {
+  if s == toUrl(English) {
+    Some(English)
+  } else if s == toUrl(French) {
+    Some(French)
+  } else {
+    None
+  }
+}
+
 module LangCmp = Belt.Id.MakeComparable({
   type t = lang
-  let cmp = (a, b) => lang_num(a) - lang_num(b)
+  let cmp = (a, b) => toNum(a) - toNum(b)
 })
 
 type i18n_str = Belt.Map.t<lang, string, LangCmp.identity>
@@ -39,7 +49,7 @@ module Context = {
   let make = React.Context.provider(langContext)
 }
 
-let new_lang_from_old_lang = (old_lang: lang): lang =>
+let newLangFromOldLang = (old_lang: lang): lang =>
   if old_lang == English {
     French
   } else {
@@ -48,25 +58,25 @@ let new_lang_from_old_lang = (old_lang: lang): lang =>
 
 module Element = {
   @react.component
-  let make = (~french: React.element, ~english: React.element) => {
-    let (lang, _setLang) = React.useContext(langContext)
+  let make = React.memo((~french: React.element, ~english: React.element) => {
+    let (lang, _) = React.useContext(langContext)
     switch lang {
     | French => french
     | English => english
     }
-  }
+  })
 }
 
 module String = {
   @react.component
-  let make = (~french: string, ~english: string) => {
+  let make = React.memo((~french: string, ~english: string) => {
     let str = make_i18_str(~french, ~english)
-    let (lang, _setLang) = React.useContext(langContext)
+    let (lang, _) = React.useContext(langContext)
     switch Belt.Map.get(str, lang) {
     | None =>
       let (_, x) = Belt.List.headExn(Belt.Map.toList(str))
       x
     | Some(str) => str
     }->React.string
-  }
+  })
 }

@@ -32,7 +32,7 @@
   ],
   "ppx-flags": [
     "decco/ppx",
-    ["@dylanirlbeck/tailwind-ppx/tailwind-ppx", "-path src/css/tailwind.css"]
+    ["@greenlabs/res-tailwindcss/ppx", "--path src/css/tailwind.css"]
   ],
   "refmt": 3
 }
