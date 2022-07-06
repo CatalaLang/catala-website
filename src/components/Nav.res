@@ -43,6 +43,11 @@ let frenchFamilyBenefitsExample: navElem = {
   text: <Lang.String english="Family benefits" french=`Allocations familiales` />,
 }
 
+let frenchHousingBenefitsExample: navElem = {
+  url: "housing-benefits",
+  text: <Lang.String english="Housing benefits" french=`Aides au logement` />,
+}
+
 let usTaxCode: navElem = {
   url: "us-tax-code",
   text: <Lang.String english="US Tax" french=`Impôts US` />,
@@ -110,6 +115,7 @@ let urlToNavElem = (url: ReasonReactRouter.url): (option<Lang.lang>, array<navEl
     let getSecondNavElems: string => option<array<navElem>> = {
       getNavElemsFrom([
         frenchFamilyBenefitsExample,
+        frenchHousingBenefitsExample,
         usTaxCode,
         tutorialEnExample,
         tutorialFrExample,

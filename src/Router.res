@@ -23,6 +23,10 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       first == Nav.home && (second == Nav.examples && third == Nav.frenchFamilyBenefitsExample)
     ) {
       <FrenchFamilyBenefitsExample />
+    } else if (
+      first == Nav.home && (second == Nav.examples && third == Nav.frenchHousingBenefitsExample)
+    ) {
+      <FrenchHousingBenefitsExample />
     } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorialEnExample) {
       <TutorialEnExample />
     } else if first == Nav.home && (second == Nav.examples && third == Nav.tutorialFrExample) {
