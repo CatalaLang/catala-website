@@ -1,33 +1,33 @@
 var webpack = require('webpack');
-const path = require("path")
-const HtmlWebpackPlugin = require("html-webpack-plugin")
-const CopyPlugin = require('copy-webpack-plugin')
-const outputDir = path.join(__dirname, "build/")
-const FaviconsWebpackPlugin = require('favicons-webpack-plugin')
-const isProd = process.env.NODE_ENV === "production"
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
+const outputDir = path.join(__dirname, 'build/');
+const FaviconsWebpackPlugin = require('favicons-webpack-plugin');
+const isProd = process.env.NODE_ENV === 'production';
 
 var catala = {
-  entry: "./src/Index.bs.js",
-  mode: isProd ? "production" : "development",
+  entry: './src/Index.bs.js',
+  mode: isProd ? 'production' : 'development',
   resolve: {
     alias: {
-      'fs': 'browserfs/dist/shims/fs.js',
-      'buffer': 'browserfs/dist/shims/buffer.js',
-      'path': 'browserfs/dist/shims/path.js',
-      'processGlobal': 'browserfs/dist/shims/process.js',
-      'bufferGlobal': 'browserfs/dist/shims/bufferGlobal.js',
-      'bfsGlobal': require.resolve('browserfs'),
-      'child_process': 'browser-builtins/builtin/child_process.js',
-    },
+      fs: 'browserfs/dist/shims/fs.js',
+      buffer: 'browserfs/dist/shims/buffer.js',
+      path: 'browserfs/dist/shims/path.js',
+      processGlobal: 'browserfs/dist/shims/process.js',
+      bufferGlobal: 'browserfs/dist/shims/bufferGlobal.js',
+      bfsGlobal: require.resolve('browserfs'),
+      child_process: 'browser-builtins/builtin/child_process.js'
+    }
   },
-  devtool: "source-map",
+  devtool: 'source-map',
   output: {
     path: outputDir,
-    filename: "Index.js",
+    filename: 'Index.js'
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "src/index.html",
+      template: 'src/index.html',
       inject: true
     }),
     new FaviconsWebpackPlugin({
@@ -44,14 +44,16 @@ var catala = {
       }
     }),
     new CopyPlugin({
-      patterns: [
-        { from: './assets/ocaml_docs', to: 'ocaml_docs' },
-      ],
+      patterns: [{ from: './assets/ocaml_docs', to: 'ocaml_docs' }]
     }),
     // Expose BrowserFS, process, and Buffer globals.
     // NOTE: If you intend to use BrowserFS in a script tag, you do not need
     // to expose a BrowserFS global.
-    new webpack.ProvidePlugin({ BrowserFS: 'bfsGlobal', process: 'processGlobal', Buffer: 'bufferGlobal' })
+    new webpack.ProvidePlugin({
+      BrowserFS: 'bfsGlobal',
+      process: 'processGlobal',
+      Buffer: 'bufferGlobal'
+    })
   ],
   node: {
     process: true,
@@ -68,28 +70,26 @@ var catala = {
     rules: [
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"]
+        use: ['style-loader', 'css-loader']
       },
       {
         test: /\.html$/,
-        use: ["html-loader"]
+        use: ['html-loader']
       },
       {
         test: /\.catala_en/,
-        use: ["raw-loader"]
+        use: ['raw-loader']
       },
       {
         test: /\.catala_fr/,
-        use: ["raw-loader"]
+        use: ['raw-loader']
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
-        use: [
-          "file-loader?name=assets/[name].[ext]"
-        ],
-      },
+        use: ['file-loader?name=assets/[name].[ext]']
+      }
     ]
   }
-}
+};
 
 module.exports = catala;

@@ -2,6 +2,9 @@ module.exports = {
   content: ["./src/**/*.res"],
   theme: {
     extend: {
+      screens: {
+	'sm': '740px',
+      },
       fontFamily: {
         sans: [
           "Inter",
