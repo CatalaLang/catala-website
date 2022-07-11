@@ -4,7 +4,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          "Open Sans",
+          "Inter",
           "sans-serif"
         ],
         mono: [
