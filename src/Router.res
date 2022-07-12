@@ -53,5 +53,6 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
 @react.component
 let make = () => {
   let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
+	%raw(`window.scrollTo({top:0})`)
   navs->toComposant
 }

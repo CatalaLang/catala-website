@@ -206,7 +206,7 @@ module PubItem = {
   let make = (~pub: publication) =>
     <div className=%twc("flex flex-col justify-center")>
       <div className=%twc("inline-flex flex-row justify-between items-center")>
-        <div className=%twc("my-2")>
+        <div className=%twc("")>
           <Link.Text className=%twc("font-semibold text-xl hover:text-green") target=pub.link>
             {pub.title->React.string}
           </Link.Text>
@@ -214,8 +214,8 @@ module PubItem = {
             {pub.date->React.string}
           </span>
         </div>
-        <div className=%twc("inline-flex self-end ")>
-          <Button.Small style=%twc("mr-2") onClick={_ => save_to_clipboard(pub.bibtex)}>
+        <div className=%twc("inline-flex self-start mt-1")>
+          <Button.Small style=%twc("mx-2") onClick={_ => save_to_clipboard(pub.bibtex)}>
             <span> {"BibTeX"->React.string} </span>
           </Button.Small>
           <Button.Small onClick={_ => save_to_clipboard(pub.citation)}>
@@ -223,22 +223,21 @@ module PubItem = {
           </Button.Small>
         </div>
       </div>
-      <div className=%twc("inline-flex flex-row justify-start items-center")>
+      <div className=%twc("inline-flex flex-row flex-wrap justify-start items-center")>
         {pub.authors
         ->Belt.Array.mapWithIndex((i, author) => {
           let key = "pub-author-" ++ i->string_of_int
           let style =
             %twc(
-              "px-4 rounded-xl font-semibold bg-primary_light \
-                  shadow-sm text-background"
+              "px-4 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray shadow-sm text-gray_dark"
             ) ++ if i > 0 {
-              %twc(" ml-2")
+              %twc("")
             } else {
               ""
             }
           switch author.website {
           | Some(target) =>
-            <Link.Text key className={style ++ " hover:bg-secondary hover:text-background"} target>
+            <Link.Text key className={style ++ " hover:bg-primary_light hover:text-gray_dark"} target>
               {author.name->React.string}
             </Link.Text>
           | None => <span key className=style> {author.name->React.string} </span>
@@ -250,9 +249,9 @@ module PubItem = {
       | Some(abstract) =>
         <Box.Collapsible
           labelExpand={<Lang.String english="Show the abstract" french=`Voir l'abstract` />}>
-          <p className=%twc("text-background ")> {abstract->React.string} </p>
+          <p className=%twc("text-background")> {abstract->React.string} </p>
         </Box.Collapsible>
-      | None => <> </>
+      | None => <span className=%twc("mb-2")/>
       }}
     </div>
 }

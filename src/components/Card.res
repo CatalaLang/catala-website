@@ -58,12 +58,12 @@ module Presentation = {
             <div>
               <div
                 className=%twc(
-                  " flex flex-row flex-nowrap items-center text-3xl md:text-xl lg:text-lg pb-2 font-bold"
+                  " flex flex-row flex-nowrap items-center text-xl sm:text-2xl pb-2 font-bold"
                 )>
                 icon card.title
               </div>
               quote
-              <p className=%twc("pb-4")> card.content </p>
+              <p className=%twc("text-base sm:text-lg pb-4")> card.content </p>
             </div>
             <div className=%twc("inline-flex justify-end")> action </div>
           </div>

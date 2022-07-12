@@ -114,10 +114,10 @@ let englishHomepage: string = %raw(`require("../../assets/english_homepage.html"
 let make = () => {
   <>
     <div className=%twc("flex flex-col justify-center items-center")>
-      <div className=%twc("py-16")>
+      <div className=%twc("pt-28 pb-10")>
         <p
           className=%twc(
-            "text-center text-3xl text-background italic font-sans font-semibold max-w-3xl"
+            "text-center text-2xl sm:text-3xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
           )>
           <Lang.String
             english="\"Catala is a domain-specific programming language designed for deriving correct-by-construction
@@ -157,7 +157,7 @@ let make = () => {
         <Lang.String english="Catala in action" french=`Catala en action` />
       </div>
       <div className=%twc("w-full lg:w-3/5 border-solid")>
-        <p className=%twc("my-4 italic")>
+        <p className=%twc("text-base sm:text-lg my-4 italic")>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation.
             Here is a quick example from the US Tax Code:"
@@ -175,7 +175,7 @@ let make = () => {
         <Lang.String english="Why using Catala?" french=`Pourquoi utiliser Catala ?` />
       </div>
     </div>
-    <div className=%twc("pb-10 pt-4")>
+    <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
       <Card.Presentation.FromList cards=[examplesCard, docCard, legalGuideCard, foundationsCard] />
     </div>
   </>
