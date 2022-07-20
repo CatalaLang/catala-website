@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"><head><title>assertion_iter (catala.Surface.Ast.assertion_iter)</title><link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/><meta name="generator" content="odoc 2.1.0"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">catala</a> &#x00BB; <a href="../../index.html">Surface</a> &#x00BB; <a href="../index.html">Ast</a> &#x00BB; assertion_iter</nav><header class="odoc-preamble"><h1>Class <code><span>Ast.assertion_iter</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div><code><span>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>assertion_iter (catala.Surface.Ast.assertion_iter)</title><link rel="stylesheet" href="../../../../odoc.css"/><meta charset="utf-8"/><meta name="generator" content="odoc 2.1.1"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../../index.html">catala</a> &#x00BB; <a href="../../index.html">Surface</a> &#x00BB; <a href="../index.html">Ast</a> &#x00BB; assertion_iter</nav><header class="odoc-preamble"><h1>Class <code><span>Ast.assertion_iter</span></code></h1></header><div class="odoc-content"><div class="odoc-spec"><div><code><span>
   <span class="keyword">constraint</span>
     <span>&lt; visit_Add : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Aggregate : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-aggregate_func">aggregate_func</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -7,33 +7,36 @@
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
       <span>bool <span class="arrow">&#45;&gt;</span></span>
       <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_AggregateCount : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_AggregateExtremum : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
       <span>bool <span class="arrow">&#45;&gt;</span></span>
       <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_AggregateSum : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_And : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_ArrayLit : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> list</span> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_ArrayLit : 
+      <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+      unit
     ; visit_Binop : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-binop">binop</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-binop">binop</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Boolean : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Builtin : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-builtin_expression">builtin_expression</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Cardinal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_CollectionOp : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-collection_op">collection_op</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-collection_op">collection_op</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Concat : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -43,16 +46,16 @@
     ; visit_Div : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Dotted : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Duration : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_EnumInject : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Eq : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Exists : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -60,8 +63,8 @@
     ; visit_Forall : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_FunCall : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_GetDay : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_GetMonth : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -71,9 +74,9 @@
     ; visit_Ident : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-ident">ident</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IfThenElse : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IntToDec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -88,8 +91,8 @@
     ; visit_LMoneyAmount : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-money_amount">money_amount</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_LNumber : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-literal_number">literal_number</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-literal_unit">literal_unit</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-literal_number">literal_number</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-literal_unit">literal_unit</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Literal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal">literal</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Lt : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -98,13 +101,13 @@
     ; visit_MatchCase : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-explicit_match_case">explicit_match_case</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_MatchWith : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-match_cases">match_cases</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-match_cases">match_cases</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_MemCollection : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Minus : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Money : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -119,22 +122,24 @@
     ; visit_RoundMoney : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_StructLit : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span>(<span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> * <span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span>)</span> list</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>(<span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+       * <span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>)</span>
+        list</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Sub : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_TestMatchCase : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-match_case_pattern">match_case_pattern</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-match_case_pattern">match_case_pattern</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Text : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Unop : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-unop">unop</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-unop">unop</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
-    ; visit_WildCard : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_WildCard : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Xor : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Year : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_aggregate_func : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-aggregate_func">aggregate_func</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -150,21 +155,22 @@
     ; visit_literal_date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal_date">literal_date</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_literal_number : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal_number">literal_number</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_literal_unit : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal_unit">literal_unit</a> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_marked : 
-      'a. <span><span>( <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span> unit )</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span class="type-var">'a</span> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      unit
     ; visit_match_case : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-match_case">match_case</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_match_case_pattern : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span>(<span><span>(<span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> * <span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span>)</span>
+      <span><span>(<span><span>(<span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span>
+        * <span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>)</span>
          list</span>
-       * <span><span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+       * <span><span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span>)</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_match_cases : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-match_cases">match_cases</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_money_amount : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-money_amount">money_amount</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_op_kind : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_pos : 
+      'a. <span><span>( <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span> unit )</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <span class="type-var">'a</span>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      unit
     ; visit_primitive_typ : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_unop : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-unop">unop</a> <span class="arrow">&#45;&gt;</span></span> unit.. &gt;</span> =
     <span>&lt; visit_Add : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -173,33 +179,36 @@
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
       <span>bool <span class="arrow">&#45;&gt;</span></span>
       <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_AggregateCount : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_AggregateExtremum : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
       <span>bool <span class="arrow">&#45;&gt;</span></span>
       <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_AggregateSum : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_And : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_ArrayLit : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> list</span> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_ArrayLit : 
+      <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+      unit
     ; visit_Binop : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-binop">binop</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-binop">binop</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Boolean : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Builtin : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-builtin_expression">builtin_expression</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Cardinal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_CollectionOp : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-collection_op">collection_op</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-collection_op">collection_op</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Concat : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -209,16 +218,16 @@
     ; visit_Div : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Dotted : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Duration : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_EnumInject : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Eq : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Exists : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -226,8 +235,8 @@
     ; visit_Forall : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_FunCall : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_GetDay : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_GetMonth : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -237,9 +246,9 @@
     ; visit_Ident : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-ident">ident</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IfThenElse : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Int : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span>string <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_IntToDec : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -254,8 +263,8 @@
     ; visit_LMoneyAmount : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-money_amount">money_amount</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_LNumber : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-literal_number">literal_number</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span><a href="../index.html#type-literal_unit">literal_unit</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-literal_number">literal_number</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span><span>( <a href="../index.html#type-literal_unit">literal_unit</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Literal : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal">literal</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Lt : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -264,13 +273,13 @@
     ; visit_MatchCase : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-explicit_match_case">explicit_match_case</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_MatchWith : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-match_cases">match_cases</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-match_cases">match_cases</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_MemCollection : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Minus : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Money : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
@@ -285,22 +294,24 @@
     ; visit_RoundMoney : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_StructLit : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span>(<span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> * <span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span>)</span> list</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>(<span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+       * <span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>)</span>
+        list</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Sub : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_TestMatchCase : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-match_case_pattern">match_case_pattern</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-match_case_pattern">match_case_pattern</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_Text : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Unop : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-unop">unop</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-unop">unop</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
       unit
-    ; visit_WildCard : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span><a href="../index.html#type-expression">expression</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_WildCard : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span><span>( <a href="../index.html#type-expression">expression</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Xor : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_Year : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_aggregate_func : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-aggregate_func">aggregate_func</a> <span class="arrow">&#45;&gt;</span></span> unit
@@ -316,20 +327,21 @@
     ; visit_literal_date : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal_date">literal_date</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_literal_number : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal_number">literal_number</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_literal_unit : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-literal_unit">literal_unit</a> <span class="arrow">&#45;&gt;</span></span> unit
-    ; visit_marked : 
-      'a. <span><span>( <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span> unit )</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span><span class="type-var">'a</span> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> <span class="arrow">&#45;&gt;</span></span>
-      unit
     ; visit_match_case : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-match_case">match_case</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_match_case_pattern : 
       <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
-      <span><span>(<span><span>(<span><span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span> * <span><a href="../index.html#type-constructor">constructor</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span>)</span>
+      <span><span>(<span><span>(<span><span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span>
+        * <span><span>( <a href="../index.html#type-constructor">constructor</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>)</span>
          list</span>
-       * <span><span><a href="../index.html#type-ident">ident</a> <a href="../../../Utils/Pos/index.html#type-marked">Utils.Pos.marked</a></span> option</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+       * <span><span><span>( <a href="../index.html#type-ident">ident</a>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> option</span>)</span> <span class="arrow">&#45;&gt;</span></span>
       unit
     ; visit_match_cases : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-match_cases">match_cases</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_money_amount : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-money_amount">money_amount</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_op_kind : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-op_kind">op_kind</a> <span class="arrow">&#45;&gt;</span></span> unit
+    ; visit_pos : 
+      'a. <span><span>( <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'a</span> <span class="arrow">&#45;&gt;</span></span> unit )</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <span class="type-var">'a</span>, <a href="../../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <a href="../../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      unit
     ; visit_primitive_typ : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-primitive_typ">primitive_typ</a> <span class="arrow">&#45;&gt;</span></span> unit
     ; visit_unop : <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-unop">unop</a> <span class="arrow">&#45;&gt;</span></span> unit.. &gt;</span></span></code></div></div><div class="odoc-spec"><div class="spec inherit"><code><span><span class="keyword">inherit</span> <span class="xref-unresolved">VisitorsRuntime</span>.iter</span></code></div></div><div class="odoc-spec"><div class="spec inherit"><code><span><span class="keyword">inherit</span> <a href="../class-expression_iter/index.html">expression_iter</a></span></code></div></div><div class="odoc-spec"><div class="spec method" id="method-visit_assertion" class="anchored"><a href="#method-visit_assertion" class="anchor"></a><code><span><span class="keyword">method</span> visit_assertion : <span><span class="type-var">'d</span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'c</span> <span class="arrow">&#45;&gt;</span></span> <span><a href="../index.html#type-assertion">assertion</a> <span class="arrow">&#45;&gt;</span></span> unit</span></code></div></div></div></body></html>

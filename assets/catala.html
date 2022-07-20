@@ -1,179 +1,388 @@
+<!-- Creator     : groff version 1.22.4 -->
+<!-- CreationDate: Wed Jul 20 13:53:08 2022 -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta name="generator" content="groff -Thtml, see www.gnu.org">
+<meta http-equiv="Content-Type" content="text/html; charset=US-ASCII">
+<meta name="Content-Style" content="text/css">
+<style type="text/css">
+       p       { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       pre     { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       table   { margin-top: 0; margin-bottom: 0; vertical-align: top }
+       h1      { text-align: center }
+</style>
+<title>CATALA</title>
+
+</head>
+<body>
+
+<h1 align="center">CATALA</h1>
 
 
 
+<h2>NAME
+<a name="NAME"></a>
+</h2>
 
-<A NAME="lbAB">&nbsp;</A>
-<H2>NAME</H2>
 
-<P>
+<p style="margin-left:11%; margin-top: 1em">catala -
+Compiler for Catala, a specification language for tax and
+social benefits computation rules.</p>
 
-catala &#45; Compiler for Catala, a specification language for tax and social benefits computation rules&#46;
-<A NAME="lbAC">&nbsp;</A>
-<H2>SYNOPSIS</H2>
+<h2>SYNOPSIS
+<a name="SYNOPSIS"></a>
+</h2>
 
-<P>
 
-<B>catala</B> [<I>OPTION</I>]… <I>COMMAND</I> <I>FILE</I>
-<A NAME="lbAD">&nbsp;</A>
-<H2>DESCRIPTION</H2>
+<p style="margin-left:11%; margin-top: 1em"><b>catala</b>
+[<i>OPTION</i>]&acirc;&brvbar; <i>COMMAND FILE</i></p>
 
-<P>
+<h2>DESCRIPTION
+<a name="DESCRIPTION"></a>
+</h2>
 
-Catala is a domain&#45;specific language for deriving faithful&#45;by&#45;construction algorithms from legislative texts&#46;
-<A NAME="lbAE">&nbsp;</A>
-<H2>COMMANDS</H2>
 
-<DL COMPACT>
-<DT><B>Intepret</B><DD>
-Runs the interpreter on the Catala program, executing the scope specified by the <B>&#45;s</B> option assuming no additional external inputs&#46;
-<DT><B>Typecheck</B><DD>
-Parses and typechecks a Catala program, without interpreting it&#46;
-<DT><B>Proof</B><DD>
-Generates and proves verification conditions about the well&#45;behaved execution of the Catala program&#46;
-<DT><B>OCaml</B><DD>
-Generates an OCaml translation of the Catala program&#46;
-<DT><B>Python</B><DD>
-Generates a Python translation of the Catala program&#46;
-<DT><B>LaTeX</B><DD>
-Weaves a LaTeX literate programming output of the Catala program&#46;
-<DT><B>HTML</B><DD>
-Weaves an HTML literate programming output of the Catala program&#46;
-<DT><B>Makefile</B><DD>
-Generates a Makefile&#45;compatible list of the file dependencies of a Catala program&#46;
-<DT><B>Scopelang</B><DD>
-Prints a debugging verbatim of the scope language intermediate representation of the Catala program&#46; Use the <B>&#45;s</B> option to restrict the output to a particular scope&#46;
-<DT><B>Dcalc</B><DD>
-Prints a debugging verbatim of the default calculus intermediate representation of the Catala program&#46; Use the <B>&#45;s</B> option to restrict the output to a particular scope&#46;
-<DT><B>Lcalc</B><DD>
-Prints a debugging verbatim of the lambda calculus intermediate representation of the Catala program&#46; Use the <B>&#45;s</B> option to restrict the output to a particular scope&#46;
-<DT><B>Scalc</B><DD>
-Prints a debugging verbatim of the statement calculus intermediate representation of the Catala program&#46; Use the <B>&#45;s</B> option to restrict the output to a particular scope&#46;
-</DL>
-<A NAME="lbAF">&nbsp;</A>
-<H2>ARGUMENTS</H2>
+<p style="margin-left:11%; margin-top: 1em">Catala is a
+domain-specific language for deriving
+faithful-by-construction algorithms from legislative
+texts.</p>
 
-<DL COMPACT>
-<DT><I>COMMAND</I> (required)<DD>
-Backend selection (see the list of commands for available options)&#46;
-<DT><I>FILE</I> (required)<DD>
-Catala master file to be compiled&#46;
-</DL>
-<A NAME="lbAG">&nbsp;</A>
-<H2>OPTIONS</H2>
+<h2>COMMANDS
+<a name="COMMANDS"></a>
+</h2>
 
-<DL COMPACT>
-<DT><B>&#45;&#45;avoid_exceptions</B><DD>
-Compiles the default calculus without exceptions
-<DT><B>&#45;&#45;closure_conversion</B><DD>
-Performs closure conversion on the lambda calculus
-<DT><B>&#45;d</B>, <B>&#45;&#45;debug</B><DD>
-Prints debug information&#46;
-<DT><B>&#45;&#45;disable_counterexamples</B><DD>
-Disables the search for counterexamples in proof mode&#46; Useful when you want a deterministic output from the Catala compiler, since provers can have some randomness in them&#46;
-<DT><B>&#45;l</B> <I>LANG</I>, <B>&#45;&#45;language</B>=<I>LANG</I><DD>
-Input language among: en, fr, pl&#46;
-<DT><B>&#45;o</B> <I>OUTPUT</I>, <B>&#45;&#45;output</B>=<I>OUTPUT</I><DD>
-<I> OUTPUT</I> is the file that will contain the output of the compiler&#46; Defaults to <I>FILE</I>&#46;<I>EXT</I> where <I>EXT</I> depends on the chosen backend&#46;
-<DT><B>&#45;O</B>, <B>&#45;&#45;optimize</B><DD>
-Run compiler optimizations&#46;
-<DT><B>&#45;p</B> <I>DIGITS</I>, <B>&#45;&#45;max_digits_printed</B>=<I>DIGITS</I><DD>
-Maximum number of significant digits printed for decimal results (default 20)&#46;
-<DT><B>&#45;&#45;plugin&#45;dir</B>=<I>DIR</I> (absent <B>CATALA_PLUGINS</B> env)<DD>
-Set the given directory to be searched for backend plugins&#46;
-<DT><B>&#45;&#45;print_only_law</B><DD>
-In literate programming output, skip all code and metadata sections and print only the text of the law&#46;
-<DT><B>&#45;s</B> <I>SCOPE</I>, <B>&#45;&#45;scope</B>=<I>SCOPE</I><DD>
-Scope to be focused on&#46;
-<DT><B>&#45;t</B>, <B>&#45;&#45;trace</B><DD>
-Displays a trace of the interpreter&#39;s computation or generates logging instructions in translate programs&#46;
-<DT><B>&#45;u</B>, <B>&#45;&#45;unstyled</B><DD>
-Removes styling (colors, etc&#46;) from terminal output&#46;
-<DT><B>&#45;w</B>, <B>&#45;&#45;wrap</B><DD>
-Wraps literate programming output with a minimal preamble&#46;
-</DL>
-<A NAME="lbAH">&nbsp;</A>
-<H2>COMMON OPTIONS</H2>
 
-<DL COMPACT>
-<DT><B>&#45;&#45;help</B>[=<I>FMT</I>] (default=<B>auto</B>)<DD>
-Show this help in format <I>FMT</I>&#46; The value <I>FMT</I> must be one of <B>auto</B>, <B>pager</B>, <B>groff</B> or <B>plain</B>&#46; With <B>auto</B>, the format is <B>pager</B> or <B>plain</B> whenever the <B>TERM</B> env var is <B>dumb</B> or undefined&#46;
-<DT><B>&#45;&#45;version</B><DD>
-Show version information&#46;
-</DL>
-<A NAME="lbAI">&nbsp;</A>
-<H2>EXIT STATUS</H2>
 
-<P>
+<p style="margin-left:11%; margin-top: 1em"><b>Intepret</b></p>
 
-<B>catala</B> exits with the following status:
-<DL COMPACT>
-<DT>0<DD>
-on success&#46;
-<DT>1<DD>
-on error&#46;
-<DT>123<DD>
-on indiscriminate errors reported on standard error&#46;
-<DT>124<DD>
-on command line parsing errors&#46;
-<DT>125<DD>
-on unexpected internal errors (bugs)&#46;
-</DL>
-<A NAME="lbAJ">&nbsp;</A>
-<H2>ENVIRONMENT</H2>
+<p style="margin-left:17%;">Runs the interpreter on the
+Catala program, executing the scope specified by the
+<b>-s</b> option assuming no additional external inputs.</p>
 
-<P>
+<p style="margin-left:11%;"><b>Typecheck</b></p>
 
-These environment variables affect the execution of <B>catala</B>:
-<DL COMPACT>
-<DT><B>CATALA_PLUGINS</B><DD>
-Set the given directory to be searched for backend plugins&#46;
-</DL>
-<A NAME="lbAK">&nbsp;</A>
-<H2>AUTHORS</H2>
+<p style="margin-left:17%;">Parses and typechecks a Catala
+program, without interpreting it.</p>
 
-<P>
+<p style="margin-left:11%;"><b>Proof</b></p>
 
-The authors are listed by alphabetical order&#46;
-<P>
+<p style="margin-left:17%;">Generates and proves
+verification conditions about the well-behaved execution of
+the Catala program.</p>
 
-Nicolas Chataing &lt;nicolas&#46;chataing@ens&#46;fr&gt;
-<P>
+<p style="margin-left:11%;"><b>OCaml</b></p>
 
-Alain Delaët&#45;Tixeuil &lt;alain&#46;delaet&#45;&#45;<A HREF="mailto:tixeuil@inria">tixeuil@inria</A>&#46;fr&gt;
-<P>
+<p style="margin-left:17%;">Generates an OCaml translation
+of the Catala program.</p>
 
-Aymeric Fromherz &lt;aymeric&#46;<A HREF="mailto:fromherz@inria">fromherz@inria</A>&#46;fr&gt;
-<P>
+<p style="margin-left:11%;"><b>Python</b></p>
 
-Louis Gesbert &lt;louis&#46;<A HREF="mailto:gesbert@ocamlpro">gesbert@ocamlpro</A>&#46;com&gt;
-<P>
+<p style="margin-left:17%;">Generates a Python translation
+of the Catala program.</p>
 
-Denis Merigoux &lt;denis&#46;<A HREF="mailto:merigoux@inria">merigoux@inria</A>&#46;fr&gt;
-<P>
+<p style="margin-left:11%;"><b>LaTeX</b></p>
 
-Emile Rolley &lt;<A HREF="mailto:erolley@tutamail">erolley@tutamail</A>&#46;com&gt;
-<A NAME="lbAL">&nbsp;</A>
-<H2>EXAMPLES</H2>
+<p style="margin-left:17%;">Weaves a LaTeX literate
+programming output of the Catala program.</p>
 
-<P>
+<p style="margin-left:11%;"><b>HTML</b></p>
 
-<PRE>
-catala Interpret &#45;s Foo file&#46;catala_en
-</PRE>
+<p style="margin-left:17%;">Weaves an HTML literate
+programming output of the Catala program.</p>
 
-<P>
+<p style="margin-left:11%;"><b>Makefile</b></p>
 
-<PRE>
-catala Ocaml &#45;o target/file&#46;ml file&#46;catala_en
-</PRE>
+<p style="margin-left:17%;">Generates a Makefile-compatible
+list of the file dependencies of a Catala program.</p>
 
-<A NAME="lbAM">&nbsp;</A>
-<H2>BUGS</H2>
+<p style="margin-left:11%;"><b>Scopelang</b></p>
 
-<P>
+<p style="margin-left:17%;">Prints a debugging verbatim of
+the scope language intermediate representation of the Catala
+program. Use the <b>-s</b> option to restrict the output to
+a particular scope.</p>
 
-Please file bug reports at <A HREF="https://github">https://github</A>&#46;com/CatalaLang/catala/issues
+<p style="margin-left:11%;"><b>Dcalc</b></p>
 
-<HR>
-<A NAME="index">&nbsp;</A><H2>Index</H2>
-<DL>
+<p style="margin-left:17%;">Prints a debugging verbatim of
+the default calculus intermediate representation of the
+Catala program. Use the <b>-s</b> option to restrict the
+output to a particular scope.</p>
+
+<p style="margin-left:11%;"><b>Lcalc</b></p>
+
+<p style="margin-left:17%;">Prints a debugging verbatim of
+the lambda calculus intermediate representation of the
+Catala program. Use the <b>-s</b> option to restrict the
+output to a particular scope.</p>
+
+<p style="margin-left:11%;"><b>Scalc</b></p>
+
+<p style="margin-left:17%;">Prints a debugging verbatim of
+the statement calculus intermediate representation of the
+Catala program. Use the <b>-s</b> option to restrict the
+output to a particular scope.</p>
+
+<h2>ARGUMENTS
+<a name="ARGUMENTS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><i>COMMAND</i>
+(required)</p>
+
+<p style="margin-left:17%;">Backend selection (see the list
+of commands for available options).</p>
+
+<p style="margin-left:11%;"><i>FILE</i> (required)</p>
+
+<p style="margin-left:17%;">Catala master file to be
+compiled.</p>
+
+<h2>OPTIONS
+<a name="OPTIONS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>--avoid_exceptions</b></p>
+
+<p style="margin-left:17%;">Compiles the default calculus
+without exceptions</p>
+
+
+<p style="margin-left:11%;"><b>--closure_conversion</b></p>
+
+<p style="margin-left:17%;">Performs closure conversion on
+the lambda calculus</p>
+
+<p style="margin-left:11%;"><b>-d</b>, <b>--debug</b></p>
+
+<p style="margin-left:17%;">Prints debug information.</p>
+
+
+<p style="margin-left:11%;"><b>--disable_counterexamples</b></p>
+
+<p style="margin-left:17%;">Disables the search for
+counterexamples in proof mode. Useful when you want a
+deterministic output from the Catala compiler, since provers
+can have some randomness in them.</p>
+
+<p style="margin-left:11%;"><b>-l</b> <i>LANG</i>,
+<b>--language</b>=<i>LANG</i></p>
+
+<p style="margin-left:17%;">Input language among: en, fr,
+pl.</p>
+
+<p style="margin-left:11%;"><b>-o</b> <i>OUTPUT</i>,
+<b>--output</b>=<i>OUTPUT</i></p>
+
+<p style="margin-left:17%;"><i>OUTPUT</i> is the file that
+will contain the output of the compiler. Defaults to
+<i>FILE</i>.<i>EXT</i> where <i>EXT</i> depends on the
+chosen backend. Use <b>-o -</b> for stdout.</p>
+
+<p style="margin-left:11%;"><b>-O</b>,
+<b>--optimize</b></p>
+
+<p style="margin-left:17%;">Run compiler optimizations.</p>
+
+<p style="margin-left:11%;"><b>-p</b> <i>DIGITS</i>,
+<b>--max_digits_printed</b>=<i>DIGITS</i></p>
+
+<p style="margin-left:17%;">Maximum number of significant
+digits printed for decimal results (default 20).</p>
+
+<p style="margin-left:11%;"><b>--plugin-dir</b>=<i>DIR</i>
+(absent <b>CATALA_PLUGINS</b> env)</p>
+
+<p style="margin-left:17%;">Set the given directory to be
+searched for backend plugins.</p>
+
+<p style="margin-left:11%;"><b>--print_only_law</b></p>
+
+<p style="margin-left:17%;">In literate programming output,
+skip all code and metadata sections and print only the text
+of the law.</p>
+
+<p style="margin-left:11%;"><b>-s</b> <i>SCOPE</i>,
+<b>--scope</b>=<i>SCOPE</i></p>
+
+<p style="margin-left:17%;">Scope to be focused on.</p>
+
+<p style="margin-left:11%;"><b>-t</b>, <b>--trace</b></p>
+
+<p style="margin-left:17%;">Displays a trace of the
+interpreter's computation or generates logging instructions
+in translate programs.</p>
+
+<p style="margin-left:11%;"><b>-u</b>,
+<b>--unstyled</b></p>
+
+<p style="margin-left:17%;">Removes styling (colors, etc.)
+from terminal output.</p>
+
+<p style="margin-left:11%;"><b>-w</b>, <b>--wrap</b></p>
+
+<p style="margin-left:17%;">Wraps literate programming
+output with a minimal preamble.</p>
+
+<h2>COMMON OPTIONS
+<a name="COMMON OPTIONS"></a>
+</h2>
+
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>--help</b>[=<i>FMT</i>]
+(default=<b>auto</b>)</p>
+
+<p style="margin-left:17%;">Show this help in format
+<i>FMT</i>. The value <i>FMT</i> must be one of <b>auto</b>,
+<b>pager</b>, <b>groff</b> or <b>plain</b>. With
+<b>auto</b>, the format is <b>pager</b> or <b>plain</b>
+whenever the <b>TERM</b> env var is <b>dumb</b> or
+undefined.</p>
+
+<p style="margin-left:11%;"><b>--version</b></p>
+
+<p style="margin-left:17%;">Show version information.</p>
+
+<h2>EXIT STATUS
+<a name="EXIT STATUS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em"><b>catala</b>
+exits with the following status:</p>
+
+<table width="100%" border="0" rules="none" frame="void"
+       cellspacing="0" cellpadding="0">
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>0</p></td>
+<td width="2%"></td>
+<td width="80%">
+
+
+<p>on success.</p></td>
+<td width="3%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>1</p></td>
+<td width="2%"></td>
+<td width="80%">
+
+
+<p>on error.</p></td>
+<td width="3%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>123</p></td>
+<td width="2%"></td>
+<td width="80%">
+
+
+<p>on indiscriminate errors reported on standard error.</p></td>
+<td width="3%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>124</p></td>
+<td width="2%"></td>
+<td width="80%">
+
+
+<p>on command line parsing errors.</p></td>
+<td width="3%">
+</td></tr>
+<tr valign="top" align="left">
+<td width="11%"></td>
+<td width="4%">
+
+
+<p>125</p></td>
+<td width="2%"></td>
+<td width="80%">
+
+
+<p>on unexpected internal errors (bugs).</p></td>
+<td width="3%">
+</td></tr>
+</table>
+
+<h2>ENVIRONMENT
+<a name="ENVIRONMENT"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">These
+environment variables affect the execution of <b>catala</b>:
+<b><br>
+CATALA_PLUGINS</b></p>
+
+<p style="margin-left:17%;">Set the given directory to be
+searched for backend plugins.</p>
+
+<h2>AUTHORS
+<a name="AUTHORS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">The authors are
+listed by alphabetical order.</p>
+
+<p style="margin-left:11%; margin-top: 1em">Nicolas
+Chataing &lt;nicolas.chataing@ens.fr&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Alain
+Dela&Atilde;&laquo;t-Tixeuil
+&lt;alain.delaet--tixeuil@inria.fr&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Aymeric
+Fromherz &lt;aymeric.fromherz@inria.fr&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Louis Gesbert
+&lt;louis.gesbert@ocamlpro.com&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Denis Merigoux
+&lt;denis.merigoux@inria.fr&gt;</p>
+
+<p style="margin-left:11%; margin-top: 1em">Emile Rolley
+&lt;erolley@tutamail.com&gt;</p>
+
+<h2>EXAMPLES
+<a name="EXAMPLES"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">catala
+Interpret -s Foo file.catala_en</p>
+
+<p style="margin-left:11%; margin-top: 1em">catala Ocaml -o
+target/file.ml file.catala_en</p>
+
+<h2>BUGS
+<a name="BUGS"></a>
+</h2>
+
+
+<p style="margin-left:11%; margin-top: 1em">Please file bug
+reports at https://github.com/CatalaLang/catala/issues</p>
+</body>
+</html>
