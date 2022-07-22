@@ -24,31 +24,41 @@ let emptyChild = i => {
   aDejaOuvertDroitAllocationsFamiliales: None,
 }
 
+// Catala enumeration encoding from the JSOO wrapper
+type collectivite = {kind: string, payload: option<unit>}
+
 type allocationsFamilialesInput = {
   currentDate: option<Js.Date.t>,
   numChildren: option<int>,
   children: array<childInput>,
   income: option<int>,
-  residence: option<string>,
+  residenceKind: option<string>,
   avaitEnfantAChargeAvant1erJanvier2012: option<bool>,
 }
 
+// Catala enumeration encoding from the JSOO wrapper
+type priseEnCharge = {
+  kind: string,
+  payload: option<unit>,
+}
+
 type childInputValidated = {
-  dateNaissance: Js.Date.t,
-  id: int,
-  remunerationMensuelle: int,
-  priseEnCharge: string,
-  aDejaOuvertDroitAuxAllocationsFamiliales: bool,
+  dIdentifiant: int,
+  dRemunerationMensuelle: float,
+  dDateDeNaissance: Js.Date.t,
+  dPriseEnCharge: priseEnCharge,
+  dADejaOuvertDroitAuxAllocationsFamiliales: bool,
+  dBeneficieTitrePersonnelAidePersonnelleLogement: bool,
 }
 
 type allocationsFamilialesInputValidated = {
-  currentDate: Js.Date.t,
-  children: array<childInputValidated>,
-  income: int,
-  residence: string,
-  personneQuiAssumeLaChargeEffectivePermanenteEstParent: bool,
-  personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: bool,
-  avaitEnfantAChargeAvant1erJanvier2012: bool,
+  iDateCouranteIn: Js.Date.t,
+  iEnfantsIn: array<childInputValidated>,
+  iRessourcesMenageIn: float,
+  iResidenceIn: collectivite,
+  iPersonneChargeEffectivePermanenteEstParentIn: bool,
+  iPersonneChargeEffectivePermanenteRemplitTitreIIn: bool,
+  iAvaitEnfantAChargeAvant1erJanvier2012In: bool,
 }
 
 type sourcePosition = {
@@ -71,28 +81,46 @@ type allocationsFamilialesOutput =
   | Result(float)
   | Error(React.element)
 
+let formatResidenceKindInput = (residenceKind: string) => {
+  if residenceKind == `Métropole` {
+    `Metropole`
+  } else if residenceKind == `La Réunion` {
+    `LaReunion`
+  } else if residenceKind == `Saint Barthélemy` {
+    `SaintBarthelemy`
+  } else if residenceKind == `Saint Martin` {
+    `SaintMartin`
+  } else if residenceKind == `Saint Pierre et Miquelon` {
+    `SaintPierreEtMiquelon`
+  } else {
+    residenceKind
+  }
+}
+
 let validateInput = (input: allocationsFamilialesInput) => {
-  switch (input.currentDate, input.numChildren, input.income, input.residence) {
-  | (Some(currentDate), Some(_numChildren), Some(income), Some(residence)) =>
+  switch (input.currentDate, input.numChildren, input.income, input.residenceKind) {
+  | (Some(currentDate), Some(_numChildren), Some(income), Some(residenceKind)) =>
     let childrenValidated = input.children->Belt.Array.map(child => {
       switch (child.birthDate, child.monthlyIncome) {
       | (Some(birthDate), Some(monthlyIncome)) =>
         Some({
-          dateNaissance: birthDate,
-          id: child.id,
-          remunerationMensuelle: monthlyIncome,
-          priseEnCharge: {
+          dDateDeNaissance: birthDate,
+          dIdentifiant: child.id,
+          dRemunerationMensuelle: monthlyIncome->Belt.Int.toFloat,
+          dPriseEnCharge: {
             switch child.priseEnCharge {
-            | None => "Effective et permanente"
-            | Some(s) => s
+            | None => {kind: "EffectiveEtPermanente", payload: None}
+            | Some(kind) => {kind: kind, payload: None}
             }
           },
-          aDejaOuvertDroitAuxAllocationsFamiliales: {
+          dADejaOuvertDroitAuxAllocationsFamiliales: {
             switch child.aDejaOuvertDroitAllocationsFamiliales {
             | None | Some(false) => false
             | Some(true) => true
             }
           },
+          // TODO: add input for this field
+          dBeneficieTitrePersonnelAidePersonnelleLogement: false,
         })
       | _ => None
       }
@@ -108,14 +136,14 @@ let validateInput = (input: allocationsFamilialesInput) => {
     ) {
       let childrenValidated = childrenValidated->Belt.Array.map(Belt.Option.getExn)
       Some({
-        currentDate: currentDate,
-        income: income,
-        residence: residence,
-        children: childrenValidated,
+        iDateCouranteIn: currentDate,
+        iRessourcesMenageIn: income->Belt.Int.toFloat,
+        iResidenceIn: {kind: residenceKind->formatResidenceKindInput, payload: None},
+        iEnfantsIn: childrenValidated,
         // We assume the two below are always true
-        personneQuiAssumeLaChargeEffectivePermanenteEstParent: true,
-        personneQuiAssumeLaChargeEffectivePermanenteRemplitConditionsTitreISecuriteSociale: true,
-        avaitEnfantAChargeAvant1erJanvier2012: switch input.avaitEnfantAChargeAvant1erJanvier2012 {
+        iPersonneChargeEffectivePermanenteEstParentIn: true,
+        iPersonneChargeEffectivePermanenteRemplitTitreIIn: true,
+        iAvaitEnfantAChargeAvant1erJanvier2012In: switch input.avaitEnfantAChargeAvant1erJanvier2012 {
         | None => false
         | Some(x) => x
         },
@@ -129,20 +157,20 @@ let validateInput = (input: allocationsFamilialesInput) => {
 
 let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %raw(`
   function(input) {
-    frenchLaw.resetLog(0);
+    frenchLaw.eventsManager.resetLog(0);
     return frenchLaw.computeAllocationsFamiliales(input);
   }
 `)
 
 let retrieveRawEventsSerialized: unit => array<LogEvent.Raw.eventSerialized> = %raw(`
   function() {
-    return frenchLaw.retrieveRawEvents(0);
+    return frenchLaw.eventsManager.retrieveRawEvents(0);
   }
 `)
 
 let retrieveEventsSerialized: unit => array<LogEvent.eventSerialized> = %raw(`
   function() {
-    return frenchLaw.retrieveEvents(0);
+    return frenchLaw.eventsManager.retrieveEvents(0);
   }
 `)
 
@@ -201,7 +229,7 @@ module Simulator = {
         numChildren: None,
         income: None,
         children: [],
-        residence: Some(`Métropole`),
+        residenceKind: Some(`Metropole`),
         avaitEnfantAChargeAvant1erJanvier2012: None,
       })
       let updateCurrentState = (newInput: allocationsFamilialesInput) => {
@@ -245,7 +273,7 @@ module Simulator = {
                 onChange={(event: ReactEvent.Form.t) => {
                   updateCurrentState({
                     ...allocFamInput,
-                    residence: event->value,
+                    residenceKind: event->value,
                   })
                 }}
                 options={[
