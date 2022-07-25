@@ -14,6 +14,7 @@ type childInput = {
   monthlyIncome: option<int>,
   priseEnCharge: option<string>,
   aDejaOuvertDroitAllocationsFamiliales: option<bool>,
+  beneficieTitrePersonnelAidePersonnelleLogement: option<bool>,
 }
 
 let emptyChild = i => {
@@ -22,6 +23,7 @@ let emptyChild = i => {
   monthlyIncome: None,
   priseEnCharge: None,
   aDejaOuvertDroitAllocationsFamiliales: None,
+  beneficieTitrePersonnelAidePersonnelleLogement: None,
 }
 
 // Catala enumeration encoding from the JSOO wrapper
@@ -34,6 +36,8 @@ type allocationsFamilialesInput = {
   income: option<int>,
   residenceKind: option<string>,
   avaitEnfantAChargeAvant1erJanvier2012: option<bool>,
+  personneChargeEffectivePermanenteEstParent: option<bool>,
+  personneChargeEffectivePermanenteRemplitTitreII: option<bool>,
 }
 
 // Catala enumeration encoding from the JSOO wrapper
@@ -98,6 +102,9 @@ let formatResidenceKindInput = (residenceKind: string) => {
 }
 
 let validateInput = (input: allocationsFamilialesInput) => {
+  let getBoolOption = (opt: option<bool>) => {
+    opt->Belt.Option.mapWithDefault(false, b => b)
+  }
   switch (input.currentDate, input.numChildren, input.income, input.residenceKind) {
   | (Some(currentDate), Some(_numChildren), Some(income), Some(residenceKind)) =>
     let childrenValidated = input.children->Belt.Array.map(child => {
@@ -113,14 +120,8 @@ let validateInput = (input: allocationsFamilialesInput) => {
             | Some(kind) => {kind: kind, payload: None}
             }
           },
-          dADejaOuvertDroitAuxAllocationsFamiliales: {
-            switch child.aDejaOuvertDroitAllocationsFamiliales {
-            | None | Some(false) => false
-            | Some(true) => true
-            }
-          },
-          // TODO: add input for this field
-          dBeneficieTitrePersonnelAidePersonnelleLogement: false,
+          dADejaOuvertDroitAuxAllocationsFamiliales: child.aDejaOuvertDroitAllocationsFamiliales->getBoolOption,
+          dBeneficieTitrePersonnelAidePersonnelleLogement: child.beneficieTitrePersonnelAidePersonnelleLogement->getBoolOption,
         })
       | _ => None
       }
@@ -140,13 +141,9 @@ let validateInput = (input: allocationsFamilialesInput) => {
         iRessourcesMenageIn: income->Belt.Int.toFloat,
         iResidenceIn: {kind: residenceKind->formatResidenceKindInput, payload: None},
         iEnfantsIn: childrenValidated,
-        // We assume the two below are always true
-        iPersonneChargeEffectivePermanenteEstParentIn: true,
-        iPersonneChargeEffectivePermanenteRemplitTitreIIn: true,
-        iAvaitEnfantAChargeAvant1erJanvier2012In: switch input.avaitEnfantAChargeAvant1erJanvier2012 {
-        | None => false
-        | Some(x) => x
-        },
+        iPersonneChargeEffectivePermanenteEstParentIn: input.personneChargeEffectivePermanenteEstParent->getBoolOption,
+        iPersonneChargeEffectivePermanenteRemplitTitreIIn: input.personneChargeEffectivePermanenteRemplitTitreII->getBoolOption,
+        iAvaitEnfantAChargeAvant1erJanvier2012In: input.avaitEnfantAChargeAvant1erJanvier2012->getBoolOption,
       })
     } else {
       None
@@ -231,6 +228,8 @@ module Simulator = {
         children: [],
         residenceKind: Some(`Metropole`),
         avaitEnfantAChargeAvant1erJanvier2012: None,
+        personneChargeEffectivePermanenteEstParent: None,
+        personneChargeEffectivePermanenteRemplitTitreII: None,
       })
       let updateCurrentState = (newInput: allocationsFamilialesInput) => {
         setAllocFamInput(_ => newInput)
@@ -239,6 +238,12 @@ module Simulator = {
       let value = (event: ReactEvent.Form.t) => {
         event->ReactEvent.Form.preventDefault
         (event->ReactEvent.Form.target)["value"]
+      }
+      let updateOptionalBool = (opt: option<bool>) => {
+        switch opt {
+        | None | Some(false) => Some(true)
+        | Some(true) => Some(false)
+        }
       }
       <>
         <Section title={<Lang.String english="Simulator" french=`Simulateur` />}>
@@ -303,15 +308,42 @@ module Simulator = {
             <div className=%twc("flex flex-col mx-4")>
               <Input.CheckBox
                 label={<Lang.String
-                  english="Rights open before 2021" french=`Droits ouverts avant 2012`
+                  english="Rights open before 2012" french=`Droits ouverts avant 2012`
                 />}
                 onChange={_ => {
                   updateCurrentState({
                     ...allocFamInput,
-                    avaitEnfantAChargeAvant1erJanvier2012: switch allocFamInput.avaitEnfantAChargeAvant1erJanvier2012 {
-                    | None | Some(false) => Some(true)
-                    | Some(true) => Some(false)
-                    },
+                    avaitEnfantAChargeAvant1erJanvier2012: allocFamInput.avaitEnfantAChargeAvant1erJanvier2012->updateOptionalBool,
+                  })
+                }}
+              />
+              <Input.CheckBox
+                label={<Lang.String
+                  english="The person who has the actual and permanent charge is a parent"
+                  french=`La personne a la charge effective et permanente est parent`
+                />}
+                onChange={_ => {
+                  updateCurrentState({
+                    ...allocFamInput,
+                    personneChargeEffectivePermanenteEstParent: allocFamInput.personneChargeEffectivePermanenteEstParent->updateOptionalBool,
+                  })
+                }}
+              />
+              <Input.CheckBox
+                label={<span>
+                  <Lang.String
+                    english="The person who has the actual and permanent charge fulfills the "
+                    french=`La personne a la charge effective et permanente remplit le `
+                  />
+                  <Link.Text
+                    target="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006073189/LEGISCTA000006141653/#LEGISCTA000006141653">
+                    <Lang.String english="Title I" french=`Titre I` />
+                  </Link.Text>
+                </span>}
+                onChange={_ => {
+                  updateCurrentState({
+                    ...allocFamInput,
+                    personneChargeEffectivePermanenteRemplitTitreII: allocFamInput.personneChargeEffectivePermanenteRemplitTitreII->updateOptionalBool,
                   })
                 }}
               />
@@ -413,10 +445,25 @@ module Simulator = {
                       let children = allocFamInput.children
                       children[i] = {
                         ...children[i],
-                        aDejaOuvertDroitAllocationsFamiliales: switch children[i].aDejaOuvertDroitAllocationsFamiliales {
-                        | None | Some(false) => Some(true)
-                        | Some(true) => Some(false)
-                        },
+                        aDejaOuvertDroitAllocationsFamiliales: children[i].aDejaOuvertDroitAllocationsFamiliales->updateOptionalBool,
+                      }
+                      updateCurrentState({...allocFamInput, children: children})
+                    }}
+                  />
+                  <Input.CheckBox
+                    label={<>
+                      <Lang.String english=`Child n°` french=`Enfant n°` />
+                      {React.string(string_of_int(i + 1))}
+                      <Lang.String
+                        english=": is a personal beneficiary of personal housing benefits"
+                        french=` : est bénéficiaire, à titre personnel, de l’aide personnelle au logement`
+                      />
+                    </>}
+                    onChange={_ => {
+                      let children = allocFamInput.children
+                      children[i] = {
+                        ...children[i],
+                        beneficieTitrePersonnelAidePersonnelleLogement: children[i].beneficieTitrePersonnelAidePersonnelleLogement->updateOptionalBool,
                       }
                       updateCurrentState({...allocFamInput, children: children})
                     }}
