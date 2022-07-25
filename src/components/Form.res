@@ -57,3 +57,27 @@ module Input = {
     }
   }
 }
+
+/* module ErrorList = { */
+/* type t = {"errors": array<Js.Exn.t>} */
+/* @obj */
+/* external make: (~errors: Js.Array.t<Js.Exn.t>, unit) => t = "" */
+/* } */
+
+module Form = {
+  @react.component @module("@rjsf/material-ui")
+  external make: (
+    /* ~uiSchema, ~formData, ~onChange, ~onSubmit, ~onError, ~options */
+    ~onChange: _ => unit=?,
+    ~onSubmit: _ => unit=?,
+    ~onError: _ => unit=?,
+    ~schema: Js.Json.t,
+    ~noValidate: bool=?,
+    ~liveValidate: bool=?,
+    ~disabled: bool=?,
+    ~readonly: bool=?,
+    ~noHtml5Validate: bool=?,
+    /* ~errorList: ErrorList.t=?, */
+    ~omitExtraData: bool=?,
+  ) => React.element = "default"
+}
