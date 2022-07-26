@@ -2,6 +2,8 @@ open PageComponents
 open Form
 
 let frenchLaw = %raw(`require("../../assets/french_law.js")`)
+let schema = %raw(`require("../../assets/allocations_familiales_schema.json")`)
+let uiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema.json")`)
 
 let title =
   <Lang.String
@@ -49,14 +51,14 @@ type priseEnCharge = {
 type childInputValidated = {
   dIdentifiant: int,
   dRemunerationMensuelle: float,
-  dDateDeNaissance: Js.Date.t,
+  dDateDeNaissance: string,
   dPriseEnCharge: priseEnCharge,
   dADejaOuvertDroitAuxAllocationsFamiliales: bool,
   dBeneficieTitrePersonnelAidePersonnelleLogement: bool,
 }
 
 type allocationsFamilialesInputValidated = {
-  iDateCouranteIn: Js.Date.t,
+  iDateCouranteIn: string,
   iEnfantsIn: array<childInputValidated>,
   iRessourcesMenageIn: float,
   iResidenceIn: collectivite,
@@ -111,7 +113,7 @@ let validateInput = (input: allocationsFamilialesInput) => {
       switch (child.birthDate, child.monthlyIncome) {
       | (Some(birthDate), Some(monthlyIncome)) =>
         Some({
-          dDateDeNaissance: birthDate,
+          dDateDeNaissance: birthDate->Js.Date.toISOString,
           dIdentifiant: child.id,
           dRemunerationMensuelle: monthlyIncome->Belt.Int.toFloat,
           dPriseEnCharge: {
@@ -137,7 +139,7 @@ let validateInput = (input: allocationsFamilialesInput) => {
     ) {
       let childrenValidated = childrenValidated->Belt.Array.map(Belt.Option.getExn)
       Some({
-        iDateCouranteIn: currentDate,
+        iDateCouranteIn: currentDate->Js.Date.toISOString,
         iRessourcesMenageIn: income->Belt.Int.toFloat,
         iResidenceIn: {kind: residenceKind->formatResidenceKindInput, payload: None},
         iEnfantsIn: childrenValidated,
@@ -155,6 +157,7 @@ let validateInput = (input: allocationsFamilialesInput) => {
 let allocationsFamilialesExe: allocationsFamilialesInputValidated => float = %raw(`
   function(input) {
     frenchLaw.eventsManager.resetLog(0);
+    console.log(input)
     return frenchLaw.computeAllocationsFamiliales(input);
   }
 `)
@@ -532,7 +535,18 @@ module Simulator = {
       None
     })
 
-    <> <Form setFormOutput /> <ComputationResult formOutput setEventsOpt /> </>
+    <>
+      <Rjsf
+        schema
+        uiSchema
+        onSubmit={t => setFormOutput(_ => t->Js.Dict.get("formData"))}
+        /* Belt.Option.mapWithDefault("None", s => s)->Js.log */
+        onChange={t => Js.log("[CHANGED]")}
+        onError={_ => Js.log("error")}
+      />
+      <Form setFormOutput />
+      <ComputationResult formOutput setEventsOpt />
+    </>
   }
 }
 
@@ -568,7 +582,9 @@ let make = () => {
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
       />
     </p>
-    <Simulator setEventsOpt={_ => ()} />
+    <Section title={<Lang.String english="Form" french=`Formulaire` />}>
+      <Simulator setEventsOpt={_ => ()} />
+    </Section>
     <div className=%twc("inline-flex justify-end")>
       <Button.Internal
         target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>

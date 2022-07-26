@@ -64,14 +64,15 @@ module Input = {
 /* external make: (~errors: Js.Array.t<Js.Exn.t>, unit) => t = "" */
 /* } */
 
-module Form = {
+module Rjsf = {
   @react.component @module("@rjsf/material-ui")
   external make: (
-    /* ~uiSchema, ~formData, ~onChange, ~onSubmit, ~onError, ~options */
+    /* ~formData, ~onChange, ~onSubmit, ~onError, ~options */
     ~onChange: _ => unit=?,
     ~onSubmit: _ => unit=?,
     ~onError: _ => unit=?,
     ~schema: Js.Json.t,
+    ~uiSchema: Js.Json.t=?,
     ~noValidate: bool=?,
     ~liveValidate: bool=?,
     ~disabled: bool=?,
