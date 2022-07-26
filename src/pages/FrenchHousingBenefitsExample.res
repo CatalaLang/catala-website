@@ -1,5 +1,4 @@
 open PageComponents
-open Form
 
 let title =
   <Lang.String
@@ -28,18 +27,6 @@ let card: Card.Presentation.t = {
   </>,
 }
 
-let schema = `
-{
-  "title": "Todo",
-  "type": "object",
-  "required": ["title"],
-  "properties": {
-    "title": {"type": "string", "title": "Title", "default": "A new task"},
-    "done": {"type": "boolean", "title": "Done?", "default": false}
-  }
-}
-`
-
 @react.component
 let make = () => {
   <>
@@ -52,19 +39,6 @@ let make = () => {
       <Link.Text target="https://github.com/CatalaLang/catala/tree/master/examples/aides_logement">
         <Lang.String english="here" french=`ici` />
       </Link.Text>
-      <Section title={<Lang.String english="Form" french=`Formulaire` />}>
-        {
-          let schema = schema->Js.Json.parseExn
-          <>
-            <Form
-              schema
-              onSubmit={_ => Js.log("submitted")}
-              onChange={_ => Js.log("changed")}
-              onError={_ => Js.log("error")}
-            />
-          </>
-        }
-      </Section>
       <Lang.String
         english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "

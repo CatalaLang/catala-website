@@ -1,0 +1,13 @@
+{
+  "iEnfantsIn": {
+    "ui:title": "Children(s) in charge",
+    "items": {
+      "dIdentifiant": {
+        "ui:description" : "The child's identifier must be unique"
+      }
+    }
+  },
+  "iResidenceIn" : {
+    "ui:title": "Residence in charge"
+  }
+}

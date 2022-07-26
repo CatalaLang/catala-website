@@ -1,0 +1,161 @@
+{
+  "title": "",
+  "type": "object",
+  "properties": {
+    "iDateCouranteIn": {
+      "$ref": "#/$defs/iDateCouranteIn-title",
+      "type": "string",
+      "format": "date",
+      "default": "2020-01-05"
+    },
+    "iEnfantsIn": {
+      "type": "array",
+      "minItems": 0,
+      "items": {
+        "type": "object",
+        "properties": {
+          "dIdentifiant": {
+            "$ref": "#/$defs/dIdentifiant-title",
+            "type": "number"
+          },
+          "dRemunerationMensuelle": {
+            "type": "number",
+            "minimum": 0
+          },
+          "dDateDeNaissance": {
+            "type": "string",
+            "format": "date",
+            "default": "2002-01-05"
+          },
+          "dPriseEnCharge": {
+            "type": "object",
+            "properties": {
+              "kind": {
+                "type": "string",
+                "default": "EffectiveEtPermanente",
+                "anyOf": [
+                  {
+                    "type": "string",
+                    "enum": ["GardeAlterneePartageAllocations"]
+                  },
+                  {
+                    "type": "string",
+                    "enum": ["GardeAlterneeAllocataireUnique"]
+                  },
+                  {
+                    "type": "string",
+                    "enum": ["EffectiveEtPermanente"]
+                  },
+                  {
+                    "type": "string",
+                    "enum": ["ServicesSociauxAllocationVerseeALaFamille"]
+                  },
+                  {
+                    "type": "string",
+                    "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"]
+                  }
+                ]
+              },
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          },
+          "dADejaOuvertDroitAuxAllocationsFamiliales" : {
+            "type": "boolean",
+            "default": false
+          },
+          "dBeneficieTitrePersonnelAidePersonnelleLogement" : {
+            "type": "boolean",
+            "default": false
+          }
+        },
+        "required" : [
+          "dIdentifiant",
+          "dRemunerationMensuelle",
+          "dDateDeNaissance",
+          "dPriseEnCharge"
+        ]
+      }
+    },
+    "iRessourcesMenageIn" : {
+      "$ref": "#/$defs/iRessourcesMenageIn-title",
+      "type": "number",
+      "minimum": 0
+    },
+    "iResidenceIn" : {
+      "$ref": "#/$defs/iResidenceIn-title",
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "default": "Metropole",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["Guadeloupe"]
+            },
+            {
+              "type": "string",
+              "enum": ["Guyane"]
+            },
+            {
+              "type": "string",
+              "enum": ["Martinique"]
+            },
+            {
+              "type": "string",
+              "enum": ["LaReunion"]
+            },
+            {
+              "type": "string",
+              "enum": ["SaintBarthelemy"]
+            },
+            {
+              "type": "string",
+              "enum": ["SaintMartin"]
+            },
+            {
+              "type": "string",
+              "enum": ["Metropole"]
+            },
+            {
+              "type": "string",
+              "enum": ["SaintPierreEtMiquelon"]
+            },
+            {
+              "type": "string",
+              "enum": ["Mayotte"]
+            }
+          ]
+        },
+        "payload": {
+          "type": "null",
+          "default": null
+        }
+      }
+    },
+    "iPersonneChargeEffectivePermanenteEstParentIn" : {
+      "type": "boolean",
+      "default": true
+    },
+    "iPersonneChargeEffectivePermanenteRemplitTitreIIn" : {
+      "type": "boolean",
+      "default": true
+    },
+    "iAvaitEnfantAChargeAvant1erJanvier2012In" : {
+      "$ref": "#/$defs/iAvaitEnfantAChargeAvant1erJanvier2012In-title",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required":["iDateCouranteIn", "iRessourcesMenageIn", "iResidenceIn"],
+  "$defs": {
+    "iDateCouranteIn-title": { "title": "Date of the computation" },
+    "iRessourcesMenageIn-title": { "title": "Yearly household income (€)" },
+    "iResidenceIn-title": { "title": "Household residence" },
+    "iAvaitEnfantAChargeAvant1erJanvier2012In-title": { "title": "Right open before 2012" },
+    "dIdentifiant-title": { "title": "Id" }
+  }
+}
