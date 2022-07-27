@@ -1,0 +1,417 @@
+{
+  "type": "object",
+  "definitions": {
+    "collectivite": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "",
+          "type": "string",
+          "default": "Metropole",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [ "Guadeloupe" ],
+              "title": "Guadeloupe"
+            },
+            {
+              "type": "string",
+              "enum": [ "Guyane" ],
+              "title": "Guyane"
+            },
+            {
+              "type": "string",
+              "enum": [ "Martinique" ],
+              "title": "Martinique"
+            },
+            {
+              "type": "string",
+              "enum": [ "LaReunion" ],
+              "title": "La Réunion"
+            },
+            {
+              "type": "string",
+              "enum": [ "SaintBarthelemy" ],
+              "title": "Saint Barthélemy"
+            },
+            {
+              "type": "string",
+              "enum": [ "SaintMartin" ],
+              "title": "Saint Martin"
+            },
+            {
+              "type": "string",
+              "enum": [ "Metropole" ],
+              "title": "Métropole"
+            },
+            {
+              "type": "string",
+              "enum": [ "SaintPierreEtMiquelon" ],
+              "title": "Saint Pierre et Miquelon"
+            },
+            {
+              "type": "string",
+              "enum": [ "Mayotte" ],
+              "title": "Mayotte"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Guadeloupe"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Guyane"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Martinique"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "LaReunion"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "SaintBarthelemy"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "SaintMartin"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Metropole"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "SaintPierreEtMiquelon"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Mayotte"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
+    }
+    ,
+    "enfant_entree": {
+      "type": "object",
+      "properties": {
+        "dIdentifiant": {
+          "title": "Identifiant de l'enfant",
+          "type": "number",
+          "default": 0
+        },
+        "dRemunerationMensuelle": {
+          "title": "Rémunération mensuelle de l'enfant",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "dDateDeNaissance": {
+          "title": "Date de naissance de l'enfant",
+          "type": "string",
+          "format": "date"
+        },
+        "dPriseEnCharge": {
+          "title": "Prise en charge de l'enfant",
+          "$ref": "#/definitions/prise_en_charge"
+        },
+        "dADejaOuvertDroitAuxAllocationsFamiliales": {
+          "title": "L'enfant a déjà ouvert des droits aux allocations familiales",
+          "type": "boolean",
+          "default": false
+        },
+        "dBeneficieTitrePersonnelAidePersonnelleLogement": {
+          "title": "L'enfant bénéficie d'un titre personnel d'aide personnelle pour le logement",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "prise_en_charge": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "",
+          "type": "string",
+          "default": "EffectiveEtPermanente",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["GardeAlterneePartageAllocations"],
+              "title": "Garde alternée, partage des allocations"
+            },
+            {
+              "type": "string",
+              "enum": ["GardeAlterneeAllocataireUnique"],
+              "title": "Garde alternée, allocataire unique"
+            },
+            {
+              "type": "string",
+              "enum": ["EffectiveEtPermanente"],
+              "title": "Effective et permanente"
+            },
+            {
+              "type": "string",
+              "enum": ["ServicesSociauxAllocationVerseeALaFamille"],
+              "title": "Confié aux services sociaux, allocation vérsée à la famille"
+            },
+            {
+              "type": "string",
+              "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"],
+              "title": "Confié aux services sociaux, allocation vérsée aux services sociaux"
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "GardeAlterneePartageAllocations"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "GardeAlterneeAllocataireUnique"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "EffectiveEtPermanente"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ServicesSociauxAllocationVerseeALaFamille"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
+    }
+  },
+  "properties": {
+    "iDateCouranteIn": {
+      "title": "Date du calcul",
+      "type": "string",
+      "format": "date"
+    },
+    "iEnfantsIn": {
+      "title": "Enfant(s) à charge",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/enfant_entree"
+      }
+    },
+    "iRessourcesMenageIn": {
+      "title": "Ressources annuelles du ménage (€)",
+      "type": "number",
+      "minimum": 0,
+      "default": 0
+    },
+    "iResidenceIn": {
+      "title": "Résidence du ménage",
+      "$ref": "#/definitions/collectivite"
+    },
+    "iPersonneChargeEffectivePermanenteEstParentIn": {
+      "title": "La personne à charge effective et permanente est parent",
+      "type": "boolean",
+      "default": true
+    },
+    "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
+      "title": "La personne à charge effective et permanente remplit le titre I",
+      "type": "boolean",
+      "default": true
+    },
+    "iAvaitEnfantAChargeAvant1erJanvier2012In": {
+      "title": "Droits ouverts avant le 1er janvier 2012",
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

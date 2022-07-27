@@ -1,161 +1,387 @@
 {
-  "title": "",
-  "type": "object",
-  "properties": {
-    "iDateCouranteIn": {
-      "$ref": "#/$defs/iDateCouranteIn-title",
-      "type": "string",
-      "format": "date",
-      "default": "2020-01-05"
-    },
-    "iEnfantsIn": {
-      "type": "array",
-      "minItems": 0,
-      "items": {
+   "type": "object",
+   "definitions": {
+      "collectivite": {
         "type": "object",
         "properties": {
-          "dIdentifiant": {
-            "$ref": "#/$defs/dIdentifiant-title",
-            "type": "number"
-          },
-          "dRemunerationMensuelle": {
-            "type": "number",
-            "minimum": 0
-          },
-          "dDateDeNaissance": {
+          "kind": {
             "type": "string",
-            "format": "date",
-            "default": "2002-01-05"
-          },
-          "dPriseEnCharge": {
-            "type": "object",
-            "properties": {
-              "kind": {
+            "anyOf": [
+              {
                 "type": "string",
-                "default": "EffectiveEtPermanente",
-                "anyOf": [
-                  {
-                    "type": "string",
-                    "enum": ["GardeAlterneePartageAllocations"]
-                  },
-                  {
-                    "type": "string",
-                    "enum": ["GardeAlterneeAllocataireUnique"]
-                  },
-                  {
-                    "type": "string",
-                    "enum": ["EffectiveEtPermanente"]
-                  },
-                  {
-                    "type": "string",
-                    "enum": ["ServicesSociauxAllocationVerseeALaFamille"]
-                  },
-                  {
-                    "type": "string",
-                    "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"]
-                  }
-                ]
+                "enum": ["Guadeloupe"]
               },
-              "payload": {
-                "type": "null",
-                "default": null
+              {
+                "type": "string",
+                "enum": ["Guyane"]
+              },
+              {
+                "type": "string",
+                "enum": ["Martinique"]
+              },
+              {
+                "type": "string",
+                "enum": ["LaReunion"]
+              },
+              {
+                "type": "string",
+                "enum": ["SaintBarthelemy"]
+              },
+              {
+                "type": "string",
+                "enum": ["SaintMartin"]
+              },
+              {
+                "type": "string",
+                "enum": ["Metropole"]
+              },
+              {
+                "type": "string",
+                "enum": ["SaintPierreEtMiquelon"]
+              },
+              {
+                "type": "string",
+                "enum": ["Mayotte"]
+              }
+            ]
+          }
+          },
+          "allOf": [
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "Guadeloupe"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "Guyane"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "Martinique"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "LaReunion"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "SaintBarthelemy"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "SaintMartin"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "Metropole"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "SaintPierreEtMiquelon"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
+              }
+            },
+            {
+              "if": {
+                "properties": {
+                  "kind": {
+                    "const": "Mayotte"
+                  }
+                }
+              },
+              "then": {
+                "properties": {
+                  "payload": {
+                    "type": "null",
+                    "default": null
+                  }
+                }
               }
             }
-          },
-          "dADejaOuvertDroitAuxAllocationsFamiliales" : {
-            "type": "boolean",
-            "default": false
-          },
-          "dBeneficieTitrePersonnelAidePersonnelleLogement" : {
-            "type": "boolean",
-            "default": false
-          }
-        },
-        "required" : [
-          "dIdentifiant",
-          "dRemunerationMensuelle",
-          "dDateDeNaissance",
-          "dPriseEnCharge"
-        ]
-      }
-    },
-    "iRessourcesMenageIn" : {
-      "$ref": "#/$defs/iRessourcesMenageIn-title",
-      "type": "number",
-      "minimum": 0
-    },
-    "iResidenceIn" : {
-      "$ref": "#/$defs/iResidenceIn-title",
-      "type": "object",
-      "properties": {
-        "kind": {
-          "type": "string",
-          "default": "Metropole",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": ["Guadeloupe"]
-            },
-            {
-              "type": "string",
-              "enum": ["Guyane"]
-            },
-            {
-              "type": "string",
-              "enum": ["Martinique"]
-            },
-            {
-              "type": "string",
-              "enum": ["LaReunion"]
-            },
-            {
-              "type": "string",
-              "enum": ["SaintBarthelemy"]
-            },
-            {
-              "type": "string",
-              "enum": ["SaintMartin"]
-            },
-            {
-              "type": "string",
-              "enum": ["Metropole"]
-            },
-            {
-              "type": "string",
-              "enum": ["SaintPierreEtMiquelon"]
-            },
-            {
-              "type": "string",
-              "enum": ["Mayotte"]
-            }
           ]
-        },
-        "payload": {
-          "type": "null",
-          "default": null
         }
-      }
-    },
-    "iPersonneChargeEffectivePermanenteEstParentIn" : {
-      "type": "boolean",
-      "default": true
-    },
-    "iPersonneChargeEffectivePermanenteRemplitTitreIIn" : {
-      "type": "boolean",
-      "default": true
-    },
-    "iAvaitEnfantAChargeAvant1erJanvier2012In" : {
-      "$ref": "#/$defs/iAvaitEnfantAChargeAvant1erJanvier2012In-title",
-      "type": "boolean",
-      "default": false
-    }
-  },
-  "required":["iDateCouranteIn", "iRessourcesMenageIn", "iResidenceIn"],
-  "$defs": {
-    "iDateCouranteIn-title": { "title": "Date of the computation" },
-    "iRessourcesMenageIn-title": { "title": "Yearly household income (€)" },
-    "iResidenceIn-title": { "title": "Household residence" },
-    "iAvaitEnfantAChargeAvant1erJanvier2012In-title": { "title": "Right open before 2012" },
-    "dIdentifiant-title": { "title": "Id" }
-  }
+   ,
+   "enfant_entree": {
+     "type": "object",
+     "properties": {
+       "dIdentifiant": {
+         "type": "number",
+         "default": 0
+       },
+       "dRemunerationMensuelle": {
+         "type": "number",
+         "minimum": 0,
+         "default": 0
+       },
+       "dDateDeNaissance": {
+         "type": "string",
+         "format": "date"
+       },
+       "dPriseEnCharge": {
+         "$ref": "#/definitions/prise_en_charge"
+       },
+       "dADejaOuvertDroitAuxAllocationsFamiliales": {
+         "type": "boolean",
+         "default": false
+       },
+       "dBeneficieTitrePersonnelAidePersonnelleLogement": {
+         "type": "boolean",
+         "default": false
+       }
+     }
+   },
+   "prise_en_charge": {
+     "type": "object",
+     "properties": {
+       "kind": {
+         "type": "string",
+         "anyOf": [
+           {
+             "type": "string",
+             "enum": ["GardeAlterneePartageAllocations"]
+           },
+           {
+             "type": "string",
+             "enum": ["GardeAlterneeAllocataireUnique"]
+           },
+           {
+             "type": "string",
+             "enum": ["EffectiveEtPermanente"]
+           },
+           {
+             "type": "string",
+             "enum": ["ServicesSociauxAllocationVerseeALaFamille"]
+           },
+           {
+             "type": "string",
+             "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"]
+           }
+         ]
+       }
+       },
+       "allOf": [
+         {
+           "if": {
+             "properties": {
+               "kind": {
+                 "const": "GardeAlterneePartageAllocations"
+               }
+             }
+           },
+           "then": {
+             "properties": {
+               "payload": {
+                 "type": "null",
+                 "default": null
+               }
+             }
+           }
+         },
+         {
+           "if": {
+             "properties": {
+               "kind": {
+                 "const": "GardeAlterneeAllocataireUnique"
+               }
+             }
+           },
+           "then": {
+             "properties": {
+               "payload": {
+                 "type": "null",
+                 "default": null
+               }
+             }
+           }
+         },
+         {
+           "if": {
+             "properties": {
+               "kind": {
+                 "const": "EffectiveEtPermanente"
+               }
+             }
+           },
+           "then": {
+             "properties": {
+               "payload": {
+                 "type": "null",
+                 "default": null
+               }
+             }
+           }
+         },
+         {
+           "if": {
+             "properties": {
+               "kind": {
+                 "const": "ServicesSociauxAllocationVerseeALaFamille"
+               }
+             }
+           },
+           "then": {
+             "properties": {
+               "payload": {
+                 "type": "null",
+                 "default": null
+               }
+             }
+           }
+         },
+         {
+           "if": {
+             "properties": {
+               "kind": {
+                 "const": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+               }
+             }
+           },
+           "then": {
+             "properties": {
+               "payload": {
+                 "type": "null",
+                 "default": null
+               }
+             }
+           }
+         }
+       ]
+     }
+
+},
+"properties": {
+   "iDateCouranteIn": {
+     "type": "string",
+     "format": "date"
+   },
+   "iEnfantsIn": {
+     "type": "array",
+     "default": [],
+     "items": {
+       "$ref": "#/definitions/enfant_entree"
+     }
+   },
+   "iRessourcesMenageIn": {
+     "type": "number",
+     "minimum": 0,
+     "default": 0
+   },
+   "iResidenceIn": {
+     "$ref": "#/definitions/collectivite"
+   },
+   "iPersonneChargeEffectivePermanenteEstParentIn": {
+     "type": "boolean",
+     "default": false
+   },
+   "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
+     "type": "boolean",
+     "default": false
+   },
+   "iAvaitEnfantAChargeAvant1erJanvier2012In": {
+     "type": "boolean",
+     "default": false
+   }
+}
 }
