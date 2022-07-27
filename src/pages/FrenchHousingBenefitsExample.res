@@ -1,5 +1,113 @@
 open PageComponents
 
+let frenchLaw = %raw(`require("../../assets/french_law.js")`)
+let schema = %raw(`require("../../assets/aides_logement_schema.json")`)
+let uiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_en.json")`)
+
+let computeAidesAuLogementExe: Js.Json.t => float = %raw(`
+  function(input) {
+    frenchLaw.eventsManager.resetLog(0);
+    console.log(input)
+    return frenchLaw.computeAidesAuLogement(input);
+  }
+`)
+
+type aidesLogementOut =
+  | Result(float)
+  | Error(React.element)
+
+let computeAidesAuLogement = (input: option<Js.Json.t>): aidesLogementOut => {
+  switch input {
+  | None => Error(<Lang.String english="Input not complete" french=`Entrée non complète` />)
+  | Some(new_input) =>
+    try {
+      Result(computeAidesAuLogementExe(new_input))
+    } catch {
+    | err =>
+      Js.log(err)
+      Error(<>
+        <Lang.String
+          english="Computation error: check that the current date is between May 2019 and December 2021"
+          french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et décembre 2021`
+        />
+      </>)
+    }
+  }
+}
+
+module Simulator = {
+  let pageTitle = `Simulateur de l'Aide au Logement`->React.string
+
+  module ComputationResult = {
+    @react.component
+    let make = (
+      ~formOutput: option<Js.Json.t>,
+      ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
+    ) => {
+      setEventsOpt(_ => None)
+      /* { */
+      /* React.useEffect2(() => { */
+      /* setEventsOpt(_ => { */
+      /* let logs = retrieveEventsSerialized()->LogEvent.deserializedEvents */
+      /* if 0 == logs->Belt.Array.size { */
+      /* None */
+      /* } else { */
+      /* Some(logs) */
+      /* } */
+      /* }) */
+      /* None */
+      /* }, (formOutput, setEventsOpt)) */
+      /* } */
+      /*  */
+      <div
+        className=%twc(
+          "inline-flex flex-col justify-center place-items-center \
+          my-4 border border-gray border-solid rounded p-4 shadow-sm \
+          bg-gray_light text-gray_dark shadow"
+        )>
+        {switch computeAidesAuLogement(formOutput) {
+        | Error(msg) => <div className=%twc("font-bold")> msg </div>
+        | Result(amount) => <>
+            <div className=%twc("pr-2 font-semibold")>
+              <Lang.String
+                english="Family benefits monthly amount:"
+                french=`Montant mensuel des allocations familiales :`
+              />
+            </div>
+            <div className=%twc("flex flex-row justify-center")>
+              <div className=%twc("font-bold whitespace-nowrap")>
+                <span className=%twc("text-mb font-mono")> {React.float(amount)} </span>
+                {React.string(` €`)}
+              </div>
+            </div>
+          </>
+        }}
+      </div>
+    }
+  }
+
+  @react.component
+  let make = (
+    ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
+  ) => {
+    let (formOutput, setFormOutput) = React.useState(_ => {
+      None
+    })
+
+    <>
+      <Form.FromJSONSchema
+        schema
+        uiSchema
+        onSubmit={t => setFormOutput(_ => t->Js.Dict.get("formData"))}
+        /* Belt.Option.mapWithDefault("None", s => s)->Js.log */
+        onChange={t => Js.log(t->Js.Dict.get("formData")->Belt.Option.mapWithDefault("None"))}
+        onError={_ => Js.log("error")}
+      />
+      <ComputationResult formOutput setEventsOpt />
+    </>
+  }
+}
+
 let title =
   <Lang.String
     english="French housing benefits computation" french=`Calcul des aides au logement`
@@ -56,10 +164,13 @@ let make = () => {
          complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`
       />
     </p>
-    <Section title={<Lang.String english="Source code" french=`Code source` />}>
-      <CatalaCode.DangerouslySetInnerHtml
-        html=%raw(`require("../../assets/aides_logement.html")`)
-      />
+    <Section title={<Lang.String english="Form" french=`Formulaire` />}>
+      <Simulator setEventsOpt={_ => ()} />
     </Section>
+    /* <Section title={<Lang.String english="Source code" french=`Code source` />}> */
+    /* <CatalaCode.DangerouslySetInnerHtml */
+    /* html=%raw(`require("../../assets/aides_logement.html")`) */
+    /* /> */
+    /* </Section> */
   </>
 }
