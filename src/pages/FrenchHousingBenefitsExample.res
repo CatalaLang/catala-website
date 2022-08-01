@@ -1,117 +1,176 @@
 open PageComponents
-
-let frenchLaw = %raw(`require("../../assets/french_law.js")`)
-let schema = %raw(`require("../../assets/aides_logement_schema.json")`)
-let uiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_en.json")`)
-
-let computeAidesAuLogementExe: Js.Json.t => float = %raw(`
-  function(input) {
-    frenchLaw.eventsManager.resetLog(0);
-    console.log(input)
-    return frenchLaw.computeAidesAuLogement(input);
-  }
-`)
-
-type aidesLogementOut =
-  | Result(float)
-  | Error(React.element)
-
-let computeAidesAuLogement = (input: option<Js.Json.t>): aidesLogementOut => {
-  switch input {
-  | None => Error(<Lang.String english="Input not complete" french=`Entrée non complète` />)
-  | Some(new_input) =>
-    try {
-      Result(computeAidesAuLogementExe(new_input))
-    } catch {
-    | err =>
-      Js.log(err)
-      Error(<>
-        <Lang.String
-          english="Computation error: check that the current date is between May 2019 and December 2021"
-          french=`Erreur de calcul : vérifiez que la date du calcul est entre mai 2019 et décembre 2021`
-        />
-      </>)
-    }
-  }
-}
-
-module Simulator = {
-  let pageTitle = `Simulateur de l'Aide au Logement`->React.string
-
-  module ComputationResult = {
-    @react.component
-    let make = (
-      ~formOutput: option<Js.Json.t>,
-      ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
-    ) => {
-      setEventsOpt(_ => None)
-      /* { */
-      /* React.useEffect2(() => { */
-      /* setEventsOpt(_ => { */
-      /* let logs = retrieveEventsSerialized()->LogEvent.deserializedEvents */
-      /* if 0 == logs->Belt.Array.size { */
-      /* None */
-      /* } else { */
-      /* Some(logs) */
-      /* } */
-      /* }) */
-      /* None */
-      /* }, (formOutput, setEventsOpt)) */
-      /* } */
-      /*  */
-      <div
-        className=%twc(
-          "inline-flex flex-col justify-center place-items-center \
-          my-4 border border-gray border-solid rounded p-4 shadow-sm \
-          bg-gray_light text-gray_dark shadow"
-        )>
-        {switch computeAidesAuLogement(formOutput) {
-        | Error(msg) => <div className=%twc("font-bold")> msg </div>
-        | Result(amount) => <>
-            <div className=%twc("pr-2 font-semibold")>
-              <Lang.String
-                english="Family benefits monthly amount:"
-                french=`Montant mensuel des allocations familiales :`
-              />
-            </div>
-            <div className=%twc("flex flex-row justify-center")>
-              <div className=%twc("font-bold whitespace-nowrap")>
-                <span className=%twc("text-mb font-mono")> {React.float(amount)} </span>
-                {React.string(` €`)}
-              </div>
-            </div>
-          </>
-        }}
-      </div>
-    }
-  }
-
-  @react.component
-  let make = (
-    ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
-  ) => {
-    let (formOutput, setFormOutput) = React.useState(_ => {
-      None
-    })
-
-    <>
-      <Form.FromJSONSchema
-        schema
-        uiSchema
-        onSubmit={t => setFormOutput(_ => t->Js.Dict.get("formData"))}
-        /* Belt.Option.mapWithDefault("None", s => s)->Js.log */
-        onChange={t => Js.log(t->Js.Dict.get("formData")->Belt.Option.mapWithDefault("None"))}
-        onError={_ => Js.log("error")}
-      />
-      <ComputationResult formOutput setEventsOpt />
-    </>
-  }
-}
-
-let title =
+let pageTitle =
   <Lang.String
     english="French housing benefits computation" french=`Calcul des aides au logement`
   />
+
+let catalaCodeHTML = %raw(`require("../../assets/aides_logement.html")`)
+
+module FormInfos = {
+  let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
+  let frenchSchema = %raw(`require("../../assets/aides_logement_schema_fr.json")`)
+
+  let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_schema_en.json")`)
+  let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_schema_fr.json")`)
+
+  let resultLabel =
+    <Lang.String
+      english="Housing benefits monthly amount:" french=`Montant mensuel des aides au logement :`
+    />
+
+  let initFormData = Some(
+    Js.Json.parseExn(`
+  {
+  "dateCouranteIn": "2022-01-01",
+  "menageIn": {
+    "prestationsRecues": [
+      {"kind": "AllocationSoutienEnfantHandicape", "payload": null},
+      {"kind": "ComplementFamilial", "payload": null},
+      {"kind": "AllocationsFamiliales", "payload": null}
+    ],
+    "situationFamiliale": {
+      "kind": "Maries",
+      "payload": "2010-11-26"
+    },
+    "personnesACharge": [
+      {
+        "kind": "EnfantACharge",
+        "payload": {
+          "beneficieTitrePersonnelAidePersonnelleLogement": false,
+          "priseEnCharge": {"kind": "EffectiveEtPermanente", "payload": null},
+          "age": 19,
+          "identifiant": 0,
+          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+          "dateDeNaissance": "2003-01-01",
+          "remunerationMensuelle": 0,
+          "obligationScolaire": {"kind": "Apres", "payload": null},
+          "situationGardeAlternee": {
+            "kind": "GardeAlterneeCoefficientPriseEnCharge",
+            "payload": 0.5
+          }
+        }
+      },
+      {
+        "kind": "EnfantACharge",
+        "payload": {
+          "beneficieTitrePersonnelAidePersonnelleLogement": false,
+          "priseEnCharge": {"kind": "EffectiveEtPermanente", "payload": null},
+          "age": 11,
+          "identifiant": 1,
+          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+          "dateDeNaissance": "2011-01-01",
+          "remunerationMensuelle": 0,
+          "obligationScolaire": {"kind": "Pendant", "payload": null},
+          "situationGardeAlternee": {
+            "kind": "PasDeGardeAlternee",
+            "payload": null
+          }
+        }
+      },
+      {
+        "kind": "EnfantACharge",
+        "payload": {
+          "beneficieTitrePersonnelAidePersonnelleLogement": false,
+          "priseEnCharge": {"kind": "EffectiveEtPermanente", "payload": null},
+          "age": 8,
+          "identifiant": 2,
+          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+          "dateDeNaissance": "2014-01-01",
+          "remunerationMensuelle": 0,
+          "obligationScolaire": {"kind": "Pendant", "payload": null},
+          "situationGardeAlternee": {
+            "kind": "PasDeGardeAlternee",
+            "payload": null
+          }
+        }
+      }
+    ],
+    "logement": {
+      "zone": {"kind": "Zone1", "payload": null},
+      "residencePrincipale": true,
+      "estEhpadOuMaisonAutonomieL31312Asf": false,
+      "modeOccupation": {
+        "kind": "Locataire",
+        "payload": {
+          "bailleur": {
+            "typeBailleur": {"kind": "BailleurPrive", "payload": null},
+            "respecteConventionTitreV": true,
+            "respecteConventionTitreII": true,
+            "construitAmelioreConditionsL83114": false,
+            "acquisitionAidesEtatPretTitreIIOuLivreIII": false
+          }
+        }
+      },
+      "proprietaire": {"kind": "Autre", "payload": null},
+      "loueOuSousLoueADesTiers": {"kind": "Non", "payload": null},
+      "usufruit": {"kind": "Autre", "payload": null},
+      "logementDecentL89462": true,
+      "loyersL8233": 700,
+      "surfaceMCarres": 80,
+      "estAncienL8312": false,
+      "situeCommuneDesequilibreL8312": false
+    },
+    "nombreAutresOccupantsLogement": 1,
+    "conditionRattacheFoyerFiscalParentIfi": false,
+    "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": 0,
+    "enfantANaitreApresQuatriemeMoisGrossesse": false,
+    "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
+      "kind": "PlusDeTroisEnfants",
+      "payload": {
+        "kind": "DateDeNaissance",
+        "payload": "2014-09-15"
+      }
+    }
+  },
+  "demandeurIn": {
+    "personneHebergeeCentreSoinLL162223SecuriteSociale": false,
+    "satisfaitConditionsL5122CodeSecuriteSociale": true,
+    "ageDemandeur": 52,
+    "dateNaissance": "1970-05-02",
+    "contratDeTravail": {"kind": "CDI", "payload": null},
+    "nationalite": {"kind": "Francaise", "payload": null},
+    "patrimoine": {
+      "produisantRevenuPeriodeR82233R8224": 0,
+      "neProduisantPasRevenuPeriodeR82233R8224": 0
+    }
+  },
+  "informationsCalculIn": {
+    "kind": "InfosLocatif",
+    "payload": {
+      "loyerPrincipal": 1700,
+      "beneficiaireAideAdulteOuEnfantHandicapes": false,
+      "logementEstChambre": false,
+      "colocation": false,
+      "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": false,
+      "reductionLoyerSolidarite": 0,
+      "logementMeubleD8422": false,
+      "changementLogementD8424": {
+        "kind": "PasDeChangement",
+        "payload": null
+      }
+    }
+  },
+  "ressourcesMenagePrisesEnCompteIn": 20000
+}`),
+  )
+
+  let computeAndPrintResult = (input: Js.Json.t): React.element => <>
+    <span className=%twc("text-mb font-mono")>
+      {input->FrenchLaw.computeAidesAuLogement->React.float}
+    </span>
+    {React.string(` €`)}
+  </>
+}
+
+module Form = Form.Make(FormInfos)
+
+module Visualizer = Visualizer.Make({
+  let pageTitle = pageTitle
+  let catalaCodeHTML = catalaCodeHTML
+  let resetLog = FrenchLaw.resetLog
+
+  include Form
+})
 
 let card: Card.Presentation.t = {
   title: <Lang.String english="French housing benefits" french="Aides au logement" />,
@@ -138,7 +197,7 @@ let card: Card.Presentation.t = {
 @react.component
 let make = () => {
   <>
-    <Title> title </Title>
+    <Title> pageTitle </Title>
     <p>
       <Lang.String
         english="The source code for this example is available "
@@ -165,12 +224,19 @@ let make = () => {
       />
     </p>
     <Section title={<Lang.String english="Form" french=`Formulaire` />}>
-      <Simulator setEventsOpt={_ => ()} />
+      <Form setEventsOpt={_ => ()} />
     </Section>
-    /* <Section title={<Lang.String english="Source code" french=`Code source` />}> */
-    /* <CatalaCode.DangerouslySetInnerHtml */
-    /* html=%raw(`require("../../assets/aides_logement.html")`) */
-    /* /> */
-    /* </Section> */
+    <div className=%twc("inline-flex justify-end")>
+      <Button.Internal
+        target={[Nav.home, Nav.examples, Nav.frenchHousingBenefitsExample, Nav.visualization]}>
+        <Icon className=%twc("pr-2") name="explore" />
+        <Lang.String
+          english="Explore the execution trace" french=`Explorer la trace d'exécution`
+        />
+      </Button.Internal>
+    </div>
+    <Section title={<Lang.String english="Source code" french=`Code source` />}>
+      <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />
+    </Section>
   </>
 }
