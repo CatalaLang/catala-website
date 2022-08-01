@@ -1,17 +1,34 @@
 open PageComponents
 
-let frenchLaw = %raw(`require("../../assets/french_law.js")`)
-
-let englishSchema = %raw(`require("../../assets/allocations_familiales_schema_en.json")`)
-let frenchSchema = %raw(`require("../../assets/allocations_familiales_schema_fr.json")`)
-
-let englishUiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_en.json")`)
-let frenchUiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_fr.json")`)
-
-let title =
+let pageTitle =
   <Lang.String
     english="French family benefits computation" french=`Calcul des allocations familiales`
   />
+
+let catalaCodeHTML = %raw(`require("../../assets/allocations_familiales.html")`)
+
+module FormInfos = {
+  let englishSchema = %raw(`require("../../assets/allocations_familiales_schema_en.json")`)
+  let frenchSchema = %raw(`require("../../assets/allocations_familiales_schema_fr.json")`)
+
+  let englishUiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_en.json")`)
+  let frenchUiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_fr.json")`)
+
+  let initFormData = None
+
+  let resultLabel =
+    <Lang.String
+      english="Family benefits monthly amount:"
+      french=`Montant mensuel des allocations familiales :`
+    />
+
+  let computeAndPrintResult = (input: Js.Json.t): React.element => <>
+    <span className=%twc("text-mb font-mono")>
+      {input->FrenchLaw.computeAllocationsFamiliales->React.float}
+    </span>
+    {React.string(` €`)}
+  </>
+}
 
 let card: Card.Presentation.t = {
   title: <Lang.String english="French family benefits" french="Allocations familiales" />,
@@ -36,84 +53,20 @@ let card: Card.Presentation.t = {
   </>,
 }
 
-module Simulator = {
-  let pageTitle = title
+module Form = Form.Make(FormInfos)
 
-  module ComputationResult = {
-    @react.component
-    let make = (
-      ~formData: option<Js.Json.t>,
-      ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
-    ) => {
-      {
-        React.useEffect2(() => {
-          setEventsOpt(_ => {
-            let logs = retrieveEventsSerialized()->LogEvent.deserializedEvents
-            if 0 == logs->Belt.Array.size {
-              None
-            } else {
-              Some(logs)
-            }
-          })
-          None
-        }, (formData, setEventsOpt))
-      }
+module Visualizer = Visualizer.Make({
+  let pageTitle = pageTitle
+  let catalaCodeHTML = catalaCodeHTML
+  let resetLog = FrenchLaw.resetLog
 
-      <div
-        className=%twc(
-          "w-full inline-flex flex-col justify-center place-items-center \
-          my-4 border border-gray border-solid rounded p-4 shadow-sm \
-          bg-gray_light text-gray_dark shadow"
-        )>
-        {switch computeAllocationsFamiliales(formData) {
-        | Error(msg) => <div className=%twc("font-bold")> msg </div>
-        | Result(amount) => <>
-            <div className=%twc("pr-2 font-semibold")>
-              <Lang.String
-                english="Family benefits monthly amount:"
-                french=`Montant mensuel des allocations familiales :`
-              />
-            </div>
-            <div className=%twc("flex flex-row justify-center")>
-              <div className=%twc("font-bold whitespace-nowrap")>
-                <span className=%twc("text-mb font-mono")> {React.float(amount)} </span>
-                {React.string(` €`)}
-              </div>
-            </div>
-          </>
-        }}
-      </div>
-    }
-  }
-
-  @react.component
-  let make = (
-    ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
-  ) => {
-    let (formData, setFormData) = React.useState(_ => {
-      None
-    })
-
-    <>
-      <Form.FromJSONSchema
-        schema={Lang.getCurrent(~english=englishSchema, ~french=frenchSchema)}
-        uiSchema={Lang.getCurrent(~english=englishUiSchema, ~french=frenchUiSchema)}
-        formData={formData->Belt.Option.getWithDefault(Js.Json.null)}
-        onSubmit={t => setFormData(_ => t->Js.Dict.get("formData"))}
-        onChange={t => Js.log("[CHANGED]")}
-        onError={_ => Js.log("error")}
-      />
-      <ComputationResult formData setEventsOpt />
-    </>
-  }
-}
-
-module Visualizer = Visualization.Make(Simulator)
+  include Form
+})
 
 @react.component
 let make = () => {
   <>
-    <Title> title </Title>
+    <Title> pageTitle </Title>
     <p>
       <Lang.String
         english="The source code for this example is available "
@@ -141,7 +94,7 @@ let make = () => {
       />
     </p>
     <Section title={<Lang.String english="Form" french=`Formulaire` />}>
-      <Simulator setEventsOpt={_ => ()} />
+      <Form setEventsOpt={_ => ()} />
     </Section>
     <div className=%twc("inline-flex justify-end")>
       <Button.Internal
@@ -153,9 +106,7 @@ let make = () => {
       </Button.Internal>
     </div>
     <Section title={<Lang.String english="Source code" french=`Code source` />}>
-      <CatalaCode.DangerouslySetInnerHtml
-        html=%raw(`require("../../assets/allocations_familiales.html")`)
-      />
+      <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />
     </Section>
   </>
 }

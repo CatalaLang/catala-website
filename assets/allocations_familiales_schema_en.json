@@ -247,7 +247,12 @@
           "type": "boolean",
           "default": false
         }
-      }
+      },
+      "required": [
+        "dIdentifiant",
+        "dRemunerationMensuelle",
+        "dDateDeNaissance"
+      ]
     },
     "prise_en_charge": {
       "type": "object",
@@ -413,5 +418,11 @@
       "type": "boolean",
       "default": false
     }
-  }
+  },
+  "required": [
+    "iDateCouranteIn",
+    "iEnfantsIn",
+    "iRessourcesMenageIn",
+    "iResidenceIn"
+  ]
 }

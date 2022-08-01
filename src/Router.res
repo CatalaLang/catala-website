@@ -44,6 +44,13 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       fourth == Nav.visualization
     ) {
       <FrenchFamilyBenefitsExample.Visualizer />
+    } else if (
+      first == Nav.home &&
+      second == Nav.examples &&
+      third == Nav.frenchHousingBenefitsExample &&
+      fourth == Nav.visualization
+    ) {
+      <FrenchHousingBenefitsExample.Visualizer />
     } else {
       <Presentation />
     }
