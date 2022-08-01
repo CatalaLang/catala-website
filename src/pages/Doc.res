@@ -114,15 +114,15 @@ let ocaml_docs_card: Card.Presentation.t = {
 }
 
 let syntax_cheat_sheet_card: Card.Presentation.t = {
-  title: <Lang.String english="Syntax sheat cheet" french={`Pense-bête syntaxique`} />,
+  title: <Lang.String english="Syntax cheat sheet" french=`Aide-mémoire syntaxique` />,
   icon: None,
   quote: None,
   action: Some((
     External("https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"),
-    <Lang.String english="Download the cheet" french={`Télécharger le pense-bête`} />,
+    <Lang.String english="Download the sheet" french=`Télécharger l'aide-mémoire` />,
   )),
   content: <Lang.String
-    english="This cheet is a handy reference to the Catala syntax and how programs should be written."
+    english="This sheet is a handy reference to the Catala syntax and how programs should be written."
     french={`Cette feuille est une référence complète et pratique pour la syntaxe de Catala.`}
   />,
 }
