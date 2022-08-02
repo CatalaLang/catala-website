@@ -130,12 +130,12 @@ let make = () => {
       <div
         className=%twc("inline-flex flex-row justify-between content-center text-xl font-semibold")>
         <Link.Internal
-          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pr-4")
+          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pr-4 text-center")
           target={[Nav.home, Nav.publications]}>
           <Lang.String english="Read publications" french=`Lire les publications` />
         </Link.Internal>
         <Link.Text
-          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-4")
+          className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-4 text-center")
           target=zulipLink>
           <Lang.String english="Join us on Zulip" french=`Rejoins-nous sur Zulip` />
         </Link.Text>
