@@ -17,6 +17,24 @@ html .catala-code {
   background-color: var(--bg-color);
 }
 
+.catala-code summary {
+  padding-bottom: 0.5rem;
+}
+
+.catala-code .toc {
+  list-style-type: upper-roman;
+  padding-left: 32px;
+  font-size: 1.2rem;
+  align-items: center;
+}
+
+.catala-code .toc-item a:hover {
+  cursor: pointer;
+  font-weight: bold;
+  color: #376c2e;
+  opacity: 100%;
+}
+
 .catala-code tr {
   border-bottom: none;
 }
@@ -177,7 +195,7 @@ html .catala-code {
 		font-size: 1rem;
 		line-height: 1.25rem;
 	}
-	
+
 	.catala-code .code-wrapper {
 		font-size: 0.9rem;
 		line-height: 1rem;
@@ -199,7 +217,7 @@ html .catala-code {
 	.catala-code h3 {
 		font-size: 1.25rem;
 		line-height: 1.25rem;
-		padding-top: 0;
+		padding-top: 1rem;
 	}
 
 	.catala-code h4 {

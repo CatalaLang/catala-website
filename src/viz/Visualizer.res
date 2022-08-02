@@ -95,8 +95,19 @@ let scrollToAndHighlightLineNum: (Dom.element, array<string>) => unit = %raw(`
       let idEscaped = id.replaceAll(/\./g, "\\\.").replaceAll(/\//g, "\\\/")
       let lineToScroll = parentElem.querySelector("#" + idEscaped)
       if (null != lineToScroll) {
-        lineToScroll.scrollIntoView({block: "center"})
-        var links = parentElem.getElementsByTagName("A")
+        let parent = lineToScroll.parentNode;
+        while (null != parent) {
+          if ('DETAILS' == parent.nodeName) {
+            parent.setAttribute("open", true);
+            parent = null;
+          }
+          else {
+            parent = parent.parentNode;
+          }
+        }
+        lineToScroll.scrollIntoView({block: "center"});
+        lineToScroll.className = "selected";
+        var links = lineToScroll.parentNode.parentNode.parentNode.parentNode.firstChild.firstChild.firstChild.getElementsByTagName('A');
         for (var i = 0; i < links.length; i++) {
           if (ids.some(id => links[i].href.includes(id))) {
             links[i].className = "selected"
