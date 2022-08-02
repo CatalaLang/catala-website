@@ -1,7 +1,21 @@
 let github_link = "https://github.com/CatalaLang/catala-website/issues"
 
+// Needed to make internal links work in Firefox.
+let windowOnLoad: unit => unit = %raw(`
+  window.onload = function() {
+  if (location.hash){
+    var elId = location.hash.replace('#','');
+    var scrollToEl = document.getElementById(elId);
+    if (scrollToEl) {
+      scrollToEl.scrollIntoView({block: "center"});
+    }
+  }
+}
+`)
+
 @react.component
-let make = () =>
+let make = () => {
+  windowOnLoad()
   <footer className=%twc("pt-2 font-sans text-center")>
     <div className=%twc("text-gray_dark pb-2 text-xs font-semibold")>
       {
@@ -22,3 +36,4 @@ let make = () =>
       </span>
     </div>
   </footer>
+}
