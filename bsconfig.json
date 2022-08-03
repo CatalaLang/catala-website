@@ -1,7 +1,6 @@
 {
   "name": "catala-website",
-  "reason": { "react-jsx": 3 },
-  "bsc-flags": ["-bs-super-errors", "-bs-no-version-header"],
+  "reason": {"react-jsx": 3},
   "sources": {
     "dir": "src/",
     "subdirs": true,
@@ -15,7 +14,7 @@
   "generators": [
     {
       "name": "gen-tailwind",
-      "command": "tailwindcss build $in -o $out -c ../../src/css/tailwind.config.js"
+      "command": "tailwindcss build -i $in -o $out -c ../../src/css/tailwind.config.js"
     }
   ],
   "package-specs": [
@@ -33,6 +32,5 @@
   "ppx-flags": [
     "decco/ppx",
     ["@greenlabs/res-tailwindcss/ppx", "--path src/css/tailwind.css"]
-  ],
-  "refmt": 3
+  ]
 }

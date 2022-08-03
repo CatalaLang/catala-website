@@ -97,7 +97,7 @@ let make = () => {
 					sm:col-span-1"
         )}
         target=[Nav.home]>
-        <img className=%twc("h-8 pr-2") src={"/" ++ logo.default} />
+        <img className=%twc("h-8 pr-2") src={logo.default} />
         <Lang.String english="Catala" french=`Catala` />
       </Link.Internal>
       <div
