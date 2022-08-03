@@ -409,12 +409,12 @@
       "default": true
     },
     "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
-      "title": "The actual and permanent fulfills the Title I",
+      "title": "The actual and permanent dependant fulfills the Title I",
       "type": "boolean",
       "default": true
     },
     "iAvaitEnfantAChargeAvant1erJanvier2012In": {
-      "title": "Rights open before 1st January 2012",
+      "title": "Rights to family benefits open before 1st January 2012",
       "type": "boolean",
       "default": false
     }
