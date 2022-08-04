@@ -17,20 +17,76 @@ html .catala-code {
   background-color: var(--bg-color);
 }
 
-.catala-code summary {
-  padding-bottom: 0.5rem;
+.catala-code .link-article {
+  padding-left: 8px;
+  font-style: italic;
+  font-size: 0.9rem;
+  font-family: serif;
+  /* text-decoration: underline; */
 }
 
-.catala-code .toc {
-  list-style-type: upper-roman;
+.catala-code .link-article:hover {
+  cursor: pointer;
+  color: #376c2e;
+}
+
+.catala-code summary {
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.catala-code .toc summary  {
+  font-weight: bold;
+  font-size: 1.25rem;
+  font-style: normal;
+  padding: 16px 0;
+}
+
+.catala-code .toc-0,
+.catala-code .toc-1,
+.catala-code .toc-2,
+.catala-code .toc-3,
+.catala-code .toc-4,
+.catala-code .toc-5,
+.catala-code .toc-6,
+.catala-code .toc-7,
+.catala-code .toc-8,
+.catala-code .toc-9 {
   padding-left: 32px;
   font-size: 1.2rem;
   align-items: center;
 }
 
+.catala-code .toc-0 {
+  list-style-type: upper-roman;
+}
+
+.catala-code .toc-1 {
+  list-style-type: upper-latin;
+}
+
+.catala-code .toc-2 {
+  list-style-type: decimal;
+}
+
+.catala-code .toc-3 {
+  list-style-type: lower-latin;
+}
+
+.catala-code .toc-4 {
+  list-style-type: lower-roman;
+}
+
+.catala-code .toc-5,
+.catala-code .toc-6,
+.catala-code .toc-7,
+.catala-code .toc-8,
+.catala-code .toc-9 {
+  list-style-type: decimal;
+}
+
 .catala-code .toc-item a:hover {
   cursor: pointer;
-  font-weight: bold;
   color: #376c2e;
   opacity: 100%;
 }
@@ -45,9 +101,10 @@ html .catala-code {
 }
 
 .catala-code .law-text {
-  font-family: "Inter", "Open Sans", sans-serif;
+  /* font-family: "Inter", "Open Sans", sans-serif; */
+  font-family: "Georgia", serif;
   font-weight: semi-bold;
-	font-size: 1rem;
+	font-size: 1.1rem;
 }
 
 .catala-code .linenodiv pre {
@@ -100,7 +157,7 @@ html .catala-code {
   border-color: var(--border-color);
   border-radius: 0.25rem;
   background-color: var(--bg-color);
-	font-size: 1rem;
+	font-size: 0.9rem;
 	line-height: 1.25rem;
 }
 

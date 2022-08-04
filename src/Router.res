@@ -57,9 +57,40 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
   | _ => <Presentation />
   }
 
+// Handle redirection with internal linking.
+let manageInternalPageRedirections: unit => unit = %raw(`
+  function() {
+    window.scrollTo({top:0})
+    if (location.hash) {
+      var id = location.hash.replace('#', '')
+      var elementToScroll = document.getElementById(id);
+      if (elementToScroll) {
+        let parent = elementToScroll.parentNode;
+
+        // Opens the parent collapsed <details> elements.
+        while (null != parent) {
+          if ('DETAILS' == parent.nodeName) {
+            parent.setAttribute("open", true);
+            parent = null;
+          }
+          else {
+            parent = parent.parentNode;
+          }
+        }
+        if (elementToScroll) {
+          elementToScroll.scrollIntoView(true);
+        }
+      }
+    }
+  }
+`)
+
 @react.component
 let make = () => {
   let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
-  ignore(%raw(`window.scrollTo({top:0})`))
+  React.useEffect(() => {
+    manageInternalPageRedirections()
+    None
+  })
   navs->toComposant
 }

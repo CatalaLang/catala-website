@@ -99,22 +99,726 @@ Fichiers sources tissés dans ce document:
 <li><tt>decrets_divers.catala_fr</tt>, dernière modification le 2022-06-09, 14:38</li>
 <li><tt>epilogue.catala_fr</tt>, dernière modification le 2022-07-22, 19:08</li>
 </ul>
-<h1>Sommaire</h1>
 
-<ol class="toc">
-  <li class="toc-item"><a href="#Prologue">Prologue</a></li>
-  <li class="toc-item"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance">Montant du salaire minimum de croissance</a></li>
-  <li class="toc-item"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales">Montant de la base mensuelle des allocations familiales</a></li>
-  <li class="toc-item"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation">Code de la construction et de l'habitation</a></li>
-  <li class="toc-item"><a href="#Code%20de%20la%20securite%20sociale">Code de la sécurité sociale</a></li>
-  <li class="toc-item"><a href="#Montant%20des%20plafonds%20de%20ressources">Montant des plafonds de ressources</a></li>
-  <li class="toc-item"><a href="#Dispositions%20speciales%20relatives%20a%20Mayotte">Dispositions spéciales relatives à Mayotte</a></li>
-  <li class="toc-item"><a href="#Epilogue">Épilogue</a></li>
-  </ol>
-</details><h1 class='law-heading' id="Prologue"><a href="#Prologue"><p>Prologue</p></a></h1>
+<details class="toc">
+  <summary>Sommaire</summary>
+  <ol class="toc-0">
+    <li class="toc-item">
+      <div>
+        <a href="#Prologue">Prologue</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Prologue-Types%20de%20donnees%20manipulees%20par%20le%20programme">Types de données manipulées par le programme</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Prologue-Champs%20d%20applications">Champs d'applications</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Prologue-Champs%20d%20applications-Prestations%20familiales">Prestations familiales</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                <li class="toc-item">
+                  <div>
+                    <a href="#Prologue-Champs%20d%20applications-Allocations%20familiales">Allocations familiales</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Montant%20du%20salaire%20minimum%20de%20croissance">Montant du salaire minimum de croissance</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Prologue">Prologue</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance">Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%202">Article 2</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales">Montant de la base mensuelle des allocations familiales</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20ministerielle%20N%20%20DSS/SD2B/2019/65%20du%2025%20mars%202019%20relative%20a%20la%20revalorisation%20au%201er%20avril%202019%20des%20prestations%20familiales%20servies%20en%20metropole">Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20no%20DSS/SD2B/2020/33%20du%2018%20fevrier%202020%20relative%20a%20la%20revalorisation%20au%201er%20avril%202020%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte">Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020 relative à la revalorisation au 1er avril 2020 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20n%20%20DSS/2B/2021/65%20du%2019%20mars%202021%20relative%20a%20la%20revalorisation%20au%201er%20avril%202021%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte">Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021 relative à la revalorisation au 1er avril 2021 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20n%20%20DSS/2B/2022/82%20du%2028%20mars%202022%20relative%20a%20la%20revalorisation%20au%201er%20avril%202022%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte">Instruction interministérielle n°DSS/2B/2022/82 du 28 mars 2022 relative à la revalorisation au 1er avril 2022 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation">Code de la construction et de l'habitation</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative">Partie législative</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement">Livre VIII : Aides personnelles au logement</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement">Titre II : Dispositions communes aux aides personnelles au logement</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux">Chapitre Ier : Principes généraux</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul">Section 2 : Règles de non-cumul</a>
+                                      <ol class="toc-6">
+                                        <li class="toc-item">
+                                          <div>
+                                            <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul-Sous-section%201%20:%20Aides%20personnelles%20au%20logement">Sous-section 1 : Aides personnelles au logement</a>
+                                            <ol class="toc-7">
+                                              <li class="toc-item">
+                                                <div>
+                                                  <a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul-Sous-section%201%20:%20Aides%20personnelles%20au%20logement-Article%20L821-3">Article L821-3</a>
+                                                  <ol class="toc-8">
+                                                    
+                                                    </ol>
+                                                  </div>
+                                                </li>
+                                              </ol>
+                                            </div>
+                                          </li>
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Code%20de%20la%20securite%20sociale">Code de la sécurité sociale</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative">Partie législative</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Livre 5 : Prestations familiales et prestations assimilées</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites">Titre 1 : Champ d'application - Généralités</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%201er%20:%20Liste%20des%20prestations">Chapitre 1er : Liste des prestations</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%201er%20:%20Liste%20des%20prestations-Article%20L511-1">Article L511-1</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application">Chapitre 2 : Champ d'application</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application-Article%20L512-3">Article L512-3</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien">Titre 2 : Prestations générales d'entretien</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales">Chapitre 1er : Allocations familiales</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-1">Article L521-1</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-2">Article L521-2</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-3">Article L521-3</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes">Titre 5 : Dispositions communes</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes-Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base">Chapitre 1er : Etablissement du salaire de base</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes-Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base-Article%20L551-1">Article L551-1</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses">Livre 7 : Régimes divers - Dispositions diverses</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin">Titre 5 : Dispositions particulières à la Guadeloupe, à la Guyane, à la Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%201er%20:%20Generalites">Chapitre 1er : Généralités</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%201er%20:%20Generalites-Article%20L751-1">Article L751-1</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Chapitre 5 : Prestations familiales et prestations assimilées</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-3">Article L755-3</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-11">Article L755-11</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-12">Article L755-12</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat">Partie réglementaire - Décrets en Conseil d'Etat</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Livre 5 : Prestations familiales et prestations assimilées</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites">Titre 1 : Champ d'application - Généralités</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application.">Chapitre 2 : Champ d'application.</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application.-Article%20R512-2">Article R512-2</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien">Titre 2 : Prestations générales d'entretien</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales">Chapitre 1er : Allocations familiales</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-1">Article R521-1</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-2">Article R521-2</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-3">Article R521-3</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-4">Article R521-4</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses">Livre 7 : Régimes divers - Dispositions diverses</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer">Titre 5 : Départements d'outre-mer</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Chapitre 5 : Prestations familiales et prestations assimilées</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20R755-0-2">Article R755-0-2</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples">Partie réglementaire - Décrets simples</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Livre 5 : Prestations familiales et prestations assimilées</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien">Titre 2 : Prestations générales d'entretien</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales">Chapitre 1er : Allocations familiales</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-1">Article D521-1</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-2">Article D521-2</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-3">Article D521-3</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                <li class="toc-item">
+                  <div>
+                    <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses">Livre 7 : Régimes divers - Dispositions diverses</a>
+                    <ol class="toc-3">
+                      <li class="toc-item">
+                        <div>
+                          <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer">Titre 5 : Départements d'outre-mer</a>
+                          <ol class="toc-4">
+                            <li class="toc-item">
+                              <div>
+                                <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Chapitre 5 : Prestations familiales et prestations assimilées</a>
+                                <ol class="toc-5">
+                                  <li class="toc-item">
+                                    <div>
+                                      <a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20D755-5">Article D755-5</a>
+                                      <ol class="toc-6">
+                                        
+                                        </ol>
+                                      </div>
+                                    </li>
+                                  </ol>
+                                </div>
+                              </li>
+                            </ol>
+                          </div>
+                        </li>
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Montant%20des%20plafonds%20de%20ressources">Montant des plafonds de ressources</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20des%20plafonds%20de%20ressources-Circulaire%20interministerielle%20N%20%20%20DSS/SD2B/2017/352%20du%2022%20decembre%202017%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202018%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte">Circulaire interministérielle N° DSS/SD2B/2017/352 du 22 décembre 2017 relative à la revalorisation au 1er janvier 2018 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20des%20plafonds%20de%20ressources-Instruction%20interministerielle%20n%20%20%20DSS/SD2B/2018/279%20du%2017%20decembre%202018%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202019%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte">Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018 relative à la revalorisation au 1er janvier 2019 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20des%20plafonds%20de%20ressources-Instruction%20interministerielle%20no%20DSS/SD2B/2019/261%20du%2018%20decembre%202019%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202020%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte">Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Montant%20des%20plafonds%20de%20ressources-Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations">Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Montant%20des%20plafonds%20de%20ressources-Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations-Article%201">Article 1</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Dispositions%20speciales%20relatives%20a%20Mayotte">Dispositions spéciales relatives à Mayotte</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte">Décret n°2002-423 du 29 mars 2002 relatif aux prestations familiales à Mayotte</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte-Article%207">Article 7</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                <li class="toc-item">
+                  <div>
+                    <a href="#Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte-Annexe">Annexe</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    <li class="toc-item">
+      <div>
+        <a href="#Epilogue">Épilogue</a>
+        <ol class="toc-1">
+          <li class="toc-item">
+            <div>
+              <a href="#Epilogue-Regles%20diverses">Règles diverses</a>
+              <ol class="toc-2">
+                
+                </ol>
+              </div>
+            </li>
+          <li class="toc-item">
+            <div>
+              <a href="#Epilogue-Interface%20du%20programme">Interface du programme</a>
+              <ol class="toc-2">
+                <li class="toc-item">
+                  <div>
+                    <a href="#Epilogue-Interface%20du%20programme-Code%20de%20l%20education">Code de l'éducation</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                <li class="toc-item">
+                  <div>
+                    <a href="#Epilogue-Interface%20du%20programme-Article%20L131-1">Article L131-1</a>
+                    <ol class="toc-3">
+                      
+                      </ol>
+                    </div>
+                  </li>
+                </ol>
+              </div>
+            </li>
+          </ol>
+        </div>
+      </li>
+    </ol>
+  </details>
+<h1 class='law-heading' id="Prologue"><a href="#Prologue">Prologue</a></h1>
+
 <div class='law-text'><p>Avant de présenter les textes réglementaires qui régissent le calcul des allocations familiales, il est nécessaire de définir les structures de données informatiques qui modélisent la situation dont parlent ces textes législatifs.</p></div>
-</details><h2 class='law-heading' id="Types%20de%20donnees%20manipulees%20par%20le%20programme"><a href="#Types%20de%20donnees%20manipulees%20par%20le%20programme"><p>Types de données manipulées par le programme</p></a></h2>
+<h2 class='law-heading' id="Prologue-Types%20de%20donnees%20manipulees%20par%20le%20programme"><a href="#Prologue-Types%20de%20donnees%20manipulees%20par%20le%20programme">Types de données manipulées par le programme</a></h2>
 <details><summary>Types de données manipulées par le programme</summary>
+
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/prologue.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
@@ -203,9 +907,12 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Champs%20d%20applications"><a href="#Champs%20d%20applications"><p>Champs d’applications</p></a></h2>
+</details>
+<h2 class='law-heading' id="Prologue-Champs%20d%20applications"><a href="#Prologue-Champs%20d%20applications">Champs d'applications</a></h2>
 <details><summary>Champs d'applications</summary>
-<h3 class='law-heading' id="Prestations%20familiales"><a href="#Prestations%20familiales"><p>Prestations familiales</p></a></h3>
+
+<h3 class='law-heading' id="Prologue-Champs%20d%20applications-Prestations%20familiales"><a href="#Prologue-Champs%20d%20applications-Prestations%20familiales">Prestations familiales</a></h3>
+
 
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/prologue.catala_fr</div>
@@ -243,7 +950,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h3 class='law-heading' id="Allocations%20familiales"><a href="#Allocations%20familiales"><p>Allocations familiales</p></a></h3>
+
+<h3 class='law-heading' id="Prologue-Champs%20d%20applications-Allocations%20familiales"><a href="#Prologue-Champs%20d%20applications-Allocations%20familiales">Allocations familiales</a></h3>
+
 
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/prologue.catala_fr</div>
@@ -425,10 +1134,15 @@ Fichiers sources tissés dans ce document:
 
 
 
-</details><h1 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance"><p>Montant du salaire minimum de croissance</p></a></h1>
+</details>
 
-</details><h2 class='law-heading' id="Prologue"><a href="#Prologue"><p>Prologue</p></a></h2>
+
+<h1 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance">Montant du salaire minimum de croissance</a></h1>
+
+
+<h2 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Prologue"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Prologue">Prologue</a></h2>
 <details><summary>Prologue</summary>
+
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/../smic/../prologue_france/prologue.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
@@ -474,9 +1188,12 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><p>Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance</p></a></h2>
+</details>
+<h2 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance</a></h2>
 <details><summary>Décret n° 2018-1173 du 19 décembre 2018 portant relèvement du salaire minimum de croissance</summary>
-<h3 class='law-heading' id="Article%201"><a href="https://legifrance.gouv.fr/codes/id/JORFARTI000037833214/2022-08-02"><p>Article 1</p></a></h3>
+
+<h3 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202018-1173%20du%2019%20decembre%202018%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/JORFARTI000037833214/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>A compter du 1er janvier 2019, pour les catégories de travailleurs mentionnés à l’article L. 2211-1 du code du travail, le montant du salaire minimum de croissance est relevé dans les conditions ci-après :</p>
 <p>1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,03 € l’heure.</p></div>
 <div class='code-wrapper'>
@@ -533,9 +1250,13 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><p>Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance</p></a></h2>
+
+</details>
+<h2 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance</a></h2>
 <details><summary>Décret n° 2019-1387 du 18 décembre 2019 portant relèvement du salaire minimum de croissance</summary>
-<h3 class='law-heading' id="Article%201"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000039640195/2022-08-02"><p>Article 1</p></a></h3>
+
+<h3 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202019-1387%20du%2018%20decembre%202019%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000039640195/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>A compter du 1er janvier 2020, pour les catégories de travailleurs mentionnés à l’ article L. 2211-1 du code du travail , le montant du salaire minimum de croissance est relevé dans les conditions ci-après :</p>
 <p>1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,15 € l’heure ;</p></div>
 <div class='code-wrapper'>
@@ -592,9 +1313,13 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><p>Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance</p></a></h2>
+
+</details>
+<h2 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance</a></h2>
 <details><summary>Décret n° 2020-1598 du 16 décembre 2020 portant relèvement du salaire minimum de croissance</summary>
-<h3 class='law-heading' id="Article%201"><a href="https://legifrance.gouv.fr/codes/id/JORFARTI000042677367/2022-08-02"><p>Article 1</p></a></h3>
+
+<h3 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202020-1598%20du%2016%20decembre%202020%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/JORFARTI000042677367/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>A compter du 1er janvier 2021, pour les catégories de travailleurs mentionnés à l’article L. 2211-1 du code du travail, le montant du salaire minimum de croissance est relevé dans les conditions ci-après :</p>
 <p>1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,25 € l’heure ;</p></div>
 <div class='code-wrapper'>
@@ -651,9 +1376,13 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><p>Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance</p></a></h2>
+
+</details>
+<h2 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance">Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance</a></h2>
 <details><summary>Décret n° 2021-1741 du 22 décembre 2021 portant relèvement du salaire minimum de croissance</summary>
-<h3 class='law-heading' id="Article%201"><a href="https://legifrance.gouv.fr/codes/id/JORFARTI000044546655/2022-08-02"><p>Article 1</p></a></h3>
+
+<h3 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Decret%20n%20%20%202021-1741%20du%2022%20decembre%202021%20portant%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%201">Article 1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/JORFARTI000044546655/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>A compter du 1er janvier 2022, pour les catégories de travailleurs mentionnés à l’article L. 2211-1 du code du travail, le montant du salaire minimum de croissance est relevé dans les conditions ci-après :</p>
 <p>1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,57 euros l’heure.</p></div>
 <div class='code-wrapper'>
@@ -710,9 +1439,13 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance"><p>Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance</p></a></h2>
+
+</details>
+<h2 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance">Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance</a></h2>
 <details><summary>Arrêté du 19 avril 2022 relatif au relèvement du salaire minimum de croissance</summary>
-<h3 class='law-heading' id="Article%202"><a href="https://legifrance.gouv.fr/codes/id/JORFARTI000045602327/2022-08-02"><p>Article 2</p></a></h3>
+
+<h3 class='law-heading' id="Montant%20du%20salaire%20minimum%20de%20croissance-Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%202"><a href="#Montant%20du%20salaire%20minimum%20de%20croissance-Arrete%20du%2019%20avril%202022%20relatif%20au%20relevement%20du%20salaire%20minimum%20de%20croissance-Article%202">Article 2</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/JORFARTI000045602327/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>En conséquence, à compter du 1er mai 2022, pour les catégories de travailleurs mentionnés à l’article L. 2211-1 du code du travail, le montant du salaire minimum de croissance est relevé dans les conditions ci-après :</p>
 <p>1° En métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Saint-Pierre-et-Miquelon, son montant est porté à 10,85 € l’heure ;</p></div>
 <div class='code-wrapper'>
@@ -771,7 +1504,11 @@ Fichiers sources tissés dans ce document:
 
 
 
-</details><h1 class='law-heading' id="Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales"><p>Montant de la base mensuelle des allocations familiales</p></a></h1>
+</details>
+
+
+<h1 class='law-heading' id="Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales">Montant de la base mensuelle des allocations familiales</a></h1>
+
 
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/../base_mensuelle_allocations_familiales/bmaf.catala_fr</div>
@@ -787,8 +1524,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Instruction%20ministerielle%20N%20%20DSS/SD2B/2019/65%20du%2025%20mars%202019%20relative%20a%20la%20revalorisation%20au%201er%20avril%202019%20des%20prestations%20familiales%20servies%20en%20metropole"><a href="#Instruction%20ministerielle%20N%20%20DSS/SD2B/2019/65%20du%2025%20mars%202019%20relative%20a%20la%20revalorisation%20au%201er%20avril%202019%20des%20prestations%20familiales%20servies%20en%20metropole"><p>Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole</p></a></h2>
-<details><summary>Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole</summary><div class='law-text'><p>Conformément à l’article L. 551-1 du code de la sécurité sociale, le montant des prestations familiales est déterminé d’après des bases mensuelles de calcul revalorisées au 1er avril de chaque année, par application du coefficient mentionnée à l’article L. 161-25 du code de la sécurité sociale. Au titre de l’année 2019, l’article 68 de la loi du 22 décembre 2018 de financement de la sécurité sociale a prévu, par dérogation aux dispositions de l’article L. 161-25, une revalorisation de 0,3 % du montant des prestations relevant de cet article.</p>
+<h2 class='law-heading' id="Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20ministerielle%20N%20%20DSS/SD2B/2019/65%20du%2025%20mars%202019%20relative%20a%20la%20revalorisation%20au%201er%20avril%202019%20des%20prestations%20familiales%20servies%20en%20metropole"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20ministerielle%20N%20%20DSS/SD2B/2019/65%20du%2025%20mars%202019%20relative%20a%20la%20revalorisation%20au%201er%20avril%202019%20des%20prestations%20familiales%20servies%20en%20metropole">Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole</a></h2>
+<details><summary>Instruction ministérielle N°DSS/SD2B/2019/65 du 25 mars 2019 relative à la revalorisation au 1er avril 2019 des prestations familiales servies en métropole</summary>
+<div class='law-text'><p>Conformément à l’article L. 551-1 du code de la sécurité sociale, le montant des prestations familiales est déterminé d’après des bases mensuelles de calcul revalorisées au 1er avril de chaque année, par application du coefficient mentionnée à l’article L. 161-25 du code de la sécurité sociale. Au titre de l’année 2019, l’article 68 de la loi du 22 décembre 2018 de financement de la sécurité sociale a prévu, par dérogation aux dispositions de l’article L. 161-25, une revalorisation de 0,3 % du montant des prestations relevant de cet article.</p>
 <p>Le montant précité de la base mensuelle de calcul des allocations familiales (BMAF), en pourcentage duquel sont fixés les montants des prestations familiales, est ainsi porté de 411,92 € à 413,16 € au 1er avril 2019.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/../base_mensuelle_allocations_familiales/bmaf.catala_fr</div>
@@ -810,8 +1548,10 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Instruction%20interministerielle%20no%20DSS/SD2B/2020/33%20du%2018%20fevrier%202020%20relative%20a%20la%20revalorisation%20au%201er%20avril%202020%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><a href="#Instruction%20interministerielle%20no%20DSS/SD2B/2020/33%20du%2018%20fevrier%202020%20relative%20a%20la%20revalorisation%20au%201er%20avril%202020%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><p>Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020 relative à la revalorisation au 1er avril 2020 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</p></a></h2>
-<details><summary>Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020 relative à la revalorisation au 1er avril 2020 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</summary><div class='law-text'><p>Au titre de l’année 2020, l’article 81 de la loi du 24 décembre 2019 de financement de la sécurité sociale a prévu, par dérogation aux dispositions de l’article L. 161-25, une revalorisation de 0,3 % du montant des prestations relevant de cet article.</p>
+</details>
+<h2 class='law-heading' id="Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20no%20DSS/SD2B/2020/33%20du%2018%20fevrier%202020%20relative%20a%20la%20revalorisation%20au%201er%20avril%202020%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20no%20DSS/SD2B/2020/33%20du%2018%20fevrier%202020%20relative%20a%20la%20revalorisation%20au%201er%20avril%202020%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte">Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020 relative à la revalorisation au 1er avril 2020 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</a></h2>
+<details><summary>Instruction interministérielle no DSS/SD2B/2020/33 du 18 février 2020 relative à la revalorisation au 1er avril 2020 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</summary>
+<div class='law-text'><p>Au titre de l’année 2020, l’article 81 de la loi du 24 décembre 2019 de financement de la sécurité sociale a prévu, par dérogation aux dispositions de l’article L. 161-25, une revalorisation de 0,3 % du montant des prestations relevant de cet article.</p>
 <p>Le montant précité de la base mensuelle de calcul des allocations familiales (BMAF), en pourcentage duquel sont fxés les montants des prestations familiales, est ainsi porté de 413,16 € à 414,4 € au 1er avril 2020.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/../base_mensuelle_allocations_familiales/bmaf.catala_fr</div>
@@ -833,8 +1573,10 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Instruction%20interministerielle%20n%20%20DSS/2B/2021/65%20du%2019%20mars%202021%20relative%20a%20la%20revalorisation%20au%201er%20avril%202021%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><a href="#Instruction%20interministerielle%20n%20%20DSS/2B/2021/65%20du%2019%20mars%202021%20relative%20a%20la%20revalorisation%20au%201er%20avril%202021%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><p>Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021 relative à la revalorisation au 1er avril 2021 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</p></a></h2>
-<details><summary>Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021 relative à la revalorisation au 1er avril 2021 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</summary><div class='law-text'><p>Au 1er avril 2021, le coefficient de revalorisation de la BMAF est ainsi fixé à 1,001 soit un taux de revalorisation de la BMAF de 0,1 %. Le montant de cette base mensuelle, en pourcentage duquel sont fixées les prestations familiales, est donc porté de 414,4 € au 1er avril 2020 à 414,81 € au 1er avril 2021.</p></div>
+</details>
+<h2 class='law-heading' id="Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20n%20%20DSS/2B/2021/65%20du%2019%20mars%202021%20relative%20a%20la%20revalorisation%20au%201er%20avril%202021%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20n%20%20DSS/2B/2021/65%20du%2019%20mars%202021%20relative%20a%20la%20revalorisation%20au%201er%20avril%202021%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte">Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021 relative à la revalorisation au 1er avril 2021 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</a></h2>
+<details><summary>Instruction interministérielle n°DSS/2B/2021/65 du 19 mars 2021 relative à la revalorisation au 1er avril 2021 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</summary>
+<div class='law-text'><p>Au 1er avril 2021, le coefficient de revalorisation de la BMAF est ainsi fixé à 1,001 soit un taux de revalorisation de la BMAF de 0,1 %. Le montant de cette base mensuelle, en pourcentage duquel sont fixées les prestations familiales, est donc porté de 414,4 € au 1er avril 2020 à 414,81 € au 1er avril 2021.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/../base_mensuelle_allocations_familiales/bmaf.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
@@ -855,8 +1597,10 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Instruction%20interministerielle%20n%20%20DSS/2B/2022/82%20du%2028%20mars%202022%20relative%20a%20la%20revalorisation%20au%201er%20avril%202022%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><a href="#Instruction%20interministerielle%20n%20%20DSS/2B/2022/82%20du%2028%20mars%202022%20relative%20a%20la%20revalorisation%20au%201er%20avril%202022%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><p>Instruction interministérielle n°DSS/2B/2022/82 du 28 mars 2022 relative à la revalorisation au 1er avril 2022 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</p></a></h2>
-<details><summary>Instruction interministérielle n°DSS/2B/2022/82 du 28 mars 2022 relative à la revalorisation au 1er avril 2022 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</summary><div class='law-text'><p>Au 1er avril 2022, le coefficient de revalorisation de la base mensuelle de calcul des allocations familiales (BMAF) est ainsi fixé à 1,018 soit un taux de revalorisation de la BMAF de 1,8 %. Le montant de cette base mensuelle, en pourcentage duquel sont fixées les prestations familiales, est donc porté de 414,81 € au 1er avril 2021 à 422,28 € au 1er avril 2022.</p></div>
+</details>
+<h2 class='law-heading' id="Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20n%20%20DSS/2B/2022/82%20du%2028%20mars%202022%20relative%20a%20la%20revalorisation%20au%201er%20avril%202022%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte"><a href="#Montant%20de%20la%20base%20mensuelle%20des%20allocations%20familiales-Instruction%20interministerielle%20n%20%20DSS/2B/2022/82%20du%2028%20mars%202022%20relative%20a%20la%20revalorisation%20au%201er%20avril%202022%20des%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20dans%20le%20departement%20de%20Mayotte">Instruction interministérielle n°DSS/2B/2022/82 du 28 mars 2022 relative à la revalorisation au 1er avril 2022 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</a></h2>
+<details><summary>Instruction interministérielle n°DSS/2B/2022/82 du 28 mars 2022 relative à la revalorisation au 1er avril 2022 des prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et dans le département de Mayotte</summary>
+<div class='law-text'><p>Au 1er avril 2022, le coefficient de revalorisation de la base mensuelle de calcul des allocations familiales (BMAF) est ainsi fixé à 1,018 soit un taux de revalorisation de la BMAF de 1,8 %. Le montant de cette base mensuelle, en pourcentage duquel sont fixées les prestations familiales, est donc porté de 414,81 € au 1er avril 2021 à 422,28 € au 1er avril 2022.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/../base_mensuelle_allocations_familiales/bmaf.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
@@ -878,22 +1622,32 @@ Fichiers sources tissés dans ce document:
 </div>
 
 
+</details>
 
-</details><h1 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation"><p>Code de la construction et de l’habitation</p></a></h1>
 
-</details><h2 class='law-heading' id="Partie%20legislative"><a href="#Partie%20legislative"><p>Partie législative</p></a></h2>
+<h1 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation">Code de la construction et de l'habitation</a></h1>
+
+
+<h2 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative">Partie législative</a></h2>
 <details><summary>Partie législative</summary>
-<h3 class='law-heading' id="Livre%20VIII%20:%20Aides%20personnelles%20au%20logement"><a href="#Livre%20VIII%20:%20Aides%20personnelles%20au%20logement"><p>Livre VIII : Aides personnelles au logement</p></a></h3>
 
-<h4 class='law-heading' id="Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement"><a href="#Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement"><p>Titre II : Dispositions communes aux aides personnelles au logement</p></a></h4>
+<h3 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement">Livre VIII : Aides personnelles au logement</a></h3>
 
-<h5 class='law-heading' id="Chapitre%20Ier%20:%20Principes%20generaux"><a href="#Chapitre%20Ier%20:%20Principes%20generaux"><p>Chapitre Ier : Principes généraux</p></a></h5>
 
-<h6 class='law-heading' id="Section%202%20:%20Regles%20de%20non-cumul"><a href="#Section%202%20:%20Regles%20de%20non-cumul"><p>Section 2 : Règles de non-cumul</p></a></h6>
+<h4 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement">Titre II : Dispositions communes aux aides personnelles au logement</a></h4>
 
-<h7 class='law-heading' id="Sous-section%201%20:%20Aides%20personnelles%20au%20logement"><a href="#Sous-section%201%20:%20Aides%20personnelles%20au%20logement"><p>Sous-section 1 : Aides personnelles au logement</p></a></h7>
 
-<h8 class='law-heading' id="Article%20L821-3"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038814972/2022-08-02"><p>Article L821-3</p></a></h8>
+<h5 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux">Chapitre Ier : Principes généraux</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul">Section 2 : Règles de non-cumul</a></h6>
+
+
+<h7 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul-Sous-section%201%20:%20Aides%20personnelles%20au%20logement"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul-Sous-section%201%20:%20Aides%20personnelles%20au%20logement">Sous-section 1 : Aides personnelles au logement</a></h7>
+
+
+<h8 class='law-heading' id="Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul-Sous-section%201%20:%20Aides%20personnelles%20au%20logement-Article%20L821-3"><a href="#Code%20de%20la%20construction%20et%20de%20l%20habitation-Partie%20legislative-Livre%20VIII%20:%20Aides%20personnelles%20au%20logement-Titre%20II%20:%20Dispositions%20communes%20aux%20aides%20personnelles%20au%20logement-Chapitre%20Ier%20:%20Principes%20generaux-Section%202%20:%20Regles%20de%20non-cumul-Sous-section%201%20:%20Aides%20personnelles%20au%20logement-Article%20L821-3">Article L821-3</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038814972/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h8>
+
 <div class='law-text'><p>Lorsqu’un enfant est bénéficiaire, à titre personnel, de l’aide personnelle au logement, il n’est pas pris en compte, comme enfant à charge, pour le bénéfice des prestations familiales.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/autres_codes.catala_fr</div>
@@ -913,17 +1667,31 @@ Fichiers sources tissés dans ce document:
 
 
 
-</details><h1 class='law-heading' id="Code%20de%20la%20securite%20sociale"><a href="#Code%20de%20la%20securite%20sociale"><p>Code de la sécurité sociale</p></a></h1>
 
-</details><h2 class='law-heading' id="Partie%20legislative"><a href="#Partie%20legislative"><p>Partie législative</p></a></h2>
+
+
+
+
+</details>
+
+
+<h1 class='law-heading' id="Code%20de%20la%20securite%20sociale"><a href="#Code%20de%20la%20securite%20sociale">Code de la sécurité sociale</a></h1>
+
+
+<h2 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative">Partie législative</a></h2>
 <details><summary>Partie législative</summary>
-<h3 class='law-heading' id="Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><p>Livre 5 : Prestations familiales et prestations assimilées</p></a></h3>
 
-<h4 class='law-heading' id="Titre%201%20:%20Champ%20d%20application%20-%20Generalites"><a href="#Titre%201%20:%20Champ%20d%20application%20-%20Generalites"><p>Titre 1 : Champ d’application - Généralités</p></a></h4>
+<h3 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Livre 5 : Prestations familiales et prestations assimilées</a></h3>
 
-<h5 class='law-heading' id="Chapitre%201er%20:%20Liste%20des%20prestations"><a href="#Chapitre%201er%20:%20Liste%20des%20prestations"><p>Chapitre 1er : Liste des prestations</p></a></h5>
 
-<h6 class='law-heading' id="Article%20L511-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038834530/2022-08-02"><p>Article L511-1</p></a></h6>
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites">Titre 1 : Champ d'application - Généralités</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%201er%20:%20Liste%20des%20prestations"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%201er%20:%20Liste%20des%20prestations">Chapitre 1er : Liste des prestations</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%201er%20:%20Liste%20des%20prestations-Article%20L511-1"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%201er%20:%20Liste%20des%20prestations-Article%20L511-1">Article L511-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038834530/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les prestations familiales comprennent :</p>
 <p>1°) la prestation d’accueil du jeune enfant ;</p>
 <p>2°) les allocations familiales ;</p>
@@ -944,9 +1712,13 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h5 class='law-heading' id="Chapitre%202%20:%20Champ%20d%20application"><a href="#Chapitre%202%20:%20Champ%20d%20application"><p>Chapitre 2 : Champ d’application</p></a></h5>
 
-<h6 class='law-heading' id="Article%20L512-3"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038834523/2022-08-02"><p>Article L512-3</p></a></h6>
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application">Chapitre 2 : Champ d'application</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application-Article%20L512-3"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application-Article%20L512-3">Article L512-3</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038834523/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Sous réserve des règles particulières à chaque prestation, ouvre droit aux prestations familiales :</p>
 <p>1°) tout enfant jusqu’à la fin de l’obligation scolaire ;</p></div>
 <div class='code-wrapper'>
@@ -1029,11 +1801,17 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h4 class='law-heading' id="Titre%202%20:%20Prestations%20generales%20d%20entretien"><a href="#Titre%202%20:%20Prestations%20generales%20d%20entretien"><p>Titre 2 : Prestations générales d’entretien</p></a></h4>
 
-<h5 class='law-heading' id="Chapitre%201er%20:%20Allocations%20familiales"><a href="#Chapitre%201er%20:%20Allocations%20familiales"><p>Chapitre 1er : Allocations familiales</p></a></h5>
 
-<h6 class='law-heading' id="Article%20L521-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000029963006/2022-08-02"><p>Article L521-1</p></a></h6>
+
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien">Titre 2 : Prestations générales d'entretien</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales">Chapitre 1er : Allocations familiales</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-1"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-1">Article L521-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000029963006/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les allocations familiales sont dues à partir du deuxième enfant à charge.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1153,7 +1931,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h6 class='law-heading' id="Article%20L521-2"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006743210/2022-08-02"><p>Article L521-2</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-2"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-2">Article L521-2</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006743210/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les allocations sont versées à la personne qui assume, dans quelques conditions que ce soit, la charge effective et permanente de l’enfant.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1315,7 +2095,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h6 class='law-heading' id="Article%20L521-3"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006743289/2022-08-02"><p>Article L521-3</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-3"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20L521-3">Article L521-3</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006743289/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Chacun des enfants à charge, à l’exception du plus âgé, ouvre droit à partir d’un âge minimum à une majoration des allocations familiales.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1361,11 +2143,17 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h4 class='law-heading' id="Titre%205%20:%20Dispositions%20communes"><a href="#Titre%205%20:%20Dispositions%20communes"><p>Titre 5 : Dispositions communes</p></a></h4>
 
-<h5 class='law-heading' id="Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base"><a href="#Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base"><p>Chapitre 1er : Etablissement du salaire de base</p></a></h5>
 
-<h6 class='law-heading' id="Article%20L551-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000031688371/2022-08-02"><p>Article L551-1</p></a></h6>
+
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes">Titre 5 : Dispositions communes</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes-Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes-Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base">Chapitre 1er : Etablissement du salaire de base</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes-Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base-Article%20L551-1"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%205%20:%20Dispositions%20communes-Chapitre%201er%20:%20Etablissement%20du%20salaire%20de%20base-Article%20L551-1">Article L551-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000031688371/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Le montant des prestations familiales est déterminé d’après des bases mensuelles de calcul revalorisées au 1er avril de chaque année par application du coefficient mentionné à l’article L. 161-25 .</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1381,13 +2169,21 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h3 class='law-heading' id="Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><a href="#Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><p>Livre 7 : Régimes divers - Dispositions diverses</p></a></h3>
 
-<h4 class='law-heading' id="Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin"><a href="#Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin"><p>Titre 5 : Dispositions particulières à la Guadeloupe, à la Guyane, à la Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin</p></a></h4>
 
-<h5 class='law-heading' id="Chapitre%201er%20:%20Generalites"><a href="#Chapitre%201er%20:%20Generalites"><p>Chapitre 1er : Généralités</p></a></h5>
 
-<h6 class='law-heading' id="Article%20L751-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000031323778/2022-08-02"><p>Article L751-1</p></a></h6>
+
+<h3 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses">Livre 7 : Régimes divers - Dispositions diverses</a></h3>
+
+
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin">Titre 5 : Dispositions particulières à la Guadeloupe, à la Guyane, à la Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%201er%20:%20Generalites"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%201er%20:%20Generalites">Chapitre 1er : Généralités</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%201er%20:%20Generalites-Article%20L751-1"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%201er%20:%20Generalites-Article%20L751-1">Article L751-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000031323778/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les dispositions du présent titre s’appliquent en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy et à Saint-Martin à l’ensemble des bénéficiaires de la législation générale de sécurité sociale, y compris les membres des professions agricoles.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1421,9 +2217,13 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h5 class='law-heading' id="Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><p>Chapitre 5 : Prestations familiales et prestations assimilées</p></a></h5>
 
-<h6 class='law-heading' id="Article%20L755-3"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000033728786/2022-08-02"><p>Article L755-3</p></a></h6>
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Chapitre 5 : Prestations familiales et prestations assimilées</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-3"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-3">Article L755-3</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000033728786/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les dispositions des articles L. 512-1 à L. 512-4 , L. 513-1 , L. 521-2 , L. 552-1 , L. 553-1 , L. 553-2 , L. 553-4 , L. 582-1 , L. 582-2 , L. 583-3 et L. 583-5 sont applicables aux collectivités mentionnées à l’article L. 751-1 .</p>
 <p>La base de calcul des prestations familiales est la même que celle qui est fixée en application de l’article L. 551-1 .</p></div>
 <div class='code-wrapper'>
@@ -1436,7 +2236,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h6 class='law-heading' id="Article%20L755-11"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000031323803/2022-08-02"><p>Article L755-11</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-11"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-11">Article L755-11</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000031323803/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les conditions d’attribution des allocations familiales et de leurs majorations fixées par les articles L. 521-1 et L. 521-3 sont applicables dans les collectivités mentionnées à l’article L. 751-1.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1448,7 +2250,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 <div class='law-text'><p>Toutefois, les dispositions de l’article L. 755-12 restent en vigueur aussi longtemps que le présent chapitre V est applicable.</p></div>
-<h6 class='law-heading' id="Article%20L755-12"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000029962999/2022-08-02"><p>Article L755-12</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-12"><a href="#Code%20de%20la%20securite%20sociale-Partie%20legislative-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Dispositions%20particulieres%20a%20la%20Guadeloupe,%20a%20la%20Guyane,%20a%20la%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy%20et%20a%20Saint-Martin-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20L755-12">Article L755-12</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000029962999/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les allocations familiales sont dues, pour tout enfant, à la personne qui a effectivement la charge de celui-ci.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_L.catala_fr</div>
@@ -1521,15 +2325,25 @@ Fichiers sources tissés dans ce document:
 </div>
 
 
-</details><h2 class='law-heading' id="Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat"><a href="#Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat"><p>Partie réglementaire - Décrets en Conseil d’Etat</p></a></h2>
+
+
+
+
+</details>
+<h2 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat">Partie réglementaire - Décrets en Conseil d'Etat</a></h2>
 <details><summary>Partie réglementaire - Décrets en Conseil d'Etat</summary>
-<h3 class='law-heading' id="Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><p>Livre 5 : Prestations familiales et prestations assimilées</p></a></h3>
 
-<h4 class='law-heading' id="Titre%201%20:%20Champ%20d%20application%20-%20Generalites"><a href="#Titre%201%20:%20Champ%20d%20application%20-%20Generalites"><p>Titre 1 : Champ d’application - Généralités</p></a></h4>
+<h3 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Livre 5 : Prestations familiales et prestations assimilées</a></h3>
 
-<h5 class='law-heading' id="Chapitre%202%20:%20Champ%20d%20application."><a href="#Chapitre%202%20:%20Champ%20d%20application."><p>Chapitre 2 : Champ d’application.</p></a></h5>
 
-<h6 class='law-heading' id="Article%20R512-2"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750602/2022-08-02"><p>Article R512-2</p></a></h6>
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites">Titre 1 : Champ d'application - Généralités</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application."><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application.">Chapitre 2 : Champ d'application.</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application.-Article%20R512-2"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%201%20:%20Champ%20d%20application%20-%20Generalites-Chapitre%202%20:%20Champ%20d%20application.-Article%20R512-2">Article R512-2</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750602/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Les enfants ouvrent droit aux prestations familiales jusqu’à l’âge de vingt ans sous réserve que leur rémunération n’excède pas le plafond fixé au deuxième alinéa du présent article.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_R.catala_fr</div>
@@ -1577,11 +2391,17 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h4 class='law-heading' id="Titre%202%20:%20Prestations%20generales%20d%20entretien"><a href="#Titre%202%20:%20Prestations%20generales%20d%20entretien"><p>Titre 2 : Prestations générales d’entretien</p></a></h4>
 
-<h5 class='law-heading' id="Chapitre%201er%20:%20Allocations%20familiales"><a href="#Chapitre%201er%20:%20Allocations%20familiales"><p>Chapitre 1er : Allocations familiales</p></a></h5>
 
-<h6 class='law-heading' id="Article%20R521-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000018735853/2022-08-02"><p>Article R521-1</p></a></h6>
+
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien">Titre 2 : Prestations générales d'entretien</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales">Chapitre 1er : Allocations familiales</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-1"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-1">Article R521-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000018735853/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>L’âge mentionné au premier alinéa de l’article L. 521-3 à partir duquel les enfants ouvrent droit à la majoration des allocations familiales est fixé à 14 ans.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_R.catala_fr</div>
@@ -1643,7 +2463,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h6 class='law-heading' id="Article%20R521-2"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750608/2022-08-02"><p>Article R521-2</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-2"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-2">Article R521-2</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750608/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Dans les situations visées au deuxième alinéa de l’article L. 521-2 , l’allocataire est celui des deux parents qu’ils désignent d’un commun accord. A défaut d’accord sur la désignation d’un allocataire unique, chacun des deux parents peut se voir reconnaître la qualité d’allocataire :</p>
 <p>1° Lorsque les deux parents en ont fait la demande conjointe ;</p>
 <p>2° Lorsque les deux parents n’ont ni désigné un allocataire unique, ni fait une demande conjointe de partage.</p></div>
@@ -1671,7 +2493,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h6 class='law-heading' id="Article%20R521-3"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750610/2022-08-02"><p>Article R521-3</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-3"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-3">Article R521-3</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750610/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Sous réserve de l’article R. 521-4, dans les situations visées aux 1° et 2° de l’article R. 521-2 , la prestation due à chacun des parents est égale au montant des allocations familiales dues pour le total des enfants à charge, multiplié par un coefficient résultant du rapport entre le nombre moyen d’enfants et le nombre total d’enfants.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_R.catala_fr</div>
@@ -1747,7 +2571,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h6 class='law-heading' id="Article%20R521-4"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750613/2022-08-02"><p>Article R521-4</p></a></h6>
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-4"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20R521-4">Article R521-4</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006750613/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Pour l’ouverture du droit à la majoration prévue à l’article L. 521-3 , le nombre d’enfants à charge est évalué dans les conditions prévues au premier alinéa de l’article R. 521-3.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_R.catala_fr</div>
@@ -1799,13 +2625,21 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h3 class='law-heading' id="Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><a href="#Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><p>Livre 7 : Régimes divers - Dispositions diverses</p></a></h3>
 
-<h4 class='law-heading' id="Titre%205%20:%20Departements%20d%20outre-mer"><a href="#Titre%205%20:%20Departements%20d%20outre-mer"><p>Titre 5 : Départements d’outre-mer</p></a></h4>
 
-<h5 class='law-heading' id="Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><p>Chapitre 5 : Prestations familiales et prestations assimilées</p></a></h5>
 
-<h6 class='law-heading' id="Article%20R755-0-2"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006752633/2022-08-02"><p>Article R755-0-2</p></a></h6>
+
+<h3 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses">Livre 7 : Régimes divers - Dispositions diverses</a></h3>
+
+
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer">Titre 5 : Départements d'outre-mer</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Chapitre 5 : Prestations familiales et prestations assimilées</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20R755-0-2"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20en%20Conseil%20d%20Etat-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20R755-0-2">Article R755-0-2</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006752633/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h6>
+
 <div class='law-text'><p>Le plafond de rémunération des enfants à charge mentionnés à l’article L. 512-3 est égal, pour un mois, à 55 % du salaire minimum de croissance en vigueur dans chacun des départements mentionnés à l’article L. 751-1 , multiplié par 169.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_R.catala_fr</div>
@@ -1828,15 +2662,25 @@ Fichiers sources tissés dans ce document:
 </div>
 
 
-</details><h2 class='law-heading' id="Partie%20reglementaire%20-%20Decrets%20simples"><a href="#Partie%20reglementaire%20-%20Decrets%20simples"><p>Partie réglementaire - Décrets simples</p></a></h2>
+
+
+
+
+</details>
+<h2 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples">Partie réglementaire - Décrets simples</a></h2>
 <details><summary>Partie réglementaire - Décrets simples</summary>
-<h4 class='law-heading' id="Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><p>Livre 5 : Prestations familiales et prestations assimilées</p></a></h4>
 
-<h5 class='law-heading' id="Titre%202%20:%20Prestations%20generales%20d%20entretien"><a href="#Titre%202%20:%20Prestations%20generales%20d%20entretien"><p>Titre 2 : Prestations générales d’entretien</p></a></h5>
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Livre 5 : Prestations familiales et prestations assimilées</a></h4>
 
-<h6 class='law-heading' id="Chapitre%201er%20:%20Allocations%20familiales"><a href="#Chapitre%201er%20:%20Allocations%20familiales"><p>Chapitre 1er : Allocations familiales</p></a></h6>
 
-<h7 class='law-heading' id="Article%20D521-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000030680318/2022-08-02"><p>Article D521-1</p></a></h7>
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien">Titre 2 : Prestations générales d'entretien</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales">Chapitre 1er : Allocations familiales</a></h6>
+
+
+<h7 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-1"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-1">Article D521-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000030680318/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h7>
+
 <div class='law-text'><p>I.-Pour l’application de l’article L. 521-1 , le montant des allocations familiales et de la majoration pour âge prévue à l’article L. 521-3 est défini selon le barème suivant :</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_D.catala_fr</div>
@@ -2121,7 +2965,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h7 class='law-heading' id="Article%20D521-2"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000030680324/2022-08-02"><p>Article D521-2</p></a></h7>
+
+<h7 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-2"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-2">Article D521-2</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000030680324/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h7>
+
 
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_D.catala_fr</div>
@@ -2276,7 +3122,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h7 class='law-heading' id="Article%20D521-3"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000030678079/2022-08-02"><p>Article D521-3</p></a></h7>
+
+<h7 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-3"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Titre%202%20:%20Prestations%20generales%20d%20entretien-Chapitre%201er%20:%20Allocations%20familiales-Article%20D521-3">Article D521-3</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000030678079/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h7>
+
 <div class='law-text'><p>I.-Le plafond prévu au 1° du I des articles D. 521-1 et D. 521-2 est fixé à 55 950 euros. Il est majoré de 5 595 euros par enfant à charge.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_D.catala_fr</div>
@@ -2322,13 +3170,21 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h4 class='law-heading' id="Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><a href="#Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><p>Livre 7 : Régimes divers - Dispositions diverses</p></a></h4>
 
-<h5 class='law-heading' id="Titre%205%20:%20Departements%20d%20outre-mer"><a href="#Titre%205%20:%20Departements%20d%20outre-mer"><p>Titre 5 : Départements d’outre-mer</p></a></h5>
 
-<h6 class='law-heading' id="Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><p>Chapitre 5 : Prestations familiales et prestations assimilées</p></a></h6>
 
-<h7 class='law-heading' id="Article%20D755-5"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006738575/2022-08-02"><p>Article D755-5</p></a></h7>
+
+<h4 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses">Livre 7 : Régimes divers - Dispositions diverses</a></h4>
+
+
+<h5 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer">Titre 5 : Départements d'outre-mer</a></h5>
+
+
+<h6 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees">Chapitre 5 : Prestations familiales et prestations assimilées</a></h6>
+
+
+<h7 class='law-heading' id="Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20D755-5"><a href="#Code%20de%20la%20securite%20sociale-Partie%20reglementaire%20-%20Decrets%20simples-Livre%207%20:%20Regimes%20divers%20-%20Dispositions%20diverses-Titre%205%20:%20Departements%20d%20outre-mer-Chapitre%205%20:%20Prestations%20familiales%20et%20prestations%20assimilees-Article%20D755-5">Article D755-5</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000006738575/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h7>
+
 <div class='law-text'><p>I. - Les taux servant au calcul des allocations familiales et de la majoration prévue à l’article L. 755-11 sont identiques à ceux mentionnés à l’article D. 521-1.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/securite_sociale_D.catala_fr</div>
@@ -2434,10 +3290,18 @@ Fichiers sources tissés dans ce document:
 
 
 
-</details><h1 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources"><a href="#Montant%20des%20plafonds%20de%20ressources"><p>Montant des plafonds de ressources</p></a></h1>
 
-</details><h2 class='law-heading' id="Circulaire%20interministerielle%20N%20%20%20DSS/SD2B/2017/352%20du%2022%20decembre%202017%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202018%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><a href="#Circulaire%20interministerielle%20N%20%20%20DSS/SD2B/2017/352%20du%2022%20decembre%202017%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202018%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><p>Circulaire interministérielle N° DSS/SD2B/2017/352 du 22 décembre 2017 relative à la revalorisation au 1er janvier 2018 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</p></a></h2>
-<details><summary>Circulaire interministérielle N° DSS/SD2B/2017/352 du 22 décembre 2017 relative à la revalorisation au 1er janvier 2018 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</summary><div class='law-text'><p>Plafonds de ressources applicables pour l’attribution du montant modulé des allocations familiales, de la majoration pour âge et de l’allocation forfaitaire, du 1er janvier 2018 au 31 décembre 2018 (à comparer au revenu net catégoriel de l’année 2016).</p>
+
+
+</details>
+
+
+<h1 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources"><a href="#Montant%20des%20plafonds%20de%20ressources">Montant des plafonds de ressources</a></h1>
+
+
+<h2 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources-Circulaire%20interministerielle%20N%20%20%20DSS/SD2B/2017/352%20du%2022%20decembre%202017%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202018%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><a href="#Montant%20des%20plafonds%20de%20ressources-Circulaire%20interministerielle%20N%20%20%20DSS/SD2B/2017/352%20du%2022%20decembre%202017%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202018%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte">Circulaire interministérielle N° DSS/SD2B/2017/352 du 22 décembre 2017 relative à la revalorisation au 1er janvier 2018 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</a></h2>
+<details><summary>Circulaire interministérielle N° DSS/SD2B/2017/352 du 22 décembre 2017 relative à la revalorisation au 1er janvier 2018 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</summary>
+<div class='law-text'><p>Plafonds de ressources applicables pour l’attribution du montant modulé des allocations familiales, de la majoration pour âge et de l’allocation forfaitaire, du 1er janvier 2018 au 31 décembre 2018 (à comparer au revenu net catégoriel de l’année 2016).</p>
 <p>La première tranche est celle dont les revenus sont inférieurs ou égaux à un plafond de base de 56 286 € majoré de 5 628 euros par enfant à charge. La deuxième tranche est celle dont les revenus sont supérieurs à un plafond de base de 56 286 euros majoré de 5 628 euros par enfant à charge mais inférieurs ou égaux au plafond de base de 78 770 euros majoré de 5 628 euros par enfant à charge. La troisième tranche est celle dont les revenus sont supérieurs au plafond de base de 78 770 euros majoré de 5 628 euros par enfant à charge.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/decrets_divers.catala_fr</div>
@@ -2475,8 +3339,10 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Instruction%20interministerielle%20n%20%20%20DSS/SD2B/2018/279%20du%2017%20decembre%202018%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202019%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><a href="#Instruction%20interministerielle%20n%20%20%20DSS/SD2B/2018/279%20du%2017%20decembre%202018%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202019%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><p>Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018 relative à la revalorisation au 1er janvier 2019 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</p></a></h2>
-<details><summary>Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018 relative à la revalorisation au 1er janvier 2019 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</summary><div class='law-text'><p>Plafonds de ressources applicables pour l’attribution du montant modulé des allocations familiales, de la majoration pour âge et de l’allocation forfaitaire, du 1er janvier 2019 au 31 décembre 2019 (à comparer au revenu net catégoriel de l’année 2017).</p>
+</details>
+<h2 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources-Instruction%20interministerielle%20n%20%20%20DSS/SD2B/2018/279%20du%2017%20decembre%202018%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202019%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><a href="#Montant%20des%20plafonds%20de%20ressources-Instruction%20interministerielle%20n%20%20%20DSS/SD2B/2018/279%20du%2017%20decembre%202018%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202019%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20la%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte">Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018 relative à la revalorisation au 1er janvier 2019 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</a></h2>
+<details><summary>Instruction interministérielle n° DSS/SD2B/2018/279 du 17 décembre 2018 relative à la revalorisation au 1er janvier 2019 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à la Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</summary>
+<div class='law-text'><p>Plafonds de ressources applicables pour l’attribution du montant modulé des allocations familiales, de la majoration pour âge et de l’allocation forfaitaire, du 1er janvier 2019 au 31 décembre 2019 (à comparer au revenu net catégoriel de l’année 2017).</p>
 <p>La première tranche est celle dont les revenus sont inférieurs ou égaux à un plafond de base de 56 849 € majoré de 5 684 euros par enfant à charge. La deuxième tranche est celle dont les revenus sont supérieurs à un plafond de base de 56 849 euros majoré de 5 684 euros par enfant à charge mais inférieurs ou égaux au plafond de base de 79 558 euros majoré de 5 684 euros par enfant à charge. La troisième tranche est celle dont les revenus sont supérieurs au plafond de base de 79 558 euros majoré de 5 684 euros par enfant à charge.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/decrets_divers.catala_fr</div>
@@ -2514,8 +3380,10 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Instruction%20interministerielle%20no%20DSS/SD2B/2019/261%20du%2018%20decembre%202019%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202020%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><a href="#Instruction%20interministerielle%20no%20DSS/SD2B/2019/261%20du%2018%20decembre%202019%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202020%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><p>Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</p></a></h2>
-<details><summary>Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</summary><div class='law-text'><p>Plafonds de ressources applicables pour l’attribution du montant modulé des allocations familiales, de la majoration pour âge et de l’allocation forfaitaire, du 1er janvier 2020 au 31 décembre 2020 (à comparer au revenu net catégoriel de l’année 2018)</p>
+</details>
+<h2 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources-Instruction%20interministerielle%20no%20DSS/SD2B/2019/261%20du%2018%20decembre%202019%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202020%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte"><a href="#Montant%20des%20plafonds%20de%20ressources-Instruction%20interministerielle%20no%20DSS/SD2B/2019/261%20du%2018%20decembre%202019%20relative%20a%20la%20revalorisation%20au%201er%20janvier%202020%20des%20plafonds%20de%20ressources%20d%20attribution%20de%20certaines%20prestations%20familiales%20servies%20en%20metropole,%20en%20Guadeloupe,%20en%20Guyane,%20en%20Martinique,%20a%20La%20Reunion,%20a%20Saint-Barthelemy,%20a%20Saint-Martin%20et%20a%20Mayotte">Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</a></h2>
+<details><summary>Instruction interministerielle no DSS/SD2B/2019/261 du 18 décembre 2019 relative à la revalorisation au 1er janvier 2020 des plafonds de ressources d’attribution de certaines prestations familiales servies en métropole, en Guadeloupe, en Guyane, en Martinique, à La Réunion, à Saint-Barthélemy, à Saint-Martin et à Mayotte</summary>
+<div class='law-text'><p>Plafonds de ressources applicables pour l’attribution du montant modulé des allocations familiales, de la majoration pour âge et de l’allocation forfaitaire, du 1er janvier 2020 au 31 décembre 2020 (à comparer au revenu net catégoriel de l’année 2018)</p>
 <p>La première tranche est celle dont les revenus sont inférieurs ou égaux à un plafond de base de 57 759 € majoré de 5 775 € par enfant à charge. La deuxième tranche est celle dont les revenus sont supérieurs à un plafond de base de 57 759 € majoré de 5 775 € par enfant à charge mais inférieurs ou égaux au plafond de base de 80 831 € majoré de 5 775 € par enfant à charge. La troisième tranche est celle dont les revenus sont supérieurs au plafond de base de 80 831 € majoré de 5 775 € par enfant à charge.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/decrets_divers.catala_fr</div>
@@ -2553,9 +3421,12 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations"><a href="#Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations"><p>Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations</p></a></h2>
+</details>
+<h2 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources-Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations"><a href="#Montant%20des%20plafonds%20de%20ressources-Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations">Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations</a></h2>
 <details><summary>Arrêté du 14 décembre 2020 relatif au montant des plafonds de ressources de certaines prestations familiales et aux tranches du barème applicable au recouvrement des indus et à la saisie des prestations</summary>
-<h3 class='law-heading' id="Article%201"><a href="https://legifrance.gouv.fr/codes/id/JORFARTI000042694985/2022-08-02"><p>Article 1</p></a></h3>
+
+<h3 class='law-heading' id="Montant%20des%20plafonds%20de%20ressources-Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations-Article%201"><a href="#Montant%20des%20plafonds%20de%20ressources-Arrete%20du%2014%20decembre%202020%20relatif%20au%20montant%20des%20plafonds%20de%20ressources%20de%20certaines%20prestations%20familiales%20et%20aux%20tranches%20du%20bareme%20applicable%20au%20recouvrement%20des%20indus%20et%20a%20la%20saisie%20des%20prestations-Article%201">Article 1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/JORFARTI000042694985/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>I. - Le plafond de ressources prévu au 1° du I des articles D. 521-1 et D. 521-2 du code de la sécurité sociale relatif aux allocations familiales, à la majoration pour âge et à l’allocation forfaitaire prévue au deuxième alinéa de l’article L. 521-1 est fixé à 58 279 euros pour la période du 1er janvier 2021 au 31 décembre 2021. Il est majoré de 5 827 euros par enfant à charge.</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/decrets_divers.catala_fr</div>
@@ -2606,11 +3477,17 @@ Fichiers sources tissés dans ce document:
 </div>
 
 
-</details><h1 class='law-heading' id="Dispositions%20speciales%20relatives%20a%20Mayotte"><a href="#Dispositions%20speciales%20relatives%20a%20Mayotte"><p>Dispositions spéciales relatives à Mayotte</p></a></h1>
+</details>
 
-</details><h2 class='law-heading' id="Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte"><a href="#Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte"><p>Décret n°2002-423 du 29 mars 2002 relatif aux prestations familiales à Mayotte</p></a></h2>
+
+<h1 class='law-heading' id="Dispositions%20speciales%20relatives%20a%20Mayotte"><a href="#Dispositions%20speciales%20relatives%20a%20Mayotte">Dispositions spéciales relatives à Mayotte</a></h1>
+
+
+<h2 class='law-heading' id="Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte"><a href="#Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte">Décret n°2002-423 du 29 mars 2002 relatif aux prestations familiales à Mayotte</a></h2>
 <details><summary>Décret n°2002-423 du 29 mars 2002 relatif aux prestations familiales à Mayotte</summary>
-<h3 class='law-heading' id="Article%207"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000036330048/2022-08-02"><p>Article 7</p></a></h3>
+
+<h3 class='law-heading' id="Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte-Article%207"><a href="#Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte-Article%207">Article 7</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000036330048/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>Les taux servant au calcul des allocations familiales sont fixés, en pourcentage de la base mensuelle de calcul des allocations familiales prévue à l’article L. 551-1 du code de la sécurité sociale, ainsi qu’il suit :</p></div>
 <div class='code-wrapper'>
 <div class='filename'>examples/allocations_familiales/decrets_divers.catala_fr</div>
@@ -2724,7 +3601,9 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h3 class='law-heading' id="Annexe"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000036326574/2022-08-02"><p>Annexe</p></a></h3>
+
+<h3 class='law-heading' id="Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte-Annexe"><a href="#Dispositions%20speciales%20relatives%20a%20Mayotte-Decret%20n%20%202002-423%20du%2029%20mars%202002%20relatif%20aux%20prestations%20familiales%20a%20Mayotte-Annexe">Annexe</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000036326574/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>TABLEAU D’ÉVOLUTION DES TAUX SERVANT AU CALCUL DES ALLOCATIONS FAMILIALES APPLICABLES DANS LE DÉPARTEMENT DE MAYOTTE POUR LA PÉRIODE DU 1ER JANVIER 2012 AU 1ER JANVIER 2021, FIXÉS EN APPLICATION DE L’ARTICLE 7 DE L’ORDONNANCE N° 2002-149 DU 7 FÉVRIER 2002 MODIFIÉE SUSVISÉE</p>
 <p>Les taux servant au calcul des allocations familiales (AF) sont fixés, dans le tableau ci-après, au 1er janvier de chaque année, en pourcentage de la base mensuelle de calcul des allocations familiales (BMAF) prévue à l’article L. 551-1 du code de la sécurité sociale.</p>
 <table>
@@ -3322,10 +4201,15 @@ Fichiers sources tissés dans ce document:
 
 
 
-</details><h1 class='law-heading' id="Epilogue"><a href="#Epilogue"><p>Épilogue</p></a></h1>
+</details>
 
-</details><h2 class='law-heading' id="Regles%20diverses"><a href="#Regles%20diverses"><p>Règles diverses</p></a></h2>
-<details><summary>Règles diverses</summary><div class='law-text'><p>Les textes législatifs et règlementaires contiennent toutes les informations kécessaires au calcul. Cependant, certaines règles de calcul sont implicites dans ces textes et doivent être explicitées pour le calcul informatique. C’est la fonction du bloc de code ci-dessous.</p></div>
+
+<h1 class='law-heading' id="Epilogue"><a href="#Epilogue">Épilogue</a></h1>
+
+
+<h2 class='law-heading' id="Epilogue-Regles%20diverses"><a href="#Epilogue-Regles%20diverses">Règles diverses</a></h2>
+<details><summary>Règles diverses</summary>
+<div class='law-text'><p>Les textes législatifs et règlementaires contiennent toutes les informations kécessaires au calcul. Cependant, certaines règles de calcul sont implicites dans ces textes et doivent être explicitées pour le calcul informatique. C’est la fonction du bloc de code ci-dessous.</p></div>
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/epilogue.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
@@ -3418,8 +4302,10 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-</details><h2 class='law-heading' id="Interface%20du%20programme"><a href="#Interface%20du%20programme"><p>Interface du programme</p></a></h2>
-<details><summary>Interface du programme</summary><div class='law-text'><p>Le calcul des allocations familiales nécessite un certain nombre d’informations sur les enfants à charge. Certaines de ces informations sont dépendantes les unes des autres : par exemple, l’âge de l’enfant se déduit de sa date de naissance. Le but du block ci-dessous est d’encoder ces dépendances, de telle sorte que l’utilisateur puisse ne doive saisir que le nombre minimal d’informations sur les enfants à charge.</p></div>
+</details>
+<h2 class='law-heading' id="Epilogue-Interface%20du%20programme"><a href="#Epilogue-Interface%20du%20programme">Interface du programme</a></h2>
+<details><summary>Interface du programme</summary>
+<div class='law-text'><p>Le calcul des allocations familiales nécessite un certain nombre d’informations sur les enfants à charge. Certaines de ces informations sont dépendantes les unes des autres : par exemple, l’âge de l’enfant se déduit de sa date de naissance. Le but du block ci-dessous est d’encoder ces dépendances, de telle sorte que l’utilisateur puisse ne doive saisir que le nombre minimal d’informations sur les enfants à charge.</p></div>
 <div class='code-wrapper code-metadata'>
 <div class='filename'>examples/allocations_familiales/epilogue.catala_fr</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
@@ -3504,9 +4390,12 @@ Fichiers sources tissés dans ce document:
 </td></tr></table>
 </div>
 
-<h3 class='law-heading' id="Code%20de%20l%20education"><a href="#Code%20de%20l%20education"><p>Code de l’éducation</p></a></h3>
+<h3 class='law-heading' id="Epilogue-Interface%20du%20programme-Code%20de%20l%20education"><a href="#Epilogue-Interface%20du%20programme-Code%20de%20l%20education">Code de l'éducation</a></h3>
 
-<h3 class='law-heading' id="Article%20L131-1"><a href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038901859/2022-08-02"><p>Article L131-1</p></a></h3>
+
+
+<h3 class='law-heading' id="Epilogue-Interface%20du%20programme-Article%20L131-1"><a href="#Epilogue-Interface%20du%20programme-Article%20L131-1">Article L131-1</a><a class="link-article" href="https://legifrance.gouv.fr/codes/id/LEGIARTI000038901859/2022-08-04" target="_blank">Voir le texte sur Légifrance.gouv.fr</a></h3>
+
 <div class='law-text'><p>L’instruction est obligatoire pour chaque enfant dès l’âge de trois ans et jusqu’à l’âge de seize ans.</p>
 <p>La présente disposition ne fait pas obstacle à l’application des prescriptions particulières imposant une scolarité plus longue.</p></div>
 <div class='code-wrapper'>
@@ -3556,3 +4445,7 @@ Fichiers sources tissés dans ce document:
 </pre></div>
 </td></tr></table>
 </div>
+
+
+</details>
+
