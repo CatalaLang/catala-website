@@ -5,7 +5,7 @@
   "iEnfantsIn": {
     "items":{
       "dIdentifiant" : {
-        "ui:description": "L'indentifiant de l'enfant DOIT être unique."
+        "ui:description": "L'identifiant de l'enfant DOIT être unique."
       }
     }
   }
