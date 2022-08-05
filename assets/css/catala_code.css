@@ -7,7 +7,6 @@
   --selected-bg-color: #ecc94b;
 }
 
-
 html .catala-code {
   padding: 1rem 1rem 0 1rem;
   border-width: 1px;
@@ -33,6 +32,7 @@ html .catala-code {
 .catala-code summary {
   padding-bottom: 0.5rem;
   cursor: pointer;
+  font-style: italic;
 }
 
 .catala-code .toc summary  {

@@ -73,7 +73,10 @@ module Make = (
         {switch formData {
         | None =>
           <div className=%twc("font-bold")>
-            <Lang.String english="Input not complete" french=`Entrée non complète` />
+            <Lang.String
+              english="Waiting for the form data to be submitted..."
+              french=`En attente de la confirmation du formulaire...`
+            />
           </div>
         | Some(formData) =>
           try {
