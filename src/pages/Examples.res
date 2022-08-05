@@ -1,5 +1,3 @@
-%raw(`require("../../assets/catala_code.css")`)
-
 open PageComponents
 
 @react.component

@@ -5,7 +5,7 @@
   The component is capable of building HTML forms out of a JSON schema.
 */
 module FromJSONSchema = {
-  @react.component @module("@rjsf/material-ui")
+  @react.component @module("@rjsf/core")
   external make: (
     ~onChange: Js.Dict.t<Js.Json.t> => unit=?,
     ~onSubmit: Js.Dict.t<Js.Json.t> => unit=?,

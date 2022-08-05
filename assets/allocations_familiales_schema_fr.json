@@ -5,7 +5,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "",
+          "title": " ",
           "type": "string",
           "default": "Metropole",
           "anyOf": [
@@ -55,163 +55,13 @@
               "title": "Mayotte"
             }
           ]
+        },
+        "payload": {
+          "title": " ",
+          "type": "null",
+          "default": null
         }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "Guadeloupe"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "Guyane"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "Martinique"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "LaReunion"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "SaintBarthelemy"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "SaintMartin"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "Metropole"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "SaintPierreEtMiquelon"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "Mayotte"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        }
-      ]
+      }
     }
     ,
     "enfant_entree": {
@@ -258,7 +108,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "",
+          "title": " ",
           "type": "string",
           "default": "EffectiveEtPermanente",
           "anyOf": [
@@ -290,93 +140,11 @@
           ]
         }
       },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "GardeAlterneePartageAllocations"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "GardeAlterneeAllocataireUnique"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "EffectiveEtPermanente"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "ServicesSociauxAllocationVerseeALaFamille"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "ServicesSociauxAllocationVerseeAuxServicesSociaux"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        }
-      ]
+      "payload": {
+        "title": " ",
+        "type": "null",
+        "default": null
+      }
     }
   },
   "properties": {

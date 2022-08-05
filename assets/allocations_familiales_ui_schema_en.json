@@ -1,22 +1,5 @@
 {
-  "iDateCouranteIn": {
-    "classNames": "font-sans font-semibold text-gray_dark px-2 my-1 bg-gray_light border-solid border-2 border-gray rounded hover:border-gray_dark focus:outline-none focus:border-gray_dark ease-in duration-100"
-  },
-  "iRessourcesMenageIn": {
-    "classNames": "font-sans font-semibold text-gray_dark px-2 my-1 bg-gray_light border-solid border-2 border-gray rounded hover:border-gray_dark focus:outline-none focus:border-gray_dark ease-in duration-100"
-  },
-  "iResidenceIn": {
-    "classNames": "font-sans font-semibold text-gray_dark px-2 my-1 bg-gray_light border-solid border-2 border-gray rounded hover:border-gray_dark focus:outline-none focus:border-gray_dark ease-in duration-100"
-  },
-  "iPersonneChargeEffectivePermanenteEstParentIn": {
-    "classNames": "font-sans font-semibold text-gray_dark px-2 my-1 bg-gray_light border-solid border-2 border-gray rounded hover:border-gray_dark focus:outline-none focus:border-gray_dark ease-in duration-100"
-  },
-  "iAvaitEnfantAChargeAvant1erJanvier2012In": {
-    "classNames": "font-sans font-semibold text-gray_dark px-2 my-1 bg-gray_light border-solid border-2 border-gray rounded hover:border-gray_dark focus:outline-none focus:border-gray_dark ease-in duration-100"
-  },
-
   "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
-    "classNames": "font-sans font-semibold text-gray_dark px-2 my-1 bg-gray_light border-solid border-2 border-gray rounded hover:border-gray_dark focus:outline-none focus:border-gray_dark ease-in duration-100",
     "ui:help": "Title I informations: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006073189/LEGISCTA000006141653/#LEGISCTA000006141653"
   },
   "iEnfantsIn": {
