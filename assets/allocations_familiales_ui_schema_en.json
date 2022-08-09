@@ -1,12 +1,33 @@
 {
   "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
-    "ui:help": "Title I informations: https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006073189/LEGISCTA000006141653/#LEGISCTA000006141653"
+    "ui:help": "See the Social Security Code, legislative part, book V, title I for more information."
   },
   "iEnfantsIn": {
-    "items":{
-      "dIdentifiant" : {
-        "ui:description": "Child's identifier MUST be unique."
+    "items": {
+      "dIdentifiant": {
+        "ui:description": "Child's identifier must be unique (to distinguish them)."
+      },
+      "dRemunerationMensuelle": {
+        "ui:help": "Declarative value, same as the household's yearly income."
+      },
+      "dADejaOuvertDroitAuxAllocationsFamiliales": {
+        "ui:help": "See article L521-1 of the Social Security Code for more information."
+      },
+      "dBeneficieTitrePersonnelAidePersonnelleLogement": {
+        "ui:help": "See article article L821-3 of the Construction and Housing Code for more information."
       }
     }
+  },
+  "iAvaitEnfantAChargeAvant1erJanvier2012In": {
+    "ui:help": "See the annex of order n°2002-423 of March 29th, 2002 for more information."
+  },
+  "iPersonneChargeEffectivePermanenteEstParentIn": {
+    "ui:help": "See article L521-2 of the Social Security Code for more information."
+  },
+  "iRessourcesMenageIn": {
+    "ui:help": "Purely declarative value. In case of a check under article L553-5 of the Social Security Code, the administration assesses spending under provisions of article R553-3-1 of the same Code."
+  },
+  "ui:submitButtonOptions": {
+    "submitText": "Launch the computation! "
   }
 }

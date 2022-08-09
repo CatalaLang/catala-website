@@ -11,47 +11,65 @@
           "anyOf": [
             {
               "type": "string",
-              "enum": [ "Guadeloupe" ],
+              "enum": [
+                "Guadeloupe"
+              ],
               "title": "Guadeloupe"
             },
             {
               "type": "string",
-              "enum": [ "Guyane" ],
+              "enum": [
+                "Guyane"
+              ],
               "title": "Guyane"
             },
             {
               "type": "string",
-              "enum": [ "Martinique" ],
+              "enum": [
+                "Martinique"
+              ],
               "title": "Martinique"
             },
             {
               "type": "string",
-              "enum": [ "LaReunion" ],
+              "enum": [
+                "LaReunion"
+              ],
               "title": "La Réunion"
             },
             {
               "type": "string",
-              "enum": [ "SaintBarthelemy" ],
+              "enum": [
+                "SaintBarthelemy"
+              ],
               "title": "Saint Barthélemy"
             },
             {
               "type": "string",
-              "enum": [ "SaintMartin" ],
+              "enum": [
+                "SaintMartin"
+              ],
               "title": "Saint Martin"
             },
             {
               "type": "string",
-              "enum": [ "Metropole" ],
+              "enum": [
+                "Metropole"
+              ],
               "title": "Métropole"
             },
             {
               "type": "string",
-              "enum": [ "SaintPierreEtMiquelon" ],
+              "enum": [
+                "SaintPierreEtMiquelon"
+              ],
               "title": "Saint Pierre et Miquelon"
             },
             {
               "type": "string",
-              "enum": [ "Mayotte" ],
+              "enum": [
+                "Mayotte"
+              ],
               "title": "Mayotte"
             }
           ]
@@ -62,8 +80,7 @@
           "default": null
         }
       }
-    }
-    ,
+    },
     "enfant_entree": {
       "type": "object",
       "properties": {
@@ -93,7 +110,7 @@
           "default": false
         },
         "dBeneficieTitrePersonnelAidePersonnelleLogement": {
-          "title": "Child has benefits from individual housing benefits",
+          "title": "Child receives individual housing benefits on his own",
           "type": "boolean",
           "default": false
         }
@@ -114,27 +131,37 @@
           "anyOf": [
             {
               "type": "string",
-              "enum": ["GardeAlterneePartageAllocations"],
+              "enum": [
+                "GardeAlterneePartageAllocations"
+              ],
               "title": "Custody arrangement, sharing of benefits"
             },
             {
               "type": "string",
-              "enum": ["GardeAlterneeAllocataireUnique"],
+              "enum": [
+                "GardeAlterneeAllocataireUnique"
+              ],
               "title": "Custody arrangement, single recipient"
             },
             {
               "type": "string",
-              "enum": ["EffectiveEtPermanente"],
+              "enum": [
+                "EffectiveEtPermanente"
+              ],
               "title": "Effective and permanent"
             },
             {
               "type": "string",
-              "enum": ["ServicesSociauxAllocationVerseeALaFamille"],
+              "enum": [
+                "ServicesSociauxAllocationVerseeALaFamille"
+              ],
               "title": "Entrusted to social services, benefits paid to the family"
             },
             {
               "type": "string",
-              "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"],
+              "enum": [
+                "ServicesSociauxAllocationVerseeAuxServicesSociaux"
+              ],
               "title": "Entrusted to social services, benefits paid to social services"
             }
           ]
@@ -172,17 +199,17 @@
       "$ref": "#/definitions/collectivite"
     },
     "iPersonneChargeEffectivePermanenteEstParentIn": {
-      "title": "The actual and permanent dependant is a parent",
+      "title": "The person with actual and permanent custody is one of the parents",
       "type": "boolean",
       "default": true
     },
     "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
-      "title": "The actual and permanent dependant fulfills the Title I",
+      "title": "The person with actual and permanent custody fulfills the conditions laid by Title I",
       "type": "boolean",
       "default": true
     },
     "iAvaitEnfantAChargeAvant1erJanvier2012In": {
-      "title": "Rights to family benefits open before 1st January 2012",
+      "title": "The household had a dependent child before January 1st, 2012",
       "type": "boolean",
       "default": false
     }

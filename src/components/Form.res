@@ -28,7 +28,6 @@ module Make = (
     let resultLabel: React.element
 
     let initFormData: option<Js.Json.t>
-
     let computeAndPrintResult: Js.Json.t => React.element
   },
 ) => {
@@ -63,46 +62,46 @@ module Make = (
           formData={formData->Belt.Option.getWithDefault(Js.Json.null)}
           onSubmit={t => setFormData(_ => t->Js.Dict.get("formData"))}
         />
-      </Box.Collapsible>
-      <div
-        className=%twc(
-          "w-full inline-flex flex-col flex-wrap justify-center place-items-center \
+        <div
+          className=%twc(
+            "w-full inline-flex flex-col flex-wrap justify-center place-items-center \
           my-4 border border-gray border-solid rounded p-4 shadow-sm \
           bg-gray_light text-gray_dark shadow"
-        )>
-        {switch formData {
-        | None =>
-          <div className=%twc("font-bold")>
-            <Lang.String
-              english="Waiting for the form data to be submitted..."
-              french=`En attente de la confirmation du formulaire...`
-            />
-          </div>
-        | Some(formData) =>
-          try {
-            <>
-              <div className=%twc("pr-2 font-semibold")> {FormInfos.resultLabel} </div>
-              <div className=%twc("flex flex-row justify-center")>
-                <div className=%twc("font-bold whitespace-nowrap")>
-                  {FormInfos.computeAndPrintResult(formData)}
+          )>
+          {switch formData {
+          | None =>
+            <div className=%twc("font-bold")>
+              <Lang.String
+                english="Waiting for the form data to be submitted..."
+                french={`En attente de la confirmation du formulaire...`}
+              />
+            </div>
+          | Some(formData) =>
+            try {
+              <>
+                <div className=%twc("pr-2 font-semibold")> {FormInfos.resultLabel} </div>
+                <div className=%twc("flex flex-row justify-center")>
+                  <div className=%twc("font-bold whitespace-nowrap")>
+                    {FormInfos.computeAndPrintResult(formData)}
+                  </div>
                 </div>
-              </div>
-            </>
-          } catch {
-          | err =>
-            Js.log(err)
-            <p className=%twc("font-bold break-all")>
-              <Lang.String english="Computation error: " french=`Erreur de calcul : ` />
-              {err
-              ->Js.Exn.asJsExn
-              ->Belt.Option.map(Js.Exn.message)
-              ->Belt.Option.getWithDefault(Some(""))
-              ->Belt.Option.getExn
-              ->React.string}
-            </p>
-          }
-        }}
-      </div>
+              </>
+            } catch {
+            | err =>
+              Js.log(err)
+              <p className=%twc("font-bold break-all")>
+                <Lang.String english="Computation error: " french={`Erreur de calcul : `} />
+                {err
+                ->Js.Exn.asJsExn
+                ->Belt.Option.map(Js.Exn.message)
+                ->Belt.Option.getWithDefault(Some(""))
+                ->Belt.Option.getExn
+                ->React.string}
+              </p>
+            }
+          }}
+        </div>
+      </Box.Collapsible>
     </>
   }
 }
