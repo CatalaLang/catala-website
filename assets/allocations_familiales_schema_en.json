@@ -1,0 +1,196 @@
+{
+  "type": "object",
+  "definitions": {
+    "collectivite": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
+          "type": "string",
+          "default": "Metropole",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [ "Guadeloupe" ],
+              "title": "Guadeloupe"
+            },
+            {
+              "type": "string",
+              "enum": [ "Guyane" ],
+              "title": "Guyane"
+            },
+            {
+              "type": "string",
+              "enum": [ "Martinique" ],
+              "title": "Martinique"
+            },
+            {
+              "type": "string",
+              "enum": [ "LaReunion" ],
+              "title": "La Réunion"
+            },
+            {
+              "type": "string",
+              "enum": [ "SaintBarthelemy" ],
+              "title": "Saint Barthélemy"
+            },
+            {
+              "type": "string",
+              "enum": [ "SaintMartin" ],
+              "title": "Saint Martin"
+            },
+            {
+              "type": "string",
+              "enum": [ "Metropole" ],
+              "title": "Métropole"
+            },
+            {
+              "type": "string",
+              "enum": [ "SaintPierreEtMiquelon" ],
+              "title": "Saint Pierre et Miquelon"
+            },
+            {
+              "type": "string",
+              "enum": [ "Mayotte" ],
+              "title": "Mayotte"
+            }
+          ]
+        },
+        "payload": {
+          "title": " ",
+          "type": "null",
+          "default": null
+        }
+      }
+    }
+    ,
+    "enfant_entree": {
+      "type": "object",
+      "properties": {
+        "dIdentifiant": {
+          "title": "Child's identifier",
+          "type": "number",
+          "default": 0
+        },
+        "dRemunerationMensuelle": {
+          "title": "Child's monthly income (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "dDateDeNaissance": {
+          "title": "Child's birthdate",
+          "type": "string",
+          "format": "date"
+        },
+        "dPriseEnCharge": {
+          "title": "Child's custody",
+          "$ref": "#/definitions/prise_en_charge"
+        },
+        "dADejaOuvertDroitAuxAllocationsFamiliales": {
+          "title": "Child has already been eligible for benefits",
+          "type": "boolean",
+          "default": false
+        },
+        "dBeneficieTitrePersonnelAidePersonnelleLogement": {
+          "title": "Child has benefits from individual housing benefits",
+          "type": "boolean",
+          "default": false
+        }
+      },
+      "required": [
+        "dIdentifiant",
+        "dRemunerationMensuelle",
+        "dDateDeNaissance"
+      ]
+    },
+    "prise_en_charge": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
+          "type": "string",
+          "default": "EffectiveEtPermanente",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": ["GardeAlterneePartageAllocations"],
+              "title": "Custody arrangement, sharing of benefits"
+            },
+            {
+              "type": "string",
+              "enum": ["GardeAlterneeAllocataireUnique"],
+              "title": "Custody arrangement, single recipient"
+            },
+            {
+              "type": "string",
+              "enum": ["EffectiveEtPermanente"],
+              "title": "Effective and permanent"
+            },
+            {
+              "type": "string",
+              "enum": ["ServicesSociauxAllocationVerseeALaFamille"],
+              "title": "Entrusted to social services, benefits paid to the family"
+            },
+            {
+              "type": "string",
+              "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"],
+              "title": "Entrusted to social services, benefits paid to social services"
+            }
+          ]
+        },
+        "payload": {
+          "title": " ",
+          "type": "null",
+          "default": null
+        }
+      }
+    }
+  },
+  "properties": {
+    "iDateCouranteIn": {
+      "title": "Date of the computation",
+      "type": "string",
+      "format": "date"
+    },
+    "iEnfantsIn": {
+      "title": "Children(s) in charge",
+      "type": "array",
+      "default": [],
+      "items": {
+        "$ref": "#/definitions/enfant_entree"
+      }
+    },
+    "iRessourcesMenageIn": {
+      "title": "Yearly household income (€)",
+      "type": "number",
+      "minimum": 0,
+      "default": 0
+    },
+    "iResidenceIn": {
+      "title": "Household residence",
+      "$ref": "#/definitions/collectivite"
+    },
+    "iPersonneChargeEffectivePermanenteEstParentIn": {
+      "title": "The actual and permanent dependant is a parent",
+      "type": "boolean",
+      "default": true
+    },
+    "iPersonneChargeEffectivePermanenteRemplitTitreIIn": {
+      "title": "The actual and permanent dependant fulfills the Title I",
+      "type": "boolean",
+      "default": true
+    },
+    "iAvaitEnfantAChargeAvant1erJanvier2012In": {
+      "title": "Rights to family benefits open before 1st January 2012",
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "required": [
+    "iDateCouranteIn",
+    "iEnfantsIn",
+    "iRessourcesMenageIn",
+    "iResidenceIn"
+  ]
+}

@@ -218,11 +218,6 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">date_int</span></th>
-        <td>INT_LITERAL</td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">literal</span></th>
         <td><span class="nonterminal">num_literal</span>
         <span class="option"><span class="nonterminal">unit_literal</span></span></td>
@@ -234,11 +229,7 @@
       <tr>
         <th class="bar"></th>
         <td>VERTICAL
-        <span class="nonterminal">date_int</span>
-        MINUS
-        <span class="nonterminal">date_int</span>
-        MINUS
-        <span class="nonterminal">date_int</span>
+        DATE_LITERAL
         VERTICAL</td>
       </tr>
       <tr>
@@ -421,7 +412,7 @@
       <tr>
         <th class="bar"></th>
         <td><span class="nonterminal">primitive_expression</span>
-        IN
+        CONTAINS
         <span class="nonterminal">base_expression</span></td>
       </tr>
       

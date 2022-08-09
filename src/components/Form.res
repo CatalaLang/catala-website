@@ -1,59 +1,108 @@
-module Input = {
-  let flexColStyle = %twc("flex flex-col items-start mx-4")
-  let fieldStyle = %twc(
-    "font-sans font-semibold text-gray_dark px-2 my-1 \
-    bg-gray_light border-solid border-2 border-gray rounded \
-    hover:border-gray_dark \
-    focus:outline-none focus:border-gray_dark \
-    ease-in duration-100"
-  )
-  let labelStyle = %twc("text-background text-center font-sans text-sm font-semibold")
+/*
+  Binding for the React component [JSONSchemaForm.default] of the package
+  [react-jsonschema-form].
 
-  module Num = {
-    @react.component
-    let make = (~label, ~onChange) => {
-      <div className=flexColStyle>
-        <label className=labelStyle> label </label>
-        <input type_="number" className=fieldStyle onChange />
-      </div>
-    }
-  }
+  The component is capable of building HTML forms out of a JSON schema.
+*/
+module FromJSONSchema = {
+  @react.component @module("@rjsf/core")
+  external make: (
+    ~onChange: Js.Dict.t<Js.Json.t> => unit=?,
+    ~onSubmit: Js.Dict.t<Js.Json.t> => unit=?,
+    ~onError: _ => unit=?,
+    ~schema: Js.Json.t,
+    ~uiSchema: Js.Json.t=?,
+    ~formData: Js.Json.t=?,
+  ) => React.element = "default"
+}
 
-  module Browsers = {
-    @react.component
-    let make = (~label, ~onChange, ~options) => {
-      <div className=flexColStyle>
-        <label className=labelStyle> label </label>
-        <select list="browsers" className=fieldStyle onChange>
-          {options
-          ->Belt.Array.mapWithIndex((i, option) => {
-            <option key={"browser-option-" ++ i->string_of_int} value=option>
-              {option->React.string}
-            </option>
-          })
-          ->React.array}
-        </select>
-      </div>
-    }
-  }
+/*
+  Builds a React component from provided information.
+*/
+module Make = (
+  FormInfos: {
+    let englishSchema: Js.Json.t
+    let englishUiSchema: Js.Json.t
+    let frenchSchema: Js.Json.t
+    let frenchUiSchema: Js.Json.t
+    let resultLabel: React.element
 
-  module Date = {
-    @react.component
-    let make = (~label, ~onChange) => {
-      <div className=flexColStyle>
-        <label className=labelStyle> label </label>
-        <input className=fieldStyle type_="date" onChange />
-      </div>
-    }
-  }
+    let initFormData: option<Js.Json.t>
 
-  module CheckBox = {
-    @react.component
-    let make = (~label, ~onChange) => {
-      <div className=%twc("flex flex-row items-center mx-4")>
-        <label className=labelStyle> label </label>
-        <input className=%twc("ml-2") type_="checkbox" onChange />
+    let computeAndPrintResult: Js.Json.t => React.element
+  },
+) => {
+  @react.component
+  let make = (
+    ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
+  ) => {
+    let (formData, setFormData) = React.useState(_ => {
+      FormInfos.initFormData
+    })
+
+    React.useEffect2(() => {
+      setEventsOpt(_ => {
+        let logs = FrenchLaw.retrieveEventsSerialized()->LogEvent.deserializedEvents
+        if 0 == logs->Belt.Array.size {
+          None
+        } else {
+          Some(logs)
+        }
+      })
+      None
+    }, (formData, setEventsOpt))
+
+    <>
+      <Box.Collapsible>
+        <FromJSONSchema
+          schema={Lang.getCurrent(~english=FormInfos.englishSchema, ~french=FormInfos.frenchSchema)}
+          uiSchema={Lang.getCurrent(
+            ~english=FormInfos.englishUiSchema,
+            ~french=FormInfos.frenchUiSchema,
+          )}
+          formData={formData->Belt.Option.getWithDefault(Js.Json.null)}
+          onSubmit={t => setFormData(_ => t->Js.Dict.get("formData"))}
+        />
+      </Box.Collapsible>
+      <div
+        className=%twc(
+          "w-full inline-flex flex-col flex-wrap justify-center place-items-center \
+          my-4 border border-gray border-solid rounded p-4 shadow-sm \
+          bg-gray_light text-gray_dark shadow"
+        )>
+        {switch formData {
+        | None =>
+          <div className=%twc("font-bold")>
+            <Lang.String
+              english="Waiting for the form data to be submitted..."
+              french=`En attente de la confirmation du formulaire...`
+            />
+          </div>
+        | Some(formData) =>
+          try {
+            <>
+              <div className=%twc("pr-2 font-semibold")> {FormInfos.resultLabel} </div>
+              <div className=%twc("flex flex-row justify-center")>
+                <div className=%twc("font-bold whitespace-nowrap")>
+                  {FormInfos.computeAndPrintResult(formData)}
+                </div>
+              </div>
+            </>
+          } catch {
+          | err =>
+            Js.log(err)
+            <p className=%twc("font-bold break-all")>
+              <Lang.String english="Computation error: " french=`Erreur de calcul : ` />
+              {err
+              ->Js.Exn.asJsExn
+              ->Belt.Option.map(Js.Exn.message)
+              ->Belt.Option.getWithDefault(Some(""))
+              ->Belt.Option.getExn
+              ->React.string}
+            </p>
+          }
+        }}
       </div>
-    }
+    </>
   }
 }

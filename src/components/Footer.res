@@ -1,7 +1,7 @@
 let github_link = "https://github.com/CatalaLang/catala-website/issues"
 
 @react.component
-let make = () =>
+let make = React.memo(() => {
   <footer className=%twc("pt-2 font-sans text-center")>
     <div className=%twc("text-gray_dark pb-2 text-xs font-semibold")>
       {
@@ -22,3 +22,4 @@ let make = () =>
       </span>
     </div>
   </footer>
+})

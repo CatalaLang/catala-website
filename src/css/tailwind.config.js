@@ -3,7 +3,7 @@ module.exports = {
   theme: {
     extend: {
       screens: {
-	'sm': '740px',
+        'sm': '740px',
       },
       fontFamily: {
         sans: [

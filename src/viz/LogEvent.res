@@ -107,6 +107,7 @@ module rec LoggedValue: {
           <br />
         </>)
         ->React.array}
+        <CatalaCode.Op op={Js.String.repeat((depth - 1) * 2, " ")} />
       </CatalaCode.Collapsible>
     | Unembeddable => <> {"Unembeddable"->React.string} </>
     }

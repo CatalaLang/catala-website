@@ -1,4 +1,7 @@
 %raw(`require("./css/tailwind.css")`)
+%raw(`require("../assets/css/global.css")`)
+%raw(`require("../assets/css/form.css")`)
+%raw(`require("../assets/css/catala_code.css")`)
 
 module App = {
   @react.component
@@ -15,7 +18,9 @@ module App = {
     <Lang.Context value=(appLang, setLang)>
       <div className=%twc("flex flex-col min-h-screen text-xl md:text-lg lg:text-base")>
         <NavComponent />
-        <main className=%twc("flex flex-col flex-grow container mx-auto px-4 ")> <Router /> </main>
+        <main className=%twc("flex flex-col flex-grow container mx-auto px-4 lg:px-0 ")>
+          <Router />
+        </main>
         <div className=%twc("w-full bottom-0")> <Footer /> </div>
       </div>
     </Lang.Context>

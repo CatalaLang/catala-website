@@ -1,4 +1,4 @@
-%raw(`require("../../assets/man_page.css")`)
+%raw(`require("../../assets/css/man_page.css")`)
 
 open PageComponents
 

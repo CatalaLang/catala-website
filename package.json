@@ -22,8 +22,10 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.10.0",
+    "@emotion/styled": "^11.10.0",
     "@greenlabs/res-tailwindcss": "^0.1.8",
-    "constants-browserify": "^1.0.0",
+    "@rjsf/core": "^4.2.2",
     "decco": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

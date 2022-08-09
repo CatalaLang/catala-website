@@ -25,11 +25,12 @@ var catala = {
   output: {
     path: outputDir,
     filename: "Index.js",
+    publicPath: "/",
   },
   plugins: [
     new HtmlWebpackPlugin({
+      filename: "index.html",
       template: "src/index.html",
-      inject: true,
     }),
     new FaviconsWebpackPlugin({
       logo: "./assets/logo.png",

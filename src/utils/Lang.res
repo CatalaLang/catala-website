@@ -56,6 +56,14 @@ let newLangFromOldLang = (old_lang: lang): lang =>
     English
   }
 
+let getCurrent = (~french: 'a, ~english: 'a): 'a => {
+  let (lang, _) = React.useContext(langContext)
+  switch lang {
+  | French => french
+  | English => english
+  }
+}
+
 module Element = {
   @react.component
   let make = React.memo((~french: React.element, ~english: React.element) => {

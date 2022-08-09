@@ -85,7 +85,7 @@ let navElems =
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <Flex.Column.AlignLeft style=%twc("w-full bg-background top-0 fixed z-10 shadow-md")>
+  <Flex.Column.AlignLeft style=%twc("w-full bg-background top-0 sticky z-10 shadow-md")>
     <div
       className=%twc(
         "w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row  "
