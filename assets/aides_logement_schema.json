@@ -409,9 +409,6 @@
       "type": "string",
       "format": "date"
     },
-    "contratDeTravail": {
-      "$ref": "#/definitions/type_contrat_travail"
-    },
     "nationalite": {
       "$ref": "#/definitions/nationalite"
     },
@@ -549,10 +546,6 @@
       "minimum": 0,
       "default": 0
     },
-    "dateSignaturePret": {
-      "type": "string",
-      "format": "date"
-    },
     "dateEntreeLogement": {
       "type": "string",
       "format": "date"
@@ -574,9 +567,6 @@
     "situationR822111317": {
       "type": "boolean",
       "default": false
-    },
-    "typePret": {
-      "$ref": "#/definitions/type_pret"
     },
     "ancienneteLogement": {
       "$ref": "#/definitions/neuf_ou_ancien"
@@ -1859,61 +1849,6 @@
           "properties": {
             "kind": {
               "const": "BailleurPrive"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_contrat_travail": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["CDI"]
-        },
-        {
-          "type": "string",
-          "enum": ["Autres"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "CDI"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Autres"
             }
           }
         },

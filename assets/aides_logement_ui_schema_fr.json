@@ -1,5 +1,169 @@
 {
     "ui:submitButtonOptions": {
         "submitText": "Lancer le calcul ! "
+    },
+    "menageIn": {
+        "logement": {
+            "estEhpadOuMaisonAutonomieL31312Asf": {
+                "ui:help": "Cette catégorie de logement est définie par l'article L313-12 du code de l'action sociale et des familles."
+            },
+            "modeOccupation": {
+                "payload": {
+                    "bailleur": {
+                        "respecteConventionTitreV": {
+                            "ui:help": "Cochez cette case si la convention d'aide personnalisée au logement du bailleur est régie par le chapitre III du titre V du livre III du code de la construction et de l'habitation. Cela doit généralement être le cas pour les bailleurs sociaux."
+                        },
+                        "respecteConventionTitreII": {
+                            "ui:help": "Cochez cette case si la convention d'aide personnalisée au logement du bailleur est régie par le chapitre Ier du titre II du livre III du code de la construction et de l'habitation. Cela doit généralement être le cas pour les bailleurs privés."
+                        },
+                        "construitAmelioreConditionsL83114": {
+                            "ui:help": "Voir l'article L831-1 du code de la construction et de l'habitation pour plus d'informations."
+                        },
+                        "acquisitionAidesEtatPretTitreIIOuLivreIII": {
+                            "ui:help": "Ces prêts et aides sont régis par le chapitre III du titre II ou par le titre III du livre III du code de la construction et de l'habitation."
+                        }
+                    },
+                    "location": {
+                        "bailleur": {
+                            "respecteConventionTitreV": {
+                                "ui:help": "Cochez cette case si la convention d'aide personnalisée au logement du bailleur est régie par le chapitre III du titre V du livre III du code de la construction et de l'habitation. Cela doit généralement être le cas pour les bailleurs sociaux."
+                            },
+                            "respecteConventionTitreII": {
+                                "ui:help": "Cochez cette case si la convention d'aide personnalisée au logement du bailleur est régie par le chapitre Ier du titre II du livre III du code de la construction et de l'habitation. Cela doit généralement être le cas pour les bailleurs privés."
+                            },
+                            "construitAmelioreConditionsL83114": {
+                                "ui:help": "Voir l'article L831-1 du code de la construction et de l'habitation pour plus d'informations."
+                            },
+                            "acquisitionAidesEtatPretTitreIIOuLivreIII": {
+                                "ui:help": "Ces prêts et aides sont régis par le chapitre III du titre II ou par le titre III du livre III du code de la construction et de l'habitation."
+                            }
+                        }
+                    },
+                    "typeUser": {
+                        "kind": {
+                            "ui:help": "Type de logement foyer selon la classification de l'article R832-20 du code de la construction et de l'habitation."
+                        }
+                    },
+                    "dateConventionnement": {
+                        "ui:help": "Date de la signature de la convention."
+                    },
+                    "remplitConditionsR83221": {
+                        "ui:help": "Voir l'article R832-21 du code de la construction et de l'habitation pour plus d'informations."
+                    }
+                }
+            },
+            "proprietaire": {
+                "kind": {
+                    "ui:help": "La propriété du logement pour cette question est à entendre selon le sens de l'article L822-3 du code de la construction et de l'habitation. La fraction du logement revenant au demandeur ou à sa famille est un nombre entre 0 et 1 correspondant aux parts de propriétés, personnelles ou au travers de sociétés, détenues par le demandeur, son conjoint, ascendants et descendants."
+                }
+            },
+            "usufruit": {
+                "kind": {
+                    "ui:help": "L'usufruit du logement pour cette question est à entendre selon le sens de l'article L822-3 du code de la construction et de l'habitation. La fraction du logement revenant au demandeur ou à sa famille est un nombre entre 0 et 1 correspondant aux parts d'usufruit, personnelles ou au travers de sociétés, détenues par le demandeur, son conjoint, ascendants et descendants."
+                }
+            },
+            "logementDecentL89462": {
+                "ui:help": "Selon l'article L822-9 du code de la construction et de l'habitation, le logement doit répondre à des exigences de décence définies en application des deux premiers alinéas de l'article 6 de la loi n° 89-462 du 6 juillet 1989 tendant à améliorer les rapports locatifs et portant modification de la loi n° 86-1290 du 23 décembre 1986."
+            },
+            "estAncienL8312": {
+                "ui:help": "Le critère d'ancienneté est défini au deuxième alinéa de l'article L831-2 du code de la construction et de l'habitation."
+            },
+            "situeCommuneDesequilibreL8312": {
+                "ui:help": "La liste des communes répondant à ce critère est établie par l'arrêté du 30 décembre 2017 relatif au classement des communes par zone pour l'octroi des prêts ne portant pas intérêt consenti pour financer la primo-accession à la propriété prévus à l'article L. 31-10-2 du code de la construction et de l'habitation, et l'arrêté du 1er août 2014 pris en application de l'article R. 304-1 du code de la construction et de l'habitation."
+            },
+            "zone": {
+                "ui:help": "La répartition des communes par zones est donnée par l'arrêté du 17 mars 1978 relatif au classement des communes par zones géographiques."
+            }
+        },
+        "personnesACharge": {
+            "items": {
+                "payload": {
+                    "identifiant": {
+                        "ui:description": "L'identifiant de l'enfant doit être unique (pour les distinguer)."
+                    },
+                    "obligationScolaire": {
+                        "ui:help": "L'obligation scolaire d'un enfant est régie par les articles L131-1 à L131-13 du code de l'éducation."
+                    },
+                    "situationGardeAlternee": {
+                        "kind": {
+                            "ui:help": "Le coefficient de prise en charge est un nombre entre 0 et 1 qui reflète la période cumulée pendant laquelle le demandeur accueille l'enfant à son domicile, en conformité avec la décision n°398563 du 21 juillet 2017 du conseil d'État."
+                        }
+                    },
+                    "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
+                        "ui:help": "Cette case est un prérequis de l'alinéa 5° de l'article L841-1 du code de la construction et de l'habitation."
+                    }
+                }
+            }
+        },
+        "nombreAutresOccupantsLogement": {
+            "ui:help": "Cette donnée est nécessaire pour le calcul de la surface minimale du logement à l'article R822-25 du code de la construction et de l'habitation."
+        },
+        "conditionRattacheFoyerFiscalParentIfi": {
+            "ui:help": "Voir l'article L822-8 du code de la construction et de l'habitation pour plus d'informations."
+        }
+    },
+    "demandeurIn": {
+        "patrimoine": {
+            "produisantRevenuPeriodeR82233R8224": {
+                "ui:help": "Le patrimoine est considéré comme produisant un revenu au sens de l'article R822-22 du code de la construction et de l'habitation."
+            },
+            "neProduisantPasRevenuPeriodeR82233R8224": {
+                "ui:help": "Le patrimoine est considéré comme ne produisant pas de revenu au sens de l'article R822-22 du code de la construction et de l'habitation."
+            }
+        },
+        "personneHebergeeCentreSoinLL162223SecuriteSociale": {
+            "ui:help": "Ces unités ou centres de soins sont mentionnées mentionnés au 3° de l'article L162-22 du code de la sécurité sociale."
+        }
+    },
+    "informationsCalculIn": {
+        "kind": {
+            "ui:help": "L'article D823-9 du code de la construction et de l'habitation définit trois modes de calcul de l'aide au logement. Le secteur locatif correspond à la location ou sous-location, le secteur logement-foyer correspond aux résidents de logement foyer, et le secteur accession à la propriété aux propriétaires ou aux locataires en location-accession."
+        },
+        "payload": {
+            "loyerPrincipal": {
+                "ui:help": "L'article L823-3 du code de la construction et de l'habitation, notamment ses alinéas 4° et 6°, liste des sommes assimilables à des loyers pour des cas particuliers."
+            },
+            "beneficiaireAideAdulteOuEnfantHandicapes": {
+                "ui:help": "Ces allocations sont respectivement prévues par l'article L821-1 du code de la sécurité sociale et l'article L541-1 du même code."
+            },
+            "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": {
+                "ui:help": "Cas particulier défini dans l'article 8 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement."
+            },
+            "reductionLoyerSolidarite": {
+                "ui:help": "La réduction de loyer de solidarité est prévue par l'article L442-2-1 du code de la construction et de l'habitation."
+            },
+            "logementMeubleD8422": {
+                "ui:help": "Le caractère meublé du logement est apprécié au sens de l'article D842-2 du code de la construction et de l'habitation."
+            },
+            "changementLogementD8424": {
+                "kind": {
+                    "ui:help": "La liste des circonstances comptant comme un relogement pour cette question est donnée par l'article D842-4 du code de la construction et de l'habitation."
+                }
+            },
+            "categorieEquivalenceLoyerD84216": {
+                "kind": {
+                    "ui:help": "Ces catégories de personnes sont définies par l'article D842-16 du code de la construction et de l'habitation."
+                }
+            },
+            "chargesMensuellesPret": {
+                "ui:help": "Les charges mensuelles du prêt sont mentionnées à l'article D842-11 du code de la construction et de l'habitation."
+            },
+            "typeTravauxLogementD83215": {
+                "kind": {
+                    "ui:help": "La dichotomie sur la temporalité des travaux par rapport à l'acquisition vient des deux alinéas distincts de l'article D832-15 du code de la construction et de l'habitation."
+                }
+            },
+            "typeTravauxLogementR8425": {
+                "kind": {
+                    "ui:help": "Les différents objectifs des travaux  sont listés à l'article R842-5 du code de la construction et de l'habitation."
+                }
+            },
+            "localHabitePremiereFoisBeneficiaire": {
+                "ui:help": "Ce cas particulier est prévu par les articles D832-14 et D842-9 du code de la construction et de l'habitation."
+            }
+        }
+    },
+    "ressourcesMenagePrisesEnCompteIn": {
+        "ui:help": "Les ressources du ménages prises en compte pour le calcul des aides au logement doivent être appréciées selon la section 2 du chapitre II du titre II du livre VIII du code de la construction et de l'habitation."
     }
 }

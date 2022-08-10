@@ -1,2417 +1,1928 @@
 {
-   "type": "object",
-   "definitions": {
-      "ameliore_par_occupant": {
-        "type": "object",
-        "properties": {
-          "kind": {
-            "type": "string",
-            "anyOf": [
-              {
-                "type": "string",
-                "enum": ["Oui"]
-              },
-              {
-                "type": "string",
-                "enum": ["Non"]
-              }
-            ]
-          }
-          },
-          "allOf": [
+  "type": "object",
+  "definitions": {
+    "ameliore_par_occupant": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Le logement a été amélioré par l'occupant",
+          "default": "Non",
+          "type": "string",
+          "anyOf": [
             {
-              "if": {
-                "properties": {
-                  "kind": {
-                    "const": "Oui"
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "payload": {
-                    "type": "null",
-                    "default": null
-                  }
-                }
-              }
+              "type": "string",
+              "enum": [
+                "Oui"
+              ]
             },
             {
-              "if": {
-                "properties": {
-                  "kind": {
-                    "const": "Non"
-                  }
-                }
-              },
-              "then": {
-                "properties": {
-                  "payload": {
-                    "type": "null",
-                    "default": null
-                  }
-                }
-              }
+              "type": "string",
+              "enum": [
+                "Non"
+              ]
             }
           ]
         }
-   ,
-   "autre_personne_a_charge": {
-     "type": "object",
-     "properties": {
-       "dateNaissance": {
-         "type": "string",
-         "format": "date"
-       },
-       "ressources": {
-         "type": "number",
-         "minimum": 0,
-         "default": 0
-       },
-       "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
-         "type": "boolean",
-         "default": false
-       },
-       "parente": {
-         "$ref": "#/definitions/parente"
-       },
-       "incapacite80PourcentOuRestrictionEmploi": {
-         "type": "boolean",
-         "default": false
-       },
-       "beneficiaireL16119L3518L6433Secu": {
-         "type": "boolean",
-         "default": false
-       },
-       "titulaireAllocationPersonneAgee": {
-         "type": "boolean",
-         "default": false
-       }
-     }
-   },
-   "bailleur": {
-     "type": "object",
-     "properties": {
-       "typeBailleur": {
-         "$ref": "#/definitions/type_bailleur"
-       },
-       "respecteConventionTitreV": {
-         "type": "boolean",
-         "default": false
-       },
-       "respecteConventionTitreII": {
-         "type": "boolean",
-         "default": false
-       },
-       "construitAmelioreConditionsL83114": {
-         "type": "boolean",
-         "default": false
-       },
-       "acquisitionAidesEtatPretTitreIIOuLivreIII": {
-         "type": "boolean",
-         "default": false
-       }
-     }
-   },
-   "categorie_equivalence_loyer_allocation_logement_foyer": {
-     "type": "object",
-     "properties": {
-       "kind": {
-         "type": "string",
-         "anyOf": [
-           {
-             "type": "string",
-             "enum": ["EtudiantLogeEnChambre"]
-           },
-           {
-             "type": "string",
-             "enum": ["EtudiantLogeEnChambreRehabilitee"]
-           },
-           {
-             "type": "string",
-             "enum": ["PersonnesAgeesSelon3DeD842_16"]
-           },
-           {
-             "type": "string",
-             "enum": ["AutresPersonnes"]
-           }
-         ]
-       }
-       },
-       "allOf": [
-         {
-           "if": {
-             "properties": {
-               "kind": {
-                 "const": "EtudiantLogeEnChambre"
-               }
-             }
-           },
-           "then": {
-             "properties": {
-               "payload": {
-                 "type": "null",
-                 "default": null
-               }
-             }
-           }
-         },
-         {
-           "if": {
-             "properties": {
-               "kind": {
-                 "const": "EtudiantLogeEnChambreRehabilitee"
-               }
-             }
-           },
-           "then": {
-             "properties": {
-               "payload": {
-                 "type": "null",
-                 "default": null
-               }
-             }
-           }
-         },
-         {
-           "if": {
-             "properties": {
-               "kind": {
-                 "const": "PersonnesAgeesSelon3DeD842_16"
-               }
-             }
-           },
-           "then": {
-             "properties": {
-               "payload": {
-                 "type": "null",
-                 "default": null
-               }
-             }
-           }
-         },
-         {
-           "if": {
-             "properties": {
-               "kind": {
-                 "const": "AutresPersonnes"
-               }
-             }
-           },
-           "then": {
-             "properties": {
-               "payload": {
-                 "type": "null",
-                 "default": null
-               }
-             }
-           }
-         }
-       ]
-     }
-,
-"changement_logement_d842_4": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Changement"]
-        },
-        {
-          "type": "string",
-          "enum": ["PasDeChangement"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Changement"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/infos_changement_logement_d842_4"
-            }
-          }
-        }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PasDeChangement"
-            }
-          }
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    },
+    "autre_personne_a_charge": {
+      "type": "object",
+      "properties": {
+        "dateNaissance": {
+          "title": "Date de naissance",
+          "type": "string",
+          "format": "date"
         },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
+        "ressources": {
+          "title": "Ressources annuelles",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
+          "title": "La personne est un ascendant, un descendant, ou un collatéral du deuxième ou troisième degré du demandeur",
+          "type": "boolean",
+          "default": true
+        },
+        "parente": {
+          "title": " ",
+          "$ref": "#/definitions/parente"
+        },
+        "incapacite80PourcentOuRestrictionEmploi": {
+          "title": "Incapacité à 80% ou plus ou restriction d'emploi",
+          "type": "boolean",
+          "default": false
+        },
+        "beneficiaireL16119L3518L6433Secu": {
+          "title": "Bénéficiaire des articles L161-19, L351-8 ou L643-3 du code de la sécurité sociale",
+          "type": "boolean",
+          "default": false
+        },
+        "titulaireAllocationPersonneAgee": {
+          "title": "Titulaire de l'allocation de solidarité aux personnes âges",
+          "type": "boolean",
+          "default": false
         }
       }
-    ]
-  }
-,
-"date_de_naissance_ou_mois_de_grossesse": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["DateDeNaissance"]
-        },
-        {
-          "type": "string",
-          "enum": ["AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"]
-        },
-        {
-          "type": "string",
-          "enum": ["ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"]
-        }
-      ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "DateDeNaissance"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "string",
-              "format": "date"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"date_naissance_troisieme_ou_dernier_plus_enfant": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["MoinsDeTroisEnfants"]
-        },
-        {
-          "type": "string",
-          "enum": ["PlusDeTroisEnfants"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "MoinsDeTroisEnfants"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PlusDeTroisEnfants"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/date_de_naissance_ou_mois_de_grossesse"
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"demandeur": {
-  "type": "object",
-  "properties": {
-    "satisfaitConditionsL5122CodeSecuriteSociale": {
-      "type": "boolean",
-      "default": false
-    },
-    "ageDemandeur": {
-      "type": "number",
-      "default": 0
-    },
-    "dateNaissance": {
-      "type": "string",
-      "format": "date"
-    },
-    "contratDeTravail": {
-      "$ref": "#/definitions/type_contrat_travail"
-    },
-    "nationalite": {
-      "$ref": "#/definitions/nationalite"
-    },
-    "patrimoine": {
-      "$ref": "#/definitions/patrimoine"
-    },
-    "personneHebergeeCentreSoinLL162223SecuriteSociale": {
-      "type": "boolean",
-      "default": false
-    }
-  }
-},
-"enfant_a_charge": {
-  "type": "object",
-  "properties": {
-    "identifiant": {
-      "type": "number",
-      "default": 0
-    },
-    "beneficieTitrePersonnelAidePersonnelleLogement": {
-      "type": "boolean",
-      "default": false
-    },
-    "aDejaOuvertDroitAuxAllocationsFamiliales": {
-      "type": "boolean",
-      "default": false
-    },
-    "dateDeNaissance": {
-      "type": "string",
-      "format": "date"
-    },
-    "remunerationMensuelle": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "obligationScolaire": {
-      "$ref": "#/definitions/situation_obligation_scolaire"
-    },
-    "priseEnCharge": {
-      "$ref": "#/definitions/prise_en_charge"
-    },
-    "age": {
-      "type": "number",
-      "default": 0
-    },
-    "situationGardeAlternee": {
-      "$ref": "#/definitions/situation_garde_alternee"
-    }
-  }
-},
-"informations_calcul_a_p_l": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["InfosLocatif"]
-        },
-        {
-          "type": "string",
-          "enum": ["InfosLogementFoyer"]
-        },
-        {
-          "type": "string",
-          "enum": ["InfosAccessionPropriete"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "InfosLocatif"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/informations_calcul_a_p_l_locatif"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "InfosLogementFoyer"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/informations_calcul_a_p_l_logement_foyer"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "InfosAccessionPropriete"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/informations_calcul_a_p_l_accession_propriete"
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"informations_calcul_a_p_l_accession_propriete": {
-  "type": "object",
-  "properties": {
-    "mensualitePrincipale": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "chargesMensuellesPret": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "dateSignaturePret": {
-      "type": "string",
-      "format": "date"
-    },
-    "dateEntreeLogement": {
-      "type": "string",
-      "format": "date"
-    },
-    "typeTravauxLogementD83215": {
-      "$ref": "#/definitions/type_travaux_logement_d832_15"
-    },
-    "typeTravauxLogementR8425": {
-      "$ref": "#/definitions/type_travaux_logement_r842_5"
-    },
-    "localHabitePremiereFoisBeneficiaire": {
-      "type": "boolean",
-      "default": false
-    },
-    "copropriete": {
-      "type": "boolean",
-      "default": false
-    },
-    "situationR822111317": {
-      "type": "boolean",
-      "default": false
-    },
-    "typePret": {
-      "$ref": "#/definitions/type_pret"
-    },
-    "ancienneteLogement": {
-      "$ref": "#/definitions/neuf_ou_ancien"
-    }
-  }
-},
-"informations_calcul_a_p_l_locatif": {
-  "type": "object",
-  "properties": {
-    "loyerPrincipal": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "beneficiaireAideAdulteOuEnfantHandicapes": {
-      "type": "boolean",
-      "default": false
-    },
-    "logementEstChambre": {
-      "type": "boolean",
-      "default": false
-    },
-    "colocation": {
-      "type": "boolean",
-      "default": false
-    },
-    "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": {
-      "type": "boolean",
-      "default": false
-    },
-    "reductionLoyerSolidarite": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "logementMeubleD8422": {
-      "type": "boolean",
-      "default": false
-    },
-    "changementLogementD8424": {
-      "$ref": "#/definitions/changement_logement_d842_4"
-    }
-  }
-},
-"informations_calcul_a_p_l_logement_foyer": {
-  "type": "object",
-  "properties": {
-    "redevance": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "categorieEquivalenceLoyerD84216": {
-      "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
-    }
-  }
-},
-"infos_changement_logement_d842_4": {
-  "type": "object",
-  "properties": {
-    "ancienLoyerPrincipal": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "ancienneAllocationLogement": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    }
-  }
-},
-"location": {
-  "type": "object",
-  "properties": {
     "bailleur": {
-      "$ref": "#/definitions/bailleur"
-    }
-  }
-},
-"logement": {
-  "type": "object",
-  "properties": {
-    "residencePrincipale": {
-      "type": "boolean",
-      "default": false
+      "type": "object",
+      "properties": {
+        "typeBailleur": {
+          "title": " ",
+          "$ref": "#/definitions/type_bailleur"
+        },
+        "respecteConventionTitreV": {
+          "title": "Le bailleur est conventionné titre V",
+          "type": "boolean",
+          "default": false
+        },
+        "respecteConventionTitreII": {
+          "title": "Le bailleur est conventionné titre II",
+          "type": "boolean",
+          "default": false
+        },
+        "construitAmelioreConditionsL83114": {
+          "title": "Logement construit et amélioré dans les conditions du 4° du L831-1",
+          "type": "boolean",
+          "default": false
+        },
+        "acquisitionAidesEtatPretTitreIIOuLivreIII": {
+          "title": "Logement construit, acquis ou amélioré au moyen d'aides de l'État ou de prêts régulés",
+          "type": "boolean",
+          "default": false
+        }
+      }
     },
-    "estEhpadOuMaisonAutonomieL31312Asf": {
-      "type": "boolean",
-      "default": false
+    "categorie_equivalence_loyer_allocation_logement_foyer": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Catégorie de personnes résidant en logement-foyer",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Étudiant logé en chambre",
+              "type": "string",
+              "enum": [
+                "EtudiantLogeEnChambre"
+              ]
+            },
+            {
+              "title": "Étudiant logé en chambre réhabilitée",
+              "type": "string",
+              "enum": [
+                "EtudiantLogeEnChambreRehabilitee"
+              ]
+            },
+            {
+              "title": "Personne âgée",
+              "type": "string",
+              "enum": [
+                "PersonnesAgeesSelon3DeD842_16"
+              ]
+            },
+            {
+              "title": "Autre situation",
+              "type": "string",
+              "enum": [
+                "AutresPersonnes"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "default": null
+      }
     },
-    "modeOccupation": {
-      "$ref": "#/definitions/mode_occupation"
+    "changement_logement_d842_4": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Le ménage a été relogé par les pouvoirs publics",
+          "type": "string",
+          "default": "PasDeChangement",
+          "anyOf": [
+            {
+              "title": "Oui",
+              "type": "string",
+              "enum": [
+                "Changement"
+              ]
+            },
+            {
+              "title": "Non",
+              "type": "string",
+              "enum": [
+                "PasDeChangement"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Changement"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/infos_changement_logement_d842_4"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "PasDeChangement"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
     },
-    "proprietaire": {
-      "$ref": "#/definitions/parent_ou_autre"
+    "date_de_naissance_ou_mois_de_grossesse": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Situation du dernier enfant",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Le dernier enfant est né",
+              "type": "string",
+              "enum": [
+                "DateDeNaissance"
+              ]
+            },
+            {
+              "title": "La grossesse du dernier enfant a commencé il y a moins de trois mois (voir D823-20 CCH)",
+              "type": "string",
+              "enum": [
+                "AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"
+              ]
+            },
+            {
+              "title": "La grossesse du dernier enfant a commencé plus de trois mois (voir D823-20 CCH)",
+              "type": "string",
+              "enum": [
+                "ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "DateDeNaissance"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": "Date de naissance du dernier enfant",
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
     },
-    "loueOuSousLoueADesTiers": {
-      "$ref": "#/definitions/loue_ou_sous_loue_a_des_tiers"
+    "date_naissance_troisieme_ou_dernier_plus_enfant": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Le ménage a plus ou moins de trois enfants nés où à naître",
+          "type": "string",
+          "default": "MoinsDeTroisEnfants",
+          "anyOf": [
+            {
+              "title": "Moins de trois enfants",
+              "type": "string",
+              "enum": [
+                "MoinsDeTroisEnfants"
+              ]
+            },
+            {
+              "title": "Plus de trois enfants",
+              "type": "string",
+              "enum": [
+                "PlusDeTroisEnfants"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "MoinsDeTroisEnfants"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "PlusDeTroisEnfants"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/date_de_naissance_ou_mois_de_grossesse"
+              }
+            }
+          }
+        }
+      ]
     },
-    "usufruit": {
-      "$ref": "#/definitions/parent_ou_autre"
+    "demandeur": {
+      "type": "object",
+      "properties": {
+        "satisfaitConditionsL5122CodeSecuriteSociale": {
+          "title": "Le demandeur satisfait les conditions des deux premiers alinéas de l'article L512-2 du code de la sécurité sociale",
+          "type": "boolean",
+          "default": true
+        },
+        "ageDemandeur": {
+          "title": "Âge du demandeur",
+          "type": "number",
+          "default": 0
+        },
+        "dateNaissance": {
+          "title": "Date de naissance du demandeur",
+          "type": "string",
+          "format": "date"
+        },
+        "nationalite": {
+          "title": " ",
+          "$ref": "#/definitions/nationalite"
+        },
+        "patrimoine": {
+          "title": " ",
+          "$ref": "#/definitions/patrimoine"
+        },
+        "personneHebergeeCentreSoinLL162223SecuriteSociale": {
+          "title": "Le demandeur est hébergé dans une unité ou centre de soins de longue durée",
+          "type": "boolean",
+          "default": false
+        }
+      }
     },
-    "logementDecentL89462": {
-      "type": "boolean",
-      "default": false
+    "enfant_a_charge": {
+      "type": "object",
+      "properties": {
+        "identifiant": {
+          "title": "Identifiant",
+          "type": "number",
+          "default": 0
+        },
+        "beneficieTitrePersonnelAidePersonnelleLogement": {
+          "title": "L'enfant béneficie à titre personnel des aides au logement",
+          "type": "boolean",
+          "default": false
+        },
+        "aDejaOuvertDroitAuxAllocationsFamiliales": {
+          "title": "L'enfant à déjà ouvert droit aux allocations familiales",
+          "type": "boolean",
+          "default": false
+        },
+        "dateDeNaissance": {
+          "title": "Date de naissance",
+          "type": "string",
+          "format": "date"
+        },
+        "remunerationMensuelle": {
+          "title": "Rémunération mensuelle",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "obligationScolaire": {
+          "title": " ",
+          "$ref": "#/definitions/situation_obligation_scolaire"
+        },
+        "priseEnCharge": {
+          "title": " ",
+          "$ref": "#/definitions/prise_en_charge"
+        },
+        "age": {
+          "title": "Âge de l'enfant",
+          "type": "number",
+          "default": 0
+        },
+        "situationGardeAlternee": {
+          "title": " ",
+          "$ref": "#/definitions/situation_garde_alternee"
+        }
+      }
     },
-    "surfaceMCarres": {
-      "type": "number",
-      "default": 0
+    "informations_calcul_a_p_l": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Mode de calcul de l'aide personnalisée au logement",
+          "type": "string",
+          "default": "InfosLocatif",
+          "anyOf": [
+            {
+              "title": "Secteur locatif",
+              "type": "string",
+              "enum": [
+                "InfosLocatif"
+              ]
+            },
+            {
+              "title": "Secteur logement-foyer",
+              "type": "string",
+              "enum": [
+                "InfosLogementFoyer"
+              ]
+            },
+            {
+              "title": "Secteur accession à la propriété",
+              "type": "string",
+              "enum": [
+                "InfosAccessionPropriete"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "InfosLocatif"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/informations_calcul_a_p_l_locatif"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "InfosLogementFoyer"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/informations_calcul_a_p_l_logement_foyer"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "InfosAccessionPropriete"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/informations_calcul_a_p_l_accession_propriete"
+              }
+            }
+          }
+        }
+      ]
     },
-    "estAncienL8312": {
-      "type": "boolean",
-      "default": false
+    "informations_calcul_a_p_l_accession_propriete": {
+      "type": "object",
+      "properties": {
+        "mensualitePrincipale": {
+          "title": "Mensualité déclarée du prêt (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "chargesMensuellesPret": {
+          "title": "Charges mensuelles du prêt (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "dateEntreeLogement": {
+          "title": "Date d'entrée dans le logement",
+          "type": "string",
+          "format": "date"
+        },
+        "typeTravauxLogementD83215": {
+          "title": " ",
+          "$ref": "#/definitions/type_travaux_logement_d832_15"
+        },
+        "typeTravauxLogementR8425": {
+          "title": " ",
+          "$ref": "#/definitions/type_travaux_logement_r842_5"
+        },
+        "localHabitePremiereFoisBeneficiaire": {
+          "title": "Local habité pour la première fois par le demandeur",
+          "type": "boolean",
+          "default": false
+        },
+        "copropriete": {
+          "title": "Le logement est possédé en co-propriété",
+          "type": "boolean",
+          "default": false
+        },
+        "situationR822111317": {
+          "title": "Le bénéficiaire et son conjoint se trouvent dans l'une des situations mentionnées aux articles R822-11 et R822-13 à R822-17 du code de la construction et de l'habitation.",
+          "type": "boolean",
+          "default": false
+        },
+        "ancienneteLogement": {
+          "title": " ",
+          "$ref": "#/definitions/neuf_ou_ancien"
+        }
+      }
     },
-    "situeCommuneDesequilibreL8312": {
-      "type": "boolean",
-      "default": false
+    "informations_calcul_a_p_l_locatif": {
+      "type": "object",
+      "properties": {
+        "loyerPrincipal": {
+          "title": "Loyer (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "beneficiaireAideAdulteOuEnfantHandicapes": {
+          "title": "Le demandeur ou son conjoint sont bénéficiaires de l'allocation aux adultes handicapés ou ou de l'allocation d'éducation de l'enfant handicapé.",
+          "type": "boolean",
+          "default": false
+        },
+        "logementEstChambre": {
+          "title": "Le logement est une chambre",
+          "type": "boolean",
+          "default": false
+        },
+        "colocation": {
+          "title": "Le logement est partagé en colocation",
+          "type": "boolean",
+          "default": false
+        },
+        "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": {
+          "title": "Le demandeur est une personne âgée ou handicapée adultes hébergée à titre onéreux chez des particuliers",
+          "type": "boolean",
+          "default": false
+        },
+        "reductionLoyerSolidarite": {
+          "title": "Réduction de loyer de solidarité dont bénéficie le ménage (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "logementMeubleD8422": {
+          "title": "Le logement est loué meublé",
+          "type": "boolean",
+          "default": false
+        },
+        "changementLogementD8424": {
+          "title": " ",
+          "$ref": "#/definitions/changement_logement_d842_4"
+        }
+      }
     },
-    "zone": {
-      "$ref": "#/definitions/zone_d_habitation"
-    }
-  }
-},
-"logement_foyer": {
-  "type": "object",
-  "properties": {
-    "typeUser": {
-      "$ref": "#/definitions/type_logement_foyer"
+    "informations_calcul_a_p_l_logement_foyer": {
+      "type": "object",
+      "properties": {
+        "redevance": {
+          "title": "Redevance mensuelle (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "categorieEquivalenceLoyerD84216": {
+          "title": " ",
+          "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
+        }
+      }
     },
-    "dateConventionnement": {
-      "type": "string",
-      "format": "date"
+    "infos_changement_logement_d842_4": {
+      "type": "object",
+      "properties": {
+        "ancienLoyerPrincipal": {
+          "title": "Loyer de l'ancien logement avant relogement (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "ancienneAllocationLogement": {
+          "title": "Aide au logement touchée avant relogement (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        }
+      }
     },
     "location": {
-      "$ref": "#/definitions/location"
-    },
-    "remplitConditionsR83221": {
-      "type": "boolean",
-      "default": false
-    },
-    "construitApplicationLoi195712III": {
-      "type": "boolean",
-      "default": false
-    }
-  }
-},
-"loue_ou_sous_loue_a_des_tiers": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Non"]
-        },
-        {
-          "type": "string",
-          "enum": ["Oui"]
+      "type": "object",
+      "properties": {
+        "bailleur": {
+          "title": " ",
+          "$ref": "#/definitions/bailleur"
         }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Non"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Oui"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/personne_sous_location"
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"menage": {
-  "type": "object",
-  "properties": {
-    "prestationsRecues": {
-      "type": "array",
-      "default": [],
-      "items": {
-        "$ref": "#/definitions/prestation_recue"
       }
     },
     "logement": {
-      "$ref": "#/definitions/logement"
-    },
-    "personnesACharge": {
-      "type": "array",
-      "default": [],
-      "items": {
-        "$ref": "#/definitions/personne_a_charge"
+      "title": " ",
+      "type": "object",
+      "properties": {
+        "residencePrincipale": {
+          "title": "Le logement concerné par la demande d'aide est la résidence principale du ménage",
+          "type": "boolean",
+          "default": true
+        },
+        "estEhpadOuMaisonAutonomieL31312Asf": {
+          "title": "Le logement est un EHPAD ou une résidence autonomie",
+          "type": "boolean",
+          "default": false
+        },
+        "modeOccupation": {
+          "title": "Mode d'occupation du logement",
+          "$ref": "#/definitions/mode_occupation"
+        },
+        "proprietaire": {
+          "title": "Propriétaire du logement",
+          "$ref": "#/definitions/parent_ou_autre"
+        },
+        "loueOuSousLoueADesTiers": {
+          "title": " ",
+          "$ref": "#/definitions/loue_ou_sous_loue_a_des_tiers"
+        },
+        "usufruit": {
+          "title": "Usufruitier du logement",
+          "$ref": "#/definitions/parent_ou_autre"
+        },
+        "logementDecentL89462": {
+          "title": "Le logement est décent",
+          "type": "boolean",
+          "default": true
+        },
+        "surfaceMCarres": {
+          "title": "Surface du logement en mètres carrés",
+          "type": "number",
+          "default": 0
+        },
+        "estAncienL8312": {
+          "title": "Le logement est ancien",
+          "type": "boolean",
+          "default": false
+        },
+        "situeCommuneDesequilibreL8312": {
+          "title": "Le logement est situé dans une commune ne se caractérisant pas par un déséquilibre important entre l'offre et la demande de logements entraînant des difficultés d'accès au logement dans le parc résidentiel existant",
+          "type": "boolean",
+          "default": false
+        },
+        "zone": {
+          "title": " ",
+          "$ref": "#/definitions/zone_d_habitation"
+        }
       }
     },
-    "nombreAutresOccupantsLogement": {
-      "type": "number",
-      "default": 0
-    },
-    "situationFamiliale": {
-      "$ref": "#/definitions/situation_familiale"
-    },
-    "conditionRattacheFoyerFiscalParentIfi": {
-      "type": "boolean",
-      "default": false
-    },
-    "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": {
-      "type": "number",
-      "default": 0
-    },
-    "enfantANaitreApresQuatriemeMoisGrossesse": {
-      "type": "boolean",
-      "default": false
-    },
-    "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
-      "$ref": "#/definitions/date_naissance_troisieme_ou_dernier_plus_enfant"
-    }
-  }
-},
-"mode_occupation": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
+    "logement_foyer": {
+      "type": "object",
+      "properties": {
+        "typeUser": {
+          "title": " ",
+          "$ref": "#/definitions/type_logement_foyer"
+        },
+        "dateConventionnement": {
+          "title": "Date du conventionnement du logement-foyer",
           "type": "string",
-          "enum": ["Locataire"]
+          "format": "date"
+        },
+        "location": {
+          "title": " ",
+          "$ref": "#/definitions/location"
+        },
+        "remplitConditionsR83221": {
+          "title": "Le logement-foyer remplit les conditions du R832-21",
+          "type": "boolean",
+          "default": false
+        },
+        "construitApplicationLoi195712III": {
+          "title": "Logement construit en application du III de l'article 12 de la loi n° 57-908 du 7 août 1957",
+          "type": "boolean",
+          "default": false
+        }
+      }
+    },
+    "loue_ou_sous_loue_a_des_tiers": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Logement loué ou sous-loué à des tiers",
+          "type": "string",
+          "default": "Non",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Non"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Oui"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    },
+    "menage": {
+      "type": "object",
+      "title": " ",
+      "properties": {
+        "prestationsRecues": {
+          "title": "Autres prestations sociales déjà reçues par le ménage",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$ref": "#/definitions/prestation_recue"
+          }
+        },
+        "logement": {
+          "$ref": "#/definitions/logement"
+        },
+        "personnesACharge": {
+          "title": "Personnes à charge",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$ref": "#/definitions/personne_a_charge"
+          }
+        },
+        "nombreAutresOccupantsLogement": {
+          "title": "Nombre d'autres occupants du logement autres que le demandeur, son conjoint ou les personnes à charge",
+          "type": "number",
+          "default": 0
+        },
+        "situationFamiliale": {
+          "title": " ",
+          "$ref": "#/definitions/situation_familiale"
+        },
+        "conditionRattacheFoyerFiscalParentIfi": {
+          "title": "Une personne du ménage est rattachée au foyer fiscal de ses parents soumis à l'IFI",
+          "type": "boolean",
+          "default": false
+        },
+        "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": {
+          "title": "Nombre d'enfants à naître dont la grossesse a atteint le troisième mois",
+          "type": "number",
+          "default": 0
+        },
+        "enfantANaitreApresQuatriemeMoisGrossesse": {
+          "title": "La grossesse d'un ou plus enfant à naître a atteint le quatrième mois",
+          "type": "boolean",
+          "default": false
+        },
+        "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
+          "title": " ",
+          "$ref": "#/definitions/date_naissance_troisieme_ou_dernier_plus_enfant"
+        }
+      }
+    },
+    "mode_occupation": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
+          "default": "Locataire",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Locataire",
+              "type": "string",
+              "enum": [
+                "Locataire"
+              ]
+            },
+            {
+              "title": "Résident en logement foyer",
+              "type": "string",
+              "enum": [
+                "ResidentLogementFoyer"
+              ]
+            },
+            {
+              "title": "Accession à la propriété",
+              "type": "string",
+              "enum": [
+                "AccessionProprieteLocalUsageExclusifHabitation"
+              ]
+            },
+            {
+              "title": "Sous-locataire",
+              "type": "string",
+              "enum": [
+                "SousLocataire"
+              ]
+            },
+            {
+              "title": "Location-accession",
+              "type": "string",
+              "enum": [
+                "LocationAccession"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Locataire"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/location"
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["ResidentLogementFoyer"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ResidentLogementFoyer"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/logement_foyer"
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["AccessionProprieteLocalUsageExclusifHabitation"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "AccessionProprieteLocalUsageExclusifHabitation"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/proprietaire"
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["SousLocataire"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "SousLocataire"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/location"
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["LocationAccession"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "LocationAccession"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/proprietaire"
+              }
+            }
+          }
         }
       ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Locataire"
+    "nationalite": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Nationalité du demandeur",
+          "type": "string",
+          "default": "Francaise",
+          "anyOf": [
+            {
+              "title": "Française",
+              "type": "string",
+              "enum": [
+                "Francaise"
+              ]
+            },
+            {
+              "title": "Étrangère",
+              "type": "string",
+              "enum": [
+                "Etrangere"
+              ]
             }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/location"
-            }
-          }
+          ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ResidentLogementFoyer"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/logement_foyer"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AccessionProprieteLocalUsageExclusifHabitation"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/proprietaire"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "SousLocataire"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/location"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "LocationAccession"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/proprietaire"
-            }
-          }
-        }
+      "payload": {
+        "type": "null",
+        "default": null
       }
-    ]
-  }
-,
-"nationalite": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
+    },
+    "neuf_ou_ancien": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Le logement est neuf ou ancien, potentiellement amélioré par l'occupant",
+          "default": "Neuf",
           "type": "string",
-          "enum": ["Francaise"]
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Neuf"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Ancien"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Neuf"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["Etrangere"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Ancien"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/ameliore_par_occupant"
+              }
+            }
+          }
         }
       ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Francaise"
+    "parent_ou_autre": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
+          "type": "string",
+          "default": "Autre",
+          "anyOf": [
+            {
+              "title": "Demandeur de l'aide au logement ou sa famille",
+              "type": "string",
+              "enum": [
+                "DemandeurOuConjointOuParentOuViaPartsSocietes"
+              ]
+            },
+            {
+              "title": "Autre",
+              "type": "string",
+              "enum": [
+                "Autre"
+              ]
             }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
+          ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Etrangere"
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "DemandeurOuConjointOuParentOuViaPartsSocietes"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": "Fraction du logement revenant au demandeur ou à sa famille",
+                "type": "number",
+                "default": 1.0
+              }
             }
           }
         },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Autre"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
             }
           }
-        }
-      }
-    ]
-  }
-,
-"neuf_ou_ancien": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Neuf"]
-        },
-        {
-          "type": "string",
-          "enum": ["Ancien"]
         }
       ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Neuf"
+    "parente": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Lien précis de parenté avec le demandeur",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Ascendant",
+              "type": "string",
+              "enum": [
+                "Ascendant"
+              ]
+            },
+            {
+              "title": "Descendant",
+              "type": "string",
+              "enum": [
+                "Descendant"
+              ]
+            },
+            {
+              "title": "Collatéral au deuxième ou troisième degré",
+              "type": "string",
+              "enum": [
+                "CollateralDeuxiemeTroisiemeDegre"
+              ]
             }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
+          ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Ancien"
-            }
-          }
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    },
+    "patrimoine": {
+      "type": "object",
+      "properties": {
+        "produisantRevenuPeriodeR82233R8224": {
+          "title": "Patrimoine produisant un revenu (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
         },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/ameliore_par_occupant"
-            }
-          }
+        "neProduisantPasRevenuPeriodeR82233R8224": {
+          "title": "Patrimoine ne produisant pas de revenu (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
         }
       }
-    ]
-  }
-,
-"parent_ou_autre": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
+    },
+    "personne_a_charge": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Lien de parenté au demandeur",
+          "default": "EnfantACharge",
           "type": "string",
-          "enum": ["DemandeurOuConjointOuParentOuViaPartsSocietes"]
+          "anyOf": [
+            {
+              "title": "Enfant",
+              "type": "string",
+              "enum": [
+                "EnfantACharge"
+              ]
+            },
+            {
+              "title": "Autre lien de parenté",
+              "type": "string",
+              "enum": [
+                "AutrePersonneACharge"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "EnfantACharge"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/enfant_a_charge"
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["Autre"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "AutrePersonneACharge"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/autre_personne_a_charge"
+              }
+            }
+          }
         }
       ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "DemandeurOuConjointOuParentOuViaPartsSocietes"
-            }
-          }
+    "personne_sous_location": {
+      "type": "object",
+      "properties": {
+        "agePersonneSousLocation": {
+          "type": "number",
+          "default": 0
         },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "number",
-              "default": 0
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Autre"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
+        "conformeArticleL4421": {
+          "type": "boolean",
+          "default": false
         }
       }
-    ]
-  }
-,
-"parente": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
+    },
+    "prestation_recue": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
           "type": "string",
-          "enum": ["Ascendant"]
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "AllocationsFamiliales"
+              ],
+              "title": "Allocations familiales"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "ComplementFamilial"
+              ],
+              "title": "Complément familial"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "AllocationJeuneEnfant"
+              ],
+              "title": "Prestation d'accueil du jeune enfant"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "AllocationSoutienFamilial"
+              ],
+              "title": "Allocation de soutien familial"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "AllocationSoutienEnfantHandicape"
+              ],
+              "title": "Allocation de soutien à l'enfant handicapé"
+            },
+            {
+              "type": "string",
+              "enum": [
+                "AllocationAdulteHandicape"
+              ],
+              "title": "Allocation adulte handicapé"
+            }
+          ]
+        }
+      },
+      "payload": {
+        "title": " ",
+        "type": "null",
+        "default": null
+      }
+    },
+    "pret": {
+      "type": "object",
+      "properties": {
+        "typePret": {
+          "title": " ",
+          "$ref": "#/definitions/type_pret"
+        },
+        "dateSignature": {
+          "title": "Date de signature du prêt",
+          "type": "string",
+          "format": "date"
+        },
+        "titulairePret": {
+          "title": " ",
+          "$ref": "#/definitions/titulaire_pret"
+        }
+      }
+    },
+    "prise_en_charge": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Prise en charge de l'enfant par le demandeur",
+          "default": "EffectiveEtPermanente",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Effective et permanente",
+              "type": "string",
+              "enum": [
+                "EffectiveEtPermanente"
+              ]
+            },
+            {
+              "title": "Résidence alternée, demandeur allocataire unique",
+              "type": "string",
+              "enum": [
+                "ResidenceAlterneeAllocataireUnique"
+              ]
+            },
+            {
+              "title": "Résidence alternée, allocations partagées",
+              "type": "string",
+              "enum": [
+                "ResidenceAlterneeAllocationsPartagee"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "title": " ",
+        "type": "null",
+        "default": null
+      }
+    },
+    "proprietaire": {
+      "type": "object",
+      "properties": {
+        "pret": {
+          "title": " ",
+          "$ref": "#/definitions/pret"
+        }
+      }
+    },
+    "situation_familiale": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Situation familiale",
+          "default": "Célibataire",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Célibataire",
+              "type": "string",
+              "enum": [
+                "Celibataire"
+              ]
+            },
+            {
+              "title": "Mariés",
+              "type": "string",
+              "enum": [
+                "Maries"
+              ]
+            },
+            {
+              "title": "PACSés",
+              "type": "string",
+              "enum": [
+                "Pacses"
+              ]
+            },
+            {
+              "title": "Concubins",
+              "type": "string",
+              "enum": [
+                "Concubins"
+              ]
+            },
+            {
+              "title": "Célibataire séparé·e de fait",
+              "type": "string",
+              "enum": [
+                "CelibataireSepareDeFait"
+              ]
+            },
+            {
+              "title": "Concubins dont séparé·e·s de fait",
+              "type": "string",
+              "enum": [
+                "ConcubinageDontSepareDeFait"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Celibataire"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["Descendant"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Maries"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": "Date du mariage",
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["CollateralDeuxiemeTroisiemeDegre"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Pacses"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Concubins"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "CelibataireSepareDeFait"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "ConcubinageDontSepareDeFait"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
         }
       ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Ascendant"
+    "situation_garde_alternee": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Charactéristiques de la garde alternée",
+          "default": "PasDeGardeAlternee",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Pas de garde alternée",
+              "type": "string",
+              "enum": [
+                "PasDeGardeAlternee"
+              ]
+            },
+            {
+              "title": "Garde alternée",
+              "type": "string",
+              "enum": [
+                "GardeAlterneeCoefficientPriseEnCharge"
+              ]
             }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
+          ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Descendant"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "CollateralDeuxiemeTroisiemeDegre"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"patrimoine": {
-  "type": "object",
-  "properties": {
-    "produisantRevenuPeriodeR82233R8224": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "neProduisantPasRevenuPeriodeR82233R8224": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    }
-  }
-},
-"personne_a_charge": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
+      "allOf": [
         {
-          "type": "string",
-          "enum": ["EnfantACharge"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "PasDeGardeAlternee"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
         },
         {
-          "type": "string",
-          "enum": ["AutrePersonneACharge"]
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "GardeAlterneeCoefficientPriseEnCharge"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": "Coefficient de prise en charge",
+                "type": "number",
+                "default": 0
+              }
+            }
+          }
         }
       ]
-    }
     },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "EnfantACharge"
+    "situation_obligation_scolaire": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Situation scolaire:",
+          "default": "Pendant",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Avant l'obligation scolaire",
+              "type": "string",
+              "enum": [
+                "Avant"
+              ]
+            },
+            {
+              "title": "Pendant l'obligation scolaire",
+              "type": "string",
+              "enum": [
+                "Pendant"
+              ]
+            },
+            {
+              "title": "Après l'obligation scolaire",
+              "type": "string",
+              "enum": [
+                "Apres"
+              ]
             }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/enfant_a_charge"
-            }
-          }
+          ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AutrePersonneACharge"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/autre_personne_a_charge"
-            }
-          }
-        }
+      "payload": {
+        "type": "null",
+        "default": null
       }
-    ]
-  }
-,
-"personne_sous_location": {
-  "type": "object",
-  "properties": {
-    "agePersonneSousLocation": {
-      "type": "number",
-      "default": 0
     },
-    "conformeArticleL4421": {
-      "type": "boolean",
-      "default": false
-    }
-  }
-},
-"prestation_recue": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
+    "titulaire_pret": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Titulaire du prêt",
           "type": "string",
-          "enum": ["AllocationsFamiliales"]
-        },
-        {
-          "type": "string",
-          "enum": ["ComplementFamilial"]
-        },
-        {
-          "type": "string",
-          "enum": ["AllocationJeuneEnfant"]
-        },
-        {
-          "type": "string",
-          "enum": ["AllocationSoutienFamilial"]
-        },
-        {
-          "type": "string",
-          "enum": ["AllocationSoutienEnfantHandicape"]
-        },
-        {
-          "type": "string",
-          "enum": ["AllocationAdulteHandicape"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationsFamiliales"
+          "anyOf": [
+            {
+              "title": "Demandeur de l'aide au logement",
+              "type": "string",
+              "enum": [
+                "Demandeur"
+              ]
+            },
+            {
+              "title": "Vendeur du logement (si location-accession)",
+              "type": "string",
+              "enum": [
+                "VendeurQuandDemandeurAContratLocationAccession"
+              ]
             }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
+          ]
         }
       },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ComplementFamilial"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationJeuneEnfant"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationSoutienFamilial"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationSoutienEnfantHandicape"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationAdulteHandicape"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
+      "payload": {
+        "type": "null",
+        "default": null
       }
-    ]
-  }
-,
-"pret": {
-  "type": "object",
-  "properties": {
-    "typePret": {
-      "$ref": "#/definitions/type_pret"
     },
-    "dateSignature": {
+    "type_bailleur": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Type du bailleur",
+          "default": "BailleurPrive",
+          "type": "string",
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "Bailleur social",
+              "enum": [
+                "BailleurSocial"
+              ]
+            },
+            {
+              "type": "string",
+              "title": "Bailleur privé",
+              "enum": [
+                "BailleurPrive"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "title": " ",
+        "default": null
+      }
+    },
+    "type_logement_foyer": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Type de logement foyer",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Logement pour personnes âgées ou handicapées",
+              "type": "string",
+              "enum": [
+                "LogementPersonnesAgeesOuHandicapees"
+              ]
+            },
+            {
+              "title": "Résidence sociale",
+              "type": "string",
+              "enum": [
+                "ResidenceSociale"
+              ]
+            },
+            {
+              "title": "Foyer pour jeunes travailleurs ou migrants conventionné L. 353-2 avant 1995",
+              "type": "string",
+              "enum": [
+                "FoyerJeunesTrvailleursOuMigrantsConventionneL353_2Avant1995"
+              ]
+            },
+            {
+              "title": "Autre",
+              "type": "string",
+              "enum": [
+                "Autre"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "title": " ",
+        "type": "null",
+        "default": null
+      }
+    },
+    "type_pret": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Articles du code de la construction de de l'habitation régissant le prêt souscrit",
+          "type": "string",
+          "anyOf": [
+            {
+              "type": "string",
+              "title": "Article D331-32 (PAP)",
+              "enum": [
+                "D331_32"
+              ]
+            },
+            {
+              "title": "Articles D331-63 et D331-64 (prêt conventionné)",
+              "type": "string",
+              "enum": [
+                "D331_63_64"
+              ]
+            },
+            {
+              "title": "Article D331-59-8 (PAP fractionné)",
+              "type": "string",
+              "enum": [
+                "D331_59_8"
+              ]
+            },
+            {
+              "title": "Article D331-76-1 (prêt conventionné fractionné)",
+              "type": "string",
+              "enum": [
+                "D331_76_1"
+              ]
+            },
+            {
+              "title": "Autre",
+              "type": "string",
+              "enum": [
+                "Autre"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    },
+    "type_travaux_logement_d832_15": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "type": "string",
+          "title": "Financement par prêt de travaux après ou pour l'acquisition du logement",
+          "default": "PasDeTravaux",
+          "anyOf": [
+            {
+              "title": "Travaux réalisés lors de l'acquisition du logement",
+              "type": "string",
+              "enum": [
+                "TravauxPourAcquisitionD832_15_1"
+              ]
+            },
+            {
+              "title": "Travaux réalisés après l'acquisition du logement",
+              "type": "string",
+              "enum": [
+                "TravauxSurLogementDejaAcquisD832_15_2"
+              ]
+            },
+            {
+              "title": "Pas de travaux réalisés",
+              "type": "string",
+              "enum": [
+                "PasDeTravaux"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    },
+    "type_travaux_logement_r842_5": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Objectif des travaux financés par le prêt",
+          "default": "PasDeTravaux",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Décence du logement",
+              "type": "string",
+              "enum": [
+                "ObjectifDecenceLogement"
+              ]
+            },
+            {
+              "title": "Prévu par l'article R321-15",
+              "type": "string",
+              "enum": [
+                "PrevuDansListeR321_15"
+              ]
+            },
+            {
+              "title": "Agrandir ou rendre habitable le logement (prêt conventionné)",
+              "type": "string",
+              "enum": [
+                "AgrandirOuRendreHabitableD331_63"
+              ]
+            },
+            {
+              "title": "Pas de travaux réalisés",
+              "type": "string",
+              "enum": [
+                "PasDeTravaux"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    },
+    "zone_d_habitation": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Zone de la commune du logement",
+          "type": "string",
+          "anyOf": [
+            {
+              "title": "Zone I",
+              "type": "string",
+              "enum": [
+                "Zone1"
+              ]
+            },
+            {
+              "title": "Zone II",
+              "type": "string",
+              "enum": [
+                "Zone2"
+              ]
+            },
+            {
+              "title": "Zone III",
+              "type": "string",
+              "enum": [
+                "Zone3"
+              ]
+            }
+          ]
+        }
+      },
+      "payload": {
+        "type": "null",
+        "default": null
+      }
+    }
+  },
+  "properties": {
+    "menageIn": {
+      "title": " ",
+      "$ref": "#/definitions/menage"
+    },
+    "demandeurIn": {
+      "title": " ",
+      "$ref": "#/definitions/demandeur"
+    },
+    "informationsCalculIn": {
+      "title": " ",
+      "$ref": "#/definitions/informations_calcul_a_p_l"
+    },
+    "dateCouranteIn": {
+      "title": "Date du calcul des droits",
       "type": "string",
       "format": "date"
     },
-    "titulairePret": {
-      "$ref": "#/definitions/titulaire_pret"
+    "ressourcesMenagePrisesEnCompteIn": {
+      "title": "Ressources du ménage prises en compte (€)",
+      "type": "number",
+      "minimum": 0,
+      "default": 0
     }
   }
-},
-"prise_en_charge": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["EffectiveEtPermanente"]
-        },
-        {
-          "type": "string",
-          "enum": ["ResidenceAlterneeAllocataireUnique"]
-        },
-        {
-          "type": "string",
-          "enum": ["ResidenceAlterneeAllocationsPartagee"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "EffectiveEtPermanente"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ResidenceAlterneeAllocataireUnique"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ResidenceAlterneeAllocationsPartagee"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"proprietaire": {
-  "type": "object",
-  "properties": {
-    "pret": {
-      "$ref": "#/definitions/pret"
-    }
-  }
-},
-"situation_familiale": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Celibataire"]
-        },
-        {
-          "type": "string",
-          "enum": ["Maries"]
-        },
-        {
-          "type": "string",
-          "enum": ["Pacses"]
-        },
-        {
-          "type": "string",
-          "enum": ["Concubins"]
-        },
-        {
-          "type": "string",
-          "enum": ["CelibataireSepareDeFait"]
-        },
-        {
-          "type": "string",
-          "enum": ["ConcubinageDontSepareDeFait"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Celibataire"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Maries"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "string",
-              "format": "date"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Pacses"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Concubins"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "CelibataireSepareDeFait"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ConcubinageDontSepareDeFait"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"situation_garde_alternee": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["PasDeGardeAlternee"]
-        },
-        {
-          "type": "string",
-          "enum": ["GardeAlterneeCoefficientPriseEnCharge"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PasDeGardeAlternee"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "GardeAlterneeCoefficientPriseEnCharge"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "number",
-              "default": 0
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"situation_obligation_scolaire": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Avant"]
-        },
-        {
-          "type": "string",
-          "enum": ["Pendant"]
-        },
-        {
-          "type": "string",
-          "enum": ["Apres"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Avant"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Pendant"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Apres"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"titulaire_pret": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Demandeur"]
-        },
-        {
-          "type": "string",
-          "enum": ["VendeurQuandDemandeurAContratLocationAccession"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Demandeur"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "VendeurQuandDemandeurAContratLocationAccession"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_bailleur": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["BailleurSocial"]
-        },
-        {
-          "type": "string",
-          "enum": ["BailleurPrive"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "BailleurSocial"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "BailleurPrive"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_contrat_travail": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["CDI"]
-        },
-        {
-          "type": "string",
-          "enum": ["Autres"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "CDI"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Autres"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_logement_foyer": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["LogementPersonnesAgeesOuHandicapees"]
-        },
-        {
-          "type": "string",
-          "enum": ["ResidenceSociale"]
-        },
-        {
-          "type": "string",
-          "enum": ["FoyerJeunesTrvailleursOuMigrantsConventionneL353_2Avant1995"]
-        },
-        {
-          "type": "string",
-          "enum": ["Autre"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "LogementPersonnesAgeesOuHandicapees"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ResidenceSociale"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "FoyerJeunesTrvailleursOuMigrantsConventionneL353_2Avant1995"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Autre"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_pret": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["D331_32"]
-        },
-        {
-          "type": "string",
-          "enum": ["D331_63_64"]
-        },
-        {
-          "type": "string",
-          "enum": ["D331_59_8"]
-        },
-        {
-          "type": "string",
-          "enum": ["D331_76_1"]
-        },
-        {
-          "type": "string",
-          "enum": ["Autre"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "D331_32"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "D331_63_64"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "D331_59_8"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "D331_76_1"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Autre"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_travaux_logement_d832_15": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["TravauxPourAcquisitionD832_15_1"]
-        },
-        {
-          "type": "string",
-          "enum": ["TravauxSurLogementDejaAcquisD832_15_2"]
-        },
-        {
-          "type": "string",
-          "enum": ["PasDeTravaux"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "TravauxPourAcquisitionD832_15_1"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "TravauxSurLogementDejaAcquisD832_15_2"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PasDeTravaux"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"type_travaux_logement_r842_5": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["ObjectifDecenceLogement"]
-        },
-        {
-          "type": "string",
-          "enum": ["PrevuDansListeR321_15"]
-        },
-        {
-          "type": "string",
-          "enum": ["AgrandirOuRendreHabitableD331_63"]
-        },
-        {
-          "type": "string",
-          "enum": ["PasDeTravaux"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ObjectifDecenceLogement"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PrevuDansListeR321_15"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AgrandirOuRendreHabitableD331_63"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PasDeTravaux"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"zone_d_habitation": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["Zone1"]
-        },
-        {
-          "type": "string",
-          "enum": ["Zone2"]
-        },
-        {
-          "type": "string",
-          "enum": ["Zone3"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Zone1"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Zone2"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "Zone3"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-
-},
-"properties": {
-   "menageIn": {
-     "$ref": "#/definitions/menage"
-   },
-   "demandeurIn": {
-     "$ref": "#/definitions/demandeur"
-   },
-   "informationsCalculIn": {
-     "$ref": "#/definitions/informations_calcul_a_p_l"
-   },
-   "dateCouranteIn": {
-     "type": "string",
-     "format": "date"
-   },
-   "ressourcesMenagePrisesEnCompteIn": {
-     "type": "number",
-     "minimum": 0,
-     "default": 0
-   }
-}
 }
