@@ -31,6 +31,10 @@
     },
     "autre_personne_a_charge": {
       "type": "object",
+      "required": [
+        "dateNaissance",
+        "ressources"
+      ],
       "properties": {
         "dateNaissance": {
           "title": "Date de naissance",
@@ -40,8 +44,7 @@
         "ressources": {
           "title": "Ressources annuelles",
           "type": "number",
-          "minimum": 0,
-          "default": 0
+          "minimum": 0
         },
         "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
           "title": "La personne est un ascendant, un descendant, ou un collatéral du deuxième ou troisième degré du demandeur",
@@ -79,12 +82,12 @@
         "respecteConventionTitreV": {
           "title": "Le bailleur est conventionné titre V",
           "type": "boolean",
-          "default": false
+          "default": true
         },
         "respecteConventionTitreII": {
           "title": "Le bailleur est conventionné titre II",
           "type": "boolean",
-          "default": false
+          "default": true
         },
         "construitAmelioreConditionsL83114": {
           "title": "Logement construit et amélioré dans les conditions du 4° du L831-1",
@@ -104,19 +107,20 @@
         "kind": {
           "title": "Catégorie de personnes résidant en logement-foyer",
           "type": "string",
+          "default": "AutresPersonnes",
           "anyOf": [
             {
-              "title": "Étudiant logé en chambre",
+              "title": "Étudiant logé en chambre du CROUS",
               "type": "string",
               "enum": [
-                "EtudiantLogeEnChambre"
+                "EtudiantLogeEnChambreCROUS"
               ]
             },
             {
-              "title": "Étudiant logé en chambre réhabilitée",
+              "title": "Étudiant logé en chambre du CROUS réhabilitée",
               "type": "string",
               "enum": [
-                "EtudiantLogeEnChambreRehabilitee"
+                "EtudiantLogeEnChambreCROUSRehabilitee"
               ]
             },
             {
@@ -357,6 +361,9 @@
     },
     "demandeur": {
       "type": "object",
+      "required": [
+        "dateNaissance"
+      ],
       "properties": {
         "satisfaitConditionsL5122CodeSecuriteSociale": {
           "title": "Le demandeur satisfait les conditions des deux premiers alinéas de l'article L512-2 du code de la sécurité sociale",
@@ -390,11 +397,15 @@
     },
     "enfant_a_charge": {
       "type": "object",
+      "required": [
+        "dateDeNaissance",
+        "age",
+        "identifiant"
+      ],
       "properties": {
         "identifiant": {
           "title": "Identifiant",
-          "type": "number",
-          "default": 0
+          "type": "number"
         },
         "beneficieTitrePersonnelAidePersonnelleLogement": {
           "title": "L'enfant béneficie à titre personnel des aides au logement",
@@ -427,8 +438,7 @@
         },
         "age": {
           "title": "Âge de l'enfant",
-          "type": "number",
-          "default": 0
+          "type": "number"
         },
         "situationGardeAlternee": {
           "title": " ",
@@ -524,18 +534,21 @@
     },
     "informations_calcul_a_p_l_accession_propriete": {
       "type": "object",
+      "required": [
+        "mensualitePrincipale",
+        "chargesMensuellesPret",
+        "dateEntreeLogement"
+      ],
       "properties": {
         "mensualitePrincipale": {
           "title": "Mensualité déclarée du prêt (€)",
           "type": "number",
-          "minimum": 0,
-          "default": 0
+          "minimum": 0
         },
         "chargesMensuellesPret": {
           "title": "Charges mensuelles du prêt (€)",
           "type": "number",
-          "minimum": 0,
-          "default": 0
+          "minimum": 0
         },
         "dateEntreeLogement": {
           "title": "Date d'entrée dans le logement",
@@ -573,12 +586,14 @@
     },
     "informations_calcul_a_p_l_locatif": {
       "type": "object",
+      "required": [
+        "loyerPrincipal"
+      ],
       "properties": {
         "loyerPrincipal": {
           "title": "Loyer (€)",
           "type": "number",
-          "minimum": 0,
-          "default": 0
+          "minimum": 0
         },
         "beneficiaireAideAdulteOuEnfantHandicapes": {
           "title": "Le demandeur ou son conjoint sont bénéficiaires de l'allocation aux adultes handicapés ou ou de l'allocation d'éducation de l'enfant handicapé.",
@@ -619,6 +634,9 @@
     },
     "informations_calcul_a_p_l_logement_foyer": {
       "type": "object",
+      "required": [
+        "redevance"
+      ],
       "properties": {
         "redevance": {
           "title": "Redevance mensuelle (€)",
@@ -661,6 +679,9 @@
     "logement": {
       "title": " ",
       "type": "object",
+      "required": [
+        "surfaceMCarres"
+      ],
       "properties": {
         "residencePrincipale": {
           "title": "Le logement concerné par la demande d'aide est la résidence principale du ménage",
@@ -695,8 +716,7 @@
         },
         "surfaceMCarres": {
           "title": "Surface du logement en mètres carrés",
-          "type": "number",
-          "default": 0
+          "type": "number"
         },
         "estAncienL8312": {
           "title": "Le logement est ancien",
@@ -716,6 +736,9 @@
     },
     "logement_foyer": {
       "type": "object",
+      "required": [
+        "dateConventionnement"
+      ],
       "properties": {
         "typeUser": {
           "title": " ",
@@ -1083,6 +1106,9 @@
             }
           },
           "then": {
+            "required": [
+              "payload"
+            ],
             "properties": {
               "payload": {
                 "title": "Fraction du logement revenant au demandeur ou à sa famille",
@@ -1118,6 +1144,7 @@
         "kind": {
           "title": "Lien précis de parenté avec le demandeur",
           "type": "string",
+          "default": "Ascendant",
           "anyOf": [
             {
               "title": "Ascendant",
@@ -1242,9 +1269,12 @@
     },
     "prestation_recue": {
       "type": "object",
+      "required": [
+        "kind"
+      ],
       "properties": {
         "kind": {
-          "title": " ",
+          "title": "Prestation reçue",
           "type": "string",
           "anyOf": [
             {
@@ -1368,7 +1398,7 @@
       "properties": {
         "kind": {
           "title": "Situation familiale",
-          "default": "Célibataire",
+          "default": "Celibataire",
           "type": "string",
           "anyOf": [
             {
@@ -1580,11 +1610,13 @@
             }
           },
           "then": {
+            "required": [
+              "payload"
+            ],
             "properties": {
               "payload": {
                 "title": "Coefficient de prise en charge",
-                "type": "number",
-                "default": 0
+                "type": "number"
               }
             }
           }
@@ -1694,6 +1726,7 @@
         "kind": {
           "title": "Type de logement foyer",
           "type": "string",
+          "default": "Autre",
           "anyOf": [
             {
               "title": "Logement pour personnes âgées ou handicapées",
@@ -1868,6 +1901,7 @@
       "properties": {
         "kind": {
           "title": "Zone de la commune du logement",
+          "default": "Zone1",
           "type": "string",
           "anyOf": [
             {
@@ -1921,8 +1955,11 @@
     "ressourcesMenagePrisesEnCompteIn": {
       "title": "Ressources du ménage prises en compte (€)",
       "type": "number",
-      "minimum": 0,
-      "default": 0
+      "minimum": 0
     }
-  }
+  },
+  "required": [
+    "dateCouranteIn",
+    "ressourcesMenagePrisesEnCompteIn"
+  ]
 }
