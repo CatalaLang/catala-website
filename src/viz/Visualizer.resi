@@ -19,6 +19,7 @@ module Make: (
     @react.component
     let make: (
       ~setEventsOpt: (option<array<event>> => option<array<event>>) => unit,
+      ~collapsible: bool,
     ) => React.element
   },
 ) =>

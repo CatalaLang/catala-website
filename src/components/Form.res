@@ -34,11 +34,11 @@ module Make = (
   @react.component
   let make = (
     ~setEventsOpt: (option<array<LogEvent.event>> => option<array<LogEvent.event>>) => unit,
+    ~collapsible: bool,
   ) => {
     let (formData, setFormData) = React.useState(_ => {
       FormInfos.initFormData
     })
-
     React.useEffect2(() => {
       setEventsOpt(_ => {
         let logs = FrenchLaw.retrieveEventsSerialized()->LogEvent.deserializedEvents
@@ -50,9 +50,8 @@ module Make = (
       })
       None
     }, (formData, setEventsOpt))
-
-    <>
-      <Box.Collapsible>
+    let form_and_display =
+      <>
         <FromJSONSchema
           schema={Lang.getCurrent(~english=FormInfos.englishSchema, ~french=FormInfos.frenchSchema)}
           uiSchema={Lang.getCurrent(
@@ -101,7 +100,14 @@ module Make = (
             }
           }}
         </div>
-      </Box.Collapsible>
-    </>
+      </>
+
+    {
+      if collapsible {
+        <Box.Collapsible> form_and_display </Box.Collapsible>
+      } else {
+        form_and_display
+      }
+    }
   }
 }

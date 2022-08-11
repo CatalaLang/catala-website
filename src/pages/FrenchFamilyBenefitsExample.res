@@ -104,7 +104,7 @@ let make = () => {
           />
         </Button.Internal>
       </div>
-      <Form setEventsOpt={_ => ()} />
+      <Form setEventsOpt={_ => ()} collapsible=true />
     </Section>
     <Section title={<Lang.String english="Source code" french={`Code source`} />}>
       <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />

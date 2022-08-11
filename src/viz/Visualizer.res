@@ -33,7 +33,8 @@ module EventNavigator = {
           <button
             className={buttonStyle ++ %twc(" rounded-l-lg pr-2")}
             onClick={_ => setIndex(_ => Prev(idx > 1 ? idx - 1 : 0))}>
-            <Icon className=%twc("h-4") name="arrow_left" /> {"Prev"->React.string}
+            <Icon className=%twc("h-4") name="arrow_left" />
+            {"Prev"->React.string}
           </button>
           <button className={buttonStyle ++ " px-2"} onClick={_ => setIndex(_ => Prev(0))}>
             {((idx + 1)->string_of_int ++ "/" ++ maxIndex->string_of_int)->React.string}
@@ -41,7 +42,8 @@ module EventNavigator = {
           <button
             className={buttonStyle ++ %twc(" rounded-r-lg pl-2")}
             onClick={_ => setIndex(_ => Next(idx < maxIndex - 1 ? idx + 1 : 0))}>
-            {"Next"->React.string} <Icon name="arrow_right" />
+            {"Next"->React.string}
+            <Icon name="arrow_right" />
           </button>
         </div>
       </>
@@ -55,20 +57,24 @@ module EventNavigator = {
     let idx = index->getIndex
     React.useEffect1(_ => {
       setVarDefs->Belt.Option.forEach(set =>
-        set(_ =>
-          events
-          ->Belt.Array.keepWithIndex((e, i) => {
-            switch e {
-            | VarComputation(_) => i < idx
-            | _ => false
-            }
-          })
-          ->Belt.Array.map(e =>
-            switch e {
-            | VarComputation(v) => v
-            | _ => Js.Exn.raiseError("unreachable")
-            }
-          )
+        set(
+          _ =>
+            events
+            ->Belt.Array.keepWithIndex(
+              (e, i) => {
+                switch e {
+                | VarComputation(_) => i < idx
+                | _ => false
+                }
+              },
+            )
+            ->Belt.Array.map(
+              e =>
+                switch e {
+                | VarComputation(v) => v
+                | _ => Js.Exn.raiseError("unreachable")
+                },
+            ),
         )
       )
       None
@@ -249,7 +255,10 @@ module MakeLogEventComponent = (
               ->Belt.Array.mapWithIndex((i, h) =>
                 <Flex.Row.Center key={"law-heading-" ++ i->string_of_int}>
                   {if i < pos.law_headings->Belt.Array.length - 1 {
-                    <> <p> {h->React.string} </p> <Icon name="chevron_right" /> </>
+                    <>
+                      <p> {h->React.string} </p>
+                      <Icon name="chevron_right" />
+                    </>
                   } else {
                     <p className=%twc("font-bold")> {h->React.string} </p>
                   }}
@@ -292,7 +301,7 @@ module MakeLogEventComponent = (
             } else {
               %twc(" text-orange border-orange bg-orange_50")
             }}>
-            <Lang.String english="definition" french=`définition` />
+            <Lang.String english="definition" french={`définition`} />
           </div>
         }
 
@@ -310,7 +319,9 @@ module MakeLogEventComponent = (
               <div className=%twc("w-full px-4 pb-4 border border-gray border-t")>
                 <CollapsibleItem
                   headerContent={<p className=%twc("w-full text-gray_dark font-bold pr-4")>
-                    <Lang.String english="Computed from ..." french=`Calculée à partir de ...` />
+                    <Lang.String
+                      english="Computed from ..." french={`Calculée à partir de ...`}
+                    />
                   </p>}>
                   <Flex.Column.AlignLeft
                     style=%twc(
@@ -319,8 +330,9 @@ module MakeLogEventComponent = (
                     )>
                     {funCalls
                     ->Belt.List.toArray
-                    ->Belt.Array.mapWithIndex((i, funCall) =>
-                      <LogEventComponent.FunCall key={"fun-call-" ++ i->string_of_int} funCall />
+                    ->Belt.Array.mapWithIndex(
+                      (i, funCall) =>
+                        <LogEventComponent.FunCall key={"fun-call-" ++ i->string_of_int} funCall />,
                     )
                     ->React.array}
                   </Flex.Column.AlignLeft>
@@ -339,7 +351,9 @@ module MakeLogEventComponent = (
         // Stores all already visited variables definitions in the current subscope call.
         let (varDefs, setVarDefs) = React.useState(_ => [])
         let headerContent =
-          <CatalaCode> <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} /> </CatalaCode>
+          <CatalaCode>
+            <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} />
+          </CatalaCode>
         let iconStyle = %twc(
           "px-2 font-semibold text-purple_text border border-purple_text rounded bg-purple_bg"
         )
@@ -353,11 +367,11 @@ module MakeLogEventComponent = (
         }
 
         let inputHeaderContent = getHeaderContent(
-          <Lang.String english="Definitions of" french=`Définitions de` />,
+          <Lang.String english="Definitions of" french={`Définitions de`} />,
         )
 
         let contentHeaderContent = getHeaderContent(
-          <Lang.String english="Content of" french=`Contenu de` />,
+          <Lang.String english="Content of" french={`Contenu de`} />,
         )
 
         <CollapsibleItem headerContent kindIcon>
@@ -376,35 +390,31 @@ module MakeLogEventComponent = (
                 style=%twc(
                   "w-full max-h-screen overflow-y-scroll px-4 pb-4 border-t border-b border-gray bg-gray_light"
                 )>
-                {
-                  // Already visited variables definitions rendered in a compact format.
-                  varDefs
-                  ->Belt.Array.reverse
-                  ->Belt.Array.mapWithIndex((i, varDef) =>
-                    <LogEventComponent.VarComputation
-                      key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
-                    />
-                  )
-                  ->React.array
-                }
-                {
-                  // Subscope input variables definitions.
-                  subScopeCall.inputs
-                  ->Belt.List.toArray
-                  ->Belt.Array.mapWithIndex((i, varDef) =>
-                    <LogEventComponent.VarComputation
-                      key={"varcomp-subscope-input-" ++ i->string_of_int}
-                      varDef
-                      kindIcon={<div
-                        className=%twc(
-                          "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
-                        )>
-                        <Lang.String english="input" french=`entrée` />
-                      </div>}
-                    />
-                  )
-                  ->React.array
-                }
+                {// Already visited variables definitions rendered in a compact format.
+                varDefs
+                ->Belt.Array.reverse
+                ->Belt.Array.mapWithIndex((i, varDef) =>
+                  <LogEventComponent.VarComputation
+                    key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
+                  />
+                )
+                ->React.array}
+                {// Subscope input variables definitions.
+                subScopeCall.inputs
+                ->Belt.List.toArray
+                ->Belt.Array.mapWithIndex((i, varDef) =>
+                  <LogEventComponent.VarComputation
+                    key={"varcomp-subscope-input-" ++ i->string_of_int}
+                    varDef
+                    kindIcon={<div
+                      className=%twc(
+                        "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
+                      )>
+                      <Lang.String english="input" french={`entrée`} />
+                    </div>}
+                  />
+                )
+                ->React.array}
               </Flex.Column.AlignLeft>
             </CollapsibleItem>
           </div>
@@ -421,11 +431,13 @@ module MakeLogEventComponent = (
         )
         let kindIcon =
           <div className={iconStyle ++ %twc(" italic")}>
-            {<Lang.String english="function" french=`fonction` />}
+            {<Lang.String english="function" french={`fonction`} />}
           </div>
 
         let headerContent =
-          <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
+          <CatalaCode>
+            <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} />
+          </CatalaCode>
 
         let functionInput =
           // Function input doesn't have source code position, so we use a custom React element.
@@ -446,7 +458,7 @@ module MakeLogEventComponent = (
                     "px-2 font-semibold italic text-rainforest border border-rainforest \
                       rounded bg-rainforest_50"
                   )>
-                  <Lang.String english="input" french=`entrée` />
+                  <Lang.String english="input" french={`entrée`} />
                 </div>
               </Flex.Row.AlignTop>
             </Flex.Column.AlignLeft>
@@ -515,6 +527,7 @@ module Make = (
     @react.component
     let make: (
       ~setEventsOpt: (option<array<event>> => option<array<event>>) => unit,
+      ~collapsible: bool,
     ) => React.element
   },
 ) => {
@@ -540,11 +553,11 @@ module Make = (
           {"Viz"->React.string}
         </p>
       </Title>
-      <Section title={<Lang.String english="Form" french=`Formulaire` />}>
-        {Form.make(Form.makeProps(~setEventsOpt, ()))}
+      <Section title={<Lang.String english="Form" french={`Formulaire`} />}>
+        {Form.make(Form.makeProps(~setEventsOpt, ~collapsible=false, ()))}
       </Section>
       <div className=%twc("w-full h-full")>
-        <Section title={<Lang.String english="Log events" french=`Évènements de log` />}>
+        <Section title={<Lang.String english="Log events" french={`Évènements de log`} />}>
           <Flex.Column.Center
             style=%twc("border-solid max-h-full border border-gray rounded p-4 bg-gray_light")>
             {switch eventsOpt {
@@ -555,7 +568,7 @@ module Make = (
             | _ =>
               <p className=%twc("font-bold text-gray_dark")>
                 <Lang.String
-                  english="No events to explore..." french=`Pas d'évènements à explorer...`
+                  english="No events to explore..." french={`Pas d'évènements à explorer...`}
                 />
               </p>
             }}
