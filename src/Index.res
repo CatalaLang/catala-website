@@ -21,7 +21,9 @@ module App = {
         <main className=%twc("flex flex-col flex-grow container mx-auto px-4 lg:px-0 ")>
           <Router />
         </main>
-        <div className=%twc("w-full bottom-0")> <Footer /> </div>
+        <div className=%twc("w-full bottom-0")>
+          <Footer />
+        </div>
       </div>
     </Lang.Context>
   }

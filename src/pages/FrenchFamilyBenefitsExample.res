@@ -99,8 +99,8 @@ let make = () => {
           target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>
           <Icon className=%twc("pr-2") name="explore" />
           <Lang.String
-            english="Switch to detailed explanation mode"
-            french={`Basculer vers le mode explications détaillées`}
+            english="Switch to the complete computation with explanations"
+            french={`Basculer vers le calculateur complet avec explications`}
           />
         </Button.Internal>
       </div>

@@ -16,6 +16,35 @@ module FromJSONSchema = {
   ) => React.element = "default"
 }
 
+// Function to download or import a JSON object
+@val external downloadJSONstring: string => unit = "downloadJSONstring"
+%%raw(`
+const downloadJSONstring = (data) => {
+  const blob = new Blob([data],{type:'application/json'});
+  const href = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = href;
+  link.download = "data.json";
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+};
+`)
+
+// Function to read a file and get its contents as string
+@val external readFileAsJSON: (Js.Json.t, Js.Json.t => 'a) => unit = "readFileAsJSON"
+%%raw(`
+const readFileAsJSON = (file, callback) => {
+  var reader = new FileReader();
+  var contents = ""
+  reader.onload = function(evt) {
+    contents = evt.target.result;
+    callback(JSON.parse(contents));
+  };
+  reader.readAsText(file);
+};
+`)
+
 /*
   Builds a React component from provided information.
 */
@@ -50,8 +79,61 @@ module Make = (
       })
       None
     }, (formData, setEventsOpt))
+    let (uploadedFile, setUploadedFile) = React.useState(_ => {
+      Js.Json.object_(Js.Dict.empty())
+    })
+    let fileChangeHandler = (_event: ReactEvent.Form.t) => {
+      setUploadedFile(%raw(`_event.target.files[0]`))
+    }
+    let retrieveFileContents = _ => {
+      if %raw(`uploadedFile instanceof File`) {
+        readFileAsJSON(uploadedFile, form_data => setFormData(_ => Some(form_data)))
+      }
+    }
+    let divider =
+      <div className=%twc("mt-6 mb-4 w-full border-2 border-solid rounded-full border-secondary") />
     let form_and_display =
       <>
+        {if !collapsible {
+          <>
+            <div className=%twc("flex flex-wrap w-full justify-around gap-4")>
+              <Button.Small
+                onClick={_ => {
+                  let data_str = Js.Json.stringify(
+                    formData->Belt.Option.getWithDefault(Js.Json.null),
+                  )
+                  downloadJSONstring(data_str)
+                }}
+                style=%twc("py-2 px-4")>
+                <Lang.String
+                  french={`Exporter les données au format JSON`}
+                  english="Export data to JSON format"
+                />
+              </Button.Small>
+              <Button.Small
+                onClick={_ => {
+                  setFormData(_ => None)
+                }}
+                style=%twc("py-2 px-4")>
+                <Lang.String french={`Réinitialiser le formulaire`} english="Reset the form" />
+              </Button.Small>
+              <Button.Small onClick={retrieveFileContents} style=%twc("py-2 px-4")>
+                <div className=%twc("grid grid-cols-1 gap-2 justify-items-center")>
+                  <input type_="file" name="file" onChange=fileChangeHandler />
+                  <div>
+                    <Lang.String
+                      french={`Importer les données au format JSON`}
+                      english="Import data to JSON format"
+                    />
+                  </div>
+                </div>
+              </Button.Small>
+            </div>
+            divider
+          </>
+        } else {
+          <> </>
+        }}
         <FromJSONSchema
           schema={Lang.getCurrent(~english=FormInfos.englishSchema, ~french=FormInfos.frenchSchema)}
           uiSchema={Lang.getCurrent(
