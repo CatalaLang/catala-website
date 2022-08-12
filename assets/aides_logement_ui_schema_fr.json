@@ -39,6 +39,12 @@
                             }
                         }
                     },
+                    "logementEstAncienL8312": {
+                        "ui:help": "Le critère d'ancienneté est défini au deuxième alinéa de l'article L831-2 du code de la construction et de l'habitation."
+                    },
+                    "logementSitueCommuneDesequilibreL8312": {
+                        "ui:help": "La liste des communes répondant à ce critère est établie par l'arrêté du 30 décembre 2017 relatif au classement des communes par zone pour l'octroi des prêts ne portant pas intérêt consenti pour financer la primo-accession à la propriété prévus à l'article L. 31-10-2 du code de la construction et de l'habitation, et l'arrêté du 1er août 2014 pris en application de l'article R. 304-1 du code de la construction et de l'habitation."
+                    },
                     "typeUser": {
                         "kind": {
                             "ui:help": "Type de logement foyer selon la classification de l'article R832-20 du code de la construction et de l'habitation."
@@ -64,12 +70,6 @@
             },
             "logementDecentL89462": {
                 "ui:help": "Selon l'article L822-9 du code de la construction et de l'habitation, le logement doit répondre à des exigences de décence définies en application des deux premiers alinéas de l'article 6 de la loi n° 89-462 du 6 juillet 1989 tendant à améliorer les rapports locatifs et portant modification de la loi n° 86-1290 du 23 décembre 1986."
-            },
-            "estAncienL8312": {
-                "ui:help": "Le critère d'ancienneté est défini au deuxième alinéa de l'article L831-2 du code de la construction et de l'habitation."
-            },
-            "situeCommuneDesequilibreL8312": {
-                "ui:help": "La liste des communes répondant à ce critère est établie par l'arrêté du 30 décembre 2017 relatif au classement des communes par zone pour l'octroi des prêts ne portant pas intérêt consenti pour financer la primo-accession à la propriété prévus à l'article L. 31-10-2 du code de la construction et de l'habitation, et l'arrêté du 1er août 2014 pris en application de l'article R. 304-1 du code de la construction et de l'habitation."
             },
             "zone": {
                 "ui:help": "La répartition des communes par zones est donnée par l'arrêté du 17 mars 1978 relatif au classement des communes par zones géographiques."

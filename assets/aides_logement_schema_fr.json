@@ -718,16 +718,6 @@
           "title": "Surface du logement en mètres carrés",
           "type": "number"
         },
-        "estAncienL8312": {
-          "title": "Le logement est ancien",
-          "type": "boolean",
-          "default": false
-        },
-        "situeCommuneDesequilibreL8312": {
-          "title": "Le logement est situé dans une commune ne se caractérisant pas par un déséquilibre important entre l'offre et la demande de logements entraînant des difficultés d'accès au logement dans le parc résidentiel existant",
-          "type": "boolean",
-          "default": false
-        },
         "zone": {
           "title": " ",
           "$ref": "#/definitions/zone_d_habitation"
@@ -1387,6 +1377,16 @@
     "proprietaire": {
       "type": "object",
       "properties": {
+        "logementEstAncienL8312": {
+          "title": "Le logement est ancien",
+          "type": "boolean",
+          "default": false
+        },
+        "logementSitueCommuneDesequilibreL8312": {
+          "title": "Le logement est situé dans une commune ne se caractérisant pas par un déséquilibre important entre l'offre et la demande de logements entraînant des difficultés d'accès au logement dans le parc résidentiel existant",
+          "type": "boolean",
+          "default": false
+        },
         "pret": {
           "title": " ",
           "$ref": "#/definitions/pret"

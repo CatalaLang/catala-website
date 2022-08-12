@@ -678,14 +678,6 @@
       "type": "number",
       "default": 0
     },
-    "estAncienL8312": {
-      "type": "boolean",
-      "default": false
-    },
-    "situeCommuneDesequilibreL8312": {
-      "type": "boolean",
-      "default": false
-    },
     "zone": {
       "$ref": "#/definitions/zone_d_habitation"
     }
@@ -1479,6 +1471,14 @@
 "proprietaire": {
   "type": "object",
   "properties": {
+    "logementEstAncienL8312": {
+      "type": "boolean",
+      "default": false
+    },
+    "logementSitueCommuneDesequilibreL8312": {
+      "type": "boolean",
+      "default": false
+    },
     "pret": {
       "$ref": "#/definitions/pret"
     }

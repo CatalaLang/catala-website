@@ -15,7 +15,8 @@ module FormInfos = {
 
   let resultLabel =
     <Lang.String
-      english="Housing benefits monthly amount:" french={`Montant mensuel des aides au logement :`}
+      english="Housing benefits gross monthly amount:"
+      french={`Montant mensuel brut des aides au logement :`}
     />
 
   let initFormData = None
