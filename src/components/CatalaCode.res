@@ -1,6 +1,12 @@
 module DangerouslySetInnerHtml = {
   @react.component
   let make = (~html) => {
+    React.useEffect(() => {
+      // This assumes MathJax to be loaded in the page. Necessary for the
+      // LaTeX components of the Catala code to be typeset after any
+      // change in the collapsible structure of the page.
+      %raw(`MathJax.typeset()`)
+    })
     <div
       className={%twc("border-gray rounded border") ++ " catala-code"}
       dangerouslySetInnerHTML={
@@ -27,14 +33,20 @@ module Collapsible = {
           "cursor-pointer rounded font-semibold hover:bg-secondary hover:text-gray_light \
           ease-out duration-150"
         )
-        onClick={_ => setIsOpen(_ => !isOpen)}>
+        onClick={_ => {
+          setIsOpen(_ => !isOpen)
+        }}>
         {s->React.string}
       </button>
     }
     <>
       start
       {if isOpen {
-        <> {" - "->toggleButton} <br /> children </>
+        <>
+          {" - "->toggleButton}
+          <br />
+          children
+        </>
       } else {
         <> {"..."->toggleButton} </>
       }}
@@ -74,5 +86,7 @@ module Op = {
 
 @react.component
 let make = (~children) => {
-  <div className=%twc("font-mono")> <pre> children </pre> </div>
+  <div className=%twc("font-mono")>
+    <pre> children </pre>
+  </div>
 }
