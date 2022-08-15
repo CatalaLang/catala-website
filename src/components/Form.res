@@ -70,7 +70,11 @@ module Make = (
     })
     React.useEffect2(() => {
       setEventsOpt(_ => {
-        let logs = FrenchLaw.retrieveEventsSerialized()->LogEvent.deserializedEvents
+        let logs = {
+          try {FrenchLaw.retrieveEventsSerialized()->LogEvent.deserializedEvents} catch {
+          | _ => []
+          }
+        }
         if 0 == logs->Belt.Array.size {
           None
         } else {
@@ -176,7 +180,7 @@ module Make = (
                 ->Js.Exn.asJsExn
                 ->Belt.Option.map(Js.Exn.message)
                 ->Belt.Option.getWithDefault(Some(""))
-                ->Belt.Option.getExn
+                ->Belt.Option.getWithDefault("unknwon error, please retry the computation")
                 ->React.string}
               </p>
             }
