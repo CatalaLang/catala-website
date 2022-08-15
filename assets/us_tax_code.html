@@ -86,11 +86,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 Source files weaved in this document:
 </p>
 <ul>
-<li><tt>us_tax_code.catala_en</tt>, last modification 2021-09-28, 11:49</li>
-<li><tt>preamble.catala_en</tt>, last modification 2022-03-22, 16:26</li>
-<li><tt>section_121.catala_en</tt>, last modification 2022-05-20, 14:56</li>
-<li><tt>section_132.catala_en</tt>, last modification 2022-02-16, 14:56</li>
-<li><tt>section_1015.catala_en</tt>, last modification 2021-10-01, 16:29</li>
+<li><tt>us_tax_code.catala_en</tt>, last modification 2021-03-11, 19:39</li>
+<li><tt>preamble.catala_en</tt>, last modification 2021-10-26, 19:37</li>
+<li><tt>section_121.catala_en</tt>, last modification 2022-06-23, 10:05</li>
+<li><tt>section_132.catala_en</tt>, last modification 2022-02-18, 10:39</li>
+<li><tt>section_1015.catala_en</tt>, last modification 2021-10-26, 19:37</li>
 </ul>
 
 <details class="toc">
@@ -753,7 +753,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-168">168</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-169">169</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-170">170</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-171">171</a></span>
@@ -797,51 +796,52 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-209">209</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-210">210</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-211">211</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-212">212</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-168" name="examples/us_tax_code/section_121.catala_en-168"></a><span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_121.catala_en-169" name="examples/us_tax_code/section_121.catala_en-169"></a><span class="c1">  # Here we aggregate over all the periods of the collection. For</span>
-<a id="examples/us_tax_code/section_121.catala_en-170" name="examples/us_tax_code/section_121.catala_en-170"></a><span class="c1">  # each period, three cases:</span>
-<a id="examples/us_tax_code/section_121.catala_en-171" name="examples/us_tax_code/section_121.catala_en-171"></a><span class="c1">  # - either the period began less that 5 years before the</span>
-<a id="examples/us_tax_code/section_121.catala_en-172" name="examples/us_tax_code/section_121.catala_en-172"></a><span class="c1">  #   date_of_sale_or_exchange in which case we count if full</span>
-<a id="examples/us_tax_code/section_121.catala_en-173" name="examples/us_tax_code/section_121.catala_en-173"></a><span class="c1">  # - either the period ended more that 5 years before the</span>
-<a id="examples/us_tax_code/section_121.catala_en-174" name="examples/us_tax_code/section_121.catala_en-174"></a><span class="c1">  #   date_of_sale_or_exchange in which case we don&#39;t count it</span>
-<a id="examples/us_tax_code/section_121.catala_en-175" name="examples/us_tax_code/section_121.catala_en-175"></a><span class="c1">  # - either the 5 years mark is inside the period and we only</span>
-<a id="examples/us_tax_code/section_121.catala_en-176" name="examples/us_tax_code/section_121.catala_en-176"></a><span class="c1">  #   cound the half after 5 years</span>
-<a id="examples/us_tax_code/section_121.catala_en-177" name="examples/us_tax_code/section_121.catala_en-177"></a>  <span class="kd">definition</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">periods</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-178" name="examples/us_tax_code/section_121.catala_en-178"></a>    <span class="kt">sum</span> <span class="kt">duration</span> <span class="kr">for</span> <span class="nv">period</span> <span class="kr">in</span> <span class="nv">periods</span> <span class="kr">of</span> <span class="o">(</span>
-<a id="examples/us_tax_code/section_121.catala_en-179" name="examples/us_tax_code/section_121.catala_en-179"></a>      <span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">&lt;=@</span> <span class="nv">period</span><span class="o">.</span>begin <span class="o">+@</span> <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>
-<a id="examples/us_tax_code/section_121.catala_en-180" name="examples/us_tax_code/section_121.catala_en-180"></a>        <span class="nv">period</span><span class="o">.</span>end <span class="o">-@</span> <span class="nv">period</span><span class="o">.</span>begin
-<a id="examples/us_tax_code/section_121.catala_en-181" name="examples/us_tax_code/section_121.catala_en-181"></a>      <span class="kr">else</span> <span class="o">(</span><span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">&gt;=@</span> <span class="nv">period</span><span class="o">.</span>end <span class="o">+@</span> <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>
-<a id="examples/us_tax_code/section_121.catala_en-182" name="examples/us_tax_code/section_121.catala_en-182"></a>        <span class="mi">0</span> <span class="o">day</span>
-<a id="examples/us_tax_code/section_121.catala_en-183" name="examples/us_tax_code/section_121.catala_en-183"></a>      <span class="kr">else</span> <span class="o">((</span><span class="nv">period</span><span class="o">.</span>end <span class="o">+@</span> <span class="mi">5</span> <span class="o">year)</span> <span class="o">-@</span> <span class="nv">date_of_sale_or_exchange</span><span class="o">))</span>
-<a id="examples/us_tax_code/section_121.catala_en-184" name="examples/us_tax_code/section_121.catala_en-184"></a>    <span class="o">)</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_121.catala_en-185" name="examples/us_tax_code/section_121.catala_en-185"></a>
-<a id="examples/us_tax_code/section_121.catala_en-186" name="examples/us_tax_code/section_121.catala_en-186"></a><span class="c1">  # Regulation 1.121-1(c)(1): 2 years = 730 days</span>
-<a id="examples/us_tax_code/section_121.catala_en-187" name="examples/us_tax_code/section_121.catala_en-187"></a><span class="c1">  # Regulation 1.121-1(c)(1): the periods of ownage and usage</span>
-<a id="examples/us_tax_code/section_121.catala_en-188" name="examples/us_tax_code/section_121.catala_en-188"></a><span class="c1">  # don&#39;t have to overlap</span>
-<a id="examples/us_tax_code/section_121.catala_en-189" name="examples/us_tax_code/section_121.catala_en-189"></a>  <span class="kd">rule</span> <span class="nv">requirements_ownership_met</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-190" name="examples/us_tax_code/section_121.catala_en-190"></a>    <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">property_ownage</span> <span class="o">&gt;=^</span> <span class="mi">730</span> <span class="o">day</span>
-<a id="examples/us_tax_code/section_121.catala_en-191" name="examples/us_tax_code/section_121.catala_en-191"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a id="examples/us_tax_code/section_121.catala_en-192" name="examples/us_tax_code/section_121.catala_en-192"></a>
-<a id="examples/us_tax_code/section_121.catala_en-193" name="examples/us_tax_code/section_121.catala_en-193"></a>  <span class="kd">rule</span> <span class="nv">requirements_usage_met</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-194" name="examples/us_tax_code/section_121.catala_en-194"></a>    <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span>
-<a id="examples/us_tax_code/section_121.catala_en-195" name="examples/us_tax_code/section_121.catala_en-195"></a>       <span class="nv">property_usage_as_principal_residence</span> <span class="o">&gt;=^</span> <span class="mi">730</span> <span class="o">day</span>
-<a id="examples/us_tax_code/section_121.catala_en-196" name="examples/us_tax_code/section_121.catala_en-196"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a id="examples/us_tax_code/section_121.catala_en-197" name="examples/us_tax_code/section_121.catala_en-197"></a>
-<a id="examples/us_tax_code/section_121.catala_en-198" name="examples/us_tax_code/section_121.catala_en-198"></a>  <span class="kd">rule</span> <span class="nv">requirements_met</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-199" name="examples/us_tax_code/section_121.catala_en-199"></a>    <span class="nv">requirements_ownership_met</span> <span class="o">and</span> <span class="nv">requirements_usage_met</span>
-<a id="examples/us_tax_code/section_121.catala_en-200" name="examples/us_tax_code/section_121.catala_en-200"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a id="examples/us_tax_code/section_121.catala_en-201" name="examples/us_tax_code/section_121.catala_en-201"></a>
-<a id="examples/us_tax_code/section_121.catala_en-202" name="examples/us_tax_code/section_121.catala_en-202"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-203" name="examples/us_tax_code/section_121.catala_en-203"></a>    <span class="kr">if</span> <span class="nv">requirements_met</span> <span class="kr">then</span> <span class="nv">gain_from_sale_or_exchange_of_property</span>
-<a id="examples/us_tax_code/section_121.catala_en-204" name="examples/us_tax_code/section_121.catala_en-204"></a>    <span class="kr">else</span> <span class="o">$</span><span class="mi">0</span>
-<a id="examples/us_tax_code/section_121.catala_en-205" name="examples/us_tax_code/section_121.catala_en-205"></a>
-<a id="examples/us_tax_code/section_121.catala_en-206" name="examples/us_tax_code/section_121.catala_en-206"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-207" name="examples/us_tax_code/section_121.catala_en-207"></a>  <span class="kd">definition</span> <span class="nv">section121a_requirements_met</span> <span class="kd">equals</span> <span class="nv">section121Person1</span><span class="o">.</span>requirements_met
-<a id="examples/us_tax_code/section_121.catala_en-208" name="examples/us_tax_code/section_121.catala_en-208"></a>
-<a id="examples/us_tax_code/section_121.catala_en-209" name="examples/us_tax_code/section_121.catala_en-209"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-210" name="examples/us_tax_code/section_121.catala_en-210"></a>    <span class="nv">section121Person1</span><span class="o">.</span>income_excluded_from_gross_income_uncapped
-<a id="examples/us_tax_code/section_121.catala_en-211" name="examples/us_tax_code/section_121.catala_en-211"></a>
+<a id="examples/us_tax_code/section_121.catala_en-169" name="examples/us_tax_code/section_121.catala_en-169"></a><span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_121.catala_en-170" name="examples/us_tax_code/section_121.catala_en-170"></a><span class="c1">  # Here we aggregate over all the periods of the collection. For</span>
+<a id="examples/us_tax_code/section_121.catala_en-171" name="examples/us_tax_code/section_121.catala_en-171"></a><span class="c1">  # each period, three cases:</span>
+<a id="examples/us_tax_code/section_121.catala_en-172" name="examples/us_tax_code/section_121.catala_en-172"></a><span class="c1">  # - either the period began less that 5 years before the</span>
+<a id="examples/us_tax_code/section_121.catala_en-173" name="examples/us_tax_code/section_121.catala_en-173"></a><span class="c1">  #   date_of_sale_or_exchange in which case we count if full</span>
+<a id="examples/us_tax_code/section_121.catala_en-174" name="examples/us_tax_code/section_121.catala_en-174"></a><span class="c1">  # - either the period ended more that 5 years before the</span>
+<a id="examples/us_tax_code/section_121.catala_en-175" name="examples/us_tax_code/section_121.catala_en-175"></a><span class="c1">  #   date_of_sale_or_exchange in which case we don&#39;t count it</span>
+<a id="examples/us_tax_code/section_121.catala_en-176" name="examples/us_tax_code/section_121.catala_en-176"></a><span class="c1">  # - either the 5 years mark is inside the period and we only</span>
+<a id="examples/us_tax_code/section_121.catala_en-177" name="examples/us_tax_code/section_121.catala_en-177"></a><span class="c1">  #   cound the half after 5 years</span>
+<a id="examples/us_tax_code/section_121.catala_en-178" name="examples/us_tax_code/section_121.catala_en-178"></a>  <span class="kd">definition</span> <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">periods</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-179" name="examples/us_tax_code/section_121.catala_en-179"></a>    <span class="kt">sum</span> <span class="kt">duration</span> <span class="kr">for</span> <span class="nv">period</span> <span class="kr">in</span> <span class="nv">periods</span> <span class="kr">of</span> <span class="o">(</span>
+<a id="examples/us_tax_code/section_121.catala_en-180" name="examples/us_tax_code/section_121.catala_en-180"></a>      <span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">&lt;=@</span> <span class="nv">period</span><span class="o">.</span>begin <span class="o">+@</span> <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>
+<a id="examples/us_tax_code/section_121.catala_en-181" name="examples/us_tax_code/section_121.catala_en-181"></a>        <span class="nv">period</span><span class="o">.</span>end <span class="o">-@</span> <span class="nv">period</span><span class="o">.</span>begin
+<a id="examples/us_tax_code/section_121.catala_en-182" name="examples/us_tax_code/section_121.catala_en-182"></a>      <span class="kr">else</span> <span class="o">(</span><span class="kr">if</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">&gt;=@</span> <span class="nv">period</span><span class="o">.</span>end <span class="o">+@</span> <span class="mi">5</span> <span class="o">year</span> <span class="kr">then</span>
+<a id="examples/us_tax_code/section_121.catala_en-183" name="examples/us_tax_code/section_121.catala_en-183"></a>        <span class="mi">0</span> <span class="o">day</span>
+<a id="examples/us_tax_code/section_121.catala_en-184" name="examples/us_tax_code/section_121.catala_en-184"></a>      <span class="kr">else</span> <span class="o">((</span><span class="nv">period</span><span class="o">.</span>end <span class="o">+@</span> <span class="mi">5</span> <span class="o">year)</span> <span class="o">-@</span> <span class="nv">date_of_sale_or_exchange</span><span class="o">))</span>
+<a id="examples/us_tax_code/section_121.catala_en-185" name="examples/us_tax_code/section_121.catala_en-185"></a>    <span class="o">)</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_121.catala_en-186" name="examples/us_tax_code/section_121.catala_en-186"></a>
+<a id="examples/us_tax_code/section_121.catala_en-187" name="examples/us_tax_code/section_121.catala_en-187"></a><span class="c1">  # Regulation 1.121-1(c)(1): 2 years = 730 days</span>
+<a id="examples/us_tax_code/section_121.catala_en-188" name="examples/us_tax_code/section_121.catala_en-188"></a><span class="c1">  # Regulation 1.121-1(c)(1): the periods of ownage and usage</span>
+<a id="examples/us_tax_code/section_121.catala_en-189" name="examples/us_tax_code/section_121.catala_en-189"></a><span class="c1">  # don&#39;t have to overlap</span>
+<a id="examples/us_tax_code/section_121.catala_en-190" name="examples/us_tax_code/section_121.catala_en-190"></a>  <span class="kd">rule</span> <span class="nv">requirements_ownership_met</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-191" name="examples/us_tax_code/section_121.catala_en-191"></a>    <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span> <span class="nv">property_ownage</span> <span class="o">&gt;=^</span> <span class="mi">730</span> <span class="o">day</span>
+<a id="examples/us_tax_code/section_121.catala_en-192" name="examples/us_tax_code/section_121.catala_en-192"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a id="examples/us_tax_code/section_121.catala_en-193" name="examples/us_tax_code/section_121.catala_en-193"></a>
+<a id="examples/us_tax_code/section_121.catala_en-194" name="examples/us_tax_code/section_121.catala_en-194"></a>  <span class="kd">rule</span> <span class="nv">requirements_usage_met</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-195" name="examples/us_tax_code/section_121.catala_en-195"></a>    <span class="nv">aggregate_periods_from_last_five_years</span> <span class="kr">of</span>
+<a id="examples/us_tax_code/section_121.catala_en-196" name="examples/us_tax_code/section_121.catala_en-196"></a>       <span class="nv">property_usage_as_principal_residence</span> <span class="o">&gt;=^</span> <span class="mi">730</span> <span class="o">day</span>
+<a id="examples/us_tax_code/section_121.catala_en-197" name="examples/us_tax_code/section_121.catala_en-197"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a id="examples/us_tax_code/section_121.catala_en-198" name="examples/us_tax_code/section_121.catala_en-198"></a>
+<a id="examples/us_tax_code/section_121.catala_en-199" name="examples/us_tax_code/section_121.catala_en-199"></a>  <span class="kd">rule</span> <span class="nv">requirements_met</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-200" name="examples/us_tax_code/section_121.catala_en-200"></a>    <span class="nv">requirements_ownership_met</span> <span class="o">and</span> <span class="nv">requirements_usage_met</span>
+<a id="examples/us_tax_code/section_121.catala_en-201" name="examples/us_tax_code/section_121.catala_en-201"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a id="examples/us_tax_code/section_121.catala_en-202" name="examples/us_tax_code/section_121.catala_en-202"></a>
+<a id="examples/us_tax_code/section_121.catala_en-203" name="examples/us_tax_code/section_121.catala_en-203"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-204" name="examples/us_tax_code/section_121.catala_en-204"></a>    <span class="kr">if</span> <span class="nv">requirements_met</span> <span class="kr">then</span> <span class="nv">gain_from_sale_or_exchange_of_property</span>
+<a id="examples/us_tax_code/section_121.catala_en-205" name="examples/us_tax_code/section_121.catala_en-205"></a>    <span class="kr">else</span> <span class="o">$</span><span class="mi">0</span>
+<a id="examples/us_tax_code/section_121.catala_en-206" name="examples/us_tax_code/section_121.catala_en-206"></a>
+<a id="examples/us_tax_code/section_121.catala_en-207" name="examples/us_tax_code/section_121.catala_en-207"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-208" name="examples/us_tax_code/section_121.catala_en-208"></a>  <span class="kd">definition</span> <span class="nv">section121a_requirements_met</span> <span class="kd">equals</span> <span class="nv">section121Person1</span><span class="o">.</span>requirements_met
+<a id="examples/us_tax_code/section_121.catala_en-209" name="examples/us_tax_code/section_121.catala_en-209"></a>
+<a id="examples/us_tax_code/section_121.catala_en-210" name="examples/us_tax_code/section_121.catala_en-210"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-211" name="examples/us_tax_code/section_121.catala_en-211"></a>    <span class="nv">section121Person1</span><span class="o">.</span>income_excluded_from_gross_income_uncapped
+<a id="examples/us_tax_code/section_121.catala_en-212" name="examples/us_tax_code/section_121.catala_en-212"></a>
 </pre></div>
 </td></tr></table>
 </div>
@@ -856,7 +856,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-222">222</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-223">223</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-224">224</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-225">225</a></span>
@@ -876,27 +875,28 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-239">239</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-240">240</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-241">241</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-242">242</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-222" name="examples/us_tax_code/section_121.catala_en-222"></a><span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-223" name="examples/us_tax_code/section_121.catala_en-223"></a>  <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">250,000</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_121.catala_en-224" name="examples/us_tax_code/section_121.catala_en-224"></a>
-<a id="examples/us_tax_code/section_121.catala_en-225" name="examples/us_tax_code/section_121.catala_en-225"></a><span class="c1">  # Big semantics insight for Catala. Here we could want to get rid of</span>
-<a id="examples/us_tax_code/section_121.catala_en-226" name="examples/us_tax_code/section_121.catala_en-226"></a><span class="c1">  # the &quot;_uncapped&quot; version of the variable. But in the current</span>
-<a id="examples/us_tax_code/section_121.catala_en-227" name="examples/us_tax_code/section_121.catala_en-227"></a><span class="c1">  # semantics we can&#39;t do that because we don&#39;t allow for recursion.</span>
-<a id="examples/us_tax_code/section_121.catala_en-228" name="examples/us_tax_code/section_121.catala_en-228"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-229" name="examples/us_tax_code/section_121.catala_en-229"></a>    <span class="kr">if</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="o">&gt;=$</span> <span class="nv">gain_cap</span> <span class="kr">then</span>
-<a id="examples/us_tax_code/section_121.catala_en-230" name="examples/us_tax_code/section_121.catala_en-230"></a>      <span class="nv">gain_cap</span>
-<a id="examples/us_tax_code/section_121.catala_en-231" name="examples/us_tax_code/section_121.catala_en-231"></a>    <span class="kr">else</span>
-<a id="examples/us_tax_code/section_121.catala_en-232" name="examples/us_tax_code/section_121.catala_en-232"></a>      <span class="nv">income_excluded_from_gross_income_uncapped</span>
-<a id="examples/us_tax_code/section_121.catala_en-233" name="examples/us_tax_code/section_121.catala_en-233"></a>
-<a id="examples/us_tax_code/section_121.catala_en-234" name="examples/us_tax_code/section_121.catala_en-234"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-235" name="examples/us_tax_code/section_121.catala_en-235"></a>    <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">equals</span> <span class="nv">section121Person1</span><span class="o">.</span>gain_cap
-<a id="examples/us_tax_code/section_121.catala_en-236" name="examples/us_tax_code/section_121.catala_en-236"></a>
-<a id="examples/us_tax_code/section_121.catala_en-237" name="examples/us_tax_code/section_121.catala_en-237"></a>    <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-238" name="examples/us_tax_code/section_121.catala_en-238"></a>    <span class="kr">if</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="o">&gt;=$</span> <span class="nv">gain_cap</span> <span class="kr">then</span>
-<a id="examples/us_tax_code/section_121.catala_en-239" name="examples/us_tax_code/section_121.catala_en-239"></a>      <span class="nv">gain_cap</span>
-<a id="examples/us_tax_code/section_121.catala_en-240" name="examples/us_tax_code/section_121.catala_en-240"></a>    <span class="kr">else</span>
-<a id="examples/us_tax_code/section_121.catala_en-241" name="examples/us_tax_code/section_121.catala_en-241"></a>      <span class="nv">income_excluded_from_gross_income_uncapped</span>
+<a id="examples/us_tax_code/section_121.catala_en-223" name="examples/us_tax_code/section_121.catala_en-223"></a><span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-224" name="examples/us_tax_code/section_121.catala_en-224"></a>  <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">250,000</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_121.catala_en-225" name="examples/us_tax_code/section_121.catala_en-225"></a>
+<a id="examples/us_tax_code/section_121.catala_en-226" name="examples/us_tax_code/section_121.catala_en-226"></a><span class="c1">  # Big semantics insight for Catala. Here we could want to get rid of</span>
+<a id="examples/us_tax_code/section_121.catala_en-227" name="examples/us_tax_code/section_121.catala_en-227"></a><span class="c1">  # the &quot;_uncapped&quot; version of the variable. But in the current</span>
+<a id="examples/us_tax_code/section_121.catala_en-228" name="examples/us_tax_code/section_121.catala_en-228"></a><span class="c1">  # semantics we can&#39;t do that because we don&#39;t allow for recursion.</span>
+<a id="examples/us_tax_code/section_121.catala_en-229" name="examples/us_tax_code/section_121.catala_en-229"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-230" name="examples/us_tax_code/section_121.catala_en-230"></a>    <span class="kr">if</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="o">&gt;=$</span> <span class="nv">gain_cap</span> <span class="kr">then</span>
+<a id="examples/us_tax_code/section_121.catala_en-231" name="examples/us_tax_code/section_121.catala_en-231"></a>      <span class="nv">gain_cap</span>
+<a id="examples/us_tax_code/section_121.catala_en-232" name="examples/us_tax_code/section_121.catala_en-232"></a>    <span class="kr">else</span>
+<a id="examples/us_tax_code/section_121.catala_en-233" name="examples/us_tax_code/section_121.catala_en-233"></a>      <span class="nv">income_excluded_from_gross_income_uncapped</span>
+<a id="examples/us_tax_code/section_121.catala_en-234" name="examples/us_tax_code/section_121.catala_en-234"></a>
+<a id="examples/us_tax_code/section_121.catala_en-235" name="examples/us_tax_code/section_121.catala_en-235"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-236" name="examples/us_tax_code/section_121.catala_en-236"></a>    <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">equals</span> <span class="nv">section121Person1</span><span class="o">.</span>gain_cap
+<a id="examples/us_tax_code/section_121.catala_en-237" name="examples/us_tax_code/section_121.catala_en-237"></a>
+<a id="examples/us_tax_code/section_121.catala_en-238" name="examples/us_tax_code/section_121.catala_en-238"></a>    <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-239" name="examples/us_tax_code/section_121.catala_en-239"></a>    <span class="kr">if</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="o">&gt;=$</span> <span class="nv">gain_cap</span> <span class="kr">then</span>
+<a id="examples/us_tax_code/section_121.catala_en-240" name="examples/us_tax_code/section_121.catala_en-240"></a>      <span class="nv">gain_cap</span>
+<a id="examples/us_tax_code/section_121.catala_en-241" name="examples/us_tax_code/section_121.catala_en-241"></a>    <span class="kr">else</span>
+<a id="examples/us_tax_code/section_121.catala_en-242" name="examples/us_tax_code/section_121.catala_en-242"></a>      <span class="nv">income_excluded_from_gross_income_uncapped</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -908,15 +908,15 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-250">250</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-251">251</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-252">252</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-253">253</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-254">254</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-250" name="examples/us_tax_code/section_121.catala_en-250"></a><span class="c1"># Taxable year of the sale or exchange ?=? year when the income is taxed</span>
-<a id="examples/us_tax_code/section_121.catala_en-251" name="examples/us_tax_code/section_121.catala_en-251"></a><span class="c1"># Imagine a couple selling the house in 2020 and getting the payment in</span>
-<a id="examples/us_tax_code/section_121.catala_en-252" name="examples/us_tax_code/section_121.catala_en-252"></a><span class="c1"># 2021 where they file a joint return. Does (A) apply or not ?</span>
-<a id="examples/us_tax_code/section_121.catala_en-253" name="examples/us_tax_code/section_121.catala_en-253"></a><span class="c1"># Reasonably it should.</span>
+<a id="examples/us_tax_code/section_121.catala_en-251" name="examples/us_tax_code/section_121.catala_en-251"></a><span class="c1"># Taxable year of the sale or exchange ?=? year when the income is taxed</span>
+<a id="examples/us_tax_code/section_121.catala_en-252" name="examples/us_tax_code/section_121.catala_en-252"></a><span class="c1"># Imagine a couple selling the house in 2020 and getting the payment in</span>
+<a id="examples/us_tax_code/section_121.catala_en-253" name="examples/us_tax_code/section_121.catala_en-253"></a><span class="c1"># 2021 where they file a joint return. Does (A) apply or not ?</span>
+<a id="examples/us_tax_code/section_121.catala_en-254" name="examples/us_tax_code/section_121.catala_en-254"></a><span class="c1"># Reasonably it should.</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -932,7 +932,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-270">270</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-271">271</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-272">272</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-273">273</a></span>
@@ -959,34 +958,35 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-294">294</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-295">295</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-296">296</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-297">297</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-270" name="examples/us_tax_code/section_121.catala_en-270"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-271" name="examples/us_tax_code/section_121.catala_en-271"></a>  <span class="kd">rule</span> <span class="nv">section_121_b_2_A_condition</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-272" name="examples/us_tax_code/section_121.catala_en-272"></a>  <span class="o">(</span><span class="nv">return_type</span> <span class="kr">with pattern</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">data_couple</span><span class="o">)</span>
-<a id="examples/us_tax_code/section_121.catala_en-273" name="examples/us_tax_code/section_121.catala_en-273"></a>  <span class="o">and</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_121.catala_en-274" name="examples/us_tax_code/section_121.catala_en-274"></a><span class="c1">  # i)</span>
-<a id="examples/us_tax_code/section_121.catala_en-275" name="examples/us_tax_code/section_121.catala_en-275"></a>  <span class="o">(</span><span class="nv">section121Person1</span><span class="o">.</span>requirements_ownership_met <span class="o">or</span>
-<a id="examples/us_tax_code/section_121.catala_en-276" name="examples/us_tax_code/section_121.catala_en-276"></a>     <span class="nv">section121Person2</span><span class="o">.</span>requirements_ownership_met<span class="o">)</span>
-<a id="examples/us_tax_code/section_121.catala_en-277" name="examples/us_tax_code/section_121.catala_en-277"></a>  <span class="o">and</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_121.catala_en-278" name="examples/us_tax_code/section_121.catala_en-278"></a><span class="c1">  # ii)</span>
-<a id="examples/us_tax_code/section_121.catala_en-279" name="examples/us_tax_code/section_121.catala_en-279"></a>  <span class="o">(</span><span class="nv">section121Person1</span><span class="o">.</span>requirements_usage_met <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-280" name="examples/us_tax_code/section_121.catala_en-280"></a>     <span class="nv">section121Person2</span><span class="o">.</span>requirements_usage_met<span class="o">)</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_121.catala_en-281" name="examples/us_tax_code/section_121.catala_en-281"></a><span class="c1">  # iii)</span>
-<a id="examples/us_tax_code/section_121.catala_en-282" name="examples/us_tax_code/section_121.catala_en-282"></a>  <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-283" name="examples/us_tax_code/section_121.catala_en-283"></a>  <span class="o">(not</span> <span class="o">(</span><span class="nv">section121Person1</span><span class="o">.</span>section_121_b_3_applies<span class="o">))</span>
-<a id="examples/us_tax_code/section_121.catala_en-284" name="examples/us_tax_code/section_121.catala_en-284"></a>  <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-285" name="examples/us_tax_code/section_121.catala_en-285"></a>  <span class="o">(not</span> <span class="o">(</span><span class="nv">section121Person2</span><span class="o">.</span>section_121_b_3_applies<span class="o">))</span>
-<a id="examples/us_tax_code/section_121.catala_en-286" name="examples/us_tax_code/section_121.catala_en-286"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a id="examples/us_tax_code/section_121.catala_en-287" name="examples/us_tax_code/section_121.catala_en-287"></a>
-<a id="examples/us_tax_code/section_121.catala_en-288" name="examples/us_tax_code/section_121.catala_en-288"></a>  <span class="kd">exception</span>
-<a id="examples/us_tax_code/section_121.catala_en-289" name="examples/us_tax_code/section_121.catala_en-289"></a>  <span class="kd">rule</span> <span class="nv">section121a_requirements_met</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-290" name="examples/us_tax_code/section_121.catala_en-290"></a>    <span class="nv">section_121_b_2_A_condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-291" name="examples/us_tax_code/section_121.catala_en-291"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a id="examples/us_tax_code/section_121.catala_en-292" name="examples/us_tax_code/section_121.catala_en-292"></a>
-<a id="examples/us_tax_code/section_121.catala_en-293" name="examples/us_tax_code/section_121.catala_en-293"></a>  <span class="kd">exception</span>
-<a id="examples/us_tax_code/section_121.catala_en-294" name="examples/us_tax_code/section_121.catala_en-294"></a>  <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-295" name="examples/us_tax_code/section_121.catala_en-295"></a>    <span class="nv">section_121_b_2_A_condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-296" name="examples/us_tax_code/section_121.catala_en-296"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">500,000</span>
+<a id="examples/us_tax_code/section_121.catala_en-271" name="examples/us_tax_code/section_121.catala_en-271"></a><span class="kd">scope</span> <span class="nc">Section121TwoPersons</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-272" name="examples/us_tax_code/section_121.catala_en-272"></a>  <span class="kd">rule</span> <span class="nv">section_121_b_2_A_condition</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-273" name="examples/us_tax_code/section_121.catala_en-273"></a>  <span class="o">(</span><span class="nv">return_type</span> <span class="kr">with pattern</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">data_couple</span><span class="o">)</span>
+<a id="examples/us_tax_code/section_121.catala_en-274" name="examples/us_tax_code/section_121.catala_en-274"></a>  <span class="o">and</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_121.catala_en-275" name="examples/us_tax_code/section_121.catala_en-275"></a><span class="c1">  # i)</span>
+<a id="examples/us_tax_code/section_121.catala_en-276" name="examples/us_tax_code/section_121.catala_en-276"></a>  <span class="o">(</span><span class="nv">section121Person1</span><span class="o">.</span>requirements_ownership_met <span class="o">or</span>
+<a id="examples/us_tax_code/section_121.catala_en-277" name="examples/us_tax_code/section_121.catala_en-277"></a>     <span class="nv">section121Person2</span><span class="o">.</span>requirements_ownership_met<span class="o">)</span>
+<a id="examples/us_tax_code/section_121.catala_en-278" name="examples/us_tax_code/section_121.catala_en-278"></a>  <span class="o">and</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_121.catala_en-279" name="examples/us_tax_code/section_121.catala_en-279"></a><span class="c1">  # ii)</span>
+<a id="examples/us_tax_code/section_121.catala_en-280" name="examples/us_tax_code/section_121.catala_en-280"></a>  <span class="o">(</span><span class="nv">section121Person1</span><span class="o">.</span>requirements_usage_met <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-281" name="examples/us_tax_code/section_121.catala_en-281"></a>     <span class="nv">section121Person2</span><span class="o">.</span>requirements_usage_met<span class="o">)</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_121.catala_en-282" name="examples/us_tax_code/section_121.catala_en-282"></a><span class="c1">  # iii)</span>
+<a id="examples/us_tax_code/section_121.catala_en-283" name="examples/us_tax_code/section_121.catala_en-283"></a>  <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-284" name="examples/us_tax_code/section_121.catala_en-284"></a>  <span class="o">(not</span> <span class="o">(</span><span class="nv">section121Person1</span><span class="o">.</span>section_121_b_3_applies<span class="o">))</span>
+<a id="examples/us_tax_code/section_121.catala_en-285" name="examples/us_tax_code/section_121.catala_en-285"></a>  <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-286" name="examples/us_tax_code/section_121.catala_en-286"></a>  <span class="o">(not</span> <span class="o">(</span><span class="nv">section121Person2</span><span class="o">.</span>section_121_b_3_applies<span class="o">))</span>
+<a id="examples/us_tax_code/section_121.catala_en-287" name="examples/us_tax_code/section_121.catala_en-287"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a id="examples/us_tax_code/section_121.catala_en-288" name="examples/us_tax_code/section_121.catala_en-288"></a>
+<a id="examples/us_tax_code/section_121.catala_en-289" name="examples/us_tax_code/section_121.catala_en-289"></a>  <span class="kd">exception</span>
+<a id="examples/us_tax_code/section_121.catala_en-290" name="examples/us_tax_code/section_121.catala_en-290"></a>  <span class="kd">rule</span> <span class="nv">section121a_requirements_met</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-291" name="examples/us_tax_code/section_121.catala_en-291"></a>    <span class="nv">section_121_b_2_A_condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-292" name="examples/us_tax_code/section_121.catala_en-292"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a id="examples/us_tax_code/section_121.catala_en-293" name="examples/us_tax_code/section_121.catala_en-293"></a>
+<a id="examples/us_tax_code/section_121.catala_en-294" name="examples/us_tax_code/section_121.catala_en-294"></a>  <span class="kd">exception</span>
+<a id="examples/us_tax_code/section_121.catala_en-295" name="examples/us_tax_code/section_121.catala_en-295"></a>  <span class="kd">definition</span> <span class="nv">gain_cap</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-296" name="examples/us_tax_code/section_121.catala_en-296"></a>    <span class="nv">section_121_b_2_A_condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-297" name="examples/us_tax_code/section_121.catala_en-297"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">500,000</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -998,7 +998,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-308">308</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-309">309</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-310">310</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-311">311</a></span>
@@ -1027,36 +1026,37 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-334">334</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-335">335</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-336">336</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-337">337</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-308" name="examples/us_tax_code/section_121.catala_en-308"></a><span class="kd">scope</span> <span class="nc">Section121TwoPasses</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-309" name="examples/us_tax_code/section_121.catala_en-309"></a>  <span class="o">(</span><span class="nv">return_type</span> <span class="kr">with pattern</span> <span class="nc">JointReturn</span><span class="o">)</span> <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-310" name="examples/us_tax_code/section_121.catala_en-310"></a>  <span class="o">not</span> <span class="o">(</span><span class="nv">first_pass</span><span class="o">.</span>section_121_b_2_A_condition<span class="o">):</span>
-<a id="examples/us_tax_code/section_121.catala_en-311" name="examples/us_tax_code/section_121.catala_en-311"></a>
-<a id="examples/us_tax_code/section_121.catala_en-312" name="examples/us_tax_code/section_121.catala_en-312"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>gain_cap <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-313" name="examples/us_tax_code/section_121.catala_en-313"></a>    <span class="nv">first_pass</span><span class="o">.</span>gain_cap_person_1 <span class="o">+$</span>
-<a id="examples/us_tax_code/section_121.catala_en-314" name="examples/us_tax_code/section_121.catala_en-314"></a>    <span class="nv">first_pass</span><span class="o">.</span>gain_cap_person_2
-<a id="examples/us_tax_code/section_121.catala_en-315" name="examples/us_tax_code/section_121.catala_en-315"></a>
-<a id="examples/us_tax_code/section_121.catala_en-316" name="examples/us_tax_code/section_121.catala_en-316"></a>  <span class="kd">definition</span> <span class="nv">period_merge</span><span class="o">.</span>periods1 <span class="kd">equals</span> <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
-<a id="examples/us_tax_code/section_121.catala_en-317" name="examples/us_tax_code/section_121.catala_en-317"></a>    <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">joint_return</span><span class="o">:</span> <span class="nv">joint_return</span><span class="o">.</span>person1.property_ownage
-<a id="examples/us_tax_code/section_121.catala_en-318" name="examples/us_tax_code/section_121.catala_en-318"></a>    <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">dead_spouse_info</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-319" name="examples/us_tax_code/section_121.catala_en-319"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-320" name="examples/us_tax_code/section_121.catala_en-320"></a>  <span class="kd">definition</span> <span class="nv">period_merge</span><span class="o">.</span>periods2 <span class="kd">equals</span> <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
-<a id="examples/us_tax_code/section_121.catala_en-321" name="examples/us_tax_code/section_121.catala_en-321"></a>    <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">joint_return</span><span class="o">:</span> <span class="nv">joint_return</span><span class="o">.</span>person2.property_ownage
-<a id="examples/us_tax_code/section_121.catala_en-322" name="examples/us_tax_code/section_121.catala_en-322"></a>    <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">dead_spouse_info</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-323" name="examples/us_tax_code/section_121.catala_en-323"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-324" name="examples/us_tax_code/section_121.catala_en-324"></a>
-<a id="examples/us_tax_code/section_121.catala_en-325" name="examples/us_tax_code/section_121.catala_en-325"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>person1 <span class="kd">equals</span> <span class="nc">PersonalData</span> <span class="o">{</span>
-<a id="examples/us_tax_code/section_121.catala_en-326" name="examples/us_tax_code/section_121.catala_en-326"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output_periods
-<a id="examples/us_tax_code/section_121.catala_en-327" name="examples/us_tax_code/section_121.catala_en-327"></a>    <span class="o">--</span> <span class="nv">property_usage_as_principal_residence</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-328" name="examples/us_tax_code/section_121.catala_en-328"></a>      <span class="nv">first_pass</span><span class="o">.</span>person1.property_usage_as_principal_residence
-<a id="examples/us_tax_code/section_121.catala_en-329" name="examples/us_tax_code/section_121.catala_en-329"></a>    <span class="o">--</span> <span class="nv">other_section_121a_sale</span><span class="o">:</span> <span class="nv">first_pass</span><span class="o">.</span>person1.other_section_121a_sale
-<a id="examples/us_tax_code/section_121.catala_en-330" name="examples/us_tax_code/section_121.catala_en-330"></a>  <span class="o">}</span>
-<a id="examples/us_tax_code/section_121.catala_en-331" name="examples/us_tax_code/section_121.catala_en-331"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>person2 <span class="kd">equals</span> <span class="nc">PersonalData</span> <span class="o">{</span>
-<a id="examples/us_tax_code/section_121.catala_en-332" name="examples/us_tax_code/section_121.catala_en-332"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output_periods
-<a id="examples/us_tax_code/section_121.catala_en-333" name="examples/us_tax_code/section_121.catala_en-333"></a>    <span class="o">--</span> <span class="nv">property_usage_as_principal_residence</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-334" name="examples/us_tax_code/section_121.catala_en-334"></a>      <span class="nv">first_pass</span><span class="o">.</span>person2.property_usage_as_principal_residence
-<a id="examples/us_tax_code/section_121.catala_en-335" name="examples/us_tax_code/section_121.catala_en-335"></a>    <span class="o">--</span> <span class="nv">other_section_121a_sale</span><span class="o">:</span> <span class="nv">first_pass</span><span class="o">.</span>person2.other_section_121a_sale
-<a id="examples/us_tax_code/section_121.catala_en-336" name="examples/us_tax_code/section_121.catala_en-336"></a>  <span class="o">}</span>
+<a id="examples/us_tax_code/section_121.catala_en-309" name="examples/us_tax_code/section_121.catala_en-309"></a><span class="kd">scope</span> <span class="nc">Section121TwoPasses</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-310" name="examples/us_tax_code/section_121.catala_en-310"></a>  <span class="o">(</span><span class="nv">return_type</span> <span class="kr">with pattern</span> <span class="nc">JointReturn</span><span class="o">)</span> <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-311" name="examples/us_tax_code/section_121.catala_en-311"></a>  <span class="o">not</span> <span class="o">(</span><span class="nv">first_pass</span><span class="o">.</span>section_121_b_2_A_condition<span class="o">):</span>
+<a id="examples/us_tax_code/section_121.catala_en-312" name="examples/us_tax_code/section_121.catala_en-312"></a>
+<a id="examples/us_tax_code/section_121.catala_en-313" name="examples/us_tax_code/section_121.catala_en-313"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>gain_cap <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-314" name="examples/us_tax_code/section_121.catala_en-314"></a>    <span class="nv">first_pass</span><span class="o">.</span>gain_cap_person_1 <span class="o">+$</span>
+<a id="examples/us_tax_code/section_121.catala_en-315" name="examples/us_tax_code/section_121.catala_en-315"></a>    <span class="nv">first_pass</span><span class="o">.</span>gain_cap_person_2
+<a id="examples/us_tax_code/section_121.catala_en-316" name="examples/us_tax_code/section_121.catala_en-316"></a>
+<a id="examples/us_tax_code/section_121.catala_en-317" name="examples/us_tax_code/section_121.catala_en-317"></a>  <span class="kd">definition</span> <span class="nv">period_merge</span><span class="o">.</span>periods1 <span class="kd">equals</span> <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
+<a id="examples/us_tax_code/section_121.catala_en-318" name="examples/us_tax_code/section_121.catala_en-318"></a>    <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">joint_return</span><span class="o">:</span> <span class="nv">joint_return</span><span class="o">.</span>person1.property_ownage
+<a id="examples/us_tax_code/section_121.catala_en-319" name="examples/us_tax_code/section_121.catala_en-319"></a>    <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">dead_spouse_info</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-320" name="examples/us_tax_code/section_121.catala_en-320"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-321" name="examples/us_tax_code/section_121.catala_en-321"></a>  <span class="kd">definition</span> <span class="nv">period_merge</span><span class="o">.</span>periods2 <span class="kd">equals</span> <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
+<a id="examples/us_tax_code/section_121.catala_en-322" name="examples/us_tax_code/section_121.catala_en-322"></a>    <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">joint_return</span><span class="o">:</span> <span class="nv">joint_return</span><span class="o">.</span>person2.property_ownage
+<a id="examples/us_tax_code/section_121.catala_en-323" name="examples/us_tax_code/section_121.catala_en-323"></a>    <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">dead_spouse_info</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-324" name="examples/us_tax_code/section_121.catala_en-324"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span> <span class="o">:</span> <span class="o">[]</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-325" name="examples/us_tax_code/section_121.catala_en-325"></a>
+<a id="examples/us_tax_code/section_121.catala_en-326" name="examples/us_tax_code/section_121.catala_en-326"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>person1 <span class="kd">equals</span> <span class="nc">PersonalData</span> <span class="o">{</span>
+<a id="examples/us_tax_code/section_121.catala_en-327" name="examples/us_tax_code/section_121.catala_en-327"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output_periods
+<a id="examples/us_tax_code/section_121.catala_en-328" name="examples/us_tax_code/section_121.catala_en-328"></a>    <span class="o">--</span> <span class="nv">property_usage_as_principal_residence</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-329" name="examples/us_tax_code/section_121.catala_en-329"></a>      <span class="nv">first_pass</span><span class="o">.</span>person1.property_usage_as_principal_residence
+<a id="examples/us_tax_code/section_121.catala_en-330" name="examples/us_tax_code/section_121.catala_en-330"></a>    <span class="o">--</span> <span class="nv">other_section_121a_sale</span><span class="o">:</span> <span class="nv">first_pass</span><span class="o">.</span>person1.other_section_121a_sale
+<a id="examples/us_tax_code/section_121.catala_en-331" name="examples/us_tax_code/section_121.catala_en-331"></a>  <span class="o">}</span>
+<a id="examples/us_tax_code/section_121.catala_en-332" name="examples/us_tax_code/section_121.catala_en-332"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>person2 <span class="kd">equals</span> <span class="nc">PersonalData</span> <span class="o">{</span>
+<a id="examples/us_tax_code/section_121.catala_en-333" name="examples/us_tax_code/section_121.catala_en-333"></a>    <span class="o">--</span> <span class="nv">property_ownage</span><span class="o">:</span> <span class="nv">period_merge</span><span class="o">.</span>output_periods
+<a id="examples/us_tax_code/section_121.catala_en-334" name="examples/us_tax_code/section_121.catala_en-334"></a>    <span class="o">--</span> <span class="nv">property_usage_as_principal_residence</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-335" name="examples/us_tax_code/section_121.catala_en-335"></a>      <span class="nv">first_pass</span><span class="o">.</span>person2.property_usage_as_principal_residence
+<a id="examples/us_tax_code/section_121.catala_en-336" name="examples/us_tax_code/section_121.catala_en-336"></a>    <span class="o">--</span> <span class="nv">other_section_121a_sale</span><span class="o">:</span> <span class="nv">first_pass</span><span class="o">.</span>person2.other_section_121a_sale
+<a id="examples/us_tax_code/section_121.catala_en-337" name="examples/us_tax_code/section_121.catala_en-337"></a>  <span class="o">}</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1069,7 +1069,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-347">347</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-348">348</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-349">349</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-350">350</a></span>
@@ -1080,18 +1079,19 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-355">355</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-356">356</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-357">357</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-358">358</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-347" name="examples/us_tax_code/section_121.catala_en-347"></a><span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-348" name="examples/us_tax_code/section_121.catala_en-348"></a>  <span class="kd">rule</span> <span class="nv">section_121_b_3_applies</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-349" name="examples/us_tax_code/section_121.catala_en-349"></a>    <span class="o">(</span><span class="nv">other_section_121a_sale</span> <span class="kr">with pattern</span>
-<a id="examples/us_tax_code/section_121.catala_en-350" name="examples/us_tax_code/section_121.catala_en-350"></a>       <span class="nc">MostRecentSaleWhereSection121aApplied</span> <span class="kr">of</span> <span class="nv">other_sale</span><span class="o">)</span> <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-351" name="examples/us_tax_code/section_121.catala_en-351"></a>    <span class="nv">date_of_sale_or_exchange</span> <span class="o">-@</span> <span class="nv">other_sale</span><span class="o">.</span>date_of_sale_or_exchange <span class="o">&lt;=^</span> <span class="mi">2</span> <span class="o">year</span>
-<a id="examples/us_tax_code/section_121.catala_en-352" name="examples/us_tax_code/section_121.catala_en-352"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
-<a id="examples/us_tax_code/section_121.catala_en-353" name="examples/us_tax_code/section_121.catala_en-353"></a>
-<a id="examples/us_tax_code/section_121.catala_en-354" name="examples/us_tax_code/section_121.catala_en-354"></a>  <span class="kd">exception</span>
-<a id="examples/us_tax_code/section_121.catala_en-355" name="examples/us_tax_code/section_121.catala_en-355"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-356" name="examples/us_tax_code/section_121.catala_en-356"></a>    <span class="nv">section_121_b_3_applies</span>
-<a id="examples/us_tax_code/section_121.catala_en-357" name="examples/us_tax_code/section_121.catala_en-357"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">0</span>
+<a id="examples/us_tax_code/section_121.catala_en-348" name="examples/us_tax_code/section_121.catala_en-348"></a><span class="kd">scope</span> <span class="nc">Section121SinglePerson</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-349" name="examples/us_tax_code/section_121.catala_en-349"></a>  <span class="kd">rule</span> <span class="nv">section_121_b_3_applies</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-350" name="examples/us_tax_code/section_121.catala_en-350"></a>    <span class="o">(</span><span class="nv">other_section_121a_sale</span> <span class="kr">with pattern</span>
+<a id="examples/us_tax_code/section_121.catala_en-351" name="examples/us_tax_code/section_121.catala_en-351"></a>       <span class="nc">MostRecentSaleWhereSection121aApplied</span> <span class="kr">of</span> <span class="nv">other_sale</span><span class="o">)</span> <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-352" name="examples/us_tax_code/section_121.catala_en-352"></a>    <span class="nv">date_of_sale_or_exchange</span> <span class="o">-@</span> <span class="nv">other_sale</span><span class="o">.</span>date_of_sale_or_exchange <span class="o">&lt;=^</span> <span class="mi">2</span> <span class="o">year</span>
+<a id="examples/us_tax_code/section_121.catala_en-353" name="examples/us_tax_code/section_121.catala_en-353"></a>  <span class="kd">consequence</span> <span class="kd">fulfilled</span>
+<a id="examples/us_tax_code/section_121.catala_en-354" name="examples/us_tax_code/section_121.catala_en-354"></a>
+<a id="examples/us_tax_code/section_121.catala_en-355" name="examples/us_tax_code/section_121.catala_en-355"></a>  <span class="kd">exception</span>
+<a id="examples/us_tax_code/section_121.catala_en-356" name="examples/us_tax_code/section_121.catala_en-356"></a>  <span class="kd">definition</span> <span class="nv">income_excluded_from_gross_income_uncapped</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-357" name="examples/us_tax_code/section_121.catala_en-357"></a>    <span class="nv">section_121_b_3_applies</span>
+<a id="examples/us_tax_code/section_121.catala_en-358" name="examples/us_tax_code/section_121.catala_en-358"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">0</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1103,11 +1103,11 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-363">363</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-364">364</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-365">365</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-363" name="examples/us_tax_code/section_121.catala_en-363"></a><span class="c1"># Sarah: the year when your spouse dies, do you file a joint return or</span>
-<a id="examples/us_tax_code/section_121.catala_en-364" name="examples/us_tax_code/section_121.catala_en-364"></a><span class="c1"># separate returns?</span>
+<a id="examples/us_tax_code/section_121.catala_en-364" name="examples/us_tax_code/section_121.catala_en-364"></a><span class="c1"># Sarah: the year when your spouse dies, do you file a joint return or</span>
+<a id="examples/us_tax_code/section_121.catala_en-365" name="examples/us_tax_code/section_121.catala_en-365"></a><span class="c1"># separate returns?</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1115,7 +1115,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_121.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-373">373</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-374">374</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-375">375</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-376">376</a></span>
@@ -1140,32 +1139,33 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-395">395</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-396">396</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-397">397</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_121.catala_en-398">398</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_121.catala_en-373" name="examples/us_tax_code/section_121.catala_en-373"></a><span class="kd">scope</span> <span class="nc">Section121TwoPasses</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-374" name="examples/us_tax_code/section_121.catala_en-374"></a>  <span class="nv">return_type</span> <span class="kr">with pattern</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">single_data</span> <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-375" name="examples/us_tax_code/section_121.catala_en-375"></a>  <span class="nv">single_data</span><span class="o">.</span>date_of_spouse_death <span class="o">&lt;@</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">and</span>
-<a id="examples/us_tax_code/section_121.catala_en-376" name="examples/us_tax_code/section_121.catala_en-376"></a>  <span class="nv">date_of_sale_or_exchange</span> <span class="o">&lt;=@</span> <span class="nv">single_data</span><span class="o">.</span>date_of_spouse_death <span class="o">+@</span> <span class="mi">2</span> <span class="o">year</span>
-<a id="examples/us_tax_code/section_121.catala_en-377" name="examples/us_tax_code/section_121.catala_en-377"></a>  <span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-378" name="examples/us_tax_code/section_121.catala_en-378"></a>
-<a id="examples/us_tax_code/section_121.catala_en-379" name="examples/us_tax_code/section_121.catala_en-379"></a>  <span class="kd">definition</span> <span class="nv">first_pass</span><span class="o">.</span>date_of_sale_or_exchange <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-380" name="examples/us_tax_code/section_121.catala_en-380"></a>    <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
-<a id="examples/us_tax_code/section_121.catala_en-381" name="examples/us_tax_code/section_121.catala_en-381"></a>    <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">single_data</span><span class="o">:</span> <span class="nv">single_data</span><span class="o">.</span>date_of_spouse_death
-<a id="examples/us_tax_code/section_121.catala_en-382" name="examples/us_tax_code/section_121.catala_en-382"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nv">date_of_sale_or_exchange</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-383" name="examples/us_tax_code/section_121.catala_en-383"></a>    <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nv">date_of_sale_or_exchange</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-384" name="examples/us_tax_code/section_121.catala_en-384"></a>
-<a id="examples/us_tax_code/section_121.catala_en-385" name="examples/us_tax_code/section_121.catala_en-385"></a>  <span class="kd">definition</span> <span class="nv">first_pass</span><span class="o">.</span>return_type <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_121.catala_en-386" name="examples/us_tax_code/section_121.catala_en-386"></a>    <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
-<a id="examples/us_tax_code/section_121.catala_en-387" name="examples/us_tax_code/section_121.catala_en-387"></a>      <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">single_data</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_121.catala_en-388" name="examples/us_tax_code/section_121.catala_en-388"></a>        <span class="nc">JointReturn</span> <span class="kd">content</span> <span class="o">(</span><span class="nc">JointReturn</span> <span class="o">{</span>
-<a id="examples/us_tax_code/section_121.catala_en-389" name="examples/us_tax_code/section_121.catala_en-389"></a>          <span class="o">--</span> <span class="nv">person1</span><span class="o">:</span> <span class="nv">single_data</span><span class="o">.</span>return
-<a id="examples/us_tax_code/section_121.catala_en-390" name="examples/us_tax_code/section_121.catala_en-390"></a>          <span class="o">--</span> <span class="nv">person2</span><span class="o">:</span> <span class="nv">single_data</span><span class="o">.</span>death_spouse_info_at_time_of_death
-<a id="examples/us_tax_code/section_121.catala_en-391" name="examples/us_tax_code/section_121.catala_en-391"></a>        <span class="o">})</span>
-<a id="examples/us_tax_code/section_121.catala_en-392" name="examples/us_tax_code/section_121.catala_en-392"></a>      <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nc">SingleReturn</span> <span class="kd">content</span> <span class="nv">return</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-393" name="examples/us_tax_code/section_121.catala_en-393"></a>      <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nc">JointReturn</span> <span class="kd">content</span> <span class="nv">return</span><span class="c1"> # does not happen</span>
-<a id="examples/us_tax_code/section_121.catala_en-394" name="examples/us_tax_code/section_121.catala_en-394"></a>
-<a id="examples/us_tax_code/section_121.catala_en-395" name="examples/us_tax_code/section_121.catala_en-395"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>gain_cap <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_121.catala_en-396" name="examples/us_tax_code/section_121.catala_en-396"></a>     <span class="nv">first_pass</span><span class="o">.</span>section_121_b_2_A_condition
-<a id="examples/us_tax_code/section_121.catala_en-397" name="examples/us_tax_code/section_121.catala_en-397"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">500,000</span>
+<a id="examples/us_tax_code/section_121.catala_en-374" name="examples/us_tax_code/section_121.catala_en-374"></a><span class="kd">scope</span> <span class="nc">Section121TwoPasses</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-375" name="examples/us_tax_code/section_121.catala_en-375"></a>  <span class="nv">return_type</span> <span class="kr">with pattern</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">single_data</span> <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-376" name="examples/us_tax_code/section_121.catala_en-376"></a>  <span class="nv">single_data</span><span class="o">.</span>date_of_spouse_death <span class="o">&lt;@</span> <span class="nv">date_of_sale_or_exchange</span> <span class="o">and</span>
+<a id="examples/us_tax_code/section_121.catala_en-377" name="examples/us_tax_code/section_121.catala_en-377"></a>  <span class="nv">date_of_sale_or_exchange</span> <span class="o">&lt;=@</span> <span class="nv">single_data</span><span class="o">.</span>date_of_spouse_death <span class="o">+@</span> <span class="mi">2</span> <span class="o">year</span>
+<a id="examples/us_tax_code/section_121.catala_en-378" name="examples/us_tax_code/section_121.catala_en-378"></a>  <span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-379" name="examples/us_tax_code/section_121.catala_en-379"></a>
+<a id="examples/us_tax_code/section_121.catala_en-380" name="examples/us_tax_code/section_121.catala_en-380"></a>  <span class="kd">definition</span> <span class="nv">first_pass</span><span class="o">.</span>date_of_sale_or_exchange <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-381" name="examples/us_tax_code/section_121.catala_en-381"></a>    <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
+<a id="examples/us_tax_code/section_121.catala_en-382" name="examples/us_tax_code/section_121.catala_en-382"></a>    <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">single_data</span><span class="o">:</span> <span class="nv">single_data</span><span class="o">.</span>date_of_spouse_death
+<a id="examples/us_tax_code/section_121.catala_en-383" name="examples/us_tax_code/section_121.catala_en-383"></a>    <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nv">date_of_sale_or_exchange</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-384" name="examples/us_tax_code/section_121.catala_en-384"></a>    <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nv">date_of_sale_or_exchange</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-385" name="examples/us_tax_code/section_121.catala_en-385"></a>
+<a id="examples/us_tax_code/section_121.catala_en-386" name="examples/us_tax_code/section_121.catala_en-386"></a>  <span class="kd">definition</span> <span class="nv">first_pass</span><span class="o">.</span>return_type <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_121.catala_en-387" name="examples/us_tax_code/section_121.catala_en-387"></a>    <span class="kr">match</span> <span class="nv">return_type</span> <span class="kr">with pattern</span>
+<a id="examples/us_tax_code/section_121.catala_en-388" name="examples/us_tax_code/section_121.catala_en-388"></a>      <span class="o">--</span> <span class="nc">SingleReturnSurvivingSpouse</span> <span class="kr">of</span> <span class="nv">single_data</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_121.catala_en-389" name="examples/us_tax_code/section_121.catala_en-389"></a>        <span class="nc">JointReturn</span> <span class="kd">content</span> <span class="o">(</span><span class="nc">JointReturn</span> <span class="o">{</span>
+<a id="examples/us_tax_code/section_121.catala_en-390" name="examples/us_tax_code/section_121.catala_en-390"></a>          <span class="o">--</span> <span class="nv">person1</span><span class="o">:</span> <span class="nv">single_data</span><span class="o">.</span>return
+<a id="examples/us_tax_code/section_121.catala_en-391" name="examples/us_tax_code/section_121.catala_en-391"></a>          <span class="o">--</span> <span class="nv">person2</span><span class="o">:</span> <span class="nv">single_data</span><span class="o">.</span>death_spouse_info_at_time_of_death
+<a id="examples/us_tax_code/section_121.catala_en-392" name="examples/us_tax_code/section_121.catala_en-392"></a>        <span class="o">})</span>
+<a id="examples/us_tax_code/section_121.catala_en-393" name="examples/us_tax_code/section_121.catala_en-393"></a>      <span class="o">--</span> <span class="nc">SingleReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nc">SingleReturn</span> <span class="kd">content</span> <span class="nv">return</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-394" name="examples/us_tax_code/section_121.catala_en-394"></a>      <span class="o">--</span> <span class="nc">JointReturn</span> <span class="kr">of</span> <span class="nv">return</span><span class="o">:</span> <span class="nc">JointReturn</span> <span class="kd">content</span> <span class="nv">return</span><span class="c1"> # does not happen</span>
+<a id="examples/us_tax_code/section_121.catala_en-395" name="examples/us_tax_code/section_121.catala_en-395"></a>
+<a id="examples/us_tax_code/section_121.catala_en-396" name="examples/us_tax_code/section_121.catala_en-396"></a>  <span class="kd">definition</span> <span class="nv">second_pass</span><span class="o">.</span>gain_cap <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_121.catala_en-397" name="examples/us_tax_code/section_121.catala_en-397"></a>     <span class="nv">first_pass</span><span class="o">.</span>section_121_b_2_A_condition
+<a id="examples/us_tax_code/section_121.catala_en-398" name="examples/us_tax_code/section_121.catala_en-398"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">500,000</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1281,7 +1281,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_132.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-39">39</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-40">40</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-41">41</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-42">42</a></span>
@@ -1289,15 +1288,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-44">44</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-45">45</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-46">46</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-47">47</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_132.catala_en-39" name="examples/us_tax_code/section_132.catala_en-39"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
-<a id="examples/us_tax_code/section_132.catala_en-40" name="examples/us_tax_code/section_132.catala_en-40"></a>  <span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
-<a id="examples/us_tax_code/section_132.catala_en-41" name="examples/us_tax_code/section_132.catala_en-41"></a>    <span class="kd">under condition</span> <span class="nv">is_property</span> <span class="kd">consequence</span>
-<a id="examples/us_tax_code/section_132.catala_en-42" name="examples/us_tax_code/section_132.catala_en-42"></a>  <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_132.catala_en-43" name="examples/us_tax_code/section_132.catala_en-43"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;$</span>
-<a id="examples/us_tax_code/section_132.catala_en-44" name="examples/us_tax_code/section_132.catala_en-44"></a>      <span class="nv">customer_price</span> <span class="o">*$</span> <span class="nv">gross_profit_percentage</span>
-<a id="examples/us_tax_code/section_132.catala_en-45" name="examples/us_tax_code/section_132.catala_en-45"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> <span class="o">*$</span> <span class="nv">gross_profit_percentage</span>
-<a id="examples/us_tax_code/section_132.catala_en-46" name="examples/us_tax_code/section_132.catala_en-46"></a>    <span class="kr">else</span> <span class="nv">employee_discount</span>
+<a id="examples/us_tax_code/section_132.catala_en-40" name="examples/us_tax_code/section_132.catala_en-40"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
+<a id="examples/us_tax_code/section_132.catala_en-41" name="examples/us_tax_code/section_132.catala_en-41"></a>  <span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
+<a id="examples/us_tax_code/section_132.catala_en-42" name="examples/us_tax_code/section_132.catala_en-42"></a>    <span class="kd">under condition</span> <span class="nv">is_property</span> <span class="kd">consequence</span>
+<a id="examples/us_tax_code/section_132.catala_en-43" name="examples/us_tax_code/section_132.catala_en-43"></a>  <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_132.catala_en-44" name="examples/us_tax_code/section_132.catala_en-44"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;$</span>
+<a id="examples/us_tax_code/section_132.catala_en-45" name="examples/us_tax_code/section_132.catala_en-45"></a>      <span class="nv">customer_price</span> <span class="o">*$</span> <span class="nv">gross_profit_percentage</span>
+<a id="examples/us_tax_code/section_132.catala_en-46" name="examples/us_tax_code/section_132.catala_en-46"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> <span class="o">*$</span> <span class="nv">gross_profit_percentage</span>
+<a id="examples/us_tax_code/section_132.catala_en-47" name="examples/us_tax_code/section_132.catala_en-47"></a>    <span class="kr">else</span> <span class="nv">employee_discount</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1307,7 +1307,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_132.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-53">53</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-54">54</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-55">55</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-56">56</a></span>
@@ -1321,21 +1320,22 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-64">64</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-65">65</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-66">66</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-67">67</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_132.catala_en-53" name="examples/us_tax_code/section_132.catala_en-53"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
-<a id="examples/us_tax_code/section_132.catala_en-54" name="examples/us_tax_code/section_132.catala_en-54"></a><span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
-<a id="examples/us_tax_code/section_132.catala_en-55" name="examples/us_tax_code/section_132.catala_en-55"></a>  <span class="kd">under condition</span> <span class="nv">is_services</span> <span class="kd">consequence</span>
-<a id="examples/us_tax_code/section_132.catala_en-56" name="examples/us_tax_code/section_132.catala_en-56"></a><span class="kd">equals</span>
-<a id="examples/us_tax_code/section_132.catala_en-57" name="examples/us_tax_code/section_132.catala_en-57"></a>  <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;$</span>
-<a id="examples/us_tax_code/section_132.catala_en-58" name="examples/us_tax_code/section_132.catala_en-58"></a>    <span class="nv">customer_price</span> <span class="o">*$</span> <span class="mi">20</span><span class="o">%</span>
-<a id="examples/us_tax_code/section_132.catala_en-59" name="examples/us_tax_code/section_132.catala_en-59"></a>  <span class="kr">then</span> <span class="nv">customer_price</span> <span class="o">*$</span> <span class="mi">20</span><span class="o">%</span>
-<a id="examples/us_tax_code/section_132.catala_en-60" name="examples/us_tax_code/section_132.catala_en-60"></a>  <span class="kr">else</span> <span class="nv">employee_discount</span>
-<a id="examples/us_tax_code/section_132.catala_en-61" name="examples/us_tax_code/section_132.catala_en-61"></a>
-<a id="examples/us_tax_code/section_132.catala_en-62" name="examples/us_tax_code/section_132.catala_en-62"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="kd">under condition</span> <span class="nv">is_services</span><span class="o">:</span><span class="c1"></span>
-<a id="examples/us_tax_code/section_132.catala_en-63" name="examples/us_tax_code/section_132.catala_en-63"></a><span class="c1">    # When selling a service, one does not need the aggregate cost.</span>
-<a id="examples/us_tax_code/section_132.catala_en-64" name="examples/us_tax_code/section_132.catala_en-64"></a><span class="c1">    # We provide a default value here so that the computations run smooth.</span>
-<a id="examples/us_tax_code/section_132.catala_en-65" name="examples/us_tax_code/section_132.catala_en-65"></a>    <span class="kd">definition</span> <span class="nv">aggregate_cost</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">0</span>
-<a id="examples/us_tax_code/section_132.catala_en-66" name="examples/us_tax_code/section_132.catala_en-66"></a>    <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span> <span class="mi">0</span><span class="o">%</span>
+<a id="examples/us_tax_code/section_132.catala_en-54" name="examples/us_tax_code/section_132.catala_en-54"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="o">:</span>
+<a id="examples/us_tax_code/section_132.catala_en-55" name="examples/us_tax_code/section_132.catala_en-55"></a><span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
+<a id="examples/us_tax_code/section_132.catala_en-56" name="examples/us_tax_code/section_132.catala_en-56"></a>  <span class="kd">under condition</span> <span class="nv">is_services</span> <span class="kd">consequence</span>
+<a id="examples/us_tax_code/section_132.catala_en-57" name="examples/us_tax_code/section_132.catala_en-57"></a><span class="kd">equals</span>
+<a id="examples/us_tax_code/section_132.catala_en-58" name="examples/us_tax_code/section_132.catala_en-58"></a>  <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;$</span>
+<a id="examples/us_tax_code/section_132.catala_en-59" name="examples/us_tax_code/section_132.catala_en-59"></a>    <span class="nv">customer_price</span> <span class="o">*$</span> <span class="mi">20</span><span class="o">%</span>
+<a id="examples/us_tax_code/section_132.catala_en-60" name="examples/us_tax_code/section_132.catala_en-60"></a>  <span class="kr">then</span> <span class="nv">customer_price</span> <span class="o">*$</span> <span class="mi">20</span><span class="o">%</span>
+<a id="examples/us_tax_code/section_132.catala_en-61" name="examples/us_tax_code/section_132.catala_en-61"></a>  <span class="kr">else</span> <span class="nv">employee_discount</span>
+<a id="examples/us_tax_code/section_132.catala_en-62" name="examples/us_tax_code/section_132.catala_en-62"></a>
+<a id="examples/us_tax_code/section_132.catala_en-63" name="examples/us_tax_code/section_132.catala_en-63"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="kd">under condition</span> <span class="nv">is_services</span><span class="o">:</span><span class="c1"></span>
+<a id="examples/us_tax_code/section_132.catala_en-64" name="examples/us_tax_code/section_132.catala_en-64"></a><span class="c1">    # When selling a service, one does not need the aggregate cost.</span>
+<a id="examples/us_tax_code/section_132.catala_en-65" name="examples/us_tax_code/section_132.catala_en-65"></a><span class="c1">    # We provide a default value here so that the computations run smooth.</span>
+<a id="examples/us_tax_code/section_132.catala_en-66" name="examples/us_tax_code/section_132.catala_en-66"></a>    <span class="kd">definition</span> <span class="nv">aggregate_cost</span> <span class="kd">equals</span> <span class="o">$</span><span class="mi">0</span>
+<a id="examples/us_tax_code/section_132.catala_en-67" name="examples/us_tax_code/section_132.catala_en-67"></a>    <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span> <span class="mi">0</span><span class="o">%</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1354,17 +1354,17 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_132.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-81">81</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-82">82</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-83">83</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-84">84</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-85">85</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-86">86</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_132.catala_en-81" name="examples/us_tax_code/section_132.catala_en-81"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="kd">under condition</span> <span class="nv">is_property</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_132.catala_en-82" name="examples/us_tax_code/section_132.catala_en-82"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> <span class="o">&gt;=$</span> <span class="nv">aggregate_cost</span>
-<a id="examples/us_tax_code/section_132.catala_en-83" name="examples/us_tax_code/section_132.catala_en-83"></a>
-<a id="examples/us_tax_code/section_132.catala_en-84" name="examples/us_tax_code/section_132.catala_en-84"></a>  <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_132.catala_en-85" name="examples/us_tax_code/section_132.catala_en-85"></a>    <span class="o">(</span><span class="nv">customer_price</span> <span class="o">-$</span> <span class="nv">aggregate_cost</span><span class="o">)</span> <span class="o">/$</span> <span class="nv">customer_price</span>
+<a id="examples/us_tax_code/section_132.catala_en-82" name="examples/us_tax_code/section_132.catala_en-82"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span> <span class="kd">under condition</span> <span class="nv">is_property</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_132.catala_en-83" name="examples/us_tax_code/section_132.catala_en-83"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> <span class="o">&gt;=$</span> <span class="nv">aggregate_cost</span>
+<a id="examples/us_tax_code/section_132.catala_en-84" name="examples/us_tax_code/section_132.catala_en-84"></a>
+<a id="examples/us_tax_code/section_132.catala_en-85" name="examples/us_tax_code/section_132.catala_en-85"></a>  <span class="kd">definition</span> <span class="nv">gross_profit_percentage</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_132.catala_en-86" name="examples/us_tax_code/section_132.catala_en-86"></a>    <span class="o">(</span><span class="nv">customer_price</span> <span class="o">-$</span> <span class="nv">aggregate_cost</span><span class="o">)</span> <span class="o">/$</span> <span class="nv">customer_price</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1380,11 +1380,11 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_132.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-99"> 99</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-100">100</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-101">101</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_132.catala_en-99" name="examples/us_tax_code/section_132.catala_en-99"></a><span class="c1"># (i) and (ii) are subjective criteria for determining the gross profit</span>
-<a id="examples/us_tax_code/section_132.catala_en-100" name="examples/us_tax_code/section_132.catala_en-100"></a><span class="c1"># percentage ; we do not formalize them</span>
+<a id="examples/us_tax_code/section_132.catala_en-100" name="examples/us_tax_code/section_132.catala_en-100"></a><span class="c1"># (i) and (ii) are subjective criteria for determining the gross profit</span>
+<a id="examples/us_tax_code/section_132.catala_en-101" name="examples/us_tax_code/section_132.catala_en-101"></a><span class="c1"># percentage ; we do not formalize them</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1400,17 +1400,17 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_132.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-114">114</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-115">115</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-116">116</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-117">117</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-118">118</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-119">119</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_132.catala_en-114" name="examples/us_tax_code/section_132.catala_en-114"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_132.catala_en-115" name="examples/us_tax_code/section_132.catala_en-115"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> <span class="o">&gt;=$</span> <span class="nv">employee_price</span>
-<a id="examples/us_tax_code/section_132.catala_en-116" name="examples/us_tax_code/section_132.catala_en-116"></a>
-<a id="examples/us_tax_code/section_132.catala_en-117" name="examples/us_tax_code/section_132.catala_en-117"></a>  <span class="kd">definition</span> <span class="nv">employee_discount</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_132.catala_en-118" name="examples/us_tax_code/section_132.catala_en-118"></a>    <span class="nv">customer_price</span> <span class="o">-$</span> <span class="nv">employee_price</span>
+<a id="examples/us_tax_code/section_132.catala_en-115" name="examples/us_tax_code/section_132.catala_en-115"></a><span class="kd">scope</span> <span class="nc">QualifiedEmployeeDiscount</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_132.catala_en-116" name="examples/us_tax_code/section_132.catala_en-116"></a>  <span class="kd">assertion</span> <span class="nv">customer_price</span> <span class="o">&gt;=$</span> <span class="nv">employee_price</span>
+<a id="examples/us_tax_code/section_132.catala_en-117" name="examples/us_tax_code/section_132.catala_en-117"></a>
+<a id="examples/us_tax_code/section_132.catala_en-118" name="examples/us_tax_code/section_132.catala_en-118"></a>  <span class="kd">definition</span> <span class="nv">employee_discount</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_132.catala_en-119" name="examples/us_tax_code/section_132.catala_en-119"></a>    <span class="nv">customer_price</span> <span class="o">-$</span> <span class="nv">employee_price</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1422,11 +1422,11 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_132.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-130">130</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-131">131</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_132.catala_en-132">132</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_132.catala_en-130" name="examples/us_tax_code/section_132.catala_en-130"></a><span class="c1"># Again, this is for subjectively determining what item qualifies for a</span>
-<a id="examples/us_tax_code/section_132.catala_en-131" name="examples/us_tax_code/section_132.catala_en-131"></a><span class="c1"># discount, not formalizing</span>
+<a id="examples/us_tax_code/section_132.catala_en-131" name="examples/us_tax_code/section_132.catala_en-131"></a><span class="c1"># Again, this is for subjectively determining what item qualifies for a</span>
+<a id="examples/us_tax_code/section_132.catala_en-132" name="examples/us_tax_code/section_132.catala_en-132"></a><span class="c1"># discount, not formalizing</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1507,7 +1507,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-42">42</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-43">43</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-44">44</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-45">45</a></span>
@@ -1518,18 +1517,19 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-50">50</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-51">51</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-52">52</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-53">53</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-42" name="examples/us_tax_code/section_1015.catala_en-42"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-43" name="examples/us_tax_code/section_1015.catala_en-43"></a>  <span class="kd">definition</span> <span class="nv">basis_subsection_a</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-44" name="examples/us_tax_code/section_1015.catala_en-44"></a>    <span class="kr">if</span> <span class="nv">transferor</span><span class="o">.</span>basis <span class="o">&gt;=</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
-<a id="examples/us_tax_code/section_1015.catala_en-45" name="examples/us_tax_code/section_1015.catala_en-45"></a>      <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
-<a id="examples/us_tax_code/section_1015.catala_en-46" name="examples/us_tax_code/section_1015.catala_en-46"></a>    <span class="kr">else</span>
-<a id="examples/us_tax_code/section_1015.catala_en-47" name="examples/us_tax_code/section_1015.catala_en-47"></a>      <span class="nv">transferor</span><span class="o">.</span>basis
-<a id="examples/us_tax_code/section_1015.catala_en-48" name="examples/us_tax_code/section_1015.catala_en-48"></a>
-<a id="examples/us_tax_code/section_1015.catala_en-49" name="examples/us_tax_code/section_1015.catala_en-49"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_1015.catala_en-50" name="examples/us_tax_code/section_1015.catala_en-50"></a>    <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-51" name="examples/us_tax_code/section_1015.catala_en-51"></a>    <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span>
-<a id="examples/us_tax_code/section_1015.catala_en-52" name="examples/us_tax_code/section_1015.catala_en-52"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="nv">basis_subsection_a</span>
+<a id="examples/us_tax_code/section_1015.catala_en-43" name="examples/us_tax_code/section_1015.catala_en-43"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-44" name="examples/us_tax_code/section_1015.catala_en-44"></a>  <span class="kd">definition</span> <span class="nv">basis_subsection_a</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-45" name="examples/us_tax_code/section_1015.catala_en-45"></a>    <span class="kr">if</span> <span class="nv">transferor</span><span class="o">.</span>basis <span class="o">&gt;=</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
+<a id="examples/us_tax_code/section_1015.catala_en-46" name="examples/us_tax_code/section_1015.catala_en-46"></a>      <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a id="examples/us_tax_code/section_1015.catala_en-47" name="examples/us_tax_code/section_1015.catala_en-47"></a>    <span class="kr">else</span>
+<a id="examples/us_tax_code/section_1015.catala_en-48" name="examples/us_tax_code/section_1015.catala_en-48"></a>      <span class="nv">transferor</span><span class="o">.</span>basis
+<a id="examples/us_tax_code/section_1015.catala_en-49" name="examples/us_tax_code/section_1015.catala_en-49"></a>
+<a id="examples/us_tax_code/section_1015.catala_en-50" name="examples/us_tax_code/section_1015.catala_en-50"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_1015.catala_en-51" name="examples/us_tax_code/section_1015.catala_en-51"></a>    <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-52" name="examples/us_tax_code/section_1015.catala_en-52"></a>    <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span>
+<a id="examples/us_tax_code/section_1015.catala_en-53" name="examples/us_tax_code/section_1015.catala_en-53"></a>  <span class="kd">consequence</span> <span class="kd">equals</span> <span class="nv">basis_subsection_a</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1537,7 +1537,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-66">66</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-67">67</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-68">68</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-69">69</a></span>
@@ -1545,15 +1544,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-71">71</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-72">72</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-73">73</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-74">74</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-66" name="examples/us_tax_code/section_1015.catala_en-66"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_1015.catala_en-67" name="examples/us_tax_code/section_1015.catala_en-67"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-68" name="examples/us_tax_code/section_1015.catala_en-68"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-69" name="examples/us_tax_code/section_1015.catala_en-69"></a>
-<a id="examples/us_tax_code/section_1015.catala_en-70" name="examples/us_tax_code/section_1015.catala_en-70"></a>  <span class="kd">definition</span> <span class="nv">transferor</span><span class="o">.</span>basis <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-71" name="examples/us_tax_code/section_1015.catala_en-71"></a>    <span class="kr">match</span> <span class="nv">transferor</span><span class="o">.</span>known_basis <span class="kr">with pattern</span>
-<a id="examples/us_tax_code/section_1015.catala_en-72" name="examples/us_tax_code/section_1015.catala_en-72"></a>    <span class="o">--</span> <span class="nc">Some</span> <span class="kr">of</span> <span class="nv">basis</span> <span class="o">:</span> <span class="nv">basis</span>
-<a id="examples/us_tax_code/section_1015.catala_en-73" name="examples/us_tax_code/section_1015.catala_en-73"></a>    <span class="o">--</span> <span class="nc">None</span> <span class="o">:</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">transferor</span><span class="o">.</span>acquisition.moment
+<a id="examples/us_tax_code/section_1015.catala_en-67" name="examples/us_tax_code/section_1015.catala_en-67"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_1015.catala_en-68" name="examples/us_tax_code/section_1015.catala_en-68"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-69" name="examples/us_tax_code/section_1015.catala_en-69"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-70" name="examples/us_tax_code/section_1015.catala_en-70"></a>
+<a id="examples/us_tax_code/section_1015.catala_en-71" name="examples/us_tax_code/section_1015.catala_en-71"></a>  <span class="kd">definition</span> <span class="nv">transferor</span><span class="o">.</span>basis <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-72" name="examples/us_tax_code/section_1015.catala_en-72"></a>    <span class="kr">match</span> <span class="nv">transferor</span><span class="o">.</span>known_basis <span class="kr">with pattern</span>
+<a id="examples/us_tax_code/section_1015.catala_en-73" name="examples/us_tax_code/section_1015.catala_en-73"></a>    <span class="o">--</span> <span class="nc">Some</span> <span class="kr">of</span> <span class="nv">basis</span> <span class="o">:</span> <span class="nv">basis</span>
+<a id="examples/us_tax_code/section_1015.catala_en-74" name="examples/us_tax_code/section_1015.catala_en-74"></a>    <span class="o">--</span> <span class="nc">None</span> <span class="o">:</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">transferor</span><span class="o">.</span>acquisition.moment
 </pre></div>
 </td></tr></table>
 </div>
@@ -1565,19 +1565,19 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-86">86</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-87">87</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-88">88</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-89">89</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-90">90</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-91">91</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-92">92</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-86" name="examples/us_tax_code/section_1015.catala_en-86"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_1015.catala_en-87" name="examples/us_tax_code/section_1015.catala_en-87"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-88" name="examples/us_tax_code/section_1015.catala_en-88"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Trust</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-89" name="examples/us_tax_code/section_1015.catala_en-89"></a>
-<a id="examples/us_tax_code/section_1015.catala_en-90" name="examples/us_tax_code/section_1015.catala_en-90"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-91" name="examples/us_tax_code/section_1015.catala_en-91"></a>    <span class="nv">transferor</span><span class="o">.</span>basis <span class="o">+</span> <span class="nv">transferor</span><span class="o">.</span>gain_or_loss <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a id="examples/us_tax_code/section_1015.catala_en-87" name="examples/us_tax_code/section_1015.catala_en-87"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_1015.catala_en-88" name="examples/us_tax_code/section_1015.catala_en-88"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-89" name="examples/us_tax_code/section_1015.catala_en-89"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Trust</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-90" name="examples/us_tax_code/section_1015.catala_en-90"></a>
+<a id="examples/us_tax_code/section_1015.catala_en-91" name="examples/us_tax_code/section_1015.catala_en-91"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-92" name="examples/us_tax_code/section_1015.catala_en-92"></a>    <span class="nv">transferor</span><span class="o">.</span>basis <span class="o">+</span> <span class="nv">transferor</span><span class="o">.</span>gain_or_loss <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
 </pre></div>
 </td></tr></table>
 </div>
@@ -1589,13 +1589,13 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-101">101</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-102">102</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-103">103</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-104">104</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-101" name="examples/us_tax_code/section_1015.catala_en-101"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&lt;=</span> ||<span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-102" name="examples/us_tax_code/section_1015.catala_en-102"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-103" name="examples/us_tax_code/section_1015.catala_en-103"></a>    <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a id="examples/us_tax_code/section_1015.catala_en-102" name="examples/us_tax_code/section_1015.catala_en-102"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&lt;=</span> ||<span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-103" name="examples/us_tax_code/section_1015.catala_en-103"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-104" name="examples/us_tax_code/section_1015.catala_en-104"></a>    <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
 </pre></div>
 </td></tr></table>
 </div>
@@ -1610,7 +1610,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-115">115</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-116">116</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-117">117</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-118">118</a></span>
@@ -1621,18 +1620,19 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-123">123</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-124">124</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-125">125</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-126">126</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-115" name="examples/us_tax_code/section_1015.catala_en-115"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_1015.catala_en-116" name="examples/us_tax_code/section_1015.catala_en-116"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;=</span> || <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-117" name="examples/us_tax_code/section_1015.catala_en-117"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-118" name="examples/us_tax_code/section_1015.catala_en-118"></a>
-<a id="examples/us_tax_code/section_1015.catala_en-119" name="examples/us_tax_code/section_1015.catala_en-119"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-120" name="examples/us_tax_code/section_1015.catala_en-120"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
-<a id="examples/us_tax_code/section_1015.catala_en-121" name="examples/us_tax_code/section_1015.catala_en-121"></a>      <span class="kr">if</span> <span class="nv">gift_tax_paid</span> <span class="o">&gt;=</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
-<a id="examples/us_tax_code/section_1015.catala_en-122" name="examples/us_tax_code/section_1015.catala_en-122"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
-<a id="examples/us_tax_code/section_1015.catala_en-123" name="examples/us_tax_code/section_1015.catala_en-123"></a>      <span class="kr">else</span>
-<a id="examples/us_tax_code/section_1015.catala_en-124" name="examples/us_tax_code/section_1015.catala_en-124"></a>        <span class="nv">gift_tax_paid</span>
-<a id="examples/us_tax_code/section_1015.catala_en-125" name="examples/us_tax_code/section_1015.catala_en-125"></a>    <span class="o">)</span>
+<a id="examples/us_tax_code/section_1015.catala_en-116" name="examples/us_tax_code/section_1015.catala_en-116"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_1015.catala_en-117" name="examples/us_tax_code/section_1015.catala_en-117"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;=</span> || <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-118" name="examples/us_tax_code/section_1015.catala_en-118"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-119" name="examples/us_tax_code/section_1015.catala_en-119"></a>
+<a id="examples/us_tax_code/section_1015.catala_en-120" name="examples/us_tax_code/section_1015.catala_en-120"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-121" name="examples/us_tax_code/section_1015.catala_en-121"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
+<a id="examples/us_tax_code/section_1015.catala_en-122" name="examples/us_tax_code/section_1015.catala_en-122"></a>      <span class="kr">if</span> <span class="nv">gift_tax_paid</span> <span class="o">&gt;=</span> <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="kr">then</span>
+<a id="examples/us_tax_code/section_1015.catala_en-123" name="examples/us_tax_code/section_1015.catala_en-123"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment
+<a id="examples/us_tax_code/section_1015.catala_en-124" name="examples/us_tax_code/section_1015.catala_en-124"></a>      <span class="kr">else</span>
+<a id="examples/us_tax_code/section_1015.catala_en-125" name="examples/us_tax_code/section_1015.catala_en-125"></a>        <span class="nv">gift_tax_paid</span>
+<a id="examples/us_tax_code/section_1015.catala_en-126" name="examples/us_tax_code/section_1015.catala_en-126"></a>    <span class="o">)</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1642,7 +1642,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-137">137</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-138">138</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-139">139</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-140">140</a></span>
@@ -1657,22 +1656,23 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-149">149</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-150">150</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-151">151</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-152">152</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-137" name="examples/us_tax_code/section_1015.catala_en-137"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_1015.catala_en-138" name="examples/us_tax_code/section_1015.catala_en-138"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&lt;</span> || <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-139" name="examples/us_tax_code/section_1015.catala_en-139"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span> <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-140" name="examples/us_tax_code/section_1015.catala_en-140"></a>  <span class="nv">acquisition</span><span class="o">.</span>no_sale_or_exchange_before<span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-141" name="examples/us_tax_code/section_1015.catala_en-141"></a>
-<a id="examples/us_tax_code/section_1015.catala_en-142" name="examples/us_tax_code/section_1015.catala_en-142"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-143" name="examples/us_tax_code/section_1015.catala_en-143"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
-<a id="examples/us_tax_code/section_1015.catala_en-144" name="examples/us_tax_code/section_1015.catala_en-144"></a>      <span class="kr">if</span>
-<a id="examples/us_tax_code/section_1015.catala_en-145" name="examples/us_tax_code/section_1015.catala_en-145"></a>        <span class="nv">gift_tax_paid</span> <span class="o">&gt;=</span>
-<a id="examples/us_tax_code/section_1015.catala_en-146" name="examples/us_tax_code/section_1015.catala_en-146"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
-<a id="examples/us_tax_code/section_1015.catala_en-147" name="examples/us_tax_code/section_1015.catala_en-147"></a>      <span class="kr">then</span>
-<a id="examples/us_tax_code/section_1015.catala_en-148" name="examples/us_tax_code/section_1015.catala_en-148"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
-<a id="examples/us_tax_code/section_1015.catala_en-149" name="examples/us_tax_code/section_1015.catala_en-149"></a>      <span class="kr">else</span>
-<a id="examples/us_tax_code/section_1015.catala_en-150" name="examples/us_tax_code/section_1015.catala_en-150"></a>        <span class="nv">gift_tax_paid</span>
-<a id="examples/us_tax_code/section_1015.catala_en-151" name="examples/us_tax_code/section_1015.catala_en-151"></a>    <span class="o">)</span>
+<a id="examples/us_tax_code/section_1015.catala_en-138" name="examples/us_tax_code/section_1015.catala_en-138"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_1015.catala_en-139" name="examples/us_tax_code/section_1015.catala_en-139"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&lt;</span> || <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-140" name="examples/us_tax_code/section_1015.catala_en-140"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span> <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-141" name="examples/us_tax_code/section_1015.catala_en-141"></a>  <span class="nv">acquisition</span><span class="o">.</span>no_sale_or_exchange_before<span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-142" name="examples/us_tax_code/section_1015.catala_en-142"></a>
+<a id="examples/us_tax_code/section_1015.catala_en-143" name="examples/us_tax_code/section_1015.catala_en-143"></a>  <span class="kd">definition</span> <span class="nv">basis</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-144" name="examples/us_tax_code/section_1015.catala_en-144"></a>    <span class="nv">basis_subsection_a</span> <span class="o">+</span> <span class="o">(</span>
+<a id="examples/us_tax_code/section_1015.catala_en-145" name="examples/us_tax_code/section_1015.catala_en-145"></a>      <span class="kr">if</span>
+<a id="examples/us_tax_code/section_1015.catala_en-146" name="examples/us_tax_code/section_1015.catala_en-146"></a>        <span class="nv">gift_tax_paid</span> <span class="o">&gt;=</span>
+<a id="examples/us_tax_code/section_1015.catala_en-147" name="examples/us_tax_code/section_1015.catala_en-147"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
+<a id="examples/us_tax_code/section_1015.catala_en-148" name="examples/us_tax_code/section_1015.catala_en-148"></a>      <span class="kr">then</span>
+<a id="examples/us_tax_code/section_1015.catala_en-149" name="examples/us_tax_code/section_1015.catala_en-149"></a>        <span class="nv">value</span><span class="o">.</span>fair_market <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
+<a id="examples/us_tax_code/section_1015.catala_en-150" name="examples/us_tax_code/section_1015.catala_en-150"></a>      <span class="kr">else</span>
+<a id="examples/us_tax_code/section_1015.catala_en-151" name="examples/us_tax_code/section_1015.catala_en-151"></a>        <span class="nv">gift_tax_paid</span>
+<a id="examples/us_tax_code/section_1015.catala_en-152" name="examples/us_tax_code/section_1015.catala_en-152"></a>    <span class="o">)</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1684,11 +1684,11 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-170">170</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-171">171</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-172">172</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-170" name="examples/us_tax_code/section_1015.catala_en-170"></a><span class="c1"># We don&#39;t formalize the amount of gift tax since it would require</span>
-<a id="examples/us_tax_code/section_1015.catala_en-171" name="examples/us_tax_code/section_1015.catala_en-171"></a><span class="c1">#formalizing other sections of the code</span>
+<a id="examples/us_tax_code/section_1015.catala_en-171" name="examples/us_tax_code/section_1015.catala_en-171"></a><span class="c1"># We don&#39;t formalize the amount of gift tax since it would require</span>
+<a id="examples/us_tax_code/section_1015.catala_en-172" name="examples/us_tax_code/section_1015.catala_en-172"></a><span class="c1">#formalizing other sections of the code</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1700,9 +1700,9 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-183">183</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-184">184</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-183" name="examples/us_tax_code/section_1015.catala_en-183"></a><span class="c1"># Same here</span>
+<a id="examples/us_tax_code/section_1015.catala_en-184" name="examples/us_tax_code/section_1015.catala_en-184"></a><span class="c1"># Same here</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1714,9 +1714,9 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-192">192</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-193">193</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-192" name="examples/us_tax_code/section_1015.catala_en-192"></a><span class="c1"># Same here</span>
+<a id="examples/us_tax_code/section_1015.catala_en-193" name="examples/us_tax_code/section_1015.catala_en-193"></a><span class="c1"># Same here</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1728,9 +1728,9 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-203">203</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-204">204</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-203" name="examples/us_tax_code/section_1015.catala_en-203"></a><span class="c1"># Same here</span>
+<a id="examples/us_tax_code/section_1015.catala_en-204" name="examples/us_tax_code/section_1015.catala_en-204"></a><span class="c1"># Same here</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1749,7 +1749,6 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-220">220</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-221">221</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-222">222</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-223">223</a></span>
@@ -1758,16 +1757,17 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-226">226</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-227">227</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-228">228</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-229">229</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-220" name="examples/us_tax_code/section_1015.catala_en-220"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
-<a id="examples/us_tax_code/section_1015.catala_en-221" name="examples/us_tax_code/section_1015.catala_en-221"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
-<a id="examples/us_tax_code/section_1015.catala_en-222" name="examples/us_tax_code/section_1015.catala_en-222"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-223" name="examples/us_tax_code/section_1015.catala_en-223"></a>
-<a id="examples/us_tax_code/section_1015.catala_en-224" name="examples/us_tax_code/section_1015.catala_en-224"></a>  <span class="kd">definition</span> <span class="nv">basis_bonus_after_1976</span> <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-225" name="examples/us_tax_code/section_1015.catala_en-225"></a>    <span class="nv">gift_tax_paid</span> <span class="o">*</span> <span class="o">(</span>
-<a id="examples/us_tax_code/section_1015.catala_en-226" name="examples/us_tax_code/section_1015.catala_en-226"></a>      <span class="nv">value</span><span class="o">.</span>net_appreciation <span class="o">/</span>
-<a id="examples/us_tax_code/section_1015.catala_en-227" name="examples/us_tax_code/section_1015.catala_en-227"></a>      <span class="nv">value</span><span class="o">.</span>last_acquisition<span class="c1"> # is it really? &quot;amount&quot; is imprecise</span>
-<a id="examples/us_tax_code/section_1015.catala_en-228" name="examples/us_tax_code/section_1015.catala_en-228"></a>    <span class="o">)</span>
+<a id="examples/us_tax_code/section_1015.catala_en-221" name="examples/us_tax_code/section_1015.catala_en-221"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span> <span class="kd">under condition</span>
+<a id="examples/us_tax_code/section_1015.catala_en-222" name="examples/us_tax_code/section_1015.catala_en-222"></a>  <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">&gt;</span> || <span class="o">and</span>
+<a id="examples/us_tax_code/section_1015.catala_en-223" name="examples/us_tax_code/section_1015.catala_en-223"></a>  <span class="nv">acquisition</span><span class="o">.</span>method <span class="o">=</span> <span class="nc">Gift</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-224" name="examples/us_tax_code/section_1015.catala_en-224"></a>
+<a id="examples/us_tax_code/section_1015.catala_en-225" name="examples/us_tax_code/section_1015.catala_en-225"></a>  <span class="kd">definition</span> <span class="nv">basis_bonus_after_1976</span> <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-226" name="examples/us_tax_code/section_1015.catala_en-226"></a>    <span class="nv">gift_tax_paid</span> <span class="o">*</span> <span class="o">(</span>
+<a id="examples/us_tax_code/section_1015.catala_en-227" name="examples/us_tax_code/section_1015.catala_en-227"></a>      <span class="nv">value</span><span class="o">.</span>net_appreciation <span class="o">/</span>
+<a id="examples/us_tax_code/section_1015.catala_en-228" name="examples/us_tax_code/section_1015.catala_en-228"></a>      <span class="nv">value</span><span class="o">.</span>last_acquisition<span class="c1"> # is it really? &quot;amount&quot; is imprecise</span>
+<a id="examples/us_tax_code/section_1015.catala_en-229" name="examples/us_tax_code/section_1015.catala_en-229"></a>    <span class="o">)</span>
 </pre></div>
 </td></tr></table>
 </div>
@@ -1779,13 +1779,13 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-238">238</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-239">239</a></span>
 <span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-240">240</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-241">241</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-238" name="examples/us_tax_code/section_1015.catala_en-238"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
-<a id="examples/us_tax_code/section_1015.catala_en-239" name="examples/us_tax_code/section_1015.catala_en-239"></a>  <span class="kd">definition</span> <span class="nv">value</span><span class="o">.</span>net_appreciation <span class="kd">equals</span>
-<a id="examples/us_tax_code/section_1015.catala_en-240" name="examples/us_tax_code/section_1015.catala_en-240"></a>    <span class="nv">value</span><span class="o">.</span>fair_market_value <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
+<a id="examples/us_tax_code/section_1015.catala_en-239" name="examples/us_tax_code/section_1015.catala_en-239"></a><span class="kd">scope</span> <span class="nc">BasisOfGift</span><span class="o">:</span>
+<a id="examples/us_tax_code/section_1015.catala_en-240" name="examples/us_tax_code/section_1015.catala_en-240"></a>  <span class="kd">definition</span> <span class="nv">value</span><span class="o">.</span>net_appreciation <span class="kd">equals</span>
+<a id="examples/us_tax_code/section_1015.catala_en-241" name="examples/us_tax_code/section_1015.catala_en-241"></a>    <span class="nv">value</span><span class="o">.</span>fair_market_value <span class="kr">of</span> <span class="nv">acquisition</span><span class="o">.</span>moment <span class="o">-</span> <span class="nv">transferor</span><span class="o">.</span>basis
 </pre></div>
 </td></tr></table>
 </div>
@@ -1797,9 +1797,9 @@ Source files weaved in this document:
 <div class='code-wrapper'>
 <div class='filename'>examples/us_tax_code/section_1015.catala_en</div>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-250">250</a></span>
+<span class="normal"><a href="#examples/us_tax_code/section_1015.catala_en-251">251</a></span>
 </pre></div></td><td class="code"><div class="highlight"><pre>
-<a id="examples/us_tax_code/section_1015.catala_en-250" name="examples/us_tax_code/section_1015.catala_en-250"></a><span class="c1"># Same here</span>
+<a id="examples/us_tax_code/section_1015.catala_en-251" name="examples/us_tax_code/section_1015.catala_en-251"></a><span class="c1"># Same here</span>
 </pre></div>
 </td></tr></table>
 </div>
