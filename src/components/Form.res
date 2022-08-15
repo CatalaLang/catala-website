@@ -39,7 +39,14 @@ const readFileAsJSON = (file, callback) => {
   var contents = ""
   reader.onload = function(evt) {
     contents = evt.target.result;
-    callback(JSON.parse(contents));
+    var json;
+    try {
+      json = JSON.parse(contents)
+    } catch (error) {
+      console.log(error)
+      json = null;
+    }
+    callback(json);
   };
   reader.readAsText(file);
 };
@@ -57,6 +64,7 @@ module Make = (
     let resultLabel: React.element
 
     let initFormData: option<Js.Json.t>
+    let formDataPostProcessing: option<Js.Json.t => Js.Json.t>
     let computeAndPrintResult: Js.Json.t => React.element
   },
 ) => {
@@ -145,7 +153,18 @@ module Make = (
             ~french=FormInfos.frenchUiSchema,
           )}
           formData={formData->Belt.Option.getWithDefault(Js.Json.null)}
-          onSubmit={t => setFormData(_ => t->Js.Dict.get("formData"))}
+          onSubmit={t =>
+            setFormData(_ => {
+              let formData = t->Js.Dict.get("formData")
+              switch (FormInfos.formDataPostProcessing, formData) {
+              | (Some(f), Some(formData)) => {
+                  let newFormData = f(formData)
+                  Some(newFormData)
+                }
+
+              | _ => formData
+              }
+            })}
         />
         <div
           className=%twc(

@@ -445,10 +445,6 @@
     "enfant_a_charge": {
       "type": "object",
       "properties": {
-        "identifiant": {
-          "type": "number",
-          "default": 0
-        },
         "beneficieTitrePersonnelAidePersonnelleLogement": {
           "type": "boolean",
           "default": false

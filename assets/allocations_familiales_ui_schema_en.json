@@ -4,9 +4,6 @@
   },
   "iEnfantsIn": {
     "items": {
-      "dIdentifiant": {
-        "ui:description": "Child's identifier must be unique (to distinguish them)."
-      },
       "dRemunerationMensuelle": {
         "ui:help": "Declarative value, same as the household's yearly income."
       },

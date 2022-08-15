@@ -78,9 +78,6 @@
         "personnesACharge": {
             "items": {
                 "payload": {
-                    "identifiant": {
-                        "ui:description": "L'identifiant de l'enfant doit être unique (pour les distinguer)."
-                    },
                     "obligationScolaire": {
                         "ui:help": "L'obligation scolaire d'un enfant est régie par les articles L131-1 à L131-13 du code de l'éducation."
                     },

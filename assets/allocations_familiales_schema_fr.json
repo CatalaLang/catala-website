@@ -11,65 +11,47 @@
           "anyOf": [
             {
               "type": "string",
-              "enum": [
-                "Guadeloupe"
-              ],
+              "enum": ["Guadeloupe"],
               "title": "Guadeloupe"
             },
             {
               "type": "string",
-              "enum": [
-                "Guyane"
-              ],
+              "enum": ["Guyane"],
               "title": "Guyane"
             },
             {
               "type": "string",
-              "enum": [
-                "Martinique"
-              ],
+              "enum": ["Martinique"],
               "title": "Martinique"
             },
             {
               "type": "string",
-              "enum": [
-                "LaReunion"
-              ],
+              "enum": ["LaReunion"],
               "title": "La Réunion"
             },
             {
               "type": "string",
-              "enum": [
-                "SaintBarthelemy"
-              ],
+              "enum": ["SaintBarthelemy"],
               "title": "Saint Barthélemy"
             },
             {
               "type": "string",
-              "enum": [
-                "SaintMartin"
-              ],
+              "enum": ["SaintMartin"],
               "title": "Saint Martin"
             },
             {
               "type": "string",
-              "enum": [
-                "Metropole"
-              ],
+              "enum": ["Metropole"],
               "title": "Métropole"
             },
             {
               "type": "string",
-              "enum": [
-                "SaintPierreEtMiquelon"
-              ],
+              "enum": ["SaintPierreEtMiquelon"],
               "title": "Saint Pierre et Miquelon"
             },
             {
               "type": "string",
-              "enum": [
-                "Mayotte"
-              ],
+              "enum": ["Mayotte"],
               "title": "Mayotte"
             }
           ]
@@ -84,11 +66,6 @@
     "enfant_entree": {
       "type": "object",
       "properties": {
-        "dIdentifiant": {
-          "title": "Identifiant de l'enfant",
-          "type": "number",
-          "default": 0
-        },
         "dRemunerationMensuelle": {
           "title": "Rémunération mensuelle de l'enfant",
           "type": "number",
@@ -115,11 +92,7 @@
           "default": false
         }
       },
-      "required": [
-        "dIdentifiant",
-        "dRemunerationMensuelle",
-        "dDateDeNaissance"
-      ]
+      "required": ["dRemunerationMensuelle", "dDateDeNaissance"]
     },
     "prise_en_charge": {
       "type": "object",
@@ -131,37 +104,27 @@
           "anyOf": [
             {
               "type": "string",
-              "enum": [
-                "GardeAlterneePartageAllocations"
-              ],
+              "enum": ["GardeAlterneePartageAllocations"],
               "title": "Garde alternée, partage des allocations"
             },
             {
               "type": "string",
-              "enum": [
-                "GardeAlterneeAllocataireUnique"
-              ],
+              "enum": ["GardeAlterneeAllocataireUnique"],
               "title": "Garde alternée, allocataire unique"
             },
             {
               "type": "string",
-              "enum": [
-                "EffectiveEtPermanente"
-              ],
+              "enum": ["EffectiveEtPermanente"],
               "title": "Effective et permanente"
             },
             {
               "type": "string",
-              "enum": [
-                "ServicesSociauxAllocationVerseeALaFamille"
-              ],
+              "enum": ["ServicesSociauxAllocationVerseeALaFamille"],
               "title": "Confié aux services sociaux, allocation vérsée à la famille"
             },
             {
               "type": "string",
-              "enum": [
-                "ServicesSociauxAllocationVerseeAuxServicesSociaux"
-              ],
+              "enum": ["ServicesSociauxAllocationVerseeAuxServicesSociaux"],
               "title": "Confié aux services sociaux, allocation vérsée aux services sociaux"
             }
           ]

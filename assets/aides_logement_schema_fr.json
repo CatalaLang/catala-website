@@ -403,10 +403,6 @@
         "identifiant"
       ],
       "properties": {
-        "identifiant": {
-          "title": "Identifiant",
-          "type": "number"
-        },
         "beneficieTitrePersonnelAidePersonnelleLogement": {
           "title": "L'enfant béneficie à titre personnel des aides au logement",
           "type": "boolean",

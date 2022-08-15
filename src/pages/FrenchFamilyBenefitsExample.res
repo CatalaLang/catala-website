@@ -15,7 +15,17 @@ module FormInfos = {
   let frenchUiSchema = %raw(`require("../../assets/allocations_familiales_ui_schema_fr.json")`)
 
   let initFormData = None
-
+  // This function automatically assigns numerical ID to kids so we don't
+  // have to ask the question in the form
+  let formDataPostProcessing = %raw(`
+function (data) {
+   var i = 0;
+   for (var enfant of data.iEnfantsIn) {
+     enfant.dIdentifiant = i;
+     i++;
+   }
+   return data;
+}`)
   let resultLabel =
     <Lang.String
       english="Family benefits monthly amount:"
