@@ -118,7 +118,7 @@
         },
         "payload": {
             "loyerPrincipal": {
-                "ui:help": "L'article L823-3 du code de la construction et de l'habitation, notamment ses alinéas 4° et 6°, liste des sommes assimilables à des loyers pour des cas particuliers."
+                "ui:help": "L'article L823-3 du code de la construction et de l'habitation, notamment ses alinéas 4° et 6°, liste des sommes assimilables à des loyers pour des cas particuliers. Les articles D842-2, D842-3 et D823-18 donnent également d'autres renseignements, mais l'article D842-2 est déjà pris en compte (pas la peine d'appliquer le coefficient de D842-2)."
             },
             "beneficiaireAideAdulteOuEnfantHandicapes": {
                 "ui:help": "Ces allocations sont respectivement prévues par l'article L821-1 du code de la sécurité sociale et l'article L541-1 du même code."
