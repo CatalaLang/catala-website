@@ -370,11 +370,6 @@
           "type": "boolean",
           "default": true
         },
-        "ageDemandeur": {
-          "title": "Âge du demandeur",
-          "type": "number",
-          "default": 0
-        },
         "dateNaissance": {
           "title": "Date de naissance du demandeur",
           "type": "string",
@@ -398,8 +393,7 @@
     "enfant_a_charge": {
       "type": "object",
       "required": [
-        "dateDeNaissance",
-        "age"
+        "dateDeNaissance"
       ],
       "properties": {
         "beneficieTitrePersonnelAidePersonnelleLogement": {
@@ -430,10 +424,6 @@
         "priseEnCharge": {
           "title": " ",
           "$ref": "#/definitions/prise_en_charge"
-        },
-        "age": {
-          "title": "Âge de l'enfant",
-          "type": "number"
         },
         "situationGardeAlternee": {
           "title": " ",
@@ -1242,9 +1232,9 @@
     "personne_sous_location": {
       "type": "object",
       "properties": {
-        "agePersonneSousLocation": {
-          "type": "number",
-          "default": 0
+        "dateNaissancePersonneSousLocation": {
+          "type": "string",
+          "format": "date"
         },
         "conformeArticleL4421": {
           "type": "boolean",

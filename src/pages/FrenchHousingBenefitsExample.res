@@ -77,7 +77,6 @@ module FormInfos = {
           "beneficiaireL16119L3518L6433Secu": false,
           "titulaireAllocationPersonneAgee": false,
           "dateDeNaissance": "2015-01-01",
-          "age": 7,
           "identifiant": 0
         }
       },
@@ -96,7 +95,6 @@ module FormInfos = {
           "beneficiaireL16119L3518L6433Secu": false,
           "titulaireAllocationPersonneAgee": false,
           "dateDeNaissance": "2016-01-01",
-          "age": 6,
           "identifiant": 1
         }
       }
@@ -113,7 +111,6 @@ module FormInfos = {
   },
   "demandeurIn": {
     "satisfaitConditionsL5122CodeSecuriteSociale": true,
-    "ageDemandeur": 30,
     "nationalite": { "kind": "Francaise" },
     "patrimoine": {
       "produisantRevenuPeriodeR82233R8224": 0,

@@ -401,10 +401,6 @@
       "type": "boolean",
       "default": false
     },
-    "ageDemandeur": {
-      "type": "number",
-      "default": 0
-    },
     "dateNaissance": {
       "type": "string",
       "format": "date"
@@ -450,10 +446,6 @@
     },
     "priseEnCharge": {
       "$ref": "#/definitions/prise_en_charge"
-    },
-    "age": {
-      "type": "number",
-      "default": 0
     },
     "situationGardeAlternee": {
       "$ref": "#/definitions/situation_garde_alternee"
@@ -1228,9 +1220,9 @@
 "personne_sous_location": {
   "type": "object",
   "properties": {
-    "agePersonneSousLocation": {
-      "type": "number",
-      "default": 0
+    "dateNaissancePersonneSousLocation": {
+      "type": "string",
+      "format": "date"
     },
     "conformeArticleL4421": {
       "type": "boolean",
