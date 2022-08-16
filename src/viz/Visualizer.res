@@ -308,12 +308,7 @@ module MakeLogEventComponent = (
         <CollapsibleItem idsOpt headerContent headerValueOpt kindIcon>
           <Flex.Column.AlignLeft>
             <div className=%twc("max-h-80 overflow-y-scroll rounded-b")>
-              <div
-                className="catala-code"
-                dangerouslySetInnerHTML={
-                  "__html": Infos.catalaCodeHTML,
-                }
-              />
+              <CatalaCode.DangerouslySetInnerHtml html=Infos.catalaCodeHTML />
             </div>
             {varDef.fun_calls->Belt.Option.mapWithDefault(<> </>, funCalls => {
               <div className=%twc("w-full px-4 pb-4 border border-gray border-t")>
