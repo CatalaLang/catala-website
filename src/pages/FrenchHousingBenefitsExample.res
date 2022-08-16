@@ -22,126 +22,120 @@ module FormInfos = {
   let initFormData = Some(
     %raw(`
 {
-  "menageIn": {
-    "prestationsRecues": [],
-    "logement": {
-      "residencePrincipale": true,
-      "estEhpadOuMaisonAutonomieL31312Asf": false,
-      "modeOccupation": {
-        "kind": "Locataire",
-        "payload": {
-          "bailleur": {
-            "typeBailleur": { "kind": "BailleurPrive" },
-            "respecteConventionTitreV": true,
-            "respecteConventionTitreII": true,
-            "construitAmelioreConditionsL83114": false,
-            "acquisitionAidesEtatPretTitreIIOuLivreIII": false
-          },
-          "typeUser": { "kind": "Autre" },
-          "location": {
-            "bailleur": {
-              "typeBailleur": { "kind": "BailleurPrive" },
-              "respecteConventionTitreV": true,
-              "respecteConventionTitreII": true,
-              "construitAmelioreConditionsL83114": false,
-              "acquisitionAidesEtatPretTitreIIOuLivreIII": false
+    "menageIn": {
+        "prestationsRecues": [],
+        "logement": {
+            "residencePrincipale": true,
+            "estEhpadOuMaisonAutonomieL31312Asf": false,
+            "modeOccupation": {
+                "kind": "Locataire",
+                "payload": {
+                    "bailleur": {
+                        "typeBailleur": {
+                            "kind": "BailleurPrive"
+                        },
+                        "respecteConventionTitreV": true,
+                        "respecteConventionTitreII": true,
+                        "construitAmelioreConditionsL83114": false,
+                        "acquisitionAidesEtatPretTitreIIOuLivreIII": false
+                    },
+                    "beneficiaireAideAdulteOuEnfantHandicapes": false,
+                    "logementEstChambre": false,
+                    "colocation": false,
+                    "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": false,
+                    "reductionLoyerSolidarite": 0,
+                    "logementMeubleD8422": false,
+                    "changementLogementD8424": {
+                        "kind": "PasDeChangement",
+                        "payload": null
+                    },
+                    "loyerPrincipal": 450
+                }
+            },
+            "proprietaire": {
+                "kind": "Autre",
+                "payload": null
+            },
+            "loueOuSousLoueADesTiers": {
+                "kind": "Non"
+            },
+            "usufruit": {
+                "kind": "Autre",
+                "payload": null
+            },
+            "logementDecentL89462": true,
+            "zone": {
+                "kind": "Zone2"
+            },
+            "surfaceMCarres": 65
+        },
+        "personnesACharge": [
+            {
+                "kind": "EnfantACharge",
+                "payload": {
+                    "beneficieTitrePersonnelAidePersonnelleLogement": false,
+                    "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+                    "remunerationMensuelle": 0,
+                    "obligationScolaire": {
+                        "kind": "Pendant"
+                    },
+                    "priseEnCharge": {
+                        "kind": "EffectiveEtPermanente"
+                    },
+                    "situationGardeAlternee": {
+                        "kind": "PasDeGardeAlternee"
+                    },
+                    "dateDeNaissance": "2015-01-01",
+                    "identifiant": 0
+                }
+            },
+            {
+                "kind": "EnfantACharge",
+                "payload": {
+                    "beneficieTitrePersonnelAidePersonnelleLogement": false,
+                    "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+                    "remunerationMensuelle": 0,
+                    "obligationScolaire": {
+                        "kind": "Pendant"
+                    },
+                    "priseEnCharge": {
+                        "kind": "EffectiveEtPermanente"
+                    },
+                    "situationGardeAlternee": {
+                        "kind": "PasDeGardeAlternee"
+                    },
+                    "dateDeNaissance": "2016-01-01",
+                    "identifiant": 1
+                }
             }
-          },
-          "remplitConditionsR83221": false,
-          "construitApplicationLoi195712III": false,
-          "logementEstAncienL8312": false,
-          "logementSitueCommuneDesequilibreL8312": false,
-          "pret": { "typePret": {}, "titulairePret": {} }
+        ],
+        "nombreAutresOccupantsLogement": 0,
+        "situationFamiliale": {
+            "kind": "Concubins",
+            "payload": null
+        },
+        "conditionRattacheFoyerFiscalParentIfi": false,
+        "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": 0,
+        "enfantANaitreApresQuatriemeMoisGrossesse": false,
+        "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
+            "kind": "MoinsDeTroisEnfants",
+            "payload": null
         }
-      },
-      "proprietaire": { "kind": "Autre", "payload": null },
-      "loueOuSousLoueADesTiers": { "kind": "Non" },
-      "usufruit": { "kind": "Autre", "payload": null },
-      "logementDecentL89462": true,
-      "zone": { "kind": "Zone2" },
-      "surfaceMCarres": 65
     },
-    "personnesACharge": [
-      {
-        "kind": "EnfantACharge",
-        "payload": {
-          "beneficieTitrePersonnelAidePersonnelleLogement": false,
-          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
-          "remunerationMensuelle": 0,
-          "obligationScolaire": { "kind": "Pendant" },
-          "priseEnCharge": { "kind": "EffectiveEtPermanente" },
-          "situationGardeAlternee": { "kind": "PasDeGardeAlternee" },
-          "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": true,
-          "parente": { "kind": "Ascendant" },
-          "incapacite80PourcentOuRestrictionEmploi": false,
-          "beneficiaireL16119L3518L6433Secu": false,
-          "titulaireAllocationPersonneAgee": false,
-          "dateDeNaissance": "2015-01-01",
-          "identifiant": 0
-        }
-      },
-      {
-        "kind": "EnfantACharge",
-        "payload": {
-          "beneficieTitrePersonnelAidePersonnelleLogement": false,
-          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
-          "remunerationMensuelle": 0,
-          "obligationScolaire": { "kind": "Pendant" },
-          "priseEnCharge": { "kind": "EffectiveEtPermanente" },
-          "situationGardeAlternee": { "kind": "PasDeGardeAlternee" },
-          "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": true,
-          "parente": { "kind": "Ascendant" },
-          "incapacite80PourcentOuRestrictionEmploi": false,
-          "beneficiaireL16119L3518L6433Secu": false,
-          "titulaireAllocationPersonneAgee": false,
-          "dateDeNaissance": "2016-01-01",
-          "identifiant": 1
-        }
-      }
-    ],
-    "nombreAutresOccupantsLogement": 0,
-    "situationFamiliale": { "kind": "Concubins", "payload": null },
-    "conditionRattacheFoyerFiscalParentIfi": false,
-    "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": 0,
-    "enfantANaitreApresQuatriemeMoisGrossesse": false,
-    "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
-      "kind": "MoinsDeTroisEnfants",
-      "payload": null
-    }
-  },
-  "demandeurIn": {
-    "satisfaitConditionsL5122CodeSecuriteSociale": true,
-    "nationalite": { "kind": "Francaise" },
-    "patrimoine": {
-      "produisantRevenuPeriodeR82233R8224": 0,
-      "neProduisantPasRevenuPeriodeR82233R8224": 0
+    "demandeurIn": {
+        "satisfaitConditionsL5122CodeSecuriteSociale": true,
+        "nationalite": {
+            "kind": "Francaise"
+        },
+        "patrimoine": {
+            "produisantRevenuPeriodeR82233R8224": 0,
+            "neProduisantPasRevenuPeriodeR82233R8224": 0
+        },
+        "personneHebergeeCentreSoinLL162223SecuriteSociale": false,
+        "dateNaissance": "1992-01-01"
     },
-    "personneHebergeeCentreSoinLL162223SecuriteSociale": false,
-    "dateNaissance": "1992-01-01"
-  },
-  "informationsCalculIn": {
-    "kind": "InfosLocatif",
-    "payload": {
-      "beneficiaireAideAdulteOuEnfantHandicapes": false,
-      "logementEstChambre": false,
-      "colocation": false,
-      "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": false,
-      "reductionLoyerSolidarite": 0,
-      "logementMeubleD8422": false,
-      "changementLogementD8424": { "kind": "PasDeChangement", "payload": null },
-      "redevance": 0,
-      "categorieEquivalenceLoyerD84216": { "kind": "AutresPersonnes" },
-      "typeTravauxLogementD83215": { "kind": "PasDeTravaux" },
-      "typeTravauxLogementR8425": { "kind": "PasDeTravaux" },
-      "localHabitePremiereFoisBeneficiaire": false,
-      "copropriete": false,
-      "situationR822111317": false,
-      "ancienneteLogement": { "kind": "Neuf" },
-      "loyerPrincipal": 450
-    }
-  },
-  "dateCouranteIn": "2022-05-01",
-  "ressourcesMenagePrisesEnCompteIn": 11500
+    "dateCouranteIn": "2022-05-01",
+    "ressourcesMenagePrisesEnCompteIn": 11500
 }
 `),
   )

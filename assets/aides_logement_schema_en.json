@@ -125,13 +125,13 @@
             {
               "type": "string",
               "enum": [
-                "EtudiantLogeEnChambre"
+                "EtudiantLogeEnChambreCROUS"
               ]
             },
             {
               "type": "string",
               "enum": [
-                "EtudiantLogeEnChambreRehabilitee"
+                "EtudiantLogeEnChambreCROUSRehabilitee"
               ]
             },
             {
@@ -154,7 +154,7 @@
           "if": {
             "properties": {
               "kind": {
-                "const": "EtudiantLogeEnChambre"
+                "const": "EtudiantLogeEnChambreCROUS"
               }
             }
           },
@@ -171,7 +171,7 @@
           "if": {
             "properties": {
               "kind": {
-                "const": "EtudiantLogeEnChambreRehabilitee"
+                "const": "EtudiantLogeEnChambreCROUSRehabilitee"
               }
             }
           },
@@ -441,6 +441,10 @@
     "enfant_a_charge": {
       "type": "object",
       "properties": {
+        "identifiant": {
+          "type": "number",
+          "default": 0
+        },
         "beneficieTitrePersonnelAidePersonnelleLogement": {
           "type": "boolean",
           "default": false
@@ -469,127 +473,27 @@
         }
       }
     },
-    "informations_calcul_a_p_l": {
+    "infos_changement_logement_d842_4": {
       "type": "object",
       "properties": {
-        "kind": {
-          "type": "string",
-          "anyOf": [
-            {
-              "type": "string",
-              "enum": [
-                "InfosLocatif"
-              ]
-            },
-            {
-              "type": "string",
-              "enum": [
-                "InfosLogementFoyer"
-              ]
-            },
-            {
-              "type": "string",
-              "enum": [
-                "InfosAccessionPropriete"
-              ]
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "InfosLocatif"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "$ref": "#/definitions/informations_calcul_a_p_l_locatif"
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "InfosLogementFoyer"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "$ref": "#/definitions/informations_calcul_a_p_l_logement_foyer"
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "InfosAccessionPropriete"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "$ref": "#/definitions/informations_calcul_a_p_l_accession_propriete"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "informations_calcul_a_p_l_accession_propriete": {
-      "type": "object",
-      "properties": {
-        "mensualitePrincipale": {
+        "ancienLoyerPrincipal": {
           "type": "number",
           "minimum": 0,
           "default": 0
         },
-        "chargesMensuellesPret": {
+        "ancienneAllocationLogement": {
           "type": "number",
           "minimum": 0,
           "default": 0
-        },
-        "dateEntreeLogement": {
-          "type": "string",
-          "format": "date"
-        },
-        "typeTravauxLogementD83215": {
-          "$ref": "#/definitions/type_travaux_logement_d832_15"
-        },
-        "typeTravauxLogementR8425": {
-          "$ref": "#/definitions/type_travaux_logement_r842_5"
-        },
-        "localHabitePremiereFoisBeneficiaire": {
-          "type": "boolean",
-          "default": false
-        },
-        "copropriete": {
-          "type": "boolean",
-          "default": false
-        },
-        "situationR822111317": {
-          "type": "boolean",
-          "default": false
-        },
-        "ancienneteLogement": {
-          "$ref": "#/definitions/neuf_ou_ancien"
         }
       }
     },
-    "informations_calcul_a_p_l_locatif": {
+    "location": {
       "type": "object",
       "properties": {
+        "bailleur": {
+          "$ref": "#/definitions/bailleur"
+        },
         "loyerPrincipal": {
           "type": "number",
           "minimum": 0,
@@ -625,42 +529,6 @@
         }
       }
     },
-    "informations_calcul_a_p_l_logement_foyer": {
-      "type": "object",
-      "properties": {
-        "redevance": {
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        },
-        "categorieEquivalenceLoyerD84216": {
-          "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
-        }
-      }
-    },
-    "infos_changement_logement_d842_4": {
-      "type": "object",
-      "properties": {
-        "ancienLoyerPrincipal": {
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        },
-        "ancienneAllocationLogement": {
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "location": {
-      "type": "object",
-      "properties": {
-        "bailleur": {
-          "$ref": "#/definitions/bailleur"
-        }
-      }
-    },
     "logement": {
       "type": "object",
       "properties": {
@@ -692,14 +560,6 @@
           "type": "number",
           "default": 0
         },
-        "estAncienL8312": {
-          "type": "boolean",
-          "default": false
-        },
-        "situeCommuneDesequilibreL8312": {
-          "type": "boolean",
-          "default": false
-        },
         "zone": {
           "$ref": "#/definitions/zone_d_habitation"
         }
@@ -715,16 +575,24 @@
           "type": "string",
           "format": "date"
         },
-        "location": {
-          "$ref": "#/definitions/location"
-        },
         "remplitConditionsR83221": {
           "type": "boolean",
           "default": false
         },
+        "bailleur": {
+          "$ref": "#/definitions/bailleur"
+        },
         "construitApplicationLoi195712III": {
           "type": "boolean",
           "default": false
+        },
+        "redevance": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "categorieEquivalenceLoyerD84216": {
+          "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
         }
       }
     },
@@ -1538,6 +1406,49 @@
     "proprietaire": {
       "type": "object",
       "properties": {
+        "logementEstAncienL8312": {
+          "type": "boolean",
+          "default": false
+        },
+        "logementSitueCommuneDesequilibreL8312": {
+          "type": "boolean",
+          "default": false
+        },
+        "mensualitePrincipale": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "chargesMensuellesPret": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "dateEntreeLogement": {
+          "type": "string",
+          "format": "date"
+        },
+        "typeTravauxLogementD83215": {
+          "$ref": "#/definitions/type_travaux_logement_d832_15"
+        },
+        "typeTravauxLogementR8425": {
+          "$ref": "#/definitions/type_travaux_logement_r842_5"
+        },
+        "localHabitePremiereFoisBeneficiaire": {
+          "type": "boolean",
+          "default": false
+        },
+        "copropriete": {
+          "type": "boolean",
+          "default": false
+        },
+        "situationR822111317": {
+          "type": "boolean",
+          "default": false
+        },
+        "ancienneteLogement": {
+          "$ref": "#/definitions/neuf_ou_ancien"
+        },
         "pret": {
           "$ref": "#/definitions/pret"
         }
@@ -2452,9 +2363,6 @@
     },
     "demandeurIn": {
       "$ref": "#/definitions/demandeur"
-    },
-    "informationsCalculIn": {
-      "$ref": "#/definitions/informations_calcul_a_p_l"
     },
     "dateCouranteIn": {
       "type": "string",

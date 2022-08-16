@@ -431,145 +431,24 @@
         }
       }
     },
-    "informations_calcul_a_p_l": {
+    "infos_changement_logement_d842_4": {
       "type": "object",
       "properties": {
-        "kind": {
-          "title": "Mode de calcul de l'aide personnalisée au logement",
-          "type": "string",
-          "default": "InfosLocatif",
-          "anyOf": [
-            {
-              "title": "Secteur locatif",
-              "type": "string",
-              "enum": [
-                "InfosLocatif"
-              ]
-            },
-            {
-              "title": "Secteur logement-foyer",
-              "type": "string",
-              "enum": [
-                "InfosLogementFoyer"
-              ]
-            },
-            {
-              "title": "Secteur accession à la propriété",
-              "type": "string",
-              "enum": [
-                "InfosAccessionPropriete"
-              ]
-            }
-          ]
-        }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "InfosLocatif"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "$ref": "#/definitions/informations_calcul_a_p_l_locatif"
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "InfosLogementFoyer"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "$ref": "#/definitions/informations_calcul_a_p_l_logement_foyer"
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "InfosAccessionPropriete"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "$ref": "#/definitions/informations_calcul_a_p_l_accession_propriete"
-              }
-            }
-          }
-        }
-      ]
-    },
-    "informations_calcul_a_p_l_accession_propriete": {
-      "type": "object",
-      "required": [
-        "mensualitePrincipale",
-        "chargesMensuellesPret",
-        "dateEntreeLogement"
-      ],
-      "properties": {
-        "mensualitePrincipale": {
-          "title": "Mensualité déclarée du prêt (€)",
+        "ancienLoyerPrincipal": {
+          "title": "Loyer de l'ancien logement avant relogement (€)",
           "type": "number",
-          "minimum": 0
+          "minimum": 0,
+          "default": 0
         },
-        "chargesMensuellesPret": {
-          "title": "Charges mensuelles du prêt (€)",
+        "ancienneAllocationLogement": {
+          "title": "Aide au logement touchée avant relogement (€)",
           "type": "number",
-          "minimum": 0
-        },
-        "dateEntreeLogement": {
-          "title": "Date d'entrée dans le logement",
-          "type": "string",
-          "format": "date"
-        },
-        "typeTravauxLogementD83215": {
-          "title": " ",
-          "$ref": "#/definitions/type_travaux_logement_d832_15"
-        },
-        "typeTravauxLogementR8425": {
-          "title": " ",
-          "$ref": "#/definitions/type_travaux_logement_r842_5"
-        },
-        "localHabitePremiereFoisBeneficiaire": {
-          "title": "Local habité pour la première fois par le demandeur",
-          "type": "boolean",
-          "default": false
-        },
-        "copropriete": {
-          "title": "Le logement est possédé en co-propriété",
-          "type": "boolean",
-          "default": false
-        },
-        "situationR822111317": {
-          "title": "Le bénéficiaire et son conjoint se trouvent dans l'une des situations mentionnées aux articles R822-11 et R822-13 à R822-17 du code de la construction et de l'habitation.",
-          "type": "boolean",
-          "default": false
-        },
-        "ancienneteLogement": {
-          "title": " ",
-          "$ref": "#/definitions/neuf_ou_ancien"
+          "minimum": 0,
+          "default": 0
         }
       }
     },
-    "informations_calcul_a_p_l_locatif": {
+    "location": {
       "type": "object",
       "required": [
         "loyerPrincipal"
@@ -596,7 +475,7 @@
           "default": false
         },
         "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": {
-          "title": "Le demandeur est une personne âgée ou handicapée adultes hébergée à titre onéreux chez des particuliers",
+          "title": "Le demandeur est une personne isolée, âgée ou handicapée adulte hébergée à titre onéreux chez des particuliers",
           "type": "boolean",
           "default": false
         },
@@ -614,47 +493,7 @@
         "changementLogementD8424": {
           "title": " ",
           "$ref": "#/definitions/changement_logement_d842_4"
-        }
-      }
-    },
-    "informations_calcul_a_p_l_logement_foyer": {
-      "type": "object",
-      "required": [
-        "redevance"
-      ],
-      "properties": {
-        "redevance": {
-          "title": "Redevance mensuelle (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
         },
-        "categorieEquivalenceLoyerD84216": {
-          "title": " ",
-          "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
-        }
-      }
-    },
-    "infos_changement_logement_d842_4": {
-      "type": "object",
-      "properties": {
-        "ancienLoyerPrincipal": {
-          "title": "Loyer de l'ancien logement avant relogement (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        },
-        "ancienneAllocationLogement": {
-          "title": "Aide au logement touchée avant relogement (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        }
-      }
-    },
-    "location": {
-      "type": "object",
-      "properties": {
         "bailleur": {
           "title": " ",
           "$ref": "#/definitions/bailleur"
@@ -712,7 +551,8 @@
     "logement_foyer": {
       "type": "object",
       "required": [
-        "dateConventionnement"
+        "dateConventionnement",
+        "redevance"
       ],
       "properties": {
         "typeUser": {
@@ -724,19 +564,29 @@
           "type": "string",
           "format": "date"
         },
-        "location": {
-          "title": " ",
-          "$ref": "#/definitions/location"
-        },
         "remplitConditionsR83221": {
           "title": "Le logement-foyer remplit les conditions du R832-21",
           "type": "boolean",
           "default": false
         },
+        "bailleur": {
+          "title": " ",
+          "$ref": "#/definitions/bailleur"
+        },
         "construitApplicationLoi195712III": {
           "title": "Logement construit en application du III de l'article 12 de la loi n° 57-908 du 7 août 1957",
           "type": "boolean",
           "default": false
+        },
+        "redevance": {
+          "title": "Redevance mensuelle (€)",
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "categorieEquivalenceLoyerD84216": {
+          "title": " ",
+          "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
         }
       }
     },
@@ -989,7 +839,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "Le logement est neuf ou ancien, potentiellement amélioré par l'occupant",
+          "title": "Ancienneté du logement",
           "default": "Neuf",
           "type": "string",
           "anyOf": [
@@ -1305,6 +1155,9 @@
     },
     "pret": {
       "type": "object",
+      "required": [
+        "dateSignature"
+      ],
       "properties": {
         "typePret": {
           "title": " ",
@@ -1361,12 +1214,12 @@
     },
     "proprietaire": {
       "type": "object",
+      "required": [
+        "mensualitePrincipale",
+        "chargesMensuellesPret",
+        "dateEntreeLogement"
+      ],
       "properties": {
-        "logementEstAncienL8312": {
-          "title": "Le logement est ancien",
-          "type": "boolean",
-          "default": false
-        },
         "logementSitueCommuneDesequilibreL8312": {
           "title": "Le logement est situé dans une commune ne se caractérisant pas par un déséquilibre important entre l'offre et la demande de logements entraînant des difficultés d'accès au logement dans le parc résidentiel existant",
           "type": "boolean",
@@ -1375,6 +1228,48 @@
         "pret": {
           "title": " ",
           "$ref": "#/definitions/pret"
+        },
+        "mensualitePrincipale": {
+          "title": "Mensualité déclarée du prêt (€)",
+          "type": "number",
+          "minimum": 0
+        },
+        "chargesMensuellesPret": {
+          "title": "Charges mensuelles du prêt (€)",
+          "type": "number",
+          "minimum": 0
+        },
+        "dateEntreeLogement": {
+          "title": "Date d'entrée dans le logement",
+          "type": "string",
+          "format": "date"
+        },
+        "typeTravauxLogementD83215": {
+          "title": " ",
+          "$ref": "#/definitions/type_travaux_logement_d832_15"
+        },
+        "typeTravauxLogementR8425": {
+          "title": " ",
+          "$ref": "#/definitions/type_travaux_logement_r842_5"
+        },
+        "localHabitePremiereFoisBeneficiaire": {
+          "title": "Local habité pour la première fois par le demandeur",
+          "type": "boolean",
+          "default": false
+        },
+        "copropriete": {
+          "title": "Le logement est possédé en co-propriété",
+          "type": "boolean",
+          "default": false
+        },
+        "situationR822111317": {
+          "title": "Le bénéficiaire et son conjoint se trouvent dans l'une des situations mentionnées aux articles R822-11 et R822-13 à R822-17 du code de la construction et de l'habitation.",
+          "type": "boolean",
+          "default": false
+        },
+        "ancienneteLogement": {
+          "title": " ",
+          "$ref": "#/definitions/neuf_ou_ancien"
         }
       }
     },
@@ -1651,6 +1546,7 @@
         "kind": {
           "title": "Titulaire du prêt",
           "type": "string",
+          "default": "Demandeur",
           "anyOf": [
             {
               "title": "Demandeur de l'aide au logement",
@@ -1756,6 +1652,7 @@
         "kind": {
           "title": "Articles du code de la construction de de l'habitation régissant le prêt souscrit",
           "type": "string",
+          "default": "D331_63_64",
           "anyOf": [
             {
               "type": "string",
@@ -1927,10 +1824,6 @@
     "demandeurIn": {
       "title": " ",
       "$ref": "#/definitions/demandeur"
-    },
-    "informationsCalculIn": {
-      "title": " ",
-      "$ref": "#/definitions/informations_calcul_a_p_l"
     },
     "dateCouranteIn": {
       "title": "Date du calcul des droits",
