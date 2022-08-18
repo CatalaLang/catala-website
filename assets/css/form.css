@@ -25,6 +25,10 @@
   font-size: 0.8rem;
 }
 
+.help-block a {
+  text-decoration: underline;
+}
+
 .field-description {
   border-left: 2px solid #FF732C;
   padding-left: 4px;

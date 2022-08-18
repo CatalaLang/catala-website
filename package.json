@@ -26,6 +26,7 @@
     "@emotion/styled": "^11.10.0",
     "@greenlabs/res-tailwindcss": "^0.1.8",
     "@rjsf/core": "^4.2.2",
+    "babel-loader": "^8.2.5",
     "decco": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -34,6 +35,7 @@
     "rescript-hash": "^1.5.0"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.18.6",
     "ansi_up": "^5.1.0",
     "autoprefixer": "^10.4.8",
     "browser-builtins": "^3.3.1",

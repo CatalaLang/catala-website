@@ -5,13 +5,15 @@ let pageTitle =
   />
 
 let catalaCodeHTML = %raw(`require("../../assets/aides_logement.html")`)
+let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_fr.schema.js")`)
 
 module FormInfos = {
   let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
   let frenchSchema = %raw(`require("../../assets/aides_logement_schema_fr.json")`)
 
+  let frenchUiSchema = Js.Dict.unsafeGet(frenchUiSchema, "uiSchema")
+
   let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_schema_en.json")`)
-  let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_schema_fr.json")`)
 
   let resultLabel =
     <Lang.String
@@ -73,9 +75,6 @@ module FormInfos = {
                     "obligationScolaire": {
                         "kind": "Pendant"
                     },
-                    "priseEnCharge": {
-                        "kind": "EffectiveEtPermanente"
-                    },
                     "situationGardeAlternee": {
                         "kind": "PasDeGardeAlternee"
                     },
@@ -91,9 +90,6 @@ module FormInfos = {
                     "remunerationMensuelle": 0,
                     "obligationScolaire": {
                         "kind": "Pendant"
-                    },
-                    "priseEnCharge": {
-                        "kind": "EffectiveEtPermanente"
                     },
                     "situationGardeAlternee": {
                         "kind": "PasDeGardeAlternee"

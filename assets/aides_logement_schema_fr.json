@@ -274,10 +274,6 @@
           "title": " ",
           "$ref": "#/definitions/situation_obligation_scolaire"
         },
-        "priseEnCharge": {
-          "title": " ",
-          "$ref": "#/definitions/prise_en_charge"
-        },
         "situationGardeAlternee": {
           "title": " ",
           "$ref": "#/definitions/situation_garde_alternee"
@@ -1045,44 +1041,6 @@
         }
       }
     },
-    "prise_en_charge": {
-      "type": "object",
-      "properties": {
-        "kind": {
-          "title": "Prise en charge de l'enfant par le demandeur",
-          "default": "EffectiveEtPermanente",
-          "type": "string",
-          "anyOf": [
-            {
-              "title": "Effective et permanente",
-              "type": "string",
-              "enum": [
-                "EffectiveEtPermanente"
-              ]
-            },
-            {
-              "title": "Résidence alternée, demandeur allocataire unique",
-              "type": "string",
-              "enum": [
-                "ResidenceAlterneeAllocataireUnique"
-              ]
-            },
-            {
-              "title": "Résidence alternée, allocations partagées",
-              "type": "string",
-              "enum": [
-                "ResidenceAlterneeAllocationsPartagee"
-              ]
-            }
-          ]
-        }
-      },
-      "payload": {
-        "title": " ",
-        "type": "null",
-        "default": null
-      }
-    },
     "proprietaire": {
       "type": "object",
       "required": [
@@ -1312,7 +1270,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "Charactéristiques de la garde alternée",
+          "title": "Caractéristiques de la garde alternée",
           "default": "PasDeGardeAlternee",
           "type": "string",
           "anyOf": [

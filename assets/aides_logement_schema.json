@@ -318,9 +318,6 @@
     "obligationScolaire": {
       "$ref": "#/definitions/situation_obligation_scolaire"
     },
-    "priseEnCharge": {
-      "$ref": "#/definitions/prise_en_charge"
-    },
     "situationGardeAlternee": {
       "$ref": "#/definitions/situation_garde_alternee"
     }
@@ -1122,82 +1119,6 @@
     }
   }
 },
-"prise_en_charge": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["EffectiveEtPermanente"]
-        },
-        {
-          "type": "string",
-          "enum": ["ResidenceAlterneeAllocataireUnique"]
-        },
-        {
-          "type": "string",
-          "enum": ["ResidenceAlterneeAllocationsPartagee"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "EffectiveEtPermanente"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ResidenceAlterneeAllocataireUnique"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ResidenceAlterneeAllocationsPartagee"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
 "proprietaire": {
   "type": "object",
   "properties": {
