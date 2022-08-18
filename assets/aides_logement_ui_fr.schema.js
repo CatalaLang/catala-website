@@ -161,6 +161,6 @@ export const uiSchema = {
         }
     },
     "ressourcesMenagePrisesEnCompteIn": {
-        "ui:help": <span>Les ressources du ménages prises en compte pour le calcul des aides au logement doivent être appréciées selon la <a heref="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000038814508/" target="_blank">section 2 du chapitre II du titre II du livre VIII du code de la construction et de l'habitation</a>.</span>
+        "ui:help": <span>Les ressources du ménages prises en compte pour le calcul des aides au logement doivent être appréciées selon la <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000038814508/" target="_blank">section 2 du chapitre II du titre II du livre VIII du code de la construction et de l'habitation</a>.</span>
     }
 }
