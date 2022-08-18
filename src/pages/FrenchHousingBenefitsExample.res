@@ -31,13 +31,7 @@ module FormInfos = {
                 "kind": "Locataire",
                 "payload": {
                     "bailleur": {
-                        "typeBailleur": {
-                            "kind": "BailleurPrive"
-                        },
-                        "respecteConventionTitreV": true,
-                        "respecteConventionTitreII": true,
-                        "construitAmelioreConditionsL83114": false,
-                        "acquisitionAidesEtatPretTitreIIOuLivreIII": false
+                      "kind": "BailleurPrive"
                     },
                     "beneficiaireAideAdulteOuEnfantHandicapes": false,
                     "logementEstChambre": false,
@@ -116,14 +110,8 @@ module FormInfos = {
         },
         "conditionRattacheFoyerFiscalParentIfi": false,
         "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": 0,
-        "enfantANaitreApresQuatriemeMoisGrossesse": false,
-        "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
-            "kind": "MoinsDeTroisEnfants",
-            "payload": null
-        }
     },
     "demandeurIn": {
-        "satisfaitConditionsL5122CodeSecuriteSociale": true,
         "nationalite": {
             "kind": "Francaise"
         },

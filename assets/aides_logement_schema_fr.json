@@ -72,35 +72,6 @@
         }
       }
     },
-    "bailleur": {
-      "type": "object",
-      "properties": {
-        "typeBailleur": {
-          "title": " ",
-          "$ref": "#/definitions/type_bailleur"
-        },
-        "respecteConventionTitreV": {
-          "title": "Le bailleur est conventionné titre V",
-          "type": "boolean",
-          "default": true
-        },
-        "respecteConventionTitreII": {
-          "title": "Le bailleur est conventionné titre II",
-          "type": "boolean",
-          "default": true
-        },
-        "construitAmelioreConditionsL83114": {
-          "title": "Logement construit et amélioré dans les conditions du 4° du L831-1",
-          "type": "boolean",
-          "default": false
-        },
-        "acquisitionAidesEtatPretTitreIIOuLivreIII": {
-          "title": "Logement construit, acquis ou amélioré au moyen d'aides de l'État ou de prêts régulés",
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
     "categorie_equivalence_loyer_allocation_logement_foyer": {
       "type": "object",
       "properties": {
@@ -208,156 +179,43 @@
         }
       ]
     },
-    "date_de_naissance_ou_mois_de_grossesse": {
+    "conditions_etrangers": {
       "type": "object",
       "properties": {
-        "kind": {
-          "title": "Situation du dernier enfant",
-          "type": "string",
-          "anyOf": [
-            {
-              "title": "Le dernier enfant est né",
-              "type": "string",
-              "enum": [
-                "DateDeNaissance"
-              ]
-            },
-            {
-              "title": "La grossesse du dernier enfant a commencé il y a moins de trois mois (voir D823-20 CCH)",
-              "type": "string",
-              "enum": [
-                "AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-              ]
-            },
-            {
-              "title": "La grossesse du dernier enfant a commencé plus de trois mois (voir D823-20 CCH)",
-              "type": "string",
-              "enum": [
-                "ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-              ]
-            }
-          ]
+        "satisfaitConditionsL5122CodeSecuriteSociale": {
+          "title": "Le demandeur satisfait les conditions des deux premiers alinéas de l'article L512-2 du code de la sécurité sociale",
+          "type": "boolean",
+          "default": true
         }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "DateDeNaissance"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": "Date de naissance du dernier enfant",
-                "type": "string",
-                "format": "date"
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "type": "null",
-                "default": null
-              }
-            }
-          }
-        }
-      ]
+      }
     },
-    "date_naissance_troisieme_ou_dernier_plus_enfant": {
+    "convention_a_n_h_a": {
       "type": "object",
       "properties": {
-        "kind": {
-          "title": "Le ménage a plus ou moins de trois enfants nés où à naître",
-          "type": "string",
-          "default": "MoinsDeTroisEnfants",
-          "anyOf": [
-            {
-              "title": "Moins de trois enfants",
-              "type": "string",
-              "enum": [
-                "MoinsDeTroisEnfants"
-              ]
-            },
-            {
-              "title": "Plus de trois enfants",
-              "type": "string",
-              "enum": [
-                "PlusDeTroisEnfants"
-              ]
-            }
-          ]
+        "conventionneLivreIIITitreIIChapISec3": {
+          "title": "Le bailleur est conventionné avec l'ANAH",
+          "type": "boolean",
+          "default": true
         }
-      },
-      "allOf": [
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "MoinsDeTroisEnfants"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "type": "null",
-                "default": null
-              }
-            }
-          }
+      }
+    },
+    "convention_bailleur_social": {
+      "type": "object",
+      "required": [
+        "reductionLoyerSolidaritePercue"
+      ],
+      "properties": {
+        "conventionneLivreIIITitreVChapIII": {
+          "title": "Le bailleur est conventionné pour le logement social",
+          "type": "boolean",
+          "default": true
         },
-        {
-          "if": {
-            "properties": {
-              "kind": {
-                "const": "PlusDeTroisEnfants"
-              }
-            }
-          },
-          "then": {
-            "properties": {
-              "payload": {
-                "title": " ",
-                "$ref": "#/definitions/date_de_naissance_ou_mois_de_grossesse"
-              }
-            }
-          }
+        "reductionLoyerSolidaritePercue": {
+          "title": "Réduction de loyer de solidarité perçue par le bailleur",
+          "type": "number",
+          "minimum": 0
         }
-      ]
+      }
     },
     "demandeur": {
       "type": "object",
@@ -365,11 +223,6 @@
         "dateNaissance"
       ],
       "properties": {
-        "satisfaitConditionsL5122CodeSecuriteSociale": {
-          "title": "Le demandeur satisfait les conditions des deux premiers alinéas de l'article L512-2 du code de la sécurité sociale",
-          "type": "boolean",
-          "default": true
-        },
         "dateNaissance": {
           "title": "Date de naissance du demandeur",
           "type": "string",
@@ -454,6 +307,10 @@
         "loyerPrincipal"
       ],
       "properties": {
+        "bailleur": {
+          "title": " ",
+          "$ref": "#/definitions/type_bailleur"
+        },
         "loyerPrincipal": {
           "title": "Loyer (€)",
           "type": "number",
@@ -479,12 +336,6 @@
           "type": "boolean",
           "default": false
         },
-        "reductionLoyerSolidarite": {
-          "title": "Réduction de loyer de solidarité dont bénéficie le ménage (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        },
         "logementMeubleD8422": {
           "title": "Le logement est loué meublé",
           "type": "boolean",
@@ -493,10 +344,6 @@
         "changementLogementD8424": {
           "title": " ",
           "$ref": "#/definitions/changement_logement_d842_4"
-        },
-        "bailleur": {
-          "title": " ",
-          "$ref": "#/definitions/bailleur"
         }
       }
     },
@@ -567,11 +414,11 @@
         "remplitConditionsR83221": {
           "title": "Le logement-foyer remplit les conditions du R832-21",
           "type": "boolean",
-          "default": false
+          "default": true
         },
         "bailleur": {
           "title": " ",
-          "$ref": "#/definitions/bailleur"
+          "$ref": "#/definitions/type_bailleur"
         },
         "construitApplicationLoi195712III": {
           "title": "Logement construit en application du III de l'article 12 de la loi n° 57-908 du 7 août 1957",
@@ -655,19 +502,10 @@
           "type": "boolean",
           "default": false
         },
-        "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": {
-          "title": "Nombre d'enfants à naître dont la grossesse a atteint le troisième mois",
-          "type": "number",
-          "default": 0
-        },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
           "title": "La grossesse d'un ou plus enfant à naître a atteint le quatrième mois",
           "type": "boolean",
           "default": false
-        },
-        "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
-          "title": " ",
-          "$ref": "#/definitions/date_naissance_troisieme_ou_dernier_plus_enfant"
         }
       }
     },
@@ -830,10 +668,43 @@
           ]
         }
       },
-      "payload": {
-        "type": "null",
-        "default": null
-      }
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Francaise"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Etrangere"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/conditions_etrangers"
+              }
+            }
+          }
+        }
+      ]
     },
     "neuf_ou_ancien": {
       "type": "object",
@@ -1574,7 +1445,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "Type du bailleur",
+          "title": "Type de bailleur",
           "default": "BailleurPrive",
           "type": "string",
           "anyOf": [
@@ -1587,6 +1458,13 @@
             },
             {
               "type": "string",
+              "title": "Bailleur privé avec conventionnement social",
+              "enum": [
+                "BailleurPriveAvecConventionnementSocial"
+              ]
+            },
+            {
+              "type": "string",
               "title": "Bailleur privé",
               "enum": [
                 "BailleurPrive"
@@ -1595,11 +1473,60 @@
           ]
         }
       },
-      "payload": {
-        "type": "null",
-        "title": " ",
-        "default": null
-      }
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "BailleurSocial"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/convention_bailleur_social"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "BailleurPriveAvecConventionnementSocial"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "$ref": "#/definitions/convention_a_n_h_a"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "BailleurPrive"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "type": "null",
+                "title": " ",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
     },
     "type_logement_foyer": {
       "type": "object",

@@ -89,30 +89,6 @@
        }
      }
    },
-   "bailleur": {
-     "type": "object",
-     "properties": {
-       "typeBailleur": {
-         "$ref": "#/definitions/type_bailleur"
-       },
-       "respecteConventionTitreV": {
-         "type": "boolean",
-         "default": false
-       },
-       "respecteConventionTitreII": {
-         "type": "boolean",
-         "default": false
-       },
-       "construitAmelioreConditionsL83114": {
-         "type": "boolean",
-         "default": false
-       },
-       "acquisitionAidesEtatPretTitreIIOuLivreIII": {
-         "type": "boolean",
-         "default": false
-       }
-     }
-   },
    "categorie_equivalence_loyer_allocation_logement_foyer": {
      "type": "object",
      "properties": {
@@ -264,143 +240,41 @@
     ]
   }
 ,
-"date_de_naissance_ou_mois_de_grossesse": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["DateDeNaissance"]
-        },
-        {
-          "type": "string",
-          "enum": ["AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"]
-        },
-        {
-          "type": "string",
-          "enum": ["ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "DateDeNaissance"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "string",
-              "format": "date"
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AvantPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "ApresPremierJourMoisCivilTroisiemeMoisDeGrossesse"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"date_naissance_troisieme_ou_dernier_plus_enfant": {
-  "type": "object",
-  "properties": {
-    "kind": {
-      "type": "string",
-      "anyOf": [
-        {
-          "type": "string",
-          "enum": ["MoinsDeTroisEnfants"]
-        },
-        {
-          "type": "string",
-          "enum": ["PlusDeTroisEnfants"]
-        }
-      ]
-    }
-    },
-    "allOf": [
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "MoinsDeTroisEnfants"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "PlusDeTroisEnfants"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "$ref": "#/definitions/date_de_naissance_ou_mois_de_grossesse"
-            }
-          }
-        }
-      }
-    ]
-  }
-,
-"demandeur": {
+"conditions_etrangers": {
   "type": "object",
   "properties": {
     "satisfaitConditionsL5122CodeSecuriteSociale": {
       "type": "boolean",
       "default": false
+    }
+  }
+},
+"convention_a_n_h_a": {
+  "type": "object",
+  "properties": {
+    "conventionneLivreIIITitreIIChapISec3": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+},
+"convention_bailleur_social": {
+  "type": "object",
+  "properties": {
+    "conventionneLivreIIITitreVChapIII": {
+      "type": "boolean",
+      "default": false
     },
+    "reductionLoyerSolidaritePercue": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0
+    }
+  }
+},
+"demandeur": {
+  "type": "object",
+  "properties": {
     "dateNaissance": {
       "type": "string",
       "format": "date"
@@ -471,7 +345,7 @@
   "type": "object",
   "properties": {
     "bailleur": {
-      "$ref": "#/definitions/bailleur"
+      "$ref": "#/definitions/type_bailleur"
     },
     "loyerPrincipal": {
       "type": "number",
@@ -493,11 +367,6 @@
     "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": {
       "type": "boolean",
       "default": false
-    },
-    "reductionLoyerSolidarite": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
     },
     "logementMeubleD8422": {
       "type": "boolean",
@@ -559,7 +428,7 @@
       "default": false
     },
     "bailleur": {
-      "$ref": "#/definitions/bailleur"
+      "$ref": "#/definitions/type_bailleur"
     },
     "construitApplicationLoi195712III": {
       "type": "boolean",
@@ -660,16 +529,9 @@
       "type": "boolean",
       "default": false
     },
-    "nombreEnfantsANaitreApresTroisiemeMoisGrossesse": {
-      "type": "number",
-      "default": 0
-    },
     "enfantANaitreApresQuatriemeMoisGrossesse": {
       "type": "boolean",
       "default": false
-    },
-    "dateNaissanceTroisiemeEnfantOuDernierSiPlus": {
-      "$ref": "#/definitions/date_naissance_troisieme_ou_dernier_plus_enfant"
     }
   }
 },
@@ -832,8 +694,7 @@
         "then": {
           "properties": {
             "payload": {
-              "type": "null",
-              "default": null
+              "$ref": "#/definitions/conditions_etrangers"
             }
           }
         }
@@ -1721,6 +1582,10 @@
         },
         {
           "type": "string",
+          "enum": ["BailleurPriveAvecConventionnementSocial"]
+        },
+        {
+          "type": "string",
           "enum": ["BailleurPrive"]
         }
       ]
@@ -1738,8 +1603,23 @@
         "then": {
           "properties": {
             "payload": {
-              "type": "null",
-              "default": null
+              "$ref": "#/definitions/convention_bailleur_social"
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "BailleurPriveAvecConventionnementSocial"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "$ref": "#/definitions/convention_a_n_h_a"
             }
           }
         }

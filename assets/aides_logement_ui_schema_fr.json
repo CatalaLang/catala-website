@@ -10,17 +10,13 @@
             "modeOccupation": {
                 "payload": {
                     "bailleur": {
-                        "respecteConventionTitreV": {
-                            "ui:help": "Cochez cette case si la convention d'aide personnalisée au logement du bailleur est régie par le chapitre III du titre V du livre III du code de la construction et de l'habitation. Cela doit généralement être le cas pour les bailleurs sociaux."
-                        },
-                        "respecteConventionTitreII": {
-                            "ui:help": "Cochez cette case si la convention d'aide personnalisée au logement du bailleur est régie par le chapitre Ier du titre II du livre III du code de la construction et de l'habitation. Cela doit généralement être le cas pour les bailleurs privés."
-                        },
-                        "construitAmelioreConditionsL83114": {
-                            "ui:help": "Voir l'article L831-1 du code de la construction et de l'habitation pour plus d'informations."
-                        },
-                        "acquisitionAidesEtatPretTitreIIOuLivreIII": {
-                            "ui:help": "Ces prêts et aides sont régis par le chapitre III du titre II ou par le titre III du livre III du code de la construction et de l'habitation."
+                        "payload": {
+                            "conventionneLivreIIITitreVChapIII": {
+                                "ui:help": "Cochez cette case si le bailleur a signé une convention de logement social régie par le chapitre III du titre V du livre III du code de la construction et de l'habitation."
+                            },
+                            "conventionneLivreIIITitreIIChapISec3": {
+                                "ui:help": "Cochez cette case le bailleur a signé une convention avec l'Agence Nationale de l'Habitat (ANAH) régie par le chapitre Ier du titre II du livre III du code de la construction et de l'habitation."
+                            }
                         }
                     },
                     "loyerPrincipal": {
@@ -130,6 +126,9 @@
         },
         "conditionRattacheFoyerFiscalParentIfi": {
             "ui:help": "Voir l'article L822-8 du code de la construction et de l'habitation pour plus d'informations."
+        },
+        "enfantANaitreApresQuatriemeMoisGrossesse": {
+            "ui:help": "Cette question est nécessaire pour l'éligibilité à l'allocation de logement familiale (ALF) prévue au 6° du code de la construction et de l'habitation."
         }
     },
     "demandeurIn": {
