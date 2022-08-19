@@ -21,7 +21,10 @@ export const uiSchema = {
                             "conventionneLivreIIITitreIIChapISec3": {
                                 "ui:help": <span>Cochez cette case le bailleur a signé une convention avec l'Agence Nationale de l'Habitat (ANAH) régie par le <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000006177537/#LEGISCTA000006177537" target="_blank">chapitre Ier du titre II du livre III du code de la construction et de l'habitation</a>.</span>
                             }
-                        }
+                        },
+                    },
+                    "conventionneLivreIIITitreVChapIII": {
+                        "ui:help": <span>Cochez cette case si le bailleur a signé une convention de logement social régie par le <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000006159052/#LEGISCTA000006159052" target="_blank">chapitre III du titre V du livre III du code de la construction et de l'habitation</a>.</span>
                     },
                     "loyerPrincipal": {
                         "ui:help": <span>L'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814916/" target="_blank">article L823-3 du code de la construction et de l'habitation</a>, notamment ses alinéas 4° et 6°, liste des sommes assimilables à des loyers pour des cas particuliers. Les articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878685" target="_blank">D842-2</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041477287/" target="_blank">D842-3</a> donnent également d'autres renseignements, mais l'article D842-2 est déjà pris en compte (pas la peine d'appliquer le coefficient de D842-2).</span>
@@ -36,7 +39,7 @@ export const uiSchema = {
                         "ui:help": <span>Ce cas bénéficie d'un barème spécial prévu dans l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137429" target="_blank">article 8 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
                     },
                     "colocation": {
-                        "ui:help": <span>Ce cas bénéficie d'un barème spécial prévu dans l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137417" target="_blank">article 16 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
+                        "ui:help": <span>Ce cas est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878901/" target="_blank">article D823-18 du code de la construction et de l'habitation</a> et bénéficie d'un barème spécial régi dans l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137417" target="_blank">article 16 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
                     },
                     "logementMeubleD8422": {
                         "ui:help": <span>Le caractère meublé du logement est apprécié au sens de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878685" target="blank">article D842-2 du code de la construction et de l'habitation</a>.</span>
@@ -75,6 +78,12 @@ export const uiSchema = {
                     "logementSitueCommuneDesequilibreL8312": {
                         "ui:help": <span>La liste des communes répondant à ce critère est établie par l'<a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000036341240" target="_blank">arrêté du 30 décembre 2017 relatif au classement des communes par zone pour l'octroi des prêts ne portant pas intérêt consenti pour financer la primo-accession à la propriété prévus à l'article L. 31-10-2 du code de la construction et de l'habitation</a>, et l'<a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029337646/" target="_blank">arrêté du 1er août 2014 pris en application de l'article R. 304-1 du code de la construction et de l'habitation</a>.</span>
                     },
+                    "copropriete": {
+                        "ui:help": <span>Le cas d'un logement en co-propriété est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878734/2019-09-01" target="_blank">article D832-16 du code de la construction et de l'habitation</a>, et est régi par l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137409" target="_blank">article 24 de l'arrêté du 27 septembre 2019</a>.</span>
+                    },
+                    "situationR822111317": {
+                        "ui:help": <span>Le bénéficiaire et son conjoint se trouvent dans l'une des situations mentionnées aux articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419384" target="_blank">R822-11</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419372" target="_blank">R822-13</a> à <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419333/" target="_blank">R822-17 du code de la construction et de l'habitation</a>.</span>,
+                    },
                     "pret": {
                         "typePret": {
                             "kind": {
@@ -92,11 +101,12 @@ export const uiSchema = {
                             "ui:help": <span>Type de logement foyer selon la classification de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878722/">article R832-20 du code de la construction et de l'habitation</a>.</span>
                         }
                     },
-                    "dateConventionnement": {
-                        "ui:help": "Date de la signature de la convention."
-                    },
                     "remplitConditionsR83221": {
                         "ui:help": <span>Voir l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048891/" target="_blank">article R832-21 du code de la construction et de l'habitation pour plus d'informations</a>.</span>
+                    }
+                    ,
+                    "construitApplicationLoi195712III": {
+                        "ui:help": <span>Logement construit en application du III de l'article 12 de la <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000000315837" target="_blank">loi n° 57-908 du 7 août 1957</a>.</span>
                     }
                 }
             },
@@ -131,6 +141,15 @@ export const uiSchema = {
                             "ui:help": <span>Le coefficient de prise en charge est un nombre entre 0 et 1 qui reflète la période cumulée pendant laquelle le demandeur accueille l'enfant à son domicile, en conformité avec le considérant 4° de la <a href="https://www.legifrance.gouv.fr/ceta/id/CETATEXT000035260342/" target="_blank">décision n°398563 du 21 juillet 2017 du conseil d'État</a>.</span>
                         }
                     },
+                    "titulaireAllocationPersonneAgee": {
+                        "ui:help": <span>Information utilisée par le 2° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878933/" target="_blank">article R823-4 du code de la construction et de l'habitation</a>.</span>
+                    },
+                    "beneficiaireL16119L3518L6433Secu": {
+                        "ui:help": <span>Bénéficiaire des articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000006740717/" target="_blank">L161-19</a>, <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028498855/" target="_blank">L351-8</a> ou <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000028498667/" target="_blank">L643-3 du code de la sécurité sociale</a>. Information utilisée par le 2° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878933/" target="_blank">article R823-4 du code de la construction et de l'habitation</a>.</span>
+                    },
+                    "incapacite80PourcentOuRestrictionEmploi": {
+                        "ui:help": <span>Cette information est utilisée par le 5° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814864" target="_blank">article L841-1</a> et le 3° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878933/" target="_blank">article R823-4 du code de la construction et de l'habitation</a>.</span>
+                    },
                     "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
                         "ui:help": <span>Cette case est un prérequis de l'alinéa 5° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814864" target="_blank">article L841-1 du code de la construction et de l'habitation</a>.</span>
                     }
@@ -158,6 +177,13 @@ export const uiSchema = {
         },
         "personneHebergeeCentreSoinLL162223SecuriteSociale": {
             "ui:help": <span>Ces unités ou centres de soins sont mentionnées mentionnés au 3° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031688064" target="_blank">article L162-22 du code de la sécurité sociale</a>.</span>
+        },
+        "nationalite": {
+            "payload": {
+                "satisfaitConditionsL5122CodeSecuriteSociale": {
+                    "ui:help": <span>Le demandeur satisfait les conditions des deux premiers alinéas de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042920150" target="_blank">article L512-2 du code de la sécurité sociale</a>.</span>
+                }
+            }
         }
     },
     "ressourcesMenagePrisesEnCompteIn": {

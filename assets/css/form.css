@@ -14,15 +14,22 @@
   font-family: 'Inter', sans-serif;
   font-weight: bold;
   color: #706a63;
+  font-size: 1.25rem;
+}
+
+select.form-control,
+input.form-control {
+  margin-top: 8px;
 }
 
 .help-block {
   border-left: 2px solid #376c2e;
+  margin-top: 5px;
   padding-left: 4px;
   color: #376c2e;
   font-style: italic;
   font-weight: normal;
-  font-size: 0.8rem;
+  font-size: 1rem;
 }
 
 .help-block a {
@@ -35,7 +42,6 @@
   color: #FF732C;
   font-style: italic;
   font-weight: normal;
-  font-size: 0.8rem;
 }
 
 .checkbox span {

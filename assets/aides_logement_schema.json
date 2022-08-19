@@ -416,16 +416,17 @@
     "typeUser": {
       "$ref": "#/definitions/type_logement_foyer"
     },
-    "dateConventionnement": {
-      "type": "string",
-      "format": "date"
-    },
     "remplitConditionsR83221": {
       "type": "boolean",
       "default": false
     },
-    "bailleur": {
-      "$ref": "#/definitions/type_bailleur"
+    "conventionneLivreIIITitreVChapIII": {
+      "type": "boolean",
+      "default": false
+    },
+    "dateConventionnement": {
+      "type": "string",
+      "format": "date"
     },
     "construitApplicationLoi195712III": {
       "type": "boolean",

@@ -61,7 +61,7 @@
           "default": false
         },
         "beneficiaireL16119L3518L6433Secu": {
-          "title": "Bénéficiaire des articles L161-19, L351-8 ou L643-3 du code de la sécurité sociale",
+          "title": "Retraité invalide civil ou militaire",
           "type": "boolean",
           "default": false
         },
@@ -183,7 +183,7 @@
       "type": "object",
       "properties": {
         "satisfaitConditionsL5122CodeSecuriteSociale": {
-          "title": "Le demandeur satisfait les conditions des deux premiers alinéas de l'article L512-2 du code de la sécurité sociale",
+          "title": "La demandeur réside de manière régulière en France",
           "type": "boolean",
           "default": true
         }
@@ -313,7 +313,7 @@
           "minimum": 0
         },
         "beneficiaireAideAdulteOuEnfantHandicapes": {
-          "title": "Le demandeur ou son conjoint sont bénéficiaires de l'allocation aux adultes handicapés ou ou de l'allocation d'éducation de l'enfant handicapé.",
+          "title": "Le demandeur ou son conjoint sont bénéficiaires de l'allocation aux adultes handicapés ou de l'allocation d'éducation de l'enfant handicapé.",
           "type": "boolean",
           "default": false
         },
@@ -402,22 +402,23 @@
           "title": " ",
           "$ref": "#/definitions/type_logement_foyer"
         },
-        "dateConventionnement": {
-          "title": "Date du conventionnement du logement-foyer",
-          "type": "string",
-          "format": "date"
-        },
         "remplitConditionsR83221": {
-          "title": "Le logement-foyer remplit les conditions du R832-21",
+          "title": "Le logement-foyer satisfait les conditions réglementaires pour les aides au logement",
           "type": "boolean",
           "default": true
         },
-        "bailleur": {
-          "title": " ",
-          "$ref": "#/definitions/type_bailleur"
+        "conventionneLivreIIITitreVChapIII": {
+          "title": "Le logement-foyer est conventionné pour le logement social",
+          "type": "boolean",
+          "default": true
+        },
+        "dateConventionnement": {
+          "title": "Date du conventionnement du logement-foyer en tant que bailleur social",
+          "type": "string",
+          "format": "date"
         },
         "construitApplicationLoi195712III": {
-          "title": "Logement construit en application du III de l'article 12 de la loi n° 57-908 du 7 août 1957",
+          "title": "Logement-foyer construit de jeunes travailleurs construit à partir de 1957 pour répondre à la pénurie de logements",
           "type": "boolean",
           "default": false
         },
@@ -465,14 +466,6 @@
       "type": "object",
       "title": " ",
       "properties": {
-        "prestationsRecues": {
-          "title": "Autres prestations sociales déjà reçues par le ménage",
-          "type": "array",
-          "default": [],
-          "items": {
-            "$ref": "#/definitions/prestation_recue"
-          }
-        },
         "logement": {
           "$ref": "#/definitions/logement"
         },
@@ -502,6 +495,14 @@
           "title": "La grossesse d'un ou plus enfant à naître a atteint le quatrième mois",
           "type": "boolean",
           "default": false
+        },
+        "prestationsRecues": {
+          "title": "Autres prestations sociales déjà reçues par le ménage",
+          "type": "array",
+          "default": [],
+          "items": {
+            "$ref": "#/definitions/prestation_recue"
+          }
         }
       }
     },
@@ -946,19 +947,6 @@
         }
       ]
     },
-    "personne_sous_location": {
-      "type": "object",
-      "properties": {
-        "dateNaissancePersonneSousLocation": {
-          "type": "string",
-          "format": "date"
-        },
-        "conformeArticleL4421": {
-          "type": "boolean",
-          "default": false
-        }
-      }
-    },
     "prestation_recue": {
       "type": "object",
       "required": [
@@ -1092,7 +1080,7 @@
           "default": false
         },
         "situationR822111317": {
-          "title": "Le bénéficiaire et son conjoint se trouvent dans l'une des situations mentionnées aux articles R822-11 et R822-13 à R822-17 du code de la construction et de l'habitation.",
+          "title": "Événement récent: décès, séparation, invalidité, chômage, retraite, maladie, etc.",
           "type": "boolean",
           "default": false
         },
