@@ -183,7 +183,7 @@
       "type": "object",
       "properties": {
         "satisfaitConditionsL5122CodeSecuriteSociale": {
-          "title": "La demandeur réside de manière régulière en France",
+          "title": "Le demandeur réside de manière régulière en France",
           "type": "boolean",
           "default": true
         }
