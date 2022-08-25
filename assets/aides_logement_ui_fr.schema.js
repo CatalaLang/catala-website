@@ -39,7 +39,7 @@ export const uiSchema = {
                         "ui:help": <span>Ce cas bénéficie d'un barème spécial prévu dans l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137429" target="_blank">article 8 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
                     },
                     "colocation": {
-                        "ui:help": <span>Ce cas est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878901/" target="_blank">article D823-18 du code de la construction et de l'habitation</a> et bénéficie d'un barème spécial régi dans l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137417" target="_blank">article 16 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
+                        "ui:help": <span>Ce cas est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878901/" target="_blank">article D823-18 du code de la construction et de l'habitation</a> et bénéficie d'un barème spécial régi par l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137417" target="_blank">article 16 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
                     },
                     "logementMeubleD8422": {
                         "ui:help": <span>Le caractère meublé du logement est apprécié au sens de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878685" target="blank">article D842-2 du code de la construction et de l'habitation</a>.</span>
@@ -82,17 +82,17 @@ export const uiSchema = {
                         "ui:help": <span>Le cas d'un logement en co-propriété est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878734/2019-09-01" target="_blank">article D832-16 du code de la construction et de l'habitation</a>, et est régi par l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137409" target="_blank">article 24 de l'arrêté du 27 septembre 2019</a>.</span>
                     },
                     "situationR822111317": {
-                        "ui:help": <span>Le bénéficiaire et son conjoint se trouvent dans l'une des situations mentionnées aux articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419384" target="_blank">R822-11</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419372" target="_blank">R822-13</a> à <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419333/" target="_blank">R822-17 du code de la construction et de l'habitation</a>.</span>,
+                        "ui:help": <span>Le demandeur et/ou son conjoint se trouvent dans l'une des situations mentionnées aux articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419384" target="_blank">R822-11</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419372" target="_blank">R822-13</a> à <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419333/" target="_blank">R822-17 du code de la construction et de l'habitation</a>.</span>,
                     },
                     "pret": {
                         "typePret": {
                             "kind": {
-                                "ui:help": <span>Les prêts donnant accès aux aides au logement sont régis par les article <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038975183" target="_blank">D331-32</a>, <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038975933/" target="_blank">D331-63</a>, <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039012478" target="_blank">D331-64</a>, <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000039048090/" target="_blank">D331-59-8</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048319" target="_blank">D331-76-1 du code de la construction et de l'habitation</a>.</span>
+                                "ui:help": <span>Les prêts donnant accès aux aides au logement sont régis par les articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038975183" target="_blank">D331-32</a>, <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038975933/" target="_blank">D331-63</a>, <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039012478" target="_blank">D331-64</a>, <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000039048090/" target="_blank">D331-59-8</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048319" target="_blank">D331-76-1 du code de la construction et de l'habitation</a>.</span>
                             }
                         },
                         "titulairePret": {
                             "kind": {
-                                "ui:help": <span>Cette distinction établie par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048899" target="_blank">article R832-7 du code de la construction et de l'habitation</a>.</span>
+                                "ui:help": <span>Cette distinction est établie par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048899" target="_blank">article R832-7 du code de la construction et de l'habitation</a>.</span>
                             }
                         }
                     },

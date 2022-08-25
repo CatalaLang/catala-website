@@ -418,7 +418,7 @@
           "format": "date"
         },
         "construitApplicationLoi195712III": {
-          "title": "Logement-foyer construit de jeunes travailleurs construit à partir de 1957 pour répondre à la pénurie de logements",
+          "title": "Logement-foyer de jeunes travailleurs construit à partir de 1957 pour répondre à la pénurie de logements",
           "type": "boolean",
           "default": false
         },
@@ -1324,7 +1324,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "Situation scolaire:",
+          "title": "Situation scolaire",
           "default": "Pendant",
           "type": "string",
           "anyOf": [

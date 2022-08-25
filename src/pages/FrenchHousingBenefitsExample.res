@@ -6,6 +6,7 @@ let pageTitle =
 
 let catalaCodeHTML = %raw(`require("../../assets/aides_logement.html")`)
 let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_fr.schema.js")`)
+let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_en.schema.js")`)
 
 module FormInfos = {
   let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
@@ -13,7 +14,7 @@ module FormInfos = {
 
   let frenchUiSchema = Js.Dict.unsafeGet(frenchUiSchema, "uiSchema")
 
-  let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_schema_en.json")`)
+  let englishUiSchema = Js.Dict.unsafeGet(englishUiSchema, "uiSchema")
 
   let resultLabel =
     <Lang.String
