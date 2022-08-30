@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Expr (catala.Shared_ast.Expr)</title><link rel="stylesheet" href="../../../odoc.css"/><meta charset="utf-8"/><meta name="generator" content="odoc 2.1.1"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">catala</a> &#x00BB; <a href="../index.html">Shared_ast</a> &#x00BB; Expr</nav><header class="odoc-preamble"><h1>Module <code><span>Shared_ast.Expr</span></code></h1><p>Functions handling the expressions of <code>shared_ast</code></p></header><nav class="odoc-toc"><ul><li><a href="#boxed-constructors">Boxed constructors</a></li><li><a href="#traversal-functions">Traversal functions</a></li><li><a href="#expression-building-helpers">Expression building helpers</a></li><li><a href="#transformations">Transformations</a></li><li><a href="#analysis-and-tests">Analysis and tests</a></li></ul></nav><div class="odoc-content"><h3 id="boxed-constructors"><a href="#boxed-constructors" class="anchor"></a>Boxed constructors</h3><div class="odoc-spec"><div class="spec value" id="val-box" class="anchored"><a href="#val-box" class="anchor"></a><code><span><span class="keyword">val</span> box : 
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-evar" class="anchored"><a href="#val-evar" class="anchor"></a><code><span><span class="keyword">val</span> evar : 
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <a href="../Var/index.html#type-t">Var.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-etuple" class="anchored"><a href="#val-etuple" class="anchor"></a><code><span><span class="keyword">val</span> etuple : 
+  <span><span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="xref-unresolved">Shared_ast__Definitions.StructName.t</span> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-etupleaccess" class="anchored"><a href="#val-etupleaccess" class="anchor"></a><code><span><span class="keyword">val</span> etupleaccess : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span>int <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="xref-unresolved">Shared_ast__Definitions.StructName.t</span> option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-einj" class="anchored"><a href="#val-einj" class="anchor"></a><code><span><span class="keyword">val</span> einj : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span>int <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Shared_ast__Definitions.EnumName.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-ematch" class="anchored"><a href="#val-ematch" class="anchor"></a><code><span><span class="keyword">val</span> ematch : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Shared_ast__Definitions.EnumName.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-earray" class="anchored"><a href="#val-earray" class="anchor"></a><code><span><span class="keyword">val</span> earray : 
+  <span><span><span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-elit" class="anchored"><a href="#val-elit" class="anchor"></a><code><span><span class="keyword">val</span> elit : 
+  <span><span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span> <span class="xref-unresolved">Shared_ast__Definitions.glit</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eabs" class="anchored"><a href="#val-eabs" class="anchor"></a><code><span><span class="keyword">val</span> eabs : 
+  <span><span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> )</span>
+    <span class="xref-unresolved">Bindlib</span>.mbinder</span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eapp" class="anchored"><a href="#val-eapp" class="anchor"></a><code><span><span class="keyword">val</span> eapp : 
+  <span><span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eassert" class="anchored"><a href="#val-eassert" class="anchor"></a><code><span><span class="keyword">val</span> eassert : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eop" class="anchored"><a href="#val-eop" class="anchor"></a><code><span><span class="keyword">val</span> eop : 
+  <span><span class="xref-unresolved">Shared_ast__Definitions.operator</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span><span class="type-var">_</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-edefault" class="anchored"><a href="#val-edefault" class="anchor"></a><code><span><span class="keyword">val</span> edefault : 
+  <span><span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.desugared</span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.scopelang</span></span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eifthenelse" class="anchored"><a href="#val-eifthenelse" class="anchor"></a><code><span><span class="keyword">val</span> eifthenelse : 
+  <span><span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eerroronempty" class="anchored"><a href="#val-eerroronempty" class="anchor"></a><code><span><span class="keyword">val</span> eerroronempty : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.desugared</span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.scopelang</span></span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-ecatch" class="anchored"><a href="#val-ecatch" class="anchor"></a><code><span><span class="keyword">val</span> ecatch : 
+  <span><span><span><span>( <span><span>( <span>[ `Lcalc ]</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Shared_ast__Definitions.except</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span>[ `Lcalc ]</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span>[ `Lcalc ]</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-eraise" class="anchored"><a href="#val-eraise" class="anchor"></a><code><span><span class="keyword">val</span> eraise : 
+  <span><span class="xref-unresolved">Shared_ast__Definitions.except</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span>[ `Lcalc ]</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><p>Manipulation of marks</p><div class="odoc-spec"><div class="spec value" id="val-no_mark" class="anchored"><a href="#val-no_mark" class="anchor"></a><code><span><span class="keyword">val</span> no_mark : 
+  <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-mark_pos" class="anchored"><a href="#val-mark_pos" class="anchor"></a><code><span><span class="keyword">val</span> mark_pos : <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span> <a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-pos" class="anchored"><a href="#val-pos" class="anchor"></a><code><span><span class="keyword">val</span> pos : 
+  <span><span><span>( <span><span>( <span class="type-var">'e</span>, <span><span class="type-var">_</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">_</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-ty" class="anchored"><a href="#val-ty" class="anchor"></a><code><span><span class="keyword">val</span> ty : 
+  <span><span><span>( <span class="type-var">_</span>, <span><span class="xref-unresolved">Shared_ast__Definitions.typed</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-with_ty" class="anchored"><a href="#val-with_ty" class="anchor"></a><code><span><span class="keyword">val</span> with_ty : 
+  <span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span class="type-var">'a</span>, <span><span class="type-var">_</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>( <span class="type-var">'a</span>, <span><span class="xref-unresolved">Shared_ast__Definitions.typed</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-map_mark" class="anchored"><a href="#val-map_mark" class="anchor"></a><code><span><span class="keyword">val</span> map_mark : 
+  <span><span>( <span><a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> <span class="arrow">&#45;&gt;</span></span> <a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>( <span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+    <span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-map_mark2" class="anchored"><a href="#val-map_mark2" class="anchor"></a><code><span><span class="keyword">val</span> map_mark2 : 
+  <span><span>( <span><a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> <span class="arrow">&#45;&gt;</span></span> <span><a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> <span class="arrow">&#45;&gt;</span></span> <a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>( <span><span class="xref-unresolved">Shared_ast__Definitions.typed</span> <span class="arrow">&#45;&gt;</span></span>
+    <span><span class="xref-unresolved">Shared_ast__Definitions.typed</span> <span class="arrow">&#45;&gt;</span></span>
+    <span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-fold_marks" class="anchored"><a href="#val-fold_marks" class="anchor"></a><code><span><span class="keyword">val</span> fold_marks : 
+  <span><span>( <span><span><a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> list</span> <span class="arrow">&#45;&gt;</span></span> <a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>( <span><span><span class="xref-unresolved">Shared_ast__Definitions.typed</span> list</span> <span class="arrow">&#45;&gt;</span></span>
+    <span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-untype" class="anchored"><a href="#val-untype" class="anchor"></a><code><span><span class="keyword">val</span> untype : 
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="xref-unresolved">Shared_ast__Definitions.untyped</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="xref-unresolved">Shared_ast__Definitions.untyped</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><h3 id="traversal-functions"><a href="#traversal-functions" class="anchor"></a>Traversal functions</h3><div class="odoc-spec"><div class="spec value" id="val-map" class="anchored"><a href="#val-map" class="anchor"></a><code><span><span class="keyword">val</span> map : 
+  <span><span class="type-var">'ctx</span> <span class="arrow">&#45;&gt;</span></span>
+  <span>f:
+    <span>( <span><span class="type-var">'ctx</span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t1</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t1</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t2</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t2</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+        <span class="xref-unresolved">Bindlib</span>.box</span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t1</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t2</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t2</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t2</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div><div class="spec-doc"><p>Flat (non-recursive) mapping on expressions.</p><p>If you want to apply a map transform to an expression, you can save up writing a painful match over all the cases of the AST. For instance, if you want to remove all errors on empty, you can write</p><pre><code>let remove_error_empty =
+  let rec f () e =
+    match Marked.unmark e with
+    | ErrorOnEmpty e1 -&gt; Expr.map () f e1
+    | _ -&gt; Expr.map () f e
+  in
+  f () e</code></pre><p>The first argument of map_expr is an optional context that you can carry around during your map traversal.</p></div></div><div class="odoc-spec"><div class="spec value" id="val-map_top_down" class="anchored"><a href="#val-map_top_down" class="anchor"></a><code><span><span class="keyword">val</span> map_top_down : 
+  <span>f:
+    <span>( <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t1</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t1</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+      <span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t1</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t2</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t1</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t1</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t2</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t2</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div><div class="spec-doc"><p>Recursively applies <code>f</code> to the nodes of the expression tree. The type returned by <code>f</code> is hybrid since the mark at top-level has been rewritten, but not yet the marks in the subtrees.</p></div></div><div class="odoc-spec"><div class="spec value" id="val-map_marks" class="anchored"><a href="#val-map_marks" class="anchor"></a><code><span><span class="keyword">val</span> map_marks : 
+  <span>f:<span>( <span><span class="type-var">'t1</span> <span class="arrow">&#45;&gt;</span></span> <span class="type-var">'t2</span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t1</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t1</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t2</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t2</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><h3 id="expression-building-helpers"><a href="#expression-building-helpers" class="anchor"></a>Expression building helpers</h3><div class="odoc-spec"><div class="spec value" id="val-make_var" class="anchored"><a href="#val-make_var" class="anchor"></a><code><span><span class="keyword">val</span> make_var : 
+  <span><span>(<span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <a href="../Var/index.html#type-t">Var.t</a></span>
+   * <span class="type-var">'b</span>)</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>(<span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span> * <span class="type-var">'b</span>)</span> <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-make_abs" class="anchored"><a href="#val-make_abs" class="anchor"></a><code><span><span class="keyword">val</span> make_abs : 
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <a href="../Var/index.html#type-vars">Var.vars</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-make_app" class="anchored"><a href="#val-make_app" class="anchor"></a><code><span><span class="keyword">val</span> make_app : 
+  <span><span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-empty_thunked_term" class="anchored"><a href="#val-empty_thunked_term" class="anchor"></a><code><span><span class="keyword">val</span> empty_thunked_term : 
+  <span><span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.desugared</span></span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.scopelang</span></span> ]</span>,
+      <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-make_let_in" class="anchored"><a href="#val-make_let_in" class="anchor"></a><code><span><span class="keyword">val</span> make_let_in : 
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <a href="../Var/index.html#type-t">Var.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-make_multiple_let_in" class="anchored"><a href="#val-make_multiple_let_in" class="anchor"></a><code><span><span class="keyword">val</span> make_multiple_let_in : 
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <a href="../Var/index.html#type-vars">Var.vars</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Utils/Pos/index.html#type-t">Utils.Pos.t</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-make_default" class="anchored"><a href="#val-make_default" class="anchor"></a><code><span><span class="keyword">val</span> make_default : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.desugared</span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.scopelang</span></span>
+      <span>| <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span class="type-var">'t</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span></span></code></div><div class="spec-doc"><p><code>make_default ?pos exceptions just cons</code> builds a term semantically equivalent to <code>&lt;exceptions | just :- cons&gt;</code> (the <code>EDefault</code> constructor) while avoiding redundant nested constructions. The position is extracted from <code>just</code> by default.</p><p>Note that, due to the simplifications taking place, the result might not be of the form <code>EDefault</code>:</p><ul><li><code>&lt;true :- x&gt;</code> is rewritten as <code>x</code></li><li><code>&lt;ex | true :- def&gt;</code>, when <code>def</code> is a default term <code>&lt;j :- c&gt;</code> without exceptions, is collapsed into <code>&lt;ex | def&gt;</code></li><li><code>&lt;ex | false :- _&gt;</code>, when <code>ex</code> is a single exception, is rewritten as <code>ex</code></li></ul></div></div><h3 id="transformations"><a href="#transformations" class="anchor"></a>Transformations</h3><div class="odoc-spec"><div class="spec value" id="val-remove_logging_calls" class="anchored"><a href="#val-remove_logging_calls" class="anchor"></a><code><span><span class="keyword">val</span> remove_logging_calls : 
+  <span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div><div class="spec-doc"><p>Removes all calls to <code>Log</code> unary operators in the AST, replacing them by their argument.</p></div></div><div class="odoc-spec"><div class="spec value" id="val-format" class="anchored"><a href="#val-format" class="anchor"></a><code><span><span class="keyword">val</span> format : 
+  <span>?debug:bool <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Shared_ast__Definitions.decl_ctx</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">_</span>, <span><span class="type-var">_</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">_</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><h3 id="analysis-and-tests"><a href="#analysis-and-tests" class="anchor"></a>Analysis and tests</h3><div class="odoc-spec"><div class="spec value" id="val-equal_lit" class="anchored"><a href="#val-equal_lit" class="anchor"></a><code><span><span class="keyword">val</span> equal_lit : 
+  <span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glit</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glit</span></span> <span class="arrow">&#45;&gt;</span></span>
+  bool</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-compare_lit" class="anchored"><a href="#val-compare_lit" class="anchor"></a><code><span><span class="keyword">val</span> compare_lit : 
+  <span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glit</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glit</span></span> <span class="arrow">&#45;&gt;</span></span>
+  int</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-equal_location" class="anchored"><a href="#val-equal_location" class="anchor"></a><code><span><span class="keyword">val</span> equal_location : 
+  <span><span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glocation</span></span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glocation</span></span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  bool</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-compare_location" class="anchored"><a href="#val-compare_location" class="anchor"></a><code><span><span class="keyword">val</span> compare_location : 
+  <span><span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glocation</span></span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.glocation</span></span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  int</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-equal" class="anchored"><a href="#val-equal" class="anchor"></a><code><span><span class="keyword">val</span> equal : 
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  bool</span></code></div><div class="spec-doc"><p>Determines if two expressions are equal, omitting their position information</p></div></div><div class="odoc-spec"><div class="spec value" id="val-compare" class="anchored"><a href="#val-compare" class="anchor"></a><code><span><span class="keyword">val</span> compare : 
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  int</span></code></div><div class="spec-doc"><p>Standard comparison function, suitable for e.g. <code>Set.Make</code>. Ignores position information</p></div></div><div class="odoc-spec"><div class="spec value" id="val-compare_typ" class="anchored"><a href="#val-compare_typ" class="anchor"></a><code><span><span class="keyword">val</span> compare_typ : 
+  <span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="xref-unresolved">Shared_ast__Definitions.naked_typ</span> <a href="../../Utils/Marked/index.html#type-pos">Utils.Marked.pos</a></span> <span class="arrow">&#45;&gt;</span></span>
+  int</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-is_value" class="anchored"><a href="#val-is_value" class="anchor"></a><code><span><span class="keyword">val</span> is_value : 
+  <span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  bool</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-free_vars" class="anchored"><a href="#val-free_vars" class="anchor"></a><code><span><span class="keyword">val</span> free_vars : 
+  <span><span><span>( <span><span>( <span><span class="type-var">'a</span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'t</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <a href="../Var/Set/index.html#type-t">Var.Set.t</a></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-size" class="anchored"><a href="#val-size" class="anchor"></a><code><span><span class="keyword">val</span> size : 
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span class="type-var">'t</span> )</span> <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>, <span class="type-var">'t</span> )</span> <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  int</span></code></div><div class="spec-doc"><p>Used by the optimizer to know when to stop</p></div></div></div></body></html>

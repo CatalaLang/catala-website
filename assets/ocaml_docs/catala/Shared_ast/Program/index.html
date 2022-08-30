@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>Program (catala.Shared_ast.Program)</title><link rel="stylesheet" href="../../../odoc.css"/><meta charset="utf-8"/><meta name="generator" content="odoc 2.1.1"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">catala</a> &#x00BB; <a href="../index.html">Shared_ast</a> &#x00BB; Program</nav><header class="odoc-preamble"><h1>Module <code><span>Shared_ast.Program</span></code></h1></header><nav class="odoc-toc"><ul><li><a href="#transformations">Transformations</a></li></ul></nav><div class="odoc-content"><h3 id="transformations"><a href="#transformations" class="anchor"></a>Transformations</h3><div class="odoc-spec"><div class="spec value" id="val-map_exprs" class="anchored"><a href="#val-map_exprs" class="anchor"></a><code><span><span class="keyword">val</span> map_exprs : 
+  <span>f:<span>( <span><span class="type-var">'expr1</span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'expr2</span> <span class="xref-unresolved">Bindlib</span>.box</span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span>varf:<span>( <span><span><span class="type-var">'expr1</span> <a href="../Var/index.html#type-t">Var.t</a></span> <span class="arrow">&#45;&gt;</span></span> <span><span class="type-var">'expr2</span> <a href="../Var/index.html#type-t">Var.t</a></span> )</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'expr1</span> <span class="xref-unresolved">Shared_ast__Definitions.program</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'expr2</span> <span class="xref-unresolved">Shared_ast__Definitions.program</span></span> <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-untype" class="anchored"><a href="#val-untype" class="anchor"></a><code><span><span class="keyword">val</span> untype : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span> <span class="keyword">as</span> 'a,
+      <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="type-var">'m</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Shared_ast__Definitions.program</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <span><span>( <span class="type-var">'a</span>, <span><span class="xref-unresolved">Shared_ast__Definitions.untyped</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span><span class="xref-unresolved">Shared_ast__Definitions.untyped</span> <span class="xref-unresolved">Shared_ast__Definitions.mark</span></span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span>
+    <span class="xref-unresolved">Shared_ast__Definitions.program</span></span></span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-to_expr" class="anchored"><a href="#val-to_expr" class="anchor"></a><code><span><span class="keyword">val</span> to_expr : 
+  <span><span><span><span>( <span><span>( <span>[&lt; <span class="xref-unresolved">Shared_ast__Definitions.dcalc</span> <span>| <span class="xref-unresolved">Shared_ast__Definitions.lcalc</span></span> ]</span>, <span class="type-var">_</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">_</span> )</span>
+    <a href="../../Utils/Marked/index.html#type-t">Utils.Marked.t</a></span> <span class="keyword">as</span> 'e
+    <span class="xref-unresolved">Shared_ast__Definitions.program</span></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Shared_ast__Definitions.ScopeName.t</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="type-var">'e</span> <span class="xref-unresolved">Bindlib</span>.box</span></span></code></div><div class="spec-doc"><p>Usage: <code>build_whole_program_expr program main_scope</code> builds an expression corresponding to the main program and returning the main scope as a function.</p></div></div></div></body></html>
