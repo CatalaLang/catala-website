@@ -1,6 +1,8 @@
 let typesetMathJax: unit => unit = %raw(`
 function typesetMathJax() {
-    window.MathJax.typeset();
+    if (window.MathJax) {
+      window.MathJax.typeset();
+    }
   }
 `)
 
@@ -49,11 +51,7 @@ module Collapsible = {
     <>
       start
       {if isOpen {
-        <>
-          {" - "->toggleButton}
-          <br />
-          children
-        </>
+        <> {" - "->toggleButton} <br /> children </>
       } else {
         <> {"..."->toggleButton} </>
       }}
@@ -93,7 +91,5 @@ module Op = {
 
 @react.component
 let make = (~children) => {
-  <div className=%twc("font-mono")>
-    <pre> children </pre>
-  </div>
+  <div className=%twc("font-mono")> <pre> children </pre> </div>
 }
