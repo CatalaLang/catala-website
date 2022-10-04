@@ -108,11 +108,11 @@ let make = () => <>
       <Person person=marieAlauzen />
       <Person person=alainDelaet />
       <Person person=aymericFromherz />
+      <Person person=louisGesbert />
       <Person person=lianeHuttner />
       <Person person=sarahLawsky />
       <Person person=denisMerigoux />
       <Person person=raphaelMonat />
-      <Person person=louisGesbert />
       <Person person=jonathanProtzenko />
     </ul>
   </Section>
@@ -121,10 +121,10 @@ let make = () => <>
       <Person person=nicolasChataing />
     </ul>
     <ul className=%twc("list-disc list-inside")>
-      <Person person=lilyaSlimani />
+      <Person person=emileRolley />
     </ul>
     <ul className=%twc("list-disc list-inside")>
-      <Person person=emileRolley />
+      <Person person=lilyaSlimani />
     </ul>
   </Section>
   <Section

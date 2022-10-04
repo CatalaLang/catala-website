@@ -120,7 +120,7 @@ let louisGesbert = {
 }
 
 let emileRolley = {
-  name: "Émile Rolley",
+  name: `Émile Rolley`,
   website: Some("https://www.linkedin.com/in/emile-rolley-703b82206/"),
   affiliation: {
     name: "Inria - Prosecco",
