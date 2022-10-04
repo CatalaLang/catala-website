@@ -112,7 +112,7 @@ let christopheGaie = {
 
 let louisGesbert = {
   name: "Louis Gesbert",
-  website: "https://github.com/AltGr",
+  website: Some("https://github.com/AltGr"),
   affiliation: {
     name: "Inria - Prosecco",
     url: "https://team.inria.fr/prosecco/",
@@ -121,8 +121,8 @@ let louisGesbert = {
 
 let emileRolley = {
   name: "Émile Rolley",
-  website: "https://www.linkedin.com/in/emile-rolley-703b82206/",
-  affilication: {
+  website: Some("https://www.linkedin.com/in/emile-rolley-703b82206/"),
+  affiliation: {
     name: "Inria - Prosecco",
     url: "https://team.inria.fr/prosecco/",
   },
