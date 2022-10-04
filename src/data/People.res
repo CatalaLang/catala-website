@@ -109,3 +109,21 @@ let christopheGaie = {
     url: "https://www.numerique.gouv.fr/dinum/",
   },
 }
+
+let louisGesbert = {
+  name: "Louis Gesbert",
+  website: "https://github.com/AltGr",
+  affiliation: {
+    name: "Inria - Prosecco",
+    url: "https://team.inria.fr/prosecco/",
+  },
+}
+
+let emileRolley = {
+  name: "Émile Rolley",
+  website: "https://www.linkedin.com/in/emile-rolley-703b82206/",
+  affilication: {
+    name: "Inria - Prosecco",
+    url: "https://team.inria.fr/prosecco/",
+  },
+}
