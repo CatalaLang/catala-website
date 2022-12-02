@@ -197,6 +197,22 @@ keywords = {law, domain specific language, legal expert systems}
 }",
 }
 
+let smu_2022 = {
+  title: `Coding the Code: Catala and Computationally Accessible Tax Law`,
+  authors: [sarahLawsky],
+  date: `2022`,
+  link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177",
+  citation: `Lawsky, Sarah B., Coding the Code: Catala and Computationally Accessible Tax Law (December 1, 2022). 75 SMU L. Rev. 535 (2022), Northwestern Public Law Research Paper No. 22-32.`,
+  abstract: Some(`This Article describes a new programming language, Catala, created by a team of computer scientists and lawyers. Catala provides a tractable and functional approach to coding U.S. tax law that offers a more transparent formalization and could potentially hold the government more accountable than the current patchwork of forms, worksheets, and secret programs. While this Article describes a particular programming language, key characteristics of this particular language could generalize to other programming languages that formalize the law. First, Catala is a domain-specific programming language designed specifically for formalizing tax law. In particular, Catala is structured using default logic, a nonstandard logic that represents the underlying structure of the U.S. tax code more accurately than does standard logic. This structure makes the computer code easier to read, easier to create, and easier to modify when the law changes. Second, computer code is created in Catala using a well-known approach in the field of computer science (though rarely mentioned in legal literature) called “pair programming,” which, in this implementation, takes advantage of the knowledge of both lawyers and computer coders. Finally, Catala uses literate programming to create computer code that is, among other things, easier to read and that communicates the decisions behind the coding to the user.`),
+  bibtex: "@article{lawsky2022,
+  title   = {Coding the Code: Catala and Computationally Accessible Tax Law},
+  journal = {SMU Law Review},
+  year    = {2022},
+  number  = {535},
+  volume  = {75},
+  url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177}}",
+}
+
 let save_to_clipboard: string => unit = %raw(`
 function(text) {navigator.clipboard.writeText(text)}
 `)
@@ -237,7 +253,8 @@ module PubItem = {
             }
           switch author.website {
           | Some(target) =>
-            <Link.Text key className={style ++ " hover:bg-primary_light hover:text-gray_dark"} target>
+            <Link.Text
+              key className={style ++ " hover:bg-primary_light hover:text-gray_dark"} target>
               {author.name->React.string}
             </Link.Text>
           | None => <span key className=style> {author.name->React.string} </span>
@@ -248,10 +265,10 @@ module PubItem = {
       {switch pub.abstract {
       | Some(abstract) =>
         <Box.Collapsible
-          labelExpand={<Lang.String english="Show the abstract" french=`Voir l'abstract` />}>
+          labelExpand={<Lang.String english="Show the abstract" french={`Voir l'abstract`} />}>
           <p className=%twc("text-background")> {abstract->React.string} </p>
         </Box.Collapsible>
-      | None => <span className=%twc("mb-2")/>
+      | None => <span className=%twc("mb-2") />
       }}
     </div>
 }
@@ -275,22 +292,24 @@ module PubItems = {
 
 @react.component
 let make = () => <>
-  <Title> <Lang.String english="Publications" french=`Publications` /> </Title>
+  <Title>
+    <Lang.String english="Publications" french={`Publications`} />
+  </Title>
   <div className=%twc("pb-10")>
     <Section
       title={<Lang.String
         english="Peer-reviewed conferences and journals"
-        french=`Conférences et journaux à comité de lecture`
+        french={`Conférences et journaux à comité de lecture`}
       />}>
-      <PubItems items={[icfp2021, cc2021, jfla2020]} />
+      <PubItems items={[smu_2022, icfp2021, cc2021, jfla2020]} />
     </Section>
-    <Section title={<Lang.String english="Workshops" french=`Ateliers` />}>
+    <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
       <PubItems items={[prolala_2022]} />
     </Section>
-    <Section title={<Lang.String english="Invited articles" french=`Articles invités` />}>
+    <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
       <PubItems items={[iafipu2020]} />
     </Section>
-    <Section title={<Lang.String english="Preprints" french=`Pré-prints` />}>
+    <Section title={<Lang.String english="Preprints" french={`Pré-prints`} />}>
       <PubItems items={[crcl_2022, ai_law_2022, crcl_2021]} />
     </Section>
   </div>
