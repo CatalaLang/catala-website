@@ -301,13 +301,13 @@ let make = () => <>
         english="Peer-reviewed conferences and journals"
         french={`Conférences et journaux à comité de lecture`}
       />}>
-      <PubItems items={[smu_2022, icfp2021, cc2021, jfla2020]} />
+      <PubItems items={[icfp2021, cc2021, jfla2020]} />
     </Section>
     <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
       <PubItems items={[prolala_2022]} />
     </Section>
     <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
-      <PubItems items={[iafipu2020]} />
+      <PubItems items={[smu_2022, iafipu2020]} />
     </Section>
     <Section title={<Lang.String english="Preprints" french={`Pré-prints`} />}>
       <PubItems items={[crcl_2022, ai_law_2022, crcl_2021]} />
