@@ -19,6 +19,10 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
   | list{first, second, third} =>
     if first == Nav.home && (second == Nav.doc && third == Nav.catalaManPage) {
       <Doc.CatalaManPage />
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.clerkManPage) {
+      <Doc.ClerkManPage />
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.catalaLegifranceManPage) {
+      <Doc.CatalaLegifranceManPage />
     } else if (
       first == Nav.home && (second == Nav.examples && third == Nav.frenchFamilyBenefitsExample)
     ) {

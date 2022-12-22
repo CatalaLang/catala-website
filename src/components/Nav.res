@@ -5,27 +5,27 @@ type navElem = {
 
 let home: navElem = {
   url: "",
-  text: <Lang.String english="Home" french=`Accueil` />,
+  text: <Lang.String english="Home" french={`Accueil`} />,
 }
 
 let formalization: navElem = {
   url: "formalisation",
-  text: <Lang.String english="Formalization" french=`Formalisation` />,
+  text: <Lang.String english="Formalization" french={`Formalisation`} />,
 }
 
 let publications: navElem = {
   url: "publications",
-  text: <Lang.String english="Publications" french=`Publications` />,
+  text: <Lang.String english="Publications" french={`Publications`} />,
 }
 
 let examples: navElem = {
   url: "examples",
-  text: <Lang.String english="Examples" french=`Exemples` />,
+  text: <Lang.String english="Examples" french={`Exemples`} />,
 }
 
 let about: navElem = {
   url: "about",
-  text: <Lang.String english="about" french=`À propos` />,
+  text: <Lang.String english="about" french={`À propos`} />,
 }
 
 // let playground: nav_elem= {
@@ -35,37 +35,47 @@ let about: navElem = {
 
 let doc: navElem = {
   url: "doc",
-  text: <Lang.String english="Documentation" french=`Documentation` />,
+  text: <Lang.String english="Documentation" french={`Documentation`} />,
 }
 
 let frenchFamilyBenefitsExample: navElem = {
   url: "family-benefits",
-  text: <Lang.String english="Family benefits" french=`Allocations familiales` />,
+  text: <Lang.String english="Family benefits" french={`Allocations familiales`} />,
 }
 
 let frenchHousingBenefitsExample: navElem = {
   url: "housing-benefits",
-  text: <Lang.String english="Housing benefits" french=`Aides au logement` />,
+  text: <Lang.String english="Housing benefits" french={`Aides au logement`} />,
 }
 
 let usTaxCode: navElem = {
   url: "us-tax-code",
-  text: <Lang.String english="US Tax" french=`Impôts US` />,
+  text: <Lang.String english="US Tax" french={`Impôts US`} />,
 }
 
 let tutorialEnExample: navElem = {
   url: "tutorial",
-  text: <Lang.String english="English Tutorial" french=`Tutoriel en anglais` />,
+  text: <Lang.String english="English Tutorial" french={`Tutoriel en anglais`} />,
 }
 
 let tutorialFrExample: navElem = {
   url: "tutoriel",
-  text: <Lang.String english="French Tutorial" french=`Tutoriel en français` />,
+  text: <Lang.String english="French Tutorial" french={`Tutoriel en français`} />,
 }
 
 let catalaManPage: navElem = {
   url: "catala",
   text: "catala" |> React.string,
+}
+
+let catalaLegifranceManPage: navElem = {
+  url: "legifrance",
+  text: "legifrance" |> React.string,
+}
+
+let clerkManPage: navElem = {
+  url: "clerk",
+  text: "clerk" |> React.string,
 }
 
 let ocamlDocs: navElem = {
@@ -75,12 +85,12 @@ let ocamlDocs: navElem = {
 
 let syntaxCheatSheet: navElem = {
   url: "syntax-sheet",
-  text: <Lang.String english="Syntax sheat cheet" french=`Pense-bête syntaxtique` />,
+  text: <Lang.String english="Syntax sheat cheet" french={`Pense-bête syntaxtique`} />,
 }
 
 let visualization: navElem = {
   url: "visualization",
-  text: <Lang.String english="Visualization" french=`Visualisation` />,
+  text: <Lang.String english="Visualization" french={`Visualisation`} />,
 }
 
 let cmp = (a: navElem, b: navElem) => {
@@ -120,6 +130,8 @@ let urlToNavElem = (url: ReasonReactRouter.url): (option<Lang.lang>, array<navEl
         tutorialEnExample,
         tutorialFrExample,
         catalaManPage,
+        clerkManPage,
+        catalaLegifranceManPage,
         ocamlDocs,
         syntaxCheatSheet,
       ])

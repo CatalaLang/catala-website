@@ -58,6 +58,16 @@
     <table class="specification">
       
       <tr class="rule">
+        <th><span class="nonterminal">pos(x)</span></th>
+        <td>x</td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">addpos(x)</span></th>
+        <td>x</td>
+      </tr>
+      
+      <tr class="rule">
         <th><span class="nonterminal">typ_base</span></th>
         <td>INTEGER</td>
       </tr>
@@ -87,12 +97,7 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">constructor</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">collection_marked</span></th>
-        <td>COLLECTION</td>
+        <td>UIDENT</td>
       </tr>
       
       <tr class="rule">
@@ -101,8 +106,8 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">collection_marked</span>
-        <span class="nonterminal">typ</span></td>
+        <td>COLLECTION
+        <span class="nonterminal">addpos(<span class="nonterminal">typ</span>)</span></td>
       </tr>
       
       <tr class="rule">
@@ -111,8 +116,19 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">atomic_expression</span></th>
-        <td>IDENT</td>
+        <th><span class="nonterminal">path</span></th>
+        <td><span class="option"><span class="nonterminal">constructor</span>
+        DOT</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">expression</span></th>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">naked_expression</span>)</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">naked_expression</span></th>
+        <td>LIDENT</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -124,57 +140,12 @@
         <span class="nonterminal">expression</span>
         RPAREN</td>
       </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">small_expression</span></th>
-        <td><span class="nonterminal">atomic_expression</span></td>
-      </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">small_expression</span>
+        <td><span class="nonterminal">expression</span>
         DOT
-        <span class="option"><span class="nonterminal">constructor</span>
-        DOT</span>
+        <span class="nonterminal">path</span>
         <span class="nonterminal">ident</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">struct_content_field</span></th>
-        <td><span class="nonterminal">ident</span>
-        COLON
-        <span class="nonterminal">logical_expression</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">enum_inject_content</span></th>
-        <td>CONTENT
-        <span class="nonterminal">small_expression</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">struct_inject_content</span></th>
-        <td>LBRACKET
-        ALT
-        <span class="nonterminal">struct_content_field</span><sup>+</sup><sub>ALT</sub>
-        RBRACKET</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">struct_or_enum_inject</span></th>
-        <td><span class="nonterminal">constructor</span>
-        <span class="option">DOT
-        <span class="nonterminal">constructor</span></span>
-        <span class="option"><span class="nonterminal">enum_inject_content</span></span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">constructor</span>
-        <span class="nonterminal">struct_inject_content</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">primitive_expression</span></th>
-        <td><span class="nonterminal">small_expression</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -182,13 +153,220 @@
       </tr>
       <tr>
         <th class="bar"></th>
+        <td>DECIMAL</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MONEY</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LBRACKET
+        <span class="nonterminal">expression</span><sup>*</sup><sub>SEMICOLON</sub>
+        RBRACKET</td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
         <td><span class="nonterminal">struct_or_enum_inject</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>LSQUARE
-        <span class="nonterminal">expression</span><sup>*</sup><sub>SEMICOLON</sub>
-        RSQUARE</td>
+        <td><span class="nonterminal">expression</span>
+        OF
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>OUTPUT
+        OF
+        <span class="nonterminal">constructor</span>
+        <span class="option"><span class="nonterminal">scope_call_args</span></span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        WITH
+        <span class="nonterminal">constructor_binding</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        CONTAINS
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>SUM
+        <span class="nonterminal">addpos(<span class="nonterminal">typ_base</span>)</span>
+        OF
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        FOR
+        <span class="nonterminal">ident</span>
+        AMONG
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">minmax</span>
+        OF
+        <span class="nonterminal">expression</span>
+        OR
+        IF
+        COLLECTION
+        EMPTY
+        THEN
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">unop</span>
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        <span class="nonterminal">mult_op</span>
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        <span class="nonterminal">sum_op</span>
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        <span class="nonterminal">compare_op</span>
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        <span class="nonterminal">logical_or_op</span>
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        <span class="nonterminal">logical_and_op</span>
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>EXISTS
+        <span class="nonterminal">ident</span>
+        AMONG
+        <span class="nonterminal">expression</span>
+        SUCH
+        THAT
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>FOR
+        ALL
+        <span class="nonterminal">ident</span>
+        AMONG
+        <span class="nonterminal">expression</span>
+        WE_HAVE
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>MATCH
+        <span class="nonterminal">expression</span>
+        WITH
+        <span class="nonterminal">addpos(<span class="ne_list"><span class="nonterminal">addpos(ALT
+        <span class="nonterminal">match_arm</span>)</span></span>)</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>IF
+        <span class="nonterminal">expression</span>
+        THEN
+        <span class="nonterminal">expression</span>
+        ELSE
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>LET
+        <span class="nonterminal">ident</span>
+        DEFINED_AS
+        <span class="nonterminal">expression</span>
+        IN
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">ident</span>
+        AMONG
+        <span class="nonterminal">expression</span>
+        SUCH
+        THAT
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">expression</span>
+        FOR
+        <span class="nonterminal">ident</span>
+        AMONG
+        <span class="nonterminal">expression</span>
+        SUCH
+        THAT
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">ident</span>
+        AMONG
+        <span class="nonterminal">expression</span>
+        SUCH
+        THAT
+        <span class="nonterminal">expression</span>
+        IS
+        <span class="nonterminal">minmax</span>
+        OR
+        IF
+        COLLECTION
+        EMPTY
+        THEN
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">struct_content_field</span></th>
+        <td><span class="nonterminal">ident</span>
+        COLON
+        <span class="nonterminal">expression</span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">enum_content_opt</span></th>
+        <td><span class="option">CONTENT
+        <span class="nonterminal">expression</span></span></td>
+      </tr>
+      
+      <tr class="rule">
+        <th><span class="nonterminal">struct_or_enum_inject</span></th>
+        <td><span class="nonterminal">path</span>
+        <span class="nonterminal">constructor</span>
+        <span class="nonterminal">enum_content_opt</span></td>
+      </tr>
+      <tr>
+        <th class="bar"></th>
+        <td><span class="nonterminal">path</span>
+        <span class="nonterminal">constructor</span>
+        LBRACE
+        <span class="ne_list">(ALT
+        <span class="nonterminal">struct_content_field</span>)</span>
+        RBRACE</td>
       </tr>
       
       <tr class="rule">
@@ -219,8 +397,8 @@
       
       <tr class="rule">
         <th><span class="nonterminal">literal</span></th>
-        <td><span class="nonterminal">num_literal</span>
-        <span class="option"><span class="nonterminal">unit_literal</span></span></td>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">num_literal</span>)</span>
+        <span class="option"><span class="nonterminal">addpos(<span class="nonterminal">unit_literal</span>)</span></span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -228,9 +406,9 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>VERTICAL
+        <td>BAR
         DATE_LITERAL
-        VERTICAL</td>
+        BAR</td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -259,70 +437,6 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>LESSER_DEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_EQUAL_DEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_DEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_EQUAL_DEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_MONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_EQUAL_MONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_MONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_EQUAL_MONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_DATE</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_EQUAL_DATE</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_DATE</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_EQUAL_DATE</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_DURATION</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LESSER_EQUAL_DURATION</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_DURATION</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>GREATER_EQUAL_DURATION</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
         <td>EQUAL</td>
       </tr>
       <tr>
@@ -331,89 +445,21 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">aggregate_func</span></th>
-        <td>CONTENT
-        MAXIMUM
-        <span class="nonterminal">typ_base</span>
-        INIT
-        <span class="nonterminal">primitive_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>CONTENT
-        MINIMUM
-        <span class="nonterminal">typ_base</span>
-        INIT
-        <span class="nonterminal">primitive_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MAXIMUM
-        <span class="nonterminal">typ_base</span>
-        INIT
-        <span class="nonterminal">primitive_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINIMUM
-        <span class="nonterminal">typ_base</span>
-        INIT
-        <span class="nonterminal">primitive_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>SUM
-        <span class="nonterminal">typ_base</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>CARDINAL</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>FILTER</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MAP</td>
+        <th><span class="nonterminal">scope_call_args</span></th>
+        <td>WITH_V
+        LBRACE
+        <span class="list">(ALT
+        <span class="nonterminal">struct_content_field</span>)</span>
+        RBRACE</td>
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">aggregate</span></th>
-        <td><span class="nonterminal">aggregate_func</span>
-        FOR
-        <span class="nonterminal">ident</span>
-        IN
-        <span class="nonterminal">primitive_expression</span>
-        OF
-        <span class="nonterminal">base_expression</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">base_expression</span></th>
-        <td><span class="nonterminal">primitive_expression</span></td>
+        <th><span class="nonterminal">minmax</span></th>
+        <td>MAXIMUM</td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">aggregate</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">primitive_expression</span>
-        OF
-        <span class="nonterminal">base_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">primitive_expression</span>
-        WITH
-        <span class="nonterminal">constructor_binding</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">primitive_expression</span>
-        CONTAINS
-        <span class="nonterminal">base_expression</span></td>
+        <td>MINIMUM</td>
       </tr>
       
       <tr class="rule">
@@ -424,28 +470,6 @@
         <th class="bar"></th>
         <td>MINUS</td>
       </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSMONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDURATION</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">unop_expression</span></th>
-        <td><span class="nonterminal">base_expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">unop</span>
-        <span class="nonterminal">unop_expression</span></td>
-      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">mult_op</span></th>
@@ -455,66 +479,9 @@
         <th class="bar"></th>
         <td>DIV</td>
       </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MULTDEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>DIVDEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MULTMONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>DIVMONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MULDURATION</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">mult_expression</span></th>
-        <td><span class="nonterminal">unop_expression</span><sup>+</sup><sub><span class="nonterminal">mult_op</span></sub></td>
-      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">sum_op</span></th>
-        <td>PLUSDURATION</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDURATION</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>PLUSDATE</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDATE</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>PLUSMONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSMONEY</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>PLUSDEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MINUSDEC</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
         <td>PLUS</td>
       </tr>
       <tr>
@@ -524,11 +491,6 @@
       <tr>
         <th class="bar"></th>
         <td>PLUSPLUS</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">sum_expression</span></th>
-        <td><span class="nonterminal">mult_expression</span><sup>+</sup><sub><span class="nonterminal">sum_op</span></sub></td>
       </tr>
       
       <tr class="rule">
@@ -546,141 +508,29 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">compare_expression</span></th>
-        <td><span class="nonterminal">sum_expression</span><sup>+</sup><sub><span class="nonterminal">compare_op</span></sub></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">logical_atom</span></th>
-        <td><span class="nonterminal">compare_expression</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">logical_or_expression</span></th>
-        <td><span class="nonterminal">logical_atom</span><sup>+</sup><sub><span class="nonterminal">logical_or_op</span></sub></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">logical_expression</span></th>
-        <td><span class="nonterminal">logical_or_expression</span><sup>+</sup><sub><span class="nonterminal">logical_and_op</span></sub></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">maybe_qualified_constructor</span></th>
-        <td><span class="nonterminal">constructor</span>
-        <span class="option">DOT
-        <span class="nonterminal">constructor</span></span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">optional_binding</span></th>
-        <td>&epsilon;</td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>OF
+        <th><span class="nonterminal">constructor_binding</span></th>
+        <td><span class="nonterminal">path</span>
+        <span class="nonterminal">constructor</span>
+        OF
         <span class="nonterminal">ident</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td>OF
-        <span class="nonterminal">maybe_qualified_constructor</span>
-        <span class="nonterminal">constructor_binding</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">constructor_binding</span></th>
-        <td><span class="nonterminal">maybe_qualified_constructor</span>
-        <span class="nonterminal">optional_binding</span></td>
+        <td><span class="nonterminal">path</span>
+        <span class="nonterminal">constructor</span></td>
       </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">match_arm</span></th>
         <td>WILDCARD
         COLON
-        <span class="nonterminal">logical_expression</span></td>
+        <span class="nonterminal">expression</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">constructor_binding</span>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">constructor_binding</span>)</span>
         COLON
-        <span class="nonterminal">logical_expression</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">match_arms</span></th>
-        <td><span class="list">(ALT
-        <span class="nonterminal">match_arm</span>)</span></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">for_all_marked</span></th>
-        <td>FOR
-        ALL</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">exists_marked</span></th>
-        <td>EXISTS</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">forall_prefix</span></th>
-        <td><span class="nonterminal">for_all_marked</span>
-        <span class="nonterminal">ident</span>
-        IN
-        <span class="nonterminal">primitive_expression</span>
-        WE_HAVE</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">exists_prefix</span></th>
-        <td><span class="nonterminal">exists_marked</span>
-        <span class="nonterminal">ident</span>
-        IN
-        <span class="nonterminal">primitive_expression</span>
-        SUCH
-        THAT</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">expression</span></th>
-        <td><span class="nonterminal">exists_prefix</span>
         <span class="nonterminal">expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">forall_prefix</span>
-        <span class="nonterminal">expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>MATCH
-        <span class="nonterminal">primitive_expression</span>
-        WITH
-        <span class="nonterminal">match_arms</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>IF
-        <span class="nonterminal">expression</span>
-        THEN
-        <span class="nonterminal">expression</span>
-        ELSE
-        <span class="nonterminal">expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td>LET
-        <span class="nonterminal">ident</span>
-        DEFINED_AS
-        <span class="nonterminal">expression</span>
-        IN
-        <span class="nonterminal">expression</span></td>
-      </tr>
-      <tr>
-        <th class="bar"></th>
-        <td><span class="nonterminal">logical_expression</span></td>
       </tr>
       
       <tr class="rule">
@@ -697,7 +547,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">rule_expr</span></th>
-        <td><span class="nonterminal">qident</span>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">qident</span>)</span>
         <span class="option"><span class="nonterminal">definition_parameters</span></span></td>
       </tr>
       
@@ -715,7 +565,7 @@
         <span class="nonterminal">rule_expr</span>
         <span class="option"><span class="nonterminal">condition_consequence</span></span>
         <span class="option"><span class="nonterminal">state</span></span>
-        <span class="nonterminal">rule_consequence</span></td>
+        <span class="nonterminal">addpos(<span class="nonterminal">rule_consequence</span>)</span></td>
       </tr>
       
       <tr class="rule">
@@ -747,7 +597,7 @@
         <td><span class="option"><span class="nonterminal">label</span></span>
         <span class="option"><span class="nonterminal">exception_to</span></span>
         DEFINITION
-        <span class="nonterminal">qident</span>
+        <span class="nonterminal">addpos(<span class="nonterminal">qident</span>)</span>
         <span class="option"><span class="nonterminal">definition_parameters</span></span>
         <span class="option"><span class="nonterminal">state</span></span>
         <span class="option"><span class="nonterminal">condition_consequence</span></span>
@@ -777,16 +627,16 @@
       <tr>
         <th class="bar"></th>
         <td>FIXED
-        <span class="nonterminal">qident</span>
+        <span class="nonterminal">addpos(<span class="nonterminal">qident</span>)</span>
         BY
         <span class="nonterminal">ident</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td>VARIES
-        <span class="nonterminal">qident</span>
+        <span class="nonterminal">addpos(<span class="nonterminal">qident</span>)</span>
         WITH_V
-        <span class="nonterminal">base_expression</span>
+        <span class="nonterminal">expression</span>
         <span class="option"><span class="nonterminal">variation_type</span></span></td>
       </tr>
       
@@ -806,7 +656,7 @@
       
       <tr class="rule">
         <th><span class="nonterminal">ident</span></th>
-        <td>IDENT</td>
+        <td>LIDENT</td>
       </tr>
       
       <tr class="rule">
@@ -819,7 +669,7 @@
         <td>DATA
         <span class="nonterminal">ident</span>
         CONTENT
-        <span class="nonterminal">typ</span></td>
+        <span class="nonterminal">addpos(<span class="nonterminal">typ</span>)</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
@@ -830,7 +680,7 @@
       <tr class="rule">
         <th><span class="nonterminal">struct_scope_func</span></th>
         <td>DEPENDS
-        <span class="nonterminal">typ</span></td>
+        <span class="nonterminal">addpos(<span class="nonterminal">typ</span>)</span></td>
       </tr>
       
       <tr class="rule">
@@ -872,7 +722,7 @@
         <td><span class="nonterminal">scope_decl_item_attribute</span>
         <span class="nonterminal">ident</span>
         CONTENT
-        <span class="nonterminal">typ</span>
+        <span class="nonterminal">addpos(<span class="nonterminal">typ</span>)</span>
         <span class="option"><span class="nonterminal">struct_scope_func</span></span>
         <span class="list"><span class="nonterminal">state</span></span></td>
       </tr>
@@ -892,21 +742,16 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">enum_decl_line_payload</span></th>
-        <td>CONTENT
-        <span class="nonterminal">typ</span></td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">enum_decl_line</span></th>
         <td>ALT
         <span class="nonterminal">constructor</span>
-        <span class="option"><span class="nonterminal">enum_decl_line_payload</span></span></td>
+        <span class="option">CONTENT
+        <span class="nonterminal">addpos(<span class="nonterminal">typ</span>)</span></span></td>
       </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">constructor</span></th>
-        <td>CONSTRUCTOR</td>
+        <td><span class="nonterminal">addpos(UIDENT)</span></td>
       </tr>
       
       <tr class="rule">
