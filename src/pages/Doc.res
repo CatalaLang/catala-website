@@ -84,10 +84,10 @@ let catala_legifrance_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   content: <Lang.String
-    english="When working on a Catala project involving French legislation, it is possible to link up
+    english={`When working on a Catala project involving French legislation, it is possible to link up
     Catala headers with LégiFrance law article IDs. LégiFrance is the official repository of French
     legislation, and can help you check whether your Catala source code is correct and up to date
-    with the legislation in force."
+    with the legislation in force.`}
     french={`Quand vous travaillez sur un projet Catala impliquant des sources législatives ou réglementaires
     françaises, il est possible de relier des titres Catala à des articles de loi grâce à des ID LégiFrance.
     Grâce à ce connecteur, LégiFrance peut vous aider à vérifier si votre code source Catala est
