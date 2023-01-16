@@ -92,12 +92,10 @@ let jonathanProtzenko = {
 
 let lianeHuttner = {
   name: "Liane Huttner",
-  website: Some(
-    "https://www.pantheonsorbonne.fr/recherche/page-perso/page/?tx_oxcspagepersonnel_pi1[uid]=lhuttner",
-  ),
+  website: Some("https://www.eui.eu/people?id=liane-huttner"),
   affiliation: {
-    name: `Université Panthéon-Sorbonne`,
-    url: "https://www.pantheonsorbonne.fr/accueil",
+    name: `European Union Institute`,
+    url: "https://www.eui.eu",
   },
 }
 
