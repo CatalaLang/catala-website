@@ -67,8 +67,8 @@ let raphaelMonat = {
   name: `Raphaël Monat`,
   website: Some("https://rmonat.fr/"),
   affiliation: {
-    name: "LIP6 - APR",
-    url: "https://www-apr.lip6.fr/web/doku.php",
+    name: "Inria Lille - SyCoMoRES",
+    url: "https://team.inria.fr/sycomores/",
   },
 }
 
