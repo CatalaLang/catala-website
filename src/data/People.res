@@ -22,8 +22,8 @@ let marieAlauzen = {
   name: "Marie Alauzen",
   website: Some("https://cv.archives-ouvertes.fr/marie-alauzen"),
   affiliation: {
-    name: "Centre Maurice Halbawchs - EHESS/ENS",
-    url: "https://www.ehess.fr/fr/centre-maurice-halbwachs-cmh",
+    name: "Laboratoire Interdisciplinaire Sciences Innovations Sociétés (LISIS),
+    url: "http://umr-lisis.fr/"
   },
 }
 
@@ -49,8 +49,8 @@ let alainDelaet = {
   name: `Alain Delaët-Tixeuil`,
   website: None,
   affiliation: {
-    name: "ENS Lyon",
-    url: "http://informatique.ens-lyon.fr/",
+    name: "Inria - Prosecco",
+    url: "https://team.inria.fr/prosecco/",
   },
 }
 
@@ -67,8 +67,8 @@ let raphaelMonat = {
   name: `Raphaël Monat`,
   website: Some("https://rmonat.fr/"),
   affiliation: {
-    name: "LIP6 - APR",
-    url: "https://www-apr.lip6.fr/web/doku.php",
+    name: "Inria Lille - SyCoMoRES",
+    url: "https://team.inria.fr/sycomores/",
   },
 }
 
