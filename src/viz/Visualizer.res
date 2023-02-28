@@ -443,11 +443,17 @@ module MakeLogEventComponent = (
             <Flex.Column.AlignLeft
               style=%twc("w-full bg-gray_2 text-gray_dark font-semibold py-2 rounded pr-2")>
               <Flex.Row.AlignTop style=%twc("w-full justify-between pl-2")>
-                <CatalaCode>
-                  <CatalaCode.Ids ids={funCall.input.name->Belt.List.toArray} />
-                  <CatalaCode.Op op={" : "} />
-                  <LogEvent.LoggedValue val={funCall.input.value} />
-                </CatalaCode>
+                
+                  {funCall.input
+                  ->Belt.List.toArray
+                  ->Belt.Array.map(input =>
+                    <CatalaCode>
+                      <CatalaCode.Ids ids={input.name->Belt.List.toArray} />
+                      <CatalaCode.Op op={" : "} />
+                      <LogEvent.LoggedValue val={input.value} />
+                    </CatalaCode>
+                  )
+                  ->React.array}
                 <div
                   className=%twc(
                     "px-2 font-semibold italic text-rainforest border border-rainforest \
