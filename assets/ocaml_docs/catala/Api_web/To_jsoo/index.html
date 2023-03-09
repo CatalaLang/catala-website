@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"><head><title>To_jsoo (catala.Api_web.To_jsoo)</title><link rel="stylesheet" href="../../../odoc.css"/><meta charset="utf-8"/><meta name="generator" content="odoc 2.1.0"/><meta name="viewport" content="width=device-width,initial-scale=1.0"/><script src="../../../highlight.pack.js"></script><script>hljs.initHighlightingOnLoad();</script></head><body class="odoc"><nav class="odoc-nav"><a href="../index.html">Up</a> – <a href="../../index.html">catala</a> &#x00BB; <a href="../index.html">Api_web</a> &#x00BB; To_jsoo</nav><header class="odoc-preamble"><h1>Module <code><span>Api_web.To_jsoo</span></code></h1><p>Contains all format functions used to generating the <code>js_of_ocaml</code> wrapper of the corresponding Catala program.</p></header><div class="odoc-content"><div class="odoc-spec"><div class="spec value" id="val-to_camel_case" class="anchored"><a href="#val-to_camel_case" class="anchor"></a><code><span><span class="keyword">val</span> to_camel_case : <span>string <span class="arrow">&#45;&gt;</span></span> string</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_struct_field_name_camel_case" class="anchored"><a href="#val-format_struct_field_name_camel_case" class="anchor"></a><code><span><span class="keyword">val</span> format_struct_field_name_camel_case : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Shared_ast/StructField/index.html#type-t">Shared_ast.StructField.t</a> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_tlit" class="anchored"><a href="#val-format_tlit" class="anchor"></a><code><span><span class="keyword">val</span> format_tlit : <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span> <span><a href="../../Shared_ast/index.html#type-typ_lit">Shared_ast.typ_lit</a> <span class="arrow">&#45;&gt;</span></span> unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_typ" class="anchored"><a href="#val-format_typ" class="anchor"></a><code><span><span class="keyword">val</span> format_typ : <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span> <span><a href="../../Shared_ast/index.html#type-typ">Shared_ast.typ</a> <span class="arrow">&#45;&gt;</span></span> unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_typ_to_jsoo" class="anchored"><a href="#val-format_typ_to_jsoo" class="anchor"></a><code><span><span class="keyword">val</span> format_typ_to_jsoo : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <a href="../../Shared_ast/index.html#type-naked_typ">Shared_ast.naked_typ</a>, <a href="../../Catala_utils/Pos/index.html#type-t">Catala_utils.Pos.t</a> )</span> <a href="../../Catala_utils/Marked/index.html#type-t">Catala_utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_typ_of_jsoo" class="anchored"><a href="#val-format_typ_of_jsoo" class="anchor"></a><code><span><span class="keyword">val</span> format_typ_of_jsoo : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span>( <a href="../../Shared_ast/index.html#type-naked_typ">Shared_ast.naked_typ</a>, <a href="../../Catala_utils/Pos/index.html#type-t">Catala_utils.Pos.t</a> )</span> <a href="../../Catala_utils/Marked/index.html#type-t">Catala_utils.Marked.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_var_camel_case" class="anchored"><a href="#val-format_var_camel_case" class="anchor"></a><code><span><span class="keyword">val</span> format_var_camel_case : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span>( <span><span>[&lt; `Dcalc <span>| `Desugared</span> <span>| `Lcalc</span> <span>| `Scopelang</span> ]</span>
+        <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>,
+      <span class="type-var">'a</span> )</span>
+      <span class="xref-unresolved">Shared_ast__Definitions.naked_gexpr</span></span>,
+    <span class="type-var">'a</span> )</span>
+    <a href="../../Catala_utils/Marked/index.html#type-t">Catala_utils.Marked.t</a></span>
+    <a href="../../Shared_ast/Var/index.html#type-t">Shared_ast.Var.t</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_ctx" class="anchored"><a href="#val-format_ctx" class="anchor"></a><code><span><span class="keyword">val</span> format_ctx : 
+  <span><span><a href="../../Scopelang/Dependency/TVertex/index.html#type-t">Scopelang.Dependency.TVertex.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><a href="../../Shared_ast/index.html#type-decl_ctx">Shared_ast.decl_ctx</a> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-fmt_input_struct_name" class="anchored"><a href="#val-fmt_input_struct_name" class="anchor"></a><code><span><span class="keyword">val</span> fmt_input_struct_name : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="type-var">'a</span> <a href="../../Lcalc/Ast/index.html#type-expr">Lcalc.Ast.expr</a></span> <a href="../../Shared_ast/index.html#type-scope_body">Shared_ast.scope_body</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-fmt_output_struct_name" class="anchored"><a href="#val-fmt_output_struct_name" class="anchor"></a><code><span><span class="keyword">val</span> fmt_output_struct_name : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span class="type-var">'a</span> <a href="../../Lcalc/Ast/index.html#type-expr">Lcalc.Ast.expr</a></span> <a href="../../Shared_ast/index.html#type-scope_body">Shared_ast.scope_body</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_scopes_to_fun" class="anchored"><a href="#val-format_scopes_to_fun" class="anchor"></a><code><span><span class="keyword">val</span> format_scopes_to_fun : 
+  <span><a href="../../Shared_ast/index.html#type-decl_ctx">Shared_ast.decl_ctx</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span><span><span><span><span><a href="../../Shared_ast/index.html#type-lcalc">Shared_ast.lcalc</a> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>
+      <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>
+      <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>
+      <a href="../../Shared_ast/index.html#type-any">Shared_ast.any</a></span>
+      <a href="../../Shared_ast/index.html#type-any">Shared_ast.any</a></span>,
+    <span><span class="type-var">'a</span> <a href="../../Shared_ast/index.html#type-mark">Shared_ast.mark</a></span> )</span>
+    <a href="../../Shared_ast/index.html#type-gexpr">Shared_ast.gexpr</a></span>
+    <a href="../../Shared_ast/index.html#type-code_item_list">Shared_ast.code_item_list</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_scopes_to_callbacks" class="anchored"><a href="#val-format_scopes_to_callbacks" class="anchor"></a><code><span><span class="keyword">val</span> format_scopes_to_callbacks : 
+  <span><a href="../../Shared_ast/index.html#type-decl_ctx">Shared_ast.decl_ctx</a> <span class="arrow">&#45;&gt;</span></span>
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span><span>( <span><span><span><span><span><span><a href="../../Shared_ast/index.html#type-lcalc">Shared_ast.lcalc</a> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span> <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>
+      <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>
+      <span class="xref-unresolved">Shared_ast__Definitions.any</span></span>
+      <a href="../../Shared_ast/index.html#type-any">Shared_ast.any</a></span>
+      <a href="../../Shared_ast/index.html#type-any">Shared_ast.any</a></span>,
+    <span><span class="type-var">'a</span> <a href="../../Shared_ast/index.html#type-mark">Shared_ast.mark</a></span> )</span>
+    <a href="../../Shared_ast/index.html#type-gexpr">Shared_ast.gexpr</a></span>
+    <a href="../../Shared_ast/index.html#type-code_item_list">Shared_ast.code_item_list</a></span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div><div class="odoc-spec"><div class="spec value" id="val-format_program" class="anchored"><a href="#val-format_program" class="anchor"></a><code><span><span class="keyword">val</span> format_program : 
+  <span><span class="xref-unresolved">Stdlib</span>.Format.formatter <span class="arrow">&#45;&gt;</span></span>
+  <span><span>string option</span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><span class="type-var">'m</span> <a href="../../Lcalc/Ast/index.html#type-program">Lcalc.Ast.program</a></span> <span class="arrow">&#45;&gt;</span></span>
+  <span><span><a href="../../Scopelang/Dependency/TVertex/index.html#type-t">Scopelang.Dependency.TVertex.t</a> list</span> <span class="arrow">&#45;&gt;</span></span>
+  unit</span></code></div></div></div></body></html>
