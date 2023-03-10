@@ -85,7 +85,7 @@ let ocamlDocs: navElem = {
 
 let syntaxCheatSheet: navElem = {
   url: "syntax-sheet",
-  text: <Lang.String english="Syntax sheat cheet" french={`Pense-bête syntaxtique`} />,
+  text: <Lang.String english="Syntax cheat sheet" french=`Aide-mémoire syntaxique` />,
 }
 
 let visualization: navElem = {

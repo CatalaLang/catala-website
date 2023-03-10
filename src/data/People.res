@@ -22,8 +22,8 @@ let marieAlauzen = {
   name: "Marie Alauzen",
   website: Some("https://cv.archives-ouvertes.fr/marie-alauzen"),
   affiliation: {
-    name: "Laboratoire Interdisciplinaire Sciences Innovations Sociétés (LISIS),
-    url: "http://umr-lisis.fr/"
+    name: "Laboratoire Interdisciplinaire Sciences Innovations Sociétés (LISIS)",
+    url: "http://umr-lisis.fr/",
   },
 }
 

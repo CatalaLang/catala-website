@@ -1,5 +1,5 @@
 let githubLink = "https://github.com/CatalaLang/catala"
-let githubLinkLastestRelease = "https://github.com/CatalaLang/catala/releases/tag/0.6.0"
+let githubLinkLastestRelease = "https://github.com/CatalaLang/catala/releases/tag/0.8.0"
 let zulipLink = "https://zulip.catala-lang.org/"
 
 let examplesCard: Card.Presentation.t = {
@@ -148,7 +148,7 @@ let make = () => {
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
           target={githubLinkLastestRelease}>
-          <Lang.String english="GitHub v0.6.0" french=`GitHub v0.6.0` />
+          <Lang.String english="GitHub v0.8.0" french=`GitHub v0.8.0` />
         </Link.Text>
       </div>
     </div>
