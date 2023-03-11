@@ -121,7 +121,7 @@ and var_def = {
 @decco.decode
 and fun_call = {
   fun_name: information,
-  input: list<var_def>,
+  fun_inputs: list<var_def>,
   body: list<event>,
   output: var_def,
 }
