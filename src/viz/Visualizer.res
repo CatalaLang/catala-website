@@ -33,8 +33,7 @@ module EventNavigator = {
           <button
             className={buttonStyle ++ %twc(" rounded-l-lg pr-2")}
             onClick={_ => setIndex(_ => Prev(idx > 1 ? idx - 1 : 0))}>
-            <Icon className=%twc("h-4") name="arrow_left" />
-            {"Prev"->React.string}
+            <Icon className=%twc("h-4") name="arrow_left" /> {"Prev"->React.string}
           </button>
           <button className={buttonStyle ++ " px-2"} onClick={_ => setIndex(_ => Prev(0))}>
             {((idx + 1)->string_of_int ++ "/" ++ maxIndex->string_of_int)->React.string}
@@ -42,8 +41,7 @@ module EventNavigator = {
           <button
             className={buttonStyle ++ %twc(" rounded-r-lg pl-2")}
             onClick={_ => setIndex(_ => Next(idx < maxIndex - 1 ? idx + 1 : 0))}>
-            {"Next"->React.string}
-            <Icon name="arrow_right" />
+            {"Next"->React.string} <Icon name="arrow_right" />
           </button>
         </div>
       </>
@@ -57,24 +55,20 @@ module EventNavigator = {
     let idx = index->getIndex
     React.useEffect1(_ => {
       setVarDefs->Belt.Option.forEach(set =>
-        set(
-          _ =>
-            events
-            ->Belt.Array.keepWithIndex(
-              (e, i) => {
-                switch e {
-                | VarComputation(_) => i < idx
-                | _ => false
-                }
-              },
-            )
-            ->Belt.Array.map(
-              e =>
-                switch e {
-                | VarComputation(v) => v
-                | _ => Js.Exn.raiseError("unreachable")
-                },
-            ),
+        set(_ =>
+          events
+          ->Belt.Array.keepWithIndex((e, i) => {
+            switch e {
+            | VarComputation(_) => i < idx
+            | _ => false
+            }
+          })
+          ->Belt.Array.map(e =>
+            switch e {
+            | VarComputation(v) => v
+            | _ => Js.Exn.raiseError("unreachable")
+            }
+          )
         )
       )
       None
@@ -99,6 +93,8 @@ let scrollToAndHighlightLineNum: (Dom.element, array<string>) => unit = %raw(`
     if (null != parent) {
       let id = ids[Math.floor(ids.length/2)]
       let idEscaped = id.replaceAll(/\./g, "\\\.").replaceAll(/\//g, "\\\/")
+
+      console.log(idEscaped)
       let lineToScroll = parentElem.querySelector("#" + idEscaped)
       if (null != lineToScroll) {
         let parent = lineToScroll.parentNode;
@@ -255,10 +251,7 @@ module MakeLogEventComponent = (
               ->Belt.Array.mapWithIndex((i, h) =>
                 <Flex.Row.Center key={"law-heading-" ++ i->string_of_int}>
                   {if i < pos.law_headings->Belt.Array.length - 1 {
-                    <>
-                      <p> {h->React.string} </p>
-                      <Icon name="chevron_right" />
-                    </>
+                    <> <p> {h->React.string} </p> <Icon name="chevron_right" /> </>
                   } else {
                     <p className=%twc("font-bold")> {h->React.string} </p>
                   }}
@@ -325,9 +318,8 @@ module MakeLogEventComponent = (
                     )>
                     {funCalls
                     ->Belt.List.toArray
-                    ->Belt.Array.mapWithIndex(
-                      (i, funCall) =>
-                        <LogEventComponent.FunCall key={"fun-call-" ++ i->string_of_int} funCall />,
+                    ->Belt.Array.mapWithIndex((i, funCall) =>
+                      <LogEventComponent.FunCall key={"fun-call-" ++ i->string_of_int} funCall />
                     )
                     ->React.array}
                   </Flex.Column.AlignLeft>
@@ -346,9 +338,7 @@ module MakeLogEventComponent = (
         // Stores all already visited variables definitions in the current subscope call.
         let (varDefs, setVarDefs) = React.useState(_ => [])
         let headerContent =
-          <CatalaCode>
-            <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} />
-          </CatalaCode>
+          <CatalaCode> <CatalaCode.Ids ids={subScopeCall.sname->Belt.List.toArray} /> </CatalaCode>
         let iconStyle = %twc(
           "px-2 font-semibold text-purple_text border border-purple_text rounded bg-purple_bg"
         )
@@ -385,31 +375,35 @@ module MakeLogEventComponent = (
                 style=%twc(
                   "w-full max-h-screen overflow-y-scroll px-4 pb-4 border-t border-b border-gray bg-gray_light"
                 )>
-                {// Already visited variables definitions rendered in a compact format.
-                varDefs
-                ->Belt.Array.reverse
-                ->Belt.Array.mapWithIndex((i, varDef) =>
-                  <LogEventComponent.VarComputation
-                    key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
-                  />
-                )
-                ->React.array}
-                {// Subscope input variables definitions.
-                subScopeCall.inputs
-                ->Belt.List.toArray
-                ->Belt.Array.mapWithIndex((i, varDef) =>
-                  <LogEventComponent.VarComputation
-                    key={"varcomp-subscope-input-" ++ i->string_of_int}
-                    varDef
-                    kindIcon={<div
-                      className=%twc(
-                        "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
-                      )>
-                      <Lang.String english="input" french={`entrée`} />
-                    </div>}
-                  />
-                )
-                ->React.array}
+                {
+                  // Already visited variables definitions rendered in a compact format.
+                  varDefs
+                  ->Belt.Array.reverse
+                  ->Belt.Array.mapWithIndex((i, varDef) =>
+                    <LogEventComponent.VarComputation
+                      key={"varcomp-def-" ++ i->string_of_int} varDef printHeadings=false
+                    />
+                  )
+                  ->React.array
+                }
+                {
+                  // Subscope input variables definitions.
+                  subScopeCall.inputs
+                  ->Belt.List.toArray
+                  ->Belt.Array.mapWithIndex((i, varDef) =>
+                    <LogEventComponent.VarComputation
+                      key={"varcomp-subscope-input-" ++ i->string_of_int}
+                      varDef
+                      kindIcon={<div
+                        className=%twc(
+                          "px-2 font-semibold italic text-purple_text border border-purple_text rounded bg-purple_bg"
+                        )>
+                        <Lang.String english="input" french={`entrée`} />
+                      </div>}
+                    />
+                  )
+                  ->React.array
+                }
               </Flex.Column.AlignLeft>
             </CollapsibleItem>
           </div>
@@ -430,9 +424,7 @@ module MakeLogEventComponent = (
           </div>
 
         let headerContent =
-          <CatalaCode>
-            <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} />
-          </CatalaCode>
+          <CatalaCode> <CatalaCode.Ids ids={funCall.fun_name->Belt.List.toArray} /> </CatalaCode>
 
         let functionInput =
           // Function input doesn't have source code position, so we use a custom React element.
@@ -443,17 +435,16 @@ module MakeLogEventComponent = (
             <Flex.Column.AlignLeft
               style=%twc("w-full bg-gray_2 text-gray_dark font-semibold py-2 rounded pr-2")>
               <Flex.Row.AlignTop style=%twc("w-full justify-between pl-2")>
-                
-                  {funCall.input
-                  ->Belt.List.toArray
-                  ->Belt.Array.map(input =>
-                    <CatalaCode>
-                      <CatalaCode.Ids ids={input.name->Belt.List.toArray} />
-                      <CatalaCode.Op op={" : "} />
-                      <LogEvent.LoggedValue val={input.value} />
-                    </CatalaCode>
-                  )
-                  ->React.array}
+                {funCall.fun_inputs
+                ->Belt.List.toArray
+                ->Belt.Array.map(input =>
+                  <CatalaCode>
+                    <CatalaCode.Ids ids={input.name->Belt.List.toArray} />
+                    <CatalaCode.Op op={" : "} />
+                    <LogEvent.LoggedValue val={input.value} />
+                  </CatalaCode>
+                )
+                ->React.array}
                 <div
                   className=%twc(
                     "px-2 font-semibold italic text-rainforest border border-rainforest \

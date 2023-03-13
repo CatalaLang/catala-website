@@ -118,10 +118,12 @@ and var_def = {
   value: LoggedValue.t,
   fun_calls: option<list<fun_call>>,
 }
+/* For decco.decode to work, these type declaration have to match *exactly* those
+   in catala/runtimes/ocaml/runtime.mli  */
 @decco.decode
 and fun_call = {
   fun_name: information,
-  input: list<var_def>,
+  fun_inputs: list<var_def>,
   body: list<event>,
   output: var_def,
 }

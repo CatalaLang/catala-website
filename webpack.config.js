@@ -19,7 +19,10 @@ var catala = {
       bfsGlobal: require.resolve("browserfs"),
       child_process: "browser-builtins/builtin/child_process.js",
     },
-    fallback: { constants: require.resolve("constants-browserify") },
+    fallback: {
+      constants: require.resolve("constants-browserify"),
+      tty: false,
+    },
   },
   devtool: "source-map",
   output: {
@@ -70,11 +73,14 @@ var catala = {
         test: /\.schema.js$/,
         exclude: /(node_modules|bower_components)/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['@babel/preset-env', ["@babel/preset-react", { "runtime": "automatic" }]]
-          }
-        }
+            presets: [
+              "@babel/preset-env",
+              ["@babel/preset-react", { runtime: "automatic" }],
+            ],
+          },
+        },
       },
       {
         test: /\.css$/,

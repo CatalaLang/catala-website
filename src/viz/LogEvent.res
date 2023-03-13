@@ -64,33 +64,22 @@ module rec LoggedValue: {
     | Unit => <CatalaCode.Span kind="nc" code={"()"} />
     | Bool(b) => <CatalaCode.Span kind="mb" code={b->string_of_bool} />
     | Integer(i) => <CatalaCode.Span kind="mi" code={i->string_of_int} />
-    | Money(m) =>
-      <>
-        <CatalaCode.Span kind="mf" code={m->Js.Float.toString} />
-        <CatalaCode.Op op={` €`} />
+    | Money(m) => <>
+        <CatalaCode.Span kind="mf" code={m->Js.Float.toString} /> <CatalaCode.Op op={` €`} />
       </>
     | Decimal(d) => <CatalaCode.Span kind="mf" code={d->Js.Float.toString} />
     | Date(d) => <CatalaCode.Span kind="mi" code=d />
     | Duration(d) => <CatalaCode.Span kind="mi" code=d />
-    | Enum(_, (s, Unit)) =>
-      <>
-        <CatalaCode.Ids ids={[s]} />
-      </>
-    | Enum(_, (s, val)) =>
-      <>
+    | Enum(_, (s, Unit)) => <> <CatalaCode.Ids ids={[s]} /> </>
+    | Enum(_, (s, val)) => <>
         <CatalaCode.Ids ids={[s]} />
         <CatalaCode.Op op=" = " />
         <LoggedValue depth={depth + 1} val />
       </>
     | Struct(ls, attributes) =>
       <CatalaCode.Collapsible
-        start={<>
-          <CatalaCode.Ids ids={ls->Belt.List.toArray} />
-          <CatalaCode.Op op=" = {" />
-        </>}
-        end={<>
-          <CatalaCode.Op op="}" />
-        </>}>
+        start={<> <CatalaCode.Ids ids={ls->Belt.List.toArray} /> <CatalaCode.Op op=" = {" /> </>}
+        end={<> <CatalaCode.Op op="}" /> </>}>
         {attributes
         ->Belt.List.toArray
         ->Belt.Array.map(attribute => {
@@ -185,7 +174,7 @@ module Raw = {
         eventType: rawEventSerialized.eventType->eventTypeFromString,
         information: rawEventSerialized.information,
         sourcePosition: rawEventSerialized.sourcePosition->Js.Nullable.toOption,
-        loggedValue,
+        loggedValue: loggedValue,
       }
     })
   }
@@ -211,7 +200,7 @@ and var_def = {
 @decco.decode
 and fun_call = {
   fun_name: information,
-  input: list<var_def>,
+  fun_inputs: list<var_def>,
   body: list<event>,
   output: var_def,
 }
