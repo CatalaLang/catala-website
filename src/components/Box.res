@@ -10,8 +10,7 @@ module Collapsible = {
     let (visible, setVisible) = React.useState(_ => false)
     <div
       className=%twc(
-        "text-background my-4 p-2 border bg-gray_light border-gray rounded \
-        shadow-sm overflow-y-auto max-h-128"
+        "text-background my-4 p-2 border bg-gray_light border-gray rounded shadow-sm overflow-y-auto max-h-128"
       )>
       {if visible {
         <>

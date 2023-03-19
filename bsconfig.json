@@ -1,6 +1,8 @@
 {
   "name": "catala-website",
   "reason": {"react-jsx": 3},
+  "jsx": { "version": 4, "mode": "classic" },
+  "refmt": 3,
   "sources": {
     "dir": "src/",
     "subdirs": true,
@@ -26,7 +28,7 @@
   "suffix": ".bs.js",
   "namespace": true,
   "bs-dependencies": [
-    "reason-react",
+    "@rescript/react",
     "decco"
   ],
   "ppx-flags": [

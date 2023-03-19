@@ -218,11 +218,10 @@ let deserializedEvents = (eventsSerialized: array<eventSerialized>) => {
       | Ok(val) => val
       | Error(decodeError) =>
         Js.Exn.raiseError(
-          Printf.sprintf(
-            "Error while decoding serialized events at %s:  %s",
-            decodeError.path,
-            decodeError.message,
-          ),
+          "Error while decoding serialized events at " ++
+          decodeError.path ++
+          ": " ++
+          decodeError.message,
         )
       }
     } catch {

@@ -91,7 +91,7 @@ let manageInternalPageRedirections: unit => unit = %raw(`
 
 @react.component
 let make = () => {
-  let (_, navs) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
+  let (_, navs) = RescriptReactRouter.useUrl()->Nav.urlToNavElem
   React.useEffect(() => {
     manageInternalPageRedirections()
     None

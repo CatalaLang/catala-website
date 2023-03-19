@@ -1,8 +1,7 @@
 module Style = {
   module SwitchLang = {
     let link = %twc(
-      "px-2 cursor-pointer text-tertiary uppercase font-semibold pr-4 \
-      hover:text-primary_light"
+      "px-2 cursor-pointer text-tertiary uppercase font-semibold pr-4 hover:text-primary_light"
     )
   }
   module NavElem = {
@@ -21,7 +20,7 @@ module SwitchLang = {
   @react.component
   let make = _ => {
     let (oldLang, setLang) = React.useContext(Lang.langContext)
-    let url = ReasonReactRouter.useUrl()
+    let url = RescriptReactRouter.useUrl()
     <a
       className=Style.SwitchLang.link
       onClick={_ => {
@@ -38,7 +37,7 @@ module SwitchLang = {
 module NavElem = {
   @react.component
   let make = (~title: React.element, ~target: array<Nav.navElem>) => {
-    let (_, currentElems) = ReasonReactRouter.useUrl()->Nav.urlToNavElem
+    let (_, currentElems) = RescriptReactRouter.useUrl()->Nav.urlToNavElem
     let currentElems = {
       let currElemSize = currentElems->Belt.Array.size
       let targetSize = target->Belt.Array.size
@@ -92,9 +91,7 @@ let make = () => {
       )>
       <Link.Internal
         className={%twc(
-          "py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center \
-					justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light \
-					sm:col-span-1"
+          "py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light sm:col-span-1"
         )}
         target=[Nav.home]>
         <img className=%twc("h-8 pr-2") src={logo.default} />
