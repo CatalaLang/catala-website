@@ -22,7 +22,7 @@ module SwitchLang = {
     let (oldLang, setLang) = React.useContext(Lang.langContext)
     let url = RescriptReactRouter.useUrl()
     <a
-      className=Style.SwitchLang.link
+      className={Style.SwitchLang.link ++ %twc(" sm:pr-0")}
       onClick={_ => {
         let (_, navs) = Nav.urlToNavElem(url)
         setLang()
@@ -84,14 +84,14 @@ let navElems =
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <Flex.Column.AlignLeft style=%twc("w-full bg-background top-0 sticky z-10 shadow-md")>
+  <Flex.Column.AlignLeft style=%twc("w-full bg-background shadow-md")>
     <div
       className=%twc(
-        "w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row  "
+        "container w-full inline-flex flex-row justify-between self-center sm:inline-grid sm:grid-cols-5 sm:grid-flow-row  "
       )>
       <Link.Internal
         className={%twc(
-          "py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light sm:col-span-1"
+          "py-4 pl-4 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light text-3xl font-sans font-bold hover:text-primary_light sm:col-span-1 sm:pl-0"
         )}
         target=[Nav.home]>
         <img className=%twc("h-8 pr-2") src={logo.default} />
@@ -107,7 +107,7 @@ let make = () => {
         <SwitchLang />
         <button
           className=%twc(
-            "inline-flex text-text_light self-center hover:text-primary_light mr-4 sm:hidden"
+            "inline-flex text-text_light self-center pr-4 hover:text-primary_light sm:hidden"
           )
           onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
           <Icon name="menu" />

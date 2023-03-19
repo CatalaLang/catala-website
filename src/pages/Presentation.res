@@ -112,16 +112,17 @@ let englishHomepage: string = %raw(`require("../../assets/english_homepage.html"
 
 @react.component
 let make = () => {
+  let titleStyle = %twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pb-8")
   <>
-    <div className=%twc("flex flex-col justify-center items-center")>
-      <div className=%twc("pt-28 pb-10")>
+    <div className=%twc("min-h-80vh flex flex-col justify-center items-center")>
+      <div className=%twc("pb-16")>
         <p
           className=%twc(
-            "text-center text-2xl sm:text-3xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
+            "text-center text-2xl sm:text-3xl text-background font-sans font-semibold max-w-2xl sm:max-w-3xl"
           )>
           <Lang.String
-            english="\"Catala is a domain-specific programming language designed for deriving correct-by-construction
-          implementations from legislative texts.\""
+            english="Catala is a domain-specific programming language designed for deriving correct-by-construction
+          implementations from legislative texts."
             french=`Catala est un langage dédié à l'écriture d'implémentations correctes
              d'algorithmes dérivés de textes législatifs`
           />
@@ -152,12 +153,12 @@ let make = () => {
         </Link.Text>
       </div>
     </div>
-    <div className=%twc("flex flex-col flex-wrap content-center justify-center items-center pt-12")>
-      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold")>
+    <div className=%twc("min-h-80vh flex flex-col flex-wrap content-center items-center pb-8")>
+      <div className=titleStyle>
         <Lang.String english="Catala in action" french=`Catala en action` />
       </div>
-      <div className=%twc("w-full lg:w-3/5 border-solid")>
-        <p className=%twc("text-base sm:text-lg my-4 italic")>
+      <div className=%twc("w-full xl:w-3/5 border-solid")>
+        <p className=%twc("text-base sm:text-lg mb-4 italic")>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation.
             Here is a quick example from the US Tax Code:"
@@ -171,12 +172,16 @@ let make = () => {
           english={<CatalaCode.DangerouslySetInnerHtml html=englishHomepage />}
         />
       </div>
-      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pt-8")>
+    </div>
+    <div className=%twc("min-h-80vh flex flex-col justify-center items-center")>
+      <div className=titleStyle>
         <Lang.String english="Why using Catala?" french=`Pourquoi utiliser Catala ?` />
       </div>
-    </div>
-    <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
-      <Card.Presentation.FromList cards=[examplesCard, docCard, legalGuideCard, foundationsCard] />
+      <div className=%twc("text-base sm:text-lg pb-10")>
+        <Card.Presentation.FromList
+          cards=[examplesCard, docCard, legalGuideCard, foundationsCard]
+        />
+      </div>
     </div>
   </>
 }
