@@ -6,7 +6,7 @@
 module App = {
   @react.component
   let make = () => {
-    let url = ReasonReactRouter.useUrl()
+    let url = RescriptReactRouter.useUrl()
     let (langUrl, _) = Nav.urlToNavElem(url)
     let langUrl = switch langUrl {
     | None => Lang.English
@@ -29,4 +29,6 @@ module App = {
   }
 }
 
-ReactDOMRe.renderToElementWithId(<App />, "app")
+ReactDOM.Client.createRoot(
+  ReactDOM.querySelector("#app")->Belt.Option.getExn,
+)->ReactDOM.Client.Root.render(<React.StrictMode> <App /> </React.StrictMode>)

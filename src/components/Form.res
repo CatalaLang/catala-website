@@ -173,9 +173,7 @@ module Make = (
         />
         <div
           className=%twc(
-            "w-full inline-flex flex-col flex-wrap justify-center place-items-center \
-          my-4 border border-gray border-solid rounded p-4 shadow-sm \
-          bg-gray_light text-gray_dark shadow"
+            "w-full inline-flex flex-col flex-wrap justify-center place-items-center my-4 border border-gray border-solid rounded p-4 shadow-sm bg-gray_light text-gray_dark shadow"
           )>
           {switch formData {
           | None =>

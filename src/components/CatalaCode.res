@@ -39,8 +39,7 @@ module Collapsible = {
       <button
         href="#"
         className=%twc(
-          "cursor-pointer rounded font-semibold hover:bg-secondary hover:text-gray_light \
-          ease-out duration-150"
+          "cursor-pointer rounded font-semibold hover:bg-secondary hover:text-gray_light ease-out duration-150"
         )
         onClick={_ => {
           setIsOpen(_ => !isOpen)

@@ -278,8 +278,7 @@ module PubItems = {
   let make = (~items: array<publication>) => {
     <div
       className=%twc(
-        "flex flex-col justify-center content-center border-solid border \
-        rounded border-gray bg-gray_light p-4"
+        "flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4"
       )>
       {items
       ->Belt.Array.mapWithIndex((i, item) =>
@@ -292,9 +291,7 @@ module PubItems = {
 
 @react.component
 let make = () => <>
-  <Title>
-    <Lang.String english="Publications" french={`Publications`} />
-  </Title>
+  <Title> <Lang.String english="Publications" french={`Publications`} /> </Title>
   <div className=%twc("pb-10")>
     <Section
       title={<Lang.String

@@ -17,9 +17,7 @@ module EventNavigator = {
   }
 
   let buttonStyle = %twc(
-    "inline-flex justify-center text-gray_dark border text-base border-secondary \
-    font-semibold bg-gray shadow-sm hover:bg-gray_medium hover:shadow \
-    ease-out duration-150"
+    "inline-flex justify-center text-gray_dark border text-base border-secondary font-semibold bg-gray shadow-sm hover:bg-gray_medium hover:shadow ease-out duration-150"
   )
 
   /* React component used to increase or decrease the navitgator index. */
@@ -312,10 +310,7 @@ module MakeLogEventComponent = (
                     />
                   </p>}>
                   <Flex.Column.AlignLeft
-                    style=%twc(
-                      "w-full max-h-screen overflow-y-scroll \
-                  px-4 pb-4"
-                    )>
+                    style=%twc("w-full max-h-screen overflow-y-scroll px-4 pb-4")>
                     {funCalls
                     ->Belt.List.toArray
                     ->Belt.Array.mapWithIndex((i, funCall) =>
@@ -447,8 +442,7 @@ module MakeLogEventComponent = (
                 ->React.array}
                 <div
                   className=%twc(
-                    "px-2 font-semibold italic text-rainforest border border-rainforest \
-                      rounded bg-rainforest_50"
+                    "px-2 font-semibold italic text-rainforest border border-rainforest rounded bg-rainforest_50"
                   )>
                   <Lang.String english="input" french={`entrée`} />
                 </div>
@@ -461,8 +455,7 @@ module MakeLogEventComponent = (
             varDef={funCall.output}
             kindIcon={<div
               className=%twc(
-                "px-2 font-semibold italic text-rainforest border border-rainforest \
-                rounded bg-rainforest_50"
+                "px-2 font-semibold italic text-rainforest border border-rainforest rounded bg-rainforest_50"
               )>
               <Lang.String english="output" french="sortie" />
             </div>}
@@ -539,14 +532,13 @@ module Make = (
         Form.pageTitle
         <p
           className=%twc(
-            "text-2xl font-semibold italic font-sans rounded bg-purple_bg text-purple_text \
-             px-2 ml-2 shadow-sm "
+            "text-2xl font-semibold italic font-sans rounded bg-purple_bg text-purple_text px-2 ml-2 shadow-sm "
           )>
           {"Viz"->React.string}
         </p>
       </Title>
       <Section title={<Lang.String english="Form" french={`Formulaire`} />}>
-        {Form.make(Form.makeProps(~setEventsOpt, ~collapsible=false, ()))}
+        <Form setEventsOpt={setEventsOpt} collapsible=false />
       </Section>
       <div className=%twc("w-full h-full")>
         <Section title={<Lang.String english="Log events" french={`Évènements de log`} />}>

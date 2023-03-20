@@ -97,7 +97,7 @@ let cmp = (a: navElem, b: navElem) => {
   String.compare(a.url, b.url)
 }
 
-let urlToNavElem = (url: ReasonReactRouter.url): (option<Lang.lang>, array<navElem>) => {
+let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<navElem>) => {
   let defaultElems = [home]
   switch url.path {
   | list{langPart, ...rest} =>
@@ -187,5 +187,5 @@ let navElemsToUrl = (lang: option<Lang.lang>, navs: array<navElem>): string => {
 let goTo = (elementPath: array<navElem>, lang: Lang.lang) => {
   let newUrl = navElemsToUrl(Some(lang), elementPath)
   Js.log("Pushing " ++ newUrl)
-  ReasonReactRouter.push(newUrl)
+  RescriptReactRouter.push(newUrl)
 }
