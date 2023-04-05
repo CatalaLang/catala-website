@@ -1,7 +1,7 @@
 {
    "type": "object",
    "definitions": {
-      "ameliore_par_occupant": {
+      "accord_financement_representant_etat_outre_mer": {
         "type": "object",
         "properties": {
           "kind": {
@@ -9,11 +9,11 @@
             "anyOf": [
               {
                 "type": "string",
-                "enum": ["Oui"]
+                "enum": ["Accord"]
               },
               {
                 "type": "string",
-                "enum": ["Non"]
+                "enum": ["PasdAccord"]
               }
             ]
           }
@@ -23,15 +23,15 @@
               "if": {
                 "properties": {
                   "kind": {
-                    "const": "Oui"
+                    "const": "Accord"
                   }
                 }
               },
               "then": {
                 "properties": {
                   "payload": {
-                    "type": "null",
-                    "default": null
+                    "type": "string",
+                    "format": "date"
                   }
                 }
               }
@@ -40,7 +40,7 @@
               "if": {
                 "properties": {
                   "kind": {
-                    "const": "Non"
+                    "const": "PasdAccord"
                   }
                 }
               },
@@ -56,40 +56,7 @@
           ]
         }
    ,
-   "autre_personne_a_charge": {
-     "type": "object",
-     "properties": {
-       "dateNaissance": {
-         "type": "string",
-         "format": "date"
-       },
-       "ressources": {
-         "type": "number",
-         "minimum": 0,
-         "default": 0
-       },
-       "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
-         "type": "boolean",
-         "default": false
-       },
-       "parente": {
-         "$ref": "#/definitions/parente"
-       },
-       "incapacite80PourcentOuRestrictionEmploi": {
-         "type": "boolean",
-         "default": false
-       },
-       "beneficiaireL16119L3518L6433Secu": {
-         "type": "boolean",
-         "default": false
-       },
-       "titulaireAllocationPersonneAgee": {
-         "type": "boolean",
-         "default": false
-       }
-     }
-   },
-   "categorie_equivalence_loyer_allocation_logement_foyer": {
+   "ameliore_par_occupant": {
      "type": "object",
      "properties": {
        "kind": {
@@ -97,19 +64,11 @@
          "anyOf": [
            {
              "type": "string",
-             "enum": ["EtudiantLogeEnChambreCROUS"]
+             "enum": ["Oui"]
            },
            {
              "type": "string",
-             "enum": ["EtudiantLogeEnChambreCROUSRehabilitee"]
-           },
-           {
-             "type": "string",
-             "enum": ["PersonnesAgeesSelon3DeD842_16"]
-           },
-           {
-             "type": "string",
-             "enum": ["AutresPersonnes"]
+             "enum": ["Non"]
            }
          ]
        }
@@ -119,7 +78,7 @@
            "if": {
              "properties": {
                "kind": {
-                 "const": "EtudiantLogeEnChambreCROUS"
+                 "const": "Oui"
                }
              }
            },
@@ -136,41 +95,7 @@
            "if": {
              "properties": {
                "kind": {
-                 "const": "EtudiantLogeEnChambreCROUSRehabilitee"
-               }
-             }
-           },
-           "then": {
-             "properties": {
-               "payload": {
-                 "type": "null",
-                 "default": null
-               }
-             }
-           }
-         },
-         {
-           "if": {
-             "properties": {
-               "kind": {
-                 "const": "PersonnesAgeesSelon3DeD842_16"
-               }
-             }
-           },
-           "then": {
-             "properties": {
-               "payload": {
-                 "type": "null",
-                 "default": null
-               }
-             }
-           }
-         },
-         {
-           "if": {
-             "properties": {
-               "kind": {
-                 "const": "AutresPersonnes"
+                 "const": "Non"
                }
              }
            },
@@ -185,6 +110,136 @@
          }
        ]
      }
+,
+"autre_personne_a_charge": {
+  "type": "object",
+  "properties": {
+    "dateNaissance": {
+      "type": "string",
+      "format": "date"
+    },
+    "ressources": {
+      "type": "number",
+      "minimum": 0,
+      "default": 0
+    },
+    "ascendantDescendantCollateralDeuxiemeTroisiemeDegre": {
+      "type": "boolean",
+      "default": false
+    },
+    "parente": {
+      "$ref": "#/definitions/parente"
+    },
+    "incapacite80PourcentOuRestrictionEmploi": {
+      "type": "boolean",
+      "default": false
+    },
+    "beneficiaireL16119L3518L6433Secu": {
+      "type": "boolean",
+      "default": false
+    },
+    "titulaireAllocationPersonneAgee": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+},
+"categorie_equivalence_loyer_allocation_logement_foyer": {
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": ["EtudiantLogeEnChambreCROUS"]
+        },
+        {
+          "type": "string",
+          "enum": ["EtudiantLogeEnChambreCROUSRehabilitee"]
+        },
+        {
+          "type": "string",
+          "enum": ["PersonnesAgeesSelon3DeD842_16"]
+        },
+        {
+          "type": "string",
+          "enum": ["AutresPersonnes"]
+        }
+      ]
+    }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "EtudiantLogeEnChambreCROUS"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "EtudiantLogeEnChambreCROUSRehabilitee"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "PersonnesAgeesSelon3DeD842_16"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "AutresPersonnes"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      }
+    ]
+  }
 ,
 "changement_logement_d842_4": {
   "type": "object",
@@ -240,10 +295,216 @@
     ]
   }
 ,
+"collectivite": {
+  "type": "object",
+  "properties": {
+    "kind": {
+      "type": "string",
+      "anyOf": [
+        {
+          "type": "string",
+          "enum": ["Guadeloupe"]
+        },
+        {
+          "type": "string",
+          "enum": ["Guyane"]
+        },
+        {
+          "type": "string",
+          "enum": ["Martinique"]
+        },
+        {
+          "type": "string",
+          "enum": ["LaReunion"]
+        },
+        {
+          "type": "string",
+          "enum": ["SaintBarthelemy"]
+        },
+        {
+          "type": "string",
+          "enum": ["SaintMartin"]
+        },
+        {
+          "type": "string",
+          "enum": ["Metropole"]
+        },
+        {
+          "type": "string",
+          "enum": ["SaintPierreEtMiquelon"]
+        },
+        {
+          "type": "string",
+          "enum": ["Mayotte"]
+        }
+      ]
+    }
+    },
+    "allOf": [
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "Guadeloupe"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "Guyane"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "Martinique"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "LaReunion"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "SaintBarthelemy"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "SaintMartin"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "Metropole"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "SaintPierreEtMiquelon"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      },
+      {
+        "if": {
+          "properties": {
+            "kind": {
+              "const": "Mayotte"
+            }
+          }
+        },
+        "then": {
+          "properties": {
+            "payload": {
+              "type": "null",
+              "default": null
+            }
+          }
+        }
+      }
+    ]
+  }
+,
 "conditions_etrangers": {
   "type": "object",
   "properties": {
     "satisfaitConditionsL5122CodeSecuriteSociale": {
+      "type": "boolean",
+      "default": false
+    },
+    "satisfaitArt4Ordonnance2002Mayotte": {
       "type": "boolean",
       "default": false
     }
@@ -282,10 +543,15 @@
     "nationalite": {
       "$ref": "#/definitions/nationalite"
     },
-    "patrimoine": {
-      "$ref": "#/definitions/patrimoine"
-    },
     "personneHebergeeCentreSoinLL162223SecuriteSociale": {
+      "type": "boolean",
+      "default": false
+    },
+    "estNonSalarieAgricoleL7818L78146CodeRural": {
+      "type": "boolean",
+      "default": false
+    },
+    "magistratFonctionnaireCentreInteretsMaterielsFamiliauxHorsMayotte": {
       "type": "boolean",
       "default": false
     }
@@ -297,6 +563,9 @@
     "identifiant": {
       "type": "number",
       "default": 0
+    },
+    "nationalite": {
+      "$ref": "#/definitions/nationalite"
     },
     "beneficieTitrePersonnelAidePersonnelleLogement": {
       "type": "boolean",
@@ -320,6 +589,10 @@
     },
     "situationGardeAlternee": {
       "$ref": "#/definitions/situation_garde_alternee"
+    },
+    "etudesApprentissageStageFormationProImpossibiliteTravail": {
+      "type": "boolean",
+      "default": false
     }
   }
 },
@@ -381,10 +654,6 @@
       "type": "boolean",
       "default": false
     },
-    "estEhpadOuMaisonAutonomieL31312Asf": {
-      "type": "boolean",
-      "default": false
-    },
     "modeOccupation": {
       "$ref": "#/definitions/mode_occupation"
     },
@@ -424,6 +693,10 @@
       "type": "boolean",
       "default": false
     },
+    "conventionneSelonReglesDrom": {
+      "type": "boolean",
+      "default": false
+    },
     "dateConventionnement": {
       "type": "string",
       "format": "date"
@@ -439,6 +712,14 @@
     },
     "categorieEquivalenceLoyerD84216": {
       "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
+    },
+    "beneficiaireAideAdulteOuEnfantHandicapes": {
+      "type": "boolean",
+      "default": false
+    },
+    "logementMeubleD8422": {
+      "type": "boolean",
+      "default": false
     }
   }
 },
@@ -530,6 +811,13 @@
     "enfantANaitreApresQuatriemeMoisGrossesse": {
       "type": "boolean",
       "default": false
+    },
+    "personnesAgeesHandicapeesFoyerR8444": {
+      "type": "boolean",
+      "default": false
+    },
+    "residence": {
+      "$ref": "#/definitions/collectivite"
     }
   }
 },
@@ -885,21 +1173,6 @@
     ]
   }
 ,
-"patrimoine": {
-  "type": "object",
-  "properties": {
-    "produisantRevenuPeriodeR82233R8224": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    },
-    "neProduisantPasRevenuPeriodeR82233R8224": {
-      "type": "number",
-      "minimum": 0,
-      "default": 0
-    }
-  }
-},
 "personne_a_charge": {
   "type": "object",
   "properties": {
@@ -982,19 +1255,11 @@
         },
         {
           "type": "string",
-          "enum": ["AllocationJeuneEnfant"]
-        },
-        {
-          "type": "string",
           "enum": ["AllocationSoutienFamilial"]
         },
         {
           "type": "string",
           "enum": ["AllocationSoutienEnfantHandicape"]
-        },
-        {
-          "type": "string",
-          "enum": ["AllocationAdulteHandicape"]
         }
       ]
     }
@@ -1022,23 +1287,6 @@
           "properties": {
             "kind": {
               "const": "ComplementFamilial"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationJeuneEnfant"
             }
           }
         },
@@ -1084,23 +1332,6 @@
             }
           }
         }
-      },
-      {
-        "if": {
-          "properties": {
-            "kind": {
-              "const": "AllocationAdulteHandicape"
-            }
-          }
-        },
-        "then": {
-          "properties": {
-            "payload": {
-              "type": "null",
-              "default": null
-            }
-          }
-        }
       }
     ]
   }
@@ -1117,16 +1348,15 @@
     },
     "titulairePret": {
       "$ref": "#/definitions/titulaire_pret"
+    },
+    "accordFinancementRepresentantEtatOutreMer": {
+      "$ref": "#/definitions/accord_financement_representant_etat_outre_mer"
     }
   }
 },
 "proprietaire": {
   "type": "object",
   "properties": {
-    "logementSitueCommuneDesequilibreL8312": {
-      "type": "boolean",
-      "default": false
-    },
     "mensualitePrincipale": {
       "type": "number",
       "minimum": 0,
@@ -1164,6 +1394,10 @@
     },
     "pret": {
       "$ref": "#/definitions/pret"
+    },
+    "operationsLogementEvolutifsSociauxAccessionProprieteAideeEtat": {
+      "type": "boolean",
+      "default": false
     }
   }
 },

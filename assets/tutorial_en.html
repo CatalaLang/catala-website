@@ -89,7 +89,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 Source files weaved in this document:
 </p>
 <ul>
-<li><tt>tutorial_en.catala_en</tt>, last modification 2023-03-09, 16:19</li>
+<li><tt>tutorial_en.catala_en</tt>, last modification 2023-04-05, 15:40</li>
 </ul>
 
 <details class="toc">
@@ -1183,6 +1183,7 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-590">590</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-591">591</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-592">592</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-593">593</a></span>
 </pre></div></td><td class="code"><div><pre>
 <a id="examples/tutorial_en/tutorial_en.catala_en-578" name="examples/tutorial_en/tutorial_en.catala_en-578"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">Test5</span><span class="o">:</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-579" name="examples/tutorial_en/tutorial_en.catala_en-579"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="nc">Individual</span>
@@ -1190,15 +1191,16 @@ Source files weaved in this document:
 <a id="examples/tutorial_en/tutorial_en.catala_en-581" name="examples/tutorial_en/tutorial_en.catala_en-581"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">income_tax</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-582" name="examples/tutorial_en/tutorial_en.catala_en-582"></a>
 <a id="examples/tutorial_en/tutorial_en.catala_en-583" name="examples/tutorial_en/tutorial_en.catala_en-583"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Test5</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-584" name="examples/tutorial_en/tutorial_en.catala_en-584"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nc">Individual</span><span class="s"> </span><span class="o">{</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-585" name="examples/tutorial_en/tutorial_en.catala_en-585"></a><span class="s">    </span><span class="o">--</span><span class="s"> </span><span class="nv">income</span><span class="o">:</span><span class="s"> </span><span class="o">$</span><span class="mi">7,000</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-586" name="examples/tutorial_en/tutorial_en.catala_en-586"></a><span class="s">    </span><span class="o">--</span><span class="s"> </span><span class="nv">number_of_children</span><span class="o">:</span><span class="s"> </span><span class="mi">7</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-587" name="examples/tutorial_en/tutorial_en.catala_en-587"></a><span class="s">  </span><span class="o">}</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-588" name="examples/tutorial_en/tutorial_en.catala_en-588"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">income_tax</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-589" name="examples/tutorial_en/tutorial_en.catala_en-589"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">normal_income_tax_computation_applies</span><span class="s"> </span><span class="kd">then</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-590" name="examples/tutorial_en/tutorial_en.catala_en-590"></a><span class="s">      </span><span class="o">(</span><span class="kd">output</span><span class="s"> </span><span class="nv">of</span><span class="s"> </span><span class="nc">NewIncomeTaxComputationFixed</span><span class="s"> </span><span class="kr">with</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-591" name="examples/tutorial_en/tutorial_en.catala_en-591"></a><span class="s">        </span><span class="o">{</span><span class="s"> </span><span class="o">--</span><span class="s"> </span><span class="nv">individual</span><span class="o">:</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="o">}).</span><span class="nv">income_tax</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-592" name="examples/tutorial_en/tutorial_en.catala_en-592"></a><span class="s">    </span><span class="kd">else</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="c1"> # Insert some other modes of computation here</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-584" name="examples/tutorial_en/tutorial_en.catala_en-584"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">normal_income_tax_computation_applies</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="kc">true</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-585" name="examples/tutorial_en/tutorial_en.catala_en-585"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nc">Individual</span><span class="s"> </span><span class="o">{</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-586" name="examples/tutorial_en/tutorial_en.catala_en-586"></a><span class="s">    </span><span class="o">--</span><span class="s"> </span><span class="nv">income</span><span class="o">:</span><span class="s"> </span><span class="o">$</span><span class="mi">7,000</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-587" name="examples/tutorial_en/tutorial_en.catala_en-587"></a><span class="s">    </span><span class="o">--</span><span class="s"> </span><span class="nv">number_of_children</span><span class="o">:</span><span class="s"> </span><span class="mi">7</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-588" name="examples/tutorial_en/tutorial_en.catala_en-588"></a><span class="s">  </span><span class="o">}</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-589" name="examples/tutorial_en/tutorial_en.catala_en-589"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">income_tax</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-590" name="examples/tutorial_en/tutorial_en.catala_en-590"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">normal_income_tax_computation_applies</span><span class="s"> </span><span class="kd">then</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-591" name="examples/tutorial_en/tutorial_en.catala_en-591"></a><span class="s">      </span><span class="o">(</span><span class="kd">output</span><span class="s"> </span><span class="nv">of</span><span class="s"> </span><span class="nc">NewIncomeTaxComputationFixed</span><span class="s"> </span><span class="kr">with</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-592" name="examples/tutorial_en/tutorial_en.catala_en-592"></a><span class="s">        </span><span class="o">{</span><span class="s"> </span><span class="o">--</span><span class="s"> </span><span class="nv">individual</span><span class="o">:</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="o">}).</span><span class="nv">income_tax</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-593" name="examples/tutorial_en/tutorial_en.catala_en-593"></a><span class="s">    </span><span class="kd">else</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="c1"> # Insert some other modes of computation here</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1215,7 +1217,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-619">619</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-620">620</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-621">621</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-622">622</a></span>
@@ -1255,47 +1256,48 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-656">656</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-657">657</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-658">658</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-659">659</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-619" name="examples/tutorial_en/tutorial_en.catala_en-619"></a><span class="c1"># To compute the basis determined for issuing the fines, we create a new scope.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-620" name="examples/tutorial_en/tutorial_en.catala_en-620"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">BasisForFineDetermination</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-621" name="examples/tutorial_en/tutorial_en.catala_en-621"></a><span class="s">  </span><span class="nv">tax_computation</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">NewIncomeTaxComputationFixed</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-622" name="examples/tutorial_en/tutorial_en.catala_en-622"></a><span class="c1">  # This scope will call the NewIncomeTaxComputationFixed scope that defines</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-623" name="examples/tutorial_en/tutorial_en.catala_en-623"></a><span class="c1">  # the proper tax computation.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-624" name="examples/tutorial_en/tutorial_en.catala_en-624"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="nc">Individual</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-625" name="examples/tutorial_en/tutorial_en.catala_en-625"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">basis_for_fine</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-626" name="examples/tutorial_en/tutorial_en.catala_en-626"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-627" name="examples/tutorial_en/tutorial_en.catala_en-627"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">BasisForFineDetermination</span><span class="s"> </span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-628" name="examples/tutorial_en/tutorial_en.catala_en-628"></a><span class="c1">  # First, we link the inputs and outputs of the two scopes.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-629" name="examples/tutorial_en/tutorial_en.catala_en-629"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">tax_computation</span><span class="o">.</span><span class="s">individual </span><span class="kr">equals</span><span class="s"> </span><span class="nv">individual</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-630" name="examples/tutorial_en/tutorial_en.catala_en-630"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">basis_for_fine</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">tax_computation</span><span class="o">.</span><span class="s">income_tax</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-631" name="examples/tutorial_en/tutorial_en.catala_en-631"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-632" name="examples/tutorial_en/tutorial_en.catala_en-632"></a><span class="c1">  # But then, how to account for the provision of the law that reverts the</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-633" name="examples/tutorial_en/tutorial_en.catala_en-633"></a><span class="c1">  # mechanism canceling taxes for individuals earning less than $10,000 dollars?</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-634" name="examples/tutorial_en/tutorial_en.catala_en-634"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-635" name="examples/tutorial_en/tutorial_en.catala_en-635"></a><span class="c1">  # This is where the &quot;context&quot; concept comes into play. Indeed, we had</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-636" name="examples/tutorial_en/tutorial_en.catala_en-636"></a><span class="c1">  # annotated the &quot;income_tax&quot; variable of &quot;NewIncomeTaxComputationFixed&quot; with</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-637" name="examples/tutorial_en/tutorial_en.catala_en-637"></a><span class="c1">  # the &quot;context&quot; attribute. &quot;context&quot; is a variant of &quot;input&quot; that exposes the</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-638" name="examples/tutorial_en/tutorial_en.catala_en-638"></a><span class="c1">  # variable as an input of the scope. However, it is more permissive than</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-639" name="examples/tutorial_en/tutorial_en.catala_en-639"></a><span class="c1">  # &quot;input&quot; because it lets you re-define the &quot;context&quot; variable inside its</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-640" name="examples/tutorial_en/tutorial_en.catala_en-640"></a><span class="c1">  # own scope. Then, you&#39;re faced with a choice for the value of &quot;income_tax&quot;:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-641" name="examples/tutorial_en/tutorial_en.catala_en-641"></a><span class="c1">  # do you take the value coming from its definition inside</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-642" name="examples/tutorial_en/tutorial_en.catala_en-642"></a><span class="c1">  # &quot;NewIncomeTaxComputationFixed&quot; or do you take the value coming from the</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-643" name="examples/tutorial_en/tutorial_en.catala_en-643"></a><span class="c1">  # input of the scope? This dilemma is resolved in two ways. First, by looking</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-644" name="examples/tutorial_en/tutorial_en.catala_en-644"></a><span class="c1">  # at the conditions of the definitions: only definitions that have a condition</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-645" name="examples/tutorial_en/tutorial_en.catala_en-645"></a><span class="c1">  # evaluating to &quot;true&quot; at runtime will be considered. If there&#39;s only one,</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-646" name="examples/tutorial_en/tutorial_en.catala_en-646"></a><span class="c1">  # the pick is easy. But what if two definitions trigger at the same time,</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-647" name="examples/tutorial_en/tutorial_en.catala_en-647"></a><span class="c1">  # one from the input and one from the &quot;NewIncomeTaxComputationFixed&quot; scope?</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-648" name="examples/tutorial_en/tutorial_en.catala_en-648"></a><span class="c1">  # Well, second, in that case we always prioritize the input definition for</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-649" name="examples/tutorial_en/tutorial_en.catala_en-649"></a><span class="c1">  # picking. In Catala, the caller scope has priority over the callee scope</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-650" name="examples/tutorial_en/tutorial_en.catala_en-650"></a><span class="c1">  # for &quot;context&quot; variable. It&#39;s as if the caller provided an extra exception</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-651" name="examples/tutorial_en/tutorial_en.catala_en-651"></a><span class="c1">  # for the definition of the scope variable.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-652" name="examples/tutorial_en/tutorial_en.catala_en-652"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-653" name="examples/tutorial_en/tutorial_en.catala_en-653"></a><span class="c1">  # Back to our little problem, the solution is here to provide from the outside</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-654" name="examples/tutorial_en/tutorial_en.catala_en-654"></a><span class="c1">  # an exceptional definition for income tax for people earning less than</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-655" name="examples/tutorial_en/tutorial_en.catala_en-655"></a><span class="c1">  # $10,0000.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-656" name="examples/tutorial_en/tutorial_en.catala_en-656"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">tax_computation</span><span class="o">.</span><span class="s">income_tax </span><span class="kr">under condition</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-657" name="examples/tutorial_en/tutorial_en.catala_en-657"></a><span class="s">    </span><span class="nv">individual</span><span class="o">.</span><span class="s">income </span><span class="o">&lt;=</span><span class="s"> </span><span class="o">$</span><span class="mi">10,000</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-658" name="examples/tutorial_en/tutorial_en.catala_en-658"></a><span class="s">  </span><span class="kr">consequence</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="o">$</span><span class="mi">500</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-620" name="examples/tutorial_en/tutorial_en.catala_en-620"></a><span class="c1"># To compute the basis determined for issuing the fines, we create a new scope.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-621" name="examples/tutorial_en/tutorial_en.catala_en-621"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">BasisForFineDetermination</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-622" name="examples/tutorial_en/tutorial_en.catala_en-622"></a><span class="s">  </span><span class="nv">tax_computation</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">NewIncomeTaxComputationFixed</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-623" name="examples/tutorial_en/tutorial_en.catala_en-623"></a><span class="c1">  # This scope will call the NewIncomeTaxComputationFixed scope that defines</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-624" name="examples/tutorial_en/tutorial_en.catala_en-624"></a><span class="c1">  # the proper tax computation.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-625" name="examples/tutorial_en/tutorial_en.catala_en-625"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">individual</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="nc">Individual</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-626" name="examples/tutorial_en/tutorial_en.catala_en-626"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">basis_for_fine</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-627" name="examples/tutorial_en/tutorial_en.catala_en-627"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-628" name="examples/tutorial_en/tutorial_en.catala_en-628"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">BasisForFineDetermination</span><span class="s"> </span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-629" name="examples/tutorial_en/tutorial_en.catala_en-629"></a><span class="c1">  # First, we link the inputs and outputs of the two scopes.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-630" name="examples/tutorial_en/tutorial_en.catala_en-630"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">tax_computation</span><span class="o">.</span><span class="s">individual </span><span class="kr">equals</span><span class="s"> </span><span class="nv">individual</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-631" name="examples/tutorial_en/tutorial_en.catala_en-631"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">basis_for_fine</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">tax_computation</span><span class="o">.</span><span class="s">income_tax</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-632" name="examples/tutorial_en/tutorial_en.catala_en-632"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-633" name="examples/tutorial_en/tutorial_en.catala_en-633"></a><span class="c1">  # But then, how to account for the provision of the law that reverts the</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-634" name="examples/tutorial_en/tutorial_en.catala_en-634"></a><span class="c1">  # mechanism canceling taxes for individuals earning less than $10,000 dollars?</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-635" name="examples/tutorial_en/tutorial_en.catala_en-635"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-636" name="examples/tutorial_en/tutorial_en.catala_en-636"></a><span class="c1">  # This is where the &quot;context&quot; concept comes into play. Indeed, we had</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-637" name="examples/tutorial_en/tutorial_en.catala_en-637"></a><span class="c1">  # annotated the &quot;income_tax&quot; variable of &quot;NewIncomeTaxComputationFixed&quot; with</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-638" name="examples/tutorial_en/tutorial_en.catala_en-638"></a><span class="c1">  # the &quot;context&quot; attribute. &quot;context&quot; is a variant of &quot;input&quot; that exposes the</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-639" name="examples/tutorial_en/tutorial_en.catala_en-639"></a><span class="c1">  # variable as an input of the scope. However, it is more permissive than</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-640" name="examples/tutorial_en/tutorial_en.catala_en-640"></a><span class="c1">  # &quot;input&quot; because it lets you re-define the &quot;context&quot; variable inside its</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-641" name="examples/tutorial_en/tutorial_en.catala_en-641"></a><span class="c1">  # own scope. Then, you&#39;re faced with a choice for the value of &quot;income_tax&quot;:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-642" name="examples/tutorial_en/tutorial_en.catala_en-642"></a><span class="c1">  # do you take the value coming from its definition inside</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-643" name="examples/tutorial_en/tutorial_en.catala_en-643"></a><span class="c1">  # &quot;NewIncomeTaxComputationFixed&quot; or do you take the value coming from the</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-644" name="examples/tutorial_en/tutorial_en.catala_en-644"></a><span class="c1">  # input of the scope? This dilemma is resolved in two ways. First, by looking</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-645" name="examples/tutorial_en/tutorial_en.catala_en-645"></a><span class="c1">  # at the conditions of the definitions: only definitions that have a condition</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-646" name="examples/tutorial_en/tutorial_en.catala_en-646"></a><span class="c1">  # evaluating to &quot;true&quot; at runtime will be considered. If there&#39;s only one,</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-647" name="examples/tutorial_en/tutorial_en.catala_en-647"></a><span class="c1">  # the pick is easy. But what if two definitions trigger at the same time,</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-648" name="examples/tutorial_en/tutorial_en.catala_en-648"></a><span class="c1">  # one from the input and one from the &quot;NewIncomeTaxComputationFixed&quot; scope?</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-649" name="examples/tutorial_en/tutorial_en.catala_en-649"></a><span class="c1">  # Well, second, in that case we always prioritize the input definition for</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-650" name="examples/tutorial_en/tutorial_en.catala_en-650"></a><span class="c1">  # picking. In Catala, the caller scope has priority over the callee scope</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-651" name="examples/tutorial_en/tutorial_en.catala_en-651"></a><span class="c1">  # for &quot;context&quot; variable. It&#39;s as if the caller provided an extra exception</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-652" name="examples/tutorial_en/tutorial_en.catala_en-652"></a><span class="c1">  # for the definition of the scope variable.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-653" name="examples/tutorial_en/tutorial_en.catala_en-653"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-654" name="examples/tutorial_en/tutorial_en.catala_en-654"></a><span class="c1">  # Back to our little problem, the solution is here to provide from the outside</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-655" name="examples/tutorial_en/tutorial_en.catala_en-655"></a><span class="c1">  # an exceptional definition for income tax for people earning less than</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-656" name="examples/tutorial_en/tutorial_en.catala_en-656"></a><span class="c1">  # $10,0000.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-657" name="examples/tutorial_en/tutorial_en.catala_en-657"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">tax_computation</span><span class="o">.</span><span class="s">income_tax </span><span class="kr">under condition</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-658" name="examples/tutorial_en/tutorial_en.catala_en-658"></a><span class="s">    </span><span class="nv">individual</span><span class="o">.</span><span class="s">income </span><span class="o">&lt;=</span><span class="s"> </span><span class="o">$</span><span class="mi">10,000</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-659" name="examples/tutorial_en/tutorial_en.catala_en-659"></a><span class="s">  </span><span class="kr">consequence</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="o">$</span><span class="mi">500</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1312,7 +1314,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-680">680</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-681">681</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-682">682</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-683">683</a></span>
@@ -1336,31 +1337,32 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-701">701</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-702">702</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-703">703</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-704">704</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-680" name="examples/tutorial_en/tutorial_en.catala_en-680"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">WealthTax</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-681" name="examples/tutorial_en/tutorial_en.catala_en-681"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">value_of_buildings_used_for_charity</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-682" name="examples/tutorial_en/tutorial_en.catala_en-682"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">total_wealth</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-683" name="examples/tutorial_en/tutorial_en.catala_en-683"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-684" name="examples/tutorial_en/tutorial_en.catala_en-684"></a><span class="c1">    # After the type of the variable, we can define the ordered list of states</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-685" name="examples/tutorial_en/tutorial_en.catala_en-685"></a><span class="c1">    # that the variable shall take before computing its final value. In each</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-686" name="examples/tutorial_en/tutorial_en.catala_en-686"></a><span class="c1">    # state, we&#39;ll be able to refer to the value of the previous state.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-687" name="examples/tutorial_en/tutorial_en.catala_en-687"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">total</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-688" name="examples/tutorial_en/tutorial_en.catala_en-688"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_charity_deductions</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-689" name="examples/tutorial_en/tutorial_en.catala_en-689"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_capping</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-690" name="examples/tutorial_en/tutorial_en.catala_en-690"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-691" name="examples/tutorial_en/tutorial_en.catala_en-691"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">WealthTax</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-692" name="examples/tutorial_en/tutorial_en.catala_en-692"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">total</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">total_wealth</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-693" name="examples/tutorial_en/tutorial_en.catala_en-693"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_charity_deductions</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-694" name="examples/tutorial_en/tutorial_en.catala_en-694"></a><span class="s">    </span><span class="nv">wealth</span><span class="s"> </span><span class="o">-</span><span class="c1"> # Here, &quot;wealth&quot; refers to the state &quot;total&quot;</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-695" name="examples/tutorial_en/tutorial_en.catala_en-695"></a><span class="s">      </span><span class="nv">value_of_buildings_used_for_charity</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-696" name="examples/tutorial_en/tutorial_en.catala_en-696"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_capping</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-697" name="examples/tutorial_en/tutorial_en.catala_en-697"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="o">&gt;=</span><span class="s"> </span><span class="o">$</span><span class="mi">2,500</span><span class="o">,</span><span class="mi">000</span><span class="s"> </span><span class="kd">then</span><span class="s"> </span><span class="o">$</span><span class="mi">2,500</span><span class="o">,</span><span class="mi">000</span><span class="s"> </span><span class="kd">else</span><span class="s"> </span><span class="nv">wealth</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-698" name="examples/tutorial_en/tutorial_en.catala_en-698"></a><span class="c1">    # Here, &quot;wealth&quot; refers to the state &quot;after_charity_decuctions&quot;</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-699" name="examples/tutorial_en/tutorial_en.catala_en-699"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-700" name="examples/tutorial_en/tutorial_en.catala_en-700"></a><span class="s">  </span><span class="kr">assertion</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="o">&gt;</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-701" name="examples/tutorial_en/tutorial_en.catala_en-701"></a><span class="c1">  # Outside of the definition of &quot;wealth&quot;, &quot;wealth&quot; always refer to the final</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-702" name="examples/tutorial_en/tutorial_en.catala_en-702"></a><span class="c1">  # state of the variable, here &quot;after_capping&quot;.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-703" name="examples/tutorial_en/tutorial_en.catala_en-703"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-681" name="examples/tutorial_en/tutorial_en.catala_en-681"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">WealthTax</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-682" name="examples/tutorial_en/tutorial_en.catala_en-682"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">value_of_buildings_used_for_charity</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-683" name="examples/tutorial_en/tutorial_en.catala_en-683"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">total_wealth</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-684" name="examples/tutorial_en/tutorial_en.catala_en-684"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-685" name="examples/tutorial_en/tutorial_en.catala_en-685"></a><span class="c1">    # After the type of the variable, we can define the ordered list of states</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-686" name="examples/tutorial_en/tutorial_en.catala_en-686"></a><span class="c1">    # that the variable shall take before computing its final value. In each</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-687" name="examples/tutorial_en/tutorial_en.catala_en-687"></a><span class="c1">    # state, we&#39;ll be able to refer to the value of the previous state.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-688" name="examples/tutorial_en/tutorial_en.catala_en-688"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">total</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-689" name="examples/tutorial_en/tutorial_en.catala_en-689"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_charity_deductions</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-690" name="examples/tutorial_en/tutorial_en.catala_en-690"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_capping</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-691" name="examples/tutorial_en/tutorial_en.catala_en-691"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-692" name="examples/tutorial_en/tutorial_en.catala_en-692"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">WealthTax</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-693" name="examples/tutorial_en/tutorial_en.catala_en-693"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">total</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">total_wealth</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-694" name="examples/tutorial_en/tutorial_en.catala_en-694"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_charity_deductions</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-695" name="examples/tutorial_en/tutorial_en.catala_en-695"></a><span class="s">    </span><span class="nv">wealth</span><span class="s"> </span><span class="o">-</span><span class="c1"> # Here, &quot;wealth&quot; refers to the state &quot;total&quot;</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-696" name="examples/tutorial_en/tutorial_en.catala_en-696"></a><span class="s">      </span><span class="nv">value_of_buildings_used_for_charity</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-697" name="examples/tutorial_en/tutorial_en.catala_en-697"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">after_capping</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-698" name="examples/tutorial_en/tutorial_en.catala_en-698"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="o">&gt;=</span><span class="s"> </span><span class="o">$</span><span class="mi">2,500</span><span class="o">,</span><span class="mi">000</span><span class="s"> </span><span class="kd">then</span><span class="s"> </span><span class="o">$</span><span class="mi">2,500</span><span class="o">,</span><span class="mi">000</span><span class="s"> </span><span class="kd">else</span><span class="s"> </span><span class="nv">wealth</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-699" name="examples/tutorial_en/tutorial_en.catala_en-699"></a><span class="c1">    # Here, &quot;wealth&quot; refers to the state &quot;after_charity_decuctions&quot;</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-700" name="examples/tutorial_en/tutorial_en.catala_en-700"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-701" name="examples/tutorial_en/tutorial_en.catala_en-701"></a><span class="s">  </span><span class="kr">assertion</span><span class="s"> </span><span class="nv">wealth</span><span class="s"> </span><span class="o">&gt;</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-702" name="examples/tutorial_en/tutorial_en.catala_en-702"></a><span class="c1">  # Outside of the definition of &quot;wealth&quot;, &quot;wealth&quot; always refer to the final</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-703" name="examples/tutorial_en/tutorial_en.catala_en-703"></a><span class="c1">  # state of the variable, here &quot;after_capping&quot;.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-704" name="examples/tutorial_en/tutorial_en.catala_en-704"></a>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1376,7 +1378,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-720">720</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-721">721</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-722">722</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-723">723</a></span>
@@ -1386,17 +1387,18 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-727">727</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-728">728</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-729">729</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-730">730</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-720" name="examples/tutorial_en/tutorial_en.catala_en-720"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">BooleanValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-721" name="examples/tutorial_en/tutorial_en.catala_en-721"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">condition</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-722" name="examples/tutorial_en/tutorial_en.catala_en-722"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">boolean</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-723" name="examples/tutorial_en/tutorial_en.catala_en-723"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-724" name="examples/tutorial_en/tutorial_en.catala_en-724"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">BooleanValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-725" name="examples/tutorial_en/tutorial_en.catala_en-725"></a><span class="s">  </span><span class="kr">rule</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span><span class="s"> </span><span class="kc">false</span><span class="s"> </span><span class="o">and</span><span class="s"> </span><span class="kc">true</span><span class="s"> </span><span class="kr">consequence</span><span class="s"> </span><span class="kr">fulfilled</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-726" name="examples/tutorial_en/tutorial_en.catala_en-726"></a><span class="c1">  # Sets the boolean of the value1 condition to &quot;true&quot; under condition</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-727" name="examples/tutorial_en/tutorial_en.catala_en-727"></a><span class="c1">  # &quot;false and true&quot;</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-728" name="examples/tutorial_en/tutorial_en.catala_en-728"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">xor</span><span class="s"> </span><span class="o">(</span><span class="nv">value1</span><span class="s"> </span><span class="o">and</span><span class="s"> </span><span class="kc">true</span><span class="o">)</span><span class="s"> </span><span class="o">=</span><span class="s"> </span><span class="kc">false</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-729" name="examples/tutorial_en/tutorial_en.catala_en-729"></a><span class="c1">  # Boolean operators include and, or, xor</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-721" name="examples/tutorial_en/tutorial_en.catala_en-721"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">BooleanValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-722" name="examples/tutorial_en/tutorial_en.catala_en-722"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">condition</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-723" name="examples/tutorial_en/tutorial_en.catala_en-723"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">boolean</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-724" name="examples/tutorial_en/tutorial_en.catala_en-724"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-725" name="examples/tutorial_en/tutorial_en.catala_en-725"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">BooleanValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-726" name="examples/tutorial_en/tutorial_en.catala_en-726"></a><span class="s">  </span><span class="kr">rule</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span><span class="s"> </span><span class="kc">false</span><span class="s"> </span><span class="o">and</span><span class="s"> </span><span class="kc">true</span><span class="s"> </span><span class="kr">consequence</span><span class="s"> </span><span class="kr">fulfilled</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-727" name="examples/tutorial_en/tutorial_en.catala_en-727"></a><span class="c1">  # Sets the boolean of the value1 condition to &quot;true&quot; under condition</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-728" name="examples/tutorial_en/tutorial_en.catala_en-728"></a><span class="c1">  # &quot;false and true&quot;</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-729" name="examples/tutorial_en/tutorial_en.catala_en-729"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">xor</span><span class="s"> </span><span class="o">(</span><span class="nv">value1</span><span class="s"> </span><span class="o">and</span><span class="s"> </span><span class="kc">true</span><span class="o">)</span><span class="s"> </span><span class="o">=</span><span class="s"> </span><span class="kc">false</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-730" name="examples/tutorial_en/tutorial_en.catala_en-730"></a><span class="c1">  # Boolean operators include and, or, xor</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1408,7 +1410,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-739">739</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-740">740</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-741">741</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-742">742</a></span>
@@ -1416,15 +1417,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-744">744</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-745">745</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-746">746</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-747">747</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-739" name="examples/tutorial_en/tutorial_en.catala_en-739"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">IntegerValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-740" name="examples/tutorial_en/tutorial_en.catala_en-740"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-741" name="examples/tutorial_en/tutorial_en.catala_en-741"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-742" name="examples/tutorial_en/tutorial_en.catala_en-742"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-743" name="examples/tutorial_en/tutorial_en.catala_en-743"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">IntegerValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-744" name="examples/tutorial_en/tutorial_en.catala_en-744"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span><span class="s"> </span><span class="mi">12</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="o">(</span><span class="mi">5</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">3</span><span class="o">)</span><span class="s"> </span><span class="o">&lt;</span><span class="s"> </span><span class="mi">65</span><span class="s"> </span><span class="kr">consequence</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">45</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">9</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-745" name="examples/tutorial_en/tutorial_en.catala_en-745"></a><span class="c1">  # The / operators corresponds to an integer division that truncates towards 0.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-746" name="examples/tutorial_en/tutorial_en.catala_en-746"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">65</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-740" name="examples/tutorial_en/tutorial_en.catala_en-740"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">IntegerValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-741" name="examples/tutorial_en/tutorial_en.catala_en-741"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-742" name="examples/tutorial_en/tutorial_en.catala_en-742"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-743" name="examples/tutorial_en/tutorial_en.catala_en-743"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-744" name="examples/tutorial_en/tutorial_en.catala_en-744"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">IntegerValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-745" name="examples/tutorial_en/tutorial_en.catala_en-745"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span><span class="s"> </span><span class="mi">12</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="o">(</span><span class="mi">5</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">3</span><span class="o">)</span><span class="s"> </span><span class="o">&lt;</span><span class="s"> </span><span class="mi">65</span><span class="s"> </span><span class="kr">consequence</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">45</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">9</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-746" name="examples/tutorial_en/tutorial_en.catala_en-746"></a><span class="c1">  # The / operators corresponds to an integer division that truncates towards 0.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-747" name="examples/tutorial_en/tutorial_en.catala_en-747"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">65</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1436,7 +1438,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-756">756</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-757">757</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-758">758</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-759">759</a></span>
@@ -1448,19 +1449,20 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-765">765</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-766">766</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-767">767</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-768">768</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-756" name="examples/tutorial_en/tutorial_en.catala_en-756"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">DecimalValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-757" name="examples/tutorial_en/tutorial_en.catala_en-757"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">decimal</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-758" name="examples/tutorial_en/tutorial_en.catala_en-758"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">decimal</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-759" name="examples/tutorial_en/tutorial_en.catala_en-759"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-760" name="examples/tutorial_en/tutorial_en.catala_en-760"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">DecimalValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-761" name="examples/tutorial_en/tutorial_en.catala_en-761"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-762" name="examples/tutorial_en/tutorial_en.catala_en-762"></a><span class="s">    </span><span class="mi">12</span><span class="o">.</span><span class="mi">655465446655426</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">45265426541654</span><span class="s">  </span><span class="o">&lt;</span><span class="s"> </span><span class="mi">12</span><span class="o">.</span><span class="mi">3554654652</span><span class="s"> </span><span class="kr">consequence</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-763" name="examples/tutorial_en/tutorial_en.catala_en-763"></a><span class="s">  </span><span class="kr">equals</span><span class="s"> </span><span class="mi">45</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">9</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-764" name="examples/tutorial_en/tutorial_en.catala_en-764"></a><span class="c1">  # The / operator corresponds to an exact division. The division of integers</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-765" name="examples/tutorial_en/tutorial_en.catala_en-765"></a><span class="c1">  # yields a decimal.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-766" name="examples/tutorial_en/tutorial_en.catala_en-766"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">65</span><span class="o">%</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-767" name="examples/tutorial_en/tutorial_en.catala_en-767"></a><span class="c1">  # Percentages are decimal numbers (0.65 here)</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-757" name="examples/tutorial_en/tutorial_en.catala_en-757"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">DecimalValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-758" name="examples/tutorial_en/tutorial_en.catala_en-758"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">decimal</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-759" name="examples/tutorial_en/tutorial_en.catala_en-759"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">decimal</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-760" name="examples/tutorial_en/tutorial_en.catala_en-760"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-761" name="examples/tutorial_en/tutorial_en.catala_en-761"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">DecimalValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-762" name="examples/tutorial_en/tutorial_en.catala_en-762"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-763" name="examples/tutorial_en/tutorial_en.catala_en-763"></a><span class="s">    </span><span class="mi">12</span><span class="o">.</span><span class="mi">655465446655426</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">45265426541654</span><span class="s">  </span><span class="o">&lt;</span><span class="s"> </span><span class="mi">12</span><span class="o">.</span><span class="mi">3554654652</span><span class="s"> </span><span class="kr">consequence</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-764" name="examples/tutorial_en/tutorial_en.catala_en-764"></a><span class="s">  </span><span class="kr">equals</span><span class="s"> </span><span class="mi">45</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">9</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-765" name="examples/tutorial_en/tutorial_en.catala_en-765"></a><span class="c1">  # The / operator corresponds to an exact division. The division of integers</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-766" name="examples/tutorial_en/tutorial_en.catala_en-766"></a><span class="c1">  # yields a decimal.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-767" name="examples/tutorial_en/tutorial_en.catala_en-767"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">65</span><span class="o">%</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-768" name="examples/tutorial_en/tutorial_en.catala_en-768"></a><span class="c1">  # Percentages are decimal numbers (0.65 here)</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1472,7 +1474,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-781">781</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-782">782</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-783">783</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-784">784</a></span>
@@ -1482,17 +1483,18 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-788">788</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-789">789</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-790">790</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-791">791</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-781" name="examples/tutorial_en/tutorial_en.catala_en-781"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">MoneyValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-782" name="examples/tutorial_en/tutorial_en.catala_en-782"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">decimal</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-783" name="examples/tutorial_en/tutorial_en.catala_en-783"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-784" name="examples/tutorial_en/tutorial_en.catala_en-784"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-785" name="examples/tutorial_en/tutorial_en.catala_en-785"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">MoneyValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-786" name="examples/tutorial_en/tutorial_en.catala_en-786"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-787" name="examples/tutorial_en/tutorial_en.catala_en-787"></a><span class="s">    </span><span class="mi">12</span><span class="o">.</span><span class="mi">655465446655426</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">45265426541654</span><span class="s">  </span><span class="o">&lt;</span><span class="s"> </span><span class="mi">12</span><span class="o">.</span><span class="mi">3554654652</span><span class="s"> </span><span class="kr">consequence</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-788" name="examples/tutorial_en/tutorial_en.catala_en-788"></a><span class="s">  </span><span class="kr">equals</span><span class="s"> </span><span class="o">(</span><span class="kt">decimal</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="mi">45</span><span class="o">)</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="o">(</span><span class="kt">decimal</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="mi">9</span><span class="o">)</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-789" name="examples/tutorial_en/tutorial_en.catala_en-789"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-790" name="examples/tutorial_en/tutorial_en.catala_en-790"></a><span class="s">    </span><span class="o">$</span><span class="mi">1</span><span class="o">.</span><span class="mi">00</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="o">((($</span><span class="mi">6,520</span><span class="o">.</span><span class="mi">23</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="o">$</span><span class="mi">320</span><span class="o">.</span><span class="mi">45</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">value1</span><span class="o">)</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="o">$</span><span class="mi">45</span><span class="o">)</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-782" name="examples/tutorial_en/tutorial_en.catala_en-782"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">MoneyValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-783" name="examples/tutorial_en/tutorial_en.catala_en-783"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">decimal</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-784" name="examples/tutorial_en/tutorial_en.catala_en-784"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-785" name="examples/tutorial_en/tutorial_en.catala_en-785"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-786" name="examples/tutorial_en/tutorial_en.catala_en-786"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">MoneyValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-787" name="examples/tutorial_en/tutorial_en.catala_en-787"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">under condition</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-788" name="examples/tutorial_en/tutorial_en.catala_en-788"></a><span class="s">    </span><span class="mi">12</span><span class="o">.</span><span class="mi">655465446655426</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="mi">0</span><span class="o">.</span><span class="mi">45265426541654</span><span class="s">  </span><span class="o">&lt;</span><span class="s"> </span><span class="mi">12</span><span class="o">.</span><span class="mi">3554654652</span><span class="s"> </span><span class="kr">consequence</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-789" name="examples/tutorial_en/tutorial_en.catala_en-789"></a><span class="s">  </span><span class="kr">equals</span><span class="s"> </span><span class="o">(</span><span class="kt">decimal</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="mi">45</span><span class="o">)</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="o">(</span><span class="kt">decimal</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="mi">9</span><span class="o">)</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-790" name="examples/tutorial_en/tutorial_en.catala_en-790"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-791" name="examples/tutorial_en/tutorial_en.catala_en-791"></a><span class="s">    </span><span class="o">$</span><span class="mi">1</span><span class="o">.</span><span class="mi">00</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="o">((($</span><span class="mi">6,520</span><span class="o">.</span><span class="mi">23</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="o">$</span><span class="mi">320</span><span class="o">.</span><span class="mi">45</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">value1</span><span class="o">)</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="o">$</span><span class="mi">45</span><span class="o">)</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1504,7 +1506,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-807">807</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-808">808</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-809">809</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-810">810</a></span>
@@ -1512,15 +1513,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-812">812</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-813">813</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-814">814</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-815">815</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-807" name="examples/tutorial_en/tutorial_en.catala_en-807"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">DateValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-808" name="examples/tutorial_en/tutorial_en.catala_en-808"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">date</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-809" name="examples/tutorial_en/tutorial_en.catala_en-809"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">duration</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-810" name="examples/tutorial_en/tutorial_en.catala_en-810"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-811" name="examples/tutorial_en/tutorial_en.catala_en-811"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">DateValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-812" name="examples/tutorial_en/tutorial_en.catala_en-812"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">equals</span><span class="s">  </span><span class="o">+</span><span class="s"> </span><span class="mi">1</span><span class="s"> </span><span class="o">year</span><span class="c1"> # yields |2001-01-01|</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-813" name="examples/tutorial_en/tutorial_en.catala_en-813"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-814" name="examples/tutorial_en/tutorial_en.catala_en-814"></a><span class="s">    </span><span class="o">(</span><span class="nv">value1</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="o">)</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="mi">45</span><span class="s"> </span><span class="o">day</span><span class="c1"> # 367 + 45 days (2000 is bissextile)</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-808" name="examples/tutorial_en/tutorial_en.catala_en-808"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">DateValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-809" name="examples/tutorial_en/tutorial_en.catala_en-809"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">date</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-810" name="examples/tutorial_en/tutorial_en.catala_en-810"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">duration</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-811" name="examples/tutorial_en/tutorial_en.catala_en-811"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-812" name="examples/tutorial_en/tutorial_en.catala_en-812"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">DateValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-813" name="examples/tutorial_en/tutorial_en.catala_en-813"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">|2000-01-01|</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="mi">1</span><span class="s"> </span><span class="o">year</span><span class="c1"> # yields |2001-01-01|</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-814" name="examples/tutorial_en/tutorial_en.catala_en-814"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-815" name="examples/tutorial_en/tutorial_en.catala_en-815"></a><span class="s">    </span><span class="o">(</span><span class="nv">value1</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="mi">|1999-12-31|</span><span class="o">)</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="mi">45</span><span class="s"> </span><span class="o">day</span><span class="c1"> # 367 + 45 days (2000 is bissextile)</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1532,7 +1534,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-826">826</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-827">827</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-828">828</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-829">829</a></span>
@@ -1540,15 +1541,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-831">831</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-832">832</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-833">833</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-834">834</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-826" name="examples/tutorial_en/tutorial_en.catala_en-826"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">CollectionValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-827" name="examples/tutorial_en/tutorial_en.catala_en-827"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">collection</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-828" name="examples/tutorial_en/tutorial_en.catala_en-828"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-829" name="examples/tutorial_en/tutorial_en.catala_en-829"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-830" name="examples/tutorial_en/tutorial_en.catala_en-830"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">CollectionValues</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-831" name="examples/tutorial_en/tutorial_en.catala_en-831"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="o">[</span><span class="mi">45</span><span class="o">;-</span><span class="mi">6</span><span class="o">;</span><span class="mi">3</span><span class="o">;</span><span class="mi">4</span><span class="o">;</span><span class="mi">0</span><span class="o">;</span><span class="mi">2155</span><span class="o">]</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-832" name="examples/tutorial_en/tutorial_en.catala_en-832"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="kd">sum</span><span class="s"> </span><span class="kt">integer</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="o">(</span><span class="nv">i</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">i</span><span class="o">)</span><span class="s"> </span><span class="kd">for</span><span class="s"> </span><span class="nv">i</span><span class="s"> </span><span class="kd">among</span><span class="s"> </span><span class="nv">value1</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-833" name="examples/tutorial_en/tutorial_en.catala_en-833"></a><span class="c1">  # sum of squares</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-827" name="examples/tutorial_en/tutorial_en.catala_en-827"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">CollectionValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-828" name="examples/tutorial_en/tutorial_en.catala_en-828"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">collection</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-829" name="examples/tutorial_en/tutorial_en.catala_en-829"></a><span class="s">  </span><span class="kd">internal</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-830" name="examples/tutorial_en/tutorial_en.catala_en-830"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-831" name="examples/tutorial_en/tutorial_en.catala_en-831"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">CollectionValues</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-832" name="examples/tutorial_en/tutorial_en.catala_en-832"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value1</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="o">[</span><span class="mi">45</span><span class="o">;-</span><span class="mi">6</span><span class="o">;</span><span class="mi">3</span><span class="o">;</span><span class="mi">4</span><span class="o">;</span><span class="mi">0</span><span class="o">;</span><span class="mi">2155</span><span class="o">]</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-833" name="examples/tutorial_en/tutorial_en.catala_en-833"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value2</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="kd">sum</span><span class="s"> </span><span class="kt">integer</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="o">(</span><span class="nv">i</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">i</span><span class="o">)</span><span class="s"> </span><span class="kd">for</span><span class="s"> </span><span class="nv">i</span><span class="s"> </span><span class="kd">among</span><span class="s"> </span><span class="nv">value1</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-834" name="examples/tutorial_en/tutorial_en.catala_en-834"></a><span class="c1">  # sum of squares</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1577,7 +1579,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-866">866</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-867">867</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-868">868</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-869">869</a></span>
@@ -1585,15 +1586,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-871">871</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-872">872</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-873">873</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-874">874</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-866" name="examples/tutorial_en/tutorial_en.catala_en-866"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">WorkdaysPerWeek</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-867" name="examples/tutorial_en/tutorial_en.catala_en-867"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-868" name="examples/tutorial_en/tutorial_en.catala_en-868"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-869" name="examples/tutorial_en/tutorial_en.catala_en-869"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">WorkdaysPerWeek</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-870" name="examples/tutorial_en/tutorial_en.catala_en-870"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">5</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-871" name="examples/tutorial_en/tutorial_en.catala_en-871"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-872" name="examples/tutorial_en/tutorial_en.catala_en-872"></a><span class="c1"># Requiring to declare the scope with just an output variable is quite</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-873" name="examples/tutorial_en/tutorial_en.catala_en-873"></a><span class="c1"># cumbersome, and impedes readability</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-867" name="examples/tutorial_en/tutorial_en.catala_en-867"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">WorkdaysPerWeek</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-868" name="examples/tutorial_en/tutorial_en.catala_en-868"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-869" name="examples/tutorial_en/tutorial_en.catala_en-869"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-870" name="examples/tutorial_en/tutorial_en.catala_en-870"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">WorkdaysPerWeek</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-871" name="examples/tutorial_en/tutorial_en.catala_en-871"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">5</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-872" name="examples/tutorial_en/tutorial_en.catala_en-872"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-873" name="examples/tutorial_en/tutorial_en.catala_en-873"></a><span class="c1"># Requiring to declare the scope with just an output variable is quite</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-874" name="examples/tutorial_en/tutorial_en.catala_en-874"></a><span class="c1"># cumbersome, and impedes readability</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1603,7 +1605,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-879">879</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-880">880</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-881">881</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-882">882</a></span>
@@ -1615,19 +1616,20 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-888">888</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-889">889</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-890">890</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-891">891</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-879" name="examples/tutorial_en/tutorial_en.catala_en-879"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_A</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-880" name="examples/tutorial_en/tutorial_en.catala_en-880"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-881" name="examples/tutorial_en/tutorial_en.catala_en-881"></a><span class="s">  </span><span class="nv">workdays_per_week</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">WorkdaysPerWeek</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-882" name="examples/tutorial_en/tutorial_en.catala_en-882"></a><span class="c1">  # The subscope needs to be declared just to access its value.</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-883" name="examples/tutorial_en/tutorial_en.catala_en-883"></a><span class="c1">  # Note that in some cases it may be a good thing to have that dependency</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-884" name="examples/tutorial_en/tutorial_en.catala_en-884"></a><span class="c1">  # explicit</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-885" name="examples/tutorial_en/tutorial_en.catala_en-885"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-886" name="examples/tutorial_en/tutorial_en.catala_en-886"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-887" name="examples/tutorial_en/tutorial_en.catala_en-887"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_A</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-888" name="examples/tutorial_en/tutorial_en.catala_en-888"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-889" name="examples/tutorial_en/tutorial_en.catala_en-889"></a><span class="s">    </span><span class="o">$</span><span class="mi">2</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="o">(</span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">workdays_per_week</span><span class="o">.</span><span class="s">value </span><span class="o">/</span><span class="s"> </span><span class="mi">7</span><span class="o">)</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-890" name="examples/tutorial_en/tutorial_en.catala_en-890"></a><span class="c1">  # The value requires &lt;scope_name&gt;.&lt;variable_name&gt; to be accessed</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-880" name="examples/tutorial_en/tutorial_en.catala_en-880"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_A</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-881" name="examples/tutorial_en/tutorial_en.catala_en-881"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-882" name="examples/tutorial_en/tutorial_en.catala_en-882"></a><span class="s">  </span><span class="nv">workdays_per_week</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">WorkdaysPerWeek</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-883" name="examples/tutorial_en/tutorial_en.catala_en-883"></a><span class="c1">  # The subscope needs to be declared just to access its value.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-884" name="examples/tutorial_en/tutorial_en.catala_en-884"></a><span class="c1">  # Note that in some cases it may be a good thing to have that dependency</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-885" name="examples/tutorial_en/tutorial_en.catala_en-885"></a><span class="c1">  # explicit</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-886" name="examples/tutorial_en/tutorial_en.catala_en-886"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-887" name="examples/tutorial_en/tutorial_en.catala_en-887"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-888" name="examples/tutorial_en/tutorial_en.catala_en-888"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_A</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-889" name="examples/tutorial_en/tutorial_en.catala_en-889"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-890" name="examples/tutorial_en/tutorial_en.catala_en-890"></a><span class="s">    </span><span class="o">$</span><span class="mi">2</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="o">(</span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">workdays_per_week</span><span class="o">.</span><span class="s">value </span><span class="o">/</span><span class="s"> </span><span class="mi">7</span><span class="o">)</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-891" name="examples/tutorial_en/tutorial_en.catala_en-891"></a><span class="c1">  # The value requires &lt;scope_name&gt;.&lt;variable_name&gt; to be accessed</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1641,13 +1643,13 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-900">900</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-901">901</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-902">902</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-903">903</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-900" name="examples/tutorial_en/tutorial_en.catala_en-900"></a><span class="kr">declaration</span><span class="s"> </span><span class="nv">workdays_per_week</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">5</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-901" name="examples/tutorial_en/tutorial_en.catala_en-901"></a><span class="c1"># This is more straightforward: declaration and value are given at once,</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-902" name="examples/tutorial_en/tutorial_en.catala_en-902"></a><span class="c1"># no need for a sub-variable name.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-901" name="examples/tutorial_en/tutorial_en.catala_en-901"></a><span class="kr">declaration</span><span class="s"> </span><span class="nv">workdays_per_week</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="mi">5</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-902" name="examples/tutorial_en/tutorial_en.catala_en-902"></a><span class="c1"># This is more straightforward: declaration and value are given at once,</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-903" name="examples/tutorial_en/tutorial_en.catala_en-903"></a><span class="c1"># no need for a sub-variable name.</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1657,21 +1659,21 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-908">908</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-909">909</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-910">910</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-911">911</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-912">912</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-913">913</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-914">914</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-915">915</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-908" name="examples/tutorial_en/tutorial_en.catala_en-908"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_B</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-909" name="examples/tutorial_en/tutorial_en.catala_en-909"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-910" name="examples/tutorial_en/tutorial_en.catala_en-910"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-911" name="examples/tutorial_en/tutorial_en.catala_en-911"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-912" name="examples/tutorial_en/tutorial_en.catala_en-912"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_B</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-913" name="examples/tutorial_en/tutorial_en.catala_en-913"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="o">$</span><span class="mi">2</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="o">(</span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">workdays_per_week</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">7</span><span class="o">)</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-914" name="examples/tutorial_en/tutorial_en.catala_en-914"></a><span class="c1">  # No need for a subscope, `workdays_per_week` is accessed directly by name</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-909" name="examples/tutorial_en/tutorial_en.catala_en-909"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_B</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-910" name="examples/tutorial_en/tutorial_en.catala_en-910"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">integer</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-911" name="examples/tutorial_en/tutorial_en.catala_en-911"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-912" name="examples/tutorial_en/tutorial_en.catala_en-912"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-913" name="examples/tutorial_en/tutorial_en.catala_en-913"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">LunchAllocation_B</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-914" name="examples/tutorial_en/tutorial_en.catala_en-914"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="o">$</span><span class="mi">2</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="o">(</span><span class="nv">number_of_work_weeks</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="nv">workdays_per_week</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">7</span><span class="o">)</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-915" name="examples/tutorial_en/tutorial_en.catala_en-915"></a><span class="c1">  # No need for a subscope, `workdays_per_week` is accessed directly by name</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1686,7 +1688,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-922">922</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-923">923</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-924">924</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-925">925</a></span>
@@ -1694,15 +1695,16 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-927">927</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-928">928</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-929">929</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-930">930</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-922" name="examples/tutorial_en/tutorial_en.catala_en-922"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-923" name="examples/tutorial_en/tutorial_en.catala_en-923"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">rent</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-924" name="examples/tutorial_en/tutorial_en.catala_en-924"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-925" name="examples/tutorial_en/tutorial_en.catala_en-925"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">base</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-926" name="examples/tutorial_en/tutorial_en.catala_en-926"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">final</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-927" name="examples/tutorial_en/tutorial_en.catala_en-927"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-928" name="examples/tutorial_en/tutorial_en.catala_en-928"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-929" name="examples/tutorial_en/tutorial_en.catala_en-929"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">base</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">rent</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">30</span><span class="o">%</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-923" name="examples/tutorial_en/tutorial_en.catala_en-923"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-924" name="examples/tutorial_en/tutorial_en.catala_en-924"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">rent</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-925" name="examples/tutorial_en/tutorial_en.catala_en-925"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-926" name="examples/tutorial_en/tutorial_en.catala_en-926"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">base</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-927" name="examples/tutorial_en/tutorial_en.catala_en-927"></a><span class="s">    </span><span class="kr">state</span><span class="s"> </span><span class="nv">final</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-928" name="examples/tutorial_en/tutorial_en.catala_en-928"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-929" name="examples/tutorial_en/tutorial_en.catala_en-929"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-930" name="examples/tutorial_en/tutorial_en.catala_en-930"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">base</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">rent</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">30</span><span class="o">%</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1715,21 +1717,21 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-937">937</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-938">938</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-939">939</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-940">940</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-941">941</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-942">942</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-943">943</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-944">944</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-937" name="examples/tutorial_en/tutorial_en.catala_en-937"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-938" name="examples/tutorial_en/tutorial_en.catala_en-938"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">final</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-939" name="examples/tutorial_en/tutorial_en.catala_en-939"></a><span class="s">    </span><span class="kd">round</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="o">(</span><span class="nv">value</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="o">.</span><span class="mi">49</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-940" name="examples/tutorial_en/tutorial_en.catala_en-940"></a><span class="c1">    # Here you should explain why that formula does what the text says,</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-941" name="examples/tutorial_en/tutorial_en.catala_en-941"></a><span class="c1">    # since that&#39;s far from obvious</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-942" name="examples/tutorial_en/tutorial_en.catala_en-942"></a><span class="c1">    # It&#39;s ok if it&#39;s just used once, but far from ideal if that specific</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-943" name="examples/tutorial_en/tutorial_en.catala_en-943"></a><span class="c1">    # rounding is used all over the law.</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-938" name="examples/tutorial_en/tutorial_en.catala_en-938"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-939" name="examples/tutorial_en/tutorial_en.catala_en-939"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">final</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-940" name="examples/tutorial_en/tutorial_en.catala_en-940"></a><span class="s">    </span><span class="kd">round</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="o">(</span><span class="nv">value</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="o">.</span><span class="mi">49</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-941" name="examples/tutorial_en/tutorial_en.catala_en-941"></a><span class="c1">    # Here you should explain why that formula does what the text says,</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-942" name="examples/tutorial_en/tutorial_en.catala_en-942"></a><span class="c1">    # since that&#39;s far from obvious</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-943" name="examples/tutorial_en/tutorial_en.catala_en-943"></a><span class="c1">    # It&#39;s ok if it&#39;s just used once, but far from ideal if that specific</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-944" name="examples/tutorial_en/tutorial_en.catala_en-944"></a><span class="c1">    # rounding is used all over the law.</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1743,7 +1745,6 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-952">952</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-953">953</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-954">954</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-955">955</a></span>
@@ -1753,17 +1754,18 @@ Source files weaved in this document:
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-959">959</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-960">960</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-961">961</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-962">962</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-952" name="examples/tutorial_en/tutorial_en.catala_en-952"></a><span class="kr">declaration</span><span class="s"> </span><span class="nv">round_up_100</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-953" name="examples/tutorial_en/tutorial_en.catala_en-953"></a><span class="s">    </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-954" name="examples/tutorial_en/tutorial_en.catala_en-954"></a><span class="s">    </span><span class="kr">depends on</span><span class="s"> </span><span class="nv">money_amount</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-955" name="examples/tutorial_en/tutorial_en.catala_en-955"></a><span class="s">  </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-956" name="examples/tutorial_en/tutorial_en.catala_en-956"></a><span class="s">    </span><span class="o">(</span><span class="nv">money_amount</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="o">.</span><span class="mi">49</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-957" name="examples/tutorial_en/tutorial_en.catala_en-957"></a><span class="c1">    # The explanation is still needed, but it doesn&#39;t clutter the current scope</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-958" name="examples/tutorial_en/tutorial_en.catala_en-958"></a><span class="c1">    # This definition could even be put in the Prelude</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-959" name="examples/tutorial_en/tutorial_en.catala_en-959"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-960" name="examples/tutorial_en/tutorial_en.catala_en-960"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-961" name="examples/tutorial_en/tutorial_en.catala_en-961"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">final</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">round_up_100</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="nv">value</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-953" name="examples/tutorial_en/tutorial_en.catala_en-953"></a><span class="kr">declaration</span><span class="s"> </span><span class="nv">round_up_100</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-954" name="examples/tutorial_en/tutorial_en.catala_en-954"></a><span class="s">    </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-955" name="examples/tutorial_en/tutorial_en.catala_en-955"></a><span class="s">    </span><span class="kr">depends on</span><span class="s"> </span><span class="nv">money_amount</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-956" name="examples/tutorial_en/tutorial_en.catala_en-956"></a><span class="s">  </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-957" name="examples/tutorial_en/tutorial_en.catala_en-957"></a><span class="s">    </span><span class="o">(</span><span class="nv">money_amount</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="o">.</span><span class="mi">49</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-958" name="examples/tutorial_en/tutorial_en.catala_en-958"></a><span class="c1">    # The explanation is still needed, but it doesn&#39;t clutter the current scope</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-959" name="examples/tutorial_en/tutorial_en.catala_en-959"></a><span class="c1">    # This definition could even be put in the Prelude</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-960" name="examples/tutorial_en/tutorial_en.catala_en-960"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-961" name="examples/tutorial_en/tutorial_en.catala_en-961"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">Allocation</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-962" name="examples/tutorial_en/tutorial_en.catala_en-962"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">value</span><span class="s"> </span><span class="kr">state</span><span class="s"> </span><span class="nv">final</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">round_up_100</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="nv">value</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1776,15 +1778,15 @@ Source files weaved in this document:
 <div class='code-wrapper code-metadata catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-970">970</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-971">971</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-972">972</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-973">973</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-974">974</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-970" name="examples/tutorial_en/tutorial_en.catala_en-970"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">IncludeInGrossIncome</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-971" name="examples/tutorial_en/tutorial_en.catala_en-971"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-972" name="examples/tutorial_en/tutorial_en.catala_en-972"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">amount_paid</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-973" name="examples/tutorial_en/tutorial_en.catala_en-973"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">amount_to_include</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-971" name="examples/tutorial_en/tutorial_en.catala_en-971"></a><span class="kr">declaration</span><span class="s"> </span><span class="kr">scope</span><span class="s"> </span><span class="nc">IncludeInGrossIncome</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-972" name="examples/tutorial_en/tutorial_en.catala_en-972"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-973" name="examples/tutorial_en/tutorial_en.catala_en-973"></a><span class="s">  </span><span class="kd">input</span><span class="s"> </span><span class="nv">amount_paid</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-974" name="examples/tutorial_en/tutorial_en.catala_en-974"></a><span class="s">  </span><span class="kd">output</span><span class="s"> </span><span class="nv">amount_to_include</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1795,17 +1797,17 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-979">979</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-980">980</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-981">981</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-982">982</a></span>
 <span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-983">983</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-984">984</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-979" name="examples/tutorial_en/tutorial_en.catala_en-979"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">IncludeInGrossIncome</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-980" name="examples/tutorial_en/tutorial_en.catala_en-980"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">amount_to_include</span><span class="s"> </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-981" name="examples/tutorial_en/tutorial_en.catala_en-981"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="s"> </span><span class="o">&gt;</span><span class="s"> </span><span class="nv">amount_paid</span><span class="s"> </span><span class="kd">then</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="nv">amount_paid</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-982" name="examples/tutorial_en/tutorial_en.catala_en-982"></a><span class="s">    </span><span class="kd">else</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-983" name="examples/tutorial_en/tutorial_en.catala_en-983"></a><span class="c1">    # That&#39;s basically the definition of &quot;excess of&quot;</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-980" name="examples/tutorial_en/tutorial_en.catala_en-980"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">IncludeInGrossIncome</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-981" name="examples/tutorial_en/tutorial_en.catala_en-981"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">amount_to_include</span><span class="s"> </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-982" name="examples/tutorial_en/tutorial_en.catala_en-982"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="s"> </span><span class="o">&gt;</span><span class="s"> </span><span class="nv">amount_paid</span><span class="s"> </span><span class="kd">then</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="nv">amount_paid</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-983" name="examples/tutorial_en/tutorial_en.catala_en-983"></a><span class="s">    </span><span class="kd">else</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-984" name="examples/tutorial_en/tutorial_en.catala_en-984"></a><span class="c1">    # That&#39;s basically the definition of &quot;excess of&quot;</span>
 </pre></div></td></tr></table></div>
 
 </div>
@@ -1817,27 +1819,27 @@ Source files weaved in this document:
 <div class='code-wrapper catala-code'>
 <div class='filename'>examples/tutorial_en/tutorial_en.catala_en</div>
 <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-989">989</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-990">990</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-991">991</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-992">992</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-993">993</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-994">994</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-995">995</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-996">996</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-997">997</a></span>
-<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-998">998</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-990"> 990</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-991"> 991</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-992"> 992</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-993"> 993</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-994"> 994</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-995"> 995</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-996"> 996</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-997"> 997</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-998"> 998</a></span>
+<span class="normal"><a href="#examples/tutorial_en/tutorial_en.catala_en-999"> 999</a></span>
 </pre></div></td><td class="code"><div><pre>
-<a id="examples/tutorial_en/tutorial_en.catala_en-989" name="examples/tutorial_en/tutorial_en.catala_en-989"></a><span class="kr">declaration</span><span class="s"> </span><span class="nv">excess</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-990" name="examples/tutorial_en/tutorial_en.catala_en-990"></a><span class="s">    </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-991" name="examples/tutorial_en/tutorial_en.catala_en-991"></a><span class="s">    </span><span class="kr">depends on</span><span class="s"> </span><span class="nv">x</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span><span class="o">,</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-992" name="examples/tutorial_en/tutorial_en.catala_en-992"></a><span class="s">               </span><span class="nv">y</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-993" name="examples/tutorial_en/tutorial_en.catala_en-993"></a><span class="s">  </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-994" name="examples/tutorial_en/tutorial_en.catala_en-994"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">x</span><span class="s"> </span><span class="o">&gt;</span><span class="s"> </span><span class="nv">y</span><span class="s"> </span><span class="kd">then</span><span class="s"> </span><span class="nv">x</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="nv">y</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-995" name="examples/tutorial_en/tutorial_en.catala_en-995"></a><span class="s">    </span><span class="kd">else</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-996" name="examples/tutorial_en/tutorial_en.catala_en-996"></a>
-<a id="examples/tutorial_en/tutorial_en.catala_en-997" name="examples/tutorial_en/tutorial_en.catala_en-997"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">IncludeInGrossIncome</span><span class="o">:</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-998" name="examples/tutorial_en/tutorial_en.catala_en-998"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">amount_to_include</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">excess</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="o">,</span><span class="s"> </span><span class="nv">amount_paid</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-990" name="examples/tutorial_en/tutorial_en.catala_en-990"></a><span class="kr">declaration</span><span class="s"> </span><span class="nv">excess</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-991" name="examples/tutorial_en/tutorial_en.catala_en-991"></a><span class="s">    </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-992" name="examples/tutorial_en/tutorial_en.catala_en-992"></a><span class="s">    </span><span class="kr">depends on</span><span class="s"> </span><span class="nv">x</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span><span class="o">,</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-993" name="examples/tutorial_en/tutorial_en.catala_en-993"></a><span class="s">               </span><span class="nv">y</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-994" name="examples/tutorial_en/tutorial_en.catala_en-994"></a><span class="s">  </span><span class="kr">equals</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-995" name="examples/tutorial_en/tutorial_en.catala_en-995"></a><span class="s">    </span><span class="kd">if</span><span class="s"> </span><span class="nv">x</span><span class="s"> </span><span class="o">&gt;</span><span class="s"> </span><span class="nv">y</span><span class="s"> </span><span class="kd">then</span><span class="s"> </span><span class="nv">x</span><span class="s"> </span><span class="o">-</span><span class="s"> </span><span class="nv">y</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-996" name="examples/tutorial_en/tutorial_en.catala_en-996"></a><span class="s">    </span><span class="kd">else</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-997" name="examples/tutorial_en/tutorial_en.catala_en-997"></a>
+<a id="examples/tutorial_en/tutorial_en.catala_en-998" name="examples/tutorial_en/tutorial_en.catala_en-998"></a><span class="kr">scope</span><span class="s"> </span><span class="nc">IncludeInGrossIncome</span><span class="o">:</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-999" name="examples/tutorial_en/tutorial_en.catala_en-999"></a><span class="s">  </span><span class="kr">definition</span><span class="s"> </span><span class="nv">amount_to_include</span><span class="s"> </span><span class="kr">equals</span><span class="s"> </span><span class="nv">excess</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="nv">fair_market_value</span><span class="o">,</span><span class="s"> </span><span class="nv">amount_paid</span>
 </pre></div></td></tr></table></div>
 
 </div>

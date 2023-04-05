@@ -97,7 +97,7 @@
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">quident</span></td>
+        <td><span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub></td>
       </tr>
       
       <tr class="rule">
@@ -128,11 +128,6 @@
       <tr class="rule">
         <th><span class="nonterminal">scope_var</span></th>
         <td><span class="nonterminal">addpos(LIDENT)</span><sup>+</sup><sub>DOT</sub></td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">quident</span></th>
-        <td><span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub></td>
       </tr>
       
       <tr class="rule">
@@ -203,13 +198,13 @@
         <th class="bar"></th>
         <td><span class="nonterminal">expression</span>
         OF
-        <span class="nonterminal">funcall_args</span></td>
+        <span class="nonterminal">expression</span><sup>+</sup><sub>COMMA</sub></td>
       </tr>
       <tr>
         <th class="bar"></th>
         <td>OUTPUT
         OF
-        <span class="nonterminal">addpos(<span class="nonterminal">quident</span>)</span>
+        <span class="nonterminal">addpos(<span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub>)</span>
         <span class="option"><span class="nonterminal">scope_call_args</span></span></td>
       </tr>
       <tr>
@@ -355,13 +350,13 @@
       
       <tr class="rule">
         <th><span class="nonterminal">struct_or_enum_inject</span></th>
-        <td><span class="nonterminal">addpos(<span class="nonterminal">quident</span>)</span>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub>)</span>
         <span class="option">CONTENT
         <span class="nonterminal">expression</span></span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">addpos(<span class="nonterminal">quident</span>)</span>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub>)</span>
         LBRACE
         <span class="ne_list">(ALT
         <span class="nonterminal">struct_content_field</span>)</span>
@@ -423,11 +418,6 @@
         <span class="list">(ALT
         <span class="nonterminal">struct_content_field</span>)</span>
         RBRACE</td>
-      </tr>
-      
-      <tr class="rule">
-        <th><span class="nonterminal">funcall_args</span></th>
-        <td><span class="nonterminal">expression</span><sup>+</sup><sub>COMMA</sub></td>
       </tr>
       
       <tr class="rule">
@@ -507,13 +497,13 @@
       
       <tr class="rule">
         <th><span class="nonterminal">constructor_binding</span></th>
-        <td><span class="nonterminal">addpos(<span class="nonterminal">quident</span>)</span>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub>)</span>
         OF
         <span class="nonterminal">lident</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
-        <td><span class="nonterminal">addpos(<span class="nonterminal">quident</span>)</span></td>
+        <td><span class="nonterminal">addpos(<span class="nonterminal">uident</span><sup>+</sup><sub>DOT</sub>)</span></td>
       </tr>
       
       <tr class="rule">
@@ -639,6 +629,12 @@
         <td>ASSERTION
         <span class="nonterminal">addpos(<span class="nonterminal">assertion</span>)</span></td>
       </tr>
+      <tr>
+        <th class="bar"></th>
+        <td>DATE
+        LIDENT
+        <span class="nonterminal">addpos(<span class="nonterminal">variation_type</span>)</span></td>
+      </tr>
       
       <tr class="rule">
         <th><span class="nonterminal">struct_scope_base</span></th>
@@ -669,14 +665,9 @@
       </tr>
       
       <tr class="rule">
-        <th><span class="nonterminal">scope_decl_item_attribute_output</span></th>
-        <td><span class="option">OUTPUT</span></td>
-      </tr>
-      
-      <tr class="rule">
         <th><span class="nonterminal">scope_decl_item_attribute</span></th>
         <td><span class="nonterminal">addpos(<span class="nonterminal">scope_decl_item_attribute_input</span>)</span>
-        <span class="nonterminal">addpos(<span class="nonterminal">scope_decl_item_attribute_output</span>)</span></td>
+        <span class="nonterminal">addpos(<span class="option">OUTPUT</span>)</span></td>
       </tr>
       <tr>
         <th class="bar"></th>
