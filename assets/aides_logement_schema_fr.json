@@ -1,6 +1,73 @@
 {
   "type": "object",
   "definitions": {
+    "accord_financement_representant_etat_outre_mer": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "Décision favorable de financement du logement par le représentant de l'État en outre-mer",
+          "type": "string",
+          "default": "PasdAccord",
+          "anyOf": [
+            {
+              "title": "Oui",
+              "type": "string",
+              "enum": [
+                "Accord"
+              ]
+            },
+            {
+              "title": "Non",
+              "type": "string",
+              "enum": [
+                "PasdAccord"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Accord"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "payload"
+            ],
+            "properties": {
+              "payload": {
+                "title": "Date de l'accord",
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "PasdAccord"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
+    },
     "ameliore_par_occupant": {
       "type": "object",
       "properties": {
@@ -1026,6 +1093,10 @@
         "titulairePret": {
           "title": " ",
           "$ref": "#/definitions/titulaire_pret"
+        },
+        "accordFinancementRepresentantEtatOutreMer": {
+          "title": " ",
+          "$ref": "#/definitions/accord_financement_representant_etat_outre_mer"
         }
       }
     },

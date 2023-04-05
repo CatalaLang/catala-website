@@ -94,6 +94,11 @@ export const uiSchema = {
                             "kind": {
                                 "ui:help": <span>Cette distinction est établie par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048899" target="_blank">article R832-7 du code de la construction et de l'habitation</a>.</span>
                             }
+                        },
+                        "accordFinancementRepresentantEtatOutreMer": {
+                            "kind": {
+                                "ui:help": <span>L'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775">article L851-6 du code de la construction et de l'habitation</a> prévoit dans son 2° la possibilité d'un tel accord dérogatoire transitoirement en Guyane, en Martinique, en Guadeloupe, à La Réunion et à Mayotte.</span>
+                            }
                         }
                     },
                     "typeUser": {

@@ -1,6 +1,73 @@
 {
   "type": "object",
   "definitions": {
+    "accord_financement_representant_etat_outre_mer": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": "The overseas representative of the State greenlighted the housing's funding",
+          "type": "string",
+          "default": "PasdAccord",
+          "anyOf": [
+            {
+              "title": "Yes",
+              "type": "string",
+              "enum": [
+                "Accord"
+              ]
+            },
+            {
+              "title": "No",
+              "type": "string",
+              "enum": [
+                "PasdAccord"
+              ]
+            }
+          ]
+        }
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "Accord"
+              }
+            }
+          },
+          "then": {
+            "required": [
+              "paylaod"
+            ],
+            "properties": {
+              "payload": {
+                "title": "Date of the greenlighting decision",
+                "type": "string",
+                "format": "date"
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "kind": {
+                "const": "PasdAccord"
+              }
+            }
+          },
+          "then": {
+            "properties": {
+              "payload": {
+                "title": " ",
+                "type": "null",
+                "default": null
+              }
+            }
+          }
+        }
+      ]
+    },
     "ameliore_par_occupant": {
       "type": "object",
       "properties": {
@@ -1030,6 +1097,10 @@
         "titulairePret": {
           "title": " ",
           "$ref": "#/definitions/titulaire_pret"
+        },
+        "accordFinancementRepresentantEtatOutreMer": {
+          "title": " ",
+          "$ref": "#/definitions/accord_financement_representant_etat_outre_mer"
         }
       }
     },

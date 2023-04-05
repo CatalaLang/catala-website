@@ -93,6 +93,11 @@ export const uiSchema = {
                             "kind": {
                                 "ui:help": <span>This distinction is established by <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048899" target="_blank">article R832-7 of the construction and housing code</a>.</span>
                             }
+                        },
+                        "accordFinancementRepresentantEtatOutreMer": {
+                            "kind": {
+                                "ui:help": <span><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775">Article L851-6 of the construction and housing code</a> acts this possibility in Guyane, Martinique, Guadeloupe, La Réunion and Mayotte.</span>
+                            }
                         }
                     },
                     "typeUser": {
