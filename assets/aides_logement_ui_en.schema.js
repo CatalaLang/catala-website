@@ -96,7 +96,7 @@ export const uiSchema = {
                         },
                         "accordFinancementRepresentantEtatOutreMer": {
                             "kind": {
-                                "ui:help": <span><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775">Article L851-6 of the construction and housing code</a> acts this possibility in Guyane, Martinique, Guadeloupe, La Réunion and Mayotte.</span>
+                                "ui:help": <span><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775" target="_blank">Article L851-6 of the construction and housing code</a> acts this possibility in Guyane, Martinique, Guadeloupe, La Réunion and Mayotte.</span>
                             }
                         }
                     },
@@ -133,6 +133,16 @@ export const uiSchema = {
         "personnesACharge": {
             "items": {
                 "payload": {
+                    "nationalite": {
+                        "payload": {
+                            "satisfaitConditionsL5122CodeSecuriteSociale": {
+                                "ui:help": <span>The child satisfies the conditions of the first two paragraphs of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042920150" target="_blank">article L512-2 of the social security code</a>.</span>
+                            },
+                            "satisfaitArt4Ordonnance2002Mayotte": {
+                                "ui:help": <span>The child satisfies the conditions of <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044405022" target="_blank">article 4 of the executive order n° 2002-149 of February 7th, 2002 concerning benefits in Mayotte</a>.</span>
+                            }
+                        }
+                    },
                     "obligationScolaire": {
                         "ui:help": <span>The period of mandated education for children is ruled by articles <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006166564/" target="_blank">L131-1 à L131-13 of the education code</a>.</span>
                     },
@@ -175,21 +185,22 @@ export const uiSchema = {
         }
     },
     "demandeurIn": {
-        "patrimoine": {
-            "produisantRevenuPeriodeR82233R8224": {
-                "ui:help": <span>The wealth considered as income-producing is ruled by <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419223" target="_blank">article R822-22 of the construction and housing code</a>.</span>
-            },
-            "neProduisantPasRevenuPeriodeR82233R8224": {
-                "ui:help": <span>The wealth considered as non-income-producing is ruled by <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419223" target="_blank">article R822-22 of the construction and housing code</a>.</span>
-            }
-        },
         "personneHebergeeCentreSoinLL162223SecuriteSociale": {
             "ui:help": <span>These long-terme healthcare centers or units are mentioned by paragraph 3° of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031688064" target="_blank">article L162-22 of the social security code</a>.</span>
+        },
+        "estNonSalarieAgricoleL7818L78146CodeRural": {
+            "ui:help": <span>These workers have access to benefits according to <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032433388/" target="_blank">article L781-8</a> and <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032433298" target="_blank">article L781-46 of the rural and maritime fishing code</a>.</span>
+        },
+        "magistratFonctionnaireCentreInteretsMaterielsFamiliauxHorsMayotte": {
+            "ui:help": <span>This case is laid out in <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814771" target="_blank">article L861-8 of the construction and housing code</a>.</span>
         },
         "nationalite": {
             "payload": {
                 "satisfaitConditionsL5122CodeSecuriteSociale": {
                     "ui:help": <span>The applicant satisfies the conditions of the first two paragraphs of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042920150" target="_blank">article L512-2 of the social security code</a>.</span>
+                },
+                "satisfaitArt4Ordonnance2002Mayotte": {
+                    "ui:help": <span>The applicant satisfies the conditions of <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044405022" target="_blank">article 4 of the executive order n° 2002-149 of February 7th, 2002 concerning benefits in Mayotte</a>.</span>
                 }
             }
         }

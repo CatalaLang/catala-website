@@ -97,7 +97,7 @@ export const uiSchema = {
                         },
                         "accordFinancementRepresentantEtatOutreMer": {
                             "kind": {
-                                "ui:help": <span>L'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775">article L851-6 du code de la construction et de l'habitation</a> prévoit dans son 2° la possibilité d'un tel accord dérogatoire transitoirement en Guyane, en Martinique, en Guadeloupe, à La Réunion et à Mayotte.</span>
+                                "ui:help": <span>L'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775" target="_blank">article L851-6 du code de la construction et de l'habitation</a> prévoit dans son 2° la possibilité d'un tel accord dérogatoire transitoirement en Guyane, en Martinique, en Guadeloupe, à La Réunion et à Mayotte.</span>
                             }
                         }
                     },
@@ -135,6 +135,16 @@ export const uiSchema = {
         "personnesACharge": {
             "items": {
                 "payload": {
+                    "nationalite": {
+                        "payload": {
+                            "satisfaitConditionsL5122CodeSecuriteSociale": {
+                                "ui:help": <span>L'enfant satisfait les conditions des deux premiers alinéas de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042920150" target="_blank">article L512-2 du code de la sécurité sociale</a>.</span>
+                            },
+                            "satisfaitArt4Ordonnance2002Mayotte": {
+                                "ui:help": <span>L'enfant satisfait les conditions de l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044405022" target="_blank">article 4 de l'ordonnance n° 2002-149 du 7 février 2022 relative à l'extension et la généralisation des prestations familiales et à la protection sociale dans le Département de Mayotte</a>.</span>
+                            }
+                        }
+                    },
                     "obligationScolaire": {
                         "ui:help": <span>L'obligation scolaire d'un enfant est régie par les articles <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006071191/LEGISCTA000006166564/" target="_blank">L131-1 à L131-13 du code de l'éducation</a>.</span>
                     },
@@ -177,21 +187,22 @@ export const uiSchema = {
         }
     },
     "demandeurIn": {
-        "patrimoine": {
-            "produisantRevenuPeriodeR82233R8224": {
-                "ui:help": <span>Le patrimoine est considéré comme produisant un revenu au sens de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419223" target="_blank">article R822-22 du code de la construction et de l'habitation</a>.</span>
-            },
-            "neProduisantPasRevenuPeriodeR82233R8224": {
-                "ui:help": <span>Le patrimoine est considéré comme ne produisant pas de revenu au sens de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419223" target="_blank">article R822-22 du code de la construction et de l'habitation</a>.</span>
-            }
-        },
         "personneHebergeeCentreSoinLL162223SecuriteSociale": {
             "ui:help": <span>Ces unités ou centres de soins sont mentionnées mentionnés au 3° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000031688064" target="_blank">article L162-22 du code de la sécurité sociale</a>.</span>
+        },
+        "estNonSalarieAgricoleL7818L78146CodeRural": {
+            "ui:help": <span>Ces travailleurs ont accès aux prestations sociales selon l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032433388/" target="_blank">article L781-8</a> et l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000032433298" target="_blank">article L781-46 du code rural et de la pêche maritime</a>.</span>
+        },
+        "magistratFonctionnaireCentreInteretsMaterielsFamiliauxHorsMayotte": {
+            "ui:help": <span>Ce cas est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814771" target="_blank">article L861-8 du code de la construction et de l'habitation</a>.</span>
         },
         "nationalite": {
             "payload": {
                 "satisfaitConditionsL5122CodeSecuriteSociale": {
                     "ui:help": <span>Le demandeur satisfait les conditions des deux premiers alinéas de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042920150" target="_blank">article L512-2 du code de la sécurité sociale</a>.</span>
+                },
+                "satisfaitArt4Ordonnance2002Mayotte": {
+                    "ui:help": <span>Le demandeur satisfait les conditions de l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044405022" target="_blank">article 4 de l'ordonnance n° 2002-149 du 7 février 2022 relative à l'extension et la généralisation des prestations familiales et à la protection sociale dans le Département de Mayotte</a>.</span>
                 }
             }
         }

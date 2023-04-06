@@ -326,9 +326,14 @@
       "type": "object",
       "properties": {
         "satisfaitConditionsL5122CodeSecuriteSociale": {
-          "title": "Le demandeur réside de manière régulière en France",
+          "title": "La personne réside de manière régulière en France",
           "type": "boolean",
           "default": true
+        },
+        "satisfaitArt4Ordonnance2002Mayotte": {
+          "type": "boolean",
+          "title": "La personne réside de manière régulière à Mayotte",
+          "default": false
         }
       }
     },
@@ -375,12 +380,18 @@
           "title": " ",
           "$ref": "#/definitions/nationalite"
         },
-        "patrimoine": {
-          "title": " ",
-          "$ref": "#/definitions/patrimoine"
-        },
         "personneHebergeeCentreSoinLL162223SecuriteSociale": {
           "title": "Le demandeur est hébergé dans une unité ou centre de soins de longue durée",
+          "type": "boolean",
+          "default": false
+        },
+        "estNonSalarieAgricoleL7818L78146CodeRural": {
+          "title": "Le demandeur exerce une activité agricole non salariée dans une collectivité d'outre-mer",
+          "type": "boolean",
+          "default": false
+        },
+        "magistratFonctionnaireCentreInteretsMaterielsFamiliauxHorsMayotte": {
+          "title": "Le demandeur est un magistrat ou fonctionnaire à Mayotte dont le centre des intérêts matériels et familiaux est situé hors de Mayotte.",
           "type": "boolean",
           "default": false
         }
@@ -392,6 +403,10 @@
         "dateDeNaissance"
       ],
       "properties": {
+        "nationalite": {
+          "title": " ",
+          "$ref": "#/definitions/nationalite"
+        },
         "beneficieTitrePersonnelAidePersonnelleLogement": {
           "title": "L'enfant béneficie à titre personnel des aides au logement",
           "type": "boolean",
@@ -791,7 +806,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "Nationalité du demandeur",
+          "title": "Nationalité de la personne",
           "type": "string",
           "default": "Francaise",
           "anyOf": [
@@ -1013,23 +1028,6 @@
       "payload": {
         "type": "null",
         "default": null
-      }
-    },
-    "patrimoine": {
-      "type": "object",
-      "properties": {
-        "produisantRevenuPeriodeR82233R8224": {
-          "title": "Patrimoine produisant un revenu (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        },
-        "neProduisantPasRevenuPeriodeR82233R8224": {
-          "title": "Patrimoine ne produisant pas de revenu (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        }
       }
     },
     "personne_a_charge": {

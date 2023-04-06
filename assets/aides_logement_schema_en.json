@@ -326,9 +326,14 @@
       "type": "object",
       "properties": {
         "satisfaitConditionsL5122CodeSecuriteSociale": {
-          "title": "The applicant lawfully resides in France",
+          "title": "The person lawfully resides in France",
           "type": "boolean",
           "default": true
+        },
+        "satisfaitArt4Ordonnance2002Mayotte": {
+          "type": "boolean",
+          "title": "The person lawfully resides in Mayotte",
+          "default": false
         }
       }
     },
@@ -375,12 +380,18 @@
           "title": " ",
           "$ref": "#/definitions/nationalite"
         },
-        "patrimoine": {
-          "title": " ",
-          "$ref": "#/definitions/patrimoine"
-        },
         "personneHebergeeCentreSoinLL162223SecuriteSociale": {
           "title": "The applicant is lodged in a healthcare center or unit for long-term stays",
+          "type": "boolean",
+          "default": false
+        },
+        "estNonSalarieAgricoleL7818L78146CodeRural": {
+          "title": "The applicant is a non-employee agricultural worker in an overseas territory.",
+          "type": "boolean",
+          "default": false
+        },
+        "magistratFonctionnaireCentreInteretsMaterielsFamiliauxHorsMayotte": {
+          "title": "The applicant is a judge or civil servant in Mayotte whose center of material and familial interests is located outside of Mayotte.",
           "type": "boolean",
           "default": false
         }
@@ -392,6 +403,10 @@
         "dateDeNaissance"
       ],
       "properties": {
+        "nationalite": {
+          "title": " ",
+          "$ref": "#/definitions/nationalite"
+        },
         "beneficieTitrePersonnelAidePersonnelleLogement": {
           "title": "The child personally benefits from housing benefits",
           "type": "boolean",
@@ -793,7 +808,7 @@
       "type": "object",
       "properties": {
         "kind": {
-          "title": "Applicant's nationality",
+          "title": "Person's nationality",
           "type": "string",
           "default": "Francaise",
           "anyOf": [
@@ -1017,23 +1032,6 @@
       "payload": {
         "type": "null",
         "default": null
-      }
-    },
-    "patrimoine": {
-      "type": "object",
-      "properties": {
-        "produisantRevenuPeriodeR82233R8224": {
-          "title": "Income-producing wealth (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        },
-        "neProduisantPasRevenuPeriodeR82233R8224": {
-          "title": "Non-income-procuding wealth (€)",
-          "type": "number",
-          "minimum": 0,
-          "default": 0
-        }
       }
     },
     "personne_a_charge": {
