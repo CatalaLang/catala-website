@@ -89,7 +89,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 Source files weaved in this document:
 </p>
 <ul>
-<li><tt>tutorial_en.catala_en</tt>, last modification 2023-04-05, 15:40</li>
+<li><tt>tutorial_en.catala_en</tt>, last modification 2023-04-06, 15:13</li>
 </ul>
 
 <details class="toc">
@@ -426,7 +426,7 @@ Source files weaved in this document:
                   </li>
                 <li class="toc-item">
                   <div>
-                    <a href="#Annex%20A:%20top-level%20value%20definitions-Example%203:%20functions%20with%20multiple%20parameters-A.%20With%20a%20two-argument%20function">A. With a two-argument function</a>
+                    <a href="#Annex%20A:%20top-level%20value%20definitions-Example%203:%20functions%20with%20multiple%20parameters-B.%20With%20a%20two-argument%20function">B. With a two-argument function</a>
                     <ol class="toc-3">
                       
                       </ol>
@@ -1204,7 +1204,7 @@ Source files weaved in this document:
 </pre></div></td></tr></table></div>
 
 </div>
-<div class='law-text'><p>Here the <code>NewIncomeTaxComputationFixed of</code> syntax triggers a call of the scope while setting its input variable <code>individual</code>; then the “dot” syntax is used to recover its <code>income_tax</code> output field.</p></div>
+<div class='law-text'><p>Here the <code>output of NewIncomeTaxComputationFixed with</code> syntax triggers a call of the scope while setting its input variable <code>individual</code>; then the “dot” syntax is used to recover its <code>income_tax</code> output field.</p></div>
 
 </details>
 <h2 class='law-heading' id="The%20Catala%20language%20tutorial-Context%20scope%20variables"><a href="#The%20Catala%20language%20tutorial-Context%20scope%20variables">Context scope variables</a></h2>
@@ -1760,7 +1760,7 @@ Source files weaved in this document:
 <a id="examples/tutorial_en/tutorial_en.catala_en-954" name="examples/tutorial_en/tutorial_en.catala_en-954"></a><span class="s">    </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-955" name="examples/tutorial_en/tutorial_en.catala_en-955"></a><span class="s">    </span><span class="kr">depends on</span><span class="s"> </span><span class="nv">money_amount</span><span class="s"> </span><span class="kr">content</span><span class="s"> </span><span class="kt">money</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-956" name="examples/tutorial_en/tutorial_en.catala_en-956"></a><span class="s">  </span><span class="kr">equals</span>
-<a id="examples/tutorial_en/tutorial_en.catala_en-957" name="examples/tutorial_en/tutorial_en.catala_en-957"></a><span class="s">    </span><span class="o">(</span><span class="nv">money_amount</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="o">.</span><span class="mi">49</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
+<a id="examples/tutorial_en/tutorial_en.catala_en-957" name="examples/tutorial_en/tutorial_en.catala_en-957"></a><span class="s">    </span><span class="kd">round</span><span class="s"> </span><span class="kd">of</span><span class="s"> </span><span class="o">(</span><span class="nv">money_amount</span><span class="s"> </span><span class="o">/</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span><span class="s"> </span><span class="o">+</span><span class="s"> </span><span class="o">$</span><span class="mi">0</span><span class="o">.</span><span class="mi">49</span><span class="o">)</span><span class="s"> </span><span class="o">*</span><span class="s"> </span><span class="mi">100</span><span class="o">.</span><span class="mi">0</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-958" name="examples/tutorial_en/tutorial_en.catala_en-958"></a><span class="c1">    # The explanation is still needed, but it doesn&#39;t clutter the current scope</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-959" name="examples/tutorial_en/tutorial_en.catala_en-959"></a><span class="c1">    # This definition could even be put in the Prelude</span>
 <a id="examples/tutorial_en/tutorial_en.catala_en-960" name="examples/tutorial_en/tutorial_en.catala_en-960"></a>
@@ -1813,7 +1813,7 @@ Source files weaved in this document:
 </div>
 
 
-<h3 class='law-heading' id="Annex%20A:%20top-level%20value%20definitions-Example%203:%20functions%20with%20multiple%20parameters-A.%20With%20a%20two-argument%20function"><a href="#Annex%20A:%20top-level%20value%20definitions-Example%203:%20functions%20with%20multiple%20parameters-A.%20With%20a%20two-argument%20function">A. With a two-argument function</a></h3>
+<h3 class='law-heading' id="Annex%20A:%20top-level%20value%20definitions-Example%203:%20functions%20with%20multiple%20parameters-B.%20With%20a%20two-argument%20function"><a href="#Annex%20A:%20top-level%20value%20definitions-Example%203:%20functions%20with%20multiple%20parameters-B.%20With%20a%20two-argument%20function">B. With a two-argument function</a></h3>
 
 
 <div class='code-wrapper catala-code'>
