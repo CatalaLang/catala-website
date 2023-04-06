@@ -4,9 +4,6 @@ export const uiSchema = {
     },
     "menageIn": {
         "logement": {
-            "estEhpadOuMaisonAutonomieL31312Asf": {
-                "ui:help": <span>This category of housing is defined by <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042684324/" target="_blank">article L313-12 of the social action and families code</a>.</span>
-            },
             "modeOccupation": {
                 "payload": {
                     "bailleur": {
@@ -153,6 +150,9 @@ export const uiSchema = {
                         "kind": {
                             "ui:help": <span>The childcare coefficient is a number between 0 and 1 that translates the cumulated period during which the applicant welcomes the child in their housing, considering paragraph 4° of the <a href="https://www.legifrance.gouv.fr/ceta/id/CETATEXT000035260342/" target="_blank">décision n°398563 of July 21st, 2017 of the State counsel</a>.</span>
                         }
+                    },
+                    "etudesApprentissageStageFormationProImpossibiliteTravail": {
+                        "ui:help": <span>Case laid out by paragraph 1° c) of articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775" target="_blank">L861-6</a> and <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038814753" target="_blank">L862-3 of the construction and housing code</a>.</span>
                     },
                     "titulaireAllocationPersonneAgee": {
                         "ui:help": <span>Piece of information used by paragraph 2° of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878933/" target="_blank">article R823-4 of the construction and housing code</a>.</span>

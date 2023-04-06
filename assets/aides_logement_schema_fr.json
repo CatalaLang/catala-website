@@ -435,6 +435,11 @@
         "situationGardeAlternee": {
           "title": " ",
           "$ref": "#/definitions/situation_garde_alternee"
+        },
+        "etudesApprentissageStageFormationProImpossibiliteTravail": {
+          "title": "L'enfant, dans une collectivité d'outre-mer, poursuit des études ou est placé en apprentissage ou en stage de formation professionnelle ou est dans l'impossibilité de travailler.",
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -512,11 +517,6 @@
           "title": "Le logement concerné par la demande d'aide est la résidence principale du ménage",
           "type": "boolean",
           "default": true
-        },
-        "estEhpadOuMaisonAutonomieL31312Asf": {
-          "title": "Le logement est un EHPAD ou une résidence autonomie",
-          "type": "boolean",
-          "default": false
         },
         "modeOccupation": {
           "title": "Mode d'occupation du logement",

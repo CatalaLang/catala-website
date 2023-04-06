@@ -435,6 +435,11 @@
         "situationGardeAlternee": {
           "title": " ",
           "$ref": "#/definitions/situation_garde_alternee"
+        },
+        "etudesApprentissageStageFormationProImpossibiliteTravail": {
+          "title": "The child, in an overseas territory, is a student or an apprentice or an intern, or is unable to work.",
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -512,11 +517,6 @@
           "title": "The housing concerned by the benefit application is the primary residence of the household",
           "type": "boolean",
           "default": true
-        },
-        "estEhpadOuMaisonAutonomieL31312Asf": {
-          "title": "The housing is a retirement home (EHPAD) or a \"résidence autonomie\"",
-          "type": "boolean",
-          "default": false
         },
         "modeOccupation": {
           "title": "Type of housing tenure",

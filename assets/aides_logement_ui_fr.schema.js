@@ -4,10 +4,6 @@ export const uiSchema = {
     },
     "menageIn": {
         "logement": {
-            "estEhpadOuMaisonAutonomieL31312Asf": {
-                "ui:help": <span>Cette catégorie de logement est définie par l'
-                    <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000042684324/" target="_blank">article L313-12 du code de l'action sociale et des familles</a>.</span>
-            },
             "modeOccupation": {
                 "payload": {
                     "bailleur": {
@@ -155,6 +151,9 @@ export const uiSchema = {
                         "kind": {
                             "ui:help": <span>Le coefficient de prise en charge est un nombre entre 0 et 1 qui reflète la période cumulée pendant laquelle le demandeur accueille l'enfant à son domicile, en conformité avec le considérant 4° de la <a href="https://www.legifrance.gouv.fr/ceta/id/CETATEXT000035260342/" target="_blank">décision n°398563 du 21 juillet 2017 du conseil d'État</a>.</span>
                         }
+                    },
+                    "etudesApprentissageStageFormationProImpossibiliteTravail": {
+                        "ui:help": <span>Situation prévue par le 1° c) des articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814775" target="_blank">L861-6</a> et <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000038814753" target="_blank">L862-3 du code de la construction et de l'habitation</a>.</span>
                     },
                     "titulaireAllocationPersonneAgee": {
                         "ui:help": <span>Information utilisée par le 2° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878933/" target="_blank">article R823-4 du code de la construction et de l'habitation</a>.</span>
