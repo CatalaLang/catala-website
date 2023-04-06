@@ -167,6 +167,11 @@ export const uiSchema = {
         },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
             "ui:help": <span>This question is necessary to determine the eligibility to the family housing benefit (ALF) ruled by paragraph 6° of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814864" target="_blank">article L841-1 of the construction and housing code</a>.</span>
+        },
+        "residence": {
+            "kind": {
+                "ui:help": <span>Indicate whether the household lives in overseas territories of France or in the mainland.</span>
+            }
         }
     },
     "demandeurIn": {

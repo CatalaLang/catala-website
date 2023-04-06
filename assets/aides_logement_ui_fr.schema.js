@@ -169,6 +169,11 @@ export const uiSchema = {
         },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
             "ui:help": <span>Cette question est nécessaire pour l'éligibilité à l'allocation de logement familiale (ALF) prévue au 6° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814864" target="_blank">article L841-1 du code de la construction et de l'habitation</a>.</span>
+        },
+        "residence": {
+            "kind": {
+                "ui:help": <span>Indiquez si le logement se situe en métropole ou dans une collectivité d'outre-mer.</span>
+            }
         }
     },
     "demandeurIn": {

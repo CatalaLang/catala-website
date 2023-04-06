@@ -246,6 +246,82 @@
         }
       ]
     },
+    "collectivite": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
+          "default": "Metropole",
+          "type": "string",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Guadeloupe"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Guyane"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Martinique"
+              ]
+            },
+            {
+              "type": "string",
+              "title": "La Réunion",
+              "enum": [
+                "LaReunion"
+              ]
+            },
+            {
+              "title": "Saint Barthélémy",
+              "type": "string",
+              "enum": [
+                "SaintBarthelemy"
+              ]
+            },
+            {
+              "title": "Saint Martin",
+              "type": "string",
+              "enum": [
+                "SaintMartin"
+              ]
+            },
+            {
+              "title": "Métropole",
+              "type": "string",
+              "enum": [
+                "Metropole"
+              ]
+            },
+            {
+              "title": "Saint-Pierre-et-Miquelon",
+              "type": "string",
+              "enum": [
+                "SaintPierreEtMiquelon"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Mayotte"
+              ]
+            }
+          ]
+        },
+        "payload": {
+          "title": " ",
+          "type": "null",
+          "default": null
+        }
+      }
+    },
     "conditions_etrangers": {
       "type": "object",
       "properties": {
@@ -564,6 +640,10 @@
           "title": "The pregnancy of one or more children to come has reach the fourth month",
           "type": "boolean",
           "default": false
+        },
+        "residence": {
+          "title": "Location of the household's residence",
+          "$ref": "#/definitions/collectivite"
         },
         "prestationsRecues": {
           "title": "Other social benefits already received by the household",

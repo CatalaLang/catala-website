@@ -246,6 +246,82 @@
         }
       ]
     },
+    "collectivite": {
+      "type": "object",
+      "properties": {
+        "kind": {
+          "title": " ",
+          "default": "Metropole",
+          "type": "string",
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "Guadeloupe"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Guyane"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Martinique"
+              ]
+            },
+            {
+              "type": "string",
+              "title": "La Réunion",
+              "enum": [
+                "LaReunion"
+              ]
+            },
+            {
+              "title": "Saint Barthélémy",
+              "type": "string",
+              "enum": [
+                "SaintBarthelemy"
+              ]
+            },
+            {
+              "title": "Saint Martin",
+              "type": "string",
+              "enum": [
+                "SaintMartin"
+              ]
+            },
+            {
+              "title": "Métropole",
+              "type": "string",
+              "enum": [
+                "Metropole"
+              ]
+            },
+            {
+              "title": "Saint-Pierre-et-Miquelon",
+              "type": "string",
+              "enum": [
+                "SaintPierreEtMiquelon"
+              ]
+            },
+            {
+              "type": "string",
+              "enum": [
+                "Mayotte"
+              ]
+            }
+          ]
+        },
+        "payload": {
+          "title": " ",
+          "type": "null",
+          "default": null
+        }
+      }
+    },
     "conditions_etrangers": {
       "type": "object",
       "properties": {
@@ -562,6 +638,10 @@
           "title": "La grossesse d'un ou plus enfant à naître a atteint le quatrième mois",
           "type": "boolean",
           "default": false
+        },
+        "residence": {
+          "title": "Résidence du ménage",
+          "$ref": "#/definitions/collectivite"
         },
         "prestationsRecues": {
           "title": "Autres prestations sociales déjà reçues par le ménage",
