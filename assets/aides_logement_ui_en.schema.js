@@ -22,6 +22,9 @@ export const uiSchema = {
                     "conventionneLivreIIITitreVChapIII": {
                         "ui:help": <span>Tick this box if the landlord has signed a social housing convention ruled by <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000006159052/#LEGISCTA000006159052" target="_blank">chapter III of title V of book III of the construction and housing code</a>.</span>
                     },
+                    "conventionneSelonReglesDrom": {
+                        "ui:help": <span>Tick this box if the landlord has signed a social housing convention ruled by <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044899551/" target="_blank">article L861-5-1 of the construction and housing code</a>.</span>
+                    },
                     "loyerPrincipal": {
                         "ui:help": <span><a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814916/" target="_blank">Article L823-3 of the construction and housing code</a>, notably its 4° and 6° paragraphs, makes a list of the amounts considered as rent for some particular situations. The articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878685" target="_blank">D842-2</a> and <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041477287/" target="_blank">D842-3</a> also give other information, but article D842-2 is already taken into account (no need to apply the coefficient of D842-2).</span>
                     },
@@ -71,14 +74,14 @@ export const uiSchema = {
                             "ui:help": <span>The age criteria is used at the second paragraph of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814880" target="_blank">article L831-2 of the construction and housing code</a>, but also by <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000046126970" target="_blank">article 18 of the executive order of September 27th, 2019 concerning the computation of the housing benefits and the moving bonus</a>.</span>
                         }
                     },
-                    "logementSitueCommuneDesequilibreL8312": {
-                        "ui:help": <span>The list of municipalities checking this critieria is established by <a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000036341240" target="_blank">executive order of December 30th, 2017 concerning the sorting of municipalities by zones for the affordance of loans that do not yield interest given out to finance the first acquisition of home ownership planned by article L. 31-10-2 of the construction and housing code</a>, and the <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029337646/" target="_blank">executive order of August 1st, 2014 taken in application of article R. 304-1 of the construction and housing code</a>.</span>
-                    },
                     "copropriete": {
                         "ui:help": <span>The case of a housing in co-ownership is planned by <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878734/2019-09-01" target="_blank">article D832-16 of the construction and housing code</a>, and is ruled by <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137409" target="_blank">article 24 of the executive order of September 27th, 2019</a>.</span>
                     },
                     "situationR822111317": {
                         "ui:help": <span>The applicant and/or their partner are in one of the situations mentioned by articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419384" target="_blank">R822-11</a> and <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419372" target="_blank">R822-13</a> to <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419333/" target="_blank">R822-17 of the construction and housing code</a>.</span>,
+                    },
+                    "operationsLogementEvolutifsSociauxAccessionProprieteAideeEtat": {
+                        "ui:help": <span>See articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878583" target="_blank">D861-8</a> and <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878555" target="_blank">D862-7 of the construction and housing code</a> for more information.</span>
                     },
                     "pret": {
                         "typePret": {
@@ -177,6 +180,9 @@ export const uiSchema = {
         },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
             "ui:help": <span>This question is necessary to determine the eligibility to the family housing benefit (ALF) ruled by paragraph 6° of <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814864" target="_blank">article L841-1 of the construction and housing code</a>.</span>
+        },
+        "personnesAgeesHandicapeesFoyerR8444": {
+            "ui:help": <span>See <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878621" target="_blank">article L-844-4 of the construction and housing code</a> for more information.</span>
         },
         "residence": {
             "kind": {

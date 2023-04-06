@@ -566,9 +566,14 @@
           "default": true
         },
         "conventionneLivreIIITitreVChapIII": {
-          "title": "The residential accomodation has signed a convention for social housing",
+          "title": "The residential accomodation has signed a convention for social housing (mainland)",
           "type": "boolean",
           "default": true
+        },
+        "conventionneSelonReglesDrom": {
+          "title": "The residential accomodation has signed a convention for social housing (overseas)",
+          "type": "boolean",
+          "default": false
         },
         "dateConventionnement": {
           "title": "Signature date of the social housing convention",
@@ -589,6 +594,16 @@
         "categorieEquivalenceLoyerD84216": {
           "title": " ",
           "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
+        },
+        "beneficiaireAideAdulteOuEnfantHandicapes": {
+          "title": "The applicant or their partner benefit from the disabled adult benefit or the disabled child education benefit",
+          "type": "boolean",
+          "default": false
+        },
+        "logementMeubleD8422": {
+          "title": "The housing is rented with furniture",
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -653,6 +668,11 @@
         },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
           "title": "The pregnancy of one or more children to come has reach the fourth month",
+          "type": "boolean",
+          "default": false
+        },
+        "personnesAgeesHandicapeesFoyerR8444": {
+          "title": "The applicant lives in a non-medical retirement home or in collective housing for disabled people",
           "type": "boolean",
           "default": false
         },
@@ -1123,13 +1143,6 @@
             {
               "type": "string",
               "enum": [
-                "AllocationJeuneEnfant"
-              ],
-              "title": "Young child welcome benefit"
-            },
-            {
-              "type": "string",
-              "enum": [
                 "AllocationSoutienFamilial"
               ],
               "title": "Family support benefit"
@@ -1140,13 +1153,6 @@
                 "AllocationSoutienEnfantHandicape"
               ],
               "title": "Disabled child support benefit"
-            },
-            {
-              "type": "string",
-              "enum": [
-                "AllocationAdulteHandicape"
-              ],
-              "title": "Disabled adult benefit"
             }
           ]
         }
@@ -1190,11 +1196,6 @@
         "dateEntreeLogement"
       ],
       "properties": {
-        "logementSitueCommuneDesequilibreL8312": {
-          "title": "The housing is located in a municipality that cannot be characterized by an important unbalance between supply and demand for housing that triggers hardships in accessing the existing residential offer",
-          "type": "boolean",
-          "default": false
-        },
         "pret": {
           "title": " ",
           "$ref": "#/definitions/pret"
@@ -1240,6 +1241,11 @@
         "ancienneteLogement": {
           "title": " ",
           "$ref": "#/definitions/neuf_ou_ancien"
+        },
+        "operationsLogementEvolutifsSociauxAccessionProprieteAideeEtat": {
+          "title": "Evolutive social and very social housing, with State-subsidised home owernership accession",
+          "type": "boolean",
+          "default": false
         }
       }
     },

@@ -22,6 +22,9 @@ export const uiSchema = {
                     "conventionneLivreIIITitreVChapIII": {
                         "ui:help": <span>Cochez cette case si le bailleur a signé une convention de logement social régie par le <a href="https://www.legifrance.gouv.fr/codes/section_lc/LEGITEXT000006074096/LEGISCTA000006159052/#LEGISCTA000006159052" target="_blank">chapitre III du titre V du livre III du code de la construction et de l'habitation</a>.</span>
                     },
+                    "conventionneSelonReglesDrom": {
+                        "ui:help": <span>Cochez cette case si le bailleur a signé une convention de logement social régie par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000044899551/" target="_blank">article L861-5-1 du code de la construction et de l'habitation</a>.</span>
+                    },
                     "loyerPrincipal": {
                         "ui:help": <span>L'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814916/" target="_blank">article L823-3 du code de la construction et de l'habitation</a>, notamment ses alinéas 4° et 6°, liste des sommes assimilables à des loyers pour des cas particuliers. Les articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878685" target="_blank">D842-2</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041477287/" target="_blank">D842-3</a> donnent également d'autres renseignements, mais l'article D842-2 est déjà pris en compte (pas la peine d'appliquer le coefficient de D842-2).</span>
                     },
@@ -71,14 +74,14 @@ export const uiSchema = {
                             "ui:help": <span>Le critère d'ancienneté est utilisé au deuxième alinéa de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814880" target="_blank">article L831-2 du code de la construction et de l'habitation</a> mais aussi à l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000046126970" target="_blank">article 18 de l'arrêté du 27 septembre 2019 relatif au calcul des aides personnelles au logement et de la prime de déménagement</a>.</span>
                         }
                     },
-                    "logementSitueCommuneDesequilibreL8312": {
-                        "ui:help": <span>La liste des communes répondant à ce critère est établie par l'<a href="https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000036341240" target="_blank">arrêté du 30 décembre 2017 relatif au classement des communes par zone pour l'octroi des prêts ne portant pas intérêt consenti pour financer la primo-accession à la propriété prévus à l'article L. 31-10-2 du code de la construction et de l'habitation</a>, et l'<a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000029337646/" target="_blank">arrêté du 1er août 2014 pris en application de l'article R. 304-1 du code de la construction et de l'habitation</a>.</span>
-                    },
                     "copropriete": {
                         "ui:help": <span>Le cas d'un logement en co-propriété est prévu par l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878734/2019-09-01" target="_blank">article D832-16 du code de la construction et de l'habitation</a>, et est régi par l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000044137409" target="_blank">article 24 de l'arrêté du 27 septembre 2019</a>.</span>
                     },
                     "situationR822111317": {
                         "ui:help": <span>Le demandeur et/ou son conjoint se trouvent dans l'une des situations mentionnées aux articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419384" target="_blank">R822-11</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419372" target="_blank">R822-13</a> à <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000041419333/" target="_blank">R822-17 du code de la construction et de l'habitation</a>.</span>,
+                    },
+                    "operationsLogementEvolutifsSociauxAccessionProprieteAideeEtat": {
+                        "ui:help": <span>Voir les articles <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878583" target="_blank">D861-8</a> et <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878555" target="_blank">D862-7 du code de la construction et de l'habitation</a> pour plus d'informations.</span>
                     },
                     "pret": {
                         "typePret": {
@@ -178,6 +181,9 @@ export const uiSchema = {
         },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
             "ui:help": <span>Cette question est nécessaire pour l'éligibilité à l'allocation de logement familiale (ALF) prévue au 6° de l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814864" target="_blank">article L841-1 du code de la construction et de l'habitation</a>.</span>
+        },
+        "personnesAgeesHandicapeesFoyerR8444": {
+            "ui:help": <span>Voir l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038878621" target="_blank">article L-844-4 du code de la construction et de l'habitation</a> pour plus d'informations.</span>
         },
         "residence": {
             "kind": {

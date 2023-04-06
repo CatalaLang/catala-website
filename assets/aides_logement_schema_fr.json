@@ -566,9 +566,14 @@
           "default": true
         },
         "conventionneLivreIIITitreVChapIII": {
-          "title": "Le logement-foyer est conventionné pour le logement social",
+          "title": "Le logement-foyer est conventionné pour le logement social (métropole)",
           "type": "boolean",
           "default": true
+        },
+        "conventionneSelonReglesDrom": {
+          "title": "Le logement-foyer est conventionné pour le logement social (outre-mer)",
+          "type": "boolean",
+          "default": false
         },
         "dateConventionnement": {
           "title": "Date du conventionnement du logement-foyer en tant que bailleur social",
@@ -589,6 +594,16 @@
         "categorieEquivalenceLoyerD84216": {
           "title": " ",
           "$ref": "#/definitions/categorie_equivalence_loyer_allocation_logement_foyer"
+        },
+        "beneficiaireAideAdulteOuEnfantHandicapes": {
+          "title": "Le demandeur ou son conjoint sont bénéficiaires de l'allocation aux adultes handicapés ou de l'allocation d'éducation de l'enfant handicapé.",
+          "type": "boolean",
+          "default": false
+        },
+        "logementMeubleD8422": {
+          "title": "Le logement est loué meublé",
+          "type": "boolean",
+          "default": false
         }
       }
     },
@@ -651,6 +666,11 @@
         },
         "enfantANaitreApresQuatriemeMoisGrossesse": {
           "title": "La grossesse d'un ou plus enfant à naître a atteint le quatrième mois",
+          "type": "boolean",
+          "default": false
+        },
+        "personnesAgeesHandicapeesFoyerR8444": {
+          "title": "Le demandeur vit en maison de retraite non médicalisée ou en foyer pour personnes handicapées",
           "type": "boolean",
           "default": false
         },
@@ -1119,13 +1139,6 @@
             {
               "type": "string",
               "enum": [
-                "AllocationJeuneEnfant"
-              ],
-              "title": "Prestation d'accueil du jeune enfant"
-            },
-            {
-              "type": "string",
-              "enum": [
                 "AllocationSoutienFamilial"
               ],
               "title": "Allocation de soutien familial"
@@ -1136,13 +1149,6 @@
                 "AllocationSoutienEnfantHandicape"
               ],
               "title": "Allocation de soutien à l'enfant handicapé"
-            },
-            {
-              "type": "string",
-              "enum": [
-                "AllocationAdulteHandicape"
-              ],
-              "title": "Allocation adulte handicapé"
             }
           ]
         }
@@ -1186,11 +1192,6 @@
         "dateEntreeLogement"
       ],
       "properties": {
-        "logementSitueCommuneDesequilibreL8312": {
-          "title": "Le logement est situé dans une commune ne se caractérisant pas par un déséquilibre important entre l'offre et la demande de logements entraînant des difficultés d'accès au logement dans le parc résidentiel existant",
-          "type": "boolean",
-          "default": false
-        },
         "pret": {
           "title": " ",
           "$ref": "#/definitions/pret"
@@ -1236,6 +1237,11 @@
         "ancienneteLogement": {
           "title": " ",
           "$ref": "#/definitions/neuf_ou_ancien"
+        },
+        "operationsLogementEvolutifsSociauxAccessionProprieteAideeEtat": {
+          "title": "Logement évolutif social ou logement très social, en accession à la propriété aidée par l'État",
+          "type": "boolean",
+          "default": false
         }
       }
     },
