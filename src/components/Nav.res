@@ -25,7 +25,12 @@ let examples: navElem = {
 
 let about: navElem = {
   url: "about",
-  text: <Lang.String english="about" french={`À propos`} />,
+  text: <Lang.String english="About" french={`À propos`} />,
+}
+
+let seminar: navElem = {
+  url: "seminar",
+  text: <Lang.String english="Seminar" french={`Séminaire`} />,
 }
 
 // let playground: nav_elem= {
@@ -85,7 +90,7 @@ let ocamlDocs: navElem = {
 
 let syntaxCheatSheet: navElem = {
   url: "syntax-sheet",
-  text: <Lang.String english="Syntax cheat sheet" french=`Aide-mémoire syntaxique` />,
+  text: <Lang.String english="Syntax cheat sheet" french={`Aide-mémoire syntaxique`} />,
 }
 
 let visualization: navElem = {
@@ -119,7 +124,7 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
     let getFirstNavElems: string => option<array<navElem>> = {
       getNavElemsFrom(
         ~withDefaultElems=true,
-        [home, formalization, publications, examples, about, doc, visualization],
+        [home, formalization, publications, examples, about, seminar, doc, visualization],
       )
     }
     let getSecondNavElems: string => option<array<navElem>> = {

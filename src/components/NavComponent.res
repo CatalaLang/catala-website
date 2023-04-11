@@ -29,7 +29,7 @@ module SwitchLang = {
         let newLang = Lang.newLangFromOldLang(oldLang)
         Nav.goTo(navs, newLang)
       }}>
-      <Lang.String french="En" english=`Fr` />
+      <Lang.String french="En" english={`Fr`} />
     </a>
   }
 }
@@ -52,7 +52,9 @@ module NavElem = {
       Style.NavElem.link_inactive
     }
 
-    <> <Link.Internal target className={style}> title </Link.Internal> </>
+    <>
+      <Link.Internal target className={style}> title </Link.Internal>
+    </>
   }
 }
 
@@ -64,18 +66,23 @@ let github: imgLocation = %raw("require('../../assets/GitHub-Mark-Light-32px.png
 let navElems =
   <>
     <NavElem
-      title={<Lang.String english="About" french=`À propos` />} target={[Nav.home, Nav.about]}
+      title={<Lang.String english="About" french={`À propos`} />} target={[Nav.home, Nav.about]}
     />
     <NavElem
-      title={<Lang.String english="Examples" french=`Exemples` />} target={[Nav.home, Nav.examples]}
+      title={<Lang.String english="Seminar" french={`Séminaire`} />}
+      target={[Nav.home, Nav.seminar]}
     />
-    <NavElem title={<Lang.String english="Doc" french=`Doc` />} target={[Nav.home, Nav.doc]} />
     <NavElem
-      title={<Lang.String english="Publications" french=`Publications` />}
+      title={<Lang.String english="Examples" french={`Exemples`} />}
+      target={[Nav.home, Nav.examples]}
+    />
+    <NavElem title={<Lang.String english="Doc" french={`Doc`} />} target={[Nav.home, Nav.doc]} />
+    <NavElem
+      title={<Lang.String english="Publications" french={`Publications`} />}
       target={[Nav.home, Nav.publications]}
     />
     <NavElem
-      title={<Lang.String english="Formalisation" french=`Formalisation` />}
+      title={<Lang.String english="Formalisation" french={`Formalisation`} />}
       target={[Nav.home, Nav.formalization]}
     />
   </>
@@ -95,7 +102,7 @@ let make = () => {
         )}
         target=[Nav.home]>
         <img className=%twc("h-8 pr-2") src={logo.default} />
-        <Lang.String english="Catala" french=`Catala` />
+        <Lang.String english="Catala" french={`Catala`} />
       </Link.Internal>
       <div
         className=%twc(
