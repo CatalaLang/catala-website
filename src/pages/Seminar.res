@@ -15,7 +15,7 @@ module Seminar = {
   let make = (~seminar: seminar) =>
     <li className=%twc("pl-6 pb-4")>
       <span className=%twc("italic")>
-        {Js.Date.toDateString(seminar.date) ++ ":" |> React.string}
+        {Js.Date.toLocaleDateString(seminar.date) ++ ":" |> React.string}
       </span>
       <Link.Text className=%twc("pl-2") target=seminar.presenter_page_url>
         {React.string(seminar.presenter)}
@@ -29,10 +29,10 @@ module Seminar = {
 
 let seminar_2023_04_24 = {
   date: Js.Date.makeWithYMD(~year=2023.0, ~month=03.0, ~date=24.0, ()),
-  title: {"Titre à venir" |> React.string},
-  presenter: "Orateur·ice à venir",
+  title: <Lang.String english="Title to come" french={`Titre à venir`} />,
+  presenter: "?",
   presenter_page_url: "/#",
-  abstract: {"Résumé à venir" |> React.string},
+  abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
 }
 
 let seminar_2023_06_05 = {
@@ -45,10 +45,10 @@ let seminar_2023_06_05 = {
 
 let seminar_2023_07_03 = {
   date: Js.Date.makeWithYMD(~year=2023.0, ~month=06.0, ~date=03.0, ()),
-  title: {"Titre à venir" |> React.string},
-  presenter: "Orateur·ice à venir",
+  title: <Lang.String english="Title to come" french={`Titre à venir`} />,
+  presenter: "?",
   presenter_page_url: "/#",
-  abstract: {"Résumé à venir" |> React.string},
+  abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
 }
 
 @react.component
