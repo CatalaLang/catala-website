@@ -29,10 +29,22 @@ module Seminar = {
 
 let seminar_2023_04_24 = {
   date: Js.Date.makeWithYMD(~year=2023.0, ~month=03.0, ~date=24.0, ()),
-  title: <Lang.String english="Title to come" french={`Titre à venir`} />,
-  presenter: "?",
-  presenter_page_url: "/#",
-  abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
+  title: <Lang.String
+    english="Translating law to code at the French tax authority"
+    french={`Traduire le droit en code à la DGFiP`}
+  />,
+  presenter: "DGFiP/SI",
+  presenter_page_url: "https://metiers.numerique.gouv.fr/employeurs/service-des-systemes-d-information-de-la-direction-generale-des-finances-publiques-dgfip-cl1mbk9aj914201lpc0cdqd0s4",
+  abstract: <Lang.String
+    english="Each year, the civil servants of the French tax authority have to implement the legislative changes to tax law voted in the finance bill. There are \
+  numerous challenges in keeping a large codebase, modelling increasingly complex tax rules, up to date and correct. In this seminar, some of them \
+  come to tell their tales about their experience accumulated over several decades."
+    french={`Chaque année, les fonctionnaires de l'administration fiscale française doivent mettre \
+    en œuvre les modifications législatives du droit fiscal votées dans le cadre de la loi de \
+    finances. Maintenir à jour et corriger une base de code importante, modélisant des règles fiscales \
+    de plus en plus complexes, pose de nombreux défis. Dans ce séminaire, certains d'entre eux \
+    viennent raconter leur expérience accumulée depuis plusieurs décennies.`}
+  />,
 }
 
 let seminar_2023_06_05 = {
