@@ -3,6 +3,8 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
   | list{first, second} =>
     if first == Nav.home && second == Nav.about {
       <About />
+    } else if first == Nav.home && second == Nav.seminar {
+      <Seminar />
     } else if first == Nav.home && second == Nav.doc {
       <Doc />
       // } else if first == Nav.home && second == Nav.playground {
