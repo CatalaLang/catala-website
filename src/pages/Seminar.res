@@ -58,8 +58,8 @@ let seminar_2023_06_05 = {
 let seminar_2023_07_03 = {
   date: Js.Date.makeWithYMD(~year=2023.0, ~month=06.0, ~date=03.0, ()),
   title: <Lang.String english="Title to come" french={`Titre à venir`} />,
-  presenter: "?",
-  presenter_page_url: "/#",
+  presenter: "Clément Hénin",
+  presenter_page_url: "https://planete.inrialpes.fr/people/chenin/",
   abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
 }
 
