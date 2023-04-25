@@ -106,7 +106,7 @@ export const uiSchema = {
                         }
                     },
                     "remplitConditionsR83221": {
-                        "ui:help": <span>Voir l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048891/" target="_blank">article R832-21 du code de la construction et de l'habitation pour plus d'informations</a>.</span>
+                        "ui:help": <span>Voir l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000039048891/" target="_blank">article R832-21 du code de la construction et de l'habitation pour plus d'informations</a>. Attention, pour la Guadeloupe, la Guyane, la Martinique, La Réunion et Mayotte, voir l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047398875" target="_blank">article R861-20</a> pour des conditions alternatives.</span>
                     }
                     ,
                     "construitApplicationLoi195712III": {
@@ -128,7 +128,7 @@ export const uiSchema = {
                 "ui:help": <span>Selon l'<a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814926/" target="_blank">article L822-9 du code de la construction et de l'habitation</a>, le logement doit répondre à des exigences de décence définies en application des deux premiers alinéas de l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000037670751/" target="_blank">article 6 de la loi n° 89-462 du 6 juillet 1989 tendant à améliorer les rapports locatifs et portant modification de la loi n° 86-1290 du 23 décembre 1986</a>.</span>
             },
             "zone": {
-                "ui:help": <span>La répartition des communes par zones est donnée par l'<a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000838189/" target="_blank">arrêté du 17 mars 1978 relatif au classement des communes par zones géographiques</a>.</span>
+                "ui:help": <span>La répartition des communes par zones est donnée par l'<a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000838189/" target="_blank">arrêté du 17 mars 1978 relatif au classement des communes par zones géographiques</a> et l'<a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006831143" target="_blank">article 6 de l'arrêté du 5 mai 1995 relatif aux subventions de l'Etat et aux prêts pour la construction, l'acquisition et l'amélioration des logements locatifs aidés</a>.</span>
             }
         },
         "personnesACharge": {

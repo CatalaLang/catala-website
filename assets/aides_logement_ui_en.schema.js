@@ -127,7 +127,7 @@ export const uiSchema = {
                 "ui:help": <span>According to <a href="https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000038814926/" target="_blank">article L822-9 of the construction and housing code</a>, the housing must check decency requirements defined in application of the two first paragraphs of <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000037670751/" target="_blank">article 6 of the law n° 89-462 of July 6th, 1989 aiming to improve the tenancy relationships and bearing updates to the law n° 86-1290 of December 23rd, 1986</a>.</span>
             },
             "zone": {
-                "ui:help": <span>The classification of municipalities by zones is given by the <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000838189/" target="_blank">executive order of March 17th, 1978 concerning the classification of municipalities by geographical zones</a>.</span>
+                "ui:help": <span>The classification of municipalities by zones is given by the <a href="https://www.legifrance.gouv.fr/loda/id/JORFTEXT000000838189/" target="_blank">executive order of March 17th, 1978 concerning the classification of municipalities by geographical zones</a> and <a href="https://www.legifrance.gouv.fr/loda/article_lc/LEGIARTI000006831143" target="_blank">article 6 of the executive order of May 5th, 1995</a>.</span>
             }
         },
         "personnesACharge": {
