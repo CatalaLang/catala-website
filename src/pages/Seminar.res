@@ -49,10 +49,46 @@ let seminar_2023_04_24 = {
 
 let seminar_2023_06_05 = {
   date: Js.Date.makeWithYMD(~year=2023.0, ~month=05.0, ~date=05.0, ()),
-  title: <Lang.String english="Title to come" french={`Titre à venir`} />,
+  title: <Lang.String
+    english="Drafting Rules between Technical and Legal Expertise: the Work of French Central Administration on Health Risks"
+    french={`Rédiger les normes entre expertise technique et expertise juridique : le travail des administrations centrales face aux risques sanitaires`}
+  />,
   presenter: "Didier Torny",
   presenter_page_url: "https://cv.hal.science/didier-torny",
-  abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
+  abstract: <Lang.String
+    english="The drafting of public rules is usually considered a de facto \
+    prerogative of lawyers, due to their skills and expertise. They translate \
+    complex realities into law, while inserting them into a pre-existing \
+    legislative and regulatory apparatus. But, in France, many ministries \
+    and public administrations are almost devoid of these types of personnel \
+    and entrust the drafting work to non-law professionals. It is the case of \
+    the public health and veterinary health administrations where Veterinary \
+    Public Health Inspectors (ISPV), Medical Public Health Inspectors (MISP) \
+    and Pharmacist Public Health Inspectors (PhISP) draft decrees, \
+    administrative orders and government circulars (circulaires administratives). \
+    The presentation on the normative drafting work articulates the issue raised \
+    by now autonomous expertise structures (agencies), the general legal framework \
+    for the protection of people and animals and the will to write for an \
+    implementation closer to the field."
+    french={`La rédaction des normes publiques est habituellement considérée \
+     comme étant une prérogative de fait des professions juridiques, en raison \
+      de leurs compétences et savoir-faire. Ses membres traduisent dans le \
+      droit/en droit des réalités complexes, tout en les insérant dans un \
+      appareil législatif et réglementaire pré-existant.  Mais de nombreux \
+      ministères et administrations sont quasiment dépourvus de ces types \
+      de personnel et confient le travail rédactionnel à des non \
+      professionnels du droit : c'était le cas des administrations de la santé \
+      publique et de la santé vétérinaire où Inspecteurs de santé publique \
+      vétérinaire (ISPV), Médecins Inspecteurs de santé publique (MISP) et \
+      Pharmaciens inspecteurs de santé publique (PhISP) rédigent décrets, \
+      arrêtés et circulaires. À l'articulation entre des structures \
+      d'expertises désormais autonomes, un cadre juridique général de \
+      protection des personnes et des animaux et une volonté d'écrire pour une \
+      mise en oeuvre au plus près du terrain, ce travail de rédaction normatif \
+      sera au coeur de cette présentation. Elle se fondera sur les éléments \
+      empiriques issus de travaux antérieurs sur l’administration sanitaire en \
+      France.`}
+  />,
 }
 
 let seminar_2023_07_03 = {
