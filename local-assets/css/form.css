@@ -1,0 +1,149 @@
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 4px 0;
+}
+
+.form-control {
+  border-bottom: 1px solid #ccc;
+}
+
+.control-label,
+.field {
+  font-family: 'Inter', sans-serif;
+  font-weight: bold;
+  color: #706a63;
+  font-size: 1.25rem;
+}
+
+select.form-control,
+input.form-control {
+  margin-top: 8px;
+}
+
+.help-block {
+  border-left: 2px solid #376c2e;
+  margin-top: 5px;
+  padding-left: 4px;
+  color: #376c2e;
+  font-style: italic;
+  font-weight: normal;
+  font-size: 1rem;
+}
+
+.help-block a {
+  text-decoration: underline;
+}
+
+.field-description {
+  border-left: 2px solid #FF732C;
+  padding-left: 4px;
+  color: #FF732C;
+  font-style: italic;
+  font-weight: normal;
+}
+
+.checkbox span {
+  padding-left: 4px;
+}
+
+.control-label {
+  padding-right: 4px;
+}
+
+.array-item-add {
+  padding: 4px;
+  text-align: left;
+}
+
+.btn {
+  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  border-radius: 4px;
+}
+
+.btn[type="submit"] {
+  background: #a8ecb1;
+  padding: 0.3rem 1rem;
+  color: #376c2e;
+}
+
+.btn[type="submit"]:hover {
+  background: #b5ffbe;
+  color: #376c2eb5;
+}
+
+.btn-add {
+  background-color: #b392dc;
+}
+
+.btn-add:hover {
+  background-color: #c6a8ec;
+}
+
+.glyphicon-plus::after {
+  content: "+";
+  font-style: normal;
+  font-size: 1.2rem;
+  color: #734da3;
+  padding: 0.5rem 0.5rem;
+}
+
+.btn-group {
+  display: block;
+}
+
+.array-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  padding: 4px;
+  margin: 4px;
+}
+
+.array-item-remove {
+  background-color: #FE5F55;
+  color: #a4231b;
+  max-width: fit-content;
+}
+
+.array-item-remove:hover {
+  background-color: #ff867f;
+  color: #a4231b;
+  max-width: fit-content;
+}
+
+.glyphicon-remove::after {
+  content: "-";
+  font-style: normal;
+  font-size: 1.2rem;
+  padding: 0.5rem 0.3rem;
+}
+
+.rjsf>.form-group+div {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.form-group .field-array {
+  width: 100%;
+  display: inline-flex;
+  flex-direction: column-reverse;
+  align-items: flex-start;
+}
+
+.array-item-list {
+  display: inline-flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.array-item-move-down,
+.array-item-move-up {
+  display: none;
+}

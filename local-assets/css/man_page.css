@@ -1,0 +1,16 @@
+.man-page dd {
+  margin-left: 3rem !important;
+}
+
+.man-page p {
+  margin-bottom: 1rem !important;
+}
+
+.man-page h2 {
+  margin-bottom: 1rem !important;
+  font-weight: bold;
+}
+
+.man-page a[name="lbAB"] {
+  display: none;
+}
