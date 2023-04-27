@@ -1,5 +1,5 @@
 <!-- Creator     : groff version 1.22.4 -->
-<!-- CreationDate: Thu Apr  6 12:35:47 2023 -->
+<!-- CreationDate: Thu Apr 27 11:51:27 2023 -->
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
 "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -60,6 +60,13 @@ texts.</p>
 <p style="margin-left:17%;">Runs the interpreter on the
 Catala program, executing the scope specified by the
 <b>-s</b> option assuming no additional external inputs.</p>
+
+<p style="margin-left:11%;"><b>Intepret_Lcalc</b></p>
+
+<p style="margin-left:17%;">Runs the interpreter on the
+lcalc pass on the Catala program, executing the scope
+specified by the <b>-s</b> option assuming no additional
+external inputs.</p>
 
 <p style="margin-left:11%;"><b>Typecheck</b></p>
 
@@ -125,6 +132,15 @@ the statement calculus intermediate representation of the
 Catala program. Use the <b>-s</b> option to restrict the
 output to a particular scope.</p>
 
+<p style="margin-left:11%;"><b>Exceptions</b></p>
+
+<p style="margin-left:17%;">Prints the exception tree for
+the definitions of a particular variable, for debugging
+purposes. Use the <b>-s</b> option to select the scope and
+the <b>-v</b> option to select the variable. Use foo.bar to
+access state bar of variable foo or variable bar of subscope
+foo.</p>
+
 <p style="margin-left:11%;"><b>pygmentize</b></p>
 
 <p style="margin-left:17%;">This special command is a
@@ -157,6 +173,11 @@ compiled.</p>
 
 <p style="margin-left:17%;">Compiles the default calculus
 without exceptions.</p>
+
+<p style="margin-left:11%;"><b>--check_invariants</b></p>
+
+<p style="margin-left:17%;">Check structural invariants on
+the AST.</p>
 
 
 <p style="margin-left:11%;"><b>--closure_conversion</b></p>
@@ -241,6 +262,11 @@ in translate programs.</p>
 
 <p style="margin-left:17%;">Removes styling (colors, etc.)
 from terminal output. Equivalent to <b>--color=never</b></p>
+
+<p style="margin-left:11%;"><b>-v</b> <i>VARIABLE</i>,
+<b>--variable</b>=<i>VARIABLE</i></p>
+
+<p style="margin-left:17%;">Variable to be focused on.</p>
 
 <p style="margin-left:11%;"><b>-w</b>, <b>--wrap</b></p>
 
