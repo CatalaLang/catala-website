@@ -8,3 +8,10 @@ npm-debug.log
 build/
 .tailwind_ppx_cache/
 .vscode
+
+assets/
+!assets/logo.png
+!assets/GitHub-Mark-Light-32px.png
+!assets/french_homepage.html
+!assets/english_homepage.html
+!assets/css 

@@ -70,7 +70,7 @@ var catala = {
     noParse: /browserfs\.js/,
     rules: [
       {
-        test: /\.schema.js$/,
+        test: /\.schema.jsx$/,
         exclude: /(node_modules|bower_components)/,
         use: {
           loader: "babel-loader",

@@ -30,6 +30,7 @@
     "@rescript/react": "^0.11.0",
     "@rjsf/core": "^4.2.2",
     "babel-loader": "^8.2.5",
+    "catala-web-assets": "^0.1.0-a.1",
     "decco": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

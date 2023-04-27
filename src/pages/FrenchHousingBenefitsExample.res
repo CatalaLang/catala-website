@@ -5,8 +5,8 @@ let pageTitle =
   />
 
 let catalaCodeHTML = %raw(`require("../../assets/aides_logement.html")`)
-let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_fr.schema.js")`)
-let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_en.schema.js")`)
+let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_fr.schema.jsx")`)
+let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_en.schema.jsx")`)
 
 module FormInfos = {
   let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
