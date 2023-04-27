@@ -1,0 +1,119 @@
+{
+  "menageIn": {
+    "prestationsRecues": [],
+    "logement": {
+      "residencePrincipale": true,
+      "estEhpadOuMaisonAutonomieL31312Asf": false,
+      "modeOccupation": {
+        "kind": "Locataire",
+        "payload": {
+          "bailleur": {
+            "kind": "BailleurPrive"
+          },
+          "beneficiaireAideAdulteOuEnfantHandicapes": false,
+          "logementEstChambre": false,
+          "colocation": false,
+          "ageesOuHandicapAdultesHebergeesOnereuxParticuliers": false,
+          "logementMeubleD8422": false,
+          "changementLogementD8424": {
+            "kind": "PasDeChangement",
+            "payload": null
+          },
+          "loyerPrincipal": 450
+        }
+      },
+      "proprietaire": {
+        "kind": "Autre",
+        "payload": null
+      },
+      "loueOuSousLoueADesTiers": {
+        "kind": "Non"
+      },
+      "usufruit": {
+        "kind": "Autre",
+        "payload": null
+      },
+      "logementDecentL89462": true,
+      "zone": {
+        "kind": "Zone2"
+      },
+      "surfaceMCarres": 65
+    },
+    "personnesACharge": [
+      {
+        "kind": "EnfantACharge",
+        "payload": {
+          "beneficieTitrePersonnelAidePersonnelleLogement": false,
+          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+          "remunerationMensuelle": 0,
+          "nationalite": {
+            "kind": "Francaise",
+            "payload": null
+          },
+          "etudesApprentissageStageFormationProImpossibiliteTravail": false,
+          "obligationScolaire": {
+            "kind": "Pendant",
+            "payload": null
+          },
+          "situationGardeAlternee": {
+            "kind": "PasDeGardeAlternee",
+            "payload": null
+          },
+          "dateDeNaissance": "2015-01-01",
+          "identifiant": 0
+        }
+      },
+      {
+        "kind": "EnfantACharge",
+        "payload": {
+          "beneficieTitrePersonnelAidePersonnelleLogement": false,
+          "aDejaOuvertDroitAuxAllocationsFamiliales": true,
+          "remunerationMensuelle": 0,
+          "nationalite": {
+            "kind": "Francaise",
+            "payload": null
+          },
+          "etudesApprentissageStageFormationProImpossibiliteTravail": false,
+          "obligationScolaire": {
+            "kind": "Pendant",
+            "payload": null
+          },
+          "situationGardeAlternee": {
+            "kind": "PasDeGardeAlternee",
+            "payload": null
+          },
+          "dateDeNaissance": "2016-01-01",
+          "identifiant": 1
+        }
+      }
+    ],
+    "nombreAutresOccupantsLogement": 0,
+    "situationFamiliale": {
+      "kind": "Concubins",
+      "payload": null
+    },
+    "conditionRattacheFoyerFiscalParentIfi": false,
+    "enfantANaitreApresQuatriemeMoisGrossesse": false,
+    "personnesAgeesHandicapeesFoyerR8444": false,
+    "residence": {
+      "kind": "Metropole",
+      "payload": null
+    }
+  },
+  "demandeurIn": {
+    "nationalite": {
+      "kind": "Francaise",
+      "payload": null
+    },
+    "estNonSalarieAgricoleL7818L78146CodeRural": false,
+    "magistratFonctionnaireCentreInteretsMaterielsFamiliauxHorsMayotte": false,
+    "patrimoine": {
+      "produisantRevenuPeriodeR82233R8224": 0,
+      "neProduisantPasRevenuPeriodeR82233R8224": 0
+    },
+    "personneHebergeeCentreSoinLL162223SecuriteSociale": false,
+    "dateNaissance": "1992-01-01"
+  },
+  "dateCouranteIn": "2022-05-01",
+  "ressourcesMenagePrisesEnCompteIn": 11500
+}
