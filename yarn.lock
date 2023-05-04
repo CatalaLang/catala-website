@@ -977,6 +977,11 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
+"@catala-lang/catala-web-assets@^0.1.0-b.2":
+  version "0.1.0-b.2"
+  resolved "https://registry.yarnpkg.com/@catala-lang/catala-web-assets/-/catala-web-assets-0.1.0-b.2.tgz#c7b4f0c46b3de7b8d53f8e4b5f5d1ced776a4754"
+  integrity sha512-e/G5Wjg8LkI5Fa/xKFsVH4Go0oQwjFbeQxJ6ghuBBOfOEWyQ9RT5KInxUXWJTIbgUCgUU90dJORkod3mAUZVLg==
+
 "@discoveryjs/json-ext@^0.5.0":
   version "0.5.7"
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"

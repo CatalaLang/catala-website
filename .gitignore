@@ -8,3 +8,5 @@ npm-debug.log
 build/
 .tailwind_ppx_cache/
 .vscode
+
+assets/

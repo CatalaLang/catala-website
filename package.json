@@ -5,6 +5,7 @@
   "scripts": {
     "build:styles": "tailwind build -i src/css/index.css -o src/css/tailwind.css -c ./src/css/tailwind.config.js",
     "build:styles:watch": "tailwind build -i src/css/index.css -o src/css/tailwind.css -c ./src/css/tailwind.config.js -w",
+    "assets": "rsync -r ./local-assets/* assets && rsync -r ./node_modules/catala-web-assets/assets/*  assets",
     "build": "rescript build -with-deps",
     "start": "rescript build -with-deps -w",
     "clean": "rescript clean",
@@ -12,7 +13,9 @@
     "webpack:production": "NODE_ENV=production webpack",
     "server": "webpack serve",
     "eslint": "npx eslint src",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prebuild": "yarn run assets",
+    "prestart": "yarn run assets"
   },
   "keywords": [
     "BuckleScript",
@@ -36,6 +39,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
+    "@catala-lang/catala-web-assets": "^0.1.0-b.2",
     "@greenlabs/res-tailwindcss": "^0.1.12",
     "ansi_up": "^5.1.0",
     "autoprefixer": "^10.4.8",
