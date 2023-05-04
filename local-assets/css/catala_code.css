@@ -149,16 +149,16 @@ html .catala-code {
 }
 
 .catala-code .code-wrapper {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  padding: 0;
+  margin: 1rem 0;
   overflow-x: auto;
   border-width: 1px;
   border-style: solid;
   border-color: var(--border-color);
   border-radius: 0.25rem;
   background-color: var(--bg-color);
-	font-size: 0.9rem;
-	line-height: 1.25rem;
+  font-size: 0.9rem;
+  line-height: 1.25rem;
 }
 
 .catala-code .code-metadata {
