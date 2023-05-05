@@ -6,13 +6,13 @@ let resetLog: unit => unit = %raw(`
   }
 `)
 
-let retrieveRawEventsSerialized: unit => array<LogEvent.Raw.eventSerialized> = %raw(`
+let retrieveRawEventsSerialized: unit => array<CatalaRuntime.Raw.eventSerialized> = %raw(`
   function() {
     return frenchLaw.eventsManager.retrieveRawEvents(0);
   }
 `)
 
-let retrieveEventsSerialized: unit => array<LogEvent.eventSerialized> = %raw(`
+let retrieveEventsSerialized: unit => array<CatalaRuntime.eventSerialized> = %raw(`
   function() {
     return frenchLaw.eventsManager.retrieveEvents(0);
   }

@@ -6,9 +6,9 @@
 
 let resetLog: unit => unit
 
-let retrieveRawEventsSerialized: unit => array<LogEvent.Raw.eventSerialized>
+let retrieveRawEventsSerialized: unit => array<CatalaRuntime.Raw.eventSerialized>
 
-let retrieveEventsSerialized: unit => array<LogEvent.eventSerialized>
+let retrieveEventsSerialized: unit => array<CatalaRuntime.eventSerialized>
 
 /* French algorithms API */
 

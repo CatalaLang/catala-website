@@ -3,7 +3,7 @@
   component able to set an array of [LogEvent.event].
 */
 
-open LogEvent
+open CatalaRuntime
 
 /*
   Functor to build a log event visualizer from a React component. It creates a

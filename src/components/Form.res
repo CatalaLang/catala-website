@@ -79,7 +79,7 @@ module Make = (
     React.useEffect2(() => {
       setEventsOpt(_ => {
         let logs = {
-          try {FrenchLaw.retrieveEventsSerialized()->LogEvent.deserializedEvents} catch {
+          try {FrenchLaw.retrieveEventsSerialized()->CatalaRuntime.deserializedEvents} catch {
           | _ => []
           }
         }

@@ -29,10 +29,9 @@
   "namespace": true,
   "bs-dependencies": [
     "@rescript/react",
-    "decco"
+    "@catala-lang/rescript-catala"
   ],
   "ppx-flags": [
-    "decco/ppx",
     ["@greenlabs/res-tailwindcss/ppx", "--path src/css/tailwind.css"]
   ]
 }
