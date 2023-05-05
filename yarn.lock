@@ -982,19 +982,19 @@
   resolved "https://registry.yarnpkg.com/@catala-lang/catala-web-assets/-/catala-web-assets-0.1.0-b.2.tgz#c7b4f0c46b3de7b8d53f8e4b5f5d1ced776a4754"
   integrity sha512-e/G5Wjg8LkI5Fa/xKFsVH4Go0oQwjFbeQxJ6ghuBBOfOEWyQ9RT5KInxUXWJTIbgUCgUU90dJORkod3mAUZVLg==
 
-"@catala-lang/french-law@^0.5.0-a.1":
-  version "0.5.0-a.1"
-  resolved "https://registry.yarnpkg.com/@catala-lang/french-law/-/french-law-0.5.0-a.1.tgz#5d25e898bd1c6187ba349f6bbd5fd524e743318e"
-  integrity sha512-xKaipmlNi1+OtLeEcP+Osc0Ywb7aKKXqXHDSbQ/mCsRBQ+EVGcr/dfaRWNx5v3847r5LUr4lz8FziTmeCExcvw==
+"@catala-lang/french-law@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@catala-lang/french-law/-/french-law-0.8.0.tgz#5fc6248b4953039c7f372d0ed98af21070e95ff5"
+  integrity sha512-uLzSfWk52vNZvTm3KgGH747xRYWLcx+NY46VX3S+zD/fO6dw2A9JyO6lq8Afr95w/6sUMX/j4Nc8GhygozZpqg==
   dependencies:
     benchmark "^2.1.4"
     lodash "^4.17.21"
     platform "^1.3.6"
 
-"@catala-lang/rescript-catala@^0.1.0-a.1":
-  version "0.1.0-a.1"
-  resolved "https://registry.yarnpkg.com/@catala-lang/rescript-catala/-/rescript-catala-0.1.0-a.1.tgz#e4bb47d28c574372f5b7ca73e7c422f4f5cd40b0"
-  integrity sha512-VPOIqwLfQ064YDQ0LBCm8mLtjq5+KtVLa9Nj0z+MOBHmAb91djaH7Xc95/aKCcm2ktMUfb44/+LBOur75q0NIw==
+"@catala-lang/rescript-catala@^0.8.0":
+  version "0.8.0"
+  resolved "https://registry.yarnpkg.com/@catala-lang/rescript-catala/-/rescript-catala-0.8.0.tgz#529812bdfea3861b0c61e5395cd45727687eab84"
+  integrity sha512-nk/Df96HmhqKd5+20jVzJujBNytQGz7G04k5bLahOi6fca6XANJbcdnXsVtgl9qaN/uKUub8GGVGheFuL+15cQ==
   dependencies:
     decco "^1.6.0"
     rescript "^10.1.4"
