@@ -114,56 +114,13 @@ let make = () => <>
       <Person person=denisMerigoux />
       <Person person=raphaelMonat />
       <Person person=jonathanProtzenko />
+      <Person person=emileRolley />
     </ul>
   </Section>
   <Section title={<Lang.String english="Alumni" french={`Alumni`} />}>
     <ul className=%twc("list-disc list-inside")>
       <Person person=nicolasChataing />
-    </ul>
-    <ul className=%twc("list-disc list-inside")>
-      <Person person=emileRolley />
-    </ul>
-    <ul className=%twc("list-disc list-inside")>
       <Person person=lilyaSlimani />
-    </ul>
-  </Section>
-  <Section
-    title={<Lang.String
-      english="Related work on rules as code"
-      french={`Travaux connexes : transformer la loi en code`}
-    />}>
-    <ul className=%twc("list-disc list-inside")>
-      <li className=%twc("pl-6 pb-4")>
-        <Lang.String
-          english="An attempt to exploit the source code of the French income tax computation: "
-          french={`Une tentative d'exploitation du code source du calcul de l'impôt sur le revenu : `}
-        />
-        <Lang.Element
-          english={<Link.Text
-            target="https://blog.merigoux.ovh/en/2019/12/20/taxes-formal-proofs.html">
-            {React.string("blog post")}
-          </Link.Text>}
-          french={<Link.Text target="https://blog.merigoux.ovh/fr/2019/12/20/impots-formels.html">
-            {React.string("billet de blog")}
-          </Link.Text>}
-        />
-        {React.string(", ")}
-        <Link.Text target="https://hal.inria.fr/hal-02320347">
-          <Lang.String english="scientific article (in French)" french={`article scientifique`} />
-        </Link.Text>
-      </li>
-      <li className=%twc("pl-6 pb-4")>
-        <Link.Text
-          target="https://oecd-opsi.org/seeking-your-feedback-on-draft-rules-as-code-primer/">
-          {React.string("Rules as code Primer")}
-        </Link.Text>
-        <Lang.String
-          english=": a comprehensive report on the rules as code field in 2020 by the OECD Observatory for
-          Public Sector Innovation (OPSI)"
-          french={` : un rapport exhaustfif sur l'état de la transformation de la loi en code en 2020,
-            mené par l'observatoire de l'innovation dans le secteur public (OPSI) de l'OCDE`}
-        />
-      </li>
     </ul>
   </Section>
 </>

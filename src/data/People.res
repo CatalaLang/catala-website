@@ -29,10 +29,10 @@ let marieAlauzen = {
 
 let lilyaSlimani = {
   name: "Lilya Slimani",
-  website: None,
+  website: Some("https://www.linkedin.com/in/wouroud-slimani-003621183/"),
   affiliation: {
-    name: "Inria - Prosecco",
-    url: "https://team.inria.fr/prosecco/",
+    name: "EFB",
+    url: "http://www.efb.fr/EC_presentation.html",
   },
 }
 
@@ -120,6 +120,15 @@ let louisGesbert = {
 let emileRolley = {
   name: `Émile Rolley`,
   website: Some("https://www.linkedin.com/in/emile-rolley-703b82206/"),
+  affiliation: {
+    name: "Inria - Prosecco",
+    url: "https://team.inria.fr/prosecco/",
+  },
+}
+
+let justineBanuls = {
+  name: `Justine Banuls`,
+  website: Some("https://www.linkedin.com/in/justine-banuls-getintouch/"),
   affiliation: {
     name: "Inria - Prosecco",
     url: "https://team.inria.fr/prosecco/",
