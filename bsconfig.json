@@ -29,7 +29,8 @@
   "namespace": true,
   "bs-dependencies": [
     "@rescript/react",
-    "@catala-lang/rescript-catala"
+    "@catala-lang/rescript-catala",
+    "@catala-lang/french-law"
   ],
   "ppx-flags": [
     ["@greenlabs/res-tailwindcss/ppx", "--path src/css/tailwind.css"]
