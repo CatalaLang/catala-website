@@ -112,8 +112,8 @@ let make = () => {
     <div className=%twc("flex flex-col justify-center items-center")>
       <p>
         <Lang.String
-          english="The Catala team hosts seminars at Inria Paris one Monday per month, from 17:00 to 18:30. The seminar happens in room Gilles Khan on the ground floor of the Inria Paris building located at 2 rue Simone Iff 75012."
-          french={`L'équipe Catala organise des séminaires à l'Inria Paris un lundi par mois de 17:00 à 18:30. Le séminaire se tient dans la salle Gilles Khan au rez-de-chaussée du bâtiment de l'Inria Paris situé au 2 rue Simone Iff 75012.`}
+          english="The Catala team hosts seminars at Inria Paris one Monday per month, from 17:00 to 18:30. The seminar happens in room Gilles Kahn on the ground floor of the Inria Paris building located at 2 rue Simone Iff 75012."
+          french={`L'équipe Catala organise des séminaires à l'Inria Paris un lundi par mois de 17:00 à 18:30. Le séminaire se tient dans la salle Gilles Kahn au rez-de-chaussée du bâtiment de l'Inria Paris situé au 2 rue Simone Iff 75012.`}
         />
       </p>
       <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
