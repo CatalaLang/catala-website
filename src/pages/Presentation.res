@@ -16,8 +16,8 @@ let examplesCard: Card.Presentation.t = {
   action: None,
   content: <Lang.String
     english="Implementations derived from legislative texts are hard to get right.
-     The specification for how one quantity is computed may be scattered accross various places in your
-     legislative source. Catala addressess this problem by interleaving the legislative source with the
+     The specification for how one quantity is computed may be scattered across various places in your
+     legislative source. Catala addresses this problem by interleaving the legislative source with the
      code that models it. To implement your program, just follow what the law says!"
     french={`Il est difficile de produire des implémentations correctes d'algorithmes dérivés de textes législatifs.
     La définition d'une quantité peut être morcelée dans plusieurs sections de la source législative ou réglementaire. Catala
@@ -43,7 +43,7 @@ let docCard: Card.Presentation.t = {
     english="Code derived from legislation generally uses basic programming concepts, that are present
  in every programming language. Why would you need a rules-engine or runtime environment to execute that code?
  Catala uses a fully-fledged compiler to bring you the code you need, in the programming language you need.
- That also include legacy environments used in large organizations."
+ That also includes legacy environments used in large organizations."
     french={`Le code dérivé d'une source législative ou réglementaire n'utilise généralement que des concepts basique de la
  programmation, qui sont présents dans tous les langages de programmation. Pourquoi y aurait-il besoin
  d'un moteur de règles où d'un environnement d'exécution complexe pour exécuter ce code ? Catala utilise
@@ -172,7 +172,7 @@ let make = () => {
         />
       </div>
       <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pt-8")>
-        <Lang.String english="Why using Catala?" french={`Pourquoi utiliser Catala ?`} />
+        <Lang.String english="Why use Catala?" french={`Pourquoi utiliser Catala ?`} />
       </div>
     </div>
     <div className=%twc("text-base sm:text-lg pb-10 pt-4")>

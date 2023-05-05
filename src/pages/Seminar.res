@@ -15,7 +15,8 @@ module Seminar = {
   let make = (~seminar: seminar) =>
     <li className=%twc("pl-6 pb-4")>
       <span className=%twc("italic")>
-        {Js.Date.toLocaleDateString(seminar.date) ++ ":" |> React.string}
+        {List.hd(String.split_on_char('T', Js.Date.toISOString(seminar.date))) ++ ":"
+          |> React.string}
       </span>
       <Link.Text className=%twc("pl-2") target=seminar.presenter_page_url>
         {React.string(seminar.presenter)}
@@ -29,7 +30,7 @@ module Seminar = {
 
 let seminars = [
   {
-    date: Js.Date.makeWithYMD(~year=2023.0, ~month=03.0, ~date=24.0, ()),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=03.0, ~date=24.0, ())),
     title: <Lang.String
       english="Translating law to code at the French tax authority"
       french={`Traduire le droit en code à la DGFiP`}
@@ -48,7 +49,7 @@ let seminars = [
     />,
   },
   {
-    date: Js.Date.makeWithYMD(~year=2023.0, ~month=05.0, ~date=05.0, ()),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=05.0, ~date=05.0, ())),
     title: <Lang.String
       english="Drafting Rules between Technical and Legal Expertise: the Work of French Central Administration on Health Risks"
       french={`Rédiger les normes entre expertise technique et expertise juridique : le travail des administrations centrales face aux risques sanitaires`}
@@ -91,7 +92,7 @@ let seminars = [
     />,
   },
   {
-    date: Js.Date.makeWithYMD(~year=2023.0, ~month=06.0, ~date=03.0, ()),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=06.0, ~date=03.0, ())),
     title: <Lang.String english="Title to come" french={`Titre à venir`} />,
     presenter: "Clément Hénin",
     presenter_page_url: "https://planete.inrialpes.fr/people/chenin/",
