@@ -18,9 +18,9 @@ module Seminar = {
         {List.hd(String.split_on_char('T', Js.Date.toISOString(seminar.date))) ++ ":"
           |> React.string}
       </span>
-      <Link.Text className=%twc("pl-2") target=seminar.presenter_page_url>
-        {React.string(seminar.presenter)}
-      </Link.Text>
+      <span className=%twc("pl-2")>
+        <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
+      </span>
       <span> {" — " |> React.string} </span>
       <span className=%twc("font-bold")> {seminar.title} </span>
       <span> {" — " |> React.string} </span>
