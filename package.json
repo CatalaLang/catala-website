@@ -5,7 +5,7 @@
   "scripts": {
     "build:styles": "tailwind build -i src/css/index.css -o src/css/tailwind.css -c ./src/css/tailwind.config.js",
     "build:styles:watch": "tailwind build -i src/css/index.css -o src/css/tailwind.css -c ./src/css/tailwind.config.js -w",
-    "assets": "rsync -r ./local-assets/* assets && rsync -r ./node_modules/catala-web-assets/assets/*  assets",
+    "assets": "rsync -r ./local-assets/* assets && rsync -r ./node_modules/@catala-lang/catala-web-assets/assets/*  assets",
     "build": "rescript build -with-deps",
     "start": "rescript build -with-deps -w",
     "clean": "rescript clean",

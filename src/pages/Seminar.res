@@ -120,9 +120,13 @@ let make = () => <>
   </div>
   <Section title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
     <ul className=%twc("list-disc list-inside")>
-      <Seminar seminar=seminar_2023_04_24 />
       <Seminar seminar=seminar_2023_06_05 />
       <Seminar seminar=seminar_2023_07_03 />
+    </ul>
+  </Section>
+  <Section title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
+    <ul className=%twc("list-disc list-inside")>
+      <Seminar seminar=seminar_2023_04_24 />
     </ul>
   </Section>
   <Section title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
