@@ -25,16 +25,17 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
+    "@catala-lang/french-law": "^0.8.0",
+    "@catala-lang/rescript-catala": "^0.8.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
     "@rescript/react": "^0.11.0",
     "@rjsf/core": "^4.2.2",
     "babel-loader": "^8.2.5",
-    "decco": "^1.6.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "refmt": "^1.13.7-1",
-    "rescript": "^10.1.3",
+    "rescript": "^10.1.4",
     "rescript-hash": "^1.5.0"
   },
   "devDependencies": {

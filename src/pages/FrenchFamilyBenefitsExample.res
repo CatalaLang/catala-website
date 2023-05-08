@@ -34,7 +34,7 @@ function (data) {
 
   let computeAndPrintResult = (input: Js.Json.t): React.element => <>
     <span className=%twc("text-mb font-mono")>
-      {input->FrenchLaw.computeAllocationsFamiliales->React.float}
+      {input->CatalaFrenchLaw.computeAllocationsFamiliales->React.float}
     </span>
     {React.string(` €`)}
   </>
@@ -68,7 +68,7 @@ module Form = Form.Make(FormInfos)
 module Visualizer = Visualizer.Make({
   let pageTitle = pageTitle
   let catalaCodeHTML = catalaCodeHTML
-  let resetLog = FrenchLaw.resetLog
+  let resetLog = CatalaFrenchLaw.resetLog
 
   include Form
 })
