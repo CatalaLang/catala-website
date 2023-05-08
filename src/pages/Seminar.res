@@ -98,6 +98,13 @@ let seminars = [
     presenter_page_url: "https://planete.inrialpes.fr/people/chenin/",
     abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=08.0, ~date=04.0, ())),
+    title: <Lang.String english="Title to come" french={`Titre à venir`} />,
+    presenter: "Sarah Lawsky",
+    presenter_page_url: "https://sites.northwestern.edu/sarahlawsky/",
+    abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
+  },
 ]
 
 let upcoming = Belt.Array.keep(seminars, seminar => seminar.date >= Js.Date.make())
