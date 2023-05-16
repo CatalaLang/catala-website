@@ -204,7 +204,7 @@ module Make = (
                 ->Js.Exn.asJsExn
                 ->Belt.Option.map(Js.Exn.message)
                 ->Belt.Option.getWithDefault(Some(""))
-                ->Belt.Option.getWithDefault("unknwon error, please retry the computation")
+                ->Belt.Option.getWithDefault("unknown error, please retry the computation")
                 ->React.string}
               </p>
             }

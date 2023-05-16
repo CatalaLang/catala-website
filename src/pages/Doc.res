@@ -105,7 +105,7 @@ let ocaml_docs_card: Card.Presentation.t = {
   )),
   content: <>
     <Lang.String
-      english="The Catala tooling is developped using the OCaml language. Internal documentation is auto-generated from the code using "
+      english="The Catala tooling is developed using the OCaml language. Internal documentation is auto-generated from the code using "
       french={`L'outillage autour de Catala est développé avec le langage OCaml. La documentation interne est auto-generée à partir du code source en utilisant `}
     />
     <Link.Text target="https://github.com/ocaml/odoc"> {React.string("odoc")} </Link.Text>
