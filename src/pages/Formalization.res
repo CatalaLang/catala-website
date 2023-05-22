@@ -8,7 +8,7 @@ let make = () => <>
   <Section title={<Lang.String english="Surface syntax" french=`Syntaxe du langage de surface` />}>
     <p>
       <Lang.String
-        english="The syntax of the langage is derived from the "
+        english="The syntax of the language is derived from the "
         french=`La syntaxe du langage est générée à partir du `
       />
       <Link.Text
@@ -53,7 +53,7 @@ let make = () => <>
     <p>
       <Lang.String
         english="Catala's unique feature is the possibility to give multiple definitions to the same variable,
-    each definition being conditionned to a logical guard. If the guard is true, then the definition
+    each definition being conditioned to a logical guard. If the guard is true, then the definition
     is applicable. This behavior is adapted to the style in which legal statutes are redacted. In the
     case of multiple guards being true at the same time, the definition is picked according to a
     precedence in the definitions that is specified in the source code."

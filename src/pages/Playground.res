@@ -135,7 +135,7 @@
 //         modu.title
 //       </button>
 //     </div>
-//   let exec_catala_and_retrive_output = (
+//   let exec_catala_and_retrieve_output = (
 //     content: string,
 //     scope: React.ref<Js.Nullable.t<Dom.element>>,
 //     language: string,
@@ -169,7 +169,7 @@
 //       <p>
 //         <Lang.String
 //           english="Note that this playground has limited support
-//         and functionnalities compared to writing Catala using a real IDE. Please
+//         and functionalities compared to writing Catala using a real IDE. Please
 //         refer to "
 //           french=`Les fonctionnalités de ce bac à sable sont limitées
 //         par rapport à l'écriture de programme Catala dans un vrai environnement
@@ -217,7 +217,7 @@
 //           <button
 //             className=%twc("ml-4 px-4 bg-tertiary text-white uppercase my-1")
 //             onClick={_ =>
-//               exec_catala_and_retrive_output(
+//               exec_catala_and_retrieve_output(
 //                 get_editor_content(editor),
 //                 scope_name,
 //                 switch modu.lang {

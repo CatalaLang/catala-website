@@ -1,5 +1,5 @@
 let githubLink = "https://github.com/CatalaLang/catala"
-let githubLinkLastestRelease = "https://github.com/CatalaLang/catala/releases/tag/0.8.0"
+let githubLinkLatestRelease = "https://github.com/CatalaLang/catala/releases/tag/0.8.0"
 let zulipLink = "https://zulip.catala-lang.org/"
 
 let examplesCard: Card.Presentation.t = {
@@ -9,7 +9,7 @@ let examplesCard: Card.Presentation.t = {
   icon: Some("check"),
   quote: Some(
     <Lang.String
-      english="A program that should to stick to the law, should reside next to the law."
+      english="A program that should stick to the law, should reside next to the law."
       french={`Écrire le code à côté de la loi qu'il est censé suivre`}
     />,
   ),
@@ -147,7 +147,7 @@ let make = () => {
         <Lang.String english="Apache-2.0 License" french={`Apache-2.0 Licence`} />
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
-          target={githubLinkLastestRelease}>
+          target={githubLinkLatestRelease}>
           <Lang.String english="GitHub v0.8.0" french={`GitHub v0.8.0`} />
         </Link.Text>
       </div>
