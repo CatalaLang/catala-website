@@ -118,41 +118,6 @@ module Make = (
             Ainsi, le site de Catala ne collecte aucune donnée de ses utilisateurs.`}
           />
         </p>
-        {if !collapsible {
-          <div className=%twc("flex flex-wrap w-full justify-around gap-4 mt-4")>
-            <Button.Small
-              onClick={_ => {
-                let data_str = Js.Json.stringify(formData->Belt.Option.getWithDefault(Js.Json.null))
-                downloadJSONstring(data_str)
-              }}
-              style=%twc("py-2 px-4")>
-              <Lang.String
-                french={`Exporter les données au format JSON`} english="Export data to JSON format"
-              />
-            </Button.Small>
-            <Button.Small
-              onClick={_ => {
-                setFormData(_ => None)
-              }}
-              style=%twc("py-2 px-4")>
-              <Lang.String french={`Réinitialiser le formulaire`} english="Reset the form" />
-            </Button.Small>
-            <Button.Small onClick={retrieveFileContents} style=%twc("py-2 px-4")>
-              <div className=%twc("grid grid-cols-1 gap-2 justify-items-center")>
-                <input type_="file" name="file" onChange=fileChangeHandler />
-                <div>
-                  <Lang.String
-                    french={`Importer les données au format JSON`}
-                    english="Import data to JSON format"
-                  />
-                </div>
-              </div>
-            </Button.Small>
-          </div>
-        } else {
-          <> </>
-        }}
-        divider
         <FromJSONSchema
           schema={Lang.getCurrent(~english=FormInfos.englishSchema, ~french=FormInfos.frenchSchema)}
           uiSchema={Lang.getCurrent(
@@ -210,6 +175,41 @@ module Make = (
             }
           }}
         </div>
+        divider
+        {if !collapsible {
+          <div className=%twc("flex flex-wrap w-full justify-around gap-4 mt-4")>
+            <Button.Small
+              onClick={_ => {
+                let data_str = Js.Json.stringify(formData->Belt.Option.getWithDefault(Js.Json.null))
+                downloadJSONstring(data_str)
+              }}
+              style=%twc("py-2 px-4")>
+              <Lang.String
+                french={`Exporter les données au format JSON`} english="Export data to JSON format"
+              />
+            </Button.Small>
+            <Button.Small
+              onClick={_ => {
+                setFormData(_ => None)
+              }}
+              style=%twc("py-2 px-4")>
+              <Lang.String french={`Réinitialiser le formulaire`} english="Reset the form" />
+            </Button.Small>
+            <Button.Small onClick={retrieveFileContents} style=%twc("py-2 px-4")>
+              <div className=%twc("grid grid-cols-1 gap-2 justify-items-center")>
+                <input type_="file" name="file" onChange=fileChangeHandler />
+                <div>
+                  <Lang.String
+                    french={`Importer les données au format JSON`}
+                    english="Import data to JSON format"
+                  />
+                </div>
+              </div>
+            </Button.Small>
+          </div>
+        } else {
+          <> </>
+        }}
       </>
 
     {

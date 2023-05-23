@@ -95,9 +95,9 @@
 <a name="./section_132.catala_en-43"></a>  <span class="kd">definition</span> <span class="nv">qualified_employee_discount</span>
 <a name="./section_132.catala_en-44"></a>    <span class="kd">under condition</span> <span class="nv">is_property</span> <span class="kd">consequence</span>
 <a name="./section_132.catala_en-45"></a>  <span class="kd">equals</span>
-<a name="./section_132.catala_en-46"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">&gt;$</span>
-<a name="./section_132.catala_en-47"></a>      <span class="nv">customer_price</span> ×<span class="o">$</span> <span class="nv">gross_profit_percentage</span>
-<a name="./section_132.catala_en-48"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> ×<span class="o">$</span> <span class="nv">gross_profit_percentage</span>
+<a name="./section_132.catala_en-46"></a>    <span class="kr">if</span> <span class="nv">employee_discount</span> <span class="o">>=</span>
+<a name="./section_132.catala_en-47"></a>      <span class="nv">customer_price</span> <span class="o">*</span> <span class="nv">gross_profit_percentage</span>
+<a name="./section_132.catala_en-48"></a>    <span class="kr">then</span> <span class="nv">customer_price</span> <span class="o">*</span> <span class="nv">gross_profit_percentage</span>
 <a name="./section_132.catala_en-49"></a>    <span class="kr">else</span> <span class="nv">employee_discount</span>
 </pre></div>
 </td></tr></table>
