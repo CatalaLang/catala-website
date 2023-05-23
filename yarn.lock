@@ -982,7 +982,7 @@
   resolved "https://registry.yarnpkg.com/@catala-lang/catala-web-assets/-/catala-web-assets-0.8.0.tgz#fbf1eef85d92b708c96b7b9ca732429a2ec71c90"
   integrity sha512-qOi9Ugp/L3e3KEio4BRRGP1jn7WVUzuQ6bChsK9YCLJdqB3OAHOnocxKDoCEqKY5o1C8GDtLHXXoC6Bj4zDflA==
 
-"@catala-lang/french-law@^0.8.0":
+"@catala-lang/french-law@^0.8.0-b":
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/@catala-lang/french-law/-/french-law-0.8.0.tgz#5fc6248b4953039c7f372d0ed98af21070e95ff5"
   integrity sha512-uLzSfWk52vNZvTm3KgGH747xRYWLcx+NY46VX3S+zD/fO6dw2A9JyO6lq8Afr95w/6sUMX/j4Nc8GhygozZpqg==

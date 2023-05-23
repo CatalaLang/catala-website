@@ -25,7 +25,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@catala-lang/french-law": "^0.8.0",
+    "@catala-lang/french-law": "^0.8.0-b",
     "@catala-lang/rescript-catala": "^0.8.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
