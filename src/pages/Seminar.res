@@ -15,7 +15,7 @@ module Seminar = {
   let make = (~seminar: seminar) =>
     <li className=%twc("pl-6 pb-4")>
       <span className=%twc("italic")>
-        {List.hd(String.split_on_char('T', Js.Date.toISOString(seminar.date))) ++ ":"
+        {Js.Date.toISOString(seminar.date)->String.split("T")->Array.getUnsafe(0) ++ ":"
           |> React.string}
       </span>
       <span className=%twc("pl-2")>

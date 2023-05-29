@@ -21,7 +21,7 @@
   ],
   "package-specs": [
     {
-      "module": "commonjs",
+      "module": "es6",
       "in-source": true
     }
   ],
@@ -29,9 +29,11 @@
   "namespace": true,
   "bs-dependencies": [
     "@rescript/react",
+	"@rescript/core",
     "@catala-lang/rescript-catala",
     "@catala-lang/french-law"
   ],
+  "bsc-flags": ["-open RescriptCore"],
   "ppx-flags": [
     ["@greenlabs/res-tailwindcss/ppx", "--path src/css/tailwind.css"]
   ]
