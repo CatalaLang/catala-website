@@ -93,10 +93,51 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=06.0, ~date=03.0, ())),
-    title: <Lang.String english="Title to come" french={`Titre à venir`} />,
+    title: <Lang.String
+      english="Explaining and justifying algorithmic decision systems: theory and practice"
+      french={`Expliquer et justifier des systèmes de décisions algorithmiques : théorie et pratique`}
+    />,
     presenter: "Clément Hénin",
     presenter_page_url: "https://planete.inrialpes.fr/people/chenin/",
-    abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
+    abstract: <Lang.String
+      english="In a context favorable to the rationalization of decisions \
+      through measurable objectives and quantitative methods, the recent \
+      development of digital technologies has accelerated the adoption of \
+      decision-making systems based on algorithmic processing. Research in \
+      the field of eXplainable Artififial Intelligence (XAI) aims to guarantee \
+      the intelligibility of decision algorithms. In this context, we propose \
+      an original method enabling users of algorithmic systems to challenge or \
+      justify their decisions. A justification (respectively a challenge) is \
+      an argument, supported by evidence, that a decision is right \
+      (respectively wrong) in the sense of a set of predefined external \
+      norms. A technical device, called Algocate, makes it possible to \
+      operationalize these notions for three types of norms (rules, \
+      objectives and reference) thanks to an interactive system enabling \
+      the user to express his or her point of view on the merits of the \
+      decision. These types of solutions (explanations and justifications) \
+      are put into practice in the context of the heart score, an algorithmic \
+      decision-making system used by the Biomedicine agency since 2018 to \
+      allocate heart transplants throughout France."
+      french={`Dans un contexte favorable à la rationalisation des décisions \
+      par des objectifs mesurables et des méthodes quantitatives, le \
+      développement récent des technologies numériques a accéléré l’adoption \
+      des systèmes de décisions fondés sur un traitement algorithmique. Des \
+      travaux de recherche du champ de l'eXplainable Artififial Intelligence \
+      (XAI) visent à garantir l’intelligibilité des algorithmes de décisions. \
+      Dans ce contexte, nous proposons une méthode originale permettant aux \
+      utilisateurs de systèmes algorithmiques d'en contester ou d'en justifier \
+      les décisions. Une justification (respectivement une contestation) est un \
+      argument, soutenu par une preuve, qu’une décision est bonne (respectivement \
+      mauvaise) au sens d’un ensemble de normes extérieures prédéfinies. Un \
+      dispositif technique, appelé Algocate, permet de rendre ces notions \
+      opérationnelles pour trois types de normes (règles, objectifs et \
+      référence) grâce à un système interactif permettant à l’utilisateur \
+      d’exprimer son point de vue sur le bien-fondé de la décision. Ce type de \
+      solutions (explications et justifications) sont mises en pratique dans le \
+      cadre du score cœur, un système algorithmique de décision utilisé par \
+      l'agence de Biomédecine depuis 2018 pour attribuer les greffons cardiaques \
+      sur l'ensemble du territoire.`}
+    />,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=08.0, ~date=04.0, ())),
