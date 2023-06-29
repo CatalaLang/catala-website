@@ -982,19 +982,19 @@
   resolved "https://registry.yarnpkg.com/@catala-lang/catala-web-assets/-/catala-web-assets-0.8.0.tgz#fbf1eef85d92b708c96b7b9ca732429a2ec71c90"
   integrity sha512-qOi9Ugp/L3e3KEio4BRRGP1jn7WVUzuQ6bChsK9YCLJdqB3OAHOnocxKDoCEqKY5o1C8GDtLHXXoC6Bj4zDflA==
 
-"@catala-lang/french-law@^0.8.0-b":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@catala-lang/french-law/-/french-law-0.8.0.tgz#5fc6248b4953039c7f372d0ed98af21070e95ff5"
-  integrity sha512-uLzSfWk52vNZvTm3KgGH747xRYWLcx+NY46VX3S+zD/fO6dw2A9JyO6lq8Afr95w/6sUMX/j4Nc8GhygozZpqg==
+"@catala-lang/french-law@^0.8.3-b.3":
+  version "0.8.3-b.3"
+  resolved "https://registry.yarnpkg.com/@catala-lang/french-law/-/french-law-0.8.3-b.3.tgz#18627d4e434e56a7f77f4448a0a8f20715c60367"
+  integrity sha512-bCvwvD3ZI0C6gILVQjrnuYRlR5u4Sy6Li7dTx+Sqwr05yHX5IXJEy6rY6Bko/fJERPJ7R28xxAyyE70l7XCjww==
   dependencies:
     benchmark "^2.1.4"
     lodash "^4.17.21"
     platform "^1.3.6"
 
-"@catala-lang/rescript-catala@^0.8.0":
-  version "0.8.0"
-  resolved "https://registry.yarnpkg.com/@catala-lang/rescript-catala/-/rescript-catala-0.8.0.tgz#529812bdfea3861b0c61e5395cd45727687eab84"
-  integrity sha512-nk/Df96HmhqKd5+20jVzJujBNytQGz7G04k5bLahOi6fca6XANJbcdnXsVtgl9qaN/uKUub8GGVGheFuL+15cQ==
+"@catala-lang/rescript-catala@^0.8.1-b.0":
+  version "0.8.1-b.0"
+  resolved "https://registry.yarnpkg.com/@catala-lang/rescript-catala/-/rescript-catala-0.8.1-b.0.tgz#46762f85f2e16af8b42ebb980db446189391a978"
+  integrity sha512-rOCwTFZE8u7r1WUqohU5r1Aq/cNJYZEJ4/S/MEJkrKUrwdV7tU0Pr8bU6i0MuYRWssclEUUy38yx2mm2dD29Cg==
   dependencies:
     decco "^1.6.0"
     rescript "^10.1.4"
@@ -1299,6 +1299,11 @@
   dependencies:
     "@parcel/utils" "^1.11.0"
     physical-cpu-count "^2.0.0"
+
+"@rescript/core@^0.3.1":
+  version "0.3.1"
+  resolved "https://registry.yarnpkg.com/@rescript/core/-/core-0.3.1.tgz#4c6bdf35e836f10ed6022ed11d81985394fe73db"
+  integrity sha512-H6KgYKCpaWQEyhl/r3HuTxY0y1pvQziMXbZnwHVsykNkJvxpROMOrAX2CkIJ5lIar3zDH33cPpwTsIxANTFcvQ==
 
 "@rescript/react@^0.11.0":
   version "0.11.0"

@@ -99,7 +99,7 @@ let visualization: navElem = {
 }
 
 let cmp = (a: navElem, b: navElem) => {
-  String.compare(a.url, b.url)
+  String.localeCompare(a.url, b.url)->Float.toInt
 }
 
 let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<navElem>) => {
@@ -110,7 +110,7 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
     let getNavElemsFrom = (~withDefaultElems=false, navElems: array<navElem>, path: string): option<
       array<navElem>,
     > => {
-      let path = path->String.lowercase_ascii
+      let path = path->String.toLowerCase
       navElems
       ->Belt.Array.getBy(e => e.url == path)
       ->Belt.Option.map(e =>

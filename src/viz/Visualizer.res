@@ -290,18 +290,29 @@ module MakeLogEventComponent = (
           headerValue
         }
 
+        let kindIO = if varDef.io.io_output {
+          <Lang.String english={`output`} french={`sortie`} />
+        } else {
+          switch varDef.io.io_input {
+          | NoInput => <Lang.String english={`internal`} french={`interne`} />
+          | _ => <Lang.String english={`input`} french={`entrée`} />
+          }
+        }
+
         let kindIcon = switch kindIcon {
         | Some(icon) => icon
         | None =>
           <div
-            className={%twc("px-2 font-semibold italic border rounded") ++ if (
+            className={%twc("px-2 font-semibold italic border rounded whitespace-nowrap") ++ if (
               varDef.fun_calls->Belt.Option.isSome
             ) {
               %twc(" text-rainforest border-rainforest bg-rainforest_50")
             } else {
               %twc(" text-orange border-orange bg-orange_50")
             }}>
-            <Lang.String english="definition" french={`définition`} />
+            <Lang.String english={`definition`} french={`définition`} />
+            <Lang.String english={` `} french={` `} />
+            kindIO
           </div>
         }
 
