@@ -92,7 +92,7 @@ let seminars = [
     />,
   },
   {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=06.0, ~date=03.0, ())),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=09.0, ~date=09.0, ())),
     title: <Lang.String
       english="Explaining and justifying algorithmic decision systems: theory and practice"
       french={`Expliquer et justifier des systèmes de décisions algorithmiques : théorie et pratique`}
@@ -100,7 +100,8 @@ let seminars = [
     presenter: "Clément Hénin",
     presenter_page_url: "https://planete.inrialpes.fr/people/chenin/",
     abstract: <Lang.String
-      english="In a context favorable to the rationalization of decisions \
+      english="[This seminar originally planned on July 3rd has been postponed] \
+      In a context favorable to the rationalization of decisions \
       through measurable objectives and quantitative methods, the recent \
       development of digital technologies has accelerated the adoption of \
       decision-making systems based on algorithmic processing. Research in \
@@ -118,7 +119,8 @@ let seminars = [
       are put into practice in the context of the heart score, an algorithmic \
       decision-making system used by the Biomedicine agency since 2018 to \
       allocate heart transplants throughout France."
-      french={`Dans un contexte favorable à la rationalisation des décisions \
+      french={`[Ce séminaire originellement prévu le 3 juillet a été décalé] \
+      Dans un contexte favorable à la rationalisation des décisions \
       par des objectifs mesurables et des méthodes quantitatives, le \
       développement récent des technologies numériques a accéléré l’adoption \
       des systèmes de décisions fondés sur un traitement algorithmique. Des \
@@ -148,8 +150,18 @@ let seminars = [
   },
 ]
 
-let upcoming = Belt.Array.keep(seminars, seminar => seminar.date >= Js.Date.make())
-let past = Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())
+let upcoming = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date >= Js.Date.make())),
+    (x, y) => compare(x.date, y.date),
+  ),
+)
+let past = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())),
+    (x, y) => compare(y.date, x.date),
+  ),
+)
 
 @react.component
 let make = () => {
