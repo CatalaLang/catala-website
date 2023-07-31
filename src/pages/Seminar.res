@@ -143,10 +143,42 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=08.0, ~date=04.0, ())),
-    title: <Lang.String english="Title to come" french={`Titre à venir`} />,
+    title: <Lang.String
+      english="Formalizing Inconsistent Statutes: The Case of Section 121"
+      french={`Formalisation de lois incohérentes : le cas de la section 121`}
+    />,
     presenter: "Sarah Lawsky",
     presenter_page_url: "https://sites.northwestern.edu/sarahlawsky/",
-    abstract: <Lang.String english="Abstract to come" french={`Résumé à venir`} />,
+    abstract: <Lang.String
+      english="This project demonstrates the power of formal \
+    methods in understanding the law, as well as the tools that the law already \
+    has to resolve internal issues. We argue that a section of the Internal \
+    Revenue Code, Section 121, is, as drafted, internally inconsistent. We \
+    formalize the section in Catala, highlighting the challenges in the \
+    process of formalization, and demonstrate, using the SMT solver, that as \
+    formalized, Section 121 returns two different results for certain sets of \
+    facts. Yet practically speaking, this inconsistency has not prevented the \
+    implementation of the law, as taxpayers can comply with the law by \
+    following forms provided by the Internal Revenue Service that tacitly \
+    resolve the inconsistency. Thus while inconsistent statutes can be \
+    avoided through formalization at the drafting stage, it is also true \
+    that inconsistent statutes do not “break” the law."
+      french={`Ce projet démontre la puissance des méthodes formelles dans \
+      la compréhension du droit, ainsi que les outils dont le droit dispose \
+      déjà pour résoudre les problèmes internes. Nous soutenons qu'une section \
+      de l'Internal Revenue Code, la section 121, est, telle qu'elle est rédigée, \
+      incohérente en elle-même. Nous formalisons la section dans Catala, \
+      en soulignant les défis posés par le processus de formalisation, et nous \
+      démontrons, à l'aide du solveur SMT, que la section 121, telle qu'elle \
+      est formalisée, donne deux résultats différents pour certains ensembles \
+      de faits. Pourtant, dans la pratique, cette incohérence n'a pas empêché \
+      la mise en œuvre de la loi, puisque les contribuables peuvent s'y \
+      conformer en suivant les formulaires fournis par l'Internal Revenue \
+      Service qui résolvent tacitement l'incohérence. Ainsi, si les lois \
+      incohérentes peuvent être évitées grâce à une formalisation au stade \
+      de la rédaction, il est également vrai que les lois incohérentes ne \
+      "cassent" pas la loi.`}
+    />,
   },
 ]
 
