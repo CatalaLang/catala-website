@@ -92,7 +92,7 @@ let seminars = [
     />,
   },
   {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=09.0, ~date=09.0, ())),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=09.0, ~date=16.0, ())),
     title: <Lang.String
       english="Explaining and justifying algorithmic decision systems: theory and practice"
       french={`Expliquer et justifier des systèmes de décisions algorithmiques : théorie et pratique`}
