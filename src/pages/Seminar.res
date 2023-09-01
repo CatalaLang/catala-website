@@ -183,7 +183,7 @@ let seminars = [
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=11.0, ~date=04.0, ())),
     title: <Lang.String
-      english="\"Predictive justice\" and lawyers, a study of a contrasting experiment "
+      english="\"Predictive justice\" and lawyers, a study of a contrasting experiment"
       french={`La « justice prédictive » au service des avocats : étude d’une expérimentation contrastée`}
     />,
     presenter: "Héloïse Éloi-Hammer",
@@ -239,6 +239,23 @@ let seminars = [
     elle interroge le rapport des avocats à ces solutions informatiques, ainsi \
     que la manière dont ces dernières s’insèrent dans leurs pratiques.`}
     />,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=06.0, ())),
+    title: <Lang.String
+      english="Title and date (in November) to be determined"
+      french={`Titre et date (en novembre) à venir`}
+    />,
+    presenter: "Lucie Cluzel-Metayer",
+    presenter_page_url: "https://univ-droit.fr/universitaires/6504-cluzel-metayer-lucie",
+    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=02.0, ~date=04.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    presenter: "Thomas Forté",
+    presenter_page_url: "https://www.centreemiledurkheim.fr/notre-equipe/thomas-forte/",
+    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
   },
 ]
 
