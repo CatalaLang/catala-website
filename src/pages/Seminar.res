@@ -180,6 +180,66 @@ let seminars = [
       "cassent" pas la loi.`}
     />,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=11.0, ~date=04.0, ())),
+    title: <Lang.String
+      english="\"Predictive justice\" and lawyers, a study of a contrasting experiment "
+      french={`La « justice prédictive » au service des avocats : étude d’une expérimentation contrastée`}
+    />,
+    presenter: "Héloïse Éloi-Hammer",
+    presenter_page_url: "https://medialab.sciencespo.fr/equipe/heloise-eloi-hammer/",
+    abstract: <Lang.String
+      english="The use of algorithms and Artificial Intelligence in the legal \
+    field is very controversial, and was the object of many discussions and \
+    debates amongst law professionals. In this respect, the expression \
+    “predictive justice” was formulated, in order to refer to some digital \
+    tools allowing judges, lawyers and legal experts to estimate the \
+    probable outcome of a case depending on its characteristics (nature of the \
+    facts, legal arguments, social backgrounds of the interested parties). The \
+    use of those tools are relatively shallow in France, compared to what can \
+    be observed in other countries, however it is in rapid growth, as we can \
+    see with the multiplication of legaltechs (start-ups that specialize in \
+    the field of law) or with the DataJust experiment (DataJust was a public \
+    project, aiming at developing an algorithm that could help judges to make \
+    decisions in cases of physical injuries; it failed due to many problems). \
+    The judges’ reactions to the development of “predictive justice” softwares \
+    have been documented, yet the use of these same softwares by lawyers and \
+    legal experts has not been studied a lot for now, even though they are the \
+    main users of these technologies. This communication aims at rectifying \
+    the situation, by presenting the analysis of an experiment that was \
+    conducted in a law school, which led future lawyers to use a “predictive \
+    justice” tool. Based on qualitative methods (mainly observations and \
+    interviews), the presentation focuses on the relation between lawyers \
+    and “predictive justice” tools, and on how they insert the tools in \
+    their practices."
+      french={`L’application d’algorithmes et d’Intelligence Artificielle au \
+    domaine de la justice est très discutée, et au cœur de nombreux débats. \
+    Dans ce contexte, le terme de « justice prédictive » a fait son \
+    apparition, pour désigner certains outils numériques permettant aux \
+    professionnels du droit d’estimer les résultats probables d’une affaire \
+    en fonction de ses caractéristiques (nature des faits, profil social des \
+    parties, juridiction, etc). Ces outils sont relativement peu utilisés en \
+    France par rapport à ce que l’on peut observer dans d’autres pays, mais \
+    ils sont en plein essor, comme en témoignent par exemple la \
+    multiplication des legaltechs (start-ups spécialisées dans le domaine \
+    du droit) et le projet DataJust (projet public de conception d’un outil \
+    d’aide à la décision pour les juges en matière de préjudices corporels, \
+    dont l’élaboration a été interrompue suite à de nombreuses difficultés). \
+    Si les réactions (majoritairement négatives) des magistrats à ces \
+    technologies ont déjà fait l’objet de quelques articles fournis, leur \
+    utilisation par les avocats et juristes reste peu documentée, alors même \
+    qu’ils en sont les principaux usagers. Cette présentation ambitionne de \
+    combler ce manque, en analysant une expérimentation menée dans une école \
+    d’avocats, au cours de laquelle une solution de « justice prédictive » a \
+    été présentée aux élèves et a fait l’objet d’un « challenge » obligatoire \
+    pour tous. En se basant sur une étude qualitative par observations et \
+    entretiens de cette expérimentation (depuis son organisation par le \
+    personnel de l’école et la start-up ayant développé l’outil jusqu’au \
+    challenge en lui-même et aux retours des élèves-avocats sur ce dernier), \
+    elle interroge le rapport des avocats à ces solutions informatiques, ainsi \
+    que la manière dont ces dernières s’insèrent dans leurs pratiques.`}
+    />,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
