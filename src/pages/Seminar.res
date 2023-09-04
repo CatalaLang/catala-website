@@ -241,11 +241,8 @@ let seminars = [
     />,
   },
   {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=06.0, ())),
-    title: <Lang.String
-      english="Title and date (in November) to be determined"
-      french={`Titre et date (en novembre) à venir`}
-    />,
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=13.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
     presenter: "Lucie Cluzel-Metayer",
     presenter_page_url: "https://univ-droit.fr/universitaires/6504-cluzel-metayer-lucie",
     abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
