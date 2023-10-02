@@ -118,7 +118,7 @@ let syntax_cheat_sheet_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   action: Some((
-    External("https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf"),
+    External("https://catalalang.github.io/catala/syntax.pdf"),
     <Lang.String english="Download the sheet" french=`Télécharger l'aide-mémoire` />,
   )),
   content: <Lang.String

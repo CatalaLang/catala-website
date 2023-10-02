@@ -40,7 +40,7 @@ let make = () => <>
     </p>
     <div className=%twc("flex flex-row justify-end")>
       <Link.Button.Small
-        target="https://github.com/CatalaLang/catala/raw/master/doc/syntax/syntax.pdf">
+        target="https://catalalang.github.io/catala/syntax.pdf">
         <Lang.String
           english="Access the syntax cheat sheet" french=`Accéder au pense-bête syntaxique`
         />
