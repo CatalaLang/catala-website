@@ -10,6 +10,7 @@ let make = () => <>
       FrenchFamilyBenefitsExample.card,
       FrenchHousingBenefitsExample.card,
       USTaxCodeExample.card,
+      IRcatala.card,
     ]
   />
 </>
