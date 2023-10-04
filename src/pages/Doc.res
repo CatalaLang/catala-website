@@ -4,23 +4,39 @@ open PageComponents
 
 module type ManPage = {
   let title: React.element
-  let html: string
+  let url: string
 }
+
+// I'd be happy to learn how to write this in plain rescript, please point to
+// the documentation
+%%raw(`
+  function fetch_and_set(url, id) {
+    fetch(url)
+    .then(response => response.text())
+    .then(txt => document.getElementById(id).innerHTML = txt)
+  }
+`)
+external fetch_and_set: (~url: string, ~id: string) => unit = "fetch_and_set"
 
 module MakeManPageDoc = (Man: ManPage) => {
   @react.component
-  let make = () => <>
+  let make = () => {
+    let div =
+      <div id="manpage-body" className="font-mono man-page">{
+        fetch_and_set (~url=Man.url, ~id="manpage-body")
+        React.string("Loading...")}
+      </div>
+    <>
     <Title> Man.title </Title>
-    <Card.Basic>
-      <div className="font-mono man-page" dangerouslySetInnerHTML={"__html": Man.html} />
-    </Card.Basic>
-  </>
+    <Card.Basic> div </Card.Basic>
+    </>
+  }
 }
 
 module CatalaManPage = MakeManPageDoc({
   let title =
     <Lang.String english="Catala compiler man page" french={`Page man du compilateur Catala`} />
-  let html: string = %raw(`require("../../assets/catala.html")`)
+  let url: string = "https://catalalang.github.io/catala/catala.html"
 })
 
 module ClerkManPage = MakeManPageDoc({
@@ -28,7 +44,7 @@ module ClerkManPage = MakeManPageDoc({
     <Lang.String
       english="Clerk build system man page" french={`Page man du système de build Clerk`}
     />
-  let html: string = %raw(`require("../../assets/clerk.html")`)
+  let url: string = "https://catalalang.github.io/catala/clerk.html"
 })
 
 module CatalaLegifranceManPage = MakeManPageDoc({
@@ -37,7 +53,7 @@ module CatalaLegifranceManPage = MakeManPageDoc({
       english={`LégiFrance to Catala connector man page`}
       french={`Page man du connecteur entre LégiFrance et Catala`}
     />
-  let html: string = %raw(`require("../../assets/catala_legifrance.html")`)
+  let url: string = "https://catleg.readthedocs.io/en/latest/"
 })
 
 let catala_card: Card.Presentation.t = {
@@ -78,8 +94,8 @@ let catala_legifrance_card: Card.Presentation.t = {
     english={`The Catala/Légifrance connector`} french={`Le connecteur Catala/Légifrance`}
   />,
   action: Some((
-    Internal([Nav.home, Nav.doc, Nav.catalaLegifranceManPage]),
-    <Lang.String english="See manpage" french={`Voir la page man`} />,
+    External("https://github.com/CatalaLang/catleg"),
+    <Lang.String english="Project page" french={`Page du projet`} />,
   )),
   icon: None,
   quote: None,
@@ -100,7 +116,7 @@ let ocaml_docs_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   action: Some((
-    External("/ocaml_docs/"),
+    External("https://catalalang.github.io/catala/api-doc/"),
     <Lang.String english="See documentation" french={`Voir la documentation`} />,
   )),
   content: <>
