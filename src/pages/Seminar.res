@@ -249,10 +249,67 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=02.0, ~date=04.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    title: <Lang.String
+      english="Dematerialization of public procurement: transparency, competition and copying and pasting"
+      french={`Dématérialisation des marchés publics : transparence, concurrence et copier-coller`}
+    />,
     presenter: "Thomas Forté",
     presenter_page_url: "https://www.centreemiledurkheim.fr/notre-equipe/thomas-forte/",
-    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+    abstract: <Lang.String
+      english="Far from being limited to calls for tender,
+    public procurement encompasses a number of procedures under a single legal
+    category. They enable economic players to compete to meet the needs of a
+    public organization (works, supplies, services). Despite their place in our
+    daily lives (roads, buildings...), social science research shows little or
+    no interest in them. It's a subject reserved for the economic and legal
+    sciences, most of which use it to propose solutions for better writing
+    public procurement contracts. However, this research reduces the
+    activity of writing and producing a contract to logical choices:
+    modifying clauses, integrating criteria or choosing procedures.
+    My ethnographic investigation of a departmental council shows that the process
+    of producing a public contract is far from logical. If this were the case,
+    why has this local authority reorganized four times and undergone three
+    audits in the last ten years, only to \"improve\" the writing process? This
+    presentation takes the example of the process of modernization through the
+    dematerialization of writing practices for these contracts, mandatory since
+    2018. I am particularly interested in the effects of this injunction to
+    modernize on the ordinary work of writing on two levels. The first concerns
+    relations between the local authority and economic players. The second
+    concerns the re-actualization of practical tensions between the
+    standardization of writing work and the expertise required to understand
+    cases and needs. In so doing, the aim is to address a more cross-cutting
+    and methodological question concerning my ability to understand the
+    technical legal operations of the people involved."
+      french={`Loin de se limiter aux appels d'offre, les marchés publics
+    regroupent sous une même catégorie juridique plusieurs procédures qui
+    permettent de mettre en concurrence des acteurs économiques afin de
+    répondre aux besoins d'une organisation publique (des travaux, des
+    fournitures, des services). Malgré leur place dans notre quotidien
+    (routes, bâtiments...), les recherches en sciences sociales lui portent
+    très peu d’intérêt, voire aucun. C’est un objet réservé aux sciences
+    économiques et juridiques qui, pour la majorité d’entre elles, s’en
+    saisissent pour proposer des solutions afin de mieux écrire un marché
+    public. Or, ces recherches réduisent la rédaction d'un marché à des choix
+    logiques: des modifications de clauses, l’intégration de critère ou de
+    choix de procédures.
+    L’enquête ethnographique que j’ai menée au sein d’un conseil départemental
+    montre que le processus de production d’un marché public est loin d’être aussi
+    logique. Si c’était le cas, pourquoi cette collectivité s’est réorganisée
+    quatre fois et a fait l’objet de trois audits ces dix dernières années,
+    et ce, uniquement pour "améliorer" l’écriture de ses marchés ? Cette
+    présentation prend l'exemple du processus de modernisation par la
+    dématérialisation des pratiques d'écritures de ces contrats, obligatoire
+    depuis 2018.
+    Je m'intéresse particulièrement aux effets de cette injonction à la
+    modernisation sur le travail ordinaire d'écriture selon deux niveaux.
+    Le premier porte sur les relations entre la collectivité et les acteurs
+    économiques. Le second sur la réactualisation des tensions pratiques entre
+    la standardisation du travail d'écriture avec l'expertise nécessaire à la
+    compréhension des cas, des besoins. Ce faisant, le propos s'articule autour
+    d'une question davantage transversale et méthodologique sur ma capacité à
+    comprendre la place de ces opérations techniques du droit pour les personnes
+    impliquées.`}
+    />,
   },
 ]
 
