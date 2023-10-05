@@ -258,7 +258,13 @@ let seminars = [
 
 let upcoming = Belt.List.toArray(
   Belt.List.sort(
-    Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date >= Js.Date.make())),
+    Belt.List.fromArray(
+      Belt.Array.keep(seminars, seminar =>
+        seminar.date >= Js.Date.make() ||
+          (seminar.date < Js.Date.make() &&
+            Js.Date.getDay(seminar.date) == Js.Date.getDay(Js.Date.make()))
+      ),
+    ),
     (x, y) => compare(x.date, y.date),
   ),
 )
