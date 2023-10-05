@@ -240,13 +240,13 @@ let seminars = [
     que la manière dont ces dernières s’insèrent dans leurs pratiques.`}
     />,
   },
-  {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=13.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
-    presenter: "Lucie Cluzel-Metayer",
-    presenter_page_url: "https://univ-droit.fr/universitaires/6504-cluzel-metayer-lucie",
-    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
-  },
+  // {
+  //   date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=13.0, ())),
+  //   title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+  //   presenter: "Lucie Cluzel-Metayer",
+  //   presenter_page_url: "https://univ-droit.fr/universitaires/6504-cluzel-metayer-lucie",
+  //   abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+  // },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=02.0, ~date=04.0, ())),
     title: <Lang.String
