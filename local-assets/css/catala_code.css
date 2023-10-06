@@ -16,6 +16,13 @@ html .catala-code {
   background-color: var(--bg-color);
 }
 
+.catala-code a:target ~ span {
+  background-color: var(--selected-bg-color);
+}
+.catala-code a:target ~ a ~ span {
+  background-color: var(--code-bg-color);
+}
+
 .catala-code .link-article {
   padding-left: 8px;
   font-style: italic;

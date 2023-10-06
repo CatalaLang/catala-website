@@ -15,6 +15,8 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       <Publications />
     } else if first == Nav.home && second == Nav.examples {
       <Examples />
+    } else if first == Nav.home && second == Nav.ir_catala {
+      <IRcatala />
     } else {
       <Presentation />
     }

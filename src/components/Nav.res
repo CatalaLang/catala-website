@@ -98,6 +98,11 @@ let visualization: navElem = {
   text: <Lang.String english="Visualization" french={`Visualisation`} />,
 }
 
+let ir_catala: navElem = {
+  url: "ir-catala",
+  text: <Lang.String english="IR Catala" french={`IR Catala`} />,
+}
+
 let cmp = (a: navElem, b: navElem) => {
   String.localeCompare(a.url, b.url)->Float.toInt
 }
@@ -124,7 +129,7 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
     let getFirstNavElems: string => option<array<navElem>> = {
       getNavElemsFrom(
         ~withDefaultElems=true,
-        [home, formalization, publications, examples, about, seminar, doc, visualization],
+        [home, formalization, publications, examples, about, seminar, doc, visualization, ir_catala],
       )
     }
     let getSecondNavElems: string => option<array<navElem>> = {
@@ -139,6 +144,7 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
         catalaLegifranceManPage,
         ocamlDocs,
         syntaxCheatSheet,
+        ir_catala,
       ])
     }
     let getThirdNavElems: string => option<array<navElem>> = {
