@@ -89,20 +89,23 @@ let ai_law_2022 = {
   authors: [lianeHuttner, denisMerigoux],
   date: `2022`,
   link: "https://hal.inria.fr/hal-02936606",
-  citation: "Liane Huttner, Denis Merigoux. Catala: Moving Towards the Future of Legal Expert Systems. 2022.",
+  citation: "Liane Huttner, Denis Merigoux. Catala: Moving Towards the Future of Legal Expert Systems. Artificial Intelligence and Law, 2022, ⟨10.1007/s10506-022-09328-5⟩. ⟨hal-02936606v3⟩.",
   abstract: Some(`Around the world, private and public organizations use software called legal expert systems to compute taxes. This software must comply with the laws they are designed to implement. As such, a bug or an error in a program that leads to tax miscalculations can have heavy legal and democratic consequences. However, increasing evidence suggests that some legal expert systems may not comply with the law. Moreover, traditional software development processes mean that legal expert systems are difficult to adapt to the continuous flow of new legislation. To prevent further software decay and to reconcile these systems with the growing demand for algorithmic transparency, we argue that there is a need for a new development process for legal expert systems. This new system must be built to comply with the law, in particular the GDPR. It must also respect democratic transparency. For these reasons, we present a solution built by lawyers and computer scientists: Catala, a new programming language coupled with a pair programming development process.`),
-  bibtex: "@unpublished{huttner:hal-02936606,
+  bibtex: "@article{huttner:hal-02936606,
   TITLE = {{Catala: Moving Towards the Future of Legal Expert Systems}},
   AUTHOR = {Huttner, Liane and Merigoux, Denis},
-  URL = {https://hal.inria.fr/hal-02936606},
-  NOTE = {working paper or preprint},
+  URL = {https://inria.hal.science/hal-02936606},
+  JOURNAL = {{Artificial Intelligence and Law}},
+  PUBLISHER = {{Springer Verlag}},
   YEAR = {2022},
-  MONTH = Jan,
+  MONTH = Aug,
+  DOI = {10.1007/s10506-022-09328-5},
   KEYWORDS = {Social benefits ; Tax law ; Algorithmic transparency ; Literate programming ; Formal methods ; Legal expert systems},
-  PDF = {https://hal.inria.fr/hal-02936606v2/file/paper.pdf},
+  PDF = {https://inria.hal.science/hal-02936606v3/file/paper.pdf},
   HAL_ID = {hal-02936606},
-  HAL_VERSION = {v2},
-}",
+  HAL_VERSION = {v3},
+}
+",
 }
 
 let prolala_2022 = {
@@ -151,21 +154,24 @@ let crcl_2021 = {
 let crcl_2022 = {
   title: `Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits`,
   authors: [denisMerigoux, marieAlauzen, lilyaSlimani],
-  date: `2022`,
+  date: `2023`,
   link: "https://hal.inria.fr/hal-03712130",
-  citation: `Denis Merigoux, Marie Alauzen, Lilya Slimani. Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits. 2022.`,
+  citation: `Denis Merigoux, Marie Alauzen, Lilya Slimani. Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits. 2023.`,
   abstract: None,
-  bibtex: "@unpublished{merigoux:hal-03712130,
-  TITLE = {{Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits}},
-  AUTHOR = {Merigoux, Denis and Alauzen, Marie and Slimani, Lilya},
-  URL = {https://hal.inria.fr/hal-03712130},
-  NOTE = {working paper or preprint},
-  YEAR = {2022},
-  MONTH = Jul,
-  KEYWORDS = {legal expert systems ; welfare state ; critical code studies ; regulatory law},
-  PDF = {https://hal.inria.fr/hal-03712130/file/main.pdf},
-  HAL_ID = {hal-03712130},
-  HAL_VERSION = {v1},
+  bibtex: "@article{merigoux:hal-03712130,
+  title       = {{Rules, Computation and Politics: Scrutinizing Unnoticed Programming Choices in French Housing Benefits}},
+  author      = {Merigoux, Denis and Alauzen, Marie and Slimani, Lilya},
+  url         = {https://hal.inria.fr/hal-03712130},
+  intype      = {to appear in},
+  year        = {2023},
+  volume      = {1},
+  number      = {3},
+  note        = {(forthcoming)},
+  journal     = {Journal of Cross-disciplinary Research in Computational Law},
+  keywords    = {Legal expert systems ; Welfare state ; Critical code studies ; Regulatory law},
+  pdf         = {https://hal.inria.fr/hal-03712130/file/main.pdf},
+  hal_id      = {hal-03712130},
+  hal_version = {v1}
 }",
 }
 
@@ -211,6 +217,30 @@ let smu_2022 = {
   number  = {535},
   volume  = {75},
   url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177}}",
+}
+
+let observations_2022 = {
+  title: `Observations sur le calcul des aides au logement`,
+  authors: [denisMerigoux],
+  date: `2022`,
+  link: "https://inria.hal.science/hal-03781578",
+  citation: `Denis Merigoux. Observations sur le calcul des aides au logement. [Rapport de recherche] RR-9485, Inria Paris. 2022, pp.27. ⟨hal-03781578⟩`,
+  abstract: Some(`À l'aide du langage de programmation dédié Catala, nous avons implémenté le calcul de l'éligibilité et du montant des aides au logement en France à partir de l'ensemble de textes législatifs et réglementaires s'y rapportant. Cette démarche correspond à la rétro-ingénierie d'une partie du système informatique CRISTAL, utilisé par l'opérateur des aides au logement et de multiples autre prestations sociales, la CNAF (Caisse Nationale des Allocations Familiales). Ce rapport présente quelques observations dont le but est d'améliorer la qualité des textes réglementaires gérés conjointement et entre autres par la direction de l'habitat, de l'urbanisme et du paysage (DHUP), la direction de la sécurité sociale (DSS) et la direction du budget (DB).`),
+  bibtex: "@techreport{merigoux:hal-03781578,
+  TITLE = {{Observations sur le calcul des aides au logement}},
+  AUTHOR = {Merigoux, Denis},
+  URL = {https://inria.hal.science/hal-03781578},
+  TYPE = {Research Report},
+  NUMBER = {RR-9485},
+  PAGES = {27},
+  INSTITUTION = {{Inria Paris}},
+  YEAR = {2022},
+  MONTH = Sep,
+  KEYWORDS = {Law ; Housing benefits ; Formal methods ; Droit ; Aides au logement ; M{\'e}thodes formelles},
+  PDF = {https://inria.hal.science/hal-03781578/file/RR-9485.pdf},
+  HAL_ID = {hal-03781578},
+  HAL_VERSION = {v1},
+}",
 }
 
 let save_to_clipboard: string => unit = %raw(`
@@ -291,14 +321,16 @@ module PubItems = {
 
 @react.component
 let make = () => <>
-  <Title> <Lang.String english="Publications" french={`Publications`} /> </Title>
+  <Title>
+    <Lang.String english="Publications" french={`Publications`} />
+  </Title>
   <div className=%twc("pb-10")>
     <Section
       title={<Lang.String
         english="Peer-reviewed conferences and journals"
         french={`Conférences et journaux à comité de lecture`}
       />}>
-      <PubItems items={[icfp2021, cc2021, jfla2020]} />
+      <PubItems items={[crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
     </Section>
     <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
       <PubItems items={[prolala_2022]} />
@@ -306,8 +338,11 @@ let make = () => <>
     <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
       <PubItems items={[smu_2022, iafipu2020]} />
     </Section>
-    <Section title={<Lang.String english="Preprints" french={`Pré-prints`} />}>
-      <PubItems items={[crcl_2022, ai_law_2022, crcl_2021]} />
+    <Section
+      title={<Lang.String
+        english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
+      />}>
+      <PubItems items={[observations_2022, crcl_2021]} />
     </Section>
   </div>
 </>
