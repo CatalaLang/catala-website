@@ -22,8 +22,8 @@ let marieAlauzen = {
   name: "Marie Alauzen",
   website: Some("https://cv.archives-ouvertes.fr/marie-alauzen"),
   affiliation: {
-    name: "Laboratoire Interdisciplinaire Sciences Innovations Sociétés (LISIS)",
-    url: "http://umr-lisis.fr/",
+    name: "CNRS, LAMSADE",
+    url: "https://www.lamsade.dauphine.fr/fr.html",
   },
 }
 
@@ -92,10 +92,10 @@ let jonathanProtzenko = {
 
 let lianeHuttner = {
   name: "Liane Huttner",
-  website: Some("https://www.eui.eu/people?id=liane-huttner"),
+  website: Some("https://univ-droit.fr/universitaires/48558-liane-huttner"),
   affiliation: {
-    name: `European Union Institute`,
-    url: "https://www.eui.eu",
+    name: `Université Paris-Saclay`,
+    url: "https://www.jm.universite-paris-saclay.fr/",
   },
 }
 
@@ -121,8 +121,8 @@ let emileRolley = {
   name: `Émile Rolley`,
   website: Some("https://www.linkedin.com/in/emile-rolley-703b82206/"),
   affiliation: {
-    name: "Inria - Prosecco",
-    url: "https://team.inria.fr/prosecco/",
+    name: "Malt",
+    url: "https://www.malt.fr/profile/emilerolley",
   },
 }
 
@@ -130,7 +130,16 @@ let justineBanuls = {
   name: `Justine Banuls`,
   website: Some("https://www.linkedin.com/in/justine-banuls-getintouch/"),
   affiliation: {
-    name: "Inria - Prosecco",
-    url: "https://team.inria.fr/prosecco/",
+    name: "EFB",
+    url: "http://www.efb.fr/EC_presentation.html",
+  },
+}
+
+let carolineFlori = {
+  name: `Caroline Flori`,
+  website: Some("https://www.linkedin.com/in/caroline-flori-2459b919b"),
+  affiliation: {
+    name: "DGFiP",
+    url: "https://www.economie.gouv.fr/dgfip",
   },
 }

@@ -107,6 +107,7 @@ let make = () => <>
     <ul className=%twc("list-disc list-inside")>
       <Person person=marieAlauzen />
       <Person person=alainDelaet />
+      <Person person=carolineFlori />
       <Person person=aymericFromherz />
       <Person person=louisGesbert />
       <Person person=lianeHuttner />
@@ -119,6 +120,7 @@ let make = () => <>
   </Section>
   <Section title={<Lang.String english="Alumni" french={`Alumni`} />}>
     <ul className=%twc("list-disc list-inside")>
+      <Person person=justineBanuls />
       <Person person=nicolasChataing />
       <Person person=lilyaSlimani />
     </ul>
