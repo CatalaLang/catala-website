@@ -182,10 +182,27 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=13.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    title: <Lang.String
+      english="From law to code: conditions of automatic enforcement of public decisions"
+      french={`De la loi au code : conditions de mise en œuvre automatisée des décisions publiques`}
+    />,
     presenter: "Aïda Ibrahim",
     presenter_page_url: "https://www.linkedin.com/in/aidatechlaw/",
-    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+    abstract: <Lang.String
+      english="Automated public decision-making is the \
+    focus of this thesis: is a decision made by algorithmic systems equivalent \
+    to one made by a civil servant? How can the law be translated into computer \
+    code? By uniting technical and legal analysis, the relationship between \
+    Law and IT is analyzed to provide operational legal solutions for the \
+    implementation of algorithmic systems in public decision-making."
+      french={`La décision publique automatisée est le point de partie de cette \
+    thèse : une décision prise par des systèmes algorithmiques est équivalente \
+    à celle prise par un fonctionnaire? Comment traduire la loi en code \
+    informatique? En unissant une analyse technique et juridique, la relation \
+    entre le Droit et l’informatique est analysée pour fournir des solutions \
+    légales opérationnelles pour l'implémentation de systèmes algorithmiques \
+    dans la décision publique.`}
+    />,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=11.0, ~date=04.0, ())),
