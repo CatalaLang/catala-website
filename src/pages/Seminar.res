@@ -343,7 +343,9 @@ let upcoming = Belt.List.toArray(
       Belt.Array.keep(seminars, seminar =>
         seminar.date >= Js.Date.make() ||
           (seminar.date < Js.Date.make() &&
-            Js.Date.getDay(seminar.date) == Js.Date.getDay(Js.Date.make()))
+          Js.Date.getDate(seminar.date) == Js.Date.getDate(Js.Date.make()) &&
+          Js.Date.getMonth(seminar.date) == Js.Date.getMonth(Js.Date.make()) &&
+          Js.Date.getFullYear(seminar.date) == Js.Date.getFullYear(Js.Date.make()))
       ),
     ),
     (x, y) => compare(x.date, y.date),
