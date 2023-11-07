@@ -183,18 +183,24 @@ let seminars = [
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=13.0, ())),
     title: <Lang.String
-      english="From law to code: conditions of automatic enforcement of public decisions"
+      english="Automating public decision making: from law to code and everything in between"
       french={`De la loi au code : conditions de mise en œuvre automatisée des décisions publiques`}
     />,
     presenter: "Aïda Ibrahim",
     presenter_page_url: "https://www.linkedin.com/in/aidatechlaw/",
     abstract: <Lang.String
-      english="Automated public decision-making is the \
-    focus of this thesis: is a decision made by algorithmic systems equivalent \
-    to one made by a civil servant? How can the law be translated into computer \
-    code? By uniting technical and legal analysis, the relationship between \
-    Law and IT is analyzed to provide operational legal solutions for the \
-    implementation of algorithmic systems in public decision-making."
+      english="The use of algorithmic tools by the public powers to issue \
+      decisions is a well established reality. With new «legal algorithms» \
+      everyday, we can expect an increase in their use, complexity and \
+      potential problems. Amid the global automation trends, regulatory \
+      efforts and overall take over of AI in every aspect of life, public \
+      powers have to find an operational way to combine innovation with legal \
+      compliance. My thesis deals with characterising the public automated \
+      decision in a legal context. To do so, an interdisciplinary approach \
+      was chosen, where the law and the algorithmic system that implements \
+      it are treated as a whole. After a brief introduction to my research \
+      method and results, I will present some partial conclusions and \
+      operational ideas to kickstart the discussion."
       french={`La décision publique automatisée est le point de partie de cette \
     thèse : une décision prise par des systèmes algorithmiques est équivalente \
     à celle prise par un fonctionnaire? Comment traduire la loi en code \
