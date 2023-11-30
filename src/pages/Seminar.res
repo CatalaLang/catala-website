@@ -21,10 +21,18 @@ module Seminar = {
   let make = (~seminar: seminar) =>
     <li className=%twc("pl-6 pb-4")>
       <span className=%twc("italic")>
-        {Js.Date.toISOString(seminar.date)->String.split("T")->Array.getUnsafe(0) ++ ":"
-          |> React.string}
+        {Js.Date.toISOString(seminar.date)->String.split("T")->Array.getUnsafe(0) |> React.string}
       </span>
-      <span className=%twc("pl-2")>
+      <span> {" — " |> React.string} </span>
+      <span className=%twc("font-bold")>
+        {switch seminar.kind {
+        | Sociology => <Lang.String french={`Sociologie`} english="Sociology" />
+        | Law => <Lang.String french={`Droit`} english="Law" />
+        | ComputerScience => <Lang.String french={`Informatique`} english="Computer Science" />
+        }}
+      </span>
+      <span> {" — " |> React.string} </span>
+      <span>
         <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
       </span>
       <span> {" — " |> React.string} </span>
@@ -357,32 +365,26 @@ let seminars = [
   },
 ]
 
-let upcoming = Belt.List.sort(
-  Belt.List.fromArray(
-    Belt.Array.keep(seminars, seminar =>
-      seminar.date >= Js.Date.make() ||
-        (seminar.date < Js.Date.make() &&
-        Js.Date.getDate(seminar.date) == Js.Date.getDate(Js.Date.make()) &&
-        Js.Date.getMonth(seminar.date) == Js.Date.getMonth(Js.Date.make()) &&
-        Js.Date.getFullYear(seminar.date) == Js.Date.getFullYear(Js.Date.make()))
+let upcoming = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(
+      Belt.Array.keep(seminars, seminar =>
+        seminar.date >= Js.Date.make() ||
+          (seminar.date < Js.Date.make() &&
+          Js.Date.getDate(seminar.date) == Js.Date.getDate(Js.Date.make()) &&
+          Js.Date.getMonth(seminar.date) == Js.Date.getMonth(Js.Date.make()) &&
+          Js.Date.getFullYear(seminar.date) == Js.Date.getFullYear(Js.Date.make()))
+      ),
     ),
+    (x, y) => compare(x.date, y.date),
   ),
-  (x, y) => compare(x.date, y.date),
 )
-let upcoming_law = Belt.List.toArray(Belt.List.keep(upcoming, seminar => seminar.kind == Law))
-let upcoming_sociology = Belt.List.toArray(
-  Belt.List.keep(upcoming, seminar => seminar.kind == Sociology),
+let past = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())),
+    (x, y) => compare(y.date, x.date),
+  ),
 )
-let upcoming_cs = Belt.List.toArray(
-  Belt.List.keep(upcoming, seminar => seminar.kind == ComputerScience),
-)
-let past = Belt.List.sort(
-  Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())),
-  (x, y) => compare(y.date, x.date),
-)
-let past_law = Belt.List.toArray(Belt.List.keep(past, seminar => seminar.kind == Law))
-let past_sociology = Belt.List.toArray(Belt.List.keep(past, seminar => seminar.kind == Sociology))
-let past_cs = Belt.List.toArray(Belt.List.keep(past, seminar => seminar.kind == ComputerScience))
 
 @react.component
 let make = () => {
@@ -405,62 +407,22 @@ let make = () => {
       </Link.Button>
     </div>
     <Section title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
-      <SubSection title={<Lang.String english="Law" french={`Droit`} />}>
-        <ul className=%twc("list-disc list-inside")>
-          {upcoming_law
-          ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
-          )
-          ->React.array}
-        </ul>
-      </SubSection>
-      <SubSection title={<Lang.String english="Sociology" french={`Sociologie`} />}>
-        <ul className=%twc("list-disc list-inside")>
-          {upcoming_sociology
-          ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
-          )
-          ->React.array}
-        </ul>
-      </SubSection>
-      <SubSection title={<Lang.String english="Computer Science" french={`Informatique`} />}>
-        <ul className=%twc("list-disc list-inside")>
-          {upcoming_cs
-          ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
-          )
-          ->React.array}
-        </ul>
-      </SubSection>
+      <ul className=%twc("list-disc list-inside")>
+        {upcoming
+        ->Belt.Array.mapWithIndex((i, item) =>
+          <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
+        )
+        ->React.array}
+      </ul>
     </Section>
     <Section title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
-      <SubSection title={<Lang.String english="Law" french={`Droit`} />}>
-        <ul className=%twc("list-disc list-inside")>
-          {past_law
-          ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
-          )
-          ->React.array}
-        </ul>
-      </SubSection>
-      <SubSection title={<Lang.String english="Sociology" french={`Sociologie`} />}>
-        <ul className=%twc("list-disc list-inside")>
-          {past_sociology
-          ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
-          )
-          ->React.array}
-        </ul>
-      </SubSection>
-      <SubSection title={<Lang.String english="Computer Science" french={`Informatique`} />}>
-        <ul className=%twc("list-disc list-inside")>
-          {past_cs
-          ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
-          )
-          ->React.array}
-        </ul>
-      </SubSection>
+      <ul className=%twc("list-disc list-inside")>
+        {past
+        ->Belt.Array.mapWithIndex((i, item) =>
+          <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
+        )
+        ->React.array}
+      </ul>
     </Section>
     <Section title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
       <ul className=%twc("list-disc list-inside")>
