@@ -18,3 +18,13 @@ module Section = {
     children
   </>
 }
+
+module SubSection = {
+  @react.component
+  let make = (~title: React.element, ~children) => <>
+    <h3 className=%twc("text-2xl my-4 font-sans")>
+      <span className=%twc("text-background font-sans font-semibold")> title </span>
+    </h3>
+    children
+  </>
+}

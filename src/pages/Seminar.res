@@ -2,12 +2,18 @@ open PageComponents
 open People
 open About
 
+type seminar_kind =
+  | ComputerScience
+  | Sociology
+  | Law
+
 type seminar = {
   date: Js.Date.t,
   title: React.element,
   abstract: React.element,
   presenter: string,
   presenter_page_url: string,
+  kind: seminar_kind,
 }
 
 module Seminar = {
@@ -47,6 +53,7 @@ let seminars = [
     de plus en plus complexes, pose de nombreux défis. Dans ce séminaire, certains d'entre eux \
     viennent raconter leur expérience accumulée depuis plusieurs décennies.`}
     />,
+    kind: ComputerScience,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=05.0, ~date=05.0, ())),
@@ -90,6 +97,7 @@ let seminars = [
       empiriques issus de travaux antérieurs sur l’administration sanitaire en \
       France.`}
     />,
+    kind: Sociology,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=09.0, ~date=16.0, ())),
@@ -140,6 +148,7 @@ let seminars = [
       l'agence de Biomédecine depuis 2018 pour attribuer les greffons cardiaques \
       sur l'ensemble du territoire.`}
     />,
+    kind: ComputerScience,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=08.0, ~date=04.0, ())),
@@ -179,6 +188,7 @@ let seminars = [
       de la rédaction, il est également vrai que les lois incohérentes ne \
       "cassent" pas la loi.`}
     />,
+    kind: Law,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=10.0, ~date=13.0, ())),
@@ -209,6 +219,7 @@ let seminars = [
     légales opérationnelles pour l'implémentation de systèmes algorithmiques \
     dans la décision publique.`}
     />,
+    kind: Law,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=11.0, ~date=04.0, ())),
@@ -269,6 +280,7 @@ let seminars = [
     elle interroge le rapport des avocats à ces solutions informatiques, ainsi \
     que la manière dont ces dernières s’insèrent dans leurs pratiques.`}
     />,
+    kind: Sociology,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=0.0, ~date=8.0, ())),
@@ -276,6 +288,7 @@ let seminars = [
     presenter: "Georges-André Silber",
     presenter_page_url: "https://www.cri.ensmp.fr/~silber/",
     abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+    kind: ComputerScience,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=02.0, ~date=04.0, ())),
@@ -340,29 +353,36 @@ let seminars = [
     comprendre la place de ces opérations techniques du droit pour les personnes
     impliquées.`}
     />,
+    kind: Sociology,
   },
 ]
 
-let upcoming = Belt.List.toArray(
-  Belt.List.sort(
-    Belt.List.fromArray(
-      Belt.Array.keep(seminars, seminar =>
-        seminar.date >= Js.Date.make() ||
-          (seminar.date < Js.Date.make() &&
-          Js.Date.getDate(seminar.date) == Js.Date.getDate(Js.Date.make()) &&
-          Js.Date.getMonth(seminar.date) == Js.Date.getMonth(Js.Date.make()) &&
-          Js.Date.getFullYear(seminar.date) == Js.Date.getFullYear(Js.Date.make()))
-      ),
+let upcoming = Belt.List.sort(
+  Belt.List.fromArray(
+    Belt.Array.keep(seminars, seminar =>
+      seminar.date >= Js.Date.make() ||
+        (seminar.date < Js.Date.make() &&
+        Js.Date.getDate(seminar.date) == Js.Date.getDate(Js.Date.make()) &&
+        Js.Date.getMonth(seminar.date) == Js.Date.getMonth(Js.Date.make()) &&
+        Js.Date.getFullYear(seminar.date) == Js.Date.getFullYear(Js.Date.make()))
     ),
-    (x, y) => compare(x.date, y.date),
   ),
+  (x, y) => compare(x.date, y.date),
 )
-let past = Belt.List.toArray(
-  Belt.List.sort(
-    Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())),
-    (x, y) => compare(y.date, x.date),
-  ),
+let upcoming_law = Belt.List.toArray(Belt.List.keep(upcoming, seminar => seminar.kind == Law))
+let upcoming_sociology = Belt.List.toArray(
+  Belt.List.keep(upcoming, seminar => seminar.kind == Sociology),
 )
+let upcoming_cs = Belt.List.toArray(
+  Belt.List.keep(upcoming, seminar => seminar.kind == ComputerScience),
+)
+let past = Belt.List.sort(
+  Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())),
+  (x, y) => compare(y.date, x.date),
+)
+let past_law = Belt.List.toArray(Belt.List.keep(past, seminar => seminar.kind == Law))
+let past_sociology = Belt.List.toArray(Belt.List.keep(past, seminar => seminar.kind == Sociology))
+let past_cs = Belt.List.toArray(Belt.List.keep(past, seminar => seminar.kind == ComputerScience))
 
 @react.component
 let make = () => {
@@ -373,8 +393,8 @@ let make = () => {
     <div className=%twc("flex flex-col justify-center items-center")>
       <p>
         <Lang.String
-          english="The Catala team hosts seminars at Inria Paris one Monday per month, from 17:00 to 18:30. The seminar happens in room Gilles Kahn on the ground floor of the Inria Paris building located at 2 rue Simone Iff 75012."
-          french={`L'équipe Catala organise des séminaires à l'Inria Paris un lundi par mois de 17:00 à 18:30. Le séminaire se tient dans la salle Gilles Kahn au rez-de-chaussée du bâtiment de l'Inria Paris situé au 2 rue Simone Iff 75012.`}
+          english="The Catala team hosts seminars at the Inria Paris research center one Monday per month, from 17:00 to 18:30. The sessions alternate between computer science, law and sociology presentations about stakes and problems of translating law to code. The seminar happens in room Gilles Kahn on the ground floor of the Inria Paris building located at 2 rue Simone Iff 75012."
+          french={`L'équipe Catala organise des séminaires au centre de recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. Les séances alternent des exposés d'informatique, de droit et de sociologie portant sur les enjeux et les problèmes posés par la traduction du droit en code. Le séminaire se tient dans la salle Gilles Kahn au rez-de-chaussée du bâtiment de l'Inria Paris situé au 2 rue Simone Iff 75012.`}
         />
       </p>
       <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
@@ -385,22 +405,62 @@ let make = () => {
       </Link.Button>
     </div>
     <Section title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
-      <ul className=%twc("list-disc list-inside")>
-        {upcoming
-        ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
-        )
-        ->React.array}
-      </ul>
+      <SubSection title={<Lang.String english="Law" french={`Droit`} />}>
+        <ul className=%twc("list-disc list-inside")>
+          {upcoming_law
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </ul>
+      </SubSection>
+      <SubSection title={<Lang.String english="Sociology" french={`Sociologie`} />}>
+        <ul className=%twc("list-disc list-inside")>
+          {upcoming_sociology
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </ul>
+      </SubSection>
+      <SubSection title={<Lang.String english="Computer Science" french={`Informatique`} />}>
+        <ul className=%twc("list-disc list-inside")>
+          {upcoming_cs
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </ul>
+      </SubSection>
     </Section>
     <Section title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
-      <ul className=%twc("list-disc list-inside")>
-        {past
-        ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
-        )
-        ->React.array}
-      </ul>
+      <SubSection title={<Lang.String english="Law" french={`Droit`} />}>
+        <ul className=%twc("list-disc list-inside")>
+          {past_law
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </ul>
+      </SubSection>
+      <SubSection title={<Lang.String english="Sociology" french={`Sociologie`} />}>
+        <ul className=%twc("list-disc list-inside")>
+          {past_sociology
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </ul>
+      </SubSection>
+      <SubSection title={<Lang.String english="Computer Science" french={`Informatique`} />}>
+        <ul className=%twc("list-disc list-inside")>
+          {past_cs
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </ul>
+      </SubSection>
     </Section>
     <Section title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
       <ul className=%twc("list-disc list-inside")>
