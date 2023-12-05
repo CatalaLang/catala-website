@@ -292,10 +292,50 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=0.0, ~date=8.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    title: <Lang.String
+      english="The Legistix project, an open platform for research in legal \
+      informatics: automatic consolidation as an example"
+      french={`Le projet Legistix, une plateforme ouverte pour la recherche \
+      en informatique juridique : l'exemple de la consolidation automatique`}
+    />,
     presenter: "Georges-André Silber",
     presenter_page_url: "https://www.cri.ensmp.fr/~silber/",
-    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+    abstract: <Lang.String
+      english="Analyzing and understanding the law - its structure, evolution \
+      and semantics - are major areas of application for NLP or formal systems. \
+      Conducting research in this field requires access to complete, clean, \
+      up-to-date and correctly structured data. In this talk, I will present \
+      the Legistix platform, which provides access to such data with these \
+      characteristics, illustrating its use through our work in automatic \
+      consolidation. Most of the laws and codes used by lawyers and \
+      legislators are in their consolidated version, i.e. the version \
+      that is up to date with all amendments published in an \
+      official journal (JORF or JOUE). The quality of this \
+      consolidated version, even if it has no legal value as \
+      such (only the initial text accompanied by all its amendments \
+      published in the official journal does), is of the utmost \
+      importance. Today, the consolidation of legal texts is carried out \
+      manually by private and institutional publishers such as DILA. \
+      Our aim is to make this process fully automatic."
+      french={`Analyser et comprendre le droit, sa structure, son évolution, \
+      sa sémantique, sont des domaines d'applications majeur du NLP ou des \
+      systèmes formels. Mener des recherches dans ce domaine nécessite \
+      d'avoir accès à des données complètes, propres, à jour et correctement \
+      structurées. Dans cet exposé, je présenterai la plateforme Legistix qui \
+      permet un accès à ces données avec ces caractéristiques, en illustrant \
+      son utilisation par nos travaux en consolidation automatique. Les textes \
+      de lois et les codes utilisés par les juristes et par le législateur \
+      le sont la plupart du temps dans leur version consolidée, c'est-à-dire \
+      dans leur version à jour de toutes les modifications publiées dans un \
+      journal officiel (JORF ou JOUE). La qualité de cette version \
+      consolidée, même si elle n'a pas de valeur légale en tant que tel \
+      (seul le texte initial accompagné de toutes ses modifications \
+      publiées au journal officiel en a une) est d'une très grande \
+      importance. La consolidation des textes juridiques est aujourd'hui \
+      opérée à la main par les éditeurs privés et institutionnels comme la \
+      DILA. Nos travaux visent à rendre ce processus complètement \
+      automatique.`}
+    />,
     kind: ComputerScience,
   },
   {
