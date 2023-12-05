@@ -403,6 +403,14 @@ let seminars = [
     />,
     kind: Sociology,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=1.0, ~date=5.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    presenter: "Noé Wagener",
+    presenter_page_url: "https://univ-droit.fr/universitaires/11094-wagener-noe",
+    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+    kind: Law,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
