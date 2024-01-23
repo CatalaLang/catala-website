@@ -405,10 +405,57 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=1.0, ~date=5.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    title: <Lang.String
+      english={`A law about automatic processing, rather than a law about \
+      personal data: when will we write the story of the French law Informatique et Libertés ?`}
+      french={`Une loi sur les traitements \
+      automatisés, bien plus qu’une loi sur les données personnelles : quand \
+      écrira-t-on l’histoire de la loi du 6 janvier 1978 Informatique et \
+      Libertés ?`}
+    />,
     presenter: "Noé Wagener",
     presenter_page_url: "https://univ-droit.fr/universitaires/11094-wagener-noe",
-    abstract: <Lang.String english="Abstract to come." french={`Résumé à venir.`} />,
+    abstract: <Lang.String
+      english="The French loi Informatique et Libertés of  6 January 1978 \
+      was intended to tackle head-on the problem of the \
+      \"computerization of society\" and its effects on freedoms. \
+      It was only through a strange succession of moves that it was brought \
+      brought back to the Safari affair, locked into the paradigm of respect for privacy \
+      paradigm and, finally, retracted into \"personal data protection law\" alone. \
+      Surprisingly, much of the \
+      history of this law has not been made, and remains to be \
+      to be written. This means, of course, that we need to re-inscribe \
+      this text in the great debates \
+      on freedoms in the 1970s; but above all, it requires us to \
+      rebuild all the threads that the makers of the 1978 law had woven \
+      on which their successors, in Parliament, in government departments \
+      administrations, the CNIL and elsewhere, did not pull much \
+      to any great extent. My presentation will therefore focus on a number of \
+      public archives that can be freely communicated, to review the genesis of the \
+      the genesis of the 1978 law, to remind us that it was not so much a law \
+      a law on \"personal data\" as much as it was a law on \"automated \
+      automated processing\" - and that we were, at the time, rather \
+      aware of the difference between the two."
+      french={`La loi du 6 janvier 1978 relative à l’informatique aux fichiers \
+      et aux libertés ambitionnait de prendre à bras-le-corps le problème de \
+      « l’informatisation de la société » et de ses effets sur les libertés. \
+      Ce n’est que par une étrange succession de déplacements qu’elle a été \
+      ramenée à l’affaire Safari, enfermée dans le paradigme du respect de \
+      la vie privée et, finalement, rétractée dans le seul « droit de la \
+      protection des données personnelles ». Étonnamment, toute une part de \
+      l’histoire de cette loi n'a pas été faite, et reste aujourd’hui à \
+      écrire. Cela suppose, bien sûr, de réinscrire ce texte dans les grands \
+      débats des années 1970 sur les libertés ; mais cela exige surtout de \
+      reconstruire tous ces fils que les concepteurs de la loi de 1978 \
+      avaient tissés, sur lesquels leurs successeurs, au Parlement, dans \
+      les administrations, à la CNIL et ailleurs, n’ont pas beaucoup tiré \
+      ensuite. Ma communication s’attachera donc, en repartant de plusieurs \
+      fonds d'archives publiques librement communicables, à revenir sur la \
+      genèse de la loi de 1978, pour rappeler que celle-ci n’était pas tant \
+      une loi sur les « données personnelles » qu’elle n’était une loi sur \
+      les « traitements automatisés » - et qu'on était, alors, plutôt \
+      conscient de ce qui sépare l'une de l'autre.`}
+    />,
     kind: Law,
   },
 ]
