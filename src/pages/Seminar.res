@@ -458,6 +458,16 @@ let seminars = [
     />,
     kind: Law,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=4.0, ~date=6.0, ())),
+    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    presenter: "Robin Plique",
+    presenter_page_url: "https://www.linkedin.com/in/robin-plique-540044113",
+    abstract: <Lang.String
+      english="Abstract to be determined" french={`Résumé à déterminer`}
+    />,
+    kind: Law,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
