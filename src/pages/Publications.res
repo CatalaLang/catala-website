@@ -243,6 +243,48 @@ let observations_2022 = {
 }",
 }
 
+let explicabilite_2024 = {
+  title: `De la transparence à l’explicabilité automatisée des algorithmes`,
+  authors: [denisMerigoux, marieAlauzen, justineBanuls, louisGesbert, emileRolley],
+  date: `2024`,
+  link: "https://inria.hal.science/hal-04391612",
+  citation: `Denis Merigoux, Marie Alauzen, Justine Banuls, Louis Gesbert, Émile Rolley. De la transparence à l’explicabilité automatisée des algorithmes : Comprendre les obstacles informatiques, juridiques et organisationnels. RR-9535, INRIA Paris. 2024, pp.68. ⟨hal-04391612⟩`,
+  abstract: Some(`Les algorithmes publics ou traitements informatiques opérés \
+  par les administrations sont soumis à des obligations de transparence et \
+  d'explicabilité. Ces obligations ont été mises en place pour justifier les \
+  décisions prises par ces algorithmes et garantir leur redevabilité vis-à-vis \
+  des personnes concernées. Ce rapport de recherche vise à explorer les \
+  obstacles informatiques, juridiques et organisationnels, qui entravent \
+  la mise en œuvre de la redevabilité et propose d'élargir la conception \
+  de l'explicabilité, afin de la rendre plus opérationnalisable par les \
+  administrations. Partant d'un état de l'art de l'explicabilité des décisions \
+  automatisées ajusté aux spécificités administratives, nous avons initié une \
+  enquête exploratoire sur l'algorithme de calcul des aides au logement de la \
+  Caisse nationale d'allocations familiales et conçu, à partir de ce \
+  diagnostic, trois prototypes testant la faisabilité de la production \
+  automatique d'explications de qualité. Nous montrons ainsi que l'utilité \
+  des explications est tout aussi cruciale d'un point de vue externe -- pour \
+  les citoyennes et les institutions de contrôle -- que d'un point de vue \
+  interne à l'administration -- afin d'assurer la fiabilité du système \
+  d'information au gré des évolutions. Nous recommandons que la technologie \
+  de la décision automatisée et celle de son explication partagent une \
+  infrastructure commune, s'appuyant sur la lettre du droit. `),
+  bibtex: "@techreport{merigoux:hal-04391612,
+  TITLE = {{De la transparence {\`a} l'explicabilit{\'e} automatis{\'e}e des algorithmes}},
+  AUTHOR = {Merigoux, Denis and Alauzen, Marie and Banuls, Justine and Gesbert, Louis and Rolley, {\'E}mile},
+  URL = {https://inria.hal.science/hal-04391612},
+  NUMBER = {RR-9535},
+  PAGES = {68},
+  INSTITUTION = {{INRIA Paris}},
+  YEAR = {2024},
+  MONTH = Jan,
+  KEYWORDS = {Accountability ; Public algorithms ; Law ; Automated decisions ; Explanainability ; Algorithmes publics ; Droit ; D{\'e}cisions automatiques ; Explicabilit{\'e} ; Redevabilit{\'e}},
+  PDF = {https://inria.hal.science/hal-04391612/file/RR-9535.pdf},
+  HAL_ID = {hal-04391612},
+  HAL_VERSION = {v1},
+}",
+}
+
 let save_to_clipboard: string => unit = %raw(`
 function(text) {navigator.clipboard.writeText(text)}
 `)
@@ -342,7 +384,7 @@ let make = () => <>
       title={<Lang.String
         english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
       />}>
-      <PubItems items={[observations_2022, crcl_2021]} />
+      <PubItems items={[explicabilite_2024, observations_2022, crcl_2021]} />
     </Section>
   </div>
 </>
