@@ -468,6 +468,40 @@ let seminars = [
     />,
     kind: Law,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=5.0, ~date=3.0, ())),
+    title: <Lang.String
+      english={`The social conditions of exchanges in Silicon Valley: \
+    military-industrial complex, scientific entrepreneurship and demos.`}
+      french={`Les conditions sociales des échanges dans la Silicon Valley : \
+      Complexe militaro-industriel, entreprenariat scientifique et démos.`}
+    />,
+    presenter: "Claude Rosental",
+    presenter_page_url: "https://cems.ehess.fr/membres/claude-rosental",
+    abstract: <Lang.String
+      english="I will focus on the social conditions of exchange
+ Silicon Valley from the second half of the 20th century to the present day.
+I will show that contractual relations, partnerships and
+partnerships and transactions between academics, industrialists
+ and representatives of the federal and defense administrations have been
+structured in part by the development of specific modes of regulation
+within the military-industrial complex, the rise of a regime of scientific
+entrepreneurship and the deployment of modes of interaction
+ marked in particular by the staging of public
+public demonstrations of technology, also known as \"demos\"."
+      french={`Je prendrai pour objet les conditions sociales des échanges \
+      propres à la Silicon Valley depuis la seconde moitié du 20e siècle \
+      jusqu’à nos jours. Je montrerai que les relations contractuelles, les \
+      partenariats et les transactions entre universitaires, industriels, et \
+      représentants de l’administration fédérale et de la défense ont été \
+      structurés en partie par le développement de modes spécifiques de \
+      régulation au sein d’un complexe militaro-industriel, par l’essor \
+      d’un régime d’entreprenariat scientifique et par le déploiement de \
+      modes d’interaction marqués en particulier par la réalisation de
+      \démonstrations publiques de technologie, appelées aussi « démos ».`}
+    />,
+    kind: Sociology,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
