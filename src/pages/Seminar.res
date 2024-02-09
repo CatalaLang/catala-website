@@ -469,6 +469,19 @@ let seminars = [
     kind: Law,
   },
   {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=3.0, ~date=15.0, ())),
+    title: <Lang.String
+      english={`Domain-specific languages for embedded systems and their formalization`}
+      french={`Langages dédiés pour les systèmes embarqués et leur formalisation`}
+    />,
+    presenter: "Timothy Bourke",
+    presenter_page_url: "https://www.tbrk.org/",
+    abstract: <Lang.String
+      english="Abstract to be determined" french={`Résumé à déterminer`}
+    />,
+    kind: ComputerScience,
+  },
+  {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=5.0, ~date=3.0, ())),
     title: <Lang.String
       english={`The social conditions of exchanges in Silicon Valley: \
@@ -501,6 +514,16 @@ public demonstrations of technology, also known as \"demos\"."
       \démonstrations publiques de technologie, appelées aussi « démos ».`}
     />,
     kind: Sociology,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=8.0, ~date=2.0, ())),
+    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    presenter: "Arnaud Latil",
+    presenter_page_url: "https://univ-droit.fr/universitaires/24851-arnaud-latil",
+    abstract: <Lang.String
+      english="Abstract to be determined" french={`Résumé à déterminer`}
+    />,
+    kind: Law,
   },
 ]
 
