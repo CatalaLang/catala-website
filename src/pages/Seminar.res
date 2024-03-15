@@ -477,7 +477,54 @@ let seminars = [
     presenter: "Timothy Bourke",
     presenter_page_url: "https://www.tbrk.org/",
     abstract: <Lang.String
-      english="Abstract to be determined" french={`Résumé à déterminer`}
+      english="An embedded system consists of one or more microprocessors \
+      that interact with a physical process. These systems are found in \
+      transport, power plants, factories and so on. Their behaviour is \
+      determined by software that runs cyclically. For some systems,
+      \particularly the most critical ones, the software is not implemented \
+      directly in an imperative language, where we describe precisely what a \
+      processor must do, but rather in a block diagram language, where we \
+      define the transformations of data flows between inputs and outputs. \
+      The block diagrams are then automatically transformed into imperative \
+      code by a compiler. For several years we have been developing such a \
+      compiler, specified and verified in the Coq proof assistant. Although \
+      the language, compilation algorithms and formalisation principles are \
+      already well studied, dealing with them in depth in a proof assistant \
+      requires dedicated work to find the appropriate definitions and complete \
+      the proofs. Our compiler transforms block diagrams into an imperative \
+      language provided by the CompCert compiler.  Consequently, its correction \
+      theorem formally links a semantics on the data flows between inputs and \
+      outputs with the repeated executions of the imperative code generated.
+      \We will present the broad outlines of embedded systems programming with \
+      block diagrams, our formalisation of such a language and some of the \
+      problems that had to be solved. In particular, we will discuss the \
+      motivations for our work and the advantages and disadvantages of \
+      this application of very formal methods."
+      french={`Un système embarqué est composé d'un ou plusieurs \
+      microprocesseurs qui interagissent avec un processus physique. Ces \
+      systèmes se trouvent dans les transports, les centrales électriques, \
+      les usines, etc. Leur comportement est déterminé par un logiciel qui \
+      s'exécute cycliquement. Pour certains systèmes, et notamment les plus \
+      critiques, les logiciels ne sont pas implémentés directement dans un \
+      langage impératif, où l'on décrit précisément ce qu'un processeur doit
+      \faire, mais plutôt dans un langage de schémas-blocs, où l'on définit \
+      les transformations des flots de données entre entrées et sorties. Les \
+      schémas-blocs sont ensuite transformés automatiquement en un code \
+      impératif par un compilateur. Depuis plusieurs années nous développons \
+      un tel compilateur, spécifié et vérifié dans l'assistant de preuve Coq. \
+      Bien que le langage, les algorithmes de compilation et les principes de \
+      formalisation soient déjà bien étudiés, leur traitement approfondi dans \
+      un assistant de preuve demande un travail dédié pour trouver les \
+      définitions appropriées et compléter les preuves. Notre compilateur \
+      transforme les schémas-blocs dans un langage impératif fourni par le \
+      compilateur CompCert. Par conséquent, son théorème de correction lie \
+      formellement une sémantique sur les flots de données entre entrées et \
+      sorties avec les exécutions répétées du code impératif généré. Nous \
+      présenterons les grandes lignes de la programmation de systèmes embarqués \
+      avec des schémas-blocs, notre formalisation d'un tel langage et certains \
+      des problèmes qu'il a fallu résoudre. Nous parlerons en particulier des \
+      motivations de notre travail et des avantages et inconvénients de cette \
+      application des méthodes très formelles.`}
     />,
     kind: ComputerScience,
   },
