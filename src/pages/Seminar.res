@@ -480,8 +480,8 @@ let seminars = [
       english="An embedded system consists of one or more microprocessors \
       that interact with a physical process. These systems are found in \
       transport, power plants, factories and so on. Their behaviour is \
-      determined by software that runs cyclically. For some systems,
-      \particularly the most critical ones, the software is not implemented \
+      determined by software that runs cyclically. For some systems, \
+      particularly the most critical ones, the software is not implemented \
       directly in an imperative language, where we describe precisely what a \
       processor must do, but rather in a block diagram language, where we \
       define the transformations of data flows between inputs and outputs. \
@@ -494,8 +494,8 @@ let seminars = [
       the proofs. Our compiler transforms block diagrams into an imperative \
       language provided by the CompCert compiler.  Consequently, its correction \
       theorem formally links a semantics on the data flows between inputs and \
-      outputs with the repeated executions of the imperative code generated.
-      \We will present the broad outlines of embedded systems programming with \
+      outputs with the repeated executions of the imperative code generated. \
+      We will present the broad outlines of embedded systems programming with \
       block diagrams, our formalisation of such a language and some of the \
       problems that had to be solved. In particular, we will discuss the \
       motivations for our work and the advantages and disadvantages of \
