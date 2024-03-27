@@ -54,7 +54,7 @@ let card: Card.Presentation.t = {
       french={`Le contenu de cet exemple est généré par le compilateur Catala à partir des `}
     />
     <Link.Text
-      target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
+      target="https://github.com/CatalaLang/catala-examples/tree/master/allocations_familiales">
       <Lang.String english="source code files of the example" french={`sources de l'exemple`} />
     </Link.Text>
     <Lang.String
@@ -83,7 +83,7 @@ let make = () => {
         french={`Le code source de cet exemple est disponible `}
       />
       <Link.Text
-        target="https://github.com/CatalaLang/catala/tree/master/examples/allocations_familiales">
+        target="https://github.com/CatalaLang/catala-examples/tree/master/allocations_familiales">
         <Lang.String english="here" french={`ici`} />
       </Link.Text>
       <Lang.String
