@@ -42,4 +42,4 @@ IP is also pointed to by catala-lang.org. The site contents are stored in the
 home directory of Denis Merigoux, so to update the contents of the website
 you would just need to issue a command like this:
 
-    rsync -ah --delete build/ demerigo@catala-lang.paris.inria.fr:/home/ROCQ/prosecco/demerigo/
+    rsync -ah --delete --info=progress2 build/ demerigo@catala-lang.paris.inria.fr:/home/ROCQ/prosecco/demerigo/

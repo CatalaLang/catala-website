@@ -285,6 +285,80 @@ let explicabilite_2024 = {
 }",
 }
 
+let dates_2024 = {
+  title: `Formalizing Date Arithmetic and Statically Detecting Ambiguities for the Law`,
+  authors: [raphaelMonat, aymericFromherz, denisMerigoux],
+  date: `2024`,
+  citation: `Raphaël Monat, Aymeric Fromherz, and Denis Merigoux. Formalizing date arithmetic \
+   and statically detecting ambiguities for the law. In Programming Languages \
+and Systems, ESOP, Cham, 2024. Springer Nature Switzerland.`,
+  link: "https://rmonat.fr/data/pubs/2024/2024-04-08_esop_dates.pdf",
+  bibtex: `@InProceedings{dates2024monat,
+author="Raphaël Monat and Aymeric Fromherz and Denis Merigoux",
+title="Formalizing Date Arithmetic and Statically Detecting Ambiguities for the Law ",
+booktitle="Programming Languages and Systems",
+year="2024",
+publisher="Springer Nature Switzerland",
+address="Cham",
+series = "ESOP",
+note = "forthcoming"
+}`,
+  abstract: Some(`Legal expert systems routinely rely on date computations to \
+determine the eligibility of a citizen to social benefits or whether an \ 
+application has been filed on time. Unfortunately, date arithmetic exhibits \
+many corner cases, which are handled differently from one library to the \
+other, making faithfully transcribing the law into code error-prone, and \
+possibly leading to heavy financial and legal consequences for users. \
+In this work, we aim to provide a solid foundation for date arithmetic \
+working on days, months and years. We first present a novel, formal \
+semantics for date computations, and formally establish several semantic \
+properties through a mechanization in the F⋆ proof assistant. Building \
+upon this semantics, we then propose a static analysis by abstract \
+interpretation to automatically detect ambiguities in date computations. We \
+finally integrate our approach in the Catala language, a recent \ 
+domain-specific language for formalizing computational law, and use it to analyze \
+the Catala implementation of the French housing benefits, leading to the \
+discovery of several date-related ambiguities.`),
+}
+
+let prolala_2023 = {
+  title: "Experience report: implementing a real-world, medium-sized program derived from a legislative specification",
+  authors: [denisMerigoux],
+  date: `2023`,
+  abstract: Some(`Implementing computer programs from legislative specifications \
+   has been a longstanding academic endeavor. However, few of these experiments \
+   has so far sought to replicate a computer program that is already in production \
+   in public administration; most of them have created new programs or formalizations \
+   that cover sections of the law not previously automatically enforced by public \
+   administration. A somewhat dated but accurate state of the art of the use of \
+   legal expert systems in government agencies was compiled by Oskamp (2002). \
+   Building on the work around the Catala domain-specific language, we have \
+   chosen to engage in an exercise of replication of the existing IT system \
+   that computes the French housing benefits (and various other benefits) within \
+   the CNAF administrative agency, CRISTAL. More general context and main \
+   non-technical findings of this replication exercise can be found in a \
+   companion paper; this presentation will focus on the challenges and lessons \
+   learned about the programming act itself, in an effort of consolidation of \
+   knowledge for this line of research.`),
+  citation: `Denis Merigoux. Experience report: implementing a real-world, medium-sized program \
+derived from a legislative specification. Programming Languages and the Law 2023 \
+(affiliated with POPL), Jan 2023, Boston (MA), United States. ⟨hal-03933574⟩`,
+  link: "https://inria.hal.science/hal-03869335",
+  bibtex: `@inproceedings{merigoux:hal-03933574,
+  TITLE = {{Experience report: implementing a real-world, medium-sized program derived from a legislative specification}},
+  AUTHOR = {Merigoux, Denis},
+  URL = {https://inria.hal.science/hal-03933574},
+  BOOKTITLE = {{Programming Languages and the Law 2023 (affiliated with POPL)}},
+  ADDRESS = {Boston (MA), United States},
+  YEAR = {2023},
+  MONTH = Jan,
+  KEYWORDS = {Legal expert systems ; Catala ; Housing benefits ; Legal formalization},
+  PDF = {https://inria.hal.science/hal-03933574/file/article.pdf},
+  HAL_ID = {hal-03933574},
+  HAL_VERSION = {v1},
+}`,
+}
+
 let save_to_clipboard: string => unit = %raw(`
 function(text) {navigator.clipboard.writeText(text)}
 `)
@@ -372,10 +446,10 @@ let make = () => <>
         english="Peer-reviewed conferences and journals"
         french={`Conférences et journaux à comité de lecture`}
       />}>
-      <PubItems items={[crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
+      <PubItems items={[dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
     </Section>
     <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
-      <PubItems items={[prolala_2022]} />
+      <PubItems items={[prolala_2023, prolala_2022]} />
     </Section>
     <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
       <PubItems items={[smu_2022, iafipu2020]} />
