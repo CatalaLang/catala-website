@@ -119,7 +119,7 @@ let louisGesbert = {
 
 let emileRolley = {
   name: `Émile Rolley`,
-  website: Some("https://www.linkedin.com/in/emile-rolley-703b82206/"),
+  website: Some("https://emile-rolley.com"),
   affiliation: {
     name: "Malt",
     url: "https://www.malt.fr/profile/emilerolley",
