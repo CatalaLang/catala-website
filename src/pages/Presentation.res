@@ -1,5 +1,5 @@
 let githubLink = "https://github.com/CatalaLang/catala"
-let githubLinkLatestRelease = "https://github.com/CatalaLang/catala/releases/tag/0.8.0"
+let githubLinkLatestRelease = "https://github.com/CatalaLang/catala/releases/latest"
 let zulipLink = "https://zulip.catala-lang.org/"
 
 let examplesCard: Card.Presentation.t = {
@@ -112,16 +112,16 @@ let englishHomepage: string = %raw(`require("../../assets/english_homepage.html"
 
 @react.component
 let make = () => {
-  <>
+  <div className=%twc("flex flex-col gap-32")>
     <div className=%twc("flex flex-col justify-center items-center")>
-      <div className=%twc("pt-28 pb-10")>
+      <div className=%twc("pt-48 pb-16")>
         <p
           className=%twc(
-            "text-center text-2xl sm:text-3xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
+            "text-center text-2xl sm:text-4xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
           )>
           <Lang.String
-            english="\"Catala is a domain-specific programming language designed for deriving correct-by-construction
-          implementations from legislative texts.\""
+            english="Catala is a domain-specific programming language designed for deriving correct-by-construction
+          implementations from legislative texts."
             french={`Catala est un langage dédié à l'écriture d'implémentations correctes
              d'algorithmes dérivés de textes législatifs`}
           />
@@ -148,12 +148,12 @@ let make = () => {
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
           target={githubLinkLatestRelease}>
-          <Lang.String english="GitHub v0.8.0" french={`GitHub v0.8.0`} />
+          <Lang.String english="GitHub v0.9.0" french={`GitHub v0.9.0`} />
         </Link.Text>
       </div>
     </div>
-    <div className=%twc("flex flex-col flex-wrap content-center justify-center items-center pt-12")>
-      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold")>
+    <div className=%twc("flex flex-col flex-wrap content-center justify-center items-center")>
+      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold py-8")>
         <Lang.String english="Catala in action" french={`Catala en action`} />
       </div>
       <div className=%twc("w-full lg:w-3/5 border-solid")>
@@ -171,12 +171,16 @@ let make = () => {
           english={<CatalaCode.DangerouslySetInnerHtml html=englishHomepage />}
         />
       </div>
-      <div className=%twc("w-full lg:w-3/5 text-background text-center text-3xl font-bold pt-8")>
+    </div>
+    <div>
+      <div className=%twc("w-full text-background text-center text-3xl font-bold py-8")>
         <Lang.String english="Why use Catala?" french={`Pourquoi utiliser Catala ?`} />
       </div>
+      <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
+        <Card.Presentation.FromList
+          cards=[examplesCard, docCard, legalGuideCard, foundationsCard]
+        />
+      </div>
     </div>
-    <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
-      <Card.Presentation.FromList cards=[examplesCard, docCard, legalGuideCard, foundationsCard] />
-    </div>
-  </>
+  </div>
 }
