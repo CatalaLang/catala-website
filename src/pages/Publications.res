@@ -391,7 +391,7 @@ module PubItem = {
           let key = "pub-author-" ++ i->string_of_int
           let style =
             %twc(
-              "px-4 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray shadow-sm text-gray_dark"
+              "px-3 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray_2 shadow-sm text-gray_dark"
             ) ++ if i > 0 {
               %twc("")
             } else {
@@ -424,7 +424,7 @@ module PubItems = {
   let make = (~items: array<publication>) => {
     <div
       className=%twc(
-        "flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4"
+        "flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4 gap-4"
       )>
       {items
       ->Belt.Array.mapWithIndex((i, item) =>
