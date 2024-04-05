@@ -115,13 +115,13 @@ let make = () => <>
       <Person person=denisMerigoux />
       <Person person=raphaelMonat />
       <Person person=jonathanProtzenko />
-      <Person person=emileRolley />
     </ul>
   </Section>
   <Section title={<Lang.String english="Alumni" french={`Alumni`} />}>
     <ul className=%twc("list-disc list-inside")>
       <Person person=justineBanuls />
       <Person person=nicolasChataing />
+      <Person person=emileRolley />
       <Person person=lilyaSlimani />
     </ul>
   </Section>
