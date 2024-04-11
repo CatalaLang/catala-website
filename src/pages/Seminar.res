@@ -460,11 +460,55 @@ let seminars = [
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=4.0, ~date=6.0, ())),
-    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    title: <Lang.String
+      english={`Assessing a person using an algorithm. A legal analysis of the concept of profiling.`}
+      french={`Évaluer une personne avec un algorithme. Analyse juridique via la notion de « profilage ».`}
+    />,
     presenter: "Robin Plique",
     presenter_page_url: "https://www.linkedin.com/in/robin-plique-540044113",
     abstract: <Lang.String
-      english="Abstract to be determined" french={`Résumé à déterminer`}
+      english="Various social scientists describe our Western societies as \
+      “evaluation societies”. There is no shortage of examples. \
+      The development of a \"social credit score\" (SCS) in China is \
+      one. In western societies too, many impactful decisions affecting \
+      individuals are dependent on the result of a good evaluation. Without \
+      a good credit score, there is no credit. If a person presents a bad \
+      risk, e.g because of their health status, they cannot be insured, or \
+      only at a very high premium. Recruitment is the result of a decision, \
+      increasingly mediated by sorting or facial recognition algorithms that \
+      allow people to be selected in the blink of an eye according to their \
+      stress level or predicted employability. These practices are generally \
+      the result of an algorithmic analysis known as \"profiling\". But does \
+      the legal concept of profiling match its technical description? \
+      On closer examination, we will see that the legal notion is larger \
+      than the technical one. Moreover, the concept seems to be entangled \
+      with that of automated decision. The same can be said of its regime, \
+      which seems ineffective if confined to personal data law. It is \
+      therefore necessary to examine other areas of law. Insofar as evaluation \
+      can be defined semantically as a value judgement, can we apply the area \
+      of law that usually regulates those, i.e defamation law?"
+      french={`Divers représentants des sciences sociales décrivent nos \
+      sociétés occidentales sous l’appellation de « société de l’évaluation ». \
+      Ce ne sont pas les exemples qui manquent et nous n’avons rien à envier \
+      au développement d’un « crédit social » en Chine. Il suffit de constater \
+      que pléthore de décisions affectant les individus sont aujourd’hui \
+      conditionnées au résultat d’une (bonne) évaluation. Sans un bon score \
+      de crédit, pas de crédit. Si la personne présente un mauvais risque, \
+      par exemple à cause de sa santé, elle ne pourra être assurée ou alors \
+      à une prime très élevé. Le recrutement est le fruit d’une décision, de \
+      plus en plus médiée par des algorithmes de tri ou de reconnaissance \
+      faciale permettant en un clin d’œil selon leur niveau de stress ou \
+      leur employabilité prédite. Ces pratiques sont généralement le fruit \
+      d’une analyse par algorithme que l’on appelle « profilage ». Toutefois, \
+      la notion juridique de profilage répond-elle à sa description technique ? \
+      À l’examen, on verra qu’elle excède largement celle-ci. De plus, la \
+      notion semble enchevêtrée avec celle de décision automatisée. Le même \
+      constat peut être dressé à l’égard de son régime, qui paraît peu \
+      efficace si on le cantonne au droit des données à caractère personnel. \
+      Il est donc nécessaire d’examiner d’autres secteurs du droit. Dans la \
+      mesure où l’évaluation est un jugement de valeur, peut-on appliquer \
+      au profilage le pan du droit traditionnellement dévolu à la \
+      réglementation de ceux-ci, à savoir le droit de la presse ?`}
     />,
     kind: Law,
   },
