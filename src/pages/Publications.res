@@ -304,7 +304,7 @@ series = "ESOP",
 note = "forthcoming"
 }`,
   abstract: Some(`Legal expert systems routinely rely on date computations to \
-determine the eligibility of a citizen to social benefits or whether an \ 
+determine the eligibility of a citizen to social benefits or whether an \
 application has been filed on time. Unfortunately, date arithmetic exhibits \
 many corner cases, which are handled differently from one library to the \
 other, making faithfully transcribing the law into code error-prone, and \
@@ -315,10 +315,33 @@ semantics for date computations, and formally establish several semantic \
 properties through a mechanization in the F⋆ proof assistant. Building \
 upon this semantics, we then propose a static analysis by abstract \
 interpretation to automatically detect ambiguities in date computations. We \
-finally integrate our approach in the Catala language, a recent \ 
+finally integrate our approach in the Catala language, a recent \
 domain-specific language for formalizing computational law, and use it to analyze \
 the Catala implementation of the French housing benefits, leading to the \
 discovery of several date-related ambiguities.`),
+}
+
+let ml_workshop_2023 = {
+  title: `Modern DSL compiler architecture in OCaml our experience with Catala`,
+  authors: [louisGesbert, denisMerigoux],
+  date: `2023`,
+  citation: `Louis Gesbert and Denis Merigoux. Modern DSL compiler architecture in OCaml our experience with Catala. Presentation at
+  the ML Workshop (IFCFP 2023)`,
+  link: "https://icfp23.sigplan.org/details/ocaml-2023-papers/4/Modern-DSL-compiler-architecture-in-OCaml-our-experience-with-Catala",
+  bibtex: `@unpublished{gesbert2023mlwork,
+  author = {Louis Gesbert and Denis Merigoux},
+  note   = {Presentation at the ML Workshop in the ICFP conference},
+  title  = {Modern DSL compiler architecture in OCaml our experience with Catala},
+  year   = {2023},
+  url    = {https://icfp23.sigplan.org/details/ocaml-2023-papers/4/Modern-DSL-compiler-architecture-in-OCaml-our-experience-with-Catala}
+}`,
+  abstract: Some(`In this presentation, we intend to show a state-of-the-art \
+  DSL implementation in OCaml, with concrete examples and experience reports.\
+  In particular, we found that some advanced practices, while accepted among \
+   the hardcore OCaml developers (e.g. use of row type variables through object \
+    types), lacked visibility and documentation: some of them deserve to be \
+    better known. Our experience is based on the Catala compiler, a DSL \
+    for the implementation of algorithms defined in law.`),
 }
 
 let prolala_2023 = {
@@ -449,7 +472,7 @@ let make = () => <>
       <PubItems items={[dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
     </Section>
     <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
-      <PubItems items={[prolala_2023, prolala_2022]} />
+      <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
     </Section>
     <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
       <PubItems items={[smu_2022, iafipu2020]} />
