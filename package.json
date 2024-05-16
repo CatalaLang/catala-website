@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
-    "@catala-lang/catala-web-assets": "0.10.0",
+    "@catala-lang/catala-web-assets": "0.10.1",
     "@greenlabs/res-tailwindcss": "^0.1.12",
     "@rescript/core": "^0.3.1",
     "ansi_up": "^5.1.0",

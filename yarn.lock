@@ -977,10 +977,10 @@
     "@babel/helper-validator-identifier" "^7.19.1"
     to-fast-properties "^2.0.0"
 
-"@catala-lang/catala-web-assets@0.10.0":
-  version "0.10.0"
-  resolved "https://registry.yarnpkg.com/@catala-lang/catala-web-assets/-/catala-web-assets-0.10.0.tgz#2a6f0127c16fc45fcfcd4d2406a605d40dcd8716"
-  integrity sha512-l6BF5AygE/Kc8vx9Uw7xhUVP0OeWHNz28VV7k0sNmvAJnMBsw4CdOJQOl05L41ts84wXKcS8jRaSka25+UpkHQ==
+"@catala-lang/catala-web-assets@0.10.1":
+  version "0.10.1"
+  resolved "https://registry.yarnpkg.com/@catala-lang/catala-web-assets/-/catala-web-assets-0.10.1.tgz#cf9c9a834b054eb859db7bfbcb36dcb51aa94d43"
+  integrity sha512-TAzUUT3JJaaPlck8y0Fnk3WP6er0k/LVphmULN+LO3X9D+vyW/Ta8XZ6CynUSRcwUIN8WSxt7IDtSfkZHCf88A==
 
 "@catala-lang/french-law@^0.8.3-b.3":
   version "0.8.3-b.3"
