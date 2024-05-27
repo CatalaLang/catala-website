@@ -648,8 +648,20 @@ let make = () => {
     <div className=%twc("flex flex-col justify-center items-center")>
       <p>
         <Lang.String
-          english="The Catala team hosts seminars at the Inria Paris research center one Monday per month, from 17:00 to 18:30. The sessions alternate between computer science, law and sociology presentations about stakes and problems of translating law to code. The seminar happens in room Gilles Kahn on the ground floor of the Inria Paris building located at 2 rue Simone Iff 75012."
-          french={`L'équipe Catala organise des séminaires au centre de recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. Les séances alternent des exposés d'informatique, de droit et de sociologie portant sur les enjeux et les problèmes posés par la traduction du droit en code. Le séminaire se tient dans la salle Gilles Kahn au rez-de-chaussée du bâtiment de l'Inria Paris situé au 2 rue Simone Iff 75012.`}
+          english="The Catala team hosts seminars at the Inria Paris research \
+          center one Monday per month, from 17:00 to 18:30. The sessions \
+          alternate between computer science, law and sociology presentations \
+          about stakes and problems of translating law to code. Exceptionally \
+          for the June 3rd, 2024 session, the seminar will \
+          happens in room B 510 of the Paris-Dauphine university, \
+          place du Maréchal Lattre de Tassigny (Paris 16)."
+          french={`L'équipe Catala organise des séminaires au centre de \
+          recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. \
+          Les séances alternent des exposés d'informatique, de droit et de \
+          sociologie portant sur les enjeux et les problèmes posés par la \
+          traduction du droit en code. Exceptionnellement pour la séance du \
+          3 juin 2024, le séminaire se tiendra \
+          B 510 l’université Paris-Dauphine, place du Maréchal Lattre de Tassigny (Paris 16).`}
         />
       </p>
       <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
