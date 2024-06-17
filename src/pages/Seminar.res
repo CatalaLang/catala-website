@@ -607,7 +607,7 @@ public demonstrations of technology, also known as \"demos\"."
     kind: Sociology,
   },
   {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=8.0, ~date=2.0, ())),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=9.0, ~date=7.0, ())),
     title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
     presenter: "Arnaud Latil",
     presenter_page_url: "https://univ-droit.fr/universitaires/24851-arnaud-latil",
