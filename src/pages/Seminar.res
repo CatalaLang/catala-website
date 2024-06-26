@@ -607,6 +607,16 @@ public demonstrations of technology, also known as \"demos\"."
     kind: Sociology,
   },
   {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=8.0, ~date=2.0, ())),
+    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    presenter: "Thomas Villaren & Sacha Brisset",
+    presenter_page_url: "https://payfit.com",
+    abstract: <Lang.String
+      english="Abstract to be determined" french={`Résumé à déterminer`}
+    />,
+    kind: ComputerScience,
+  },
+  {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=9.0, ~date=7.0, ())),
     title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
     presenter: "Arnaud Latil",
