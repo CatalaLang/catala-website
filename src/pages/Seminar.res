@@ -695,13 +695,13 @@ let make = () => {
           center one Monday per month, from 17:00 to 18:30. The sessions \
           alternate between computer science, law and sociology presentations \
           about stakes and problems of translating law to code. The location \
-          of the Inria Paris research center is: 46 rue Barrault, 75013 Paris. "
+          of the Inria Paris research center is: 48 rue Barrault, 75013 Paris. "
           french={`L'équipe Catala organise des séminaires au centre de \
           recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. \
           Les séances alternent des exposés d'informatique, de droit et de \
           sociologie portant sur les enjeux et les problèmes posés par la \
           traduction du droit en code. L'adresse du centre de recherche \
-          Inria de Paris est : 46 rue Barrault, 75013 Paris.`}
+          Inria de Paris est : 48 rue Barrault, 75013 Paris.`}
         />
       </p>
       <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
