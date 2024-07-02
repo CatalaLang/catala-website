@@ -608,11 +608,44 @@ public demonstrations of technology, also known as \"demos\"."
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=8.0, ~date=2.0, ())),
-    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    title: <Lang.String
+      english={`Jetlang, a platform to code up payroll rules`}
+      french={`JetLang, une plateforme pour encoder les règles de paie`}
+    />,
     presenter: "Thomas Villaren & Sacha Brisset",
     presenter_page_url: "https://payfit.com",
     abstract: <Lang.String
-      english="Abstract to be determined" french={`Résumé à déterminer`}
+      english="Created as a simple expression language, an abstraction above 
+      Javascript, to enable business experts to encode legal texts when 
+      the startup PayFit was launched in 2016, JetLang has since evolved into 
+      a platform in its own right, streamlining the the application development 
+      chain for this payroll and human resources for European VSEs and SMEs. 
+      At the heart of PayFit's software architecture, the JetLang platform 
+      and its calculation engine enable PayFit employees (Product Builders and 
+      Compliance team) to implement, maintain and update the payroll-related 
+      calculation rules for over a hundred collective collective agreements 
+      in France, Spain and the UK. in France, Spain and England. We will 
+      present the broad outlines of PayFit's current organisation PayFit's 
+      current organisation, from the detection of a change in the law to its 
+      implementation, and present the tools available to our internal available 
+      to our internal users to test and validate their implementation 
+      calculations."
+      french={`Créé comme un simple langage d'expression, une abstraction 
+      au-dessus de Javascript, pour permettre à des experts métier d'encoder 
+      les textes lois au démarrage de la startup PayFit en 2016, JetLang a 
+      depuis évolué dans une plateforme à part entière, rationalisation la 
+      chaîne de développement applicative de ce logiciel de gestion de la 
+      paie et des ressources humaines à destination des TPE et PME européennes. 
+      Au coeur de l'architecture logicielle de PayFit, la plateforme JetLang 
+      et son moteur de calcul permettent aux collaborateurs métiers de PayFit 
+      (Product Builders et équipe conformité) d'implémenter, maintenir et 
+      mettre à jour les règles de calcul liées à la paie de plus d'une 
+      centaine de conventions collectives en France, en Espagne et en 
+      Angleterre. Nous présenterons les grandes lignes de l'organisation 
+      actuelles de PayFit, depuis la détection d'une évolution de la loi 
+      jusqu'à son implémentation, et présenterons les outils mis à disposition 
+      de nos utilisateurs internes pour tester et valider leur implémentation 
+      des calculs.`}
     />,
     kind: ComputerScience,
   },
@@ -661,17 +694,14 @@ let make = () => {
           english="The Catala team hosts seminars at the Inria Paris research \
           center one Monday per month, from 17:00 to 18:30. The sessions \
           alternate between computer science, law and sociology presentations \
-          about stakes and problems of translating law to code. Exceptionally \
-          for the June 3rd, 2024 session, the seminar will \
-          happens in room B 510 of the Paris-Dauphine university, \
-          place du Maréchal Lattre de Tassigny (Paris 16)."
+          about stakes and problems of translating law to code. The location \
+          of the Inria Paris research center is: 46 rue Barrault, 75013 Paris. "
           french={`L'équipe Catala organise des séminaires au centre de \
           recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. \
           Les séances alternent des exposés d'informatique, de droit et de \
           sociologie portant sur les enjeux et les problèmes posés par la \
-          traduction du droit en code. Exceptionnellement pour la séance du \
-          3 juin 2024, le séminaire se tiendra \
-          B 510 l’université Paris-Dauphine, place du Maréchal Lattre de Tassigny (Paris 16).`}
+          traduction du droit en code. L'adresse du centre de recherche \
+          Inria de Paris est : 46 rue Barrault, 75013 Paris.`}
         />
       </p>
       <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
