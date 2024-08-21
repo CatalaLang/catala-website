@@ -659,6 +659,16 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Law,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=11.0, ~date=3.0, ())),
+    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    presenter: "Anne Bellon",
+    presenter_page_url: "https://www.linkedin.com/in/anne-bellon-a3a90369/",
+    abstract: <Lang.String
+      english="Abstract to be determined" french={`Résumé à déterminer`}
+    />,
+    kind: Sociology,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
