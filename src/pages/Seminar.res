@@ -615,47 +615,73 @@ public demonstrations of technology, also known as \"demos\"."
     presenter: "Thomas Villaren & Sacha Brisset",
     presenter_page_url: "https://payfit.com",
     abstract: <Lang.String
-      english="Created as a simple expression language, an abstraction above 
-      Javascript, to enable business experts to encode legal texts when 
-      the startup PayFit was launched in 2016, JetLang has since evolved into 
-      a platform in its own right, streamlining the the application development 
-      chain for this payroll and human resources for European VSEs and SMEs. 
-      At the heart of PayFit's software architecture, the JetLang platform 
-      and its calculation engine enable PayFit employees (Product Builders and 
-      Compliance team) to implement, maintain and update the payroll-related 
-      calculation rules for over a hundred collective collective agreements 
-      in France, Spain and the UK. in France, Spain and England. We will 
-      present the broad outlines of PayFit's current organisation PayFit's 
-      current organisation, from the detection of a change in the law to its 
-      implementation, and present the tools available to our internal available 
-      to our internal users to test and validate their implementation 
+      english="Created as a simple expression language, an abstraction above
+      Javascript, to enable business experts to encode legal texts when
+      the startup PayFit was launched in 2016, JetLang has since evolved into
+      a platform in its own right, streamlining the the application development
+      chain for this payroll and human resources for European VSEs and SMEs.
+      At the heart of PayFit's software architecture, the JetLang platform
+      and its calculation engine enable PayFit employees (Product Builders and
+      Compliance team) to implement, maintain and update the payroll-related
+      calculation rules for over a hundred collective collective agreements
+      in France, Spain and the UK. in France, Spain and England. We will
+      present the broad outlines of PayFit's current organisation PayFit's
+      current organisation, from the detection of a change in the law to its
+      implementation, and present the tools available to our internal available
+      to our internal users to test and validate their implementation
       calculations."
-      french={`Créé comme un simple langage d'expression, une abstraction 
-      au-dessus de Javascript, pour permettre à des experts métier d'encoder 
-      les textes lois au démarrage de la startup PayFit en 2016, JetLang a 
-      depuis évolué dans une plateforme à part entière, rationalisation la 
-      chaîne de développement applicative de ce logiciel de gestion de la 
-      paie et des ressources humaines à destination des TPE et PME européennes. 
-      Au coeur de l'architecture logicielle de PayFit, la plateforme JetLang 
-      et son moteur de calcul permettent aux collaborateurs métiers de PayFit 
-      (Product Builders et équipe conformité) d'implémenter, maintenir et 
-      mettre à jour les règles de calcul liées à la paie de plus d'une 
-      centaine de conventions collectives en France, en Espagne et en 
-      Angleterre. Nous présenterons les grandes lignes de l'organisation 
-      actuelles de PayFit, depuis la détection d'une évolution de la loi 
-      jusqu'à son implémentation, et présenterons les outils mis à disposition 
-      de nos utilisateurs internes pour tester et valider leur implémentation 
+      french={`Créé comme un simple langage d'expression, une abstraction
+      au-dessus de Javascript, pour permettre à des experts métier d'encoder
+      les textes lois au démarrage de la startup PayFit en 2016, JetLang a
+      depuis évolué dans une plateforme à part entière, rationalisation la
+      chaîne de développement applicative de ce logiciel de gestion de la
+      paie et des ressources humaines à destination des TPE et PME européennes.
+      Au coeur de l'architecture logicielle de PayFit, la plateforme JetLang
+      et son moteur de calcul permettent aux collaborateurs métiers de PayFit
+      (Product Builders et équipe conformité) d'implémenter, maintenir et
+      mettre à jour les règles de calcul liées à la paie de plus d'une
+      centaine de conventions collectives en France, en Espagne et en
+      Angleterre. Nous présenterons les grandes lignes de l'organisation
+      actuelles de PayFit, depuis la détection d'une évolution de la loi
+      jusqu'à son implémentation, et présenterons les outils mis à disposition
+      de nos utilisateurs internes pour tester et valider leur implémentation
       des calculs.`}
     />,
     kind: ComputerScience,
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=9.0, ~date=7.0, ())),
-    title: <Lang.String english={`Title to be determined`} french={`Titre à déterminer`} />,
+    title: <Lang.String
+      english="Digital regulation : presentation and critique of the risk-based approach"
+      french={`Réguler le numérique : présentation et critiques de l’approche par les risques`}
+    />,
     presenter: "Arnaud Latil",
     presenter_page_url: "https://univ-droit.fr/universitaires/24851-arnaud-latil",
     abstract: <Lang.String
-      english="Abstract to be determined" french={`Résumé à déterminer`}
+      english={`In recent years, the risk-based approach has established itself as a key
+        legislative method. The major texts of digital law (Regulation Services Legislation, NIS 2,
+        Council of Europe Framework Convention on AI, etc.) apply it to varying degrees.
+        But far from being isolated, digital law is in fact part of the family of other
+        risk-based regulations, such as environmental law and financial law. The aim of
+        this conference is to to present this legal method and its applications,
+        particularly in the areas of artificial intelligence, content regulation and
+        cybersecurity. cybersecurity. On the other hand, the conference aims to set
+        out the main criticisms levelled at this legislative method, in particular
+        concerning the principle of technological neutrality, and the fears that this
+        legislative fears that this method will be abused. `}
+      french={`L’approche par les risques s’est imposée ces dernières années comme une méthode
+        législative de premier plan. Les grands textes du droit du numérique (Règlement
+        sur l’IA, Législation sur les services, NIS 2, Convention-cadre du Conseil de
+        l’Europe sur l’IA, etc.) l’appliquent ainsi à différents degrés. Mais loin d’être
+        isolé, le droit du numérique s’inscrit en réalité dans la filiation d’autres
+        réglementations fondées sur les risques, à l’instar du droit de l’environnement
+        et du droit financier. L’objectif de cette conférence consiste, d’une part,
+        à présenter cette méthode juridique et ses déclinaisons, en particulier en
+        matière d’intelligence artificielle, de régulation des contenus et de
+        cybersécurité. La conférence vise, d’autre part, à exposer les principales
+        critiques formulées à l’encontre de cette méthode législative, notamment
+        concernant le principe de neutralité technologique ou encore s’agissant des
+        craintes de dévoiement de cette méthode.`}
     />,
     kind: Law,
   },
