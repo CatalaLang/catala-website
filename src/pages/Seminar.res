@@ -694,40 +694,125 @@ public demonstrations of technology, also known as \"demos\"."
     presenter: "Anne Bellon",
     presenter_page_url: "https://www.linkedin.com/in/anne-bellon-a3a90369/",
     abstract: <Lang.String
-      english={`The digital revolution has profoundly transformed the actions of 
-      the State, whose modes and logics of intervention have been adapted to 
-      an increasingly ‘digitised’ society, i.e. one in which production, 
-      commercial exchanges and social relations are now mediated by various 
-      digital technologies. However, these transformations have not led to the 
-      creation of a strong Ministry for the Digital Economy, with so-called 
-      digital policies instead being fragmented between different traditional 
-      areas of intervention, whose boundaries more often than not overlap with 
-      those of ministerial organisations. What, then, is the State's digital 
-      policy all about, and how can we think about the coherence (or otherwise) 
-      of the State's intervention in these pressing issues? Drawing on the major 
-      theories of public action, at the crossroads of sociology and political 
-      science, this session seeks to answer these questions and offer insights 
-      into the paradoxical situation of ‘digital’, and the expertise, issues 
+      english={`The digital revolution has profoundly transformed the actions of
+      the State, whose modes and logics of intervention have been adapted to
+      an increasingly ‘digitised’ society, i.e. one in which production,
+      commercial exchanges and social relations are now mediated by various
+      digital technologies. However, these transformations have not led to the
+      creation of a strong Ministry for the Digital Economy, with so-called
+      digital policies instead being fragmented between different traditional
+      areas of intervention, whose boundaries more often than not overlap with
+      those of ministerial organisations. What, then, is the State's digital
+      policy all about, and how can we think about the coherence (or otherwise)
+      of the State's intervention in these pressing issues? Drawing on the major
+      theories of public action, at the crossroads of sociology and political
+      science, this session seeks to answer these questions and offer insights
+      into the paradoxical situation of ‘digital’, and the expertise, issues
       and professions associated with it, within the State.`}
-      french={`La révolution numérique a profondément transformé l’action de 
-      l’État, dont les modes et logiques d’intervention se sont adaptés à une 
-      société de plus en plus « numérisée », c’est-à-dire une société où la 
-      production, les échanges commerciaux et les rapports sociaux sont 
-      désormais médiés par diverses technologies numériques. Pourtant, ces 
-      transformations n’ont pas abouti à la constitution d’un ministère du 
-      Numérique fort, les politiques dites numériques se trouvant plutôt 
-      éclatées entre différents domaines traditionnels d’intervention, dont 
-      les frontières recoupent le plus souvent celles des organisations 
-      ministérielles. De quoi la politique numérique de l’État est-elle donc 
-      le nom et comment penser la mise en cohérence (ou non) de l’intervention 
-      de l’État sur ces enjeux prégnants ? En s’appuyant sur les grandes 
-      théories de l’action publique, au croisement de la sociologie et de la 
-      science politique, l’intervention cherche à répondre à ces questions et 
-      à offrir des prises pour penser la situation paradoxale du « numérique », 
-      des expertises, des questions et des métiers qui lui sont attachés, au 
+      french={`La révolution numérique a profondément transformé l’action de
+      l’État, dont les modes et logiques d’intervention se sont adaptés à une
+      société de plus en plus « numérisée », c’est-à-dire une société où la
+      production, les échanges commerciaux et les rapports sociaux sont
+      désormais médiés par diverses technologies numériques. Pourtant, ces
+      transformations n’ont pas abouti à la constitution d’un ministère du
+      Numérique fort, les politiques dites numériques se trouvant plutôt
+      éclatées entre différents domaines traditionnels d’intervention, dont
+      les frontières recoupent le plus souvent celles des organisations
+      ministérielles. De quoi la politique numérique de l’État est-elle donc
+      le nom et comment penser la mise en cohérence (ou non) de l’intervention
+      de l’État sur ces enjeux prégnants ? En s’appuyant sur les grandes
+      théories de l’action publique, au croisement de la sociologie et de la
+      science politique, l’intervention cherche à répondre à ces questions et
+      à offrir des prises pour penser la situation paradoxale du « numérique »,
+      des expertises, des questions et des métiers qui lui sont attachés, au
       sein de l’État.`}
     />,
     kind: Sociology,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=11.0, ~date=9.0, ())),
+    title: <Lang.String
+      english={`Projecting Computer Language for a Protean Interaction`}
+      french={`Projeter les langages informatiques pour une interaction protéiforme`}
+    />,
+    presenter: "Camille Gobert",
+    presenter_page_url: "https://www.lri.fr/~gobert/",
+    abstract: <>
+      <Lang.String
+        french={`Depuis leur apparition au milieu du XXe siècle, les
+      langages informatiques — c'est-à-dire les langages conçus pour être
+      interprétés par des machines qui sont utilisés par des humains — sont
+      au cœur de notre interaction avec les ordinateurs. Nous utilisons par
+      exemple des langages tels que Python, LaTeX et Catala pour, respectivement,
+      concevoir des programmes, formater des documents, et formaliser des
+      textes légaux. Cependant, en dépit de la diversité des concepts que ces
+      langages permettent de manipuler et des profils de leurs utilisateurs,
+      notre interaction avec les langages informatique se réduit bien souvent à
+      une seule et même approche : lire et écrire du texte brut. Dans cette
+      présentation, qui s'appuie sur mon `}
+        english="Since their emergence in the middle of the 20th century,
+        computer languages - i.e. languages designed to be interpreted by
+        machines interpreted by machines and used by humans - have been at
+        the heart of our at the heart of our interaction with computers. For
+        example, we use languages such as Python, LaTeX and Catala to,
+        respectively, design programmes, format documents and formalise
+        legal legal texts. However, despite the diversity of concepts that
+        these manipulate and the profiles of their users, our interaction with
+        computer languages is very often reduced to a single a single approach:
+        reading and writing plain text. In this presentation, which is based on my "
+      />
+      <Link.Text target="https://theses.fr/2024UPASG019">
+        <Lang.String french={`travail de thèse`} english="doctoral thesis" />
+      </Link.Text>
+      <Lang.String
+        french={` sur cette thématique, je propose de repenser notre
+      interaction avec ces
+      langages en utilisant le concept de `}
+        english=" on the subject, I propose to rethink our interaction with
+        those languages by using the concept of "
+      />
+      <span className=%twc("italic")> {"projection" |> React.string} </span>
+      <Lang.String
+        french={`, qui désigne le fait de
+      donner corps à des données représentant le code ou le contexte dans
+      lequel celui-ci est utilisé afin de pouvoir interagir avec elles,
+      indépendamment de leur encodage. Afin d'illustrer cette idée, je
+      présente `}
+        english=". This concept refers to giving substance to data representing
+        the code or the context in which it is used, so that we can interact
+        with it independently of its encoding. To illustrate this idea, I present "
+      />
+      <Link.Text target="https://github.com/exsitu-projects/ilatex">
+        {<>
+          <span className=%twc("italic")> {"i" |> React.string} </span>
+          {"-LaTeX" |> React.string}
+        </>}
+      </Link.Text>
+      <Lang.String french={` et `} english=" and " />
+      <Link.Text target="https://github.com/exsitu-projects/lorgnette">
+        <Lang.String french={`Lorgnette`} english="Lorgnette" />
+      </Link.Text>
+      <Lang.String
+        french={`, deux
+      prototypes de systèmes permettant d'utiliser et de créer de nouvelles
+      projections pour des fragments de langages dits « textuels »
+      (LaTeX, Python, CSS…), telles que des tableaux, des images et des
+      formulaires. En m'inspirant de ces systèmes et de divers exemples
+      issus de l'état de l'art en interaction humain-machine, je conclus
+      en introduisant une taxonomie de quatre niveaux d'interaction avec
+      les langages informatiques, et invite l'audience à se l'approprier
+      afin d'imaginer de nouvelles formes d'interaction avec un langage
+      tel que Catala.`}
+        english=", two prototype systems for using and creating new projections
+        for fragments of so-called ‘textual’ languages (LaTeX, Python, CSS,
+        etc.), such as tables, images and forms. Drawing on these systems and
+        various examples from the state of the art in human-computer interaction,
+        I conclude by introducing a taxonomy of four levels of interaction with
+        computer languages, and invite the audience to appropriate it in order
+        to imagine new forms of interaction with a language such as Catala."
+      />
+    </>,
+    kind: ComputerScience,
   },
 ]
 
