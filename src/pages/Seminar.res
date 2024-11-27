@@ -102,7 +102,7 @@ let seminars = [
       protection des personnes et des animaux et une volonté d'écrire pour une \
       mise en oeuvre au plus près du terrain, ce travail de rédaction normatif \
       sera au coeur de cette présentation. Elle se fondera sur les éléments \
-      empiriques issus de travaux antérieurs sur l’administration sanitaire en \
+      empiriques issus de travaux antérieurs sur l'administration sanitaire en \
       France.`}
     />,
     kind: Sociology,
@@ -138,19 +138,19 @@ let seminars = [
       french={`[Ce séminaire originellement prévu le 3 juillet a été décalé] \
       Dans un contexte favorable à la rationalisation des décisions \
       par des objectifs mesurables et des méthodes quantitatives, le \
-      développement récent des technologies numériques a accéléré l’adoption \
+      développement récent des technologies numériques a accéléré l'adoption \
       des systèmes de décisions fondés sur un traitement algorithmique. Des \
       travaux de recherche du champ de l'eXplainable Artififial Intelligence \
-      (XAI) visent à garantir l’intelligibilité des algorithmes de décisions. \
+      (XAI) visent à garantir l'intelligibilité des algorithmes de décisions. \
       Dans ce contexte, nous proposons une méthode originale permettant aux \
       utilisateurs de systèmes algorithmiques d'en contester ou d'en justifier \
       les décisions. Une justification (respectivement une contestation) est un \
-      argument, soutenu par une preuve, qu’une décision est bonne (respectivement \
-      mauvaise) au sens d’un ensemble de normes extérieures prédéfinies. Un \
+      argument, soutenu par une preuve, qu'une décision est bonne (respectivement \
+      mauvaise) au sens d'un ensemble de normes extérieures prédéfinies. Un \
       dispositif technique, appelé Algocate, permet de rendre ces notions \
       opérationnelles pour trois types de normes (règles, objectifs et \
-      référence) grâce à un système interactif permettant à l’utilisateur \
-      d’exprimer son point de vue sur le bien-fondé de la décision. Ce type de \
+      référence) grâce à un système interactif permettant à l'utilisateur \
+      d'exprimer son point de vue sur le bien-fondé de la décision. Ce type de \
       solutions (explications et justifications) sont mises en pratique dans le \
       cadre du score cœur, un système algorithmique de décision utilisé par \
       l'agence de Biomédecine depuis 2018 pour attribuer les greffons cardiaques \
@@ -223,7 +223,7 @@ let seminars = [
     thèse : une décision prise par des systèmes algorithmiques est équivalente \
     à celle prise par un fonctionnaire? Comment traduire la loi en code \
     informatique? En unissant une analyse technique et juridique, la relation \
-    entre le Droit et l’informatique est analysée pour fournir des solutions \
+    entre le Droit et l'informatique est analysée pour fournir des solutions \
     légales opérationnelles pour l'implémentation de systèmes algorithmiques \
     dans la décision publique.`}
     />,
@@ -233,7 +233,7 @@ let seminars = [
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=11.0, ~date=04.0, ())),
     title: <Lang.String
       english="\"Predictive justice\" and lawyers, a study of a contrasting experiment"
-      french={`La « justice prédictive » au service des avocats : étude d’une expérimentation contrastée`}
+      french={`La « justice prédictive » au service des avocats : étude d'une expérimentation contrastée`}
     />,
     presenter: "Héloïse Éloi-Hammer",
     presenter_page_url: "https://medialab.sciencespo.fr/equipe/heloise-eloi-hammer/",
@@ -251,7 +251,7 @@ let seminars = [
     the field of law) or with the DataJust experiment (DataJust was a public \
     project, aiming at developing an algorithm that could help judges to make \
     decisions in cases of physical injuries; it failed due to many problems). \
-    The judges’ reactions to the development of “predictive justice” softwares \
+    The judges' reactions to the development of “predictive justice” softwares \
     have been documented, yet the use of these same softwares by lawyers and \
     legal experts has not been studied a lot for now, even though they are the \
     main users of these technologies. This communication aims at rectifying \
@@ -261,32 +261,32 @@ let seminars = [
     interviews), the presentation focuses on the relation between lawyers \
     and “predictive justice” tools, and on how they insert the tools in \
     their practices."
-      french={`L’application d’algorithmes et d’Intelligence Artificielle au \
+      french={`L'application d'algorithmes et d'Intelligence Artificielle au \
     domaine de la justice est très discutée, et au cœur de nombreux débats. \
     Dans ce contexte, le terme de « justice prédictive » a fait son \
     apparition, pour désigner certains outils numériques permettant aux \
-    professionnels du droit d’estimer les résultats probables d’une affaire \
+    professionnels du droit d'estimer les résultats probables d'une affaire \
     en fonction de ses caractéristiques (nature des faits, profil social des \
     parties, juridiction, etc). Ces outils sont relativement peu utilisés en \
-    France par rapport à ce que l’on peut observer dans d’autres pays, mais \
+    France par rapport à ce que l'on peut observer dans d'autres pays, mais \
     ils sont en plein essor, comme en témoignent par exemple la \
     multiplication des legaltechs (start-ups spécialisées dans le domaine \
-    du droit) et le projet DataJust (projet public de conception d’un outil \
-    d’aide à la décision pour les juges en matière de préjudices corporels, \
-    dont l’élaboration a été interrompue suite à de nombreuses difficultés). \
+    du droit) et le projet DataJust (projet public de conception d'un outil \
+    d'aide à la décision pour les juges en matière de préjudices corporels, \
+    dont l'élaboration a été interrompue suite à de nombreuses difficultés). \
     Si les réactions (majoritairement négatives) des magistrats à ces \
-    technologies ont déjà fait l’objet de quelques articles fournis, leur \
+    technologies ont déjà fait l'objet de quelques articles fournis, leur \
     utilisation par les avocats et juristes reste peu documentée, alors même \
-    qu’ils en sont les principaux usagers. Cette présentation ambitionne de \
+    qu'ils en sont les principaux usagers. Cette présentation ambitionne de \
     combler ce manque, en analysant une expérimentation menée dans une école \
-    d’avocats, au cours de laquelle une solution de « justice prédictive » a \
-    été présentée aux élèves et a fait l’objet d’un « challenge » obligatoire \
+    d'avocats, au cours de laquelle une solution de « justice prédictive » a \
+    été présentée aux élèves et a fait l'objet d'un « challenge » obligatoire \
     pour tous. En se basant sur une étude qualitative par observations et \
     entretiens de cette expérimentation (depuis son organisation par le \
-    personnel de l’école et la start-up ayant développé l’outil jusqu’au \
+    personnel de l'école et la start-up ayant développé l'outil jusqu'au \
     challenge en lui-même et aux retours des élèves-avocats sur ce dernier), \
     elle interroge le rapport des avocats à ces solutions informatiques, ainsi \
-    que la manière dont ces dernières s’insèrent dans leurs pratiques.`}
+    que la manière dont ces dernières s'insèrent dans leurs pratiques.`}
     />,
     kind: Sociology,
   },
@@ -377,17 +377,17 @@ let seminars = [
     répondre aux besoins d'une organisation publique (des travaux, des
     fournitures, des services). Malgré leur place dans notre quotidien
     (routes, bâtiments...), les recherches en sciences sociales lui portent
-    très peu d’intérêt, voire aucun. C’est un objet réservé aux sciences
-    économiques et juridiques qui, pour la majorité d’entre elles, s’en
+    très peu d'intérêt, voire aucun. C'est un objet réservé aux sciences
+    économiques et juridiques qui, pour la majorité d'entre elles, s'en
     saisissent pour proposer des solutions afin de mieux écrire un marché
     public. Or, ces recherches réduisent la rédaction d'un marché à des choix
-    logiques: des modifications de clauses, l’intégration de critère ou de
+    logiques: des modifications de clauses, l'intégration de critère ou de
     choix de procédures.
-    L’enquête ethnographique que j’ai menée au sein d’un conseil départemental
-    montre que le processus de production d’un marché public est loin d’être aussi
-    logique. Si c’était le cas, pourquoi cette collectivité s’est réorganisée
-    quatre fois et a fait l’objet de trois audits ces dix dernières années,
-    et ce, uniquement pour "améliorer" l’écriture de ses marchés ? Cette
+    L'enquête ethnographique que j'ai menée au sein d'un conseil départemental
+    montre que le processus de production d'un marché public est loin d'être aussi
+    logique. Si c'était le cas, pourquoi cette collectivité s'est réorganisée
+    quatre fois et a fait l'objet de trois audits ces dix dernières années,
+    et ce, uniquement pour "améliorer" l'écriture de ses marchés ? Cette
     présentation prend l'exemple du processus de modernisation par la
     dématérialisation des pratiques d'écritures de ces contrats, obligatoire
     depuis 2018.
@@ -409,8 +409,8 @@ let seminars = [
       english={`A law about automatic processing, rather than a law about \
       personal data: when will we write the story of the French law Informatique et Libertés ?`}
       french={`Une loi sur les traitements \
-      automatisés, bien plus qu’une loi sur les données personnelles : quand \
-      écrira-t-on l’histoire de la loi du 6 janvier 1978 Informatique et \
+      automatisés, bien plus qu'une loi sur les données personnelles : quand \
+      écrira-t-on l'histoire de la loi du 6 janvier 1978 Informatique et \
       Libertés ?`}
     />,
     presenter: "Noé Wagener",
@@ -436,23 +436,23 @@ let seminars = [
       a law on \"personal data\" as much as it was a law on \"automated \
       automated processing\" - and that we were, at the time, rather \
       aware of the difference between the two."
-      french={`La loi du 6 janvier 1978 relative à l’informatique aux fichiers \
+      french={`La loi du 6 janvier 1978 relative à l'informatique aux fichiers \
       et aux libertés ambitionnait de prendre à bras-le-corps le problème de \
-      « l’informatisation de la société » et de ses effets sur les libertés. \
-      Ce n’est que par une étrange succession de déplacements qu’elle a été \
-      ramenée à l’affaire Safari, enfermée dans le paradigme du respect de \
+      « l'informatisation de la société » et de ses effets sur les libertés. \
+      Ce n'est que par une étrange succession de déplacements qu'elle a été \
+      ramenée à l'affaire Safari, enfermée dans le paradigme du respect de \
       la vie privée et, finalement, rétractée dans le seul « droit de la \
       protection des données personnelles ». Étonnamment, toute une part de \
-      l’histoire de cette loi n'a pas été faite, et reste aujourd’hui à \
+      l'histoire de cette loi n'a pas été faite, et reste aujourd'hui à \
       écrire. Cela suppose, bien sûr, de réinscrire ce texte dans les grands \
       débats des années 1970 sur les libertés ; mais cela exige surtout de \
       reconstruire tous ces fils que les concepteurs de la loi de 1978 \
       avaient tissés, sur lesquels leurs successeurs, au Parlement, dans \
-      les administrations, à la CNIL et ailleurs, n’ont pas beaucoup tiré \
-      ensuite. Ma communication s’attachera donc, en repartant de plusieurs \
+      les administrations, à la CNIL et ailleurs, n'ont pas beaucoup tiré \
+      ensuite. Ma communication s'attachera donc, en repartant de plusieurs \
       fonds d'archives publiques librement communicables, à revenir sur la \
-      genèse de la loi de 1978, pour rappeler que celle-ci n’était pas tant \
-      une loi sur les « données personnelles » qu’elle n’était une loi sur \
+      genèse de la loi de 1978, pour rappeler que celle-ci n'était pas tant \
+      une loi sur les « données personnelles » qu'elle n'était une loi sur \
       les « traitements automatisés » - et qu'on était, alors, plutôt \
       conscient de ce qui sépare l'une de l'autre.`}
     />,
@@ -462,7 +462,7 @@ let seminars = [
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=4.0, ~date=6.0, ())),
     title: <Lang.String
       english={`Assessing a person using an algorithm. A legal analysis of the concept of profiling.`}
-      french={`Évaluer une personne avec un algorithme. Analyse juridique via la notion de « profilage ».`}
+      french={`Évaluer une personne avec un algorithme. Analyse juridique via la notion de « profilage ».`}
     />,
     presenter: "Robin Plique",
     presenter_page_url: "https://www.linkedin.com/in/robin-plique-540044113",
@@ -488,25 +488,25 @@ let seminars = [
       can be defined semantically as a value judgement, can we apply the area \
       of law that usually regulates those, i.e defamation law?"
       french={`Divers représentants des sciences sociales décrivent nos \
-      sociétés occidentales sous l’appellation de « société de l’évaluation ». \
-      Ce ne sont pas les exemples qui manquent et nous n’avons rien à envier \
-      au développement d’un « crédit social » en Chine. Il suffit de constater \
-      que pléthore de décisions affectant les individus sont aujourd’hui \
-      conditionnées au résultat d’une (bonne) évaluation. Sans un bon score \
+      sociétés occidentales sous l'appellation de « société de l'évaluation ». \
+      Ce ne sont pas les exemples qui manquent et nous n'avons rien à envier \
+      au développement d'un « crédit social » en Chine. Il suffit de constater \
+      que pléthore de décisions affectant les individus sont aujourd'hui \
+      conditionnées au résultat d'une (bonne) évaluation. Sans un bon score \
       de crédit, pas de crédit. Si la personne présente un mauvais risque, \
       par exemple à cause de sa santé, elle ne pourra être assurée ou alors \
-      à une prime très élevé. Le recrutement est le fruit d’une décision, de \
+      à une prime très élevé. Le recrutement est le fruit d'une décision, de \
       plus en plus médiée par des algorithmes de tri ou de reconnaissance \
-      faciale permettant en un clin d’œil selon leur niveau de stress ou \
+      faciale permettant en un clin d'œil selon leur niveau de stress ou \
       leur employabilité prédite. Ces pratiques sont généralement le fruit \
-      d’une analyse par algorithme que l’on appelle « profilage ». Toutefois, \
+      d'une analyse par algorithme que l'on appelle « profilage ». Toutefois, \
       la notion juridique de profilage répond-elle à sa description technique ? \
-      À l’examen, on verra qu’elle excède largement celle-ci. De plus, la \
+      À l'examen, on verra qu'elle excède largement celle-ci. De plus, la \
       notion semble enchevêtrée avec celle de décision automatisée. Le même \
-      constat peut être dressé à l’égard de son régime, qui paraît peu \
+      constat peut être dressé à l'égard de son régime, qui paraît peu \
       efficace si on le cantonne au droit des données à caractère personnel. \
-      Il est donc nécessaire d’examiner d’autres secteurs du droit. Dans la \
-      mesure où l’évaluation est un jugement de valeur, peut-on appliquer \
+      Il est donc nécessaire d'examiner d'autres secteurs du droit. Dans la \
+      mesure où l'évaluation est un jugement de valeur, peut-on appliquer \
       au profilage le pan du droit traditionnellement dévolu à la \
       réglementation de ceux-ci, à savoir le droit de la presse ?`}
     />,
@@ -595,13 +595,13 @@ entrepreneurship and the deployment of modes of interaction
 public demonstrations of technology, also known as \"demos\"."
       french={`Je prendrai pour objet les conditions sociales des échanges \
       propres à la Silicon Valley depuis la seconde moitié du 20e siècle \
-      jusqu’à nos jours. Je montrerai que les relations contractuelles, les \
+      jusqu'à nos jours. Je montrerai que les relations contractuelles, les \
       partenariats et les transactions entre universitaires, industriels, et \
-      représentants de l’administration fédérale et de la défense ont été \
+      représentants de l'administration fédérale et de la défense ont été \
       structurés en partie par le développement de modes spécifiques de \
-      régulation au sein d’un complexe militaro-industriel, par l’essor \
-      d’un régime d’entreprenariat scientifique et par le déploiement de \
-      modes d’interaction marqués en particulier par la réalisation de
+      régulation au sein d'un complexe militaro-industriel, par l'essor \
+      d'un régime d'entreprenariat scientifique et par le déploiement de \
+      modes d'interaction marqués en particulier par la réalisation de
       \démonstrations publiques de technologie, appelées aussi « démos ».`}
     />,
     kind: Sociology,
@@ -653,7 +653,7 @@ public demonstrations of technology, also known as \"demos\"."
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=9.0, ~date=7.0, ())),
     title: <Lang.String
       english="Digital regulation : presentation and critique of the risk-based approach"
-      french={`Réguler le numérique : présentation et critiques de l’approche par les risques`}
+      french={`Réguler le numérique : présentation et critiques de l'approche par les risques`}
     />,
     presenter: "Arnaud Latil",
     presenter_page_url: "https://univ-droit.fr/universitaires/24851-arnaud-latil",
@@ -669,18 +669,18 @@ public demonstrations of technology, also known as \"demos\"."
         out the main criticisms levelled at this legislative method, in particular
         concerning the principle of technological neutrality, and the fears that this
         legislative fears that this method will be abused. `}
-      french={`L’approche par les risques s’est imposée ces dernières années comme une méthode
+      french={`L'approche par les risques s'est imposée ces dernières années comme une méthode
         législative de premier plan. Les grands textes du droit du numérique (Règlement
-        sur l’IA, Législation sur les services, NIS 2, Convention-cadre du Conseil de
-        l’Europe sur l’IA, etc.) l’appliquent ainsi à différents degrés. Mais loin d’être
-        isolé, le droit du numérique s’inscrit en réalité dans la filiation d’autres
-        réglementations fondées sur les risques, à l’instar du droit de l’environnement
-        et du droit financier. L’objectif de cette conférence consiste, d’une part,
+        sur l'IA, Législation sur les services, NIS 2, Convention-cadre du Conseil de
+        l'Europe sur l'IA, etc.) l'appliquent ainsi à différents degrés. Mais loin d'être
+        isolé, le droit du numérique s'inscrit en réalité dans la filiation d'autres
+        réglementations fondées sur les risques, à l'instar du droit de l'environnement
+        et du droit financier. L'objectif de cette conférence consiste, d'une part,
         à présenter cette méthode juridique et ses déclinaisons, en particulier en
-        matière d’intelligence artificielle, de régulation des contenus et de
-        cybersécurité. La conférence vise, d’autre part, à exposer les principales
-        critiques formulées à l’encontre de cette méthode législative, notamment
-        concernant le principe de neutralité technologique ou encore s’agissant des
+        matière d'intelligence artificielle, de régulation des contenus et de
+        cybersécurité. La conférence vise, d'autre part, à exposer les principales
+        critiques formulées à l'encontre de cette méthode législative, notamment
+        concernant le principe de neutralité technologique ou encore s'agissant des
         craintes de dévoiement de cette méthode.`}
     />,
     kind: Law,
@@ -696,7 +696,7 @@ public demonstrations of technology, also known as \"demos\"."
     abstract: <Lang.String
       english={`The digital revolution has profoundly transformed the actions of
       the State, whose modes and logics of intervention have been adapted to
-      an increasingly ‘digitised’ society, i.e. one in which production,
+      an increasingly ‘digitised' society, i.e. one in which production,
       commercial exchanges and social relations are now mediated by various
       digital technologies. However, these transformations have not led to the
       creation of a strong Ministry for the Digital Economy, with so-called
@@ -707,25 +707,25 @@ public demonstrations of technology, also known as \"demos\"."
       of the State's intervention in these pressing issues? Drawing on the major
       theories of public action, at the crossroads of sociology and political
       science, this session seeks to answer these questions and offer insights
-      into the paradoxical situation of ‘digital’, and the expertise, issues
+      into the paradoxical situation of ‘digital', and the expertise, issues
       and professions associated with it, within the State.`}
-      french={`La révolution numérique a profondément transformé l’action de
-      l’État, dont les modes et logiques d’intervention se sont adaptés à une
-      société de plus en plus « numérisée », c’est-à-dire une société où la
+      french={`La révolution numérique a profondément transformé l'action de
+      l'État, dont les modes et logiques d'intervention se sont adaptés à une
+      société de plus en plus « numérisée », c'est-à-dire une société où la
       production, les échanges commerciaux et les rapports sociaux sont
       désormais médiés par diverses technologies numériques. Pourtant, ces
-      transformations n’ont pas abouti à la constitution d’un ministère du
+      transformations n'ont pas abouti à la constitution d'un ministère du
       Numérique fort, les politiques dites numériques se trouvant plutôt
-      éclatées entre différents domaines traditionnels d’intervention, dont
+      éclatées entre différents domaines traditionnels d'intervention, dont
       les frontières recoupent le plus souvent celles des organisations
-      ministérielles. De quoi la politique numérique de l’État est-elle donc
-      le nom et comment penser la mise en cohérence (ou non) de l’intervention
-      de l’État sur ces enjeux prégnants ? En s’appuyant sur les grandes
-      théories de l’action publique, au croisement de la sociologie et de la
-      science politique, l’intervention cherche à répondre à ces questions et
+      ministérielles. De quoi la politique numérique de l'État est-elle donc
+      le nom et comment penser la mise en cohérence (ou non) de l'intervention
+      de l'État sur ces enjeux prégnants ? En s'appuyant sur les grandes
+      théories de l'action publique, au croisement de la sociologie et de la
+      science politique, l'intervention cherche à répondre à ces questions et
       à offrir des prises pour penser la situation paradoxale du « numérique »,
       des expertises, des questions et des métiers qui lui sont attachés, au
-      sein de l’État.`}
+      sein de l'État.`}
     />,
     kind: Sociology,
   },
@@ -804,7 +804,7 @@ public demonstrations of technology, also known as \"demos\"."
       afin d'imaginer de nouvelles formes d'interaction avec un langage
       tel que Catala.`}
         english=", two prototype systems for using and creating new projections
-        for fragments of so-called ‘textual’ languages (LaTeX, Python, CSS,
+        for fragments of so-called ‘textual' languages (LaTeX, Python, CSS,
         etc.), such as tables, images and forms. Drawing on these systems and
         various examples from the state of the art in human-computer interaction,
         I conclude by introducing a taxonomy of four levels of interaction with
@@ -813,6 +813,68 @@ public demonstrations of technology, also known as \"demos\"."
       />
     </>,
     kind: ComputerScience,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=0.0, ~date=6.0, ())),
+    title: <Lang.String
+      english="Talking about artificial intelligence in law: between the crisis of law and the crisis of a scientific discipline"
+      french={`Parler de l'intelligence artificielle en droit, entre crise du droit et crise d'une discipline scientifique`}
+    />,
+    presenter: "Camille Bordere",
+    presenter_page_url: "https://www.linkedin.com/in/camille-bordere-9a5372a4",
+    abstract: <Lang.String
+      english={`Within the legal discipline, the digital revolution in law is 
+      usually viewed from the angle of its impact on the content and practice 
+      of law. This is particularly the case for one particular facet of this 
+      revolution, embodied by so-called predictive justice tools and the 
+      exhaustive case law databases on which they are based. At first glance, 
+      the body of literature on this subject focuses on the way in which these 
+      tools are likely to affect both the content of legal rules and their 
+      practice by lawyers and, above all, by judges. On closer examination, 
+      however, the surprising homogeneity and circularity of this discourse 
+      of rejection based on the idea of the incompatibility of these devices 
+      with ‘French law’ conceals less explicit tensions, which affect not only 
+      ‘law’ in the strict sense, but also the way in which it is thought 
+      about, understood and defined - in a word, law as a scientific discipline. 
+      Both against and on the basis of the content of this specific discourse, 
+      the doctoral thesis to be presented has thus set out to answer a central 
+      question: why do all these authors seem to reject these devices? On the 
+      basis of a study of the arguments put forward by these authors, 
+      three hypotheses (legal, systemic and cultural) were successively 
+      examined in order to determine where, in French law, the incompatibility 
+      in question lies. At the end of their successive analyses, and in the 
+      absence of a legal basis for this rejection, it is the effects of these 
+      devices on the frameworks of thought of the legal discipline that seem 
+      best able to shed light on this discourse and on the way in which legal 
+      experts are dealing with the effects of artificial intelligence on their 
+      subject matter... and on their discipline, therefore.`}
+      french={`Au sein de la discipline juridique, la révolution numérique du droit est 
+      habituellement saisie sous l'angle de son impact sur le contenu et la pratique 
+      du droit. C'est particulièrement le cas d'une facette particulière de cette révolution, 
+      incarnée par les outils dits de justice prédictive et les bases de données 
+      jurisprudentielles à vocation exhaustive sur lesquelles ils s'adossent. 
+      À première vue, l'ensemble des écrits produits sur ce sujet se concentre 
+      bien sur la manière dont ces dispositifs sont susceptibles d'affecter à la 
+      fois le contenu des règles de droit et leur pratique par les avocats et, 
+      surtout, par les juges. À bien y regarder, cependant, l'homogénéité et la 
+      circularité surprenantes de ce discours de rejet fondé sur une idée d'incompatibilité 
+      de ces dispositifs avec le « droit français » dissimulent des tensions moins 
+      explicites, qui touchent non pas seulement au « droit » au sens strict, mais 
+      aussi à la manière dont il est pensé, compris et défini – en un mot, au droit 
+      comme discipline scientifique. À la fois à rebours et sur la base du contenu 
+      de ce discours spécifique, la thèse de doctorat qui sera présentée s'est ainsi 
+      attachée à répondre à une question centrale : pourquoi tous ces auteurs 
+      semblent-ils rejeter ces dispositifs ? Sur le fondement de l'étude des arguments 
+      mobilisés par ces auteurs, ce sont trois hypothèses (juridique, systémique 
+      et culturelle) qui ont été successivement étudiées afin de déterminer où, 
+      dans le droit français, se situe l'incompatibilité pointée du doigt. À 
+      l'issue de leur analyse successive et faute de pouvoir fonder ce rejet 
+      en droit, ce sont les effets de ces dispositifs sur les cadres de pensée 
+      de la discipline juridique qui semblent les plus à mêmes d'éclairer ce 
+      discours et la manière dont les juristes se saisissent des effets de 
+      l'intelligence artificielle sur leur objet... et sur leur discipline, donc.`}
+    />,
+    kind: Law,
   },
 ]
 
