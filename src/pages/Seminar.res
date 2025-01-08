@@ -820,61 +820,102 @@ public demonstrations of technology, also known as \"demos\"."
       english="Talking about artificial intelligence in law: between the crisis of law and the crisis of a scientific discipline"
       french={`Parler de l'intelligence artificielle en droit, entre crise du droit et crise d'une discipline scientifique`}
     />,
-    presenter: "Camille Bordere",
+    presenter: "Camille Bordère",
     presenter_page_url: "https://www.linkedin.com/in/camille-bordere-9a5372a4",
     abstract: <Lang.String
-      english={`Within the legal discipline, the digital revolution in law is 
-      usually viewed from the angle of its impact on the content and practice 
-      of law. This is particularly the case for one particular facet of this 
-      revolution, embodied by so-called predictive justice tools and the 
-      exhaustive case law databases on which they are based. At first glance, 
-      the body of literature on this subject focuses on the way in which these 
-      tools are likely to affect both the content of legal rules and their 
-      practice by lawyers and, above all, by judges. On closer examination, 
-      however, the surprising homogeneity and circularity of this discourse 
-      of rejection based on the idea of the incompatibility of these devices 
-      with ‘French law’ conceals less explicit tensions, which affect not only 
-      ‘law’ in the strict sense, but also the way in which it is thought 
-      about, understood and defined - in a word, law as a scientific discipline. 
-      Both against and on the basis of the content of this specific discourse, 
-      the doctoral thesis to be presented has thus set out to answer a central 
-      question: why do all these authors seem to reject these devices? On the 
-      basis of a study of the arguments put forward by these authors, 
-      three hypotheses (legal, systemic and cultural) were successively 
-      examined in order to determine where, in French law, the incompatibility 
-      in question lies. At the end of their successive analyses, and in the 
-      absence of a legal basis for this rejection, it is the effects of these 
-      devices on the frameworks of thought of the legal discipline that seem 
-      best able to shed light on this discourse and on the way in which legal 
-      experts are dealing with the effects of artificial intelligence on their 
+      english={`Within the legal discipline, the digital revolution in law is
+      usually viewed from the angle of its impact on the content and practice
+      of law. This is particularly the case for one particular facet of this
+      revolution, embodied by so-called predictive justice tools and the
+      exhaustive case law databases on which they are based. At first glance,
+      the body of literature on this subject focuses on the way in which these
+      tools are likely to affect both the content of legal rules and their
+      practice by lawyers and, above all, by judges. On closer examination,
+      however, the surprising homogeneity and circularity of this discourse
+      of rejection based on the idea of the incompatibility of these devices
+      with ‘French law’ conceals less explicit tensions, which affect not only
+      ‘law’ in the strict sense, but also the way in which it is thought
+      about, understood and defined - in a word, law as a scientific discipline.
+      Both against and on the basis of the content of this specific discourse,
+      the doctoral thesis to be presented has thus set out to answer a central
+      question: why do all these authors seem to reject these devices? On the
+      basis of a study of the arguments put forward by these authors,
+      three hypotheses (legal, systemic and cultural) were successively
+      examined in order to determine where, in French law, the incompatibility
+      in question lies. At the end of their successive analyses, and in the
+      absence of a legal basis for this rejection, it is the effects of these
+      devices on the frameworks of thought of the legal discipline that seem
+      best able to shed light on this discourse and on the way in which legal
+      experts are dealing with the effects of artificial intelligence on their
       subject matter... and on their discipline, therefore.`}
-      french={`Au sein de la discipline juridique, la révolution numérique du droit est 
-      habituellement saisie sous l'angle de son impact sur le contenu et la pratique 
-      du droit. C'est particulièrement le cas d'une facette particulière de cette révolution, 
-      incarnée par les outils dits de justice prédictive et les bases de données 
-      jurisprudentielles à vocation exhaustive sur lesquelles ils s'adossent. 
-      À première vue, l'ensemble des écrits produits sur ce sujet se concentre 
-      bien sur la manière dont ces dispositifs sont susceptibles d'affecter à la 
-      fois le contenu des règles de droit et leur pratique par les avocats et, 
-      surtout, par les juges. À bien y regarder, cependant, l'homogénéité et la 
-      circularité surprenantes de ce discours de rejet fondé sur une idée d'incompatibilité 
-      de ces dispositifs avec le « droit français » dissimulent des tensions moins 
-      explicites, qui touchent non pas seulement au « droit » au sens strict, mais 
-      aussi à la manière dont il est pensé, compris et défini – en un mot, au droit 
-      comme discipline scientifique. À la fois à rebours et sur la base du contenu 
-      de ce discours spécifique, la thèse de doctorat qui sera présentée s'est ainsi 
-      attachée à répondre à une question centrale : pourquoi tous ces auteurs 
-      semblent-ils rejeter ces dispositifs ? Sur le fondement de l'étude des arguments 
-      mobilisés par ces auteurs, ce sont trois hypothèses (juridique, systémique 
-      et culturelle) qui ont été successivement étudiées afin de déterminer où, 
-      dans le droit français, se situe l'incompatibilité pointée du doigt. À 
-      l'issue de leur analyse successive et faute de pouvoir fonder ce rejet 
-      en droit, ce sont les effets de ces dispositifs sur les cadres de pensée 
-      de la discipline juridique qui semblent les plus à mêmes d'éclairer ce 
-      discours et la manière dont les juristes se saisissent des effets de 
+      french={`Au sein de la discipline juridique, la révolution numérique du droit est
+      habituellement saisie sous l'angle de son impact sur le contenu et la pratique
+      du droit. C'est particulièrement le cas d'une facette particulière de cette révolution,
+      incarnée par les outils dits de justice prédictive et les bases de données
+      jurisprudentielles à vocation exhaustive sur lesquelles ils s'adossent.
+      À première vue, l'ensemble des écrits produits sur ce sujet se concentre
+      bien sur la manière dont ces dispositifs sont susceptibles d'affecter à la
+      fois le contenu des règles de droit et leur pratique par les avocats et,
+      surtout, par les juges. À bien y regarder, cependant, l'homogénéité et la
+      circularité surprenantes de ce discours de rejet fondé sur une idée d'incompatibilité
+      de ces dispositifs avec le « droit français » dissimulent des tensions moins
+      explicites, qui touchent non pas seulement au « droit » au sens strict, mais
+      aussi à la manière dont il est pensé, compris et défini – en un mot, au droit
+      comme discipline scientifique. À la fois à rebours et sur la base du contenu
+      de ce discours spécifique, la thèse de doctorat qui sera présentée s'est ainsi
+      attachée à répondre à une question centrale : pourquoi tous ces auteurs
+      semblent-ils rejeter ces dispositifs ? Sur le fondement de l'étude des arguments
+      mobilisés par ces auteurs, ce sont trois hypothèses (juridique, systémique
+      et culturelle) qui ont été successivement étudiées afin de déterminer où,
+      dans le droit français, se situe l'incompatibilité pointée du doigt. À
+      l'issue de leur analyse successive et faute de pouvoir fonder ce rejet
+      en droit, ce sont les effets de ces dispositifs sur les cadres de pensée
+      de la discipline juridique qui semblent les plus à mêmes d'éclairer ce
+      discours et la manière dont les juristes se saisissent des effets de
       l'intelligence artificielle sur leur objet... et sur leur discipline, donc.`}
     />,
     kind: Law,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=01.0, ~date=17.0, ())),
+    title: <Lang.String
+      english={`Good-Enoughing: an ethnography of software work at Middle Tech companies `}
+      french={`Faire juste assez bien : une ethnographie du travail logiciel dans les entreprises ordinaires de la tech`}
+    />,
+    presenter: "Paula Bialski",
+    presenter_page_url: "https://paulabialski.com/",
+    abstract: <Lang.String
+      english={`What if software is never in a state of seamlessness and
+      perfection, but always just simply good-enough-to-function? Situated
+      between science and technology studies, software studies, and
+      ethnographic inquiry, in this lecture, Prof. Bialski will take the
+      audience on a journey describing neither the tech giant or the flashy
+      startup, but the run-of-the-mill Middletech: a place where software
+      is built to be just “good enough” to function and workers create and
+      sustain a complex culture of good enoughness. In examining the
+      materiality of software in shaping the organization of software work,
+      Bialski will show how software’s technical constraints – such as bugs
+      or legacy code – impacts daily workflows, decision-making processes,
+      and power dynamics among software engineers.`}
+      french={`Et si les logiciels n'étaient jamais parfaits et sans faille,
+      mais toujours suffisamment bons pour fonctionner ? Située entre
+      entre la sociologie des sciences et techniques, les études sur les
+      logiciels et les enquêtes ethnographiques,
+      le professeur Bialski emmènera le public dans un voyage décrivant
+      non pas les géants de la
+      tech ou les start-ups pimpantes mais une entreprise « moyenne » de la tech
+      ordinaire : un endroit où les logiciels
+      sont construits pour être juste « assez bons » pour fonctionner et où les
+      travailleurs créent et entretiennent une
+      culture complexe de la qualité suffisante. En examinant la matérialité
+      du logiciel dans l'organisation du travail sur le logiciel, Bialski
+      montrera comment
+      les contraintes techniques des logiciels – telles que les bogues
+      ou les codes hérités – façonnent les flux de travail quotidiens,
+      les processus de prise de décision et les dynamiques de pouvoir
+       parmi les ingénieurs en informatique.`}
+    />,
+    kind: Sociology,
   },
 ]
 

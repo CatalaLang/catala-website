@@ -48,9 +48,6 @@ var catala = {
         },
       },
     }),
-    new CopyPlugin({
-      patterns: [{ from: "./assets/ocaml_docs", to: "ocaml_docs" }],
-    }),
     // Expose BrowserFS, process, and Buffer globals.
     // NOTE: If you intend to use BrowserFS in a script tag, you do not need
     // to expose a BrowserFS global.
