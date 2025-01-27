@@ -917,6 +917,88 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Sociology,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=02.0, ~date=10.0, ())),
+    title: <Lang.String
+      english={`CUTECat: Generating Testcases for Computational Laws through Concolic Execution`}
+      french={`CUTECat : Génération de cas de tests pour le droit computationel grâce à l'exécution concolique`}
+    />,
+    presenter: "Pierre Goutagny",
+    presenter_page_url: "https://pierregoutagny.fr/",
+    abstract: <Lang.String
+      english={`Many legal computations, including the amount of tax owed by a
+      citizen, whether they are eligible to social benefits, or the wages due
+      to civil state servants, are specified by computational laws. Their
+      application, however, is performed by expert computer programs intended
+      to faithfully transcribe the law into computer code. Bugs in these
+      programs can lead to dramatic societal impact, e.g., paying employees
+      incorrect amounts, or not awarding benefits to families in need. The
+      Catala domain-specific programming language allows for more faithful
+      translations of law into code. However, some classes of bugs can still
+      happen in Catala programs, either due to a programming error or due to a
+      faithful translation of an ambiguous legal text. Program analysis can
+      address these issues by studying automatically the source code (static
+      analysis) or observing the behavior of the program when it is running
+      under controlled circumstances (dynamic analysis). These analyses help
+      deduce properties of the program — When can it crash? Does it always
+      return the expected output value given known inputs? — and thus find
+      bugs. In particular, we consider concolic unit testing, a combination
+      of dynamic and static analysis that relies on both concrete execution
+      and SMT-based symbolic execution, and propose CUTECat, a concolic
+      execution tool targeting implementations of computational laws. Such
+      laws typically follow a pattern where a base case is later refined by
+      many exceptions in following law articles, a pattern that can be formally
+      modeled using default logic. We show how to handle default logic inside a
+      concolic execution tool, and implement our approach in the context of
+      Catala. We evaluate CUTECat on several programs, including the Catala
+      implementation of the French housing benefits and Section 132 of the US
+      tax code. We show that CUTECat can successfully generate hundreds of
+      thousands of testcases covering all branches of these bodies of law.
+      Through several heuristics, we improve CUTECat's scalability and
+      usability, making the testcases understandable by lawyers and programmers
+      alike. We believe CUTECat thus paves the way for the use of formal methods
+      during legislative processes.`}
+      french={`De nombreux calculs juridiques, notamment le montant de l'impôt
+      dû par un citoyen, son éligibilité aux prestations sociales ou le salaire
+      dû aux fonctionnaires de l'État, sont spécifiés par des lois
+      computationelles. Leur application est réalisée par
+      des programmes informatiques experts destinés à transcrire fidèlement
+      la loi en code informatique. Les bogues dans ces programmes peuvent avoir
+      un impact sociétal dramatique, par exemple en payant des montants
+      incorrects aux employés ou en n'accordant pas de prestations aux familles
+      dans le besoin. Le langage de programmation spécifique au domaine Catala
+      permet de traduire plus fidèlement la loi en code. Cependant, certaines
+      catégories de bogues peuvent encore se produire dans les programmes Catala,
+      soit en raison d'une erreur de programmation, soit en raison d'une
+      traduction fidèle d'un texte juridique ambigu. L'analyse de programme peut
+      aborder ces questions en étudiant automatiquement le code source
+      (analyse statique) ou en observant le comportement du programme lorsqu'il
+      est exécuté dans des circonstances contrôlées (analyse dynamique).
+      Ces analyses permettent de déduire les propriétés du programme -
+      Quand peut-il se planter ? Renvoie-t-il toujours la valeur de sortie
+      attendue en fonction d'entrées connues ? - et donc de trouver des bogues.
+      En particulier, nous considérons les tests unitaires concoliques,
+      une combinaison d'analyse dynamique et statique qui repose à la fois sur
+      l'exécution concrète et l'exécution symbolique basée sur SMT, et nous
+      avons avons développé CUTECat, un outil d'exécution concolique ciblant
+      les implémentations de lois de calcul. Ces lois suivent typiquement
+      un modèle où un cas de base est ensuite raffiné par de nombreuses
+      exceptions dans les articles de loi suivants, un modèle qui peut
+      être formellement modélisé à l'aide de la logique par défaut.
+      Nous montrons comment gérer la logique par défaut dans un outil
+      d'exécution concolique, et mettons en oeuvre notre approche dans
+      le contexte de Catala. Nous évaluons CUTECat sur plusieurs programmes,
+      y compris l'implémentation Catala des allocations logement françaises
+      et de la section 132 du code fiscal américain. Nous montrons que CUTECat
+      peut générer avec succès des centaines de milliers de cas de test couvrant
+      toutes les branches de ces corpus juridiques. Grâce à plusieurs
+      heuristiques, nous améliorons l'extensibilité et la convivialité de
+      CUTECat, en rendant les cas de test compréhensibles pour les juristes et
+      les programmeurs. Nous pensons que CUTECat ouvre ainsi la voie à
+      l'utilisation de méthodes formelles dans les processus législatifs.`}
+    />,
+    kind: ComputerScience,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
