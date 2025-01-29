@@ -492,7 +492,7 @@ let make = () => <>
         english="Peer-reviewed conferences and journals"
         french={`Conférences et journaux à comité de lecture`}
       />}>
-      <PubItems items={[dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
+      <PubItems items={[cutecat_2025, dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
     </Section>
     <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
       <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
