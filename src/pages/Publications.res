@@ -321,6 +321,29 @@ the Catala implementation of the French housing benefits, leading to the \
 discovery of several date-related ambiguities.`),
 }
 
+let cutecat_2025 = {
+  title: `CUTECat: Concolic Execution for Computational Law`,
+  authors: [pierreGoutagny, aymericFromherz, denisMerigoux],
+  date: `2025`,
+  citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for \
+    Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`
+  link: "https://rmonat.fr/data/pubs/2025/2025-05-03_esop_cutecat.pdf",
+  bibtex: `@inproceedings{goutagny:hal-04907935,
+  TITLE = {{CUTECat: Concolic Execution for Computational Law}},
+  AUTHOR = {Goutagny, Pierre and Fromherz, Aymeric and Monat, Rapha{\"e}l},
+  URL = {https://inria.hal.science/hal-04907935},
+  BOOKTITLE = {{ESOP 2025 - 34th European Symposium on Programming}},
+  ADDRESS = {Hamilton, ON, Canada},
+  YEAR = {2025},
+  MONTH = May,
+  KEYWORDS = {Concolic execution ; Symbolic execution ; Computational law},
+  PDF = {https://inria.hal.science/hal-04907935v1/file/final.pdf},
+  HAL_ID = {hal-04907935},
+  HAL_VERSION = {v1},
+}`,
+  abstract: Some(`Many legal computations, including the amount of tax owed by a citizen, whether they are eligible to social benefits, or the wages due to civil state servants, are specified by computational laws. Their application, however, is performed by expert computer programs intended to faithfully transcribe the law into computer code. Bugs in these programs can lead to dramatic societal impact, e.g., paying employees incorrect amounts, or not awarding benefits to families in need. To address this issue, we consider concolic unit testing, a combination of concrete execution with SMT-based symbolic execution, and propose CUTECat, a concolic execution tool targeting implementations of computational laws. Such laws typically follow a pattern where a base case is later refined by many exceptions in following law articles, a pattern that can be formally modeled using default logic. We show how to handle default logic inside a concolic execution tool, and implement our approach in the context of Catala, a recent domain-specific language tailored to implement computational laws. We evaluate CUTECat on several programs, including the Catala implementation of the French housing benefits and Section 132 of the US tax code. We show that CUTECat can successfully generate hundreds of thousands of testcases covering all branches of these bodies of law. Through several heuristics, we improve CUTECat’s scalability and usability, making the testcases understandable by lawyers and programmers alike. We believe CUTECat thus paves the way for the use of formal methods during legislative processes.`),
+}
+
 let ml_workshop_2023 = {
   title: `Modern DSL compiler architecture in OCaml our experience with Catala`,
   authors: [louisGesbert, denisMerigoux],
