@@ -143,3 +143,12 @@ let carolineFlori = {
     url: "https://www.economie.gouv.fr/dgfip",
   },
 }
+
+let pierreGoutagny = {
+  name: `Pierre Goutagny`,
+  website: Some("https://pierregoutagny.fr/"),
+  affiliation: {
+    name: "Inria - SyCoMoRES",
+    url: "https://team.inria.fr/sycomores/",
+  },
+}
