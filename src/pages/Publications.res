@@ -175,6 +175,45 @@ let crcl_2022 = {
 }",
 }
 
+let crcl_2023 = {
+  title: `Scoping AI & Law Projects: Wanting It All is Counterproductive `,
+  authors: [denisMerigoux],
+  date: `2023`,
+  link: "https://journalcrcl.org/crcl/article/view/56/",
+  citation: `Merigoux, Denis. 2024. “Scoping AI & Law Projects: Wanting It All Is Counterproductive”. Journal of Cross-Disciplinary Research in Computational Law 2 (2).`,
+  abstract: Some(`The intersection of law and computer science has been
+    dominated for decades by a community that self-identifies with the pursuit
+    of ‘artificial intelligence’. This self-identification is not a coincidence;
+    many AI & Law researchers have expressed their interest in the
+    ideologically-charged idea-utopia of government by machines, and the field
+    of artificial intelligence aligns with the pursuit of all-encompassing
+    systems that could crack the very diverse nature of legal tasks. As a
+    consequence, a lot of theoretical and practical work has been carried
+    in the AI & Law community with the objective of creating logic-based,
+    knowledge-based or machine-learning-based systems that could eventually
+    ‘solve’ any legal task. This ‘want-it-all’ research attitude echoes some
+    of the debates in my home field of formal methods around formalization of
+    programming languages and proofs. Hence, I will argue here that the quest
+    for an unscoped system that does it all is counterproductive for multiple
+    reasons. First, because these systems perform generally poorly on everything
+    rather than being good at one task, and most legal applications have high
+    correctness standards. Second, because it yields artifacts that are very
+    difficult to evaluate in order to build a sound methodology for advancing
+    the field. Third, because it nudges into technological choices that require
+    large infrastructure-building (sometimes on a global scale) before reaping
+    benefits and encouraging adoption. Fourth, because it distracts efforts
+    away from the basic applications of legal technologies that have been
+    neglected by the research community.`),
+  bibtex: "@article{Merigoux_2024,
+  title={Scoping AI &amp;; Law Projects: Wanting It All is Counterproductive},
+  volume={2}, url={https://journalcrcl.org/crcl/article/view/56},
+  number={2},
+  journal={Journal of Cross-disciplinary Research in Computational Law},
+  author={Merigoux, Denis},
+  year={2024},
+  month={May}}",
+}
+
 let icfp2021 = {
   title: `Catala: a programming language for the law`,
   authors: [denisMerigoux, nicolasChataing, jonathanProtzenko],
@@ -500,7 +539,7 @@ let make = () => <>
       <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
     </Section>
     <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
-      <PubItems items={[smu_2022, iafipu2020]} />
+      <PubItems items={[crcl_2023, smu_2022, iafipu2020]} />
     </Section>
     <Section
       title={<Lang.String
