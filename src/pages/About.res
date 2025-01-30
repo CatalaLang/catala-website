@@ -110,6 +110,7 @@ let make = () => <>
       <Person person=carolineFlori />
       <Person person=aymericFromherz />
       <Person person=louisGesbert />
+      <Person person=pierreGoutagny />
       <Person person=lianeHuttner />
       <Person person=sarahLawsky />
       <Person person=denisMerigoux />
