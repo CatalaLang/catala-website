@@ -326,7 +326,7 @@ let cutecat_2025 = {
   authors: [pierreGoutagny, aymericFromherz, denisMerigoux],
   date: `2025`,
   citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for \
-    Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`
+    Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`,
   link: "https://rmonat.fr/data/pubs/2025/2025-05-03_esop_cutecat.pdf",
   bibtex: `@inproceedings{goutagny:hal-04907935,
   TITLE = {{CUTECat: Concolic Execution for Computational Law}},
@@ -492,7 +492,9 @@ let make = () => <>
         english="Peer-reviewed conferences and journals"
         french={`Conférences et journaux à comité de lecture`}
       />}>
-      <PubItems items={[cutecat_2025, dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]} />
+      <PubItems
+        items={[cutecat_2025, dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]}
+      />
     </Section>
     <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
       <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
