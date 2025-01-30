@@ -323,7 +323,7 @@ discovery of several date-related ambiguities.`),
 
 let cutecat_2025 = {
   title: `CUTECat: Concolic Execution for Computational Law`,
-  authors: [pierreGoutagny, aymericFromherz, denisMerigoux],
+  authors: [pierreGoutagny, aymericFromherz, raphaelMonat],
   date: `2025`,
   citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for \
     Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`
