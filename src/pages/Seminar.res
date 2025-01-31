@@ -833,8 +833,8 @@ public demonstrations of technology, also known as \"demos\"."
       practice by lawyers and, above all, by judges. On closer examination,
       however, the surprising homogeneity and circularity of this discourse
       of rejection based on the idea of the incompatibility of these devices
-      with ‘French law’ conceals less explicit tensions, which affect not only
-      ‘law’ in the strict sense, but also the way in which it is thought
+      with ‘French law' conceals less explicit tensions, which affect not only
+      ‘law' in the strict sense, but also the way in which it is thought
       about, understood and defined - in a word, law as a scientific discipline.
       Both against and on the basis of the content of this specific discourse,
       the doctoral thesis to be presented has thus set out to answer a central
@@ -894,7 +894,7 @@ public demonstrations of technology, also known as \"demos\"."
       is built to be just “good enough” to function and workers create and
       sustain a complex culture of good enoughness. In examining the
       materiality of software in shaping the organization of software work,
-      Bialski will show how software’s technical constraints – such as bugs
+      Bialski will show how software's technical constraints – such as bugs
       or legacy code – impacts daily workflows, decision-making processes,
       and power dynamics among software engineers.`}
       french={`Et si les logiciels n'étaient jamais parfaits et sans faille,
@@ -998,6 +998,59 @@ public demonstrations of technology, also known as \"demos\"."
       l'utilisation de méthodes formelles dans les processus législatifs.`}
     />,
     kind: ComputerScience,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=03.0, ~date=7.0, ())),
+    title: <Lang.String
+      english={`What is a valorizable invention? An investigation of valorization at the CNRS `}
+      french={`Qu'est-ce qu'une invention valorisable ? Enquête sur la valorisation au CNRS`}
+    />,
+    presenter: "Victoria Brun",
+    presenter_page_url: "tps://www.linkedin.com/in/victoriabrun",
+    abstract: <Lang.String
+      english={`The valorization of public research has been a concern of
+      public policies and research establishments in France since the 1960s.
+      Aiming at encouraging research staff to transfer their results to society,
+      numerous administrative services and a multitude of funding mechanisms
+      have been set up to take charge of this new mission of public research,
+      which is often considered unpopular in the eyes of its main targets.
+      In this presentation, based on an investigation conducted at the Centre
+      National de la Recherche Scientifique (CNRS) during my doctoral thesis,
+      I will show that institutional support for valorization is based on an
+      economic, proprietary and technological conception of innovation. By
+      contrasting the various trajectories of inventions originating from
+      public laboratories, I will explain the crucial role of administrative
+      and funding mechanisms in shaping their successful valorization: how
+      does a methodology shared within a research team to support public action
+      against global warming become a start-up? How does the discovery of a
+      biological phenomenon to fuel PhD student's publication in peer-reviewed
+      journals become a patent? By taking an interest in the way research
+      results are handled at the laboratory door, I am also looking at what is
+      a valorizable invention in the eyes of CNRS valorization services.`}
+      french={`La valorisation de la recherche publique est une préoccupation
+      portée par les pouvoirs publics et les établissements depuis les années
+      1960 en France. Dans l'idée d'encourager les personnels de recherche à
+      transférer leurs résultats vers la société, de nombreuses instances et
+      une multitude de dispositifs de financement ont été mis en place pour
+      prendre en charge cette nouvelle mission de la recherche publique,
+      souvent considérée comme impopulaire aux yeux de ses principales cibles.
+      Dans cette présentation basée sur une enquête conduite dans le cadre de
+      ma thèse de doctorat au sein du Centre National de la Recherche
+      Scientifique (CNRS), je montrerai que l'accompagnement institutionnel à
+      la valorisation repose sur une conception économique, propriétaire et
+      technologique de l'innovation. En contrastant des trajectoires variées
+      d'inventions issues de laboratoires publics, j'expliciterai le rôle
+      crucial des dispositifs administratifs et de financement dans leur
+      modelage vers une valorisation réussie : comment une méthodologie
+      partagée dans une équipe de recherche pour soutenir l'action publique
+      contre le réchauffement climatique devient-elle une start-up ? Comment
+      la découverte d'un phénomène biologique pour alimenter la publication
+      dans des revues à comité de lecture d'un doctorant devient-elle un
+      brevet ? En m'intéressant à la prise en charge de résultats de
+      recherche à la porte du laboratoire, je donnerai à voir ce qu'est
+      invention valorisable pour les services de valorisation du CNRS. `}
+    />,
+    kind: Sociology,
   },
 ]
 
