@@ -1052,6 +1052,16 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Sociology,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=5.0, ~date=2.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
+    presenter: "Sophie Weerts",
+    presenter_page_url: "https://www.linkedin.com/in/sophie-weerts-1a77a9265/",
+    abstract: <Lang.String
+      english={`Abstract to be determined`} french={`Résumé à déterminer`}
+    />,
+    kind: Law,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
