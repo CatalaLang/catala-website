@@ -1006,7 +1006,7 @@ public demonstrations of technology, also known as \"demos\"."
       french={`Qu'est-ce qu'une invention valorisable ? Enquête sur la valorisation au CNRS`}
     />,
     presenter: "Victoria Brun",
-    presenter_page_url: "tps://www.linkedin.com/in/victoriabrun",
+    presenter_page_url: "https://www.linkedin.com/in/victoriabrun",
     abstract: <Lang.String
       english={`The valorization of public research has been a concern of
       public policies and research establishments in France since the 1960s.
