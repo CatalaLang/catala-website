@@ -1053,6 +1053,28 @@ public demonstrations of technology, also known as \"demos\"."
     kind: Sociology,
   },
   {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=4.0, ~date=12.0, ())),
+    title: <Lang.String
+      english="Use of formal methods in the rail industry"
+      french={`Utilisation des méthodes formelles dans l'industrie ferroviaire`}
+    />,
+    presenter: "Emeric Tournaire",
+    presenter_page_url: "https://www.linkedin.com/in/emeric-tourniaire-14878b79",
+    abstract: <Lang.String
+      english={`IT in the rail industry is critical, in the sense that bugs
+      in programs can result in loss of life. The CLEARSY company specializes in the use
+      of formal methods to guarantee high levels of reliability. This
+      presentation focuses on a complex problem found on busy lines: train tracking.`}
+      french={`L'informatique dans l'industrie ferroviaire est critique, dans
+      le sens où des bugs dans les programmes peuvent se traduire par des
+      pertes en vie humaine. La société CLEARSY est spécialisée dans
+      l'utilisation des méthodes formelles pour garantir des hauts niveaux
+      de fiabilité. Cet exposé présente en particulier un problème complexe
+      qu'on retrouve sur des lignes très fréquentées : le suivi des trains.`}
+    />,
+    kind: ComputerScience,
+  },
+  {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=5.0, ~date=2.0, ())),
     title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
     presenter: "Sophie Weerts",
