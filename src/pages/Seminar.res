@@ -1076,11 +1076,46 @@ public demonstrations of technology, also known as \"demos\"."
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=5.0, ~date=2.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
+    title: <Lang.String
+      english="Are sandboxes for AI experimentation a legal playground?"
+      french={`Les bacs-à-sables pour expérimenter les systèmes d'IA, une aire de jeu pour les règles de droit ?`}
+    />,
     presenter: "Sophie Weerts",
     presenter_page_url: "https://www.linkedin.com/in/sophie-weerts-1a77a9265/",
     abstract: <Lang.String
-      english={`Abstract to be determined`} french={`Résumé à déterminer`}
+      english={`Law is regularly described as a brake on innovation.
+      Against this criticism, the European regulation on artificial intelligence
+      puts in place a series of instruments to support innovation. These
+      include the sandbox, i.e. an environment, under the supervision of a
+      regulatory authority, in which suppliers of AI systems can develop,
+      train, test or evaluate AI systems. The idea is to enable companies and
+      public organisations to experiment without fear of infringing existing
+      legal rules. It is thus part of a philosophy that is distinct from the
+      prior regulatory approach based on ex ante risk assessment and the
+      self-governance of players. So does the European regulation illustrate
+      a regulatory turning point in digital law, or is it just an epiphenomenon?
+      Based on studies of regulation and a documentary analysis of European
+      regulations and policies on innovation and their implementation, the aim
+      of this paper is to present and discuss the emergence of sandboxes in the
+      field of technology regulation and to explore their aims and characteristics.`}
+      french={`Le droit est régulièrement décrit comme un frein à l'innovation.
+      Contre cette critique, le règlement européen sur l'intelligence artificielle
+      met en place une série d'instruments en soutien à l'innovation. Parmi ceux-ci
+      figure le bac à sable, à savoir un environnement, placé sous la supervision
+      d'une autorité régulatoire, dans lequel les fournisseurs de systèmes
+      d'IA peuvent développer, entraîner, tester ou évaluer des systèmes d'IA.
+      L'idée est de permettre aux entreprises et organisations publiques
+      d'expérimenter sans crainte d'atteintes aux règles juridiques existantes.
+      Elle s'inscrit ainsi dans une philosophie distincte de l'approche
+      régulatoire préalable fondée sur l'évaluation ex ante des risques et
+      l'auto-gouvernance des acteurs. Dès lors, le règlement européen
+      illustre-t-il un tournant régulatoire dans le droit du numérique ou
+      s'agit-il d'un épiphénomène ? S'appuyant sur les études sur la
+      régulation et à l'aune d'une analyse documentaire regroupant les
+      réglementations et politiques européennes en matière d'innovation et
+      leur mise en œuvre, l'intervention a pour objet de présenter et discuter
+      l'émergence des bacs-à-sables dans le champ de la régulation des
+      technologies et d'explorer leurs finalités et caractéristiques. `}
     />,
     kind: Law,
   },
