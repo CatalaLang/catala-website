@@ -25,7 +25,7 @@
   "author": "",
   "license": "MIT",
   "dependencies": {
-    "@catala-lang/french-law": "^0.8.3-b.3",
+    "@catala-lang/french-law": "^0.10.0",
     "@catala-lang/rescript-catala": "^0.8.1-b.0",
     "@emotion/react": "^11.10.0",
     "@emotion/styled": "^11.10.0",
@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.18.6",
-    "@catala-lang/catala-web-assets": "0.10.3",
+    "@catala-lang/catala-web-assets": "0.10.4",
     "@greenlabs/res-tailwindcss": "^0.1.12",
     "@rescript/core": "^0.3.1",
     "ansi_up": "^5.1.0",

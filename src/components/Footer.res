@@ -9,17 +9,5 @@ let make = React.memo(() => {
         React.string("Copyright " ++ today ++ " Inria")
       }
     </div>
-    <div className=%twc("bg-red pb-1")>
-      <span>
-        <a className=%twc("w-auto h-full text-background text-xs") href=github_link>
-          <Icon className="float-left pl-4 pt-1" name="warning" />
-          <Lang.String
-            english="This website is under construction, click here to give some feedback"
-            french=`Ce site Internet est en cours de construction. Cliquez ici pour faire parvenir vos remarques et commentaires.`
-          />
-          <Icon className="float-right pr-4 pt-1" name="warning" />
-        </a>
-      </span>
-    </div>
   </footer>
 })

@@ -106,22 +106,25 @@ let make = () => <>
   <Section title={<Lang.String english="People" french={`Membres du projet`} />}>
     <ul className=%twc("list-disc list-inside")>
       <Person person=marieAlauzen />
+      <Person person=vincentBotbol />
       <Person person=alainDelaet />
-      <Person person=carolineFlori />
       <Person person=aymericFromherz />
       <Person person=louisGesbert />
       <Person person=pierreGoutagny />
+      <Person person=estelleHary />
       <Person person=lianeHuttner />
       <Person person=sarahLawsky />
       <Person person=denisMerigoux />
       <Person person=raphaelMonat />
-      <Person person=jonathanProtzenko />
+      <Person person=romainPrimet />
     </ul>
   </Section>
   <Section title={<Lang.String english="Alumni" french={`Alumni`} />}>
     <ul className=%twc("list-disc list-inside")>
       <Person person=justineBanuls />
       <Person person=nicolasChataing />
+      <Person person=carolineFlori />
+      <Person person=jonathanProtzenko />
       <Person person=emileRolley />
       <Person person=lilyaSlimani />
     </ul>

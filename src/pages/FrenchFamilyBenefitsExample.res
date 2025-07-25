@@ -97,25 +97,32 @@ let make = () => {
       </Link.Text>
       <Lang.String
         english=" corresponding to the action of interleaving together the code and its textual documentation
-         as to produce a reviewable and comprehensive document. Please refer to the tutorial for a hands-on introduction
-          on how to read this document."
+         as to produce a reviewable and comprehensive document. Please refer to "
         french={` , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
-         complet et lisible. Veuillez vous réferer au tutoriel pour savoir comment lire ce document.`}
+         complet et lisible. Veuillez vous réferer au `}
+      />
+      <Link.Text target="https://book.catala-lang.org">
+        <Lang.String english="the Catala book" french={`guide Catala`} />
+      </Link.Text>
+      <Lang.String
+        english="  for a hands-on introduction
+          on how to read this document."
+        french={`  pour savoir comment lire ce document.`}
       />
     </p>
-    <Section title={<Lang.String english="Online computation" french={`Calculateur en ligne`} />}>
-      <div className=%twc("inline-flex justify-end")>
-        <Button.Internal
-          target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>
-          <Icon className=%twc("pr-2") name="explore" />
-          <Lang.String
-            english="Switch to the complete computation with explanations"
-            french={`Basculer vers le calculateur complet avec explications`}
-          />
-        </Button.Internal>
-      </div>
-      <Form setEventsOpt={_ => ()} collapsible=true />
-    </Section>
+    // <Section title={<Lang.String english="Online computation" french={`Calculateur en ligne`} />}>
+    //   <div className=%twc("inline-flex justify-end")>
+    //     <Button.Internal
+    //       target={[Nav.home, Nav.examples, Nav.frenchFamilyBenefitsExample, Nav.visualization]}>
+    //       <Icon className=%twc("pr-2") name="explore" />
+    //       <Lang.String
+    //         english="Switch to the complete computation with explanations"
+    //         french={`Basculer vers le calculateur complet avec explications`}
+    //       />
+    //     </Button.Internal>
+    //   </div>
+    //   <Form setEventsOpt={_ => ()} collapsible=true />
+    // </Section>
     <Section title={<Lang.String english="Source code" french={`Code source`} />}>
       <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />
     </Section>

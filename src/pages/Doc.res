@@ -11,7 +11,11 @@ module type ManPage = {
 // the documentation
 %%raw(`
   function fetch_and_set(url, id) {
-    fetch(url)
+    fetch(url, {
+      "headers": {
+        "Content-Type": "text/plain"
+      }
+    })
     .then(response => response.text())
     .then(txt => document.getElementById(id).innerHTML = txt)
   }
@@ -22,13 +26,15 @@ module MakeManPageDoc = (Man: ManPage) => {
   @react.component
   let make = () => {
     let div =
-      <div id="manpage-body" className="font-mono man-page">{
-        fetch_and_set (~url=Man.url, ~id="manpage-body")
-        React.string("Loading...")}
+      <div id="manpage-body" className="font-mono man-page">
+        {
+          fetch_and_set(~url=Man.url, ~id="manpage-body")
+          React.string("Loading...")
+        }
       </div>
     <>
-    <Title> Man.title </Title>
-    <Card.Basic> div </Card.Basic>
+      <Title> Man.title </Title>
+      <Card.Basic> div </Card.Basic>
     </>
   }
 }
@@ -36,7 +42,7 @@ module MakeManPageDoc = (Man: ManPage) => {
 module CatalaManPage = MakeManPageDoc({
   let title =
     <Lang.String english="Catala compiler man page" french={`Page man du compilateur Catala`} />
-  let url: string = "https://catalalang.github.io/catala/catala.html"
+  let url: string = "https://assets.catala-lang.org/catala.html"
 })
 
 module ClerkManPage = MakeManPageDoc({
@@ -44,7 +50,7 @@ module ClerkManPage = MakeManPageDoc({
     <Lang.String
       english="Clerk build system man page" french={`Page man du système de build Clerk`}
     />
-  let url: string = "https://catalalang.github.io/catala/clerk.html"
+  let url: string = "https://assets.catala-lang.org/clerk.html"
 })
 
 module CatalaLegifranceManPage = MakeManPageDoc({
@@ -116,7 +122,7 @@ let ocaml_docs_card: Card.Presentation.t = {
   icon: None,
   quote: None,
   action: Some((
-    External("https://catalalang.github.io/catala/api-doc/"),
+    External("https://assets.catala-lang.org/api-doc/catala/"),
     <Lang.String english="See documentation" french={`Voir la documentation`} />,
   )),
   content: <>
@@ -129,13 +135,27 @@ let ocaml_docs_card: Card.Presentation.t = {
   </>,
 }
 
+let catala_book_card: Card.Presentation.t = {
+  title: <Lang.String english="The Catala book" french={`Le guide de Catala`} />,
+  icon: None,
+  quote: None,
+  action: Some((
+    External("https://book.catala-lang.org"),
+    <Lang.String english="Access the book" french={`Accéder au guide`} />,
+  )),
+  content: <Lang.String
+    english="The one-stop-shop for tutorials, installation instructions, FAQ and reference guides about Catala."
+    french={`Ce guide est la référence unique pour les tutoriels, installations d'instructions, FAQ et listes exhaustives des fonctionnalités de Catala.`}
+  />,
+}
+
 let syntax_cheat_sheet_card: Card.Presentation.t = {
-  title: <Lang.String english="Syntax cheat sheet" french=`Aide-mémoire syntaxique` />,
+  title: <Lang.String english="Syntax cheat sheet" french={`Aide-mémoire syntaxique`} />,
   icon: None,
   quote: None,
   action: Some((
     External("https://catalalang.github.io/catala/syntax.pdf"),
-    <Lang.String english="Download the sheet" french=`Télécharger l'aide-mémoire` />,
+    <Lang.String english="Download the sheet" french={`Télécharger l'aide-mémoire`} />,
   )),
   content: <Lang.String
     english="This sheet is a handy reference to the Catala syntax and how programs should be written."
@@ -146,17 +166,16 @@ let syntax_cheat_sheet_card: Card.Presentation.t = {
 @react.component
 let make = () => <>
   <Title>
-    <Lang.String
-      english="Catala tooling documentation" french={`Documentation des outils Catala`}
-    />
+    <Lang.String english="Catala documentation" french={`Documentation de Catala`} />
   </Title>
   <Card.Presentation.FromList
     cards=[
+      catala_book_card,
+      syntax_cheat_sheet_card,
       catala_card,
       clerk_card,
       catala_legifrance_card,
       ocaml_docs_card,
-      syntax_cheat_sheet_card,
     ]
   />
 </>

@@ -13,8 +13,8 @@ let denisMerigoux = {
   name: "Denis Merigoux",
   website: Some("https://merigoux.fr"),
   affiliation: {
-    name: "Inria - Prosecco",
-    url: "https://team.inria.fr/prosecco/",
+    name: "Inria - Apollo",
+    url: "https://apollo.inria.fr",
   },
 }
 
@@ -24,6 +24,24 @@ let marieAlauzen = {
   affiliation: {
     name: "CNRS, LAMSADE",
     url: "https://www.lamsade.dauphine.fr/fr.html",
+  },
+}
+
+let vincentBotbol = {
+  name: "Vincent Botbol",
+  website: Some("https://www.linkedin.com/in/vincent-botbol-24355728b/"),
+  affiliation: {
+    name: "Inria - Apollo",
+    url: "https://apollo.inria.fr",
+  },
+}
+
+let estelleHary = {
+  name: "Estelle Hary",
+  website: Some("https://www.linkedin.com/in/estelle-hary"),
+  affiliation: {
+    name: "Inria - Apollo",
+    url: "https://apollo.inria.fr",
   },
 }
 
@@ -47,7 +65,7 @@ let nicolasChataing = {
 
 let alainDelaet = {
   name: `Alain Delaët-Tixeuil`,
-  website: None,
+  website: Some("https://perso.ens-lyon.fr/alain.delaet-tixeuil/"),
   affiliation: {
     name: "Inria - Prosecco",
     url: "https://team.inria.fr/prosecco/",
@@ -74,10 +92,10 @@ let raphaelMonat = {
 
 let sarahLawsky = {
   name: "Sarah Lawsky",
-  website: Some("http://www.law.northwestern.edu/faculty/profiles/SarahLawsky/"),
+  website: Some("https://www.sarahlawsky.org/"),
   affiliation: {
-    name: "Northwestern Pritzker School of Law",
-    url: "http://www.law.northwestern.edu/",
+    name: "University of Illinois Urbana-Champaign",
+    url: "https://law.illinois.edu/sarah laws",
   },
 }
 
@@ -112,8 +130,17 @@ let louisGesbert = {
   name: "Louis Gesbert",
   website: Some("https://github.com/AltGr"),
   affiliation: {
-    name: "Inria - Prosecco",
-    url: "https://team.inria.fr/prosecco/",
+    name: "Inria - Apollo",
+    url: "https://apollo.inria.fr",
+  },
+}
+
+let romainPrimet = {
+  name: "Romain Primet",
+  website: Some("https://www.linkedin.com/in/romain-primet-229b80b9"),
+  affiliation: {
+    name: "Inria - Apollo",
+    url: "https://apollo.inria.fr",
   },
 }
 

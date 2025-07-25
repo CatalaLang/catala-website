@@ -58,16 +58,6 @@ let usTaxCode: navElem = {
   text: <Lang.String english="US Tax" french={`Impôts US`} />,
 }
 
-let tutorialEnExample: navElem = {
-  url: "tutorial",
-  text: <Lang.String english="English Tutorial" french={`Tutoriel en anglais`} />,
-}
-
-let tutorialFrExample: navElem = {
-  url: "tutoriel",
-  text: <Lang.String english="French Tutorial" french={`Tutoriel en français`} />,
-}
-
 let catalaManPage: navElem = {
   url: "catala",
   text: "catala" |> React.string,
@@ -129,7 +119,17 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
     let getFirstNavElems: string => option<array<navElem>> = {
       getNavElemsFrom(
         ~withDefaultElems=true,
-        [home, formalization, publications, examples, about, seminar, doc, visualization, ir_catala],
+        [
+          home,
+          formalization,
+          publications,
+          examples,
+          about,
+          seminar,
+          doc,
+          visualization,
+          ir_catala,
+        ],
       )
     }
     let getSecondNavElems: string => option<array<navElem>> = {
@@ -137,8 +137,6 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
         frenchFamilyBenefitsExample,
         frenchHousingBenefitsExample,
         usTaxCode,
-        tutorialEnExample,
-        tutorialFrExample,
         catalaManPage,
         clerkManPage,
         catalaLegifranceManPage,
