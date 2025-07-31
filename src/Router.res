@@ -40,24 +40,24 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
     } else {
       <Presentation />
     }
-  | list{first, second, third, fourth} =>
-    if (
-      first == Nav.home &&
-      second == Nav.examples &&
-      third == Nav.frenchFamilyBenefitsExample &&
-      fourth == Nav.visualization
-    ) {
-      <FrenchFamilyBenefitsExample.Visualizer />
-    } else if (
-      first == Nav.home &&
-      second == Nav.examples &&
-      third == Nav.frenchHousingBenefitsExample &&
-      fourth == Nav.visualization
-    ) {
-      <FrenchHousingBenefitsExample.Visualizer />
-    } else {
-      <Presentation />
-    }
+  // | list{first, second, third, fourth} =>
+  //   if (
+  //     first == Nav.home &&
+  //     second == Nav.examples &&
+  //     third == Nav.frenchFamilyBenefitsExample &&
+  //     fourth == Nav.visualization
+  //   ) {
+  //     <FrenchFamilyBenefitsExample.Visualizer />
+  //   } else if (
+  //     first == Nav.home &&
+  //     second == Nav.examples &&
+  //     third == Nav.frenchHousingBenefitsExample &&
+  //     fourth == Nav.visualization
+  //   ) {
+  //     <FrenchHousingBenefitsExample.Visualizer />
+  //   } else {
+  //     <Presentation />
+  //   }
   | _ => <Presentation />
   }
 

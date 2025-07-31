@@ -1,7 +1,12 @@
 {
   "name": "catala-website",
-  "reason": {"react-jsx": 3},
-  "jsx": { "version": 4, "mode": "classic" },
+  "reason": {
+    "react-jsx": 3
+  },
+  "jsx": {
+    "version": 4,
+    "mode": "classic"
+  },
   "refmt": 3,
   "sources": {
     "dir": "src/",
@@ -9,7 +14,11 @@
     "generators": [
       {
         "name": "gen-tailwind",
-        "edge": ["css/tailwind.css", ":", "css/index.css"]
+        "edge": [
+          "css/tailwind.css",
+          ":",
+          "css/index.css"
+        ]
       }
     ]
   },
@@ -29,12 +38,15 @@
   "namespace": true,
   "bs-dependencies": [
     "@rescript/react",
-	"@rescript/core",
-    "@catala-lang/rescript-catala",
-    "@catala-lang/french-law"
+    "@rescript/core"
   ],
-  "bsc-flags": ["-open RescriptCore"],
+  "bsc-flags": [
+    "-open RescriptCore"
+  ],
   "ppx-flags": [
-    ["@greenlabs/res-tailwindcss/ppx", "--path src/css/tailwind.css"]
+    [
+      "@greenlabs/res-tailwindcss/ppx",
+      "--path src/css/tailwind.css"
+    ]
   ]
 }

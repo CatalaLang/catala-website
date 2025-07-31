@@ -8,52 +8,52 @@ let catalaCodeHTML = %raw(`require("../../assets/aides_logement.html")`)
 let frenchUiSchema = %raw(`require("../../assets/aides_logement_ui_fr.schema.jsx")`)
 let englishUiSchema = %raw(`require("../../assets/aides_logement_ui_en.schema.jsx")`)
 
-module FormInfos = {
-  let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
-  let frenchSchema = %raw(`require("../../assets/aides_logement_schema_fr.json")`)
+// module FormInfos = {
+//   let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
+//   let frenchSchema = %raw(`require("../../assets/aides_logement_schema_fr.json")`)
 
-  let frenchUiSchema = Js.Dict.unsafeGet(frenchUiSchema, "uiSchema")
+//   let frenchUiSchema = Js.Dict.unsafeGet(frenchUiSchema, "uiSchema")
 
-  let englishUiSchema = Js.Dict.unsafeGet(englishUiSchema, "uiSchema")
+//   let englishUiSchema = Js.Dict.unsafeGet(englishUiSchema, "uiSchema")
 
-  let resultLabel =
-    <Lang.String
-      english="Housing benefits gross monthly amount:"
-      french={`Montant mensuel brut des aides au logement :`}
-    />
+//   let resultLabel =
+//     <Lang.String
+//       english="Housing benefits gross monthly amount:"
+//       french={`Montant mensuel brut des aides au logement :`}
+//     />
 
-  let initFormData = Some(%raw(`require("../../assets/aides_logement_init.json")`))
-  // This function automatically assigns numerical ID to kids so we don't
-  // have to ask the question in the form
-  let formDataPostProcessing = %raw(`
-function (data) {
-  var i = 0;
-  for (var pac of data.menageIn.personnesACharge) {
-    if (pac.kind == "EnfantACharge") {
-      pac.payload.identifiant = i;
-      i++;
-    }
-  }
-  return data;
-}`)
+//   let initFormData = Some(%raw(`require("../../assets/aides_logement_init.json")`))
+//   // This function automatically assigns numerical ID to kids so we don't
+//   // have to ask the question in the form
+//   let formDataPostProcessing = %raw(`
+// function (data) {
+//   var i = 0;
+//   for (var pac of data.menageIn.personnesACharge) {
+//     if (pac.kind == "EnfantACharge") {
+//       pac.payload.identifiant = i;
+//       i++;
+//     }
+//   }
+//   return data;
+// }`)
 
-  let computeAndPrintResult = (input: Js.Json.t): React.element => <>
-    <span className=%twc("text-mb font-mono")>
-      {input->CatalaFrenchLaw.computeAidesAuLogement->React.float}
-    </span>
-    {React.string(` €`)}
-  </>
-}
+//   let computeAndPrintResult = (input: Js.Json.t): React.element => <>
+//     <span className=%twc("text-mb font-mono")>
+//       {input->CatalaFrenchLaw.computeAidesAuLogement->React.float}
+//     </span>
+//     {React.string(` €`)}
+//   </>
+// }
 
-module Form = Form.Make(FormInfos)
+// module Form = Form.Make(FormInfos)
 
-module Visualizer = Visualizer.Make({
-  let pageTitle = pageTitle
-  let catalaCodeHTML = catalaCodeHTML
-  let resetLog = CatalaFrenchLaw.resetLog
+// module Visualizer = Visualizer.Make({
+//   let pageTitle = pageTitle
+//   let catalaCodeHTML = catalaCodeHTML
+//   let resetLog = CatalaFrenchLaw.resetLog
 
-  include Form
-})
+//   include Form
+// })
 
 let card: Card.Presentation.t = {
   title: <Lang.String english="French housing benefits" french="Aides au logement" />,
@@ -113,19 +113,19 @@ let make = () => {
         french={`  pour savoir comment lire ce document.`}
       />
     </p>
-    <Section title={<Lang.String english="Online computation" french={`Calculateur en ligne`} />}>
-      <div className=%twc("inline-flex justify-end")>
-        <Button.Internal
-          target={[Nav.home, Nav.examples, Nav.frenchHousingBenefitsExample, Nav.visualization]}>
-          <Icon className=%twc("pr-2") name="explore" />
-          <Lang.String
-            english="Switch to detailed explanation mode"
-            french={`Basculer vers le mode explications détaillées`}
-          />
-        </Button.Internal>
-      </div>
-      <Form setEventsOpt={_ => ()} collapsible=true />
-    </Section>
+    // <Section title={<Lang.String english="Online computation" french={`Calculateur en ligne`} />}>
+    //   <div className=%twc("inline-flex justify-end")>
+    //     <Button.Internal
+    //       target={[Nav.home, Nav.examples, Nav.frenchHousingBenefitsExample, Nav.visualization]}>
+    //       <Icon className=%twc("pr-2") name="explore" />
+    //       <Lang.String
+    //         english="Switch to detailed explanation mode"
+    //         french={`Basculer vers le mode explications détaillées`}
+    //       />
+    //     </Button.Internal>
+    //   </div>
+    //   <Form setEventsOpt={_ => ()} collapsible=true />
+    // </Section>
     <Section title={<Lang.String english="Source code" french={`Code source`} />}>
       <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />
     </Section>

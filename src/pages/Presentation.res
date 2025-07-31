@@ -1,3 +1,4 @@
+let bookLink = "https://book.catala-lang.org"
 let githubLink = "https://github.com/CatalaLang/catala"
 let githubLinkLatestRelease = "https://github.com/CatalaLang/catala/releases/latest"
 let zulipLink = "https://zulip.catala-lang.org/"
@@ -140,15 +141,20 @@ let make = () => {
           <Lang.String english="Join us on Zulip" french={`Rejoins-nous sur Zulip`} />
         </Link.Text>
       </div>
-      <Link.Button target={githubLink}>
-        <Lang.String english="Get started on GitHub" french={`Démarrer sur GitHub`} />
-      </Link.Button>
+      <div className=%twc("inline-flex flex-row gap-4")>
+        <Link.Button target={bookLink}>
+          <Lang.String english="Read the documentation" french={`Lire la documentation`} />
+        </Link.Button>
+        <Link.Button target={githubLink}>
+          <Lang.String english="Get started on GitHub" french={`Démarrer sur GitHub`} />
+        </Link.Button>
+      </div>
       <div className=%twc("text-base font-sans")>
         <Lang.String english="Apache-2.0 License" french={`Apache-2.0 Licence`} />
         <Link.Text
           className=%twc("cursor-pointer text-green hover:text-button_fg_hover pl-2 font-semibold")
           target={githubLinkLatestRelease}>
-          <Lang.String english="GitHub v0.9.0" french={`GitHub v0.9.0`} />
+          <Lang.String english="GitHub v1.0.0-alpha" french={`GitHub v1.0.0-alpha`} />
         </Link.Text>
       </div>
     </div>
@@ -174,7 +180,7 @@ let make = () => {
     </div>
     <div>
       <div className=%twc("w-full text-background text-center text-3xl font-bold py-8")>
-        <Lang.String english="Why use Catala?" french={`Pourquoi utiliser Catala ?`} />
+        <Lang.String english="Why using Catala?" french={`Pourquoi utiliser Catala ?`} />
       </div>
       <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
         <Card.Presentation.FromList
