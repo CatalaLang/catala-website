@@ -9,13 +9,14 @@ module Person = {
       | None => person.name |> React.string
       | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
       }}
-      <span className=%twc("pl-2")>
+      <span className=%twc("pl-2 pr-2")>
         {"(" |> React.string}
         <Link.Text target=person.affiliation.url>
           {person.affiliation.name->React.string}
         </Link.Text>
-        {React.string(")")}
+        {React.string(") :")}
       </span>
+      {person.role}
     </li>
 }
 
@@ -88,20 +89,6 @@ let make = () => <>
       french={`Source : l'équipe de Catala ainsi que James Mohun, de l'observatoire de l'innovation dans le secteur public de l'OCDE (2020)`}
     />
   </p>
-  <Section title={<Lang.String english="Naming" french={`Nommage`} />}>
-    <p>
-      <Lang.String
-        english={`This programming language is named after Pierre Catala who is, together with
-        Lucien Mehl, a pioneer of French legal informatics. Beware, the name Catala is typographically close to
-        the name of the Catalan language written in Catalan : Català. However, the very narrow scope of our programming language should not be prone to
-        set any confusion given the existing wide influence of the Catalan language and culture.`}
-        french={`Ce langage de programmation est nommé d'après Pierre Catala, qui est avec Lucien Mehl un des pionners de l'informatique juridique française.
-        Attention, le nom Catala est typographiquement proche du nom de la langue catalane écrite en catalan : Català. Cependant, le champ
-        d'application très restreint de notre langage de programmation ne devrait pas cause de confusion étant donné le rayonnement et l'influence
-        conséquents de la langue et culture catalane.`}
-      />
-    </p>
-  </Section>
   <div className=%twc("clear-right") />
   <Section title={<Lang.String english="People" french={`Membres du projet`} />}>
     <ul className=%twc("list-disc list-inside")>
@@ -128,5 +115,19 @@ let make = () => <>
       <Person person=emileRolley />
       <Person person=lilyaSlimani />
     </ul>
+  </Section>
+  <Section title={<Lang.String english="Naming" french={`Nommage`} />}>
+    <p className=%twc("mb-16")>
+      <Lang.String
+        english={`This programming language is named after Pierre Catala who is, together with
+        Lucien Mehl, a pioneer of French legal informatics. Beware, the name Catala is typographically close to
+        the name of the Catalan language written in Catalan : Català. However, the very narrow scope of our programming language should not be prone to
+        set any confusion given the existing wide influence of the Catalan language and culture.`}
+        french={`Ce langage de programmation est nommé d'après Pierre Catala, qui est avec Lucien Mehl un des pionners de l'informatique juridique française.
+        Attention, le nom Catala est typographiquement proche du nom de la langue catalane écrite en catalan : Català. Cependant, le champ
+        d'application très restreint de notre langage de programmation ne devrait pas cause de confusion étant donné le rayonnement et l'influence
+        conséquents de la langue et culture catalane.`}
+      />
+    </p>
   </Section>
 </>

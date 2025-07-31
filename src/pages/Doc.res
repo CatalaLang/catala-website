@@ -162,20 +162,84 @@ let syntax_cheat_sheet_card: Card.Presentation.t = {
     french={`Cette feuille est une référence complète et pratique pour la syntaxe de Catala.`}
   />,
 }
+let formalization_card: Card.Presentation.t = {
+  title: <Lang.String english="Formalization" french={`Formalisation`} />,
+  action: Some((
+    Internal([Nav.home, Nav.doc, Nav.formalization]),
+    <Lang.String english="See the formalization" french={`Voir la formalisation`} />,
+  )),
+  icon: None,
+  quote: None,
+  content: <Lang.String
+    english="Catala as a programming language has a complete formal specification,
+    complete with syntax and semantics. This makes its behavior unambiguous and
+    a solid foundation for complex software."
+    french={`Catala en tant que langage de programmation possède une spécification
+    formelle complète, avec syntaxe et sémantique. Ceci rend son comportement
+    non-ambigu et en fait une fondation solide pour du logiciel complexe.`}
+  />,
+}
+
+let publications_card: Card.Presentation.t = {
+  title: <Lang.String english="Publications" french={`Publications`} />,
+  action: Some((
+    Internal([Nav.home, Nav.doc, Nav.publications]),
+    <Lang.String english="See the publications" french={`Voir les publications`} />,
+  )),
+  icon: None,
+  quote: None,
+  content: <Lang.String
+    english="Catala is the product of a significant effort research intersecting
+    digital law, sociology of the State and formal methods. Multiple
+    peer-reviewed and distinguished papers have been written by the members of the project
+    over the years describing the context, motivation and features of Catala."
+    french={`Catala est let produit d'un effort de recherche significatif mélangeant
+    droit du numérique, sociologie de l'État et méthodes formelles. Plusieurs
+    papiers primés et relus par les pairs ont été écrits par les membres du projet
+    au fil des années, décrivant le contexte, les motivation et les caractéristiques
+    de Catala.`}
+  />,
+}
 
 @react.component
 let make = () => <>
   <Title>
     <Lang.String english="Catala documentation" french={`Documentation de Catala`} />
   </Title>
-  <Card.Presentation.FromList
-    cards=[
-      catala_book_card,
-      syntax_cheat_sheet_card,
-      catala_card,
-      clerk_card,
-      catala_legifrance_card,
-      ocaml_docs_card,
-    ]
-  />
+  <Section
+    title={<Lang.String
+      english="Examples of use for public administrations"
+      french={`Exemples d'utilisation pour les administrations publiques`}
+    />}>
+    <Card.Presentation.FromList
+      cards=[
+        FrenchFamilyBenefitsExample.card,
+        FrenchHousingBenefitsExample.card,
+        USTaxCodeExample.card,
+        IRcatala.card,
+      ]
+    />
+  </Section>
+  <Section
+    title={<Lang.String
+      english="Technical documentation for programmers"
+      french={`Documentation technique pour les programmeur·e·s`}
+    />}>
+    <Card.Presentation.FromList
+      cards=[
+        catala_book_card,
+        syntax_cheat_sheet_card,
+        catala_card,
+        clerk_card,
+        catala_legifrance_card,
+        ocaml_docs_card,
+      ]
+    />
+  </Section>
+  <Section
+    title={<Lang.String
+      english="Content for researchers" french={`Contenu pour les chercheur·euses`}
+    />}>
+    <Card.Presentation.FromList cards=[formalization_card, publications_card] />
+  </Section>
 </>

@@ -66,24 +66,19 @@ let github: imgLocation = %raw("require('../../assets/GitHub-Mark-Light-32px.png
 let navElems =
   <>
     <NavElem
-      title={<Lang.String english="About" french={`À propos`} />} target={[Nav.home, Nav.about]}
+      title={<Lang.String english="Features" french={`Fonctionnalités`} />}
+      target={[Nav.home, Nav.features]}
+    />
+    <NavElem
+      title={<Lang.String english="Documentation" french={`Documentation`} />}
+      target={[Nav.home, Nav.doc]}
     />
     <NavElem
       title={<Lang.String english="Seminar" french={`Séminaire`} />}
       target={[Nav.home, Nav.seminar]}
     />
     <NavElem
-      title={<Lang.String english="Examples" french={`Exemples`} />}
-      target={[Nav.home, Nav.examples]}
-    />
-    <NavElem title={<Lang.String english="Doc" french={`Doc`} />} target={[Nav.home, Nav.doc]} />
-    <NavElem
-      title={<Lang.String english="Publications" french={`Publications`} />}
-      target={[Nav.home, Nav.publications]}
-    />
-    <NavElem
-      title={<Lang.String english="Formalisation" french={`Formalisation`} />}
-      target={[Nav.home, Nav.formalization]}
+      title={<Lang.String english="About" french={`À propos`} />} target={[Nav.home, Nav.about]}
     />
   </>
 

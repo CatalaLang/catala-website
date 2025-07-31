@@ -9,12 +9,8 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       <Doc />
       // } else if first == Nav.home && second == Nav.playground {
       //   <Playground />
-    } else if first == Nav.home && second == Nav.formalization {
-      <Formalization />
-    } else if first == Nav.home && second == Nav.publications {
-      <Publications />
-    } else if first == Nav.home && second == Nav.examples {
-      <Examples />
+    } else if first == Nav.home && second == Nav.features {
+      <Features />
     } else if first == Nav.home && second == Nav.ir_catala {
       <IRcatala />
     } else {
@@ -25,6 +21,10 @@ let toComposant = (elements: array<Nav.navElem>): React.element =>
       <Doc.CatalaManPage />
     } else if first == Nav.home && (second == Nav.doc && third == Nav.clerkManPage) {
       <Doc.ClerkManPage />
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.formalization) {
+      <Formalization />
+    } else if first == Nav.home && (second == Nav.doc && third == Nav.publications) {
+      <Publications />
     } else if first == Nav.home && (second == Nav.doc && third == Nav.catalaLegifranceManPage) {
       <Doc.CatalaLegifranceManPage />
     } else if (

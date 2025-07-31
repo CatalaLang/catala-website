@@ -58,6 +58,11 @@ let usTaxCode: navElem = {
   text: <Lang.String english="US Tax" french={`Impôts US`} />,
 }
 
+let features: navElem = {
+  url: "features",
+  text: <Lang.String english="Features" french={`Fonctionnalités`} />,
+}
+
 let catalaManPage: navElem = {
   url: "catala",
   text: "catala" |> React.string,
@@ -121,13 +126,12 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
         ~withDefaultElems=true,
         [
           home,
-          formalization,
-          publications,
           examples,
           about,
           seminar,
           doc,
-          visualization,
+          features,
+          // visualization,
           ir_catala,
         ],
       )
@@ -136,6 +140,8 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
       getNavElemsFrom([
         frenchFamilyBenefitsExample,
         frenchHousingBenefitsExample,
+        formalization,
+        publications,
         usTaxCode,
         catalaManPage,
         clerkManPage,

@@ -6,8 +6,12 @@ let make = React.memo(() => {
     <div className=%twc("text-gray_dark pb-2 text-xs font-semibold")>
       {
         let today = Js.Date.now()->Js.Date.fromFloat->Js.Date.getFullYear->Js.String2.make
-        React.string("Copyright " ++ today ++ " Inria")
+        React.string("© " ++ today ++ " Inria — ")
       }
+      <Lang.String
+        english="Website managed by the Catala team"
+        french={`Ce site est géré par l'équipe de Catala`}
+      />
     </div>
   </footer>
 })

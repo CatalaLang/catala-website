@@ -31,6 +31,20 @@ module Button = {
   ) => {
     <Text className target> children </Text>
   }
+
+  module Internal = {
+    @react.component
+    let make = (
+      ~className=%twc(
+        "cursor-pointer bg-button_bg mt-4 mb-4 p-3 text-button_fg text-xl inline-flex items-center rounded font-semibold font-sans shadow-sm hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100 "
+      ),
+      ~target: array<Nav.navElem>,
+      ~children,
+    ) => {
+      let (lang, _) = React.useContext(Lang.langContext)
+      <a className onClick={_ => Nav.goTo(target, lang)}> children </a>
+    }
+  }
 }
 
 module Internal = {

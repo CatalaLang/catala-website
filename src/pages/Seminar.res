@@ -1172,6 +1172,14 @@ let make = () => {
       </Link.Button>
     </div>
     <Section title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
+      {if Belt.Array.length(upcoming) == 0 {
+        <Lang.String
+          english="No upcoming seminar planned yet, stay tuned!"
+          french={`Les prochains séminaires ne sont pas encore planifiés, n'hésitez pas à revenir plus tard !`}
+        />
+      } else {
+        <> </>
+      }}
       <ul className=%twc("list-disc list-inside")>
         {upcoming
         ->Belt.Array.mapWithIndex((i, item) =>
