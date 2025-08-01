@@ -97,6 +97,14 @@ let make = () => <>
     />
   </Section>
   <Section
+    id="proof-of-concepts"
+    title={<Lang.String
+      english="A tool tried and tested by French administrations"
+      french={`Un outil mis à l'épreuve par les administrations publiques`}
+    />}>
+    {<> </>}
+  </Section>
+  <Section
     id="workflow"
     title={<Lang.String
       english="A programming language that fits into your existing workflow"
