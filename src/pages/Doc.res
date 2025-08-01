@@ -207,6 +207,7 @@ let make = () => <>
     <Lang.String english="Catala documentation" french={`Documentation de Catala`} />
   </Title>
   <Section
+    id="examples"
     title={<Lang.String
       english="Examples of use for public administrations"
       french={`Exemples d'utilisation pour les administrations publiques`}
@@ -221,6 +222,7 @@ let make = () => <>
     />
   </Section>
   <Section
+    id="technical-doc"
     title={<Lang.String
       english="Technical documentation for programmers"
       french={`Documentation technique pour les programmeur·e·s`}
@@ -237,6 +239,7 @@ let make = () => <>
     />
   </Section>
   <Section
+    id="researchers-content"
     title={<Lang.String
       english="Content for researchers" french={`Contenu pour les chercheur·e·s`}
     />}>

@@ -8,6 +8,7 @@ let make = () => <>
     <Lang.String english="Formalization" french="Formalisation" />
   </Title>
   <Section
+    id="syntax"
     title={<Lang.String english="Surface syntax" french={`Syntaxe du langage de surface`} />}>
     <p>
       <Lang.String
@@ -51,6 +52,7 @@ let make = () => <>
     </div>
   </Section>
   <Section
+    id="semantics"
     title={<Lang.String english="Core semantics" french={`Sémantique du cœur du langage`} />}>
     <p>
       <Lang.String

@@ -11,9 +11,9 @@ module Title = {
 
 module Section = {
   @react.component
-  let make = (~title: React.element, ~children) => <>
-    <h2 className=%twc("text-3xl my-8 font-sans")>
-      <span className=%twc("text-background font-sans font-semibold")> title </span>
+  let make = (~title: React.element, ~id: string, ~children) => <>
+    <h2 className=%twc("text-3xl my-8 font-sans") id>
+      <a href={"#" ++ id} className=%twc("text-background font-sans font-semibold")> title </a>
     </h2>
     children
   </>

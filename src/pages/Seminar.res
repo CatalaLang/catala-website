@@ -1183,7 +1183,9 @@ let make = () => {
         />
       </Link.Button>
     </div>
-    <Section title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
+    <Section
+      id="upcoming"
+      title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
       {if Belt.Array.length(upcoming) == 0 {
         <Lang.String
           english="No upcoming seminar planned yet, stay tuned!"
@@ -1200,7 +1202,8 @@ let make = () => {
         ->React.array}
       </dl>
     </Section>
-    <Section title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
+    <Section
+      id="past" title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
       <dl>
         {past
         ->Belt.Array.mapWithIndex((i, item) =>
@@ -1209,7 +1212,7 @@ let make = () => {
         ->React.array}
       </dl>
     </Section>
-    <Section title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
+    <Section id="organizers" title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
       <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className=%twc("mb-8") />
     </Section>
   </>

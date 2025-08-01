@@ -527,6 +527,7 @@ let make = () => <>
   </Title>
   <div className=%twc("pb-10")>
     <Section
+      id="peer-reviewed"
       title={<Lang.String
         english="Peer-reviewed conferences and journals"
         french={`Conférences et journaux à comité de lecture`}
@@ -535,13 +536,15 @@ let make = () => <>
         items={[cutecat_2025, dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]}
       />
     </Section>
-    <Section title={<Lang.String english="Workshops" french={`Ateliers`} />}>
+    <Section id="workshops" title={<Lang.String english="Workshops" french={`Ateliers`} />}>
       <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
     </Section>
-    <Section title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
+    <Section
+      id="invited" title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
       <PubItems items={[crcl_2023, smu_2022, iafipu2020]} />
     </Section>
     <Section
+      id="preprints"
       title={<Lang.String
         english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
       />}>

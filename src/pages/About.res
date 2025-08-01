@@ -255,7 +255,7 @@ administration's legal departments, without distortion or approximation."
     </Link.Text>
   </p>
   <div className=%twc("clear-right") />
-  <Section title={<Lang.String english="People" french={`Membres du projet`} />}>
+  <Section id="people" title={<Lang.String english="People" french={`Membres du projet`} />}>
     <PersonTable
       persons=[
         marieAlauzen,
@@ -273,7 +273,7 @@ administration's legal departments, without distortion or approximation."
       ]
     />
   </Section>
-  <Section title={<Lang.String english="Alumni" french={`Alumni`} />}>
+  <Section id="alumni" title={<Lang.String english="Alumni" french={`Alumni`} />}>
     <PersonTable
       persons=[
         justineBanuls,
@@ -286,6 +286,7 @@ administration's legal departments, without distortion or approximation."
     />
   </Section>
   <Section
+    id="naming"
     title={<Lang.String
       english="Why the name \"Catala\"?" french={`Pourquoi le nom « Catala » ?`}
     />}>

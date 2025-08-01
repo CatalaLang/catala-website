@@ -28,16 +28,20 @@ module Presentation = {
     | None => <div />
     | Some((Internal(navs), text)) =>
       <button className=buttonStyle onClick={_ => Nav.goTo(navs, lang)}>
-        <Icon className=%twc("pr-2") name="double_arrow" /> text
+        <Icon className=%twc("pr-2") name="double_arrow" />
+        text
       </button>
     | Some((External(url), text)) =>
       <Link.Button className=buttonStyle target=url>
-        <Icon className=%twc("pr-2") name="double_arrow" /> text
+        <Icon className=%twc("pr-2") name="double_arrow" />
+        text
       </Link.Button>
     }
     let quote = switch card.quote {
     | Some(quote) =>
-      <blockquote className=%twc("text-green pb-4")> <strong> quote </strong> </blockquote>
+      <blockquote className=%twc("text-green pb-4")>
+        <strong> quote </strong>
+      </blockquote>
     | None => <div />
     }
     let icon = switch card.icon {
@@ -51,17 +55,16 @@ module Presentation = {
             "bg-white h-full overflow-hidden shadow-sm border-solid border-gray border rounded"
           )>
           <div className=%twc("flex flex-col justify-between h-full px-6 py-4 text-background ")>
-            <div>
-              <div
-                className=%twc(
-                  " flex flex-row flex-nowrap items-center text-xl sm:text-2xl pb-2 font-bold"
-                )>
-                icon card.title
-              </div>
-              quote
-              <p className=%twc("text-base sm:text-lg pb-4")> card.content </p>
+            <div
+              className=%twc(
+                " flex flex-row flex-nowrap items-center text-xl sm:text-2xl pb-2 font-bold"
+              )>
+              icon
+              card.title
             </div>
-            <div className=%twc("inline-flex justify-end")> action </div>
+            quote
+            <div className=%twc("text-base flex-grow sm:text-lg pb-4")> card.content </div>
+            <div className=%twc("flex justify-end")> action </div>
           </div>
         </div>
       </div>
