@@ -238,7 +238,7 @@ let make = () => <>
   </Section>
   <Section
     title={<Lang.String
-      english="Content for researchers" french={`Contenu pour les chercheur·euses`}
+      english="Content for researchers" french={`Contenu pour les chercheur·e·s`}
     />}>
     <Card.Presentation.FromList cards=[formalization_card, publications_card] />
   </Section>
