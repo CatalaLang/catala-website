@@ -4,20 +4,36 @@ open People
 module Person = {
   @react.component
   let make = (~person: person) =>
-    <li className=%twc("pl-6 pb-4")>
-      {switch person.website {
-      | None => person.name |> React.string
-      | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
-      }}
-      <span className=%twc("pl-2 pr-2")>
+    <tr scope="row" className=%twc("odd:bg-gray")>
+      <td className=%twc("px-2 py-2")>
+        {switch person.website {
+        | None => person.name |> React.string
+        | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
+        }}
+      </td>
+      <td className=%twc("px-2 py-2")>
         {"(" |> React.string}
         <Link.Text target=person.affiliation.url>
           {person.affiliation.name->React.string}
         </Link.Text>
-        {React.string(") :")}
-      </span>
-      {person.role}
-    </li>
+        {React.string(")")}
+      </td>
+      <td className=%twc("px-2 py-2")> {person.role} </td>
+    </tr>
+}
+
+module PersonTable = {
+  @react.component
+  let make = (~persons: array<person>, ~className="") =>
+    <table className={%twc("table-auto") ++ " " ++ className}>
+      <tbody>
+        {persons
+        ->Belt.Array.map(person => {
+          <Person person />
+        })
+        ->React.array}
+      </tbody>
+    </table>
 }
 
 @react.component
@@ -91,30 +107,34 @@ let make = () => <>
   </p>
   <div className=%twc("clear-right") />
   <Section title={<Lang.String english="People" french={`Membres du projet`} />}>
-    <ul className=%twc("list-disc list-inside")>
-      <Person person=marieAlauzen />
-      <Person person=vincentBotbol />
-      <Person person=alainDelaet />
-      <Person person=aymericFromherz />
-      <Person person=louisGesbert />
-      <Person person=pierreGoutagny />
-      <Person person=estelleHary />
-      <Person person=lianeHuttner />
-      <Person person=sarahLawsky />
-      <Person person=denisMerigoux />
-      <Person person=raphaelMonat />
-      <Person person=romainPrimet />
-    </ul>
+    <PersonTable
+      persons=[
+        marieAlauzen,
+        vincentBotbol,
+        alainDelaet,
+        aymericFromherz,
+        louisGesbert,
+        pierreGoutagny,
+        estelleHary,
+        lianeHuttner,
+        sarahLawsky,
+        denisMerigoux,
+        raphaelMonat,
+        romainPrimet,
+      ]
+    />
   </Section>
   <Section title={<Lang.String english="Alumni" french={`Alumni`} />}>
-    <ul className=%twc("list-disc list-inside")>
-      <Person person=justineBanuls />
-      <Person person=nicolasChataing />
-      <Person person=carolineFlori />
-      <Person person=jonathanProtzenko />
-      <Person person=emileRolley />
-      <Person person=lilyaSlimani />
-    </ul>
+    <PersonTable
+      persons=[
+        justineBanuls,
+        nicolasChataing,
+        carolineFlori,
+        jonathanProtzenko,
+        emileRolley,
+        lilyaSlimani,
+      ]
+    />
   </Section>
   <Section title={<Lang.String english="Naming" french={`Nommage`} />}>
     <p className=%twc("mb-16")>

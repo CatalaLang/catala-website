@@ -26,9 +26,7 @@ let make = () => {
           "pt-32 pb-16 text-center text-2xl sm:text-4xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
         )>
         <p>
-          <Lang.String
-            english="Catala is a domain-specific language" french={`Catala est un langage dédié`}
-          />
+          <Lang.String english="A domain-specific language" french={`Un langage spécifique`} />
         </p>
         <p>
           <Lang.String english="designed by researchers" french={`conçu par des chercheurs`} />

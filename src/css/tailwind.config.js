@@ -57,7 +57,19 @@ module.exports = {
       },
       maxHeight: {
         '128': '50rem',
+      },
+      listStyleType: {
+        none: 'none',
+        disc: 'disc',
+        decimal: 'decimal',
+        square: 'square',
+        roman: 'upper-roman',
       }
+    }
+  },
+  variants: {
+    extend: {
+      backgroundColor: ['odd', 'even'],
     }
   }
 }

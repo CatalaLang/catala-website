@@ -18,8 +18,8 @@ type seminar = {
 
 module Seminar = {
   @react.component
-  let make = (~seminar: seminar) =>
-    <li className=%twc("pl-6 pb-4")>
+  let make = (~seminar: seminar) => <>
+    <dt className=%twc("pl-8 pb-4")>
       <span className=%twc("italic")>
         {Js.Date.toISOString(seminar.date)->String.split("T")->Array.getUnsafe(0) |> React.string}
       </span>
@@ -36,10 +36,10 @@ module Seminar = {
         <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
       </span>
       <span> {" — " |> React.string} </span>
-      <span className=%twc("font-bold")> {seminar.title} </span>
-      <span> {" — " |> React.string} </span>
-      <span> {seminar.abstract} </span>
-    </li>
+      <span className=%twc("italic")> {seminar.title} </span>
+    </dt>
+    <dd className=%twc("pb-4")> {seminar.abstract} </dd>
+  </>
 }
 
 let seminars = [
@@ -1149,21 +1149,33 @@ let make = () => {
       <Lang.String english="Seminar" french={`Séminaire`} />
     </Title>
     <div className=%twc("flex flex-col justify-center items-center")>
-      <p>
-        <Lang.String
-          english="The Catala team hosts seminars at the Inria Paris research \
+      <div>
+        <p>
+          <Lang.String
+            english="The project continues to maintain close ties with the \
+          academic research community. As such, the Catala team hosts seminars at the Inria Paris research \
           center one Monday per month, from 17:00 to 18:30. The sessions \
-          alternate between computer science, law and sociology presentations \
-          about stakes and problems of translating law to code. The location \
-          of the Inria Paris research center is: 48 rue Barrault, 75013 Paris. "
-          french={`L'équipe Catala organise des séminaires au centre de \
+          alternate between Computer Science, Law and Sociology presentations \
+          about stakes and problems of translating law to code."
+            french={`Le projet continue à maintenir des liens étroits avec la \
+          communauté de la recherche académique. Ainsi, l'équipe Catala organise des séminaires au centre de \
           recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. \
           Les séances alternent des exposés d'informatique, de droit et de \
           sociologie portant sur les enjeux et les problèmes posés par la \
-          traduction du droit en code. L'adresse du centre de recherche \
-          Inria de Paris est : 48 rue Barrault, 75013 Paris.`}
-        />
-      </p>
+          traduction du droit en code.`}
+          />
+        </p>
+        <p className=%twc("mt-4")>
+          <Lang.String
+            english="The location \
+          of the Inria Paris research center is: 48 rue Barrault, 75013 Paris. Please arrive
+          5 minutes early to leave to ID card at the front desk, before proceeding to the seminar room."
+            french={`L'adresse du centre de recherche \
+          Inria de Paris est : 48 rue Barrault, 75013 Paris. Veuillez arriver 5 minutes en avance
+          pour laisser votre carte d'identité à l'accueil, avant d'entrer dans la salle du séminaire.`}
+          />
+        </p>
+      </div>
       <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
         <Lang.String
           english="Subscribe to the seminar mailing list"
@@ -1180,29 +1192,25 @@ let make = () => {
       } else {
         <> </>
       }}
-      <ul className=%twc("list-disc list-inside")>
+      <dl>
         {upcoming
         ->Belt.Array.mapWithIndex((i, item) =>
           <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
         )
         ->React.array}
-      </ul>
+      </dl>
     </Section>
     <Section title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
-      <ul className=%twc("list-disc list-inside")>
+      <dl>
         {past
         ->Belt.Array.mapWithIndex((i, item) =>
           <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
         )
         ->React.array}
-      </ul>
+      </dl>
     </Section>
     <Section title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
-      <ul className=%twc("list-disc list-inside")>
-        <Person person=marieAlauzen />
-        <Person person=lianeHuttner />
-        <Person person=denisMerigoux />
-      </ul>
+      <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className=%twc("mb-8") />
     </Section>
   </>
 }
