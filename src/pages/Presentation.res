@@ -105,7 +105,7 @@ let make = () => {
         <p className=%twc("text-base sm:text-lg my-4 italic")>
           <Lang.String
             english="Catala works by annotating legislative texts with their code translation,
-            by z programmer and a lawyer pair-programming together.
+            by a programmer and a lawyer pair-programming together.
             For instance, from the US Tax Code:"
             french={`Le principe de Catala est d'annoter directement les textes législatifs ou règlementaires
             avec leur traduction en termes algorithmique, grâce à la collaboration en temps réel entre un·e programmeur·e
