@@ -146,7 +146,7 @@ let sarahLawsky = {
   },
   role: <Lang.String
     english="Tax law professor and PhD in Logic, inspiration of the project and close advisor"
-    french={`Professeure de droit fiscale et docteure en logique, inspiration du projet et proche conseillère`}
+    french={`Professeure de droit fiscal et docteure en logique, inspiration du projet et proche conseillère`}
   />,
 }
 
@@ -197,8 +197,8 @@ let romainPrimet = {
     url: "https://apollo.inria.fr",
   },
   role: <Lang.String
-    english="Software engineer, non-technical user experience manager"
-    french={`Ingénieur logiciel, responsable de l'expérience utilisateurs non-techniques`}
+    english="Software engineer, user experience manager"
+    french={`Ingénieur logiciel, responsable de l'expérience utilisateur`}
   />,
 }
 
