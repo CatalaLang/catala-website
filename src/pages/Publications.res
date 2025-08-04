@@ -330,7 +330,7 @@ let forms_as_formalization_2020 = {
   title: `Form as Formalization`,
   authors: [sarahLawsky],
   date: `2020`,
-  link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177",
+  link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3587576",
   citation: ` Lawsky, Sarah B., Form as Formalization (2020). Ohio State Technology Law Journal, 16, 114.`,
   abstract: None,
   bibtex: "@article{lawsky2020form,
