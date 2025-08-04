@@ -12,6 +12,7 @@ module App = {
     | None => Lang.English
     | Some(langUrl) => langUrl
     }
+    ignore(Nav.setHTMLlang(Lang.toUrl(langUrl)))
     let (appLang, setLang) = React.useState(_ => langUrl)
     let setLang = _ => setLang(oldLang => Lang.newLangFromOldLang(oldLang))
 
@@ -31,4 +32,8 @@ module App = {
 
 ReactDOM.Client.createRoot(
   ReactDOM.querySelector("#app")->Belt.Option.getExn,
-)->ReactDOM.Client.Root.render(<React.StrictMode> <App /> </React.StrictMode>)
+)->ReactDOM.Client.Root.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+)

@@ -199,7 +199,13 @@ let navElemsToUrl = (lang: option<Lang.lang>, navs: array<navElem>): string => {
   "/" ++ (firstPart ++ ("/" ++ rest))
 }
 
+let setHTMLlang = %raw(`
+  function(newLang) {
+  document.documentElement.setAttribute('lang', newLang);
+  }`)
+
 let goTo = (elementPath: array<navElem>, lang: Lang.lang) => {
+  ignore(setHTMLlang(Lang.toUrl(lang)))
   let newUrl = navElemsToUrl(Some(lang), elementPath)
   Js.log("Pushing " ++ newUrl)
   RescriptReactRouter.push(newUrl)

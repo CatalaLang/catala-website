@@ -588,9 +588,9 @@ de l'interface utilisateur.`}
                 />
               </Link.Text>
               <Lang.String
-                english="and its master in digital Law. The research on Catala is also international
+                english=" and its master in digital Law. The research on Catala is also international
                 with an active group at the "
-                french={`et son master en droit du numérique. La recherche sur Catala est également internationale avec un groupe actif au sein de `}
+                french={` et son master en droit du numérique. La recherche sur Catala est également internationale avec un groupe actif au sein de `}
               />
               <Link.Text target="https://law.illinois.edu/">
                 <Lang.String
