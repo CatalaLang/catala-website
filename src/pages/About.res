@@ -36,22 +36,11 @@ module PersonTable = {
     </table>
 }
 
-type imgLocation = {default: string}
-
 let oecd_logo: imgLocation = %raw("require('../../assets/OECD_logo.svg')")
 
 let inria_logo: imgLocation = %raw("require('../../assets/inr_logo_rouge.svg')")
 
 let dinum_logo: imgLocation = %raw("require('../../assets/Logo_DINUM_2020_RVB.png')")
-
-module Highlight = {
-  @react.component
-  let make = (~src: imgLocation, ~children) =>
-    <figure className=%twc("flex flex-col items-center m-8")>
-      <img className=%twc("w-64 max-h-32") src={src.default} />
-      <figcaption className=%twc("mt-4")> children </figcaption>
-    </figure>
-}
 
 @react.component
 let make = () => <>

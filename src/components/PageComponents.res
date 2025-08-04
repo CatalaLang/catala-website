@@ -28,3 +28,18 @@ module SubSection = {
     children
   </>
 }
+
+type imgLocation = {default: string}
+
+module Highlight = {
+  @react.component
+  let make = (~src: imgLocation, ~children) =>
+    <figure className=%twc("flex flex-col items-center m-8")>
+      <img
+        style={ReactDOM.Style.make(~objectFit="contain", ())}
+        className=%twc("w-64 max-h-32")
+        src={src.default}
+      />
+      <figcaption className=%twc("mt-4 text-center")> children </figcaption>
+    </figure>
+}

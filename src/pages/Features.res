@@ -1,9 +1,11 @@
 open PageComponents
 
-type imgLocation = {default: string}
-
 let pair_programming_image: imgLocation = %raw("require('../../assets/pair_programming_compr.jpg')")
 let literate_programming_image: imgLocation = %raw("require('../../assets/ScreenShotVSCode.png')")
+
+let dgfip_logo: imgLocation = %raw("require('../../assets/Logo_DGFP-fr.svg')")
+
+let cnaf_logo: imgLocation = %raw("require('../../assets/logo-cnaf.jpg')")
 
 @react.component
 let make = () => <>
@@ -102,13 +104,43 @@ let make = () => <>
       english="A tool tried and tested by French administrations"
       french={`Un outil mis à l'épreuve par les administrations publiques`}
     />}>
-    {<> </>}
+    <div className=%twc("flex flex-col items-center")>
+      <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+        <Lang.String
+          english="Several proofs of concept have been made for French public
+          administrations. This demonstrates the ability of Catala to provide
+          tooling for first-class computation engines at the national level,
+          with realistic operational conditions and a high level of assurance."
+          french={`Plusieurs démonstrateurs ont été réalisés pour le compte
+          d'administrations publiques françaises, démontrant la capacité de Catala
+          à outiller des moteurs de calcul de premier plan au niveau national,
+          dans des conditions d'exploitations réalistes et avec un haut niveau
+          d'assurance.`}
+        />
+      </p>
+    </div>
+    <div className=%twc("flex flex-row flex-wrap justify-center gap-8")>
+      <Highlight src=dgfip_logo>
+        <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
+          <Lang.String
+            english="\"Income tax computation (deductions, deficit)"
+            french={`Calcul de l'impôt sur le revenu (abattements, déficit)`}
+          />
+        </Link.Text>
+      </Highlight>
+      <Highlight src=cnaf_logo>
+        <Lang.String
+          english="Computation and orchestration of three benefits (AF, RSA, AVVC)"
+          french={`Calcul et orchestration de trois allocations (AF, RSA, AVVC)`}
+        />
+      </Highlight>
+    </div>
   </Section>
   <Section
     id="workflow"
     title={<Lang.String
       english="A programming language that fits into your existing workflow"
-      french={`Un langage de programmation qui ne bouscule pas vos habitudes`}
+      french={`Un langage de programmation qui s'intègre dans vos pratiques habituelles`}
     />}>
     <div className=%twc("flex flex-col items-center")>
       <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
@@ -134,24 +166,21 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 french={`Des outils d'ingénierie logicielle standards et intégrés`}
               />,
             ),
-            action: None,
+            action: Some((
+              External("https://marketplace.visualstudio.com/items?itemName=catalalang.catala"),
+              <Lang.String english="Get VSCode extension" french={`Obtenir l'extension VSCode`} />,
+            )),
             content: <p>
               <Lang.String
                 english="A Catala source file is a text file. Version control, syntax
                 highlighting, compiler error reporting, debugging, continuous integration:
                 you can do it all from the command line or from your favorite IDE
-                with the language server. In particular, VSCode benefits from an "
+                with the language server."
                 french={`Un fichier source Catala est un fichier texte. Versionnage des source,
                 coloration syntaxique, rapports des erreurs du compilateur, débogage,
                 intégration continue : vous pouvez tout faire depuis la ligne de commande ou bien depuis
-                votre IDE favori avec le serveur de langage. En particulier, VSCode bénéficie
-                 d'une `}
+                votre IDE favori avec le serveur de langage.`}
               />
-              <Link.Text
-                target="https://marketplace.visualstudio.com/items?itemName=catalalang.catala">
-                <Lang.String english="official extension" french={`extension officielle`} />
-              </Link.Text>
-              <Lang.String english="." french={`.`} />
             </p>,
           },
           {
@@ -166,7 +195,10 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 french={`Remplacez simplement le moteur de règles`}
               />,
             ),
-            action: None,
+            action: Some((
+              External("https://github.com/CatalaLang/catala/tree/master/runtimes"),
+              <Lang.String english="Explore the runtimes" french={`Explorer les runtimes`} />,
+            )),
             content: <p>
               <Lang.String
                 english="You Catala programs are compiled to the programming
@@ -193,7 +225,13 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 french={`Un compilateur open-source et pérenne`}
               />,
             ),
-            action: None,
+            action: Some((
+              External("https://apollo.inria.fr/"),
+              <Lang.String
+                english="Know more about the Apollo program"
+                french={`En savoir plus sur le programme Apollo`}
+              />,
+            )),
             content: <p>
               <Lang.String
                 english="The tooling of Catala is distributed under a permissive open-source licence (Apache2).
@@ -202,12 +240,10 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 Aucune entreprise ne possède l'exclusivité de sa maintenance, et
                 le `}
               />
-              <Link.Text target="https://apollo.inria.fr/">
-                <Lang.String
-                  english="Apollo program managed by Inria"
-                  french={`programme Apollo piloté par Inria`}
-                />
-              </Link.Text>
+              <Lang.String
+                english="Apollo program managed by Inria"
+                french={`programme Apollo piloté par Inria`}
+              />
               <Lang.String
                 english=" organizes an ecosystem of digital services companies qualified for the software. And in the worst case,
                 you can maintain the generated code without the compiler."
@@ -228,7 +264,12 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 french={`Modularité et gestion des exceptions`}
               />,
             ),
-            action: None,
+            action: Some((
+              External("https://book.catala-lang.org/2-0-tutorial.html"),
+              <Lang.String
+                english="Get started with the tutorial" french={`Démarrer avec le tutoriel`}
+              />,
+            )),
             content: <p>
               <Lang.String
                 english="A rules engine without functions nor modules becomes unmanageable
@@ -255,6 +296,16 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
       english="Should I use Catala or something else?"
       french={`Devrais-je utiliser Catala ou quelque chose d'autre ?`}
     />}>
+    <div className=%twc("flex flex-col items-center")>
+      <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+        <Lang.String
+          english="You have heard about other similar technologies and hesistate
+          with Catala? This non-exhaustive list should help you choose."
+          french={`Vous avez entendu parler d'autre technologies similaires et
+          hésitez avec Catala ? Cette liste non-exhaustive devrait vous aider à choisir.`}
+        />
+      </p>
+    </div>
     <Card.Presentation.FromList
       cards=[
         {
@@ -269,30 +320,36 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
             />,
           ),
           action: None,
-          content: <p>
-            <Lang.String
-              english="You are an economist and you wish to model the effects
+          content: <>
+            <p className=%twc("mb-4")>
+              <Lang.String
+                english="You are an economist and you wish to model the effects
               of a socio-fiscal reform over a population? You want to ship a
               simulateur to quickly estimate the eligibility and amount
               of several benefits? OpenFisca is the most adapted tool, thanks
               to its community-maintained codebase elaborated since 2014 that
-              models the taxes and benefits in several countries. However,
-              this Python-based system can only interoperate through a Web API
-              and the community codebase does not contain exhaustive implementations
-              of taxes and social benefits that guarantees an identical result
-              to the decisions of the administrations, in all cases."
-              french={`Vous êtes économiste et vous souhaitez
+              models the taxes and benefits in several countries."
+                french={`Vous êtes économiste et vous souhaitez
             modéliser les effets d'une réforme socio-fiscale sur la population?
             Vous voulez lancer un simulateur permettant d'estimer rapidement l'éligibilité
             et le montant de plusieurs aides ? OpenFisca est alors l'outil le plus adapté,
             grâce à sa base de code communautaire élaborée depuis 2014, modélisant les impôts et aides
-            sociales dans plusieurs pays. Par contre, ce système en Python
-            ne peut intéropérer que par API Web et la base de code communautaire
-            ne contient pas d'implémentation exhaustive des impôts et prestations sociales
-            qui garantisse un résultat identique aux décisions des administrations dans
-            tous les cas.`}
+            sociales dans plusieurs pays.`}
+              />
+            </p>
+            <Lang.String
+              english="But you should use
+              Catala, which is a better designed programming language with more exhaustive
+              tooling, if you want to re-write your codebase yourself. This can happen
+              for instance because the OpenFisca codebase only deals with the most simple
+              legal rules compatible with the approximations of micro-economists."
+              french={`Mais vous devriez plutôt utiliser Catala,
+            un langage de programmation plus abouti et mieux outillé,
+            si vous voulez re-développer vous-même votre base de code.
+            Par exemple, parce que celle d'OpenFisca ne gère que les cas
+            simples du droit, compatibles avec les approximations des micro-économistes.`}
             />
-          </p>,
+          </>,
         },
         {
           title: <Link.Text target="https://publi.codes/">
@@ -306,9 +363,34 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
             />,
           ),
           action: None,
-          content: <p>
-            <Lang.String english="" french={``} />
-          </p>,
+          content: <>
+            <p className=%twc("mb-4")>
+              <Lang.String
+                english="You are an innovative public digital service and want to
+              quickly spin up a Web simulator with a good user experience, on top
+              of an easy-to-read rule base? Publicodes is the most adapted tool,
+              thanks to its very good integration of computation rules and
+              user-facing display."
+                french={`Vous êtes une start-up d'État et vous voulez
+lancer rapidement un simulateur Web avec une bonne expérience utilisateur, par dessus
+une base de règles facile à lire? Publicodes est alors l'outil le plus adapté,
+grâce à sa très bonne intégration entre règles de calcul et affichage
+de l'interface utilisateur.`}
+              />
+            </p>
+            <p>
+              <Lang.String
+                english="But you should use Catala, that separates
+              computation engine and user interface, and thus reaches better
+              raw computation performances, if you need to perform batch
+              computations beyon the Web simulator."
+                french={`Mais vous devriez plutôt utiliser Catala, qui sépare
+ moteur de calcul et interface utilisateur, et ainsi affiche de meilleures
+ performances en calcul pur, si vous devez faire du calcul en masse au delà
+ d'un simulateur Web.`}
+              />
+            </p>
+          </>,
         },
         {
           title: <Link.Text
@@ -323,13 +405,36 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
             />,
           ),
           action: None,
-          content: <p>
-            <Lang.String english="" french={``} />
-          </p>,
+          content: <>
+            <p className=%twc("mb-4")>
+              <Lang.String
+                english="Vous want to build a formal
+            ontology of a law or a regulation? You want to harmonize the
+            writing of the law or automatically analyse the relationships between
+            objects described by the law? LegalRuleML is the most adapted tool,
+            since it is an internationally-managed XML standard of modeling for
+            legal objects."
+                french={`Vous voulez construire une ontologie
+            formelle d'une loi ou d'un règlement ? Vous souhaitez uniformiser l'écriture
+            du droit ou analyser automatiquement les relations entre objets décrits
+            par le droit ? LegalRuleML est alors l'outil le plus adapté, étant un
+            standard mondial de représentation XML des objets juridiques.`}
+              />
+            </p>
+            <p>
+              <Lang.String
+                english="But you should use Catala is you simply want to program
+                a computation and then run it."
+                french={`Mais vous devriez plutôt utiliser
+              Catala si vous voulez simplement programmer un calcul et ensuite
+              pouvoir l'exécuter.`}
+              />
+            </p>
+          </>,
         },
         {
           title: <Link.Text target="https://documentation.dcr.design/">
-            <Lang.String english="DCR" french={`DCR`} />
+            <Lang.String english="DCR Graphs" french={`DCR Graphs`} />
           </Link.Text>,
           icon: None,
           quote: Some(
@@ -339,9 +444,34 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
             />,
           ),
           action: None,
-          content: <p>
-            <Lang.String english="" french={``} />
-          </p>,
+          content: <>
+            <p className=%twc("mb-4")>
+              <Lang.String
+                english="You are designing a new administrative process implicating
+                exchanges of information and documents between multiple actors? Or
+                you want to dectect optimisation opportunities within your existing processes?
+                DCR Graphs is the most adapted tool, since it can model, execute and
+                analyse communication protocols and generate automatically user interfaces."
+                french={`Vous voulez concevoir une nouvelle formalité administrative
+              impliquant des échanges de documents et d'informations entre plusieurs
+              acteurs ? Ou bien détecter des opportunités d'optimisation
+              de vos formalités existantes ? DCR Graphs est l'outil le plus adapté,
+              puisqu'il permet de modéliser, exécuter et analyser des protocoles
+              de communication et générer des interfaces utilisateurs automatiquement.`}
+              />
+            </p>
+            <p>
+              <Lang.String
+                english="But you should use Catala if
+              you just want to compute an amount from informations already
+              given by users, without back-and-forth in the decision process."
+                french={`Mais vous devriez plutôt utiliser Catala
+              s'il s'agit simplement de calculer un montant à partir d'informations
+              déjà communiquées par les usagers, sans allers-retour dans le
+              processus de décision.`}
+              />
+            </p>
+          </>,
         },
       ]
     />
@@ -352,6 +482,127 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
       english="A solution founded on solid science"
       french={`Une solution fondée sur un socle scientifique solide`}
     />}>
-    {<> </>}
+    <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
+      <div className=%twc("flex flex-col items-center")>
+        <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+          <Lang.String
+            english="Discover the rigourous scientific work behind the project."
+            french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}
+          />
+        </p>
+      </div>
+      <Card.Presentation.FromList
+        cards=[
+          {
+            title: <Lang.String
+              english="Interdisciplinary scientific collaboration"
+              french={`Collaboration scientifique interdisciplinaire`}
+            />,
+            icon: Some("question_answer"),
+            quote: Some(
+              <Lang.String
+                english="An award-winning project in formal methods and digital law"
+                french={`Un projet primé en méthodes formelles et droit du numérique`}
+              />,
+            ),
+            action: Some((
+              Internal([Nav.home, Nav.about]),
+              <Lang.String
+                english="Discover the origin of the project"
+                french={`Découvrir l'origine du projet`}
+              />,
+            )),
+            content: <p>
+              <Lang.String
+                english="Catala is born out the PhD work of Denis Merigoux "
+                french={`Catala est le fruit du travail doctoral de Denis Merigoux `}
+              />
+              <Link.Text
+                target="https://archive.socinfo.fr/2022/12/recherche-prix-de-these-gilles-kahn-laureats-2022/">
+                <Lang.String
+                  english="(Gilles Kahn prize 2022)" french={`(prix Gilles Kahn 2022)`}
+                />
+              </Link.Text>
+              <Lang.String
+                english=" in formal methods, and Liane Huttner "
+                french={` en méthodes formelles, et de Liane Huttner `}
+              />
+              <Link.Text
+                target="https://recherche.pantheonsorbonne.fr/actualite/trois-theses-en-droit-et-science-politique-primees-par-chancellerie-universites-paris">
+                <Lang.String
+                  english="(Sorbonne Chancellery prize 2023)"
+                  french={`(prix de la Chancellerie 2023)`}
+                />
+              </Link.Text>
+              <Lang.String
+                english=" in digital law. It also follows the footsteps of the research
+                of Marie Alauzen in Sociology of the State and STS. The dialogue between
+                these three researchers guided the design decisions of Catala, based on
+                an exhaustive review of the state of the art between Law and Computer Science."
+                french={` en droit du numérique. Il s'inscrit aussi dans
+              la ligne des recherches de Marie Alauzen en sociologie de l'État et en STS.
+              C'est le dialogue entre ces trois chercheur·e·s qui a permis de prendre
+              les bonnes décisions de conception pour Catala, s'appuyant sur une analyse
+              exhaustive de l'état de l'art de l'intersection entre droit et informatique.`}
+              />
+            </p>,
+          },
+          {
+            title: <Lang.String
+              english="An active research subject" french={`Un sujet de recherche actif`}
+            />,
+            icon: Some("biotech"),
+            quote: Some(
+              <Lang.String
+                english="A community of researchers regularly contributes to the project"
+                french={`Une communauté de chercheur·e·s contribue régulièrement au projet`}
+              />,
+            ),
+            action: Some((
+              Internal([Nav.home, Nav.doc, Nav.publications]),
+              <Lang.String english="Read the publications" french={`Lire les publications`} />,
+            )),
+            content: <p>
+              <Lang.String
+                english="Beyond their support of the industrialization of Catala,
+                Inria continues to foster research in formal methods on the language with "
+                french={`Au delà de son soutien à l'industrialisation de Catala,
+              Inria continue de soutenir la recherche en méthodes formelles sur le langage avec `}
+              />
+              <Link.Text target="https://www.inria.fr/fr/avocat">
+                <Lang.String
+                  english="the AVoCat exploratory action" french={`l'action exploratoire AVoCat`}
+                />
+              </Link.Text>
+              <Lang.String
+                english=". On the other hand, a fruitful collaboration on reasearch and teaching has been establish with
+                "
+                french={`. D'autre part, une fructueuse collaboration de recherche et d'enseignement
+              a été nouée avec `}
+              />
+              <Link.Text
+                target="https://www.u-pec.fr/fr/formation/master-droit-du-numerique-parcours-informatique-et-droit">
+                <Lang.String
+                  english="the Paris-Est Créteil university"
+                  french={`l'université Paris-Est Créteil`}
+                />
+              </Link.Text>
+              <Lang.String
+                english="and its master in digital Law. The research on Catala is also international
+                with an active group at the "
+                french={`et son master en droit du numérique. La recherche sur Catala est également internationale avec un groupe actif au sein de `}
+              />
+              <Link.Text target="https://law.illinois.edu/">
+                <Lang.String
+                  english="University of Illinois at Urbana-Champaign"
+                  french={`University of Illinois at Urbana-Champaign`}
+                />
+              </Link.Text>
+              <Lang.String english="." french={`.`} />
+            </p>,
+          },
+        ]
+      />
+    </div>
   </Section>
 </>

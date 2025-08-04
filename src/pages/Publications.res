@@ -130,6 +130,74 @@ let prolala_2022 = {
 }",
 }
 
+let these_denis = {
+  title: `Proof-oriented domain-specific language design for high-assurance software`,
+  authors: [denisMerigoux],
+  date: `2022`,
+  link: "https://theses.hal.science/tel-03622012",
+  citation: `Denis Merigoux. Proof-oriented domain-specific language design for high-assurance software. Programming Languages [cs.PL]. Université Paris sciences et lettres, 2021. English. ⟨NNT : 2021UPSLE006⟩. ⟨tel-03622012⟩`,
+  abstract: None,
+  bibtex: "@phdthesis{merigoux:tel-03622012,
+  TITLE = {{Proof-oriented domain-specific language design for high-assurance software}},
+  AUTHOR = {Merigoux, Denis},
+  URL = {https://theses.hal.science/tel-03622012},
+  NUMBER = {2021UPSLE006},
+  SCHOOL = {{Universit{\'e} Paris sciences et lettres}},
+  YEAR = {2021},
+  MONTH = Dec,
+  KEYWORDS = {Programme verification ; Domain-specific language ; Formal methods ; Cryptography ; Law ; V{\'e}rification de programme ; Langage d{\'e}di{\'e} ; M{\'e}thodes formelles ; Cryptographie ; Droit},
+  TYPE = {Theses},
+  PDF = {https://theses.hal.science/tel-03622012v1/file/Merigoux_2021_These.pdf},
+  HAL_ID = {tel-03622012},
+  HAL_VERSION = {v1},
+}",
+}
+
+let these_liane = {
+  title: `La décision de l'algorithme. Étude de droit privé sur les relations entre l'humain et la machine`,
+  authors: [lianeHuttner],
+  date: `2023`,
+  link: "https://shs.hal.science/CERDI-SACLAY/tel-04184956v1",
+  citation: `Liane Huttner. La décision de l'algorithme. Étude de droit privé sur les relations entre l'humain et la machine.. Droit. Paris 1 - Panthéon-Sorbonne, 2022. Français. ⟨NNT : ⟩. ⟨tel-04184956⟩`,
+  abstract: None,
+  bibtex: "@phdthesis{huttner:tel-04184956,
+  TITLE = {{La d{\'e}cision de l'algorithme. {\'E}tude de droit priv{\'e} sur les relations entre l'humain et la machine.}},
+  AUTHOR = {Huttner, Liane},
+  URL = {https://hal.science/tel-04184956},
+  SCHOOL = {{Paris 1 - Panth{\'e}on-Sorbonne}},
+  YEAR = {2022},
+  MONTH = Nov,
+  KEYWORDS = {Algorithm ; GDPR ; internet law ; digital law ; Automated decision-making ; data protection law ; artificial intelligence and law ; Algorithme ; Donn{\'e}es {\`a} caract{\`e}re personnel ; Droit du num{\'e}rique ; Intelligence Articifielle ; D{\'e}cisions automatis{\'e}es ; Droit priv{\'e} ; Relation homme machine ; RGPD},
+  TYPE = {Theses},
+  PDF = {https://hal.science/tel-04184956v1/file/Huttner%20-%20La%20d%C3%A9cision%20de%20l%27algorithme.pdf},
+  HAL_ID = {tel-04184956},
+  HAL_VERSION = {v1},
+}",
+}
+
+let these_marie = {
+  title: `Plis et replis de l'État plateforme. Enquête sur la modernisation des services publics en France`,
+  authors: [marieAlauzen],
+  date: `2019`,
+  link: "https://pastel.hal.science/tel-02418677v1",
+  citation: `Marie Alauzen. Plis et replis de l'État plateforme. Enquête sur la modernisation des services publics en France. Sociologie. Université Paris sciences et lettres, 2019. Français. ⟨NNT : 2019PSLEM037⟩. ⟨tel-02418677⟩`,
+  abstract: None,
+  bibtex: "@phdthesis{alauzen:tel-02418677,
+  TITLE = {{Plis et replis de l'{\'E}tat plateforme. Enqu{\^e}te sur la modernisation des services publics en France}},
+  AUTHOR = {Alauzen, Marie},
+  URL = {https://pastel.hal.science/tel-02418677},
+  NUMBER = {2019PSLEM037},
+  SCHOOL = {{Universit{\'e} Paris sciences et lettres}},
+  YEAR = {2019},
+  MONTH = Oct,
+  KEYWORDS = {State reform ; Modernisation projects ; Digital transformation ; Administrative workplace study ; Public services ; France ; R{\'e}forme de l'{\'E}tat ; Projets de modernisation ; Transformation num{\'e}rique ; Ethnographie de l'activit{\'e} administrative ; Services publics ; France},
+  TYPE = {Theses},
+  PDF = {https://pastel.hal.science/tel-02418677v1/file/2019PSLEM037_archivage.pdf},
+  HAL_ID = {tel-02418677},
+  HAL_VERSION = {v1},
+}",
+}
+
 let crcl_2021 = {
   title: `The Specification Problem of Legal Expert Systems`,
   authors: [denisMerigoux],
@@ -183,7 +251,7 @@ let crcl_2023 = {
   citation: `Merigoux, Denis. 2024. “Scoping AI & Law Projects: Wanting It All Is Counterproductive”. Journal of Cross-Disciplinary Research in Computational Law 2 (2).`,
   abstract: Some(`The intersection of law and computer science has been
     dominated for decades by a community that self-identifies with the pursuit
-    of ‘artificial intelligence’. This self-identification is not a coincidence;
+    of ‘artificial intelligence'. This self-identification is not a coincidence;
     many AI & Law researchers have expressed their interest in the
     ideologically-charged idea-utopia of government by machines, and the field
     of artificial intelligence aligns with the pursuit of all-encompassing
@@ -191,7 +259,7 @@ let crcl_2023 = {
     consequence, a lot of theoretical and practical work has been carried
     in the AI & Law community with the objective of creating logic-based,
     knowledge-based or machine-learning-based systems that could eventually
-    ‘solve’ any legal task. This ‘want-it-all’ research attitude echoes some
+    ‘solve' any legal task. This ‘want-it-all' research attitude echoes some
     of the debates in my home field of formal methods around formalization of
     programming languages and proofs. Hence, I will argue here that the quest
     for an unscoped system that does it all is counterproductive for multiple
@@ -258,6 +326,23 @@ let smu_2022 = {
   url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177}}",
 }
 
+let forms_as_formalization_2020 = {
+  title: `Form as Formalization`,
+  authors: [sarahLawsky],
+  date: `2020`,
+  link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177",
+  citation: ` Lawsky, Sarah B., Form as Formalization (2020). Ohio State Technology Law Journal, 16, 114.`,
+  abstract: None,
+  bibtex: "@article{lawsky2020form,
+  title={Form as formalization},
+  author={Lawsky, Sarah},
+  journal={Ohio State Technology Law Journal},
+  volume={16},
+  pages={114},
+  year={2020}
+  }",
+}
+
 let observations_2022 = {
   title: `Observations sur le calcul des aides au logement`,
   authors: [denisMerigoux],
@@ -283,11 +368,11 @@ let observations_2022 = {
 }
 
 let explicabilite_2024 = {
-  title: `De la transparence à l’explicabilité automatisée des algorithmes`,
+  title: `De la transparence à l'explicabilité automatisée des algorithmes`,
   authors: [denisMerigoux, marieAlauzen, justineBanuls, louisGesbert, emileRolley],
   date: `2024`,
   link: "https://inria.hal.science/hal-04391612",
-  citation: `Denis Merigoux, Marie Alauzen, Justine Banuls, Louis Gesbert, Émile Rolley. De la transparence à l’explicabilité automatisée des algorithmes : Comprendre les obstacles informatiques, juridiques et organisationnels. RR-9535, INRIA Paris. 2024, pp.68. ⟨hal-04391612⟩`,
+  citation: `Denis Merigoux, Marie Alauzen, Justine Banuls, Louis Gesbert, Émile Rolley. De la transparence à l'explicabilité automatisée des algorithmes : Comprendre les obstacles informatiques, juridiques et organisationnels. RR-9535, INRIA Paris. 2024, pp.68. ⟨hal-04391612⟩`,
   abstract: Some(`Les algorithmes publics ou traitements informatiques opérés \
   par les administrations sont soumis à des obligations de transparence et \
   d'explicabilité. Ces obligations ont été mises en place pour justifier les \
@@ -322,6 +407,106 @@ let explicabilite_2024 = {
   HAL_ID = {hal-04391612},
   HAL_VERSION = {v1},
 }",
+}
+
+let droit_societe_2024 = {
+  title: `L'altération informatique du droit. Une sociologie du passage du droit aux droits`,
+  authors: [marieAlauzen],
+  date: `2024`,
+  citation: `Marie Alauzen. L'altération informatique du droit. Une sociologie du passage du droit aux droits. Droit et Société : Revue internationale de théorie du droit et de sociologie juridique, 2024, 117 (2), ⟨10.3917/drs1.117.0277⟩. ⟨hal-04650848⟩`,
+  link: "https://hal.science/hal-04650848",
+  bibtex: `@article{alauzen:hal-04650848,
+  TITLE = {{L'alt{\'e}ration informatique du droit. Une sociologie du passage du droit aux droits}},
+  AUTHOR = {Alauzen, Marie},
+  URL = {https://hal.science/hal-04650848},
+  JOURNAL = {{Droit et Soci{\'e}t{\'e} : Revue internationale de th{\'e}orie du droit et de sociologie juridique}},
+  PUBLISHER = {{Librairie g{\'e}n{\'e}rale de droit et de jurisprudence (LGDJ)  [1991-2007] - Lextenso {\'e}ditions [2007-....]}},
+  VOLUME = {117},
+  NUMBER = {2},
+  YEAR = {2024},
+  DOI = {10.3917/drs1.117.0277},
+  KEYWORDS = {alteration ; calculation ; personal rights ; passes of law ; actor-network theory ; alt{\'e}ration ; calcul ; droits sociaux ; passes du droit ; sociologie de la traduction},
+  PDF = {https://hal.science/hal-04650848v1/file/Alauzen-alte%CC%81ration%20informatique%20du%20droit-D%26S-2024.pdf},
+  HAL_ID = {hal-04650848},
+  HAL_VERSION = {v1},
+}`,
+  abstract: Some(`Comment passe-t-on du droit, c'est-à-dire d'énoncés généraux et impersonnels, à la déclinaison personnelle des droits ? Dans les bureaucraties contemporaines, répondre à cette question suppose de décrire non plus seulement l'interprétation réalisée par des agents d'interface, mais la traduction des règles de droit dans des programmes exécutant automatiquement et massivement des actes administratifs, comme le calcul des impôts et des prestations sociales. À partir d'une enquête par rétro-ingénierie du programme de calcul des allocations logement en France et par entretiens, l'article met en lumière les tâches réalisées dans les ministères et à la Caisse nationale d'allocations familiales : passes et traductions du droit. En qualifiant ce phénomène d'altération des énoncés juridiques vers un agencement machinique, il attire l'attention sur des conséquences de choix d'interprétation et d'organisation jusqu'alors sous-estimées, avant d'inviter à de nouvelles collaborations avec des informaticiens. `),
+}
+
+let chicago_law_review_2024 = {
+  title: `Tax Law and Flexible Formalizations`,
+  authors: [sarahLawsky],
+  date: `2024`,
+  citation: `Lawsky, S. B. (2024). Tax Law and Flexible Formalizations. U. Chi. L. Rev. Online, 1.`,
+  link: "https://lawreview.uchicago.edu/online-archive/tax-law-and-flexible-formalizations",
+  bibtex: `@article{lawsky2024tax,
+  title={Tax Law and Flexible Formalizations},
+  author={Lawsky, Sarah B},
+  journal={University of Chicago Law Review Online},
+  pages={1},
+  year={2024},
+  publisher={HeinOnline}
+}`,
+  abstract: None,
+}
+
+let virginia_tax_review_2024 = {
+  title: `Reasoning with Formalized Statutes: The Case of Capital Gains and Losses`,
+  authors: [sarahLawsky],
+  date: `2024`,
+  citation: ` Lawsky, Sarah B., Reasoning with Formalized Statutes: The Case of Capital Gains and Losses (May 16, 2024). Virginia Tax Review, Vol. 43, No. 3, 2024, Northwestern Public Law Research Paper No. 24-11.`,
+  link: "https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4832255",
+  bibtex: `@article{lawsky2024tax,
+  title={Reasoning with Formalized Statutes: The Case of Capital Gains and Losses},
+  author={Lawsky, Sarah B},
+  journal={Virginia Tax Review},
+  volume={43},
+  numero={3}
+  year={2024},
+}`,
+  abstract: Some("This article formalizes sections of the Internal Revenue Code — that is,
+    represents them symbolically — and then reasons with these formalizations
+    algebraically, graphically, and, in a novel approach for U.S. legal
+    scholarship, using a computer program that proves theorems. Reasoning
+    with the formalizations reveals previously overlooked errors in the statute,
+    demonstrates equivalence between the actual law and facially dissimilar
+    administrative implementations of the law, and uncovers technical corrections
+    in these administrative implementations that the Internal Revenue Service
+    has not openly acknowledged. The article thus shows how reasoning with
+    formalized statutes leads to insights that may be otherwise obscured by
+    the law's complexity. "),
+}
+
+let epistemic_trespassing_2024 = {
+  title: `Computational Law and Epistemic Trespassing`,
+  authors: [sarahLawsky],
+  date: `2024`,
+  citation: `Lawsky, Sarah. 2024. “Computational Law and Epistemic Trespassing”. Journal of Cross-Disciplinary Research in Computational Law 2 (2).`,
+  link: "https://journalcrcl.org/crcl/article/view/58",
+  bibtex: `@article{Lawsky_2024,
+  title={Computational Law and Epistemic Trespassing},
+  volume={2},
+  url={https://journalcrcl.org/crcl/article/view/58},
+  number={2}, journal={Journal of Cross-disciplinary Research in Computational Law},
+  author={Lawsky, Sarah}, year={2024}, month={May}
+  }`,
+  abstract: None,
+}
+
+let scoping_ai_law_2024 = {
+  title: `Scoping AI & Law Projects: Wanting It All is Counterproductive`,
+  authors: [denisMerigoux],
+  date: `2024`,
+  citation: `Merigoux, Denis. 2024. “Scoping AI &Amp; Law Projects: Wanting It All Is Counterproductive”. Journal of Cross-Disciplinary Research in Computational Law 2 (2).`,
+  link: "https://journalcrcl.org/crcl/article/view/56",
+  bibtex: `@article{Lawsky_2024,
+  title={Scoping AI & Law Projects: Wanting It All is Counterproductive},
+  volume={2},
+  url={https://journalcrcl.org/crcl/article/view/56},
+  number={2}, journal={Journal of Cross-disciplinary Research in Computational Law},
+  author={Merigoux, Denis}, year={2024}, month={May}
+  }`,
+  abstract: None,
 }
 
 let dates_2024 = {
@@ -380,7 +565,7 @@ let cutecat_2025 = {
   HAL_ID = {hal-04907935},
   HAL_VERSION = {v1},
 }`,
-  abstract: Some(`Many legal computations, including the amount of tax owed by a citizen, whether they are eligible to social benefits, or the wages due to civil state servants, are specified by computational laws. Their application, however, is performed by expert computer programs intended to faithfully transcribe the law into computer code. Bugs in these programs can lead to dramatic societal impact, e.g., paying employees incorrect amounts, or not awarding benefits to families in need. To address this issue, we consider concolic unit testing, a combination of concrete execution with SMT-based symbolic execution, and propose CUTECat, a concolic execution tool targeting implementations of computational laws. Such laws typically follow a pattern where a base case is later refined by many exceptions in following law articles, a pattern that can be formally modeled using default logic. We show how to handle default logic inside a concolic execution tool, and implement our approach in the context of Catala, a recent domain-specific language tailored to implement computational laws. We evaluate CUTECat on several programs, including the Catala implementation of the French housing benefits and Section 132 of the US tax code. We show that CUTECat can successfully generate hundreds of thousands of testcases covering all branches of these bodies of law. Through several heuristics, we improve CUTECat’s scalability and usability, making the testcases understandable by lawyers and programmers alike. We believe CUTECat thus paves the way for the use of formal methods during legislative processes.`),
+  abstract: Some(`Many legal computations, including the amount of tax owed by a citizen, whether they are eligible to social benefits, or the wages due to civil state servants, are specified by computational laws. Their application, however, is performed by expert computer programs intended to faithfully transcribe the law into computer code. Bugs in these programs can lead to dramatic societal impact, e.g., paying employees incorrect amounts, or not awarding benefits to families in need. To address this issue, we consider concolic unit testing, a combination of concrete execution with SMT-based symbolic execution, and propose CUTECat, a concolic execution tool targeting implementations of computational laws. Such laws typically follow a pattern where a base case is later refined by many exceptions in following law articles, a pattern that can be formally modeled using default logic. We show how to handle default logic inside a concolic execution tool, and implement our approach in the context of Catala, a recent domain-specific language tailored to implement computational laws. We evaluate CUTECat on several programs, including the Catala implementation of the French housing benefits and Section 132 of the US tax code. We show that CUTECat can successfully generate hundreds of thousands of testcases covering all branches of these bodies of law. Through several heuristics, we improve CUTECat's scalability and usability, making the testcases understandable by lawyers and programmers alike. We believe CUTECat thus paves the way for the use of formal methods during legislative processes.`),
 }
 
 let ml_workshop_2023 = {
@@ -533,7 +718,18 @@ let make = () => <>
         french={`Conférences et journaux à comité de lecture`}
       />}>
       <PubItems
-        items={[cutecat_2025, dates_2024, crcl_2022, ai_law_2022, icfp2021, cc2021, jfla2020]}
+        items={[
+          cutecat_2025,
+          droit_societe_2024,
+          virginia_tax_review_2024,
+          dates_2024,
+          crcl_2022,
+          ai_law_2022,
+          icfp2021,
+          cc2021,
+          forms_as_formalization_2020,
+          jfla2020,
+        ]}
       />
     </Section>
     <Section id="workshops" title={<Lang.String english="Workshops" french={`Ateliers`} />}>
@@ -541,7 +737,20 @@ let make = () => <>
     </Section>
     <Section
       id="invited" title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
-      <PubItems items={[crcl_2023, smu_2022, iafipu2020]} />
+      <PubItems
+        items={[
+          epistemic_trespassing_2024,
+          scoping_ai_law_2024,
+          chicago_law_review_2024,
+          crcl_2023,
+          smu_2022,
+          iafipu2020,
+        ]}
+      />
+    </Section>
+    <Section
+      id="phd" title={<Lang.String english="PhD dissertations" french={`Thèses de doctorat`} />}>
+      <PubItems items={[these_liane, these_denis, these_marie]} />
     </Section>
     <Section
       id="preprints"
