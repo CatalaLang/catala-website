@@ -85,7 +85,8 @@ let make = () => {
         className=%twc("inline-flex flex-row flex-wrap mt-16 mb-16 items-end place-content-center")>
         <p className=%twc("text-center")>
           <Lang.String
-            english="Made with ❤️ by the " french={`Développé avec ❤️ par le `}
+            english="Made with ❤️ within the "
+            french={`Développé avec ❤️ dans le cadre du `}
           />
           <Link.Text target=apolloLink>
             <Lang.String english="Apollo program" french={`programme Apollo`} />

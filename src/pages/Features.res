@@ -139,8 +139,8 @@ let make = () => <>
   <Section
     id="workflow"
     title={<Lang.String
-      english="A programming language that fits into your existing workflow"
-      french={`Un langage de programmation qui s'intègre dans vos pratiques habituelles`}
+      english="An innovative programming language that fits into your existing workflow"
+      french={`Un langage de programmation innovant qui s'intègre dans vos pratiques habituelles`}
     />}>
     <div className=%twc("flex flex-col items-center")>
       <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
@@ -343,8 +343,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
               tooling, if you want to re-write your codebase yourself. This can happen
               for instance because the OpenFisca codebase only deals with the most simple
               legal rules compatible with the approximations of micro-economists."
-              french={`Mais vous devriez plutôt utiliser Catala,
-            un langage de programmation plus abouti et mieux outillé,
+              french={`Cependant, Catala est plus adapté
             si vous voulez re-développer vous-même votre base de code.
             Par exemple, parce que celle d'OpenFisca ne gère que les cas
             simples du droit, compatibles avec les approximations des micro-économistes.`}
@@ -384,9 +383,9 @@ de l'interface utilisateur.`}
               computation engine and user interface, and thus reaches better
               raw computation performances, if you need to perform batch
               computations beyon the Web simulator."
-                french={`Mais vous devriez plutôt utiliser Catala, qui sépare
+                french={`Cependant, Catala sépare
  moteur de calcul et interface utilisateur, et ainsi affiche de meilleures
- performances en calcul pur, si vous devez faire du calcul en masse au delà
+ performances en calcul pur, ce qui est important si vous devez faire du calcul en masse au delà
  d'un simulateur Web.`}
               />
             </p>
@@ -425,8 +424,7 @@ de l'interface utilisateur.`}
               <Lang.String
                 english="But you should use Catala is you simply want to program
                 a computation and then run it."
-                french={`Mais vous devriez plutôt utiliser
-              Catala si vous voulez simplement programmer un calcul et ensuite
+                french={`Mais Catala est plus adapté si vous voulez simplement programmer un calcul et ensuite
               pouvoir l'exécuter.`}
               />
             </p>
@@ -465,8 +463,7 @@ de l'interface utilisateur.`}
                 english="But you should use Catala if
               you just want to compute an amount from informations already
               given by users, without back-and-forth in the decision process."
-                french={`Mais vous devriez plutôt utiliser Catala
-              s'il s'agit simplement de calculer un montant à partir d'informations
+                french={`Néanmoins, Catala est plus adapté s'il s'agit simplement de calculer un montant à partir d'informations
               déjà communiquées par les usagers, sans allers-retour dans le
               processus de décision.`}
               />
