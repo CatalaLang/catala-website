@@ -1135,9 +1135,44 @@ let upcoming = Belt.List.toArray(
     (x, y) => compare(x.date, y.date),
   ),
 )
-let past = Belt.List.toArray(
+let season_2025_2026 = Belt.List.toArray(
   Belt.List.sort(
-    Belt.List.fromArray(Belt.Array.keep(seminars, seminar => seminar.date < Js.Date.make())),
+    Belt.List.fromArray(
+      Belt.Array.keep(seminars, seminar => {
+        seminar.date < Js.Date.make() &&
+        seminar.date >
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=7.0, ~date=30.0, ())) &&
+        seminar.date <
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=7.0, ~date=30.0, ()))
+      }),
+    ),
+    (x, y) => compare(y.date, x.date),
+  ),
+)
+
+let season_2024_2025 = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(
+      Belt.Array.keep(seminars, seminar => {
+        seminar.date >
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=7.0, ~date=30.0, ())) &&
+          seminar.date <
+          Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=7.0, ~date=30.0, ()))
+      }),
+    ),
+    (x, y) => compare(y.date, x.date),
+  ),
+)
+let season_2023_2024 = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(
+      Belt.Array.keep(seminars, seminar => {
+        seminar.date >
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=7.0, ~date=30.0, ())) &&
+          seminar.date <
+          Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=7.0, ~date=30.0, ()))
+      }),
+    ),
     (x, y) => compare(y.date, x.date),
   ),
 )
@@ -1203,11 +1238,39 @@ let make = () => {
       </dl>
     </Section>
     <Section
-      id="past" title={<Lang.String english="Past seminars" french={`Séminaires passés`} />}>
+      id="past" title={<Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />}>
+      {if Belt.Array.length(upcoming) == 0 {
+        <Lang.String
+          english="No seminar held yet this season, stay tuned!"
+          french={`Il n'y a pas encore eu de séminaire cette saison, n'hésitez pas à revenir plus tard !`}
+        />
+      } else {
+        <> </>
+      }}
       <dl>
-        {past
+        {season_2025_2026
         ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"past-seminar-item-" ++ i->string_of_int} seminar=item />
+          <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item />
+        )
+        ->React.array}
+      </dl>
+    </Section>
+    <Section
+      id="past" title={<Lang.String english="Season 2024-2025" french={`Saison 2024-2025`} />}>
+      <dl>
+        {season_2024_2025
+        ->Belt.Array.mapWithIndex((i, item) =>
+          <Seminar key={"season24-25-seminar-item-" ++ i->string_of_int} seminar=item />
+        )
+        ->React.array}
+      </dl>
+    </Section>
+    <Section
+      id="past" title={<Lang.String english="Season 2023-2024" french={`Saison 2023-2024`} />}>
+      <dl>
+        {season_2023_2024
+        ->Belt.Array.mapWithIndex((i, item) =>
+          <Seminar key={"season23-24-seminar-item-" ++ i->string_of_int} seminar=item />
         )
         ->React.array}
       </dl>
