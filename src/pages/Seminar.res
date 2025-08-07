@@ -1168,7 +1168,7 @@ let season_2023_2024 = Belt.List.toArray(
     Belt.List.fromArray(
       Belt.Array.keep(seminars, seminar => {
         seminar.date >
-        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=7.0, ~date=30.0, ())) &&
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2023.0, ~month=0.0, ~date=30.0, ())) &&
           seminar.date <
           Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2024.0, ~month=7.0, ~date=30.0, ()))
       }),
