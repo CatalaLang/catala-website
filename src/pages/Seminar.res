@@ -19,12 +19,12 @@ type seminar = {
 module Seminar = {
   @react.component
   let make = (~seminar: seminar) => <>
-    <dt className=%twc("pl-8 pb-4")>
-      <span className=%twc("italic")>
+    <dt className="pl-8 pb-4">
+      <span className="italic">
         {Js.Date.toISOString(seminar.date)->String.split("T")->Array.getUnsafe(0) |> React.string}
       </span>
       <span> {" — " |> React.string} </span>
-      <span className=%twc("font-bold")>
+      <span className="font-bold">
         {switch seminar.kind {
         | Sociology => <Lang.String french={`Sociologie`} english="Sociology" />
         | Law => <Lang.String french={`Droit`} english="Law" />
@@ -36,9 +36,9 @@ module Seminar = {
         <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
       </span>
       <span> {" — " |> React.string} </span>
-      <span className=%twc("italic")> {seminar.title} </span>
+      <span className="italic"> {seminar.title} </span>
     </dt>
-    <dd className=%twc("pb-4")> {seminar.abstract} </dd>
+    <dd className="pb-4"> {seminar.abstract} </dd>
   </>
 }
 
@@ -771,7 +771,7 @@ public demonstrations of technology, also known as \"demos\"."
         english=" on the subject, I propose to rethink our interaction with
         those languages by using the concept of "
       />
-      <span className=%twc("italic")> {"projection" |> React.string} </span>
+      <span className="italic"> {"projection" |> React.string} </span>
       <Lang.String
         french={`, qui désigne le fait de
       donner corps à des données représentant le code ou le contexte dans
@@ -784,7 +784,7 @@ public demonstrations of technology, also known as \"demos\"."
       />
       <Link.Text target="https://github.com/exsitu-projects/ilatex">
         {<>
-          <span className=%twc("italic")> {"i" |> React.string} </span>
+          <span className="italic"> {"i" |> React.string} </span>
           {"-LaTeX" |> React.string}
         </>}
       </Link.Text>
@@ -1183,7 +1183,7 @@ let make = () => {
     <Title>
       <Lang.String english="Seminar" french={`Séminaire`} />
     </Title>
-    <div className=%twc("flex flex-col justify-center items-center")>
+    <div className="flex flex-col justify-center items-center">
       <div>
         <p>
           <Lang.String
@@ -1200,7 +1200,7 @@ let make = () => {
           traduction du droit en code.`}
           />
         </p>
-        <p className=%twc("mt-4")>
+        <p className="mt-4">
           <Lang.String
             english="The location \
           of the Inria Paris research center is: 48 rue Barrault, 75013 Paris. Please arrive
@@ -1276,7 +1276,7 @@ let make = () => {
       </dl>
     </Section>
     <Section id="organizers" title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
-      <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className=%twc("mb-8") />
+      <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className="mb-8" />
     </Section>
   </>
 }

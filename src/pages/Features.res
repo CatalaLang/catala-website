@@ -1,11 +1,10 @@
 open PageComponents
 
-let pair_programming_image: imgLocation = %raw("require('../../assets/pair_programming_compr.jpg')")
-let literate_programming_image: imgLocation = %raw("require('../../assets/ScreenShotVSCode.png')")
+let pair_programming_image: imgLocation = %raw("import('../../assets/pair_programming_compr.jpg')")
+let literate_programming_image: imgLocation = %raw("import('../../assets/ScreenShotVSCode.png')")
 
-let dgfip_logo: imgLocation = %raw("require('../../assets/Logo_DGFP-fr.svg')")
-
-let cnaf_logo: imgLocation = %raw("require('../../assets/logo-cnaf.jpg')")
+let dgfip_logo: imgLocation = %raw("import('../../assets/Logo_DGFP-fr.svg')")
+let cnaf_logo: imgLocation = %raw("import('../../assets/logo-cnaf.jpg')")
 
 @react.component
 let make = () => <>
@@ -36,11 +35,11 @@ let make = () => <>
             <Lang.String english="See the examples" french={`Voir les exemples`} />,
           )),
           content: {
-            <div className=%twc("flex flex-col justify-around h-full")>
-              <figure className=%twc("flex flex-col m-4 items-center")>
-                <img className=%twc("w-96 max-h-64") src={literate_programming_image.default} />
+            <div className="flex flex-col justify-around h-full">
+              <figure className="flex flex-col m-4 items-center">
+                <img className="w-96 max-h-64" src={literate_programming_image.default} />
               </figure>
-              <p className=%twc("flex-shrink")>
+              <p className="shrink">
                 <Lang.String
                   english="One line of law, one line of code, everything in the same document.
                   Programming while systematically following the structure of the legal text
@@ -71,16 +70,16 @@ let make = () => <>
             <Lang.String english="Read more" french={`En savoir plus`} />,
           )),
           content: {
-            <div className=%twc("flex flex-col justify-around h-full")>
-              <figure className=%twc("flex flex-col m-4 items-center")>
-                <img className=%twc("w-64 max-h-64") src={pair_programming_image.default} />
-                <figcaption className=%twc("text-sm md:text-xs text-center pt-4 italic")>
+            <div className="flex flex-col justify-around h-full">
+              <figure className="flex flex-col m-4 items-center">
+                <img className="w-64 max-h-64" src={pair_programming_image.default} />
+                <figcaption className="text-sm md:text-xs text-center pt-4 italic">
                   <Lang.String
                     english="Photo credits: Marie Alauzen" french={`Crédits photo : Marie Alauzen`}
                   />
                 </figcaption>
               </figure>
-              <p className=%twc("flex-shrink")>
+              <p className="shrink">
                 <Lang.String
                   english="Writing huge specification lends to ambiguities and Chinese whisper games.
                   Beyond test cases, the lawyers must understand the logic of the code to
@@ -104,8 +103,8 @@ let make = () => <>
       english="A tool tried and tested by French administrations"
       french={`Un outil mis à l'épreuve par les administrations publiques`}
     />}>
-    <div className=%twc("flex flex-col items-center")>
-      <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+    <div className="flex flex-col items-center">
+      <p className="text-lg sm:text-xl italic text-center max-w-2xl">
         <Lang.String
           english="Several proofs of concept have been made for French public
           administrations. This demonstrates the ability of Catala to provide
@@ -119,7 +118,7 @@ let make = () => <>
         />
       </p>
     </div>
-    <div className=%twc("flex flex-row flex-wrap justify-center gap-8")>
+    <div className="flex flex-row flex-wrap justify-center gap-8">
       <Highlight src=dgfip_logo>
         <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
           <Lang.String
@@ -142,8 +141,8 @@ let make = () => <>
       english="An innovative programming language that fits into your existing workflow"
       french={`Un langage de programmation innovant qui s'intègre dans vos pratiques habituelles`}
     />}>
-    <div className=%twc("flex flex-col items-center")>
-      <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+    <div className="flex flex-col items-center">
+      <p className="text-lg sm:text-xl italic text-center max-w-2xl">
         <Lang.String
           english="You maintain a legacy ditigal app, packaging a computation engine
           specified by the law ? Catala allows you to plan ahead your upgrade with serenity."
@@ -152,7 +151,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
         />
       </p>
     </div>
-    <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
+    <div className="text-base sm:text-lg pb-10 pt-4">
       <Card.Presentation.FromList
         cards=[
           {
@@ -296,8 +295,8 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
       english="Should I use Catala or something else?"
       french={`Devrais-je utiliser Catala ou quelque chose d'autre ?`}
     />}>
-    <div className=%twc("flex flex-col items-center")>
-      <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+    <div className="flex flex-col items-center">
+      <p className="text-lg sm:text-xl italic text-center max-w-2xl">
         <Lang.String
           english="You have heard about other similar technologies and hesistate
           with Catala? This non-exhaustive list should help you choose."
@@ -321,7 +320,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
           ),
           action: None,
           content: <>
-            <p className=%twc("mb-4")>
+            <p className="mb-4">
               <Lang.String
                 english="You are an economist and you wish to model the effects
               of a socio-fiscal reform over a population? You want to ship a
@@ -363,7 +362,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
           ),
           action: None,
           content: <>
-            <p className=%twc("mb-4")>
+            <p className="mb-4">
               <Lang.String
                 english="You are an innovative public digital service and want to
               quickly spin up a Web simulator with a good user experience, on top
@@ -405,7 +404,7 @@ de l'interface utilisateur.`}
           ),
           action: None,
           content: <>
-            <p className=%twc("mb-4")>
+            <p className="mb-4">
               <Lang.String
                 english="Vous want to build a formal
             ontology of a law or a regulation? You want to harmonize the
@@ -443,7 +442,7 @@ de l'interface utilisateur.`}
           ),
           action: None,
           content: <>
-            <p className=%twc("mb-4")>
+            <p className="mb-4">
               <Lang.String
                 english="You are designing a new administrative process implicating
                 exchanges of information and documents between multiple actors? Or
@@ -479,9 +478,9 @@ de l'interface utilisateur.`}
       english="A solution founded on solid science"
       french={`Une solution fondée sur un socle scientifique solide`}
     />}>
-    <div className=%twc("text-base sm:text-lg pb-10 pt-4")>
-      <div className=%twc("flex flex-col items-center")>
-        <p className=%twc("text-lg sm:text-xl italic text-center max-w-2xl")>
+    <div className="text-base sm:text-lg pb-10 pt-4">
+      <div className="flex flex-col items-center">
+        <p className="text-lg sm:text-xl italic text-center max-w-2xl">
           <Lang.String
             english="Discover the rigourous scientific work behind the project."
             french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}

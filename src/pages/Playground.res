@@ -148,7 +148,7 @@
 //     }
 //   }
 //   <>
-//     <div className=%twc("flex flex-col flex-grow")>
+//     <div className=%twc("flex flex-col grow")>
 //       <Utils.PageTitle>
 //         <Lang.String english="Online playground" french=`Bac à sable en ligne` />
 //       </Utils.PageTitle>
@@ -196,13 +196,13 @@
 //       cliquant sur les boutons ci-dessous.`
 //         />
 //       </p>
-//       <div className=%twc("flex flex-col flex-grow mt-8")>
+//       <div className=%twc("flex flex-col grow mt-8")>
 //         <div className=%twc("flex flex-row flex-wrap justify-around")>
 //           {available_modules
 //           ->Belt.Array.mapWithIndex((i, modu) => render_module_select(modu, string_of_int(i)))
 //           ->React.array}
 //         </div>
-//         <div id="editor" className=%twc("flex-grow my-4 w-full min-h-screen")>
+//         <div id="editor" className=%twc("grow my-4 w-full min-h-screen")>
 //           {"Hello, world!" |> React.string}
 //         </div>
 //         <div className=%twc("flex flex-row flex-wrap justify-center p-2 bg-secondary shadow")>
