@@ -27,7 +27,7 @@ let card: Card.Presentation.t = {
 @react.component
 let make = () => <>
   <Title> pageTitle </Title>
-  <p className=%twc("pb-16")>
+  <p className="pb-16">
     <Lang.String
       english="The source code for this example is available "
       french={`Le code source de cet exemple est disponible `}

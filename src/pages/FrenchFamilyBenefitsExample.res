@@ -5,7 +5,7 @@ let pageTitle =
     english="French family benefits computation" french={`Calcul des allocations familiales`}
   />
 
-let catalaCodeHTML = %raw(`require("../../assets/allocations_familiales.html")`)
+let catalaCodeHTML = %raw(`import("../../assets/allocations_familiales.html")`)
 
 // module FormInfos = {
 //   let englishSchema = %raw(`require("../../assets/allocations_familiales_schema_en.json")`)
