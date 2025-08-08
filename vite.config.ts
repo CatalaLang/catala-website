@@ -7,4 +7,7 @@ export default defineConfig({
   publicDir: "public",
   plugins: [react(), rescript(), tailwindcss()],
   assetsInclude: ["./assets/**/*.html"],
+  build: {
+    outDir: "build",
+  },
 });
