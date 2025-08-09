@@ -15,9 +15,22 @@ let make = () => {
     <section className="px-8 flex flex-col">
       <h1 className="text-3xl max-w-3xl mt-32 mb-16 font-serif leading-tight">
         <Lang.String
-          english="A domain-specific language designed by researchers in Computer Science and Law, for precisely deriving algorithms producing automated legal decisions."
-          french={`Un langage spécifique conçu par des chercheur·euses en informatique et en droit, pour l'écriture précise d'algorithmes appliquant automatiquement du droit.`}
+          english="A domain-specific language designed by researchers in "
+          french={`Un langage spécifique conçu par des chercheur·euses en `}
         />
+        <span className="bg-primary_light/10 px-2">
+          <Lang.String english="Computer Science and Law" french={`informatique et en droit`} />
+        </span>
+        <Lang.String
+          english=", for precisely deriving algorithms "
+          french={`, pour l'écriture précise d'algorithmes `}
+        />
+        <span className="bg-primary_light/10 px-2">
+          <Lang.String
+            english="producing automated legal decisions"
+            french={`appliquant automatiquement du droit`}
+          />
+        </span>
       </h1>
       <div
         className="text-center text-2xl sm:text-4xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
