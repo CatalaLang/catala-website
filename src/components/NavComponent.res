@@ -1,11 +1,8 @@
 module Style = {
-  module SwitchLang = {
-    let link = "px-2 cursor-pointer uppercase pr-4 hover:text-primary_light "
-  }
   module NavElem = {
-    let link_base = "inline-flex block px-2 cursor-pointer hover:text-primary_light "
+    let link_base = "inline-flex block cursor-pointer hover:text-primary_dark "
     let link_inactive = link_base
-    let link_active = link_base ++ "text-primary_light"
+    let link_active = link_base ++ "text-primary_dark border-b border-primary_dark"
   }
 
   let logo_hover_opacity = "opacity-75 hover:opacity-100"
@@ -17,16 +14,22 @@ module SwitchLang = {
   let make = _ => {
     let (oldLang, setLang) = React.useContext(Lang.langContext)
     let url = RescriptReactRouter.useUrl()
-    <a
-      className=Style.SwitchLang.link
-      onClick={_ => {
-        let (_, navs) = Nav.urlToNavElem(url)
-        setLang()
-        let newLang = Lang.newLangFromOldLang(oldLang)
-        Nav.goTo(navs, newLang)
-      }}>
-      <Lang.String french="En" english={`Fr`} />
-    </a>
+    let onClick = _ => {
+      let (_, navs) = Nav.urlToNavElem(url)
+      setLang()
+      let newLang = Lang.newLangFromOldLang(oldLang)
+      Nav.goTo(navs, newLang)
+    }
+    let style = "cursor-pointer text-button_fg px-2 border-y border-button_fg/50 hover:bg-primary_light/50"
+    <div className="">
+      <a className={style ++ " border-x" ++ (oldLang == French ? " bg-primary_light" : "")} onClick>
+        {"fr"->React.string}
+      </a>
+      <a
+        className={style ++ " border-r" ++ (oldLang == English ? " bg-primary_light" : "")} onClick>
+        {"en"->React.string}
+      </a>
+    </div>
   }
 }
 
@@ -79,24 +82,23 @@ let make = () => {
 
   <div className="w-full bg-stone-50 border-b border-stone-300 top-0 sticky z-10 py-1">
     <Flex.Column.AlignLeft style="max-w-6xl mx-auto">
-      <div
-        className="w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row">
-        <div>
+      <div className="w-full inline-flex flex-row items-center justify-between">
+        <div className="inline-flex flex-row items-center gap-4">
           <Link.Internal
-            className={"py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start pl-4 text-lg font-sans font-semibold hover:text-primary_light sm:col-span-1"}
+            className={"py-2  h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start pl-4 text-lg font-sans font-semibold hover:text-primary_light sm:col-span-1"}
             target=[Nav.home]>
             <img className="h-6 pr-2" src={Assets.Image.logo_catala} />
             <Lang.String english="Catala" french={`Catala`} />
           </Link.Internal>
+          <div
+            className="hidden text-sm sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:gap-3">
+            navElems
+          </div>
         </div>
-        <div
-          className="hidden sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:col-span-3">
-          navElems
-        </div>
-        <div className="inline-flex flex-row self-center sm:col-span-1 sm:justify-end">
+        <div className="inline-flex flex-row justify-end">
           <SwitchLang />
           <button
-            className="inline-flex text-text_light self-center hover:text-primary_light mr-4 sm:hidden"
+            className="inline-flex self-center hover:text-primary_light mr-4 sm:hidden"
             onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
             <Icon name="menu" />
           </button>

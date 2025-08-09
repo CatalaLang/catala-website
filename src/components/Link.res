@@ -26,7 +26,7 @@ module Button = {
 
   @react.component
   let make = (
-    ~className="cursor-pointer border border-button_fg/50 px-8 py-2 text-button_fg font-medium  inline-flex items-center font-sans hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100 ",
+    ~className="cursor-pointer border border-button_fg/50 px-8 py-2 text-button_fg font-medium  inline-flex items-center font-sans hover:bg-primary_light/50 hover:text-button_fg_hover ease-in duration-100 ",
     ~target: string,
     ~children,
   ) => {
@@ -39,7 +39,7 @@ module Button = {
   module Internal = {
     @react.component
     let make = (
-      ~className="cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100 w-fit ",
+      ~className="cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
       ~target: array<Nav.navElem>,
       ~children,
     ) => {
