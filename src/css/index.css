@@ -5,3 +5,13 @@ layer(base);
 @import "tailwindcss";
 
 @config "../css/tailwind.config.js";
+
+@layer base {
+  h2 {
+    @apply text-3xl font-serif font-semibold text-text_dark;
+  }
+
+  p {
+    @apply text-text_dark text-base;
+  }
+}

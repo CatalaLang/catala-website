@@ -1,0 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap");
+@import "../../assets/css/catala_code.css";
+
+.catala-code .law-text {
+  /* font-family: "Inter", "Open Sans", sans-serif; */
+  /* font-family: "Libre Baskerville", serif; */
+  font-family: "Libre Baskerville", serif;
+  font-weight: normal;
+  font-size: medium;
+  margin-bottom: 0.5rem;
+}
+
+html .catala-code .article-title {
+  font-family: "Libre Baskerville", serif;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+html .catala-code {
+  --border-color: #ddd6cd;
+  --bg-color: #fffaf2;
+  --code-bg-color: #f5f5f4;
+  border-radius: 0rem !important;
+}
+
+html .code-wrapper {
+  background-color: var(--code-bg-color) !important;
+  border-radius: 0;
+}
+
+html .catala-code .filename {
+  font-family: monospace;
+  color: #4d3006;
+  width: 100% !important;
+  background-color: transparent !important;
+}
+
+html .catala-code .code {
+  background-color: white;
+  padding-left: 0.5rem !important;
+  width: 100%;
+}
+
+html .catala-code .linenodiv {
+  color: #4d3006;
+  background-color: #fffaf2;
+}
