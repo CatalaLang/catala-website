@@ -16,12 +16,12 @@ module App = {
     let setLang = _ => setLang(oldLang => Lang.newLangFromOldLang(oldLang))
 
     <Lang.Context value=(appLang, setLang)>
-      <div className="flex flex-col min-h-screen text-xl md:text-lg lg:text-base">
+      <div className="flex flex-col min-h-screen bg-primary_light/10">
         <NavComponent />
-        <main className="flex flex-col grow container mx-auto px-4 lg:px-0 ">
+        <main className="max-w-6xl mx-auto pb-16 border-x border-border bg-white">
           <Router />
         </main>
-        <div className="w-full bottom-0">
+        <div className="w-full border-t border-border bottom-0 ">
           <Footer />
         </div>
       </div>

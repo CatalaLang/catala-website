@@ -2,8 +2,8 @@ let github_link = "https://github.com/CatalaLang/catala-website/issues"
 
 @react.component
 let make = React.memo(() => {
-  <footer className="pt-2 font-sans text-center">
-    <div className="text-gray_dark pb-2 text-xs font-semibold">
+  <footer className="py-8 max-w-6xl mx-auto font-sans">
+    <div className="text-gray_dark pb-2 text-xs">
       {
         let today = Js.Date.now()->Js.Date.fromFloat->Js.Date.getFullYear->Js.String2.make
         React.string("© " ++ today ++ " Inria — ")
