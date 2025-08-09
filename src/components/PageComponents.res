@@ -27,16 +27,12 @@ module SubSection = {
   </>
 }
 
-type imgLocation = {default: string}
-
 module Highlight = {
   @react.component
-  let make = (~src: imgLocation, ~children) =>
+  let make = (~src: string, ~children) =>
     <figure className="flex flex-col items-center m-8">
       <img
-        style={ReactDOM.Style.make(~objectFit="contain", ())}
-        className="w-64 max-h-32"
-        src={src.default}
+        style={ReactDOM.Style.make(~objectFit="contain", ())} className="w-64 max-h-32" src={src}
       />
       <figcaption className="mt-4 text-center"> children </figcaption>
     </figure>

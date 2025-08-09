@@ -6,7 +6,10 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   publicDir: "public",
   plugins: [react(), rescript(), tailwindcss()],
-  assetsInclude: ["./assets/**/*.html"],
+  assetsInclude: [
+    "./assets/**/*.{png,jpg,jpeg,svg,gif,webp,avif}",
+    "./assets/**/*.html",
+  ],
   build: {
     outDir: "build",
   },

@@ -54,11 +54,6 @@ module NavElem = {
   }
 }
 
-type imgLocation = {default: string}
-
-let logo: imgLocation = %raw("import('../../assets/logo.png')")
-let github: imgLocation = %raw("import('../../assets/GitHub-Mark-Light-32px.png')")
-
 let navElems =
   <>
     <NavElem
@@ -89,7 +84,7 @@ let make = () => {
         <Link.Internal
           className={"py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light sm:col-span-1"}
           target=[Nav.home]>
-          <img className="h-8 pr-2" src={logo.default} />
+          <img className="h-8 pr-2" src={Assets.Image.logo_catala} />
           <Lang.String english="Catala" french={`Catala`} />
         </Link.Internal>
       </div>

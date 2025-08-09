@@ -1,7 +1,5 @@
 open PageComponents
 
-let grammar = %raw(`import("../../assets/grammar.html")`)
-
 @react.component
 let make = () => <>
   <Title>
@@ -31,7 +29,7 @@ let make = () => <>
       />
     </p>
     <Box.Collapsible>
-      <div className="font-mono" dangerouslySetInnerHTML={"__html": grammar} />
+      <RawHtml className="font-mono" htmlFile="grammar.html" />
     </Box.Collapsible>
     <p>
       <Lang.String

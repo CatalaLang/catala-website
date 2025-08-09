@@ -4,9 +4,8 @@ let pageTitle =
     english="French housing benefits computation" french={`Calcul des aides au logement`}
   />
 
-let catalaCodeHTML = %raw(`import("../../assets/aides_logement.html")`)
-let frenchUiSchema = %raw(`import("../../assets/aides_logement_ui_fr.schema.jsx")`)
-let englishUiSchema = %raw(`import("../../assets/aides_logement_ui_en.schema.jsx")`)
+// let frenchUiSchema = %raw(`import("../../assets/aides_logement_ui_fr.schema.jsx")`)
+// let englishUiSchema = %raw(`import("../../assets/aides_logement_ui_en.schema.jsx")`)
 
 // module FormInfos = {
 //   let englishSchema = %raw(`require("../../assets/aides_logement_schema_en.json")`)
@@ -128,7 +127,7 @@ let make = () => {
     // </Section>
     <Section
       id="source-code-housing" title={<Lang.String english="Source code" french={`Code source`} />}>
-      <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />
+      <CatalaCode.DangerouslySetInnerHtml htmlFile="aides_logement.html" />
     </Section>
   </>
 }
