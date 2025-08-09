@@ -59,5 +59,5 @@ let make = () => <>
       french={`  pour savoir comment lire ce document.`}
     />
   </p>
-  <CatalaCode.DangerouslySetInnerHtml html=%raw(`require("../../assets/us_tax_code.html")`) />
+  <CatalaCode.DangerouslySetInnerHtml htmlFile="us_tax_code.html" />
 </>

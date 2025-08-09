@@ -36,12 +36,6 @@ module PersonTable = {
     </table>
 }
 
-let oecd_logo: imgLocation = %raw("import('../../assets/OECD_logo.svg')")
-
-let inria_logo: imgLocation = %raw("import('../../assets/inr_logo_rouge.svg')")
-
-let dinum_logo: imgLocation = %raw("import('../../assets/Logo_DINUM_2020_RVB.png')")
-
 @react.component
 let make = () => <>
   <Title>
@@ -166,7 +160,7 @@ transparency of automated administrative decisions."
   </SubSection>
   <SubSection title={<Lang.String english="Highlighted by" french={`Mis en valeur par`} />}>
     <div className="flex flex-row flex-wrap justify-center gap-8">
-      <Highlight src=oecd_logo>
+      <Highlight src={Assets.Image.logo_oecd}>
         <Link.Text target="https://oecd-opsi.org/publications/cracking-the-code/">
           <Lang.String
             english="\"Cracking the Code\" report on Rules as Code"
@@ -174,7 +168,7 @@ transparency of automated administrative decisions."
           />
         </Link.Text>
       </Highlight>
-      <Highlight src=dinum_logo>
+      <Highlight src={Assets.Image.logo_dinum}>
         <Link.Text
           target="https://web.archive.org/web/20250118165329/https://code.gouv.fr/fr/explicabilite/">
           <Lang.String
@@ -188,7 +182,7 @@ transparency of automated administrative decisions."
           <Lang.String french={`(supprimé)`} english="(deleted)" />
         </Link.Text>
       </Highlight>
-      <Highlight src=inria_logo>
+      <Highlight src={Assets.Image.logo_inria}>
         <Link.Text target="https://apollo.inria.fr/projets/catala/">
           <Lang.String english="Apollo program" french={`Programme Apollo`} />
         </Link.Text>

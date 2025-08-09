@@ -1,11 +1,5 @@
 open PageComponents
 
-let pair_programming_image: imgLocation = %raw("import('../../assets/pair_programming_compr.jpg')")
-let literate_programming_image: imgLocation = %raw("import('../../assets/ScreenShotVSCode.png')")
-
-let dgfip_logo: imgLocation = %raw("import('../../assets/Logo_DGFP-fr.svg')")
-let cnaf_logo: imgLocation = %raw("import('../../assets/logo-cnaf.jpg')")
-
 @react.component
 let make = () => <>
   <Title>
@@ -37,7 +31,7 @@ let make = () => <>
           content: {
             <div className="flex flex-col justify-around h-full">
               <figure className="flex flex-col m-4 items-center">
-                <img className="w-96 max-h-64" src={literate_programming_image.default} />
+                <img className="w-96 max-h-64" src={Assets.Image.literate_programming} />
               </figure>
               <p className="shrink">
                 <Lang.String
@@ -72,7 +66,7 @@ let make = () => <>
           content: {
             <div className="flex flex-col justify-around h-full">
               <figure className="flex flex-col m-4 items-center">
-                <img className="w-64 max-h-64" src={pair_programming_image.default} />
+                <img className="w-64 max-h-64" src={Assets.Image.literate_programming} />
                 <figcaption className="text-sm md:text-xs text-center pt-4 italic">
                   <Lang.String
                     english="Photo credits: Marie Alauzen" french={`Crédits photo : Marie Alauzen`}
@@ -119,7 +113,7 @@ let make = () => <>
       </p>
     </div>
     <div className="flex flex-row flex-wrap justify-center gap-8">
-      <Highlight src=dgfip_logo>
+      <Highlight src=Assets.Image.logo_dgfip>
         <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
           <Lang.String
             english="\"Income tax computation (deductions, deficit)"
@@ -127,7 +121,7 @@ let make = () => <>
           />
         </Link.Text>
       </Highlight>
-      <Highlight src=cnaf_logo>
+      <Highlight src=Assets.Image.logo_cnaf>
         <Lang.String
           english="Computation and orchestration of three benefits (AF, RSA, AVVC)"
           french={`Calcul et orchestration de trois allocations (AF, RSA, AVVC)`}

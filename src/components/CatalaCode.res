@@ -1,3 +1,5 @@
+%raw(`import("../../assets/css/catala_code.css")`)
+
 let typesetMathJax: unit => unit = %raw(`
 function typesetMathJax() {
     if (window.MathJax) {
@@ -8,30 +10,15 @@ function typesetMathJax() {
 
 module DangerouslySetInnerHtml = {
   @react.component
-  let make = (~html) => {
-    // let (htmlState, setHtmlState) = React.useState(_ => None)
+  let make = (~htmlFile) => {
     React.useEffect(() => {
       // This assumes MathJax to be loaded in the page. Necessary for the
       // LaTeX components of the Catala code to be typeset after any
       // change in the collapsible structure of the page.
       typesetMathJax()
-
-      // html->Promise.thenResolve(html => setHtmlState(_ => Some(html)))->Promise.done
       None
     })
-
-    // {
-    //   switch htmlState {
-    //   | Some(html) =>
-    <div
-      className={"border-gray rounded border" ++ " catala-code"}
-      dangerouslySetInnerHTML={
-        "__html": html,
-      }
-    />
-    // | None =>
-    //   <div className="border-gray rounded border catala-code"> {"Loading..."->React.string} </div>
-    // }
+    <RawHtml htmlFile={htmlFile} className="border-gray rounded border catala-code" />
   }
 }
 module Span = {

@@ -6,20 +6,6 @@ let apolloLink = "https://apollo.inria.fr"
 let inriaLink = "https://inria.fr"
 let demoLink = "https://code.gouv.fr/demos/catala"
 
-type imgLocation = {default: string}
-
-let inria_logo: imgLocation = %raw("import('../../assets/inr_logo_rouge.svg')")
-
-%%raw(`
-import frenchHomepage from "../../assets/french_homepage.html?raw";
-`)
-external frenchHomepage: string = "frenchHomepage"
-
-%%raw(`
-import englishHomepage from "../../assets/english_homepage.html?raw";
-`)
-external englishHomepage: string = "englishHomepage"
-
 // Dans about : narration du projet (histoire)
 // Features: réécrire
 
@@ -93,7 +79,7 @@ let make = () => {
           <Lang.String english=", managed by" french={`, piloté par`} />
         </p>
         <Link.Text target=inriaLink className="no-underline">
-          <img className="ml-4 mt-2 w-48" src={inria_logo.default} />
+          <img className="ml-4 mt-2 w-48" src={Assets.Image.logo_inria} />
         </Link.Text>
       </div>
     </div>
@@ -114,8 +100,8 @@ let make = () => {
           />
         </p>
         <Lang.Element
-          french={<CatalaCode.DangerouslySetInnerHtml html=frenchHomepage />}
-          english={<CatalaCode.DangerouslySetInnerHtml html=englishHomepage />}
+          french={<CatalaCode.DangerouslySetInnerHtml htmlFile="french_homepage.html" />}
+          english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}
         />
       </div>
       <Link.Button.Internal target=[Nav.home, Nav.features]>

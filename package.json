@@ -7,6 +7,7 @@
     "assets": "rsync -r ./local-assets/* assets && rsync -r ./node_modules/@catala-lang/catala-web-assets/assets/*  assets",
     "build": "vite build",
     "start": "vite dev",
+    "preview": "vite preview",
     "clean": "rescript clean",
     "eslint": "npx eslint src",
     "prebuild": "yarn run assets",
