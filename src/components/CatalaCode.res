@@ -1,4 +1,4 @@
-%raw(`import("../../assets/css/catala_code.css")`)
+%raw(`import("../css/catala_code_extended.css")`)
 
 let typesetMathJax: unit => unit = %raw(`
 function typesetMathJax() {
@@ -18,7 +18,7 @@ module DangerouslySetInnerHtml = {
       typesetMathJax()
       None
     })
-    <RawHtml htmlFile={htmlFile} className="border-gray rounded border catala-code" />
+    <RawHtml htmlFile={htmlFile} className="border-button_fg/50 border catala-code" />
   }
 }
 module Span = {

@@ -1,10 +1,10 @@
 module Style = {
   module SwitchLang = {
-    let link = "px-2 cursor-pointer text-tertiary uppercase font-semibold pr-4 hover:text-primary_light"
+    let link = "px-2 cursor-pointer uppercase pr-4 hover:text-primary_light "
   }
   module NavElem = {
-    let link_base = "inline-flex block px-2 font-semibold text-base cursor-pointer hover:text-primary_light "
-    let link_inactive = link_base ++ "text-tertiary"
+    let link_base = "inline-flex block px-2 cursor-pointer hover:text-primary_light "
+    let link_inactive = link_base
     let link_active = link_base ++ "text-primary_light"
   }
 
@@ -77,38 +77,40 @@ let navElems =
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <Flex.Column.AlignLeft style="w-full bg-background top-0 sticky z-10 shadow-md">
-    <div
-      className="w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row  ">
-      <div>
-        <Link.Internal
-          className={"py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light sm:col-span-1"}
-          target=[Nav.home]>
-          <img className="h-8 pr-2" src={Assets.Image.logo_catala} />
-          <Lang.String english="Catala" french={`Catala`} />
-        </Link.Internal>
-      </div>
+  <div className="w-full bg-stone-50 border-b border-stone-300 top-0 sticky z-10 py-1">
+    <Flex.Column.AlignLeft style="max-w-6xl mx-auto">
       <div
-        className="hidden sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:col-span-3">
-        navElems
+        className="w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row">
+        <div>
+          <Link.Internal
+            className={"py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start pl-4 text-lg font-sans font-semibold hover:text-primary_light sm:col-span-1"}
+            target=[Nav.home]>
+            <img className="h-6 pr-2" src={Assets.Image.logo_catala} />
+            <Lang.String english="Catala" french={`Catala`} />
+          </Link.Internal>
+        </div>
+        <div
+          className="hidden sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:col-span-3">
+          navElems
+        </div>
+        <div className="inline-flex flex-row self-center sm:col-span-1 sm:justify-end">
+          <SwitchLang />
+          <button
+            className="inline-flex text-text_light self-center hover:text-primary_light mr-4 sm:hidden"
+            onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
+            <Icon name="menu" />
+          </button>
+        </div>
       </div>
-      <div className="inline-flex flex-row self-center sm:col-span-1 sm:justify-end">
-        <SwitchLang />
-        <button
-          className="inline-flex text-text_light self-center hover:text-primary_light mr-4 sm:hidden"
+      {if isMenuOpen {
+        <div
+          className="inline-flex flex-col justify-center pl-2 pb-2 ease-in"
           onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
-          <Icon name="menu" />
-        </button>
-      </div>
-    </div>
-    {if isMenuOpen {
-      <div
-        className="inline-flex flex-col justify-center pl-2 pb-2 ease-in"
-        onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
-        navElems
-      </div>
-    } else {
-      <> </>
-    }}
-  </Flex.Column.AlignLeft>
+          navElems
+        </div>
+      } else {
+        <> </>
+      }}
+    </Flex.Column.AlignLeft>
+  </div>
 }
