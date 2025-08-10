@@ -30,7 +30,7 @@ let about: navElem = {
 
 let seminar: navElem = {
   url: "seminar",
-  text: <Lang.String english="Seminar" french={`Séminaire`} />,
+  text: <Lang.String english="Seminars" french={`Séminaires`} />,
 }
 
 // let playground: nav_elem= {

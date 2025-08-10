@@ -47,7 +47,7 @@ let make = () => {
       //     <Lang.String english="Contact us on Zulip" french={`Contactez-nous sur Zulip`} />
       //   </Link.Text>
       // </div>
-      <div className="inline-flex flex-col gap-4 mb-8">
+      <div className="inline-flex flex-col gap-4 mb-4">
         <Link.Button.Internal target=[Nav.home, Nav.doc]>
           <Lang.String english="Read the documentation" french={`Lire la documentation`} />
         </Link.Button.Internal>
@@ -60,7 +60,7 @@ let make = () => {
           </Link.Button>
         </div>
       </div>
-      <div className="text-base font-sans">
+      <div>
         <Lang.String english="Apache-2.0 License" french={`Licence Apache-2.0`} />
         <Link.Text className="ml-2" target={githubLinkLatestRelease}>
           <Lang.String english="GitHub v1.0.0-alpha" french={`GitHub v1.0.0-alpha`} />
@@ -68,7 +68,7 @@ let make = () => {
       </div>
     </section>
     <div
-      className="w-full border-y py-4 border-border bg-primary_light/10 inline-flex flex-row flex-wrap items-center justify-center">
+      className="w-full border-y py-2 border-border bg-primary_light/5 inline-flex flex-row flex-wrap items-center justify-center">
       <p className="text-center">
         <Lang.String
           english="Made with ❤️ within the "
@@ -91,7 +91,7 @@ let make = () => {
           />
         </h2>
         <div>
-          <p className="mb-8 max-w-2xl">
+          <p className="mb-4 max-w-2xl">
             <Lang.String
               english="Catala works by annotating legislative texts with their code translation,
             by a programmer and a lawyer pair-programming together."
@@ -100,11 +100,16 @@ let make = () => {
             et un·e juriste.`}
             />
           </p>
-          <Link.Button.Internal target=[Nav.home, Nav.features]>
+          <Link.Internal target=[Nav.home, Nav.features] className="italic">
             <Lang.String
               english="Discover the features" french={`Découvrir les fonctionnalités`}
             />
-          </Link.Button.Internal>
+          </Link.Internal>
+          // <Link.Button.Internal.Small target=[Nav.home, Nav.features]>
+          //   <Lang.String
+          //     english="Discover the features" french={`Découvrir les fonctionnalités`}
+          //   />
+          // </Link.Button.Internal.Small>
         </div>
       </div>
       <div className="max-w-1/2">

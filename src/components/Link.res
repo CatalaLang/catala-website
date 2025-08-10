@@ -1,8 +1,8 @@
 module Text = {
-  let defaultClassName = "cursor-pointer text-primary_dark hover:text-button_fg_hover hover:border-b border-solid border-primary_dark "
+  let baseClassName = "cursor-pointer text-primary_dark hover:text-button_fg_hover hover:border-b border-solid border-primary_dark "
   @react.component
   let make = (~className="", ~target: string, ~children, ~internal=false) =>
-    <a className={defaultClassName ++ className} href=target target="_blank">
+    <a className={baseClassName ++ className} href=target target="_blank">
       children
       {if internal {
         <span />
@@ -37,14 +37,23 @@ module Button = {
   }
 
   module Internal = {
+    let baseClassName = "cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit "
     @react.component
-    let make = (
-      ~className="cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
-      ~target: array<Nav.navElem>,
-      ~children,
-    ) => {
+    let make = (~className="", ~target: array<Nav.navElem>, ~children) => {
       let (lang, _) = React.useContext(Lang.langContext)
-      <a className onClick={_ => Nav.goTo(target, lang)}> children </a>
+      <a className={baseClassName ++ className} onClick={_ => Nav.goTo(target, lang)}> children </a>
+    }
+
+    module Small = {
+      @react.component
+      let make = (
+        ~className="cursor-pointer border bg-primary_light/80 px-4 py-2 text-button_fg text-sm inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
+        ~target: array<Nav.navElem>,
+        ~children,
+      ) => {
+        let (lang, _) = React.useContext(Lang.langContext)
+        <a className onClick={_ => Nav.goTo(target, lang)}> children </a>
+      }
     }
   }
 }
@@ -68,13 +77,10 @@ module Internal = {
     }
   }
 
+  let baseClassName = "text-primary_dark cursor-pointer hover:border-b hover:border-button_fg/50 "
   @react.component
-  let make = (
-    ~className="cursor-pointer border-solid border-secondary border-b",
-    ~target: array<Nav.navElem>,
-    ~children,
-  ) => {
+  let make = (~className="", ~target: array<Nav.navElem>, ~children) => {
     let (lang, _) = React.useContext(Lang.langContext)
-    <a className onClick={_ => Nav.goTo(target, lang)}> children </a>
+    <a className={baseClassName ++ className} onClick={_ => Nav.goTo(target, lang)}> children </a>
   }
 }

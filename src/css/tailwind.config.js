@@ -6,7 +6,7 @@ module.exports = {
         sm: "740px",
       },
       fontFamily: {
-        sans: [/* "Epilogue",  */ "Space Mono", "Inter", "sans-serif"],
+        sans: ["Space Mono", "Inter", "sans-serif"],
         mono: ["Fira Code", "Roboto Mono", "mono"],
         serif: ["Libre Baskerville", "Georgia", "serif"],
       },

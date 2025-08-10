@@ -1,14 +1,14 @@
 let github_link = "https://github.com/CatalaLang/catala-website/issues"
 let catala_book_link = "https://book.catala-lang.org"
-let zulip_link = "https://zulip.catala-lang.org/"
-let calinou_link = "TODO"
+let zulip_link = "https://zulip.catala-lang.org"
+let calinou_link = "https://www.linkedin.com/company/calinou-coop"
 
 @react.component
 let make = React.memo(() => {
-  let footerInternalLinkStyle = "text-sm !text-gray_dark hover:!text-button_fg_hover border-b border-transparent hover:border-primary_dark cursor-pointer w-fit"
-  <footer className="py-8 max-w-6xl mx-auto font-sans flex justify-between">
+  let footerInternalLinkStyle = "text-primary_dark text-sm hover:!text-button_fg_hover border-b border-transparent hover:!border-primary_dark cursor-pointer w-fit"
+  <footer className="py-8 max-w-6xl mx-4 sm:mx-auto font-sans flex justify-between">
     <div className="inline-flex flex-col gap-4 max-w-xl">
-      <div className="text-gray_dark pb-2 text-sm">
+      <div className=" pb-2 text-sm">
         <Lang.String
           english="The content and hosting of this site are managed by "
           french={`Le contenu et l'hébergement de ce site sont gérés par `}
@@ -34,41 +34,85 @@ let make = React.memo(() => {
             React.string("© " ++ today ++ " Inria — ")
           }
         </span>
-        <img className="h-10" src={Assets.Image.logo_catala} />
-        <img className="h-10" src={Assets.Image.logo_inria} />
+        <img className="h-10 pb-2" src={Assets.Image.logo_inria} />
       </div>
     </div>
-    <div className="inline-flex flex-row gap-8">
-      <div className="inline-flex flex-col">
-        <p className="font-semibold text-stone-800 pb-2 font-serif">
-          <Lang.String english="Ressources" french={`Ressources`} />
-        </p>
-        <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
-          <Lang.String english="About" french={`À propos`} />
-        </Link.Internal>
-        <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
-          <Lang.String english="Documentation" french={`Documentation`} />
-        </Link.Internal>
-        <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.features]}>
-          <Lang.String english="Features" french={`Fonctionnalités`} />
-        </Link.Internal>
-        <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.features]}>
-          <Lang.String english="Seminaires" french={`Seminars`} />
-        </Link.Internal>
-        <Link.Text className=footerInternalLinkStyle target=catala_book_link>
-          <Lang.String english="The Language Book" french={`Le livre du langage`} />
-        </Link.Text>
+    <div className="inline-flex flex-col gap-8">
+      <div className="inline-flex flex-row gap-8">
+        <div className="inline-flex flex-col">
+          <p className="font-semibold text-stone-800 pb-2 font-serif">
+            <Lang.String english="Ressources" french={`Ressources`} />
+          </p>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
+            Nav.about.text
+          </Link.Internal>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.features]}>
+            Nav.features.text
+          </Link.Internal>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
+            Nav.doc.text
+          </Link.Internal>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
+            <Lang.String english="Examples" french={`Exemples`} />
+          </Link.Internal>
+        </div>
+        <div className="inline-flex flex-col">
+          <p className="font-semibold text-stone-800 pb-2 font-serif">
+            <Lang.String english="Research" french={`Recherche`} />
+          </p>
+          <Link.Internal
+            className=footerInternalLinkStyle target={[Nav.home, Nav.doc, Nav.publications]}>
+            Nav.publications.text
+          </Link.Internal>
+          <Link.Internal
+            className=footerInternalLinkStyle target={[Nav.home, Nav.doc, Nav.formalization]}>
+            Nav.formalization.text
+          </Link.Internal>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.seminar]}>
+            Nav.seminar.text
+          </Link.Internal>
+        </div>
+        <div className="inline-flex flex-col">
+          <p className="font-semibold text-stone-800 pb-2 font-serif">
+            <Lang.String english="Social" french={`Communauté`} />
+          </p>
+          <Link.Text className=footerInternalLinkStyle target=github_link>
+            <Lang.String english="GitHub" french={`GitHub`} />
+          </Link.Text>
+          <Link.Text className=footerInternalLinkStyle target=zulip_link>
+            <Lang.String english="Zulip" french={`Zulip`} />
+          </Link.Text>
+        </div>
       </div>
-      <div className="inline-flex flex-col">
-        <p className="font-semibold text-stone-800 pb-2 font-serif">
-          <Lang.String english="Social" french={`Communauté`} />
-        </p>
-        <Link.Text className=footerInternalLinkStyle target=github_link>
-          <Lang.String english="GitHub" french={`GitHub`} />
-        </Link.Text>
-        <Link.Text className=footerInternalLinkStyle target=zulip_link>
-          <Lang.String english="Zulip" french={`Zulip`} />
-        </Link.Text>
+      <div className="inline-flex flex-row gap-8">
+        <div className="inline-flex flex-col">
+          <p className="font-semibold text-stone-800 pb-2 font-serif">
+            <Lang.String english="Tooling" french={`Outils`} />
+          </p>
+          <Link.Text className=footerInternalLinkStyle target=catala_book_link>
+            Doc.catala_book_card.title
+          </Link.Text>
+          <Link.Text className=footerInternalLinkStyle target=Nav.syntaxCheatSheet.url>
+            Nav.syntaxCheatSheet.text
+          </Link.Text>
+          <Link.Internal
+            className=footerInternalLinkStyle target={[Nav.home, Nav.doc, Nav.catalaManPage]}>
+            Doc.catala_card.title
+          </Link.Internal>
+          <Link.Internal
+            className=footerInternalLinkStyle target={[Nav.home, Nav.doc, Nav.clerkManPage]}>
+            Doc.clerk_card.title
+          </Link.Internal>
+          <Link.Text
+            className=footerInternalLinkStyle target="https://github.com/CatalaLang/catleg">
+            Doc.catala_legifrance_card.title
+          </Link.Text>
+          <Link.Text
+            className=footerInternalLinkStyle
+            target="https://assets.catala-lang.org/api-doc/catala/">
+            Doc.ocaml_docs_card.title
+          </Link.Text>
+        </div>
       </div>
     </div>
   </footer>
