@@ -1,8 +1,8 @@
 module Style = {
   module NavElem = {
-    let link_base = "!text-black hover:!border-none cursor-pointer hover:!text-button_fg hover:bg-primary_light/25 px-2 py-1 transition-colors duration-200 ease-out "
+    let link_base = "!text-black hover:!border-none cursor-pointer hover:!text-button_fg px-2 py-1 "
     let link_inactive = link_base
-    let link_active = link_base ++ "!text-button_fg bg-primary_light/25"
+    let link_active = link_base ++ "font-semibold !text-button_fg"
   }
 
   let logo_hover_opacity = "opacity-75 hover:opacity-100"
@@ -23,11 +23,11 @@ module SwitchLang = {
     let style = "cursor-pointer text-button_fg px-2 text-sm border-y border-button_fg/50 hover:bg-primary_light/50"
     <div className="">
       <a className={style ++ " border-x" ++ (oldLang == French ? " bg-primary_light" : "")} onClick>
-        {"fr"->React.string}
+        {"FR"->React.string}
       </a>
       <a
         className={style ++ " border-r" ++ (oldLang == English ? " bg-primary_light" : "")} onClick>
-        {"en"->React.string}
+        {"EN"->React.string}
       </a>
     </div>
   }
