@@ -1,8 +1,8 @@
 module Style = {
   module NavElem = {
-    let link_base = "inline-flex block cursor-pointer hover:text-primary_dark "
+    let link_base = "!text-black hover:!border-none cursor-pointer hover:!text-button_fg hover:bg-primary_light/25 px-2 py-1 transition-colors duration-200 ease-out "
     let link_inactive = link_base
-    let link_active = link_base ++ "text-primary_dark border-b border-primary_dark"
+    let link_active = link_base ++ "!text-button_fg bg-primary_light/25"
   }
 
   let logo_hover_opacity = "opacity-75 hover:opacity-100"
@@ -20,7 +20,7 @@ module SwitchLang = {
       let newLang = Lang.newLangFromOldLang(oldLang)
       Nav.goTo(navs, newLang)
     }
-    let style = "cursor-pointer text-button_fg px-2 border-y border-button_fg/50 hover:bg-primary_light/50"
+    let style = "cursor-pointer text-button_fg px-2 text-sm border-y border-button_fg/50 hover:bg-primary_light/50"
     <div className="">
       <a className={style ++ " border-x" ++ (oldLang == French ? " bg-primary_light" : "")} onClick>
         {"fr"->React.string}
@@ -60,6 +60,9 @@ module NavElem = {
 let navElems =
   <>
     <NavElem
+      title={<Lang.String english="About" french={`À propos`} />} target={[Nav.home, Nav.about]}
+    />
+    <NavElem
       title={<Lang.String english="Features" french={`Fonctionnalités`} />}
       target={[Nav.home, Nav.features]}
     />
@@ -68,11 +71,8 @@ let navElems =
       target={[Nav.home, Nav.doc]}
     />
     <NavElem
-      title={<Lang.String english="Seminar" french={`Séminaire`} />}
+      title={<Lang.String english="Seminars" french={`Séminaires`} />}
       target={[Nav.home, Nav.seminar]}
-    />
-    <NavElem
-      title={<Lang.String english="About" french={`À propos`} />} target={[Nav.home, Nav.about]}
     />
   </>
 
@@ -80,22 +80,20 @@ let navElems =
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <div className="w-full bg-stone-50 border-b border-stone-300 top-0 sticky z-10 py-1">
+  <div className="w-full bg-white border-b border-stone-300 top-0 sticky z-10 py-1">
     <Flex.Column.AlignLeft style="max-w-6xl mx-auto">
-      <div className="w-full inline-flex flex-row items-center justify-between">
-        <div className="inline-flex flex-row items-center gap-4">
-          <Link.Internal
-            className={"py-2  h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start pl-4 text-lg font-sans font-semibold hover:text-primary_light sm:col-span-1"}
-            target=[Nav.home]>
-            <img className="h-6 pr-2" src={Assets.Image.logo_catala} />
-            <Lang.String english="Catala" french={`Catala`} />
-          </Link.Internal>
+      <div className="w-full inline-flex flex-row items-center justify-between px-4 md:px-0">
+        <Link.Internal
+          className={"py-2 h-full !text-black cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-lg font-sans font-semibold hover:!text-primary_dark sm:col-span-1 border-none"}
+          target=[Nav.home]>
+          <img className="h-6 pr-2" src={Assets.Image.logo_catala} />
+          <Lang.String english="Catala" french={`Catala`} />
+        </Link.Internal>
+        <div className="inline-flex flex-row justify-end items-center">
           <div
-            className="hidden text-sm sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:gap-3">
+            className="hidden text-sm sm:mr-4 sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:gap-1">
             navElems
           </div>
-        </div>
-        <div className="inline-flex flex-row justify-end">
           <SwitchLang />
           <button
             className="inline-flex self-center hover:text-primary_light mr-4 sm:hidden"
