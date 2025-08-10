@@ -6,9 +6,10 @@ module.exports = {
         sm: "740px",
       },
       fontFamily: {
-        sans: ["Space Mono", "Inter", "sans-serif"],
+        sans: ["Space Grotesk", "Inter", "sans-serif"],
         mono: ["Fira Code", "Roboto Mono", "mono"],
         serif: ["Libre Baskerville", "Georgia", "serif"],
+        // custom: ["Space Mono"],
       },
       colors: {
         primary_light: "#FBCC80",

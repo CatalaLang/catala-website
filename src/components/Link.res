@@ -1,5 +1,5 @@
 module Text = {
-  let baseClassName = "cursor-pointer text-primary_dark hover:text-button_fg_hover hover:border-b border-solid border-primary_dark "
+  let baseClassName = "cursor-pointer text-primary_dark hover:text-button_fg_hover border-b border-transparent hover:border-button_fg_hover "
   @react.component
   let make = (~className="", ~target: string, ~children, ~internal=false) =>
     <a className={baseClassName ++ className} href=target target="_blank">

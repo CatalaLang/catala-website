@@ -1,39 +1,39 @@
 module Title = {
   @react.component
-  let make = (~children) =>
-    <h1
-      className="inline-flex flex-row flex-wrap justify-center items-center text-4xl uppercase pt-20 pb-8 text-center font-sans font-bold shadow-none text-background">
-      children
-    </h1>
+  let make = (~children) => <h1 className="mt-16 mb-8"> children </h1>
 }
 
 module Section = {
   @react.component
-  let make = (~title: React.element, ~id: string, ~children) => <>
-    <h2 className="text-3xl my-8 font-sans" id>
-      <a href={"#" ++ id} className="text-background font-sans font-semibold"> title </a>
-    </h2>
-    children
-  </>
+  let make = (~title: React.element, ~id: string, ~className="", ~children) =>
+    <section className={"px-4 md:px-8 " ++ className}>
+      <h2 id>
+        <a href={"#" ++ id}> title </a>
+      </h2>
+      children
+    </section>
 }
 
 module SubSection = {
   @react.component
-  let make = (~title: React.element, ~children) => <>
-    <h3 className="text-2xl my-4 font-sans">
-      <span className="text-background font-sans font-semibold"> title </span>
-    </h3>
-    children
-  </>
+  let make = (~title: React.element, ~className="", ~children) =>
+    <section className>
+      <h3> title </h3>
+      children
+    </section>
 }
 
 module Highlight = {
   @react.component
-  let make = (~src: string, ~children) =>
-    <figure className="flex flex-col items-center m-8">
+  let make = (
+    ~src: string,
+    ~className="flex flex-col h-full justify-between not-md:not-last:border-b md:not-last:border-r border-border",
+    ~children,
+  ) =>
+    <figure className={className}>
       <img
-        style={ReactDOM.Style.make(~objectFit="contain", ())} className="w-64 max-h-32" src={src}
+        style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-32 p-4" src={src}
       />
-      <figcaption className="mt-4 text-center"> children </figcaption>
+      <figcaption className="border-t border-border px-4 py-2 text-sm"> children </figcaption>
     </figure>
 }

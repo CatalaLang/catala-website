@@ -1,16 +1,36 @@
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;500;600;700;800;900&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap")
 layer(base);
 
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @config "../css/tailwind.config.js";
 
 @layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-serif font-semibold text-black;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
   h2 {
-    @apply text-3xl font-serif font-semibold text-text_dark;
+    @apply text-2xl mb-8;
+  }
+
+  h3 {
+    @apply text-xl mb-8;
   }
 
   p {
-    @apply text-text_dark text-base;
+    @apply max-w-prose prose prose-stone text-stone-800 leading-relaxed;
+  }
+
+  p > a {
+    @apply !no-underline;
   }
 }
