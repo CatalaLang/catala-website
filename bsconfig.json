@@ -14,6 +14,6 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": ["@rescript/react", "@rescript/core"],
+  "bs-dependencies": ["@rescript/react", "@rescript/core", "rescript-webapi"],
   "bsc-flags": ["-open RescriptCore"]
 }

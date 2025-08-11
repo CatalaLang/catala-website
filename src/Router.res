@@ -89,11 +89,50 @@ let manageInternalPageRedirections: unit => unit = %raw(`
   }
 `)
 
+type metaData = {
+  title: string,
+  description: string,
+}
+
+let setMetaData = (navs: array<Nav.navElem>, lang: Lang.lang): unit => {
+  let {title, description} = switch (navs, lang) {
+  | ([first, second], English) if first == Nav.home => {
+      title: "About Catala",
+      description: "Catala is a declarative language for legal rules, designed to be readable",
+    }
+  // | ([first, second], French) if first == Nav.home => "À propos de Catala"
+  | (_, English) => {
+      title: "Catala - Law to Code",
+      description: "The official website of the Catala domain-specific programming language for translating law into code.",
+    }
+  | (_, French) => {
+      title: "Catala - Droit vers Code",
+      description: "Le site officiel du langage de programmation Catala, un langage spécifique au domaine pour traduire le droit en code.",
+    }
+  }
+  let document = Webapi.Dom.document->Webapi.Dom.Document.asHtmlDocument->Option.getExn
+  document->Webapi.Dom.HtmlDocument.setTitle(title)
+  document
+  ->Webapi.Dom.HtmlDocument.querySelector(`meta[name="og:title"]`)
+  ->Option.getExn
+  ->Webapi.Dom.Element.setAttribute("content", title)
+  document
+  ->Webapi.Dom.HtmlDocument.querySelector(`meta[name="description"]`)
+  ->Option.getExn
+  ->Webapi.Dom.Element.setAttribute("content", description)
+  document
+  ->Webapi.Dom.HtmlDocument.querySelector(`meta[name="og:description"]`)
+  ->Option.getExn
+  ->Webapi.Dom.Element.setAttribute("content", description)
+}
+
 @react.component
 let make = () => {
+  let (lang, _) = React.useContext(Lang.langContext)
   let (_, navs) = RescriptReactRouter.useUrl()->Nav.urlToNavElem
   React.useEffect(() => {
     manageInternalPageRedirections()
+    setMetaData(navs, lang)
     None
   })
   navs->toComposant
