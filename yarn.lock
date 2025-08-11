@@ -2843,6 +2843,11 @@ validate.io-number@^1.0.3:
   resolved "https://registry.npmjs.org/validate.io-number/-/validate.io-number-1.0.3.tgz"
   integrity sha512-kRAyotcbNaSYoDnXvb4MHg/0a1egJdLwS6oJ38TJY7aw9n93Fl/3blIXdyYvPOp55CNxywooG/3BcrwNrBpcSg==
 
+vite-plugin-sitemap@^0.8.2:
+  version "0.8.2"
+  resolved "https://registry.yarnpkg.com/vite-plugin-sitemap/-/vite-plugin-sitemap-0.8.2.tgz#4121168d331df1054bc4b2cff9de8f21cc0bd7af"
+  integrity sha512-bqIw6NVOXg6je81lzX8Lm0vjf8/QSAp8di8fYQzZ3ZdVicOm8+6idBGALJiy1R1FiXNIK8rgORO6HBqXyHW+iQ==
+
 vite@^7.1.1:
   version "7.1.1"
   resolved "https://registry.yarnpkg.com/vite/-/vite-7.1.1.tgz#a2c25f31742fd9f8b223d809df1ce3026e813fcf"
