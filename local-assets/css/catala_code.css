@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap");
 
 :root {
   --border-color: #e4eaf3;
@@ -21,11 +21,11 @@ html .catala-code {
   background-color: var(--bg-color);
 }
 
-.catala-code a:target~span {
+.catala-code a:target ~ span {
   background-color: var(--selected-bg-color);
 }
 
-.catala-code a:target~a~span {
+.catala-code a:target ~ a ~ span {
   background-color: var(--code-bg-color);
 }
 
