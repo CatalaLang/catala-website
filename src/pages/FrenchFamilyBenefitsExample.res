@@ -5,8 +5,6 @@ let pageTitle =
     english="French family benefits computation" french={`Calcul des allocations familiales`}
   />
 
-let catalaCodeHTML = %raw(`require("../../assets/allocations_familiales.html")`)
-
 // module FormInfos = {
 //   let englishSchema = %raw(`require("../../assets/allocations_familiales_schema_en.json")`)
 //   let frenchSchema = %raw(`require("../../assets/allocations_familiales_schema_fr.json")`)
@@ -125,7 +123,7 @@ let make = () => {
     // </Section>
     <Section
       id="source-code-family" title={<Lang.String english="Source code" french={`Code source`} />}>
-      <CatalaCode.DangerouslySetInnerHtml html=catalaCodeHTML />
+      <CatalaCode.DangerouslySetInnerHtml htmlFile="allocations_familiales.html" />
     </Section>
   </>
 }

@@ -9,31 +9,29 @@ section of the Catala compiler `INSTALL.md`](https://github.com/CatalaLang/catal
 ## Run Project
 
 ```sh
-yarn
+# Install deps
+yarn install
+
+# Run the dev server
 yarn start
-# this may fail because tailwind.css is not yet generated, so you have to do it again
-yarn start
-# In another tab, launch the local dev server
-yarn server
 ```
 
-View the app in the browser at http://localhost:8000. Running in this environment provides hot reloading and support for routing; just edit and save the file and the browser will automatically refresh.
+View the app in the browser at http://localhost:5173. Running in this
+environment provides hot reloading and support for routing; just edit and save
+the file and the browser will automatically refresh.
 
-To use a port other than 8000 set the `PORT` environment variable (`PORT=8080 npm run server`).
+To use a port other than 5173, run `yarn start --port 8080`.
 
 ## Build for Production
 
 ```sh
 yarn clean
 yarn build
-# this may fail because tailwind.css is not yet generated, so you have to do it again
-yarn build
-yarn webpack:production
 ```
 
-This will replace the development artifact `build/Index.js` for an optimized version as well as copy `src/index.html` into `build/`. You can then deploy the contents of the `build` directory (`index.html` and `Index.js`).
-
-**To enable dead code elimination**, change `bsconfig.json`'s `package-specs` `module` from `"commonjs"` to `"es6"`. Then re-run the above 2 commands. This will allow Webpack to remove unused code.
+This will replace the development artifact `src/Index.bs.js` for an optimized
+version as well as copy `index.html` into `build/`. You can then deploy the
+contents of the `build/` directory (`index.html` and `Index.js`).
 
 ## Current deployment
 
