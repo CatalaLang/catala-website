@@ -27,7 +27,7 @@ layer(base);
   }
 
   p {
-    @apply max-w-prose prose prose-stone text-stone-800 leading-relaxed;
+    @apply max-w-prose text-stone-800 leading-relaxed mb-2;
   }
 
   p > a {
