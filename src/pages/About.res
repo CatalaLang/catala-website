@@ -46,7 +46,7 @@ let make = () => <>
     </Title>
   </section>
   <div className="p-8 bg-primary_light/5 border-y border-border mb-16">
-    <p className="font-serif text-lg text-center mx-auto">
+    <p className="font-serif text-lg text-center mx-auto !my-0">
       <Lang.String
         english="How can we ensure that our laws are accurately applied
     in the software that calculates tax, benefits and pensions? That's the
@@ -66,11 +66,10 @@ let make = () => <>
     title={<Lang.String
       english="A language in the service of the Law" french={`Un langage au service de la loi`}
     />}>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
-        <p className="mb-2">
-          <Lang.String
-            english="Transforming legislative texts into computer programs is
+    <div className="lg:columns-2 gap-8 lg:**:text-justify">
+      <p>
+        <Lang.String
+          english="Transforming legislative texts into computer programs is
         essential if the law is to be applied on a large scale, for example
         in computing taxes or distributing welfare benefits. However, this
         task is complex due to the often ambiguous and contextual nature of
@@ -78,7 +77,7 @@ let make = () => <>
         language specially developed to transcribe the law faithfully and in a
         way that is easy to understand, ensuring that legal rules are applied
         accurately."
-            french={`Transformer les textes législatifs en programmes
+          french={`Transformer les textes législatifs en programmes
         informatiques est essentiel pour appliquer le droit à grande échelle,
         notamment dans le calcul des impôts ou la distribution des aides sociales.
         Cependant, cette tâche est complexe en raison de la nature souvent ambiguë
@@ -86,48 +85,46 @@ let make = () => <>
         Catala a été conçu : un langage de programmation spécialement développé
         pour transcrire la loi de manière fidèle et explicable, assurant ainsi
         une application exacte des règles juridiques.`}
-          />
-        </p>
-        <p className="mb-2">
-          <Lang.String
-            english="Denis Merigoux, project leader for software infrastructures in support of
+        />
+      </p>
+      <p>
+        <Lang.String
+          english="Denis Merigoux, project leader for software infrastructures in support of
         public policies at Inria, came up with the idea for this project while "
-            french={`C'est `}
-          />
-          <Link.Text target="https://www.inria.fr/fr/mlang-modernisation-calcul-impot-revenu">
-            <Lang.String
-              english="working
+          french={`C'est `}
+        />
+        <Link.Text target="https://www.inria.fr/fr/mlang-modernisation-calcul-impot-revenu">
+          <Lang.String
+            english="working
         on a renovation of the M language and its compiler alongside the French
         Public Finance Department (DGFIP)"
-              french={`en travaillant sur une rénovation du langage M et
+            french={`en travaillant sur une rénovation du langage M et
     de son compilateur aux côtés de la Direction générale des Finances publiques (DGFIP)`}
-            />
-          </Link.Text>
-          <Lang.String
-            english=", to make tax calculations even more reliable.
+          />
+        </Link.Text>
+        <Lang.String
+          english=", to make tax calculations even more reliable.
         It was interesting to go back to a blank drawing board, to redesign a system
         based on needs and the state of the art in science, rather than on old
         technical choices whose limitations are still being felt today."
-            french={`, pour un calcul de l'impôt encore plus fiable, que l'idée de ce projet
+          french={`, pour un calcul de l'impôt encore plus fiable, que l'idée de ce projet
     s'est imposée à l'esprit de Denis Merigoux, chef de projet infrastructures
     logicielles en appui aux politiques publiques chez Inria. Il état en effet
     intéressant de revenir à une planche à dessin vierge, de redessiner un système
     en partant des besoins et de l'état de l'art scientifique et non de choix
     techniques anciens dont les limites se font ressentir aujourd'hui.`}
-          />
-        </p>
-      </div>
-      <div>
-        <p className="mb-2">
-          <Lang.String
-            french={`Denis Merigoux, finissant alors son `}
-            english="The scientist, while finishing his "
-          />
-          <Link.Text target=" https://theses.hal.science/tel-03622012">
-            <Lang.String french={`doctorat`} english="PhD" />
-          </Link.Text>
-          <Lang.String
-            french={`, décide alors de collaborer avec des
+        />
+      </p>
+      <p>
+        <Lang.String
+          french={`Denis Merigoux, finissant alors son `}
+          english="The scientist, while finishing his "
+        />
+        <Link.Text target=" https://theses.hal.science/tel-03622012">
+          <Lang.String french={`doctorat`} english="PhD" />
+        </Link.Text>
+        <Lang.String
+          french={`, décide alors de collaborer avec des
     juristes et une sociologue pour faire éclore son projet : Liane Huttner,
     maîtresse de conférences en droit à l'Université Paris-Saclay, Sarah Lawsky,
     professeure de droit fiscal , docteure en logique formelle, qui a étudié la
@@ -136,7 +133,7 @@ let make = () => <>
     Leur objectif : unir leurs compétences pour concevoir un langage de
     programmation capable de préserver l'intention du législateur tout en
     étant intégrable aux architectures logicielles modernes.`}
-            english=", then decided to collaborate with legal experts and
+          english=", then decided to collaborate with legal experts and
     a sociologist to bring his project to fruition: Liane Huttner, lecturer in law
     at the Université Paris-Saclay, Sarah Lawsky, professor of tax law,
     doctorate in formal logic, which has studied the structuring of legislative texts
@@ -144,11 +141,11 @@ let make = () => <>
     administrative modernisation of the State. Their aim was to combine their
     skills to design a programming language that would preserve the legislator's
     intentions while being able to be integrated into modern software architectures."
-          />
-        </p>
-        <p className="mb-2">
-          <Lang.String
-            french={`Le but n'est pas de formaliser ou mettre en code tout le droit,
+        />
+      </p>
+      <p>
+        <Lang.String
+          french={`Le but n'est pas de formaliser ou mettre en code tout le droit,
     car cela n'a aucun sens, mais de s'intéresser au droit qui est déjà exécuté automatiquement,
     comme le calcul des prestations sociales, des impôts, ou du chômage.
     Le projet fait vraiment travailler juristes et informaticiens ensemble, qui échangent
@@ -157,7 +154,7 @@ let make = () => <>
     garantir que les règles fiscales et sociales sont appliquées avec exactitude et
     fidélité au droit, réduisant ainsi les risques d'erreur et renforçant la
     transparence des décisions administratives automatisées.`}
-            english="The aim is not to formalise or put into code all the law, because that
+          english="The aim is not to formalise or put into code all the law, because that
     would make no sense, but we are interested in the law that is already executed
     automatically, such as the calculation of social benefits, tax or unemployment.
     The project is really getting lawyers and computer scientists to work together,
@@ -166,9 +163,8 @@ let make = () => <>
     possible to guarantee that tax and social security rules are applied accurately
     and faithfully to the law, thereby reducing the risk of error and enhancing the
     transparency of automated administrative decisions."
-          />
-        </p>
-      </div>
+        />
+      </p>
     </div>
   </Section>
   <section
@@ -213,11 +209,10 @@ let make = () => <>
       english="Practical applications in the public sector"
       french={`Des applications concrètes dans les administrations `}
     />}>
-    <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-      <div>
-        <p className="mb-2">
-          <Lang.String
-            french={`Catala, qui fait travailler ensemble chercheur·e·s et ingénieur·e·s,
+    <div className="lg:columns-2 gap-8 **:text-justify">
+      <p>
+        <Lang.String
+          french={`Catala, qui fait travailler ensemble chercheur·e·s et ingénieur·e·s,
           est particulièrement pertinent pour
   les administrations publiques et les organismes chargés de l'application des
   politiques fiscales et sociales. En remplaçant les systèmes informatiques
@@ -225,41 +220,38 @@ let make = () => <>
   permet de s'assurer de manière exhaustive et explicable que les algorithmes de
   l'administration appliquent le droit tel qu'il est interprété par les directions
   juridiques des administrations, sans distorsion ni approximation.`}
-            english="Catala, by having researchers and engineers work together, is particularly relevant for
+          english="Catala, by having researchers and engineers work together, is particularly relevant for
   public administrations and bodies responsible for applying tax and social
   policies. By replacing legacy IT systems for computing tax and social
   security benefits, this language provides exhaustive and explainable assurance
   that the administration's algorithms apply the law as interpreted by the
   administration's legal departments, without distortion or approximation."
-          />
-        </p>
-      </div>
-      <div>
-        <p className="mb-2">
-          <Lang.String
-            english="Two proofs of concept for government departments
+        />
+      </p>
+      <p>
+        <Lang.String
+          english="Two proofs of concept for government departments
       have already been produced: the first for the Caisse Nationale des
       Allocations Familiales, which is currently carrying out studies on
       the future of the system for computing all social benefits in France,
       and the second for the Direction Générale des Finances Publiques, for
       computing income tax."
-            french={`Deux preuves de concept pour les administrations ont ainsi, pour le
+          french={`Deux preuves de concept pour les administrations ont ainsi, pour le
       moment, vu le jour : une première pour la Caisse Nationale des Allocations
       Familiales (CNAF), qui mène actuellement des études sur le futur du système
       calculant l'ensemble des prestations sociales en France, et une seconde
       pour la Direction Générale des Finances publiques, autour du calcul de
       l'impôt sur le revenu.`}
-          />
-        </p>
-        <p className="italic text-stone-700 text-sm border-t border-border pt-1">
-          <Lang.String
-            english="Text credits: the Catala team and " french={`Source : l'équipe de Catala et `}
-          />
-          <Link.Text target="https://www.inria.fr/fr/catala-logiciel-administration-dgfip-cnaf">
-            {React.string("Iris Maignan")}
-          </Link.Text>
-        </p>
-      </div>
+        />
+      </p>
+      <p className="italic text-stone-700 text-sm border-t border-border pt-1">
+        <Lang.String
+          english="Text credits: the Catala team and " french={`Source : l'équipe de Catala et `}
+        />
+        <Link.Text target="https://www.inria.fr/fr/catala-logiciel-administration-dgfip-cnaf">
+          {React.string("Iris Maignan")}
+        </Link.Text>
+      </p>
     </div>
   </Section>
   <div className="clear-right" />
