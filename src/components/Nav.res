@@ -30,7 +30,7 @@ let about: navElem = {
 
 let seminar: navElem = {
   url: "seminar",
-  text: <Lang.String english="Seminar" french={`Séminaire`} />,
+  text: <Lang.String english="Seminars" french={`Séminaires`} />,
 }
 
 // let playground: nav_elem= {
@@ -106,6 +106,9 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
   let defaultElems = [home]
   switch url.path {
   | list{langPart, ...rest} =>
+    let isLangPrefixed = Lang.fromUrl(langPart)->Option.isSome
+    let langPart = isLangPrefixed ? langPart : "en"
+    let rest = isLangPrefixed ? rest : url.path
     let lang = Lang.fromUrl(langPart)
     let getNavElemsFrom = (~withDefaultElems=false, navElems: array<navElem>, path: string): option<
       array<navElem>,

@@ -1,7 +1,6 @@
-%raw(`require("./css/tailwind.css")`)
-%raw(`require("../assets/css/global.css")`)
-%raw(`require("../assets/css/form.css")`)
-%raw(`require("../assets/css/catala_code.css")`)
+%raw(`import("../assets/css/global.css")`)
+%raw(`import("../assets/css/form.css")`)
+%raw(`import("../assets/css/catala_code.css")`)
 
 module App = {
   @react.component
@@ -17,12 +16,12 @@ module App = {
     let setLang = _ => setLang(oldLang => Lang.newLangFromOldLang(oldLang))
 
     <Lang.Context value=(appLang, setLang)>
-      <div className=%twc("flex flex-col min-h-screen text-xl md:text-lg lg:text-base")>
+      <div className="flex flex-col min-h-screen bg-primary_light/5">
         <NavComponent />
-        <main className=%twc("flex flex-col flex-grow container mx-auto px-4 lg:px-0 ")>
+        <main className="max-w-6xl mx-4 lg:mx-auto pb-16 border-x border-border bg-white">
           <Router />
         </main>
-        <div className=%twc("w-full bottom-0")>
+        <div className="w-full border-t border-border bottom-0">
           <Footer />
         </div>
       </div>

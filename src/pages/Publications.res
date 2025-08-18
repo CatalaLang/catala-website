@@ -636,18 +636,16 @@ function(text) {navigator.clipboard.writeText(text)}
 module PubItem = {
   @react.component
   let make = (~pub: publication) =>
-    <div className=%twc("flex flex-col justify-center")>
-      <div className=%twc("inline-flex flex-row justify-between items-center")>
-        <div className=%twc("")>
-          <Link.Text className=%twc("font-semibold text-xl hover:text-green") target=pub.link>
+    <div className="flex flex-col justify-center">
+      <div className="inline-flex flex-row justify-between items-center">
+        <div className="">
+          <Link.Text className="font-semibold text-xl hover:text-green" target=pub.link>
             {pub.title->React.string}
           </Link.Text>
-          <span className=%twc("pl-4 pt-1 text-gray_dark font-semibold")>
-            {pub.date->React.string}
-          </span>
+          <span className="pl-4 pt-1 text-gray_dark font-semibold"> {pub.date->React.string} </span>
         </div>
-        <div className=%twc("inline-flex self-start mt-1")>
-          <Button.Small style=%twc("mx-2") onClick={_ => save_to_clipboard(pub.bibtex)}>
+        <div className="inline-flex self-start mt-1">
+          <Button.Small style="mx-2" onClick={_ => save_to_clipboard(pub.bibtex)}>
             <span> {"BibTeX"->React.string} </span>
           </Button.Small>
           <Button.Small onClick={_ => save_to_clipboard(pub.citation)}>
@@ -655,15 +653,15 @@ module PubItem = {
           </Button.Small>
         </div>
       </div>
-      <div className=%twc("inline-flex flex-row flex-wrap justify-start items-center")>
+      <div className="inline-flex flex-row flex-wrap justify-start items-center">
         {pub.authors
         ->Belt.Array.mapWithIndex((i, author) => {
           let key = "pub-author-" ++ i->string_of_int
           let style =
-            %twc(
-              "px-3 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray_2 shadow-sm text-gray_dark"
-            ) ++ if i > 0 {
-              %twc("")
+            "px-3 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray_2 shadow-sm text-gray_dark" ++ if (
+              i > 0
+            ) {
+              ""
             } else {
               ""
             }
@@ -682,9 +680,9 @@ module PubItem = {
       | Some(abstract) =>
         <Box.Collapsible
           labelExpand={<Lang.String english="Show the abstract" french={`Voir l'abstract`} />}>
-          <p className=%twc("text-background")> {abstract->React.string} </p>
+          <p className="text-background"> {abstract->React.string} </p>
         </Box.Collapsible>
-      | None => <span className=%twc("mb-2") />
+      | None => <span className="mb-2" />
       }}
     </div>
 }
@@ -693,9 +691,7 @@ module PubItems = {
   @react.component
   let make = (~items: array<publication>) => {
     <div
-      className=%twc(
-        "flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4 gap-4"
-      )>
+      className="flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4 gap-4">
       {items
       ->Belt.Array.mapWithIndex((i, item) =>
         <PubItem key={"pub-item-" ++ i->string_of_int} pub=item />
@@ -710,7 +706,7 @@ let make = () => <>
   <Title>
     <Lang.String english="Publications" french={`Publications`} />
   </Title>
-  <div className=%twc("pb-10")>
+  <div className="pb-10">
     <Section
       id="peer-reviewed"
       title={<Lang.String
