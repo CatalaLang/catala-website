@@ -139,10 +139,10 @@ let raphaelMonat = {
 
 let sarahLawsky = {
   name: "Sarah Lawsky",
-  website: Some("https://www.sarahlawsky.org/"),
+  website: Some("https://law.illinois.edu/faculty-research/faculty-profiles/sarah-b-lawsky/"),
   affiliation: {
     name: "University of Illinois Urbana-Champaign",
-    url: "https://law.illinois.edu/sarah laws",
+    url: "https://law.illinois.edu",
   },
   role: <Lang.String
     english="Tax law professor and PhD in Logic, inspiration of the project and close advisor"

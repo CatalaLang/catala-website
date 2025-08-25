@@ -66,9 +66,6 @@ let make = () => {
         <Link.Button.Internal target=[Nav.home, Nav.doc]>
           <Lang.String english="Read the documentation" french={`Lire la documentation`} />
         </Link.Button.Internal>
-        <Link.Button target={demoLink}>
-          <Lang.String english="See the demo" french={`Voir la démo`} />
-        </Link.Button>
         <Link.Button target={githubLink}>
           <Lang.String english="Get started on GitHub" french={`Démarrer sur GitHub`} />
         </Link.Button>
