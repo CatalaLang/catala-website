@@ -106,7 +106,7 @@ let setMetaData = (navs: array<Nav.navElem>, lang: Lang.lang): unit => {
       description: "The official website of the Catala domain-specific programming language for translating law into code.",
     }
   | (_, French) => {
-      title: "Catala - Droit vers Code",
+      title: "Catala - Du droit vers le code",
       description: "Le site officiel du langage de programmation Catala, un langage spécifique au domaine pour traduire le droit en code.",
     }
   }
