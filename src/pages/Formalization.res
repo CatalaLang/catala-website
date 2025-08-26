@@ -1,7 +1,5 @@
 open PageComponents
 
-let grammar = %raw(`require("../../assets/grammar.html")`)
-
 @react.component
 let make = () => <>
   <Title>
@@ -31,7 +29,7 @@ let make = () => <>
       />
     </p>
     <Box.Collapsible>
-      <div className=%twc("font-mono") dangerouslySetInnerHTML={"__html": grammar} />
+      <RawHtml className="font-mono" htmlFile="grammar.html" />
     </Box.Collapsible>
     <p>
       <Lang.String
@@ -42,12 +40,12 @@ let make = () => <>
         vis-à-vis de la syntaxe de Catala.`}
       />
     </p>
-    <div className=%twc("flex flex-row justify-end")>
+    <div className="flex flex-row justify-end">
       <Link.Button.Small target="https://catalalang.github.io/catala/syntax.pdf">
         <Lang.String
           english="Access the syntax cheat sheet" french={`Accéder au pense-bête syntaxique`}
         />
-        <Icon className=%twc("pl-2") name="description" />
+        <Icon className="pl-2" name="description" />
       </Link.Button.Small>
     </div>
   </Section>
@@ -68,13 +66,13 @@ let make = () => <>
            le choix s'effectue selon des règles de précédences spécifiées dans le code source.`}
       />
     </p>
-    <div className=%twc("flex flex-row justify-end")>
+    <div className="flex flex-row justify-end">
       <Link.Button.Small target="https://dl.acm.org/doi/10.1145/3473582">
         <Lang.String
           english="Access the complete formalization paper"
           french={`Accéder à l'article contenant la formalisation`}
         />
-        <Icon className=%twc("pl-2") name="description" />
+        <Icon className="pl-2" name="description" />
       </Link.Button.Small>
     </div>
   </Section>

@@ -4,28 +4,28 @@ open People
 module Person = {
   @react.component
   let make = (~person: person) =>
-    <tr scope="row" className=%twc("odd:bg-gray")>
-      <td className=%twc("px-2 py-2")>
+    <tr scope="row" className="odd:bg-gray">
+      <td className="px-2 py-2">
         {switch person.website {
         | None => person.name |> React.string
         | Some(website) => <Link.Text target=website> {React.string(person.name)} </Link.Text>
         }}
       </td>
-      <td className=%twc("px-2 py-2")>
+      <td className="px-2 py-2">
         {"(" |> React.string}
         <Link.Text target=person.affiliation.url>
           {person.affiliation.name->React.string}
         </Link.Text>
         {React.string(")")}
       </td>
-      <td className=%twc("px-2 py-2")> {person.role} </td>
+      <td className="px-2 py-2"> {person.role} </td>
     </tr>
 }
 
 module PersonTable = {
   @react.component
   let make = (~persons: array<person>, ~className="") =>
-    <table className={%twc("table-auto") ++ " " ++ className}>
+    <table className={"table-auto" ++ " " ++ className}>
       <tbody>
         {persons
         ->Belt.Array.map(person => {
@@ -36,18 +36,12 @@ module PersonTable = {
     </table>
 }
 
-let oecd_logo: imgLocation = %raw("require('../../assets/OECD_logo.svg')")
-
-let inria_logo: imgLocation = %raw("require('../../assets/inr_logo_rouge.svg')")
-
-let dinum_logo: imgLocation = %raw("require('../../assets/Logo_DINUM_2020_RVB.png')")
-
 @react.component
 let make = () => <>
   <Title>
     <Lang.String english="About" french={`À propos`} />
   </Title>
-  <p className=%twc("text-lg italic")>
+  <p className="text-lg italic">
     <Lang.String
       english="How can we ensure that our laws are accurately applied
   in the software that calculates tax, benefits and pensions? That's the
@@ -65,7 +59,7 @@ let make = () => <>
     title={<Lang.String
       english="A language in the service of the Law" french={`Un langage au service de la loi`}
     />}>
-    <p className=%twc("mb-4")>
+    <p className="mb-4">
       <Lang.String
         english="Transforming legislative texts into computer programs is
     essential if the law is to be applied on a large scale, for example
@@ -85,7 +79,7 @@ let make = () => <>
     une application exacte des règles juridiques.`}
       />
     </p>
-    <p className=%twc("mb-4")>
+    <p className="mb-4">
       <Lang.String
         english="Denis Merigoux, project leader for software infrastructures in support of
     public policies at Inria, came up with the idea for this project while "
@@ -113,7 +107,7 @@ en partant des besoins et de l'état de l'art scientifique et non de choix
 techniques anciens dont les limites se font ressentir aujourd'hui.`}
       />
     </p>
-    <p className=%twc("mb-4")>
+    <p className="mb-4">
       <Lang.String
         french={`Denis Merigoux, finissant alors son `}
         english="The scientist, while finishing his "
@@ -141,7 +135,7 @@ skills to design a programming language that would preserve the legislator's
 intentions while being able to be integrated into modern software architectures."
       />
     </p>
-    <p className=%twc("mb-4")>
+    <p className="mb-4">
       <Lang.String
         french={`Le but n'est pas de formaliser ou mettre en code tout le droit,
 car cela n'a aucun sens, mais de s'intéresser au droit qui est déjà exécuté automatiquement,
@@ -165,8 +159,8 @@ transparency of automated administrative decisions."
     </p>
   </SubSection>
   <SubSection title={<Lang.String english="Highlighted by" french={`Mis en valeur par`} />}>
-    <div className=%twc("flex flex-row flex-wrap justify-center gap-8")>
-      <Highlight src=oecd_logo>
+    <div className="flex flex-row flex-wrap justify-center gap-8">
+      <Highlight src={Assets.Image.logo_oecd}>
         <Link.Text target="https://oecd-opsi.org/publications/cracking-the-code/">
           <Lang.String
             english="\"Cracking the Code\" report on Rules as Code"
@@ -174,7 +168,7 @@ transparency of automated administrative decisions."
           />
         </Link.Text>
       </Highlight>
-      <Highlight src=dinum_logo>
+      <Highlight src={Assets.Image.logo_dinum}>
         <Link.Text
           target="https://web.archive.org/web/20250118165329/https://code.gouv.fr/fr/explicabilite/">
           <Lang.String
@@ -188,7 +182,7 @@ transparency of automated administrative decisions."
           <Lang.String french={`(supprimé)`} english="(deleted)" />
         </Link.Text>
       </Highlight>
-      <Highlight src=inria_logo>
+      <Highlight src={Assets.Image.logo_inria}>
         <Link.Text target="https://apollo.inria.fr/projets/catala/">
           <Lang.String english="Apollo program" french={`Programme Apollo`} />
         </Link.Text>
@@ -200,7 +194,7 @@ transparency of automated administrative decisions."
       english="Practical applications in the public sector"
       french={`Des applications concrètes dans les administrations `}
     />}>
-    <p className=%twc("mb-4")>
+    <p className="mb-4">
       <Lang.String
         french={`Catala, qui fait travailler ensemble chercheur·e·s et ingénieur·e·s,
         est particulièrement pertinent pour
@@ -218,7 +212,7 @@ that the administration's algorithms apply the law as interpreted by the
 administration's legal departments, without distortion or approximation."
       />
     </p>
-    <p className=%twc("mb-4")>
+    <p className="mb-4">
       <Lang.String
         english="Two proofs of concept for government departments
     have already been produced: the first for the Caisse Nationale des
@@ -235,7 +229,7 @@ administration's legal departments, without distortion or approximation."
       />
     </p>
   </SubSection>
-  <p className=%twc("float-right text-green pt-4 italic")>
+  <p className="float-right text-green pt-4 italic">
     <Lang.String
       english="Text credits: the Catala team and " french={`Source : l'équipe de Catala et `}
     />
@@ -243,7 +237,7 @@ administration's legal departments, without distortion or approximation."
       {React.string("Iris Maignan")}
     </Link.Text>
   </p>
-  <div className=%twc("clear-right") />
+  <div className="clear-right" />
   <Section id="people" title={<Lang.String english="People" french={`Membres du projet`} />}>
     <PersonTable
       persons=[
@@ -279,7 +273,7 @@ administration's legal departments, without distortion or approximation."
     title={<Lang.String
       english="Why the name \"Catala\"?" french={`Pourquoi le nom « Catala » ?`}
     />}>
-    <p className=%twc("mb-16")>
+    <p className="mb-16">
       <Lang.String
         english={`This programming language is named after `}
         french={`Ce langage de programmation est nommé d'après `}

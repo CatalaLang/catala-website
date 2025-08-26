@@ -1,3 +1,5 @@
+%raw(`import("../../assets/css/catala_code.css")`)
+
 let typesetMathJax: unit => unit = %raw(`
 function typesetMathJax() {
     if (window.MathJax) {
@@ -8,7 +10,7 @@ function typesetMathJax() {
 
 module DangerouslySetInnerHtml = {
   @react.component
-  let make = (~html) => {
+  let make = (~htmlFile) => {
     React.useEffect(() => {
       // This assumes MathJax to be loaded in the page. Necessary for the
       // LaTeX components of the Catala code to be typeset after any
@@ -16,12 +18,7 @@ module DangerouslySetInnerHtml = {
       typesetMathJax()
       None
     })
-    <div
-      className={%twc("border-gray rounded border") ++ " catala-code"}
-      dangerouslySetInnerHTML={
-        "__html": html,
-      }
-    />
+    <RawHtml htmlFile={htmlFile} className="border-gray rounded border catala-code" />
   }
 }
 module Span = {
@@ -38,9 +35,7 @@ module Collapsible = {
     let toggleButton = s => {
       <button
         href="#"
-        className=%twc(
-          "cursor-pointer rounded font-semibold hover:bg-secondary hover:text-gray_light ease-out duration-150"
-        )
+        className="cursor-pointer rounded font-semibold hover:bg-secondary hover:text-gray_light ease-out duration-150"
         onClick={_ => {
           setIsOpen(_ => !isOpen)
         }}>
@@ -50,7 +45,11 @@ module Collapsible = {
     <>
       start
       {if isOpen {
-        <> {" - "->toggleButton} <br /> children </>
+        <>
+          {" - "->toggleButton}
+          <br />
+          children
+        </>
       } else {
         <> {"..."->toggleButton} </>
       }}
@@ -71,9 +70,9 @@ module Ids = {
           <> </>
         }}
         {if s == s->Js.String.toLowerCase {
-          <span className=%twc("text-nv font-medium")> {s->React.string} </span>
+          <span className="text-nv font-medium"> {s->React.string} </span>
         } else {
-          <span className=%twc("text-nc font-bold")> {s->React.string} </span>
+          <span className="text-nc font-bold"> {s->React.string} </span>
         }}
       </span>
     })
@@ -90,5 +89,7 @@ module Op = {
 
 @react.component
 let make = (~children) => {
-  <div className=%twc("font-mono")> <pre> children </pre> </div>
+  <div className="font-mono">
+    <pre> children </pre>
+  </div>
 }

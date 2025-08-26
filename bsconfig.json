@@ -1,33 +1,11 @@
 {
   "name": "catala-website",
-  "reason": {
-    "react-jsx": 3
-  },
-  "jsx": {
-    "version": 4,
-    "mode": "classic"
-  },
+  "jsx": { "version": 4, "mode": "classic" },
   "refmt": 3,
   "sources": {
     "dir": "src/",
-    "subdirs": true,
-    "generators": [
-      {
-        "name": "gen-tailwind",
-        "edge": [
-          "css/tailwind.css",
-          ":",
-          "css/index.css"
-        ]
-      }
-    ]
+    "subdirs": true
   },
-  "generators": [
-    {
-      "name": "gen-tailwind",
-      "command": "tailwindcss build -i $in -o $out -c ../../src/css/tailwind.config.js"
-    }
-  ],
   "package-specs": [
     {
       "module": "es6",
@@ -36,17 +14,6 @@
   ],
   "suffix": ".bs.js",
   "namespace": true,
-  "bs-dependencies": [
-    "@rescript/react",
-    "@rescript/core"
-  ],
-  "bsc-flags": [
-    "-open RescriptCore"
-  ],
-  "ppx-flags": [
-    [
-      "@greenlabs/res-tailwindcss/ppx",
-      "--path src/css/tailwind.css"
-    ]
-  ]
+  "bs-dependencies": ["@rescript/react", "@rescript/core", "rescript-webapi"],
+  "bsc-flags": ["-open RescriptCore"]
 }

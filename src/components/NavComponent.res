@@ -1,19 +1,15 @@
 module Style = {
   module SwitchLang = {
-    let link = %twc(
-      "px-2 cursor-pointer text-tertiary uppercase font-semibold pr-4 hover:text-primary_light"
-    )
+    let link = "px-2 cursor-pointer text-tertiary uppercase font-semibold pr-4 hover:text-primary_light"
   }
   module NavElem = {
-    let link_base = %twc(
-      "inline-flex block px-2 font-semibold text-base cursor-pointer hover:text-primary_light "
-    )
-    let link_inactive = link_base ++ %twc("text-tertiary")
-    let link_active = link_base ++ %twc("text-primary_light")
+    let link_base = "inline-flex block px-2 font-semibold text-base cursor-pointer hover:text-primary_light "
+    let link_inactive = link_base ++ "text-tertiary"
+    let link_active = link_base ++ "text-primary_light"
   }
 
-  let logo_hover_opacity = %twc("opacity-75 hover:opacity-100")
-  let img_hover_oppacity = logo_hover_opacity ++ %twc(" h-5 pr-4")
+  let logo_hover_opacity = "opacity-75 hover:opacity-100"
+  let img_hover_oppacity = logo_hover_opacity ++ " h-5 pr-4"
 }
 
 module SwitchLang = {
@@ -58,11 +54,6 @@ module NavElem = {
   }
 }
 
-type imgLocation = {default: string}
-
-let logo: imgLocation = %raw("require('../../assets/logo.png')")
-let github: imgLocation = %raw("require('../../assets/GitHub-Mark-Light-32px.png')")
-
 let navElems =
   <>
     <NavElem
@@ -86,33 +77,25 @@ let navElems =
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <Flex.Column.AlignLeft style=%twc("w-full bg-background top-0 sticky z-10 shadow-md")>
+  <Flex.Column.AlignLeft style="w-full bg-background top-0 sticky z-10 shadow-md">
     <div
-      className=%twc(
-        "w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row  "
-      )>
+      className="w-full inline-flex flex-row justify-between sm:inline-grid sm:grid-cols-5 sm:grid-flow-row  ">
       <div>
         <Link.Internal
-          className={%twc(
-            "py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light sm:col-span-1"
-          )}
+          className={"py-2 h-full cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-text_light pl-4 text-2xl font-sans font-bold hover:text-primary_light sm:col-span-1"}
           target=[Nav.home]>
-          <img className=%twc("h-8 pr-2") src={logo.default} />
+          <img className="h-8 pr-2" src={Assets.Image.logo_catala} />
           <Lang.String english="Catala" french={`Catala`} />
         </Link.Internal>
       </div>
       <div
-        className=%twc(
-          "hidden sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:col-span-3"
-        )>
+        className="hidden sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:col-span-3">
         navElems
       </div>
-      <div className=%twc("inline-flex flex-row self-center sm:col-span-1 sm:justify-end")>
+      <div className="inline-flex flex-row self-center sm:col-span-1 sm:justify-end">
         <SwitchLang />
         <button
-          className=%twc(
-            "inline-flex text-text_light self-center hover:text-primary_light mr-4 sm:hidden"
-          )
+          className="inline-flex text-text_light self-center hover:text-primary_light mr-4 sm:hidden"
           onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
           <Icon name="menu" />
         </button>
@@ -120,7 +103,7 @@ let make = () => {
     </div>
     {if isMenuOpen {
       <div
-        className=%twc("inline-flex flex-col justify-center pl-2 pb-2 ease-in")
+        className="inline-flex flex-col justify-center pl-2 pb-2 ease-in"
         onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
         navElems
       </div>
