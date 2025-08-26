@@ -1264,7 +1264,7 @@ let make = () => {
     </Section>
     <Section
       id="past" title={<Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />}>
-      {if Belt.Array.length(upcoming) == 0 {
+      {if Belt.Array.length(season_2025_2026) == 0 {
         <Lang.String
           english="No seminar held yet this season, stay tuned!"
           french={`Il n'y a pas encore eu de séminaire cette saison, n'hésitez pas à revenir plus tard !`}
