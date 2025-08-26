@@ -1119,6 +1119,31 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Law,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=9.0, ~date=13.0, ())),
+    title: <Lang.String
+      english="What does economization refer to?"
+      french={`De quoi l'économicisation est-elle le nom ?`}
+    />,
+    presenter: "Pierre Alayrac",
+    presenter_page_url: "https://www.cresppa.cnrs.fr/csu/equipe/les-membres-du-csu/alayrac-pierre/",
+    abstract: <Lang.String
+      english={`Law and Economics are intertwined in government practices.
+      They have become indispensable tools, established methods for shaping
+      public policy. However, economists and lawyers can produce contrasting
+      bureaucratic rationales. I will return to these contrasts,
+       their articulation and their confrontation, based on two examples
+       from the European Union's public action: competition policy and environmental policy.`}
+      french={`Le droit et l'économie s'entremêlent dans les pratiques de gouvernement.
+      Ils en sont devenus des instruments indispensables, des modes institués de mise
+      en forme de l'action publique. Pourtant, économistes et juristes peuvent
+      produire des rationalités bureaucratiques contrastées. Je reviendrai
+      sur ces contrastes, leur articulation et leur affrontement, à partir
+      de deux exemples issus de l'action publique de l'Union européenne :
+       politique de concurrence et la politique environnementale.`}
+    />,
+    kind: Sociology,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
