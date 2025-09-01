@@ -14,7 +14,7 @@ let make = () => {
   <div className="flex flex-col gap-32">
     <div className="flex flex-col justify-center items-center">
       <div
-        className="pt-32 pb-16 text-center text-2xl sm:text-4xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl">
+        className="pt-32 pb-16 text-center text-2xl sm:text-4xl text-background font-sans font-semibold max-w-2xl sm:max-w-3xl">
         <p>
           <Lang.String english="A domain-specific language" french={`Un langage spécifique`} />
         </p>
