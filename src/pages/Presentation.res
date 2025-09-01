@@ -94,7 +94,7 @@ let make = () => {
             by a programmer and a lawyer pair-programming together.
             For instance, from the US Tax Code:"
             french={`Le principe de Catala est d'annoter directement les textes législatifs ou règlementaires
-            avec leur traduction en termes algorithmique, grâce à la collaboration en temps réel entre un·e programmeur·e
+            avec leur traduction en termes algorithmiques, grâce à la collaboration en temps réel entre un·e programmeur·e
             et un·e juriste. Par exemple, à partir
             du code de la sécurité sociale :`}
           />
