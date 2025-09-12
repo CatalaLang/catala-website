@@ -1144,6 +1144,46 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Sociology,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=10.0, ~date=24.0, ())),
+    title: <Lang.String
+      english="Regulatory monocultures in artificial intelligence law?"
+      french={`Une monoculture réglementaire dans le droit de l'intelligence articielle ?`}
+    />,
+    presenter: "Marco Almada",
+    presenter_page_url: "https://www.marcoalmada.com/",
+    abstract: <Lang.String
+      english={`As policymakers around the world try to deal with the challenges of AI,
+      there is a growing concern about regulatory fragmentation. The EU is currently
+      trying to avoid divergence in AI laws by promoting its AI Act as a global standard,
+      but early signs suggest that the expected "Brussels Effect" is unlikely to manifest.
+      Still, I argue in this paper that the various laws on AI being adopted around
+      the world tend to build on common concepts. After outlining what are the elements
+      shared between laws that regulate AI in very different ways, I examine the pros
+      and cons of that conceptual alignment. The emergence of regulatory monocultures
+      is not enough to ensure regulatory interoperability, and it may create problems
+      of its own. Nonetheless, monoculture is not an inevitable development, and regulators,
+      policymakers, and developers may all adopt measures to mitigate its potential
+      adverse effects.`}
+      french={`Alors que les décideurs politiques du monde entier tentent de
+      relever les défis posés par l'IA, la fragmentation réglementaire suscite
+      de plus en plus d'inquiétudes. L'UE s'efforce actuellement d'éviter les
+      divergences entre les législations relatives à l'IA en promouvant sa loi
+      sur l'IA comme norme mondiale, mais les premiers signes indiquent que
+      l'« effet Bruxelles » escompté a peu de chances de se manifester. Je
+      soutiens néanmoins dans cet article que les différentes législations
+      relatives à l'IA adoptées à travers le monde tendent à s'appuyer sur
+      des concepts communs. Après avoir décrit les éléments communs aux lois
+      qui réglementent l'IA de manière très différente, j'examine les avantages
+      et les inconvénients de cet alignement conceptuel. L'émergence de
+      monocultures réglementaires ne suffit pas à garantir l'interopérabilité
+      réglementaire et peut créer des problèmes supplémentaires.
+      Néanmoins, la monoculture n'est pas une évolution inévitable, et les
+      régulateurs, les décideurs politiques et les développeurs peuvent tous
+      adopter des mesures pour atténuer ses effets négatifs potentiels.`}
+    />,
+    kind: Sociology,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
