@@ -1182,7 +1182,7 @@ public demonstrations of technology, also known as \"demos\"."
       régulateurs, les décideurs politiques et les développeurs peuvent tous
       adopter des mesures pour atténuer ses effets négatifs potentiels.`}
     />,
-    kind: Sociology,
+    kind: Law,
   },
 ]
 
@@ -1302,24 +1302,20 @@ let make = () => {
         ->React.array}
       </dl>
     </Section>
-    <Section
-      id="past" title={<Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />}>
-      {if Belt.Array.length(season_2025_2026) == 0 {
-        <Lang.String
-          english="No seminar held yet this season, stay tuned!"
-          french={`Il n'y a pas encore eu de séminaire cette saison, n'hésitez pas à revenir plus tard !`}
-        />
-      } else {
-        <> </>
-      }}
-      <dl>
-        {season_2025_2026
-        ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item />
-        )
-        ->React.array}
-      </dl>
-    </Section>
+    {if Belt.Array.length(season_2025_2026) != 0 {
+      <Section
+        id="past" title={<Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />}>
+        <dl>
+          {season_2025_2026
+          ->Belt.Array.mapWithIndex((i, item) =>
+            <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item />
+          )
+          ->React.array}
+        </dl>
+      </Section>
+    } else {
+      <> </>
+    }}
     <Section
       id="past" title={<Lang.String english="Season 2024-2025" french={`Saison 2024-2025`} />}>
       <dl>
