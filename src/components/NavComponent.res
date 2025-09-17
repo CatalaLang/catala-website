@@ -80,7 +80,7 @@ let navElems =
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <div className="w-full bg-white border-b border-stone-300 top-0 sticky z-10 py-1">
+  <div className="w-full bg-white border-b border-stone-300 top-0 sticky z-10 py-1 px-4">
     <Flex.Column.AlignLeft style="max-w-6xl mx-auto">
       <div className="w-full inline-flex flex-row items-center justify-between px-4 md:px-0">
         <Link.Internal
