@@ -203,15 +203,20 @@ let publications_card: Card.Presentation.t = {
 
 @react.component
 let make = () => <>
-  <Title>
-    <Lang.String english="Catala documentation" french={`Documentation de Catala`} />
-  </Title>
-  <Section
-    id="examples"
-    title={<Lang.String
-      english="Examples of use for public administrations"
-      french={`Exemples d'utilisation pour les administrations publiques`}
-    />}>
+  <section className="px-8 my-16">
+    <Title>
+      <Lang.String english="Catala documentation" french={`Documentation de Catala`} />
+    </Title>
+  </section>
+  <section id="examples" className="my-16 border-y border-border bg-primary_light/5 py-8">
+    <h2 id="examples" className="px-8 ">
+      <a href={"#core-principles"}>
+        <Lang.String
+          english="Examples of use for public administrations"
+          french={`Exemples d'utilisation pour les administrations publiques`}
+        />
+      </a>
+    </h2>
     <Card.Presentation.FromList
       cards=[
         FrenchFamilyBenefitsExample.card,
@@ -220,13 +225,16 @@ let make = () => <>
         IRcatala.card,
       ]
     />
-  </Section>
-  <Section
-    id="technical-doc"
-    title={<Lang.String
-      english="Technical documentation for programmers"
-      french={`Documentation technique pour les programmeur·e·s`}
-    />}>
+  </section>
+  <section id="technical-doc">
+    <h2 id="technical-doc" className="px-8 ">
+      <a href={"#core-principles"}>
+        <Lang.String
+          english="Technical documentation for programmers"
+          french={`Documentation technique pour les programmeur·e·s`}
+        />
+      </a>
+    </h2>
     <Card.Presentation.FromList
       cards=[
         catala_book_card,
@@ -237,12 +245,16 @@ let make = () => <>
         ocaml_docs_card,
       ]
     />
-  </Section>
-  <Section
-    id="researchers-content"
-    title={<Lang.String
-      english="Content for researchers" french={`Contenu pour les chercheur·e·s`}
-    />}>
+  </section>
+  <section
+    id="researchers-content" className="mt-16 border-y border-border bg-primary_light/5 py-8">
+    <h2 id="researchers-content" className="px-8 ">
+      <a href={"#core-principles"}>
+        <Lang.String
+          english="Content for researchers" french={`Contenu pour les chercheur·e·s`}
+        />
+      </a>
+    </h2>
     <Card.Presentation.FromList cards=[formalization_card, publications_card] />
-  </Section>
+  </section>
 </>
