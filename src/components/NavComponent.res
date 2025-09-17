@@ -35,7 +35,7 @@ module SwitchLang = {
 
 module NavElem = {
   @react.component
-  let make = (~title: React.element, ~target: array<Nav.navElem>) => {
+  let make = (~title: React.element, ~target: array<Nav.navElem>, ~mobile=false) => {
     let (_, currentElems) = RescriptReactRouter.useUrl()->Nav.urlToNavElem
     let currentElems = {
       let currElemSize = currentElems->Belt.Array.size
@@ -51,30 +51,40 @@ module NavElem = {
       Style.NavElem.link_inactive
     }
 
+    let style = if mobile {
+      style ++ " text-2xl mb-2"
+    } else {
+      style
+    }
+
     <>
       <Link.Internal target className={style}> title </Link.Internal>
     </>
   }
 }
 
-let navElems =
-  <>
-    <NavElem
-      title={<Lang.String english="About" french={`À propos`} />} target={[Nav.home, Nav.about]}
-    />
-    <NavElem
-      title={<Lang.String english="Features" french={`Fonctionnalités`} />}
-      target={[Nav.home, Nav.features]}
-    />
-    <NavElem
-      title={<Lang.String english="Documentation" french={`Documentation`} />}
-      target={[Nav.home, Nav.doc]}
-    />
-    <NavElem
-      title={<Lang.String english="Seminars" french={`Séminaires`} />}
-      target={[Nav.home, Nav.seminar]}
-    />
-  </>
+let navElems = (~mobile=false) => <>
+  <NavElem
+    mobile
+    title={<Lang.String english="About" french={`À propos`} />}
+    target={[Nav.home, Nav.about]}
+  />
+  <NavElem
+    mobile
+    title={<Lang.String english="Features" french={`Fonctionnalités`} />}
+    target={[Nav.home, Nav.features]}
+  />
+  <NavElem
+    mobile
+    title={<Lang.String english="Documentation" french={`Documentation`} />}
+    target={[Nav.home, Nav.doc]}
+  />
+  <NavElem
+    mobile
+    title={<Lang.String english="Seminars" french={`Séminaires`} />}
+    target={[Nav.home, Nav.seminar]}
+  />
+</>
 
 @react.component
 let make = () => {
@@ -92,21 +102,48 @@ let make = () => {
         <div className="inline-flex flex-row justify-end items-center">
           <div
             className="hidden text-sm sm:mr-4 sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:gap-1">
-            navElems
+            {navElems(~mobile=false)}
           </div>
           <SwitchLang />
           <button
-            className="inline-flex self-center hover:text-primary_light mr-4 sm:hidden"
+            className="cursor-pointer inline-flex self-center hover:text-primary_light ml-4 sm:hidden"
             onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
-            <Icon name="menu" />
+            {isMenuOpen
+              ? <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round">
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+              : <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round">
+                  <path d="M4 5h16" />
+                  <path d="M4 12h16" />
+                  <path d="M4 19h16" />
+                </svg>}
           </button>
         </div>
       </div>
       {if isMenuOpen {
         <div
-          className="inline-flex flex-col justify-center pl-2 pb-2 ease-in"
+          className="inline-flex flex-col justify-center items-center mx-auto pl-2 pb-2 ease-in h-screen overflow-y-hidden"
           onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
-          navElems
+          {navElems(~mobile=true)}
         </div>
       } else {
         <> </>

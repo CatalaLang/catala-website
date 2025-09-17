@@ -6,7 +6,8 @@ let calinou_link = "https://calinou.coop"
 @react.component
 let make = React.memo(() => {
   let footerInternalLinkStyle = "text-primary_dark text-sm hover:!text-button_fg_hover border-b border-transparent hover:!border-primary_dark cursor-pointer w-fit"
-  <footer className="py-8 max-w-6xl mx-4 sm:mx-auto font-sans flex justify-between gap-8">
+  <footer
+    className="py-8 max-w-6xl mx-auto font-sans flex flex-col lg:flex-row justify-between gap-8">
     <div className="inline-flex flex-col gap-4 max-w-xl">
       <div className=" pb-2 text-sm">
         <Lang.String
