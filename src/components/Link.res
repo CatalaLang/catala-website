@@ -77,7 +77,7 @@ module Internal = {
     }
   }
 
-  let baseClassName = "text-primary_dark cursor-pointer hover:border-b hover:border-button_fg/50 "
+  let baseClassName = "text-primary_dark cursor-pointer border-b border-transparent hover:border-button_fg/50 "
   @react.component
   let make = (~className="", ~target: array<Nav.navElem>, ~children) => {
     let (lang, _) = React.useContext(Lang.langContext)

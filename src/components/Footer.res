@@ -1,7 +1,7 @@
 let github_link = "https://github.com/CatalaLang/catala-website/issues"
 let catala_book_link = "https://book.catala-lang.org"
 let zulip_link = "https://zulip.catala-lang.org"
-let calinou_link = "https://www.linkedin.com/company/calinou-coop"
+let calinou_link = "https://calinou.coop"
 
 @react.component
 let make = React.memo(() => {
@@ -28,13 +28,13 @@ let make = React.memo(() => {
         {"."->React.string}
       </div>
       <div className="inline-flex flex-row gap-4 items-center">
-        <span className="text-gray_dark text-sm">
+        <span className="text-gray_dark text-xs">
           {
             let today = Js.Date.now()->Js.Date.fromFloat->Js.Date.getFullYear->Js.String2.make
             React.string("© " ++ today ++ " Inria — ")
           }
         </span>
-        <img className="h-10 pb-2" src={Assets.Image.logo_inria} />
+        <img className="h-8 pb-2" src={Assets.Image.logo_inria} />
       </div>
     </div>
     <div className="inline-flex flex-col gap-8">

@@ -49,7 +49,7 @@ module Presentation = {
       <div className="p-4 h-full">
         <div
           className="bg-white h-full overflow-hidden shadow-sm border-solid border-gray border rounded">
-          <div className="flex flex-col justify-between h-full px-6 py-4 text-background ">
+          <div className="flex flex-col justify-between h-full px-6 py-4  ">
             <div
               className=" flex flex-row flex-nowrap items-center text-xl sm:text-2xl pb-2 font-bold">
               icon

@@ -13,7 +13,7 @@ let demoLink = "https://code.gouv.fr/demos/catala"
 let make = () => {
   <div className="flex flex-col gap-24">
     <section className="px-8 flex flex-col">
-      <h1 className="text-3xl max-w-3xl mt-32 mb-16 font-serif !font-normal leading-tight">
+      <h1 className="text-3xl max-w-3xl mt-32 mb-16 font-serif !font-normal leading-snug">
         <Lang.String
           english="A domain-specific language designed by researchers in "
           french={`Un langage spécifique conçu par des chercheuses et chercheurs en `}
@@ -25,12 +25,12 @@ let make = () => {
           english=", for precisely deriving algorithms "
           french={`, pour l'écriture précise d'algorithmes `}
         />
-        <span className="bg-primary_light/20 px-2">
+        <TextHighlight>
           <Lang.String
             english="producing automated legal decisions"
             french={`appliquant automatiquement du droit`}
           />
-        </span>
+        </TextHighlight>
       </h1>
       <div
         className="text-center text-2xl sm:text-4xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
@@ -69,7 +69,7 @@ let make = () => {
     </section>
     <div
       className="w-full border-y py-2 border-border bg-primary_light/5 inline-flex flex-row flex-wrap items-center justify-center">
-      <p className="text-center">
+      <p className="text-center !my-0">
         <Lang.String
           english="Made with ❤️ within the "
           french={`Développé avec ❤️ dans le cadre du `}
@@ -100,7 +100,7 @@ let make = () => {
             et un·e juriste.`}
             />
           </p>
-          <Link.Internal target=[Nav.home, Nav.features] className="italic">
+          <Link.Internal target=[Nav.home, Nav.features] className="italic ">
             <Lang.String
               english="Discover the features" french={`Découvrir les fonctionnalités`}
             />
@@ -118,7 +118,7 @@ let make = () => {
           english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}
         />
         <div
-          className="w-full italic text-sm p-2 px-4 border-x border-b border-border bg-stone-100 rounded-b-sm text-stone-600">
+          className="w-full italic text-sm p-2 px-4 border-x border-b border-border bg-stone-50 rounded-b-sm text-stone-700">
           <Lang.String
             english="Example of Catala code from the US Tax Code."
             french={`Example de code Catala tiré du code de la sécurité sociale.`}

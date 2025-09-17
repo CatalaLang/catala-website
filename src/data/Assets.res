@@ -26,8 +26,11 @@ external _dinum_logo: string = "_dinum_logo"
 %%raw("import _pair_programming_compr from '../../assets/pair_programming_compr.jpg'")
 external _pair_programming_compr: string = "_pair_programming_compr"
 
-%%raw("import _literate_programming from '../../assets/ScreenShotVSCode.png'")
-external _literate_programming: string = "_literate_programming"
+%%raw("import _literate_programming_fr from '../../assets/code-screenshot-fr.png'")
+external _literate_programming_fr: string = "_literate_programming_fr"
+
+%%raw("import _literate_programming_en from '../../assets/code-screenshot-en.png'")
+external _literate_programming_en: string = "_literate_programming_en"
 
 %%raw("import _cnaf_logo from '../../assets/logo-cnaf.jpg'")
 external _cnaf_logo: string = "_cnaf_logo"
@@ -43,5 +46,6 @@ module Image = {
   let logo_cnaf: string = _cnaf_logo
   let logo_dgfip: string = _dgfip_logo
   let pair_programming_compr: string = _pair_programming_compr
-  let literate_programming: string = _literate_programming
+  let literate_programming_en: string = _literate_programming_en
+  let literate_programming_fr: string = _literate_programming_fr
 }

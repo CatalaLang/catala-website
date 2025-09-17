@@ -10,5 +10,6 @@ module Image: {
   let logo_cnaf: string
   let logo_dgfip: string
   let pair_programming_compr: string
-  let literate_programming: string
+  let literate_programming_en: string
+  let literate_programming_fr: string
 }
