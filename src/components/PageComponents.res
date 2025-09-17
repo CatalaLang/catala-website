@@ -32,8 +32,27 @@ module Highlight = {
   ) =>
     <figure className={className}>
       <img
-        style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-32 p-4" src={src}
+        style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-28 p-4" src={src}
       />
-      <figcaption className="border-t border-border px-4 py-2 text-sm"> children </figcaption>
+      <figcaption className="border-t border-border border-dashed px-4 py-2 text-sm">
+        children
+      </figcaption>
     </figure>
+
+  module Large = {
+    @react.component
+    let make = (
+      ~src: string,
+      ~className="flex flex-col h-full justify-between not-md:not-last:border-b md:not-last:border-r border-border",
+      ~children,
+    ) =>
+      <figure className={className}>
+        <img
+          style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-40 p-4" src={src}
+        />
+        <figcaption className="border-t border-dashed border-border px-4 py-2 text-sm ">
+          children
+        </figcaption>
+      </figure>
+  }
 }

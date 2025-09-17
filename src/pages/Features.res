@@ -8,13 +8,13 @@ let make = () => {
   )
 
   <>
-    <section className="px-8">
+    <section className="px-8 my-16">
       <Title>
         <Lang.String english="Features" french={`Fonctionnalités`} />
       </Title>
     </section>
-    <section className="border-y border-border bg-primary_light/5">
-      <h2 id="core-principles" className="border-b border-border p-8 !mb-0">
+    <section className="border-y border-border bg-primary_light/5 p-8">
+      <h2 id="core-principles" className="">
         <a href={"#core-principles"}>
           <Lang.String
             english="Two core principles: literate programming and pair programming"
@@ -22,8 +22,8 @@ let make = () => {
           />
         </a>
       </h2>
-      <section className="m-8 border border-border">
-        <div className="grid grid-cols-2 gap-8 bg-white p-8">
+      <section className="border border-border">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-8">
           <div className="flex flex-col h-full">
             <h3 className="inline-flex gap-2 items-center mb-4">
               <svg
@@ -56,6 +56,13 @@ let make = () => {
                 />
               </TextHighlight>
             </p>
+            <div className="mb-4 lg:hidden max-w-2/3 mx-auto">
+              <Figure
+                src={code_screenshot_asset}
+                altEn="Screenshot from the file us_tax_code/section_132.catala_en"
+                altFr={`Capture d'écran du fichier prestations_familiales/sécurité_sociale_R.catala_fr`}
+              />
+            </div>
             <p>
               <Lang.String
                 english="One line of law, one line of code, everything in the same document.
@@ -74,13 +81,16 @@ let make = () => {
               <Lang.String english="See the examples" french={`Voir les exemples`} />
             </Link.Internal>
           </div>
-          <Figure
-            src={code_screenshot_asset}
-            altEn="Screenshot from the file us_tax_code/section_132.catala_en"
-            altFr={`Capture d'écran du fichier prestations_familiales/sécurité_sociale_R.catala_fr`}
-          />
+          <div className="not-lg:hidden">
+            <Figure
+              src={code_screenshot_asset}
+              altEn="Screenshot from the file us_tax_code/section_132.catala_en"
+              altFr={`Capture d'écran du fichier prestations_familiales/sécurité_sociale_R.catala_fr`}
+            />
+          </div>
         </div>
-        <div className="grid grid-cols-2 gap-8 bg-white border-t border-border p-8">
+        <div
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white border-t border-dashed border-border p-8">
           <div className="flex flex-col h-min">
             <h3 className="inline-flex gap-2 items-center mb-4">
               <svg
@@ -109,6 +119,15 @@ let make = () => {
                 />
               </TextHighlight>
             </p>
+            <div className="mb-4 lg:hidden mx-auto">
+              <Figure
+                src={Assets.Image.pair_programming_compr}
+                height=""
+                width="300px"
+                altEn="Photo credits: Marie Alauzen"
+                altFr={`Crédits photo : Marie Alauzen`}
+              />
+            </div>
             <p>
               <Lang.String
                 english="Writing huge specification lends to ambiguities and Chinese whisper games.
@@ -127,139 +146,86 @@ let make = () => {
               <Lang.String english="Read more" french={`En savoir plus`} />
             </Link.Text>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="mx-auto not-lg:hidden">
             <Figure
               src={Assets.Image.pair_programming_compr}
               height=""
-              width="300"
+              width="350px"
               altEn="Photo credits: Marie Alauzen"
               altFr={`Crédits photo : Marie Alauzen`}
             />
           </div>
         </div>
       </section>
-      // <Card.Presentation.FromList
-      //   cards=[
-      //     {
-      //       title: <Lang.String
-      //         english="Literate programming" french={`Programmation littéraire`}
-      //       />,
-      //       icon: Some("menu_book"),
-      //       quote: Some(
-      //         <Lang.String
-      //           english="Create a direct correspondence between the specification and the code"
-      //           french={`Créer une correspondance directe entre la spécification et le code`}
-      //         />,
-      //       ),
-      //       action: Some((
-      //         Internal([Nav.home, Nav.doc, Nav.examples]),
-      //         <Lang.String english="See the examples" french={`Voir les exemples`} />,
-      //       )),
-      //       content: {
-      //         <div className="flex flex-col justify-around h-full">
-      //           <figure className="flex flex-col m-4 items-center">
-      //             <img className="w-96 max-h-64" src={Assets.Image.literate_programming} />
-      //           </figure>
-      //           <p className="shrink">
-      //             <Lang.String
-      //               english="One line of law, one line of code, everything in the same document.
-      //               Programming while systematically following the structure of the legal text
-      //               minimizes translation errors. Moreover, it makes updating the code very
-      //               easy; if you know where the legal text has been changed, you just need
-      //               to change the code snippet just below."
-      //               french={`Une ligne de loi, une ligne de code, le tout dans le même document.
-      //               Programmer en suivant systématiquement la structure du texte de droit
-      //               minimise les erreurs de traduction et, surtout, rend les évolutions
-      //               très pratique. Si l'on sait où le droit change avec une réforme, il suffit de modifier
-      //               le bout de code juste en dessous.`}
-      //             />
-      //           </p>
-      //         </div>
-      //       },
-      //     },
-      //     {
-      //       title: <Lang.String english="Pair programming" french={`Programmation en binôme`} />,
-      //       icon: Some("group"),
-      //       quote: Some(
-      //         <Lang.String
-      //           english="Speed up development by having lawyers and programmers talk to each other"
-      //           french={`Accélerer le développement en faisant se parler juristes et programmeur·e·s`}
-      //         />,
-      //       ),
-      //       action: Some((
-      //         External("https://book.catala-lang.org/3-5-lawyers-agile.html"),
-      //         <Lang.String english="Read more" french={`En savoir plus`} />,
-      //       )),
-      //       content: {
-      //         <div className="flex flex-col justify-around h-full">
-      //           <figure className="flex flex-col m-4 items-center">
-      //             <img className="w-64 max-h-64" src={Assets.Image.pair_programming_compr} />
-      //             <figcaption className="text-sm md:text-xs text-center pt-4 italic">
-      //               <Lang.String
-      //                 english="Photo credits: Marie Alauzen" french={`Crédits photo : Marie Alauzen`}
-      //               />
-      //             </figcaption>
-      //           </figure>
-      //         </div>
-      //       },
-      //     },
-      //   ]
-      // />
     </section>
-    <Section
-      id="proof-of-concepts"
-      title={<Lang.String
-        english="A tool tried and tested by French administrations"
-        french={`Un outil mis à l'épreuve par les administrations publiques`}
-      />}>
-      <div className="flex flex-col items-center">
-        <p className="text-lg sm:text-xl italic text-center max-w-2xl">
+    <section id="proof-of-concepts" className="my-16 !px-0">
+      <h2 className="px-8 !mt-0">
+        <a href={"#proof-of-concepts"}>
           <Lang.String
-            english="Several proofs of concept have been made for French public
-          administrations. This demonstrates the ability of Catala to provide
-          tooling for first-class computation engines at the national level,
-          with realistic operational conditions and a high level of assurance."
-            french={`Plusieurs démonstrateurs ont été réalisés pour le compte
-          d'administrations publiques françaises, démontrant la capacité de Catala
-          à outiller des moteurs de calcul de premier plan au niveau national,
-          dans des conditions d'exploitations réalistes et avec un haut niveau
-          d'assurance.`}
+            english="A tool tried and tested by French administrations"
+            french={`Un outil mis à l'épreuve par les administrations publiques`}
           />
-        </p>
-      </div>
-      <div className="flex flex-row flex-wrap justify-center gap-8">
-        <Highlight src=Assets.Image.logo_dgfip>
+        </a>
+      </h2>
+      <p className="px-8 mb-6">
+        <Lang.String
+          english="Several proofs of concept have been made for French public
+          administrations. This demonstrates the ability of Catala to provide
+          tooling for "
+          french={`Plusieurs démonstrateurs ont été réalisés pour le compte
+          d'administrations publiques françaises, démontrant la capacité de Catala
+          à `}
+        />
+        <TextHighlight>
+          <Lang.String
+            english="first-class computation engines at the national level"
+            french={`outiller des moteurs de calcul de premier plan au niveau national`}
+          />
+        </TextHighlight>
+        <Lang.String
+          english=", with realistic operational conditions and "
+          french={`, dans des conditions d'exploitations réalistes et `}
+        />
+        <TextHighlight>
+          <Lang.String
+            english="a high level of assurance." french={`avec un haut niveau d'assurance.`}
+          />
+        </TextHighlight>
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 border-y border-border bg-white">
+        <Highlight.Large src=Assets.Image.logo_dgfip>
           <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
             <Lang.String
               english="\"Income tax computation (deductions, deficit)"
               french={`Calcul de l'impôt sur le revenu (abattements, déficit)`}
             />
           </Link.Text>
-        </Highlight>
-        <Highlight src=Assets.Image.logo_cnaf>
+        </Highlight.Large>
+        <Highlight.Large src=Assets.Image.logo_cnaf>
           <Lang.String
             english="Computation and orchestration of three benefits (AF, RSA, AVVC)"
             french={`Calcul et orchestration de trois allocations (AF, RSA, AVVC)`}
           />
-        </Highlight>
+        </Highlight.Large>
       </div>
-    </Section>
-    <Section
-      id="workflow"
-      title={<Lang.String
-        english="An innovative programming language that fits into your existing workflow"
-        french={`Un langage de programmation innovant qui s'intègre dans vos pratiques habituelles`}
-      />}>
-      <div className="flex flex-col items-center">
-        <p className="text-lg sm:text-xl italic text-center max-w-2xl">
+    </section>
+    <section id="workflow" className="my-16 border-y border-border bg-primary_light/5 py-8">
+      <h2 className="px-8 !mt-0">
+        <a href={"#workflow"}>
           <Lang.String
-            english="You maintain a legacy ditigal app, packaging a computation engine
-          specified by the law ? Catala allows you to plan ahead your upgrade with serenity."
-            french={`Vous maintenez une application informatique patrimoniale, embarquant un moteur
-de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement votre future modernisation.`}
+            english="An innovative programming language that fits into your existing workflow"
+            french={`Un langage de programmation innovant qui s'intègre dans vos pratiques habituelles`}
           />
-        </p>
-      </div>
+        </a>
+      </h2>
+      <p className="px-8 text-lg">
+        <Lang.String
+          english="You maintain a legacy ditigal app, packaging a computation engine
+          specified by the law ? Catala allows you to plan ahead your upgrade with serenity."
+          french={`Vous maintenez une application informatique patrimoniale, embarquant un moteur
+de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement votre future modernisation.`}
+        />
+      </p>
       <div className="text-base sm:text-lg pb-10 pt-4">
         <Card.Presentation.FromList
           cards=[
@@ -267,7 +233,23 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
               title: <Lang.String
                 english="Use your favorite IDE" french={`Utilisez votre IDE favori`}
               />,
-              icon: Some("build"),
+              icon: Some(
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-wrench-icon lucide-wrench">
+                  <path
+                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"
+                  />
+                </svg>,
+              ),
               quote: Some(
                 <Lang.String
                   english="Standard, integrated software engineering tooling"
@@ -298,7 +280,32 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 english="Reuse your application, as they are"
                 french={`Réutilisez vos application, telles quelles`}
               />,
-              icon: Some("recycling"),
+              icon: Some(
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-recycle-icon lucide-recycle">
+                  <path
+                    d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"
+                  />
+                  <path
+                    d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"
+                  />
+                  <path d="m14 16-3 3 3 3" />
+                  <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
+                  <path
+                    d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"
+                  />
+                  <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
+                </svg>,
+              ),
               quote: Some(
                 <Lang.String
                   english="Simply swap the rules engine"
@@ -329,7 +336,25 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 english="Avoid vendor lock-in"
                 french={`Évitez d'être captif de votre fournisseur`}
               />,
-              icon: Some("savings"),
+              icon: Some(
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-piggy-bank-icon lucide-piggy-bank">
+                  <path
+                    d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
+                  />
+                  <path d="M16 10h.01" />
+                  <path d="M2 8v1a2 2 0 0 0 2 2h1" />
+                </svg>,
+              ),
               quote: Some(
                 <Lang.String
                   english="An open-source and future-proof compiler"
@@ -368,7 +393,22 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
                 english="Scale to real-world legal rule sets"
                 french={`Passez à l'échelle du droit du monde réel`}
               />,
-              icon: Some("landscape"),
+              icon: Some(
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="lucide lucide-mountain-snow-icon lucide-mountain-snow">
+                  <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+                  <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" />
+                </svg>,
+              ),
               quote: Some(
                 <Lang.String
                   english="Modularity and exception management"
@@ -400,23 +440,24 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
           ]
         />
       </div>
-    </Section>
-    <Section
-      id="alternatives"
-      title={<Lang.String
-        english="Should I use Catala or something else?"
-        french={`Devrais-je utiliser Catala ou quelque chose d'autre ?`}
-      />}>
-      <div className="flex flex-col items-center">
-        <p className="text-lg sm:text-xl italic text-center max-w-2xl">
+    </section>
+    <section id="alternatives">
+      <h2 className="px-8 !mt-0">
+        <a href={"#alternatives"}>
           <Lang.String
-            english="You have heard about other similar technologies and hesistate
-          with Catala? This non-exhaustive list should help you choose."
-            french={`Vous avez entendu parler d'autre technologies similaires et
-          hésitez avec Catala ? Cette liste non-exhaustive devrait vous aider à choisir.`}
+            english="Should I use Catala or something else?"
+            french={`Devrais-je utiliser Catala ou quelque chose d'autre ?`}
           />
-        </p>
-      </div>
+        </a>
+      </h2>
+      <p className="text-lg px-8">
+        <Lang.String
+          english="You have heard about other similar technologies and hesistate
+          with Catala? This non-exhaustive list should help you choose."
+          french={`Vous avez entendu parler d'autre technologies similaires et
+          hésitez avec Catala ? Cette liste non-exhaustive devrait vous aider à choisir.`}
+        />
+      </p>
       <Card.Presentation.FromList
         cards=[
           {
@@ -583,135 +624,172 @@ de l'interface utilisateur.`}
           },
         ]
       />
-    </Section>
-    <Section
-      id="science"
-      title={<Lang.String
-        english="A solution founded on solid science"
-        french={`Une solution fondée sur un socle scientifique solide`}
-      />}>
-      <div className="text-base sm:text-lg pb-10 pt-4">
-        <div className="flex flex-col items-center">
-          <p className="text-lg sm:text-xl italic text-center max-w-2xl">
-            <Lang.String
-              english="Discover the rigourous scientific work behind the project."
-              french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}
-            />
-          </p>
-        </div>
-        <Card.Presentation.FromList
-          cards=[
-            {
-              title: <Lang.String
-                english="Interdisciplinary scientific collaboration"
-                french={`Collaboration scientifique interdisciplinaire`}
+    </section>
+    <section id="science" className="mt-16 !px-0 bg-primary_light/5 py-8 border-y border-border">
+      <h2 className="px-8">
+        <a href={"#science"}>
+          <Lang.String
+            english="A solution founded on solid science"
+            french={`Une solution fondée sur un socle scientifique solide`}
+          />
+        </a>
+      </h2>
+      <p className="px-8 mb-6 text-lg">
+        <Lang.String
+          english="Discover the rigourous scientific work behind the project."
+          french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}
+        />
+      </p>
+      <Card.Presentation.FromList
+        cards=[
+          {
+            title: <Lang.String
+              english="Interdisciplinary scientific collaboration"
+              french={`Collaboration scientifique interdisciplinaire`}
+            />,
+            icon: Some(
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-messages-square-icon lucide-messages-square">
+                <path
+                  d="M16 10a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 14.286V4a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"
+                />
+                <path
+                  d="M20 9a2 2 0 0 1 2 2v10.286a.71.71 0 0 1-1.212.502l-2.202-2.202A2 2 0 0 0 17.172 19H10a2 2 0 0 1-2-2v-1"
+                />
+              </svg>,
+            ),
+            quote: Some(
+              <Lang.String
+                english="An award-winning project in formal methods and digital law"
+                french={`Un projet primé en méthodes formelles et droit du numérique`}
               />,
-              icon: Some("question_answer"),
-              quote: Some(
+            ),
+            action: Some((
+              Internal([Nav.home, Nav.about]),
+              <Lang.String
+                english="Discover the origin of the project"
+                french={`Découvrir l'origine du projet`}
+              />,
+            )),
+            content: <p>
+              <Lang.String
+                english="Catala is born out the PhD work of Denis Merigoux "
+                french={`Catala est le fruit du travail doctoral de Denis Merigoux `}
+              />
+              <Link.Text
+                target="https://archive.socinfo.fr/2022/12/recherche-prix-de-these-gilles-kahn-laureats-2022/">
                 <Lang.String
-                  english="An award-winning project in formal methods and digital law"
-                  french={`Un projet primé en méthodes formelles et droit du numérique`}
-                />,
-              ),
-              action: Some((
-                Internal([Nav.home, Nav.about]),
-                <Lang.String
-                  english="Discover the origin of the project"
-                  french={`Découvrir l'origine du projet`}
-                />,
-              )),
-              content: <p>
-                <Lang.String
-                  english="Catala is born out the PhD work of Denis Merigoux "
-                  french={`Catala est le fruit du travail doctoral de Denis Merigoux `}
+                  english="(Gilles Kahn prize 2022)" french={`(prix Gilles Kahn 2022)`}
                 />
-                <Link.Text
-                  target="https://archive.socinfo.fr/2022/12/recherche-prix-de-these-gilles-kahn-laureats-2022/">
-                  <Lang.String
-                    english="(Gilles Kahn prize 2022)" french={`(prix Gilles Kahn 2022)`}
-                  />
-                </Link.Text>
+              </Link.Text>
+              <Lang.String
+                english=" in formal methods, and Liane Huttner "
+                french={` en méthodes formelles, et de Liane Huttner `}
+              />
+              <Link.Text
+                target="https://recherche.pantheonsorbonne.fr/actualite/trois-theses-en-droit-et-science-politique-primees-par-chancellerie-universites-paris">
                 <Lang.String
-                  english=" in formal methods, and Liane Huttner "
-                  french={` en méthodes formelles, et de Liane Huttner `}
+                  english="(Sorbonne Chancellery prize 2023)"
+                  french={`(prix de la Chancellerie 2023)`}
                 />
-                <Link.Text
-                  target="https://recherche.pantheonsorbonne.fr/actualite/trois-theses-en-droit-et-science-politique-primees-par-chancellerie-universites-paris">
-                  <Lang.String
-                    english="(Sorbonne Chancellery prize 2023)"
-                    french={`(prix de la Chancellerie 2023)`}
-                  />
-                </Link.Text>
-                <Lang.String
-                  english=" in digital law. It also follows the footsteps of the research
+              </Link.Text>
+              <Lang.String
+                english=" in digital law. It also follows the footsteps of the research
                 of Marie Alauzen in Sociology of the State and STS. The dialogue between
                 these three researchers guided the design decisions of Catala, based on
                 an exhaustive review of the state of the art between Law and Computer Science."
-                  french={` en droit du numérique. Il s'inscrit aussi dans
+                french={` en droit du numérique. Il s'inscrit aussi dans
               la ligne des recherches de Marie Alauzen en sociologie de l'État et en STS.
               C'est le dialogue entre ces trois chercheur·e·s qui a permis de prendre
               les bonnes décisions de conception pour Catala, s'appuyant sur une analyse
               exhaustive de l'état de l'art de l'intersection entre droit et informatique.`}
-                />
-              </p>,
-            },
-            {
-              title: <Lang.String
-                english="An active research subject" french={`Un sujet de recherche actif`}
+              />
+            </p>,
+          },
+          {
+            title: <Lang.String
+              english="An active research subject" french={`Un sujet de recherche actif`}
+            />,
+            icon: Some(
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-microscope-icon lucide-microscope">
+                <path d="M6 18h8" />
+                <path d="M3 22h18" />
+                <path d="M14 22a7 7 0 1 0 0-14h-1" />
+                <path d="M9 14h2" />
+                <path d="M9 12a2 2 0 0 1-2-2V6h6v4a2 2 0 0 1-2 2Z" />
+                <path d="M12 6V3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1v3" />
+              </svg>,
+            ),
+            quote: Some(
+              <Lang.String
+                english="A community of researchers regularly contributes to the project"
+                french={`Une communauté de chercheur·e·s contribue régulièrement au projet`}
               />,
-              icon: Some("biotech"),
-              quote: Some(
-                <Lang.String
-                  english="A community of researchers regularly contributes to the project"
-                  french={`Une communauté de chercheur·e·s contribue régulièrement au projet`}
-                />,
-              ),
-              action: Some((
-                Internal([Nav.home, Nav.doc, Nav.publications]),
-                <Lang.String english="Read the publications" french={`Lire les publications`} />,
-              )),
-              content: <p>
-                <Lang.String
-                  english="Beyond their support of the industrialization of Catala,
+            ),
+            action: Some((
+              Internal([Nav.home, Nav.doc, Nav.publications]),
+              <Lang.String english="Read the publications" french={`Lire les publications`} />,
+            )),
+            content: <p>
+              <Lang.String
+                english="Beyond their support of the industrialization of Catala,
                 Inria continues to foster research in formal methods on the language with "
-                  french={`Au delà de son soutien à l'industrialisation de Catala,
+                french={`Au delà de son soutien à l'industrialisation de Catala,
               Inria continue de soutenir la recherche en méthodes formelles sur le langage avec `}
-                />
-                <Link.Text target="https://www.inria.fr/fr/avocat">
-                  <Lang.String
-                    english="the AVoCat exploratory action" french={`l'action exploratoire AVoCat`}
-                  />
-                </Link.Text>
+              />
+              <Link.Text target="https://www.inria.fr/fr/avocat">
                 <Lang.String
-                  english=". On the other hand, a fruitful collaboration on reasearch and teaching has been establish with
+                  english="the AVoCat exploratory action" french={`l'action exploratoire AVoCat`}
+                />
+              </Link.Text>
+              <Lang.String
+                english=". On the other hand, a fruitful collaboration on reasearch and teaching has been establish with
                 "
-                  french={`. D'autre part, une fructueuse collaboration de recherche et d'enseignement
+                french={`. D'autre part, une fructueuse collaboration de recherche et d'enseignement
               a été nouée avec `}
-                />
-                <Link.Text
-                  target="https://www.u-pec.fr/fr/formation/master-droit-du-numerique-parcours-informatique-et-droit">
-                  <Lang.String
-                    english="the Paris-Est Créteil university"
-                    french={`l'université Paris-Est Créteil`}
-                  />
-                </Link.Text>
+              />
+              <Link.Text
+                target="https://www.u-pec.fr/fr/formation/master-droit-du-numerique-parcours-informatique-et-droit">
                 <Lang.String
-                  english=" and its master in digital Law. The research on Catala is also international
-                with an active group at the "
-                  french={` et son master en droit du numérique. La recherche sur Catala est également internationale avec un groupe actif au sein de `}
+                  english="the Paris-Est Créteil university"
+                  french={`l'université Paris-Est Créteil`}
                 />
-                <Link.Text target="https://law.illinois.edu/">
-                  <Lang.String
-                    english="University of Illinois at Urbana-Champaign"
-                    french={`University of Illinois at Urbana-Champaign`}
-                  />
-                </Link.Text>
-                <Lang.String english="." french={`.`} />
-              </p>,
-            },
-          ]
-        />
-      </div>
-    </Section>
+              </Link.Text>
+              <Lang.String
+                english=" and its master in digital Law. The research on Catala is also international
+                with an active group at the "
+                french={` et son master en droit du numérique. La recherche sur Catala est également internationale avec un groupe actif au sein de `}
+              />
+              <Link.Text target="https://law.illinois.edu/">
+                <Lang.String
+                  english="University of Illinois at Urbana-Champaign"
+                  french={`University of Illinois at Urbana-Champaign`}
+                />
+              </Link.Text>
+              <Lang.String english="." french={`.`} />
+            </p>,
+          },
+        ]
+      />
+    </section>
   </>
 }

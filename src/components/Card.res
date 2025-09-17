@@ -13,52 +13,45 @@ module Presentation = {
 
   type t = {
     title: React.element,
-    icon: option<string>,
+    icon: option<React.element>,
     quote: option<React.element>,
     action: option<(action, React.element)>,
     content: React.element,
   }
 
-  let renderPresentationCard = (lang, card: t, id: string) => {
-    let buttonStyle = "cursor-pointer bg-button_bg py-2 px-4 text-button_fg text-base inline-flex items-center rounded font-semibold font-sans hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100"
+  let renderPresentationCard = (card: t, id: string) => {
     let action = switch card.action {
     | None => <div />
     | Some((Internal(navs), text)) =>
-      <button className=buttonStyle onClick={_ => Nav.goTo(navs, lang)}>
-        <Icon className="pr-2" name="double_arrow" />
-        text
-      </button>
+      <Link.Internal target=navs className="text-base italic"> text </Link.Internal>
     | Some((External(url), text)) =>
-      <Link.Button className=buttonStyle target=url>
-        <Icon className="pr-2" name="double_arrow" />
-        text
-      </Link.Button>
+      <Link.Text target=url className="italic text-base"> text </Link.Text>
     }
     let quote = switch card.quote {
     | Some(quote) =>
-      <blockquote className="text-green pb-4">
-        <strong> quote </strong>
-      </blockquote>
+      <blockquote className="w-fit font-medium mb-4 text-primary_dark text-lg"> quote </blockquote>
     | None => <div />
     }
     let icon = switch card.icon {
-    | Some(icon) => <Icon className="pr-4" name=icon />
+    | Some(icon) => <span className="pr-2"> icon </span>
     | None => <span />
     }
-    <div className="w-full lg:w-1/2" key=id>
-      <div className="p-4 h-full">
+    <div
+      className="border bg-white h-full overflow-hidden nth-[n]:border-r border-border nth-[2n+1]:border-b">
+      <div className="flex flex-col h-full">
         <div
-          className="bg-white h-full overflow-hidden shadow-sm border-solid border-gray border rounded">
-          <div className="flex flex-col justify-between h-full px-6 py-4  ">
-            <div
-              className=" flex flex-row flex-nowrap items-center text-xl sm:text-2xl pb-2 font-bold">
-              icon
-              card.title
-            </div>
-            quote
-            <div className="text-base grow sm:text-lg pb-4"> card.content </div>
-            <div className="flex justify-end"> action </div>
+          className="border-b border-border border-dashed inline-flex p-4 flex-row flex-nowrap items-center text-xl font-serif font-semibold">
+          icon
+          card.title
+        </div>
+        <div className="flex flex-col h-full justify-between">
+          <div className="p-4">
+            <div> quote </div>
+            <div className="text-base"> card.content </div>
           </div>
+          {Option.isSome(card.action)
+            ? <div className="border-t border-border border-dashed px-4 py-2 "> action </div>
+            : <div />}
         </div>
       </div>
     </div>
@@ -67,10 +60,9 @@ module Presentation = {
   module FromList = {
     @react.component
     let make = (~cards: array<t>) => {
-      let (lang, _) = React.useContext(Lang.langContext)
-      <div className="flex flex-row flex-wrap items-stretch">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-8">
         {cards
-        ->Belt.Array.mapWithIndex((i, card) => renderPresentationCard(lang, card, string_of_int(i)))
+        ->Belt.Array.mapWithIndex((i, card) => renderPresentationCard(card, string_of_int(i)))
         ->React.array}
       </div>
     }

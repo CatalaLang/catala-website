@@ -16,11 +16,14 @@ module Button = {
   module Small = {
     @react.component
     let make = (
-      ~className="cursor-pointer bg-button_bg mt-8 mb-4 p-2 text-button_fg inline-flex items-center rounded font-semibold font-sans shadow-sm hover:bg-button_bg_hover hover:text-button_fg_hover ease-in duration-100 ",
+      ~className="text-base cursor-pointer border border-button_fg/50 px-4 py-1.5 text-button_fg font-medium inline-flex items-center font-sans hover:bg-primary_light/50 hover:text-button_fg_hover ease-in duration-100 ",
       ~target: string,
       ~children,
     ) => {
-      <a className href=target target="_blank"> children </a>
+      <a className href=target target="_blank">
+        children
+        <span className="text-base pl-2"> {"🡢"->React.string} </span>
+      </a>
     }
   }
 
