@@ -60,7 +60,7 @@ module Presentation = {
   module FromList = {
     @react.component
     let make = (~cards: array<t>) => {
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 m-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 mx-8 mt-8">
         {cards
         ->Belt.Array.mapWithIndex((i, card) => renderPresentationCard(card, string_of_int(i)))
         ->React.array}

@@ -209,7 +209,7 @@ let make = () => {
         </Highlight.Large>
       </div>
     </section>
-    <section id="workflow" className="my-16 border-y border-border bg-primary_light/5 py-8">
+    <section id="workflow" className="my-16 border-y border-border bg-primary_light/5 py-16">
       <h2 className="px-8 !mt-0">
         <a href={"#workflow"}>
           <Lang.String
@@ -625,7 +625,7 @@ de l'interface utilisateur.`}
         ]
       />
     </section>
-    <section id="science" className="mt-16 !px-0 bg-primary_light/5 py-8 border-y border-border">
+    <section id="science" className="mt-16 !px-0 bg-primary_light/5 py-16 border-y border-border">
       <h2 className="px-8">
         <a href={"#science"}>
           <Lang.String

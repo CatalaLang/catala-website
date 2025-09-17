@@ -208,7 +208,7 @@ let make = () => <>
       <Lang.String english="Catala documentation" french={`Documentation de Catala`} />
     </Title>
   </section>
-  <section id="examples" className="my-16 border-y border-border bg-primary_light/5 py-8">
+  <section id="examples" className="my-16 border-y border-border bg-primary_light/5 py-16">
     <h2 id="examples" className="px-8 ">
       <a href={"#core-principles"}>
         <Lang.String
@@ -247,7 +247,7 @@ let make = () => <>
     />
   </section>
   <section
-    id="researchers-content" className="mt-16 border-y border-border bg-primary_light/5 py-8">
+    id="researchers-content" className="mt-16 border-y border-border bg-primary_light/5 py-16">
     <h2 id="researchers-content" className="px-8 ">
       <a href={"#core-principles"}>
         <Lang.String

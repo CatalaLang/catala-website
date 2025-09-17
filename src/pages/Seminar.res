@@ -50,12 +50,11 @@ module Seminar = {
       </div>
       <p className="font-serif text-lg font-medium text-black"> {seminar.title} </p>
       <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
-      <details className="mt-4 pt-2 border border-border p-2 bg-primary_light/5">
-        <summary className="cursor-pointer italic">
-          <Lang.String french="Résumé" english="Abstract" />
-        </summary>
+      <Box.Collapsible
+        labelExpand={<Lang.String french="Voir le résumé" english="See abstract" />}
+        labelCollapse={<Lang.String french="Cacher le résumé" english="Hide abstract" />}>
         <p className="mt-2"> {seminar.abstract} </p>
-      </details>
+      </Box.Collapsible>
     </li>
   }
 }
@@ -1324,7 +1323,7 @@ let make = () => {
         </Link.Button.Primary>
       </div>
     </div>
-    <section id="upcoming" className="mb-16 px-8 border-y border-border py-8 bg-primary_light/5">
+    <section id="upcoming" className="mb-16 px-8 border-y border-border py-16 bg-primary_light/5">
       <h2>
         <a href={"#upcoming"}>
           <Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />
@@ -1351,7 +1350,7 @@ let make = () => {
       <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className="mb-8" />
     </Section>
     {if Belt.Array.length(season_2025_2026) != 0 {
-      <section id="past" className="my-16 px-8 border-y border-border py-8 bg-primary_light/5">
+      <section id="past" className="my-16 px-8 border-y border-border py-16 bg-primary_light/5">
         <h2>
           <a href={"#past"}>
             <Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />
@@ -1369,7 +1368,7 @@ let make = () => {
       <> </>
     }}
     <section
-      id="past-2024-2025" className="my-16 px-8 border-y border-border py-8 bg-primary_light/5">
+      id="past-2024-2025" className="my-16 px-8 border-y border-border py-16 bg-primary_light/5">
       <h2>
         <a href={"#past-2024-2025"}>
           <Lang.String english="Season 2024-2025" french={`Saison 2024-2025`} />

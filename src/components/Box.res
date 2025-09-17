@@ -5,16 +5,28 @@ module Collapsible = {
     ~labelCollapse=<Lang.String english="Close" french={`Fermer`} />,
     ~children,
   ) => {
-    let iconStyle = "float-left text-gray_dark"
-    let labelStyle = "text-base font-sans font-bold text-gray_dark hover:text-green"
+    let iconStyle = "float-left"
+    let labelStyle = "text-base font-sans hover:text-button_fg p-0"
     let (visible, setVisible) = React.useState(_ => false)
-    <div
-      className="text-background my-4 p-2 border bg-gray_light border-gray rounded shadow-sm overflow-y-auto max-h-128">
+    <div className="mt-4 border border-border p-2 bg-primary_light/5">
       {if visible {
         <>
           <div className=labelStyle>
-            <a className="cursor-pointer" onClick={_ => setVisible(_ => false)}>
-              <Icon className=iconStyle name="expand_less" />
+            <a
+              className="cursor-pointer flex items-center gap-2"
+              onClick={_ => setVisible(_ => false)}>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round">
+                <path d="m18 15-6-6-6 6" />
+              </svg>
               labelCollapse
             </a>
           </div>
@@ -22,8 +34,21 @@ module Collapsible = {
         </>
       } else {
         <div className=labelStyle>
-          <a className="cursor-pointer" onClick={_ => setVisible(_ => true)}>
-            <Icon className=iconStyle name="expand_more" />
+          <a
+            className="cursor-pointer flex gap-2 items-center" onClick={_ => setVisible(_ => true)}>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              className="">
+              <path d="m6 9 6 6 6-6" />
+            </svg>
             labelExpand
           </a>
         </div>

@@ -663,48 +663,57 @@ derived from a legislative specification. Programming Languages and the Law 2023
 }`,
 }
 
-let save_to_clipboard: string => unit = %raw(`
-function(text) {navigator.clipboard.writeText(text)}
+let save_to_clipboard: (string, string, string) => unit = %raw(`
+function(text, id, lang) {
+  navigator.clipboard.writeText(text);
+  document.getElementById(id).innerText =
+    lang === "fr" ? "Copié !" : "Copied!";
+  setTimeout(() => {
+    document.getElementById(id).innerText = "";
+  }, 500);
+}
 `)
 
 module PubItem = {
   @react.component
-  let make = (~pub: publication) =>
-    <div className="flex flex-col justify-center">
+  let make = (~pub: publication, ~locale: string) =>
+    <div className="flex flex-col justify-center p-4 not-last:border-b border-dashed border-border">
+      <span className="text-gray-800 mb-2"> {pub.date->React.string} </span>
       <div className="inline-flex flex-row justify-between items-center">
         <div className="">
-          <Link.Text className="font-semibold text-xl hover:text-green" target=pub.link>
+          <Link.Text className="font-semibold font-serif text-lg" target=pub.link>
             {pub.title->React.string}
           </Link.Text>
-          <span className="pl-4 pt-1 text-gray_dark font-semibold"> {pub.date->React.string} </span>
         </div>
-        <div className="inline-flex self-start mt-1">
-          <Button.Small style="mx-2" onClick={_ => save_to_clipboard(pub.bibtex)}>
+        <div className="inline-flex self-start mt-1 ">
+          <span
+            id={"citation-" ++ pub.title} className="text-green-700 italic text-sm font-medium m-1"
+          />
+          <Button.Small
+            style="mx-2 "
+            onClick={_ => save_to_clipboard(pub.bibtex, "citation-" ++ pub.title, locale)}>
             <span> {"BibTeX"->React.string} </span>
           </Button.Small>
-          <Button.Small onClick={_ => save_to_clipboard(pub.citation)}>
+          <Button.Small
+            onClick={_ => save_to_clipboard(pub.citation, "citation-" ++ pub.title, locale)}>
             <Icon name="format_quote" />
+            <span className=""> {""->React.string} </span>
           </Button.Small>
         </div>
       </div>
-      <div className="inline-flex flex-row flex-wrap justify-start items-center">
+      <div className="inline-flex flex-row flex-wrap justify-start items-center gap-2">
         {pub.authors
         ->Belt.Array.mapWithIndex((i, author) => {
           let key = "pub-author-" ++ i->string_of_int
           let style =
-            "px-3 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray_2 shadow-sm text-gray_dark" ++ if (
-              i > 0
-            ) {
+            "" ++ if i > 0 {
               ""
             } else {
               ""
             }
           switch author.website {
           | Some(target) =>
-            <Link.Text
-              key className={style ++ " hover:bg-primary_light hover:text-gray_dark"} target>
-              {author.name->React.string}
-            </Link.Text>
+            <Link.Text key className={style} target> {author.name->React.string} </Link.Text>
           | None => <span key className=style> {author.name->React.string} </span>
           }
         })
@@ -714,7 +723,7 @@ module PubItem = {
       | Some(abstract) =>
         <Box.Collapsible
           labelExpand={<Lang.String english="Show the abstract" french={`Voir l'abstract`} />}>
-          <p className="text-background"> {abstract->React.string} </p>
+          <p className="mt-2"> {abstract->React.string} </p>
         </Box.Collapsible>
       | None => <span className="mb-2" />
       }}
@@ -724,71 +733,95 @@ module PubItem = {
 module PubItems = {
   @react.component
   let make = (~items: array<publication>) => {
-    <div
-      className="flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4 gap-4">
+    let (lang, _) = React.useContext(Lang.langContext)
+    let locale = switch lang {
+    | Lang.French => "fr"
+    | _ => "en"
+    }
+    <ul className="bg-white border border-border">
       {items
       ->Belt.Array.mapWithIndex((i, item) =>
-        <PubItem key={"pub-item-" ++ i->string_of_int} pub=item />
+        <PubItem key={"pub-item-" ++ i->string_of_int} pub=item locale />
       )
       ->React.array}
-    </div>
+    </ul>
   }
 }
 
 @react.component
 let make = () => <>
-  <Title>
-    <Lang.String english="Publications" french={`Publications`} />
-  </Title>
-  <div className="pb-10">
-    <Section
-      id="peer-reviewed"
-      title={<Lang.String
-        english="Peer-reviewed conferences and journals"
-        french={`Conférences et journaux à comité de lecture`}
-      />}>
-      <PubItems
-        items={[
-          cutecat_2025,
-          droit_societe_2024,
-          virginia_tax_review_2024,
-          dates_2024,
-          crcl_2022,
-          ai_law_2022,
-          icfp2021,
-          cc2021,
-          forms_as_formalization_2020,
-          jfla2020,
-        ]}
-      />
-    </Section>
-    <Section id="workshops" title={<Lang.String english="Workshops" french={`Ateliers`} />}>
-      <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
-    </Section>
-    <Section
-      id="invited" title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
-      <PubItems
-        items={[
-          epistemic_trespassing_2024,
-          sif_1024_2024,
-          scoping_ai_law_2024,
-          chicago_law_review_2024,
-          crcl_2023,
-          smu_2022,
-          iafipu2020,
-        ]}
-      />
-    </Section>
-    <Section
-      id="phd" title={<Lang.String english="PhD dissertations" french={`Thèses de doctorat`} />}>
-      <PubItems items={[these_liane, these_denis, these_marie]} />
-    </Section>
-    <Section
-      id="preprints"
-      title={<Lang.String
-        english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
-      />}>
-      <PubItems items={[explicabilite_2024, observations_2022, crcl_2021]} />
-    </Section>
-  </div>
+  <section className="my-16 px-8">
+    <Title>
+      <Lang.String english="Publications" french={`Publications`} />
+    </Title>
+  </section>
+  <section
+    id="peer-reviewed" className="mb-16 px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href="#peer-reviewed">
+        <Lang.String
+          english="Peer-reviewed conferences and journals"
+          french={`Conférences et journaux à comité de lecture`}
+        />
+      </a>
+    </h2>
+    <PubItems
+      items={[
+        cutecat_2025,
+        droit_societe_2024,
+        virginia_tax_review_2024,
+        dates_2024,
+        crcl_2022,
+        ai_law_2022,
+        icfp2021,
+        cc2021,
+        forms_as_formalization_2020,
+        jfla2020,
+      ]}
+    />
+  </section>
+  <section id="workshops" className="mb-16 px-8">
+    <h2>
+      <a href="#workshops">
+        <Lang.String english="Workshops" french={`Ateliers`} />
+      </a>
+    </h2>
+    <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
+  </section>
+  <section id="invited" className="px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href="#invited">
+        <Lang.String english="Invited articles" french={`Articles invités`} />
+      </a>
+    </h2>
+    <PubItems
+      items={[
+        epistemic_trespassing_2024,
+        sif_1024_2024,
+        scoping_ai_law_2024,
+        chicago_law_review_2024,
+        crcl_2023,
+        smu_2022,
+        iafipu2020,
+      ]}
+    />
+  </section>
+  <section id="phd" className="my-16 px-8">
+    <h2>
+      <a href="#phd">
+        <Lang.String english="PhD dissertations" french={`Thèses de doctorat`} />
+      </a>
+    </h2>
+    <PubItems items={[these_liane, these_denis, these_marie]} />
+  </section>
+  <section id="preprints" className="mt-16 px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href="#preprints">
+        <Lang.String
+          english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
+        />
+      </a>
+    </h2>
+    <PubItems items={[explicabilite_2024, observations_2022, crcl_2021]} />
+  </section>
 </>
