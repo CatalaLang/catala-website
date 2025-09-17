@@ -3,12 +3,13 @@ module Collapsible = {
   let make = (
     ~labelExpand=<Lang.String english="Open" french={`Ouvrir`} />,
     ~labelCollapse=<Lang.String english="Close" french={`Fermer`} />,
+    ~className="",
     ~children,
   ) => {
     let iconStyle = "float-left"
     let labelStyle = "text-base font-sans hover:text-button_fg p-0"
     let (visible, setVisible) = React.useState(_ => false)
-    <div className="mt-4 border border-border p-2 bg-primary_light/5">
+    <div className={"mt-4 border border-border p-2 bg-primary_light/5 " ++ className}>
       {if visible {
         <>
           <div className=labelStyle>

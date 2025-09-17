@@ -16,7 +16,7 @@ module Button = {
   module Small = {
     @react.component
     let make = (
-      ~className="text-base cursor-pointer border border-button_fg/50 px-4 py-1.5 text-button_fg font-medium inline-flex items-center font-sans hover:bg-primary_light/50 hover:text-button_fg_hover ease-in duration-100 ",
+      ~className="text-base cursor-pointer border border-button_fg/50 px-4 py-1.5 text-button_fg font-medium inline-flex items-center font-sans hover:bg-primary_light/50 hover:text-button_fg_hover ease-in duration-100 bg-white",
       ~target: string,
       ~children,
     ) => {
