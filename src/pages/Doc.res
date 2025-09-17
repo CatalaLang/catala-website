@@ -25,16 +25,19 @@ external fetch_and_set: (~url: string, ~id: string) => unit = "fetch_and_set"
 module MakeManPageDoc = (Man: ManPage) => {
   @react.component
   let make = () => {
-    let div =
-      <div id="manpage-body" className="font-mono man-page">
+    <>
+      <section className="my-16 px-8">
+        <Title> Man.title </Title>
+      </section>
+      <div className="h-16 bg-primary_light/5 border-y border-border " />
+      <div
+        id="manpage-body"
+        className="font-mono man-page text-wrap p-8 my-16 w-fit overflow-x-auto lg:min-w-4xl ">
         {
           fetch_and_set(~url=Man.url, ~id="manpage-body")
           React.string("Loading...")
         }
       </div>
-    <>
-      <Title> Man.title </Title>
-      <Card.Basic> div </Card.Basic>
     </>
   }
 }

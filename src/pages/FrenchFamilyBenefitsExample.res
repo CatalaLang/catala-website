@@ -74,40 +74,44 @@ let card: Card.Presentation.t = {
 @react.component
 let make = () => {
   <>
-    <Title> pageTitle </Title>
-    <p>
-      <Lang.String
-        english="The source code for this example is available "
-        french={`Le code source de cet exemple est disponible `}
-      />
-      <Link.Text
-        target="https://github.com/CatalaLang/catala-examples/tree/master/allocations_familiales">
-        <Lang.String english="here" french={`ici`} />
-      </Link.Text>
-      <Lang.String
-        english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
+    <section className="my-16 px-8">
+      <Title> pageTitle </Title>
+    </section>
+    <div className="p-8 bg-primary_light/5 border-y border-border mb-16">
+      <p className="font-serif text-lg text-center mx-auto !my-0">
+        <Lang.String
+          english="The source code for this example is available "
+          french={`Le code source de cet exemple est disponible `}
+        />
+        <Link.Text
+          target="https://github.com/CatalaLang/catala-examples/tree/master/allocations_familiales">
+          <Lang.String english="here" french={`ici`} />
+        </Link.Text>
+        <Lang.String
+          english=". What you can see here is the \"weaved\" output of the source files processed by the Catala compiler.
         Weaving is a concept from "
-        french={`. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
+          french={`. Ce que vous pouvez voir en dessous est la version "tissée" des fichiers sources transformés par le compilateur Catala.
         Le tissage est un concept issu de la `}
-      />
-      <Link.Text target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
-        <Lang.String english="literate programming" french={`programmation littéraire`} />
-      </Link.Text>
-      <Lang.String
-        english=" corresponding to the action of interleaving together the code and its textual documentation
+        />
+        <Link.Text target="https://en.wikipedia.org/wiki/Literate_programming#Workflow">
+          <Lang.String english="literate programming" french={`programmation littéraire`} />
+        </Link.Text>
+        <Lang.String
+          english=" corresponding to the action of interleaving together the code and its textual documentation
          as to produce a reviewable and comprehensive document. Please refer to "
-        french={` , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
+          french={` , qui correspond à l'action d'entremêler le code et sa documentation textuelle dans un document
          complet et lisible. Veuillez vous réferer au `}
-      />
-      <Link.Text target="https://book.catala-lang.org">
-        <Lang.String english="the Catala book" french={`guide Catala`} />
-      </Link.Text>
-      <Lang.String
-        english="  for a hands-on introduction
+        />
+        <Link.Text target="https://book.catala-lang.org">
+          <Lang.String english="the Catala book" french={`guide Catala`} />
+        </Link.Text>
+        <Lang.String
+          english="  for a hands-on introduction
           on how to read this document."
-        french={`  pour savoir comment lire ce document.`}
-      />
-    </p>
+          french={`  pour savoir comment lire ce document.`}
+        />
+      </p>
+    </div>
     // <Section title={<Lang.String english="Online computation" french={`Calculateur en ligne`} />}>
     //   <div className=%twc("inline-flex justify-end")>
     //     <Button.Internal
