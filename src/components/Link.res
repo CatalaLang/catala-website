@@ -35,7 +35,7 @@ module Button = {
   ) => {
     <a className href=target target="_blank">
       children
-      <span className="text-lg pl-2"> {"🡢"->React.string} </span>
+      <span className="text-base pl-2"> {"🡢"->React.string} </span>
     </a>
   }
 
@@ -54,7 +54,8 @@ module Button = {
   }
 
   module Internal = {
-    let baseClassName = "cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit "
+    let baseClassName = "cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/50 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit "
+
     @react.component
     let make = (~className="", ~target: array<Nav.navElem>, ~children) => {
       let (lang, _) = React.useContext(Lang.langContext)
@@ -64,7 +65,7 @@ module Button = {
     module Small = {
       @react.component
       let make = (
-        ~className="cursor-pointer border bg-primary_light/80 px-4 py-2 text-button_fg text-sm inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
+        ~className="cursor-pointer border bg-primary_light/80 px-4 py-2 text-button_fg text-sm inline-flex items-center border-button_fg/50 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
         ~target: array<Nav.navElem>,
         ~children,
       ) => {

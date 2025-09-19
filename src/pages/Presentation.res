@@ -53,15 +53,15 @@ let make = () => {
           <Lang.String english="Read the documentation" french={`Lire la documentation`} />
         </Link.Button.Internal>
         <div className="inline-flex flex-col md:flex-row gap-4">
-          <Link.Button target={demoLink}>
-            <Lang.String english="See the demo" french={`Voir la démo`} />
-          </Link.Button>
           <Link.Button target={githubLink}>
             <Lang.String english="Get started on GitHub" french={`Démarrer sur GitHub`} />
           </Link.Button>
+          <Link.Button.Internal target=[Nav.home, Nav.about] className="bg-white">
+            <Lang.String english="Who are we?" french={`Qui sommes-nous ?`} />
+          </Link.Button.Internal>
         </div>
       </div>
-      <div>
+      <div className="text-sm">
         <Lang.String english="Apache-2.0 License" french={`Licence Apache-2.0`} />
         <Link.Text className="ml-2" target={githubLinkLatestRelease}>
           <Lang.String english="GitHub v1.0.0-alpha" french={`GitHub v1.0.0-alpha`} />
