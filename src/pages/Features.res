@@ -48,7 +48,7 @@ let make = () => {
               </svg>
               <Lang.String english="Literate programming" french={`Programmation littéraire`} />
             </h3>
-            <p className="font-semibold mb-4">
+            <p className="font-medium mb-4">
               <TextHighlight>
                 <Lang.String
                   english="Create a direct correspondence between the specification and the code"
@@ -111,7 +111,7 @@ let make = () => {
               </svg>
               <Lang.String english="Pair programming" french={`Programmation en binôme`} />
             </h3>
-            <p className="font-semibold mb-4">
+            <p className="font-medium mb-4">
               <TextHighlight>
                 <Lang.String
                   english="Speed up development by having lawyers and programmers talk to each other"

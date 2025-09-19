@@ -50,7 +50,7 @@ module Highlight = {
         <img
           style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-40 p-4" src={src}
         />
-        <figcaption className="border-t border-dashed border-border px-4 py-2 text-sm ">
+        <figcaption className="border-t border-dashed border-border px-4 py-2 text-sm text-center">
           children
         </figcaption>
       </figure>

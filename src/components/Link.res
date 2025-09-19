@@ -29,7 +29,7 @@ module Button = {
 
   @react.component
   let make = (
-    ~className="cursor-pointer border border-button_fg/50 px-8 py-2 text-button_fg font-medium  inline-flex items-center font-sans hover:bg-primary_light/50 hover:text-button_fg_hover ease-in duration-100 w-fit",
+    ~className="cursor-pointer border border-button_fg/50 px-8 py-2 text-button_fg font-medium inline-flex items-center font-sans hover:bg-primary_light/50 hover:text-button_fg_hover ease-in duration-100 w-fit",
     ~target: string,
     ~children,
   ) => {

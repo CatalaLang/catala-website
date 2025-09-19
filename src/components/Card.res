@@ -29,7 +29,9 @@ module Presentation = {
     }
     let quote = switch card.quote {
     | Some(quote) =>
-      <blockquote className="w-fit font-medium mb-4 text-primary_dark text-lg"> quote </blockquote>
+      <blockquote className="w-fit mb-4 text-base font-medium">
+        <TextHighlight> quote </TextHighlight>
+      </blockquote>
     | None => <div />
     }
     let icon = switch card.icon {
@@ -37,6 +39,7 @@ module Presentation = {
     | None => <span />
     }
     <div
+      id
       className="border bg-white h-full overflow-hidden nth-[n]:border-r border-border nth-[2n+1]:border-b">
       <div className="flex flex-col h-full">
         <div

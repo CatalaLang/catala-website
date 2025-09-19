@@ -29,7 +29,7 @@ module Person = {
 module PersonTable = {
   @react.component
   let make = (~persons: array<person>, ~className="") =>
-    <ul className={"flex flex-col border-y border-border border-x" ++ " " ++ className}>
+    <ul className={"flex flex-col border-y border-border border-x bg-white" ++ " " ++ className}>
       {persons
       ->Belt.Array.map(person => {
         <Person person />
@@ -66,7 +66,7 @@ let make = () => <>
     title={<Lang.String
       english="A language in the service of the Law" french={`Un langage au service de la loi`}
     />}>
-    <div className="lg:columns-2 gap-8 lg:**:text-justify">
+    <div className="">
       <p>
         <Lang.String
           english="Transforming legislative texts into computer programs is
@@ -209,7 +209,7 @@ let make = () => <>
       english="Practical applications in the public sector"
       french={`Des applications concrètes dans les administrations `}
     />}>
-    <div className="lg:columns-2 gap-8 **:text-justify">
+    <div className="">
       <p>
         <Lang.String
           french={`Catala, qui fait travailler ensemble chercheur·e·s et ingénieur·e·s,
@@ -256,7 +256,7 @@ let make = () => <>
   </Section>
   <div className="clear-right" />
   // TODO reuse Section component
-  <section className="px-4 md:px-8 mb-16">
+  <section className="px-4 md:px-8 mb-16 bg-primary_light/5 border-y border-border py-16">
     <h2 id="people">
       <h2>
         <a href={"#people"}>
@@ -302,7 +302,7 @@ let make = () => <>
   </section>
   <Section
     id="naming"
-    className="mb-16"
+    className="bg-primary_light/5 py-16 border-y border-border"
     title={<Lang.String
       english="Why the name \"Catala\"?" french={`Pourquoi le nom « Catala » ?`}
     />}>
