@@ -26,7 +26,7 @@ let card: Card.Presentation.t = {
 
 @react.component
 let make = () => <>
-  <section className="my-16 px-8">
+  <section className="my-16 px-4 md:px-8">
     <Title> pageTitle </Title>
   </section>
   <div className="p-8 bg-primary_light/5 border-y border-border mb-16">
@@ -63,7 +63,7 @@ let make = () => <>
       />
     </p>
   </div>
-  <Section id="us_tax_code" title={<Lang.String english="Source code" french={`Code source`} />}>
+  <div className="[--mw:calc(100dvw-2rem)] md:px-8 md:[--mw:calc(90ch)] max-w-[var(--mw)] mx-auto">
     <CatalaCode.DangerouslySetInnerHtml htmlFile="us_tax_code.html" />
-  </Section>
+  </div>
 </>

@@ -14,7 +14,7 @@ let make = () => {
   <div className="flex flex-col gap-24">
     <section className="px-4 md:px-8 flex flex-col">
       <h1
-        className="text-2xl md:text-3xl max-w-3xl mt-32 mb-16 font-serif !font-normal leading-snug">
+        className="text-2xl md:text-3xl max-w-3xl mt-24 md:mt-32 mb-16 font-serif !font-normal leading-snug">
         <Lang.String
           english="A domain-specific language designed by researchers in "
           french={`Un langage spécifique conçu par des chercheuses et chercheurs en `}
@@ -69,7 +69,7 @@ let make = () => {
       </div>
     </section>
     <div
-      className="w-full border-y py-2 border-border bg-primary_light/5 inline-flex flex-row flex-wrap items-center justify-center">
+      className="w-full border-y py-2 px-4 border-border bg-primary_light/5 inline-flex flex-row flex-wrap items-center justify-center">
       <p className="text-center !my-0">
         <Lang.String
           english="Made with ❤️ within the "
@@ -79,10 +79,10 @@ let make = () => {
           <Lang.String english="Apollo program" french={`programme Apollo`} />
         </Link.Text>
         <Lang.String english=", managed by" french={`, piloté par`} />
+        <Link.Text target=inriaLink className="inline-block" internal=true>
+          <img className="ml-2 pb-1 h-6 inline-block" src={Assets.Image.logo_inria} />
+        </Link.Text>
       </p>
-      <Link.Text target=inriaLink className="no-underline" internal=true>
-        <img className="ml-3 h-8 pb-2" src={Assets.Image.logo_inria} />
-      </Link.Text>
     </div>
     <section className="px-4 md:px-8 flex flex-col md:flex-row gap-8 items-start w-full">
       <div className="flex flex-col">
@@ -108,11 +108,14 @@ let make = () => {
           </Link.Button.Internal.Small>
         </div>
       </div>
-      <div className="[--mw:calc(100dvw-2rem)] max-w-[var(--mw)] overflow-x-auto mx-auto">
-        <Lang.Element
-          french={<CatalaCode.DangerouslySetInnerHtml htmlFile="french_homepage.html" />}
-          english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}
-        />
+      <div
+        className="[--mw:calc(100dvw-2rem)] max-w-[var(--mw)] md:max-w-3/5 overflow-x-auto mx-auto">
+        <div className="bg-primary_light/5 border border-border px-4 pt-2 pb-0 html">
+          <Lang.Element
+            french={<CatalaCode.DangerouslySetInnerHtml htmlFile="french_homepage.html" />}
+            english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}
+          />
+        </div>
         <div
           className="w-full italic text-sm p-2 px-4 border-x border-b border-border bg-stone-50 rounded-b-sm text-stone-700">
           <Lang.String

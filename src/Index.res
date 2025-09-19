@@ -21,7 +21,7 @@ module App = {
         <main className="max-w-6xl pb-16 md:mx-8 border-x border-border bg-white">
           <Router />
         </main>
-        <div className="w-full border-t border-border bottom-0 px-4">
+        <div className="w-full border-t border-border bottom-0 px-4 md:px-8">
           <Footer />
         </div>
       </div>

@@ -18,7 +18,7 @@ module DangerouslySetInnerHtml = {
       typesetMathJax()
       None
     })
-    <RawHtml htmlFile={htmlFile} className="border-button_fg/50 border catala-code" />
+    <RawHtml htmlFile={htmlFile} className="catala-code w-full" />
   }
 }
 module Span = {

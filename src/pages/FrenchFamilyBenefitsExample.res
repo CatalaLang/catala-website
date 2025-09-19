@@ -74,10 +74,10 @@ let card: Card.Presentation.t = {
 @react.component
 let make = () => {
   <>
-    <section className="my-16 px-8">
+    <section className="my-16 px-4 md:px-8">
       <Title> pageTitle </Title>
     </section>
-    <div className="p-8 bg-primary_light/5 border-y border-border mb-16">
+    <div className="py-8 px-4 md:px-8 bg-primary_light/5 border-y border-border mb-16">
       <p className="font-serif text-lg text-center mx-auto !my-0">
         <Lang.String
           english="The source code for this example is available "
@@ -125,9 +125,11 @@ let make = () => {
     //   </div>
     //   <Form setEventsOpt={_ => ()} collapsible=true />
     // </Section>
-    <Section
-      id="source-code-family" title={<Lang.String english="Source code" french={`Code source`} />}>
+    // <Section
+    //   id="source-code-family" title={<Lang.String english="Source code" french={`Code source`} />}>
+    <div
+      className="[--mw:calc(100dvw-2rem)] md:px-8 md:[--mw:calc(90ch)] max-w-[var(--mw)] mx-auto">
       <CatalaCode.DangerouslySetInnerHtml htmlFile="allocations_familiales.html" />
-    </Section>
+    </div>
   </>
 }

@@ -1,38 +1,52 @@
 @import url("https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap");
 @import "../../assets/css/catala_code.css";
 
-.catala-code .law-text {
-  /* font-family: "Inter", "Open Sans", sans-serif; */
+html .catala-code p {
+  max-width: none !important;
+}
+
+html .catala-code .law-text {
+  /* font-family: "Inter", "Open Sans", sans-serif;
   /* font-family: "Libre Baskerville", serif; */
   font-family: "Libre Baskerville", serif;
   font-weight: normal;
   font-size: medium;
   margin-bottom: 0.5rem;
+  max-width: none !important;
 }
 
-html .catala-code .article-title {
-  font-family: "Libre Baskerville", serif;
-  font-size: large;
-  font-weight: bold;
-  margin-bottom: 1rem;
+html .catala-code .toc-item a:hover {
+  color: #4d3006;
+}
+
+html .catala-code .link-article:hover {
+  color: #4d3006;
 }
 
 html .catala-code {
+  --border-color: transparent; /* #ddd6cd;*/
+  --bg-color: transparent;
+  --code-bg-color: #f5f5f4;
+  padding: 0 !important;
+  border-radius: 0 !important;
+}
+
+html .catala-code .code-wrapper {
   --border-color: #ddd6cd;
   --bg-color: #fffcf9;
-  --code-bg-color: #f5f5f4;
-  border-radius: 0rem !important;
+  border-radius: 0;
+  overflow-x: auto;
 }
 
 html .code-wrapper {
-  background-color: var(--code-bg-color) !important;
   border-radius: 0;
 }
 
 html .catala-code .filename {
   font-family: monospace;
   color: #4d3006;
-  width: 100% !important;
+  display: inline-block;
+  min-width: 100%;
   background-color: transparent !important;
 }
 
@@ -42,7 +56,32 @@ html .catala-code .code {
   width: 100%;
 }
 
+html .catala-code .code-wrapper tbody {
+  border-top: 1px solid #ddd6cd !important;
+}
+
 html .catala-code .linenodiv {
   color: #4d3006;
   background-color: #fffaf2;
+}
+
+html .catala-code h1 {
+  text-align: left;
+}
+
+html .catala-code h1,
+html .catala-code h2,
+html .catala-code h3,
+html .catala-code h4,
+html .catala-code h5,
+html .catala-code h6,
+html .catala-code h7,
+html .catala-code h8,
+html .catala-code h9 {
+  display: block;
+  font-weight: 500;
+  color: black;
+  font-family: "Space Grotesk", sans-serif;
+  margin-bottom: 0.5rem;
+  padding-bottom: 0.5rem;
 }
