@@ -95,19 +95,95 @@ type metaData = {
 }
 
 let setMetaData = (navs: array<Nav.navElem>, lang: Lang.lang): unit => {
-  let {title, description} = switch (navs, lang) {
-  | ([first, second], English) if first == Nav.home => {
-      title: "About Catala",
-      description: "Catala is a declarative language for legal rules, designed to be readable",
+  let defaultDescriptionFr = `un langage spécifique conçu par des chercheuses
+    et chercheurs en informatique et en droit, pour l'écriture précise
+    d'algorithmes appliquant automatiquement du droit.`
+  let defaultDescriptionEn = `a domain-specific language designed by
+    researchers in Computer Science and Law, for precisely deriving
+    algorithms producing automated legal decisions.`
+  let defaultEnMeta = {
+    title: "Catala - Law to Code",
+    description: `The official website of Catala, ${defaultDescriptionEn}`,
+  }
+  let defaultFrMeta = {
+    title: "Catala - Du droit vers le code",
+    description: `Le site officiel de Catala, ${defaultDescriptionFr}`,
+  }
+  Console.log(navs)
+  let {title, description} = switch navs {
+  | [first, second] if first == Nav.home && second == Nav.about =>
+    switch lang {
+    | English => {
+        ...defaultEnMeta,
+        title: "About - Catala",
+      }
+    | French => {
+        ...defaultFrMeta,
+        title: "À propos - Catala",
+      }
     }
-  // | ([first, second], French) if first == Nav.home => "À propos de Catala"
-  | (_, English) => {
-      title: "Catala - Law to Code",
-      description: "The official website of the Catala domain-specific programming language for translating law into code.",
+  | [first, second] if first == Nav.home && second == Nav.features =>
+    switch lang {
+    | English => {
+        title: "Features - Catala",
+        description: `Overview of the features of the Catala programming language. Catala is ${defaultDescriptionEn}`,
+      }
+    | French => {
+        title: "Fonctionnalités - Catala",
+        description: `Présentation des fonctionnalités du langage de programmation Catala. Catala est ${defaultDescriptionFr}`,
+      }
     }
-  | (_, French) => {
-      title: "Catala - Du droit vers le code",
-      description: "Le site officiel du langage de programmation Catala, un langage spécifique au domaine pour traduire le droit en code.",
+  | [first, second] if first == Nav.home && second == Nav.seminar =>
+    switch lang {
+    | English => {
+        title: "Seminars - Catala",
+        description: `List of past and upcoming academic research seminars organized
+      by the Catala team. Catala is ${defaultDescriptionEn}`,
+      }
+    | French => {
+        title: "Séminaires - Catala",
+        description: `Liste des séminaires de recherche passés et à venir organisés
+      par l'équipe Catala. Catala est ${defaultDescriptionFr}`,
+      }
+    }
+  | [first, second] if first == Nav.home && second == Nav.doc =>
+    switch lang {
+    | English => {
+        title: "Documentation - Catala",
+        description: `Documentation of the Catala programming language. Catala is ${defaultDescriptionEn}`,
+      }
+    | French => {
+        title: "Documentation - Catala",
+        description: `Documentation du langage de programmation Catala. Catala est ${defaultDescriptionFr}`,
+      }
+    }
+  | [first, second, third] if first == Nav.home && second == Nav.doc && third == Nav.publications =>
+    switch lang {
+    | English => {
+        title: "Publications - Catala",
+        description: `Academic publications related to the Catala programming language. Catala is ${defaultDescriptionEn}`,
+      }
+    | French => {
+        title: "Publications - Catala",
+        description: `Publications académiques liées au langage de programmation Catala. Catala est ${defaultDescriptionFr}`,
+      }
+    }
+  | [first, second, third]
+    if first == Nav.home && second == Nav.doc && third == Nav.formalization =>
+    switch lang {
+    | English => {
+        title: "Formalization - Catala",
+        description: `Resources on the formalization of the Catala language. Catala is ${defaultDescriptionEn}`,
+      }
+    | French => {
+        title: "Formalisation - Catala",
+        description: `Ressources sur la formalisation du langage Catala. Catala est ${defaultDescriptionFr}`,
+      }
+    }
+  | _ =>
+    switch lang {
+    | English => defaultEnMeta
+    | French => defaultFrMeta
     }
   }
   let document = Webapi.Dom.document->Webapi.Dom.Document.asHtmlDocument->Option.getExn
@@ -124,6 +200,16 @@ let setMetaData = (navs: array<Nav.navElem>, lang: Lang.lang): unit => {
   ->Webapi.Dom.HtmlDocument.querySelector(`meta[name="og:description"]`)
   ->Option.getExn
   ->Webapi.Dom.Element.setAttribute("content", description)
+  document
+  ->Webapi.Dom.HtmlDocument.querySelector(`meta[name="og:image"]`)
+  ->Option.getExn
+  ->Webapi.Dom.Element.setAttribute(
+    "content",
+    switch lang {
+    | English => "/assets/catala-ogimage-en.png"
+    | French => "/assets/catala-ogimage-fr.png"
+    },
+  )
 }
 
 @react.component

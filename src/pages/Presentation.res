@@ -28,8 +28,8 @@ let make = () => {
         />
         <TextHighlight>
           <Lang.String
-            english="producing automated legal decisions"
-            french={`appliquant automatiquement du droit`}
+            english="producing automated legal decisions."
+            french={`appliquant automatiquement du droit.`}
           />
         </TextHighlight>
       </h1>
