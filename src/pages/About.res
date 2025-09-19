@@ -5,7 +5,7 @@ module Person = {
   @react.component
   let make = (~person: person) =>
     <li
-      className="grid grid-cols-1 md:grid-cols-3 w-full gap-2 not-last:border-b border-border p-2 items-start">
+      className="grid grid-cols-1 md:grid-cols-3 gap-2 not-last:border-b border-border p-2 items-start">
       <div className="inline-flex flex-wrap gap-2 items-center">
         {switch person.website {
         | None => person.name |> React.string
@@ -244,7 +244,7 @@ let make = () => <>
       l'impôt sur le revenu.`}
         />
       </p>
-      <p className="italic text-stone-700 text-sm border-t border-border pt-1">
+      <p className="italic text-stone-700 text-sm border-t border-border pt-1 !w-fit">
         <Lang.String
           english="Text credits: the Catala team and " french={`Source : l'équipe de Catala et `}
         />

@@ -8,12 +8,12 @@ let make = () => {
   )
 
   <>
-    <section className="px-8 my-16">
+    <section className="px-4 md:px-8 my-16">
       <Title>
         <Lang.String english="Features" french={`Fonctionnalités`} />
       </Title>
     </section>
-    <section className="border-y border-border bg-primary_light/5 p-8">
+    <section className="border-y border-border bg-primary_light/5 px-4 md:px-8 py-16">
       <h2 id="core-principles" className="">
         <a href={"#core-principles"}>
           <Lang.String
@@ -23,7 +23,7 @@ let make = () => {
         </a>
       </h2>
       <section className="border border-border">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white p-4 md:p-8">
           <div className="flex flex-col h-full">
             <h3 className="inline-flex gap-2 items-center mb-4">
               <svg
@@ -56,7 +56,7 @@ let make = () => {
                 />
               </TextHighlight>
             </p>
-            <div className="mb-4 lg:hidden max-w-2/3 mx-auto">
+            <div className="mb-4 lg:hidden mx-auto">
               <Figure
                 src={code_screenshot_asset}
                 altEn="Screenshot from the file us_tax_code/section_132.catala_en"
@@ -90,7 +90,7 @@ let make = () => {
           </div>
         </div>
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white border-t border-dashed border-border p-8">
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white border-t border-dashed border-border p4 md:p-8">
           <div className="flex flex-col h-min">
             <h3 className="inline-flex gap-2 items-center mb-4">
               <svg
@@ -159,7 +159,7 @@ let make = () => {
       </section>
     </section>
     <section id="proof-of-concepts" className="my-16 !px-0">
-      <h2 className="px-8 !mt-0">
+      <h2 className="px-4 md:px-8 !mt-0">
         <a href={"#proof-of-concepts"}>
           <Lang.String
             english="A tool tried and tested by French administrations"
@@ -167,7 +167,7 @@ let make = () => {
           />
         </a>
       </h2>
-      <p className="px-8 mb-6">
+      <p className="px-4 md:px-8 mb-6">
         <Lang.String
           english="Several proofs of concept have been made for French public
           administrations. This demonstrates the ability of Catala to provide
@@ -210,7 +210,7 @@ let make = () => {
       </div>
     </section>
     <section id="workflow" className="my-16 border-y border-border bg-primary_light/5 py-16">
-      <h2 className="px-8 !mt-0">
+      <h2 className="px-4 md:px-8 !mt-0">
         <a href={"#workflow"}>
           <Lang.String
             english="An innovative programming language that fits into your existing workflow"
@@ -218,7 +218,7 @@ let make = () => {
           />
         </a>
       </h2>
-      <p className="px-8 text-lg">
+      <p className="px-4 md:px-8 md:text-lg">
         <Lang.String
           english="You maintain a legacy ditigal app, packaging a computation engine
           specified by the law ? Catala allows you to plan ahead your upgrade with serenity."
@@ -226,223 +226,218 @@ let make = () => {
 de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement votre future modernisation.`}
         />
       </p>
-      <div className="text-base sm:text-lg pb-10 pt-4">
-        <Card.Presentation.FromList
-          cards=[
-            {
-              title: <Lang.String
-                english="Use your favorite IDE" french={`Utilisez votre IDE favori`}
+      <Card.Presentation.FromList
+        cards=[
+          {
+            title: <Lang.String
+              english="Use your favorite IDE" french={`Utilisez votre IDE favori`}
+            />,
+            icon: Some(
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-wrench-icon lucide-wrench">
+                <path
+                  d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"
+                />
+              </svg>,
+            ),
+            quote: Some(
+              <Lang.String
+                english="Standard, integrated software engineering tooling"
+                french={`Des outils d'ingénierie logicielle standards et intégrés`}
               />,
-              icon: Some(
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-wrench-icon lucide-wrench">
-                  <path
-                    d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z"
-                  />
-                </svg>,
-              ),
-              quote: Some(
-                <Lang.String
-                  english="Standard, integrated software engineering tooling"
-                  french={`Des outils d'ingénierie logicielle standards et intégrés`}
-                />,
-              ),
-              action: Some((
-                External("https://marketplace.visualstudio.com/items?itemName=catalalang.catala"),
-                <Lang.String
-                  english="Get VSCode extension" french={`Obtenir l'extension VSCode`}
-                />,
-              )),
-              content: <p>
-                <Lang.String
-                  english="A Catala source file is a text file. Version control, syntax
+            ),
+            action: Some((
+              External("https://marketplace.visualstudio.com/items?itemName=catalalang.catala"),
+              <Lang.String english="Get VSCode extension" french={`Obtenir l'extension VSCode`} />,
+            )),
+            content: <p>
+              <Lang.String
+                english="A Catala source file is a text file. Version control, syntax
                 highlighting, compiler error reporting, debugging, continuous integration:
                 you can do it all from the command line or from your favorite IDE
                 with the language server."
-                  french={`Un fichier source Catala est un fichier texte. Versionnage des source,
+                french={`Un fichier source Catala est un fichier texte. Versionnage des source,
                 coloration syntaxique, rapports des erreurs du compilateur, débogage,
                 intégration continue : vous pouvez tout faire depuis la ligne de commande ou bien depuis
                 votre IDE favori avec le serveur de langage.`}
+              />
+            </p>,
+          },
+          {
+            title: <Lang.String
+              english="Reuse your application, as they are"
+              french={`Réutilisez vos application, telles quelles`}
+            />,
+            icon: Some(
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-recycle-icon lucide-recycle">
+                <path
+                  d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"
                 />
-              </p>,
-            },
-            {
-              title: <Lang.String
-                english="Reuse your application, as they are"
-                french={`Réutilisez vos application, telles quelles`}
+                <path
+                  d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"
+                />
+                <path d="m14 16-3 3 3 3" />
+                <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
+                <path
+                  d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"
+                />
+                <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
+              </svg>,
+            ),
+            quote: Some(
+              <Lang.String
+                english="Simply swap the rules engine"
+                french={`Remplacez simplement le moteur de règles`}
               />,
-              icon: Some(
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-recycle-icon lucide-recycle">
-                  <path
-                    d="M7 19H4.815a1.83 1.83 0 0 1-1.57-.881 1.785 1.785 0 0 1-.004-1.784L7.196 9.5"
-                  />
-                  <path
-                    d="M11 19h8.203a1.83 1.83 0 0 0 1.556-.89 1.784 1.784 0 0 0 0-1.775l-1.226-2.12"
-                  />
-                  <path d="m14 16-3 3 3 3" />
-                  <path d="M8.293 13.596 7.196 9.5 3.1 10.598" />
-                  <path
-                    d="m9.344 5.811 1.093-1.892A1.83 1.83 0 0 1 11.985 3a1.784 1.784 0 0 1 1.546.888l3.943 6.843"
-                  />
-                  <path d="m13.378 9.633 4.096 1.098 1.097-4.096" />
-                </svg>,
-              ),
-              quote: Some(
-                <Lang.String
-                  english="Simply swap the rules engine"
-                  french={`Remplacez simplement le moteur de règles`}
-                />,
-              ),
-              action: Some((
-                External("https://github.com/CatalaLang/catala/tree/master/runtimes"),
-                <Lang.String english="Explore the runtimes" french={`Explorer les runtimes`} />,
-              )),
-              content: <p>
-                <Lang.String
-                  english="You Catala programs are compiled to the programming
+            ),
+            action: Some((
+              External("https://github.com/CatalaLang/catala/tree/master/runtimes"),
+              <Lang.String english="Explore the runtimes" french={`Explorer les runtimes`} />,
+            )),
+            content: <p>
+              <Lang.String
+                english="You Catala programs are compiled to the programming
                 language of your existing app (Java, C, Python, Javascript,...).
                 You can then just call the source library generated by Catala instead
                 of your old rules engine. You can then carry on an incremental migration
                 without outages."
-                  french={`Vos programmes Catala sont compilés le langage de programmation
+                french={`Vos programmes Catala sont compilés le langage de programmation
                 de votre application existante (Java, C, Python, Javascript,...). Il vous suffit
                 alors d'appeler la bibliothèque de code source généré par Catala plutôt
                 que votre ancien moteur de règles. Vous pouvez ainsi poursuivre
                 une migration incrémentale sans interruption de service.`}
+              />
+            </p>,
+          },
+          {
+            title: <Lang.String
+              english="Avoid vendor lock-in" french={`Évitez d'être captif de votre fournisseur`}
+            />,
+            icon: Some(
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-piggy-bank-icon lucide-piggy-bank">
+                <path
+                  d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
                 />
-              </p>,
-            },
-            {
-              title: <Lang.String
-                english="Avoid vendor lock-in"
-                french={`Évitez d'être captif de votre fournisseur`}
+                <path d="M16 10h.01" />
+                <path d="M2 8v1a2 2 0 0 0 2 2h1" />
+              </svg>,
+            ),
+            quote: Some(
+              <Lang.String
+                english="An open-source and future-proof compiler"
+                french={`Un compilateur open-source et pérenne`}
               />,
-              icon: Some(
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-piggy-bank-icon lucide-piggy-bank">
-                  <path
-                    d="M11 17h3v2a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1v-3a3.16 3.16 0 0 0 2-2h1a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1h-1a5 5 0 0 0-2-4V3a4 4 0 0 0-3.2 1.6l-.3.4H11a6 6 0 0 0-6 6v1a5 5 0 0 0 2 4v3a1 1 0 0 0 1 1h2a1 1 0 0 0 1-1z"
-                  />
-                  <path d="M16 10h.01" />
-                  <path d="M2 8v1a2 2 0 0 0 2 2h1" />
-                </svg>,
-              ),
-              quote: Some(
-                <Lang.String
-                  english="An open-source and future-proof compiler"
-                  french={`Un compilateur open-source et pérenne`}
-                />,
-              ),
-              action: Some((
-                External("https://apollo.inria.fr/"),
-                <Lang.String
-                  english="Know more about the Apollo program"
-                  french={`En savoir plus sur le programme Apollo`}
-                />,
-              )),
-              content: <p>
-                <Lang.String
-                  english="The tooling of Catala is distributed under a permissive open-source licence (Apache2).
+            ),
+            action: Some((
+              External("https://apollo.inria.fr/"),
+              <Lang.String
+                english="Know more about the Apollo program"
+                french={`En savoir plus sur le programme Apollo`}
+              />,
+            )),
+            content: <p>
+              <Lang.String
+                english="The tooling of Catala is distributed under a permissive open-source licence (Apache2).
                 No single company has the exclusivity to maintaining it, and the "
-                  french={`L'outillage Catala est diffusé sous licence open-source permissive (Apache2).
+                french={`L'outillage Catala est diffusé sous licence open-source permissive (Apache2).
                 Aucune entreprise ne possède l'exclusivité de sa maintenance, et
                 le `}
-                />
-                <Lang.String
-                  english="Apollo program managed by Inria"
-                  french={`programme Apollo piloté par Inria`}
-                />
-                <Lang.String
-                  english=" organizes an ecosystem of digital services companies qualified for the software. And in the worst case,
+              />
+              <Lang.String
+                english="Apollo program managed by Inria"
+                french={`programme Apollo piloté par Inria`}
+              />
+              <Lang.String
+                english=" organizes an ecosystem of digital services companies qualified for the software. And in the worst case,
                 you can maintain the generated code without the compiler."
-                  french={` organise un écosystème d'entreprises de services numériques compétentes sur le logiciel. Et au pire,
+                french={` organise un écosystème d'entreprises de services numériques compétentes sur le logiciel. Et au pire,
                 vous pouvez maintenir le code généré sans le compilateur.`}
-                />
-              </p>,
-            },
-            {
-              title: <Lang.String
-                english="Scale to real-world legal rule sets"
-                french={`Passez à l'échelle du droit du monde réel`}
+              />
+            </p>,
+          },
+          {
+            title: <Lang.String
+              english="Scale to real-world legal rule sets"
+              french={`Passez à l'échelle du droit du monde réel`}
+            />,
+            icon: Some(
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="lucide lucide-mountain-snow-icon lucide-mountain-snow">
+                <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
+                <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" />
+              </svg>,
+            ),
+            quote: Some(
+              <Lang.String
+                english="Modularity and exception management"
+                french={`Modularité et gestion des exceptions`}
               />,
-              icon: Some(
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="lucide lucide-mountain-snow-icon lucide-mountain-snow">
-                  <path d="m8 3 4 8 5-5 5 15H2L8 3z" />
-                  <path d="M4.14 15.08c2.62-1.57 5.24-1.43 7.86.42 2.74 1.94 5.49 2 8.23.19" />
-                </svg>,
-              ),
-              quote: Some(
-                <Lang.String
-                  english="Modularity and exception management"
-                  french={`Modularité et gestion des exceptions`}
-                />,
-              ),
-              action: Some((
-                External("https://book.catala-lang.org/2-0-tutorial.html"),
-                <Lang.String
-                  english="Get started with the tutorial" french={`Démarrer avec le tutoriel`}
-                />,
-              )),
-              content: <p>
-                <Lang.String
-                  english="A rules engine without functions nor modules becomes unmanageable
+            ),
+            action: Some((
+              External("https://book.catala-lang.org/2-0-tutorial.html"),
+              <Lang.String
+                english="Get started with the tutorial" french={`Démarrer avec le tutoriel`}
+              />,
+            )),
+            content: <p>
+              <Lang.String
+                english="A rules engine without functions nor modules becomes unmanageable
                 after 1,000 lines of code. With its reusable scopes, its modules and its
                 unique system of base cases and exceptions, Catala can deal with
                 all the edge cases and arcane rules of the national taxes and social benefits
                 computations of a developed country."
-                  french={`Un moteur de règles sans
+                french={`Un moteur de règles sans
               fonction ni modules devient ingérable au bout de 1000 lignes de code.
               Avec ses champs d'applications réutilisables, ses modules, et son système
               unique de cas de base et d'exceptions, Catala peut gérer, avec tous les
               cas tordus et règles obscures, les calculs d'impôts ou de prestation
               sociales nationales d'un pays développé.`}
-                />
-              </p>,
-            },
-          ]
-        />
-      </div>
+              />
+            </p>,
+          },
+        ]
+      />
     </section>
     <section id="alternatives">
-      <h2 className="px-8 !mt-0">
+      <h2 className="px-4 md:px-8 !mt-0">
         <a href={"#alternatives"}>
           <Lang.String
             english="Should I use Catala or something else?"
@@ -450,7 +445,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
           />
         </a>
       </h2>
-      <p className="text-lg px-8">
+      <p className="text-lg px-4 md:px-8">
         <Lang.String
           english="You have heard about other similar technologies and hesistate
           with Catala? This non-exhaustive list should help you choose."
@@ -626,7 +621,7 @@ de l'interface utilisateur.`}
       />
     </section>
     <section id="science" className="mt-16 !px-0 bg-primary_light/5 py-16 border-y border-border">
-      <h2 className="px-8">
+      <h2 className="px-4 md:px-8">
         <a href={"#science"}>
           <Lang.String
             english="A solution founded on solid science"
@@ -634,7 +629,7 @@ de l'interface utilisateur.`}
           />
         </a>
       </h2>
-      <p className="px-8 mb-6 text-lg">
+      <p className="px-4 md:px-8 mb-6 text-lg">
         <Lang.String
           english="Discover the rigourous scientific work behind the project."
           french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}

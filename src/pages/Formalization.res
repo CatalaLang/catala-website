@@ -2,14 +2,15 @@ open PageComponents
 
 @react.component
 let make = () => <>
-  <section className="my-16 px-8">
+  <section className="my-16 px-4 md:px-8">
     <Title>
       <Lang.String
         english="Formalization of the Catala language" french={`Formalisation du langage Catala`}
       />
     </Title>
   </section>
-  <section id="syntax" className="mb-16 px-8 border-y border-border py-16 bg-primary_light/5">
+  <section
+    id="syntax" className="mb-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
     <h2>
       <a href={"#syntax"}>
         <Lang.String english="Surface syntax" french={`Syntaxe du langage de surface`} />
@@ -36,10 +37,12 @@ let make = () => <>
       />
     </p>
     <Box.Collapsible
-      className="bg-white"
+      className="bg-white w-full"
       labelExpand={<Lang.String english="Show grammar" french={`Voir la grammaire`} />}
-      labelCollapse={<Lang.String english="Hide grammar" french={`Cacher la grammaire}`} />}>
-      <RawHtml className="font-mono bg-white" htmlFile="grammar.html" />
+      labelCollapse={<Lang.String english="Hide grammar" french={`Cacher la grammaire`} />}>
+      <RawHtml
+        className="font-mono bg-white overflow-auto h-[80dvh] max-w-[85dvw]" htmlFile="grammar.html"
+      />
     </Box.Collapsible>
     <p className="mt-4">
       <Lang.String
@@ -58,7 +61,7 @@ let make = () => <>
       </Link.Button.Small>
     </div>
   </section>
-  <section id="semantics" className="px-8">
+  <section id="semantics" className="px-4 md:px-8">
     <h2>
       <a href={"#semantics"}>
         <Lang.String english="Core semantics" french={`Sémantique du cœur du langage`} />

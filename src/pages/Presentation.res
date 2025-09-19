@@ -13,7 +13,8 @@ let demoLink = "https://code.gouv.fr/demos/catala"
 let make = () => {
   <div className="flex flex-col gap-24">
     <section className="px-8 flex flex-col">
-      <h1 className="text-3xl max-w-3xl mt-32 mb-16 font-serif !font-normal leading-snug">
+      <h1
+        className="text-2xl md:text-3xl max-w-3xl mt-32 mb-16 font-serif !font-normal leading-snug">
         <Lang.String
           english="A domain-specific language designed by researchers in "
           french={`Un langage spécifique conçu par des chercheuses et chercheurs en `}
@@ -51,7 +52,7 @@ let make = () => {
         <Link.Button.Internal target=[Nav.home, Nav.doc]>
           <Lang.String english="Read the documentation" french={`Lire la documentation`} />
         </Link.Button.Internal>
-        <div className="inline-flex gap-4">
+        <div className="inline-flex flex-col md:flex-row gap-4">
           <Link.Button target={demoLink}>
             <Lang.String english="See the demo" french={`Voir la démo`} />
           </Link.Button>
@@ -83,8 +84,8 @@ let make = () => {
         <img className="ml-3 h-8 pb-2" src={Assets.Image.logo_inria} />
       </Link.Text>
     </div>
-    <section className="px-8 flex flex-row gap-8 items-start">
-      <div className="flex flex-col flex-2/3">
+    <section className="px-8 flex flex-col md:flex-row gap-8 items-start">
+      <div className="flex flex-col">
         <h2>
           <Lang.String
             english="What does Catala look like?" french={`À quoi ressemble Catala ?`}
@@ -100,19 +101,19 @@ let make = () => {
             et un·e juriste.`}
             />
           </p>
-          <Link.Internal target=[Nav.home, Nav.features] className="italic ">
-            <Lang.String
-              english="Discover the features" french={`Découvrir les fonctionnalités`}
-            />
-          </Link.Internal>
-          // <Link.Button.Internal.Small target=[Nav.home, Nav.features]>
+          // <Link.Internal target=[Nav.home, Nav.features] className="italic ">
           //   <Lang.String
           //     english="Discover the features" french={`Découvrir les fonctionnalités`}
           //   />
-          // </Link.Button.Internal.Small>
+          // </Link.Internal>
+          <Link.Button.Internal.Small target=[Nav.home, Nav.features]>
+            <Lang.String
+              english="Discover the features" french={`Découvrir les fonctionnalités`}
+            />
+          </Link.Button.Internal.Small>
         </div>
       </div>
-      <div className="max-w-2/3">
+      <div className="max-w-fit overflow-x-auto">
         <Lang.Element
           french={<CatalaCode.DangerouslySetInnerHtml htmlFile="french_homepage.html" />}
           english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}

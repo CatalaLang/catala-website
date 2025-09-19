@@ -32,7 +32,7 @@ module Highlight = {
   ) =>
     <figure className={className}>
       <img
-        style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-28 p-4" src={src}
+        style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-26 p-4" src={src}
       />
       <figcaption className="border-t border-border border-dashed px-4 py-2 text-sm">
         children

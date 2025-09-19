@@ -583,8 +583,7 @@ let cutecat_2025 = {
   title: `CUTECat: Concolic Execution for Computational Law`,
   authors: [pierreGoutagny, aymericFromherz, raphaelMonat],
   date: `2025`,
-  citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for \
-    Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`,
+  citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`,
   link: "https://rmonat.fr/data/pubs/2025/2025-05-03_esop_cutecat.pdf",
   bibtex: `@inproceedings{goutagny:hal-04907935,
   TITLE = {{CUTECat: Concolic Execution for Computational Law}},
@@ -606,8 +605,7 @@ let ml_workshop_2023 = {
   title: `Modern DSL compiler architecture in OCaml our experience with Catala`,
   authors: [louisGesbert, denisMerigoux],
   date: `2023`,
-  citation: `Louis Gesbert and Denis Merigoux. Modern DSL compiler architecture in OCaml our experience with Catala. Presentation at
-  the ML Workshop (IFCFP 2023)`,
+  citation: `Louis Gesbert and Denis Merigoux. Modern DSL compiler architecture in OCaml our experience with Catala. Presentation at the ML Workshop (IFCFP 2023)`,
   link: "https://icfp23.sigplan.org/details/ocaml-2023-papers/4/Modern-DSL-compiler-architecture-in-OCaml-our-experience-with-Catala",
   bibtex: `@unpublished{gesbert2023mlwork,
   author = {Louis Gesbert and Denis Merigoux},
@@ -644,9 +642,7 @@ let prolala_2023 = {
    companion paper; this presentation will focus on the challenges and lessons \
    learned about the programming act itself, in an effort of consolidation of \
    knowledge for this line of research.`),
-  citation: `Denis Merigoux. Experience report: implementing a real-world, medium-sized program \
-derived from a legislative specification. Programming Languages and the Law 2023 \
-(affiliated with POPL), Jan 2023, Boston (MA), United States. ⟨hal-03933574⟩`,
+  citation: `Denis Merigoux. Experience report: implementing a real-world, medium-sized program derived from a legislative specification. Programming Languages and the Law 2023 (affiliated with POPL), Jan 2023, Boston (MA), United States. ⟨hal-03933574⟩`,
   link: "https://inria.hal.science/hal-03869335",
   bibtex: `@inproceedings{merigoux:hal-03933574,
   TITLE = {{Experience report: implementing a real-world, medium-sized program derived from a legislative specification}},
@@ -678,30 +674,34 @@ module PubItem = {
   @react.component
   let make = (~pub: publication, ~locale: string) =>
     <div className="flex flex-col justify-center p-4 not-last:border-b border-dashed border-border">
-      <span className="text-gray-800 mb-2"> {pub.date->React.string} </span>
+      <div className="flex flex-row justify-between items-center mb-2">
+        <span className="text-neutral-700"> {pub.date->React.string} </span>
+        <div className="inline-flex self-start gap-2">
+          <span
+            id={"citation-" ++ pub.title} className="text-green-700 italic text-xs font-medium m-1"
+          />
+          <Button.Small
+            style="h-fit text-xs bg-white border-button_fg/50"
+            onClick={_ => save_to_clipboard(pub.bibtex, "citation-" ++ pub.title, locale)}>
+            <span> {"BibTeX"->React.string} </span>
+          </Button.Small>
+          <Button.Small
+            style="h-fit text-xs bg-white border-button_fg/50"
+            onClick={_ => save_to_clipboard(pub.citation, "citation-" ++ pub.title, locale)}>
+            <span>
+              <Lang.String english="Quote" french={`Citer`} />
+            </span>
+          </Button.Small>
+        </div>
+      </div>
       <div className="inline-flex flex-row justify-between items-center">
         <div className="">
           <Link.Text className="font-semibold font-serif text-lg" target=pub.link>
             {pub.title->React.string}
           </Link.Text>
         </div>
-        <div className="inline-flex self-start mt-1 ">
-          <span
-            id={"citation-" ++ pub.title} className="text-green-700 italic text-sm font-medium m-1"
-          />
-          <Button.Small
-            style="mx-2 "
-            onClick={_ => save_to_clipboard(pub.bibtex, "citation-" ++ pub.title, locale)}>
-            <span> {"BibTeX"->React.string} </span>
-          </Button.Small>
-          <Button.Small
-            onClick={_ => save_to_clipboard(pub.citation, "citation-" ++ pub.title, locale)}>
-            <Icon name="format_quote" />
-            <span className=""> {""->React.string} </span>
-          </Button.Small>
-        </div>
       </div>
-      <div className="inline-flex flex-row flex-wrap justify-start items-center gap-2">
+      <div className="inline-flex flex-row flex-wrap justify-start items-center gap-2 gap-y-0 mt-1">
         {pub.authors
         ->Belt.Array.mapWithIndex((i, author) => {
           let key = "pub-author-" ++ i->string_of_int
@@ -750,13 +750,14 @@ module PubItems = {
 
 @react.component
 let make = () => <>
-  <section className="my-16 px-8">
+  <section className="my-16 px-4 md:px-8">
     <Title>
       <Lang.String english="Publications" french={`Publications`} />
     </Title>
   </section>
   <section
-    id="peer-reviewed" className="mb-16 px-8 border-y border-border py-16 bg-primary_light/5">
+    id="peer-reviewed"
+    className="mb-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
     <h2>
       <a href="#peer-reviewed">
         <Lang.String
@@ -780,7 +781,7 @@ let make = () => <>
       ]}
     />
   </section>
-  <section id="workshops" className="mb-16 px-8">
+  <section id="workshops" className="mb-16 px-4 md:px-8">
     <h2>
       <a href="#workshops">
         <Lang.String english="Workshops" french={`Ateliers`} />
@@ -788,7 +789,7 @@ let make = () => <>
     </h2>
     <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
   </section>
-  <section id="invited" className="px-8 border-y border-border py-16 bg-primary_light/5">
+  <section id="invited" className="px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
     <h2>
       <a href="#invited">
         <Lang.String english="Invited articles" french={`Articles invités`} />
@@ -806,7 +807,7 @@ let make = () => <>
       ]}
     />
   </section>
-  <section id="phd" className="my-16 px-8">
+  <section id="phd" className="my-16 px-4 md:px-8">
     <h2>
       <a href="#phd">
         <Lang.String english="PhD dissertations" french={`Thèses de doctorat`} />
@@ -814,7 +815,8 @@ let make = () => <>
     </h2>
     <PubItems items={[these_liane, these_denis, these_marie]} />
   </section>
-  <section id="preprints" className="mt-16 px-8 border-y border-border py-16 bg-primary_light/5">
+  <section
+    id="preprints" className="mt-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
     <h2>
       <a href="#preprints">
         <Lang.String

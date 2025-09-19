@@ -20,7 +20,7 @@ module SwitchLang = {
       let newLang = Lang.newLangFromOldLang(oldLang)
       Nav.goTo(navs, newLang)
     }
-    let style = "cursor-pointer text-button_fg px-2 text-sm border-y border-button_fg/50 hover:bg-primary_light/50"
+    let style = "cursor-pointer text-button_fg px-2 py-0.5 text-sm border-y border-button_fg/50 hover:bg-primary_light/50"
     <div className="">
       <a className={style ++ " border-x" ++ (oldLang == French ? " bg-primary_light" : "")} onClick>
         {"FR"->React.string}
@@ -90,64 +90,68 @@ let navElems = (~mobile=false) => <>
 let make = () => {
   let (isMenuOpen, setIsMenuOpen) = React.useState(_ => false)
 
-  <div className="w-full bg-white border-b border-stone-300 top-0 sticky z-10 py-1 px-4">
-    <Flex.Column.AlignLeft style="max-w-6xl mx-auto">
-      <div className="w-full inline-flex flex-row items-center justify-between px-4 md:px-0">
-        <Link.Internal
-          className={"py-2 h-full !text-black cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-lg font-sans font-semibold hover:!text-primary_dark sm:col-span-1 border-none"}
-          target=[Nav.home]>
-          <img className="h-6 pr-2" src={Assets.Image.logo_catala} />
-          <Lang.String english="Catala" french={`Catala`} />
-        </Link.Internal>
-        <div className="inline-flex flex-row justify-end items-center">
-          <div
-            className="hidden text-sm sm:mr-4 sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:gap-1">
-            {navElems(~mobile=false)}
+  <div className="w-full bg-white top-0 sticky z-10 ">
+    <div className="border-b border-border py-1 px-4">
+      <Flex.Column.AlignLeft style="max-w-6xl mx-auto">
+        <div className="w-full inline-flex flex-row items-center justify-between">
+          <Link.Internal
+            className={"py-2 h-full !text-black cursor-pointer inline-flex flex-row flex-nowrap items-center justify-start text-lg font-sans font-semibold hover:!text-primary_dark sm:col-span-1 border-none"}
+            target=[Nav.home]>
+            <img className="h-6 pr-2" src={Assets.Image.logo_catala} />
+            <Lang.String english="Catala" french={`Catala`} />
+          </Link.Internal>
+          <div className="inline-flex flex-row justify-end items-center">
+            <div
+              className="hidden text-sm sm:mr-4 sm:inline-flex sm:flex-row sm:justify-center sm:items-center sm:gap-1">
+              {navElems(~mobile=false)}
+            </div>
+            <SwitchLang />
+            <button
+              className="cursor-pointer inline-flex self-center hover:text-primary_light ml-4 sm:hidden text-button_fg"
+              onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
+              {isMenuOpen
+                ? <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                  </svg>
+                : <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round">
+                    <path d="M4 5h16" />
+                    <path d="M4 12h16" />
+                    <path d="M4 19h16" />
+                  </svg>}
+            </button>
           </div>
-          <SwitchLang />
-          <button
-            className="cursor-pointer inline-flex self-center hover:text-primary_light ml-4 sm:hidden"
-            onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
-            {isMenuOpen
-              ? <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round">
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              : <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round">
-                  <path d="M4 5h16" />
-                  <path d="M4 12h16" />
-                  <path d="M4 19h16" />
-                </svg>}
-          </button>
         </div>
-      </div>
+      </Flex.Column.AlignLeft>
+    </div>
+    <div>
       {if isMenuOpen {
         <div
-          className="inline-flex flex-col justify-center items-center mx-auto pl-2 pb-2 ease-in h-screen overflow-y-hidden"
+          className="flex flex-col justify-center items-center mx-auto ease-in h-dvh overflow-y-hidden"
           onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
           {navElems(~mobile=true)}
         </div>
       } else {
         <> </>
       }}
-    </Flex.Column.AlignLeft>
+    </div>
   </div>
 }

@@ -30,7 +30,7 @@ module Seminar = {
     ) |> React.string
     <li className="not-last:border-b border-dashed border-border p-4">
       <div className="flex items-center gap-4 mb-2">
-        <span className=" text-gray-800"> {date} </span>
+        <span className=" text-neutral-700"> {date} </span>
         <span className="text-sm">
           {switch seminar.kind {
           | Sociology =>
@@ -1303,7 +1303,7 @@ let make = () => {
       //   />
       // </p>
     </div>
-    <div className="my-16 px-8 text-center mx-auto">
+    <div className="my-16 px-4 md:px-8 text-center mx-auto">
       <p className="italic text-base mx-auto">
         <Lang.String
           english="The location \
@@ -1323,7 +1323,8 @@ let make = () => {
         </Link.Button.Primary>
       </div>
     </div>
-    <section id="upcoming" className="mb-16 px-8 border-y border-border py-16 bg-primary_light/5">
+    <section
+      id="upcoming" className="mb-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
       <h2>
         <a href={"#upcoming"}>
           <Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />
@@ -1350,7 +1351,8 @@ let make = () => {
       <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className="mb-8" />
     </Section>
     {if Belt.Array.length(season_2025_2026) != 0 {
-      <section id="past" className="my-16 px-8 border-y border-border py-16 bg-primary_light/5">
+      <section
+        id="past" className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
         <h2>
           <a href={"#past"}>
             <Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />
@@ -1368,7 +1370,8 @@ let make = () => {
       <> </>
     }}
     <section
-      id="past-2024-2025" className="my-16 px-8 border-y border-border py-16 bg-primary_light/5">
+      id="past-2024-2025"
+      className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
       <h2>
         <a href={"#past-2024-2025"}>
           <Lang.String english="Season 2024-2025" french={`Saison 2024-2025`} />
@@ -1382,7 +1385,7 @@ let make = () => {
         ->React.array}
       </ul>
     </section>
-    <section id="#past-2023-2024" className="mt-16 px-8">
+    <section id="#past-2023-2024" className="mt-16 px-4 md:px-8">
       <h2>
         <a href={"#past-2023-2024"}>
           <Lang.String english="Season 2023-2024" french={`Saison 2023-2024`} />

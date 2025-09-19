@@ -18,7 +18,7 @@ module App = {
     <Lang.Context value=(appLang, setLang)>
       <div className="flex flex-col min-h-screen bg-primary_light/5 items-center">
         <NavComponent />
-        <main className="max-w-6xl mx-4 pb-16 border-x border-border bg-white">
+        <main className="max-w-6xl pb-16 md:mx-8 border-x border-border bg-white">
           <Router />
         </main>
         <div className="w-full border-t border-border bottom-0 px-4">
