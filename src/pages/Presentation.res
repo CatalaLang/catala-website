@@ -12,7 +12,7 @@ let demoLink = "https://code.gouv.fr/demos/catala"
 @react.component
 let make = () => {
   <div className="flex flex-col gap-24">
-    <section className="px-8 flex flex-col">
+    <section className="px-4 md:px-8 flex flex-col">
       <h1
         className="text-2xl md:text-3xl max-w-3xl mt-32 mb-16 font-serif !font-normal leading-snug">
         <Lang.String
@@ -84,7 +84,7 @@ let make = () => {
         <img className="ml-3 h-8 pb-2" src={Assets.Image.logo_inria} />
       </Link.Text>
     </div>
-    <section className="px-8 flex flex-col md:flex-row gap-8 items-start">
+    <section className="px-4 md:px-8 flex flex-col md:flex-row gap-8 items-start w-full">
       <div className="flex flex-col">
         <h2>
           <Lang.String
@@ -101,11 +101,6 @@ let make = () => {
             et un·e juriste.`}
             />
           </p>
-          // <Link.Internal target=[Nav.home, Nav.features] className="italic ">
-          //   <Lang.String
-          //     english="Discover the features" french={`Découvrir les fonctionnalités`}
-          //   />
-          // </Link.Internal>
           <Link.Button.Internal.Small target=[Nav.home, Nav.features]>
             <Lang.String
               english="Discover the features" french={`Découvrir les fonctionnalités`}
@@ -113,7 +108,7 @@ let make = () => {
           </Link.Button.Internal.Small>
         </div>
       </div>
-      <div className="max-w-fit overflow-x-auto">
+      <div className="[--mw:calc(100dvw-2rem)] max-w-[var(--mw)] overflow-x-auto mx-auto">
         <Lang.Element
           french={<CatalaCode.DangerouslySetInnerHtml htmlFile="french_homepage.html" />}
           english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}
