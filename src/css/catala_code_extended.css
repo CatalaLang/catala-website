@@ -10,7 +10,7 @@ html .catala-code .law-text {
   /* font-family: "Libre Baskerville", serif; */
   font-family: "Libre Baskerville", serif;
   font-weight: normal;
-  font-size: medium;
+  font-size: medium !important;
   margin-bottom: 0.5rem;
   max-width: none !important;
 }
@@ -84,4 +84,8 @@ html .catala-code h9 {
   font-family: "Space Grotesk", sans-serif;
   margin-bottom: 0.5rem;
   padding-bottom: 0.5rem;
+}
+
+html .catala-code .law-heading {
+  font-size: large;
 }

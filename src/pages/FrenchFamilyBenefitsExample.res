@@ -78,7 +78,7 @@ let make = () => {
       <Title> pageTitle </Title>
     </section>
     <div className="py-8 px-4 md:px-8 bg-primary_light/5 border-y border-border mb-16">
-      <p className="font-serif text-lg text-center mx-auto !my-0">
+      <p className="font-serif text-lg mx-auto !my-0">
         <Lang.String
           english="The source code for this example is available "
           french={`Le code source de cet exemple est disponible `}

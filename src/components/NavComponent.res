@@ -142,16 +142,14 @@ let make = () => {
         </div>
       </Flex.Column.AlignLeft>
     </div>
-    <div>
-      {if isMenuOpen {
-        <div
-          className="flex flex-col justify-center items-center mx-auto ease-in h-dvh overflow-y-hidden"
-          onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
-          {navElems(~mobile=true)}
-        </div>
-      } else {
-        <> </>
-      }}
-    </div>
+    {if isMenuOpen {
+      <div
+        className="flex flex-col justify-center items-center mx-auto ease-in h-dvh overflow-y-hidden"
+        onClick={_ => setIsMenuOpen(_ => !isMenuOpen)}>
+        {navElems(~mobile=true)}
+      </div>
+    } else {
+      <> </>
+    }}
   </div>
 }

@@ -42,7 +42,7 @@ module Button = {
   module Primary = {
     @react.component
     let make = (
-      ~className="cursor-pointer border bg-primary_light/80 px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
+      ~className="cursor-pointer border bg-primary_light/80 px-4 sm:px-8 py-2 text-button_fg font-medium  inline-flex items-center border-button_fg/30 font-sans hover:bg-primary_light hover:text-button_fg_hover ease-in duration-100 w-fit ",
       ~target: string,
       ~children,
     ) => {

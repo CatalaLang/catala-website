@@ -14,7 +14,7 @@ let make = () => {
       </Title>
     </section>
     <section className="border-y border-border bg-primary_light/5 px-4 md:px-8 py-16">
-      <h2 id="core-principles" className="">
+      <h2 id="core-principles">
         <a href={"#core-principles"}>
           <Lang.String
             english="Two core principles: literate programming and pair programming"
@@ -90,7 +90,7 @@ let make = () => {
           </div>
         </div>
         <div
-          className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white border-t border-dashed border-border p4 md:p-8">
+          className="grid grid-cols-1 lg:grid-cols-2 gap-8 bg-white border-t border-dashed border-border p-4 md:p-8">
           <div className="flex flex-col h-min">
             <h3 className="inline-flex gap-2 items-center mb-4">
               <svg
@@ -159,39 +159,41 @@ let make = () => {
       </section>
     </section>
     <section id="proof-of-concepts" className="my-16 !px-0">
-      <h2 className="px-4 md:px-8 !mt-0">
-        <a href={"#proof-of-concepts"}>
+      <div className="mx-auto sm:text-center mb-16">
+        <h2 className="px-4 md:px-8 !mt-0">
+          <a href={"#proof-of-concepts"}>
+            <Lang.String
+              english="A tool tried and tested by French administrations"
+              french={`Un outil mis à l'épreuve par les administrations publiques`}
+            />
+          </a>
+        </h2>
+        <p className="px-4 md:px-8 mb-6 mx-auto">
           <Lang.String
-            english="A tool tried and tested by French administrations"
-            french={`Un outil mis à l'épreuve par les administrations publiques`}
-          />
-        </a>
-      </h2>
-      <p className="px-4 md:px-8 mb-6">
-        <Lang.String
-          english="Several proofs of concept have been made for French public
+            english="Several proofs of concept have been made for French public
           administrations. This demonstrates the ability of Catala to provide
           tooling for "
-          french={`Plusieurs démonstrateurs ont été réalisés pour le compte
+            french={`Plusieurs démonstrateurs ont été réalisés pour le compte
           d'administrations publiques françaises, démontrant la capacité de Catala
           à `}
-        />
-        <TextHighlight>
-          <Lang.String
-            english="first-class computation engines at the national level"
-            french={`outiller des moteurs de calcul de premier plan au niveau national`}
           />
-        </TextHighlight>
-        <Lang.String
-          english=", with realistic operational conditions and "
-          french={`, dans des conditions d'exploitations réalistes et `}
-        />
-        <TextHighlight>
+          <TextHighlight>
+            <Lang.String
+              english="first-class computation engines at the national level"
+              french={`outiller des moteurs de calcul de premier plan au niveau national`}
+            />
+          </TextHighlight>
           <Lang.String
-            english="a high level of assurance." french={`avec un haut niveau d'assurance.`}
+            english=", with realistic operational conditions and "
+            french={`, dans des conditions d'exploitations réalistes et `}
           />
-        </TextHighlight>
-      </p>
+          <TextHighlight>
+            <Lang.String
+              english="a high level of assurance." french={`avec un haut niveau d'assurance.`}
+            />
+          </TextHighlight>
+        </p>
+      </div>
       <div className="grid grid-cols-1 md:grid-cols-2 border-y border-border bg-white">
         <Highlight.Large src=Assets.Image.logo_dgfip>
           <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
@@ -210,22 +212,24 @@ let make = () => {
       </div>
     </section>
     <section id="workflow" className="my-16 border-y border-border bg-primary_light/5 py-16">
-      <h2 className="px-4 md:px-8 !mt-0">
-        <a href={"#workflow"}>
+      <div className="mx-auto sm:text-center mb-16">
+        <h2 className="px-4 md:px-8 !mt-0 max-w-prose">
+          <a href={"#workflow"}>
+            <Lang.String
+              english="An innovative programming language that fits into your existing workflow"
+              french={`Un langage de programmation innovant qui s'intègre dans vos pratiques habituelles`}
+            />
+          </a>
+        </h2>
+        <p className="px-4 md:px-8 md:text-lg mx-auto">
           <Lang.String
-            english="An innovative programming language that fits into your existing workflow"
-            french={`Un langage de programmation innovant qui s'intègre dans vos pratiques habituelles`}
-          />
-        </a>
-      </h2>
-      <p className="px-4 md:px-8 md:text-lg">
-        <Lang.String
-          english="You maintain a legacy ditigal app, packaging a computation engine
+            english="You maintain a legacy ditigal app, packaging a computation engine
           specified by the law ? Catala allows you to plan ahead your upgrade with serenity."
-          french={`Vous maintenez une application informatique patrimoniale, embarquant un moteur
+            french={`Vous maintenez une application informatique patrimoniale, embarquant un moteur
 de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement votre future modernisation.`}
-        />
-      </p>
+          />
+        </p>
+      </div>
       <Card.Presentation.FromList
         cards=[
           {
@@ -437,22 +441,24 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
       />
     </section>
     <section id="alternatives">
-      <h2 className="px-4 md:px-8 !mt-0">
-        <a href={"#alternatives"}>
+      <div className="mx-auto sm:text-center mb-16">
+        <h2 className="px-4 md:px-8 !mt-0">
+          <a href={"#alternatives"}>
+            <Lang.String
+              english="Should I use Catala or something else?"
+              french={`Devrais-je utiliser Catala ou quelque chose d'autre ?`}
+            />
+          </a>
+        </h2>
+        <p className="text-lg px-4 md:px-8 mx-auto">
           <Lang.String
-            english="Should I use Catala or something else?"
-            french={`Devrais-je utiliser Catala ou quelque chose d'autre ?`}
-          />
-        </a>
-      </h2>
-      <p className="text-lg px-4 md:px-8">
-        <Lang.String
-          english="You have heard about other similar technologies and hesistate
+            english="You have heard about other similar technologies and hesistate
           with Catala? This non-exhaustive list should help you choose."
-          french={`Vous avez entendu parler d'autre technologies similaires et
+            french={`Vous avez entendu parler d'autre technologies similaires et
           hésitez avec Catala ? Cette liste non-exhaustive devrait vous aider à choisir.`}
-        />
-      </p>
+          />
+        </p>
+      </div>
       <Card.Presentation.FromList
         cards=[
           {
@@ -621,20 +627,22 @@ de l'interface utilisateur.`}
       />
     </section>
     <section id="science" className="mt-16 !px-0 bg-primary_light/5 py-16 border-y border-border">
-      <h2 className="px-4 md:px-8">
-        <a href={"#science"}>
+      <div className="mx-auto sm:text-center mb-16">
+        <h2 className="px-4 md:px-8">
+          <a href={"#science"}>
+            <Lang.String
+              english="A solution founded on solid science"
+              french={`Une solution fondée sur un socle scientifique solide`}
+            />
+          </a>
+        </h2>
+        <p className="px-4 md:px-8 mb-6 text-lg mx-auto">
           <Lang.String
-            english="A solution founded on solid science"
-            french={`Une solution fondée sur un socle scientifique solide`}
+            english="Discover the rigourous scientific work behind the project."
+            french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}
           />
-        </a>
-      </h2>
-      <p className="px-4 md:px-8 mb-6 text-lg">
-        <Lang.String
-          english="Discover the rigourous scientific work behind the project."
-          french={`Découvrez le travail de recherche rigoureux à l'origine du projet.`}
-        />
-      </p>
+        </p>
+      </div>
       <Card.Presentation.FromList
         cards=[
           {

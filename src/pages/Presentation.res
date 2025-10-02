@@ -52,7 +52,7 @@ let make = () => {
         <Link.Button.Internal target=[Nav.home, Nav.doc]>
           <Lang.String english="Read the documentation" french={`Lire la documentation`} />
         </Link.Button.Internal>
-        <div className="inline-flex flex-col md:flex-row gap-4">
+        <div className="inline-flex flex-col sm:flex-row gap-4">
           <Link.Button target={githubLink}>
             <Lang.String english="Get started on GitHub" french={`Démarrer sur GitHub`} />
           </Link.Button>
@@ -110,7 +110,7 @@ let make = () => {
       </div>
       <div
         className="[--mw:calc(100dvw-2rem)] max-w-[var(--mw)] md:max-w-3/5 overflow-x-auto mx-auto">
-        <div className="bg-primary_light/5 border border-border px-4 pt-2 pb-0 html">
+        <div className="bg-primary_light/5 border border-border p-4 pb-0 html">
           <Lang.Element
             french={<CatalaCode.DangerouslySetInnerHtml htmlFile="french_homepage.html" />}
             english={<CatalaCode.DangerouslySetInnerHtml htmlFile="english_homepage.html" />}

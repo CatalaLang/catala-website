@@ -27,7 +27,7 @@ module Highlight = {
   @react.component
   let make = (
     ~src: string,
-    ~className="flex flex-col h-full justify-between not-md:not-last:border-b md:not-last:border-r border-border",
+    ~className="flex flex-col h-full justify-between not-last:border-b not-nth-[2]:border-r border-border",
     ~children,
   ) =>
     <figure className={className}>

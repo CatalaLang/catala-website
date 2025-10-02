@@ -1267,12 +1267,12 @@ let make = () => {
   | Lang.English => "en-US"
   }
   <>
-    <section className="my-16 px-8">
+    <section className="my-16 px-4 md:px-8">
       <Title>
         <Lang.String english="Seminars" french={`Séminaires`} />
       </Title>
     </section>
-    <div className="p-8 bg-primary_light/5 border-y border-border font-serif text-lg text-center">
+    <div className="py-8 px-4 md:px-8 bg-primary_light/5 border-y border-border font-serif text-lg">
       <p className="mx-auto ">
         <Lang.String
           english="The project continues to maintain close ties with the \
@@ -1303,7 +1303,7 @@ let make = () => {
       //   />
       // </p>
     </div>
-    <div className="my-16 px-4 md:px-8 text-center mx-auto">
+    <div className="my-16 px-4 md:px-8 sm:text-center mx-auto">
       <p className="italic text-base mx-auto">
         <Lang.String
           english="The location \
@@ -1314,7 +1314,7 @@ let make = () => {
           pour laisser votre carte d'identité à l'accueil, avant d'entrer dans la salle du séminaire.`}
         />
       </p>
-      <div className="mt-4 ">
+      <div className="mt-4">
         <Link.Button.Primary target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
           <Lang.String
             english="Subscribe to the seminar mailing list"

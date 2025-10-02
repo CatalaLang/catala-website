@@ -5,7 +5,7 @@ module Person = {
   @react.component
   let make = (~person: person) =>
     <li
-      className="grid grid-cols-1 md:grid-cols-3 gap-2 not-last:border-b border-border p-2 items-start">
+      className="flex flex-col gap-1 not-last:border-b border-border border-dashed p-4 items-start w-full">
       <div className="inline-flex flex-wrap gap-2 items-center">
         {switch person.website {
         | None => person.name |> React.string
@@ -22,14 +22,17 @@ module Person = {
           {person.affiliation.name->React.string}
         </Link.Text>
       </div>
-      <p className="col-span-2"> {person.role} </p>
+      <p className=" !mb-0"> {person.role} </p>
     </li>
 }
 
 module PersonTable = {
   @react.component
   let make = (~persons: array<person>, ~className="") =>
-    <ul className={"flex flex-col border-y border-border border-x bg-white" ++ " " ++ className}>
+    <ul
+      className={"flex flex-col border-y border-border border-x bg-white w-fit" ++
+      " " ++
+      className}>
       {persons
       ->Belt.Array.map(person => {
         <Person person />
@@ -40,13 +43,13 @@ module PersonTable = {
 
 @react.component
 let make = () => <>
-  <section className="my-16 px-8">
+  <section className="my-16 px-4 md:px-8">
     <Title>
       <Lang.String english="About" french={`À propos`} />
     </Title>
   </section>
-  <div className="p-8 bg-primary_light/5 border-y border-border mb-16">
-    <p className="font-serif text-lg text-center mx-auto !my-0">
+  <div className="py-8 px-4 md:px-8 bg-primary_light/5 border-y border-border mb-16">
+    <p className="font-serif text-lg mx-auto !my-0 max-w-prose">
       <Lang.String
         english="How can we ensure that our laws are accurately applied
     in the software that calculates tax, benefits and pensions? That's the
@@ -172,7 +175,7 @@ let make = () => <>
     <h3 className="px-8 !mt-0">
       <Lang.String english="Highlighted by" french={`Mis en valeur par`} />
     </h3>
-    <div className="grid grid-cols-1 md:grid-cols-3 border-y border-border bg-white">
+    <div className="grid grid-cols-1 md:grid-cols-2 border-y border-border bg-white">
       <Highlight src={Assets.Image.logo_oecd}>
         <Link.Text target="https://oecd-opsi.org/publications/cracking-the-code/">
           <Lang.String
