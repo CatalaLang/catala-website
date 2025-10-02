@@ -24,19 +24,6 @@ let fromUrl = (s: string): option<lang> => {
   }
 }
 
-module LangCmp = Belt.Id.MakeComparable({
-  type t = lang
-  let cmp = (a, b) => toNum(a) - toNum(b)
-})
-
-type i18n_str = Belt.Map.t<lang, string, LangCmp.identity>
-
-let make_i18_str = (~french: string, ~english: string): i18n_str => {
-  let m = Belt.Map.make(~id=module(LangCmp))
-  let m = Belt.Map.set(m, French, french)
-  Belt.Map.set(m, English, english)
-}
-
 let langContext = React.createContext((English, () => ()))
 
 module Context = {
@@ -78,13 +65,10 @@ module Element = {
 module String = {
   @react.component
   let make = React.memo((~french: string, ~english: string) => {
-    let str = make_i18_str(~french, ~english)
     let (lang, _) = React.useContext(langContext)
-    switch Belt.Map.get(str, lang) {
-    | None =>
-      let (_, x) = Belt.List.headExn(Belt.Map.toList(str))
-      x
-    | Some(str) => str
+    switch lang {
+    | French => french
+    | English => english
     }->React.string
   })
 }
