@@ -326,6 +326,40 @@ let smu_2022 = {
   url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177}}",
 }
 
+let sif_1024_2024 = {
+  title: `Pour une citoyenneté informatique: Plaidoyer pour une investigation en commun des codes sources publics`,
+  authors: [marieAlauzen],
+  date: `2024`,
+  link: "https://1024.socinfo.fr/2024/11/1024_24_2024_085.html",
+  citation: `Alauzen, M. Pour une citoyenneté informatique: Plaidoyer pour une investigation en commun des codes sources publics. 2024. 1024 Bulletin de la Société Informatique de France n°24`,
+  abstract: None,
+  bibtex: "@Article{1024_24_2024_85,
+title={Pour une citoyenneté informatique},
+author={Marie Alauzen},
+pages={85--99},
+journal={1024},
+x-hal_journal_id={103290},
+volume={24},
+month={11},
+year={2024},
+editor={Société informatique de France},
+publisher={Société informatique de France},
+publisherLink={https://www.socinfo.fr/bulletin/},
+issn={2270-1419},
+keywords={Informatique},
+domain={Computer Science},
+licence={Attribution - NonCommercial - NoDerivatives},
+popularlevel={Yes},
+peerReviewing={Yes},
+audience={International},
+language={fr},
+PDF={https://www.socinfo.fr/2024/11/1024_11_2024_85.pdf},
+fileSource={publisherAgreement},
+DOI={10.48556/SIF.1024.24.85}
+}
+",
+}
+
 let forms_as_formalization_2020 = {
   title: `Form as Formalization`,
   authors: [sarahLawsky],
@@ -736,6 +770,7 @@ let make = () => <>
       <PubItems
         items={[
           epistemic_trespassing_2024,
+          sif_1024_2024,
           scoping_ai_law_2024,
           chicago_law_review_2024,
           crcl_2023,
