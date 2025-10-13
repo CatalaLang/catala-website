@@ -1,7 +1,36 @@
-/* Fira Code + Inter */
-@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Inter:wght@400;500;600;700;800;900&display=swap")
+@import url("https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&family=Libre+Baskerville:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700;800;900&display=swap")
 layer(base);
 
 @import "tailwindcss";
 
+@plugin "@tailwindcss/typography";
+
 @config "../css/tailwind.config.js";
+
+@layer base {
+  h1,
+  h2,
+  h3 {
+    @apply font-serif font-semibold text-black;
+  }
+
+  h1 {
+    @apply text-4xl;
+  }
+
+  h2 {
+    @apply text-2xl mb-8;
+  }
+
+  h3 {
+    @apply text-xl mb-8;
+  }
+
+  p {
+    @apply max-w-[70ch] text-stone-800 leading-relaxed mb-2;
+  }
+
+  p > a {
+    @apply !no-underline;
+  }
+}

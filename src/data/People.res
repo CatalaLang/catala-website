@@ -206,12 +206,12 @@ let emileRolley = {
   name: `Émile Rolley`,
   website: Some("https://emile-rolley.com"),
   affiliation: {
-    name: "Malt",
-    url: "https://www.malt.fr/profile/emilerolley",
+    name: "Calinou",
+    url: "https://calinou.coop",
   },
   role: <Lang.String
-    english="Software engineer, participated in the development of this website and the explanation generation engine"
-    french={`Ingénieur logiciel, a participé au développement de ce site Web ainsi que le moteur de génération d'explications`}
+    english="Software engineer, participated in the development of the explanation generation engine and its various interfaces"
+    french={`Ingénieur logiciel, a participé développement du moteur de génération d'explications ainsi que de ses différentes interfaces`}
   />,
 }
 

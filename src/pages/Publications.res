@@ -326,6 +326,40 @@ let smu_2022 = {
   url     = {https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4291177}}",
 }
 
+let sif_1024_2024 = {
+  title: `Pour une citoyenneté informatique: Plaidoyer pour une investigation en commun des codes sources publics`,
+  authors: [marieAlauzen],
+  date: `2024`,
+  link: "https://1024.socinfo.fr/2024/11/1024_24_2024_085.html",
+  citation: `Alauzen, M. Pour une citoyenneté informatique: Plaidoyer pour une investigation en commun des codes sources publics. 2024. 1024 Bulletin de la Société Informatique de France n°24`,
+  abstract: None,
+  bibtex: "@Article{1024_24_2024_85,
+title={Pour une citoyenneté informatique},
+author={Marie Alauzen},
+pages={85--99},
+journal={1024},
+x-hal_journal_id={103290},
+volume={24},
+month={11},
+year={2024},
+editor={Société informatique de France},
+publisher={Société informatique de France},
+publisherLink={https://www.socinfo.fr/bulletin/},
+issn={2270-1419},
+keywords={Informatique},
+domain={Computer Science},
+licence={Attribution - NonCommercial - NoDerivatives},
+popularlevel={Yes},
+peerReviewing={Yes},
+audience={International},
+language={fr},
+PDF={https://www.socinfo.fr/2024/11/1024_11_2024_85.pdf},
+fileSource={publisherAgreement},
+DOI={10.48556/SIF.1024.24.85}
+}
+",
+}
+
 let forms_as_formalization_2020 = {
   title: `Form as Formalization`,
   authors: [sarahLawsky],
@@ -549,8 +583,7 @@ let cutecat_2025 = {
   title: `CUTECat: Concolic Execution for Computational Law`,
   authors: [pierreGoutagny, aymericFromherz, raphaelMonat],
   date: `2025`,
-  citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for \
-    Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`,
+  citation: `Pierre Goutagny, Aymeric Fromherz, Raphaël Monat. CUTECat: Concolic Execution for Computational Law. ESOP 2025 - 34th European Symposium on Programming, May 2025, Hamilton, ON, Canada.`,
   link: "https://rmonat.fr/data/pubs/2025/2025-05-03_esop_cutecat.pdf",
   bibtex: `@inproceedings{goutagny:hal-04907935,
   TITLE = {{CUTECat: Concolic Execution for Computational Law}},
@@ -572,8 +605,7 @@ let ml_workshop_2023 = {
   title: `Modern DSL compiler architecture in OCaml our experience with Catala`,
   authors: [louisGesbert, denisMerigoux],
   date: `2023`,
-  citation: `Louis Gesbert and Denis Merigoux. Modern DSL compiler architecture in OCaml our experience with Catala. Presentation at
-  the ML Workshop (IFCFP 2023)`,
+  citation: `Louis Gesbert and Denis Merigoux. Modern DSL compiler architecture in OCaml our experience with Catala. Presentation at the ML Workshop (IFCFP 2023)`,
   link: "https://icfp23.sigplan.org/details/ocaml-2023-papers/4/Modern-DSL-compiler-architecture-in-OCaml-our-experience-with-Catala",
   bibtex: `@unpublished{gesbert2023mlwork,
   author = {Louis Gesbert and Denis Merigoux},
@@ -610,9 +642,7 @@ let prolala_2023 = {
    companion paper; this presentation will focus on the challenges and lessons \
    learned about the programming act itself, in an effort of consolidation of \
    knowledge for this line of research.`),
-  citation: `Denis Merigoux. Experience report: implementing a real-world, medium-sized program \
-derived from a legislative specification. Programming Languages and the Law 2023 \
-(affiliated with POPL), Jan 2023, Boston (MA), United States. ⟨hal-03933574⟩`,
+  citation: `Denis Merigoux. Experience report: implementing a real-world, medium-sized program derived from a legislative specification. Programming Languages and the Law 2023 (affiliated with POPL), Jan 2023, Boston (MA), United States. ⟨hal-03933574⟩`,
   link: "https://inria.hal.science/hal-03869335",
   bibtex: `@inproceedings{merigoux:hal-03933574,
   TITLE = {{Experience report: implementing a real-world, medium-sized program derived from a legislative specification}},
@@ -629,48 +659,61 @@ derived from a legislative specification. Programming Languages and the Law 2023
 }`,
 }
 
-let save_to_clipboard: string => unit = %raw(`
-function(text) {navigator.clipboard.writeText(text)}
+let save_to_clipboard: (string, string, string) => unit = %raw(`
+function(text, id, lang) {
+  navigator.clipboard.writeText(text);
+  document.getElementById(id).innerText =
+    lang === "fr" ? "Copié !" : "Copied!";
+  setTimeout(() => {
+    document.getElementById(id).innerText = "";
+  }, 500);
+}
 `)
 
 module PubItem = {
   @react.component
-  let make = (~pub: publication) =>
-    <div className="flex flex-col justify-center">
-      <div className="inline-flex flex-row justify-between items-center">
-        <div className="">
-          <Link.Text className="font-semibold text-xl hover:text-green" target=pub.link>
-            {pub.title->React.string}
-          </Link.Text>
-          <span className="pl-4 pt-1 text-gray_dark font-semibold"> {pub.date->React.string} </span>
-        </div>
-        <div className="inline-flex self-start mt-1">
-          <Button.Small style="mx-2" onClick={_ => save_to_clipboard(pub.bibtex)}>
+  let make = (~pub: publication, ~locale: string) =>
+    <div className="flex flex-col justify-center p-4 not-last:border-b border-dashed border-border">
+      <div className="flex flex-row justify-between items-center mb-2">
+        <span className="text-neutral-700"> {pub.date->React.string} </span>
+        <div className="inline-flex self-start gap-2">
+          <span
+            id={"citation-" ++ pub.title} className="text-green-700 italic text-xs font-medium m-1"
+          />
+          <Button.Small
+            style="h-fit text-xs bg-white border-button_fg/50"
+            onClick={_ => save_to_clipboard(pub.bibtex, "citation-" ++ pub.title, locale)}>
             <span> {"BibTeX"->React.string} </span>
           </Button.Small>
-          <Button.Small onClick={_ => save_to_clipboard(pub.citation)}>
-            <Icon name="format_quote" />
+          <Button.Small
+            style="h-fit text-xs bg-white border-button_fg/50"
+            onClick={_ => save_to_clipboard(pub.citation, "citation-" ++ pub.title, locale)}>
+            <span>
+              <Lang.String english="Quote" french={`Citer`} />
+            </span>
           </Button.Small>
         </div>
       </div>
-      <div className="inline-flex flex-row flex-wrap justify-start items-center">
+      <div className="inline-flex flex-row justify-between items-center">
+        <div className="">
+          <Link.Text className="font-semibold font-serif text-lg" target=pub.link>
+            {pub.title->React.string}
+          </Link.Text>
+        </div>
+      </div>
+      <div className="inline-flex flex-row flex-wrap justify-start items-center gap-2 gap-y-0 mt-1">
         {pub.authors
         ->Belt.Array.mapWithIndex((i, author) => {
           let key = "pub-author-" ++ i->string_of_int
           let style =
-            "px-3 mr-2 mt-2 rounded-xl text-base font-semibold bg-gray_2 shadow-sm text-gray_dark" ++ if (
-              i > 0
-            ) {
+            "" ++ if i > 0 {
               ""
             } else {
               ""
             }
           switch author.website {
           | Some(target) =>
-            <Link.Text
-              key className={style ++ " hover:bg-primary_light hover:text-gray_dark"} target>
-              {author.name->React.string}
-            </Link.Text>
+            <Link.Text key className={style} target> {author.name->React.string} </Link.Text>
           | None => <span key className=style> {author.name->React.string} </span>
           }
         })
@@ -680,7 +723,7 @@ module PubItem = {
       | Some(abstract) =>
         <Box.Collapsible
           labelExpand={<Lang.String english="Show the abstract" french={`Voir l'abstract`} />}>
-          <p className="text-background"> {abstract->React.string} </p>
+          <p className="mt-2"> {abstract->React.string} </p>
         </Box.Collapsible>
       | None => <span className="mb-2" />
       }}
@@ -690,70 +733,97 @@ module PubItem = {
 module PubItems = {
   @react.component
   let make = (~items: array<publication>) => {
-    <div
-      className="flex flex-col justify-center content-center border-solid border rounded border-gray bg-gray_light p-4 gap-4">
+    let (lang, _) = React.useContext(Lang.langContext)
+    let locale = switch lang {
+    | Lang.French => "fr"
+    | _ => "en"
+    }
+    <ul className="bg-white border border-border">
       {items
       ->Belt.Array.mapWithIndex((i, item) =>
-        <PubItem key={"pub-item-" ++ i->string_of_int} pub=item />
+        <PubItem key={"pub-item-" ++ i->string_of_int} pub=item locale />
       )
       ->React.array}
-    </div>
+    </ul>
   }
 }
 
 @react.component
 let make = () => <>
-  <Title>
-    <Lang.String english="Publications" french={`Publications`} />
-  </Title>
-  <div className="pb-10">
-    <Section
-      id="peer-reviewed"
-      title={<Lang.String
-        english="Peer-reviewed conferences and journals"
-        french={`Conférences et journaux à comité de lecture`}
-      />}>
-      <PubItems
-        items={[
-          cutecat_2025,
-          droit_societe_2024,
-          virginia_tax_review_2024,
-          dates_2024,
-          crcl_2022,
-          ai_law_2022,
-          icfp2021,
-          cc2021,
-          forms_as_formalization_2020,
-          jfla2020,
-        ]}
-      />
-    </Section>
-    <Section id="workshops" title={<Lang.String english="Workshops" french={`Ateliers`} />}>
-      <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
-    </Section>
-    <Section
-      id="invited" title={<Lang.String english="Invited articles" french={`Articles invités`} />}>
-      <PubItems
-        items={[
-          epistemic_trespassing_2024,
-          scoping_ai_law_2024,
-          chicago_law_review_2024,
-          crcl_2023,
-          smu_2022,
-          iafipu2020,
-        ]}
-      />
-    </Section>
-    <Section
-      id="phd" title={<Lang.String english="PhD dissertations" french={`Thèses de doctorat`} />}>
-      <PubItems items={[these_liane, these_denis, these_marie]} />
-    </Section>
-    <Section
-      id="preprints"
-      title={<Lang.String
-        english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
-      />}>
-      <PubItems items={[explicabilite_2024, observations_2022, crcl_2021]} />
-    </Section>
-  </div>
+  <section className="my-16 px-4 md:px-8">
+    <Title>
+      <Lang.String english="Publications" french={`Publications`} />
+    </Title>
+  </section>
+  <section
+    id="peer-reviewed"
+    className="mb-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href="#peer-reviewed">
+        <Lang.String
+          english="Peer-reviewed conferences and journals"
+          french={`Conférences et journaux à comité de lecture`}
+        />
+      </a>
+    </h2>
+    <PubItems
+      items={[
+        cutecat_2025,
+        droit_societe_2024,
+        virginia_tax_review_2024,
+        dates_2024,
+        crcl_2022,
+        ai_law_2022,
+        icfp2021,
+        cc2021,
+        forms_as_formalization_2020,
+        jfla2020,
+      ]}
+    />
+  </section>
+  <section id="workshops" className="mb-16 px-4 md:px-8">
+    <h2>
+      <a href="#workshops">
+        <Lang.String english="Workshops" french={`Ateliers`} />
+      </a>
+    </h2>
+    <PubItems items={[prolala_2023, prolala_2022, ml_workshop_2023]} />
+  </section>
+  <section id="invited" className="px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href="#invited">
+        <Lang.String english="Invited articles" french={`Articles invités`} />
+      </a>
+    </h2>
+    <PubItems
+      items={[
+        epistemic_trespassing_2024,
+        sif_1024_2024,
+        scoping_ai_law_2024,
+        chicago_law_review_2024,
+        crcl_2023,
+        smu_2022,
+        iafipu2020,
+      ]}
+    />
+  </section>
+  <section id="phd" className="my-16 px-4 md:px-8">
+    <h2>
+      <a href="#phd">
+        <Lang.String english="PhD dissertations" french={`Thèses de doctorat`} />
+      </a>
+    </h2>
+    <PubItems items={[these_liane, these_denis, these_marie]} />
+  </section>
+  <section
+    id="preprints" className="mt-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href="#preprints">
+        <Lang.String
+          english="Preprints, technical reports" french={`Pré-prints et rapports de recherche`}
+        />
+      </a>
+    </h2>
+    <PubItems items={[explicabilite_2024, observations_2022, crcl_2021]} />
+  </section>
 </>

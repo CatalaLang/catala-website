@@ -18,28 +18,45 @@ type seminar = {
 
 module Seminar = {
   @react.component
-  let make = (~seminar: seminar) => <>
-    <dt className="pl-8 pb-4">
-      <span className="italic">
-        {Js.Date.toISOString(seminar.date)->String.split("T")->Array.getUnsafe(0) |> React.string}
-      </span>
-      <span> {" — " |> React.string} </span>
-      <span className="font-bold">
-        {switch seminar.kind {
-        | Sociology => <Lang.String french={`Sociologie`} english="Sociology" />
-        | Law => <Lang.String french={`Droit`} english="Law" />
-        | ComputerScience => <Lang.String french={`Informatique`} english="Computer Science" />
-        }}
-      </span>
-      <span> {" — " |> React.string} </span>
-      <span>
-        <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
-      </span>
-      <span> {" — " |> React.string} </span>
-      <span className="italic"> {seminar.title} </span>
-    </dt>
-    <dd className="pb-4"> {seminar.abstract} </dd>
-  </>
+  let make = (~seminar: seminar, ~locale: string) => {
+    let date = Date.toLocaleDateStringWithLocaleAndOptions(
+      seminar.date,
+      locale,
+      {
+        day: #numeric,
+        month: #long,
+        year: #numeric,
+      },
+    ) |> React.string
+    <li className="not-last:border-b border-dashed border-border p-4">
+      <div className="flex items-center gap-4 mb-2">
+        <span className=" text-neutral-700"> {date} </span>
+        <span className="text-sm">
+          {switch seminar.kind {
+          | Sociology =>
+            <span className="bg-violet-50 text-violet-700 py-1 px-2 rounded-sm">
+              <Lang.String french={`Sociologie`} english="Sociology" />
+            </span>
+          | Law =>
+            <span className="bg-cyan-50 text-cyan-700 py-1 px-2 rounded-sm">
+              <Lang.String french={`Droit`} english="Law" />
+            </span>
+          | ComputerScience =>
+            <span className="bg-green-50 text-green-700 py-1 px-2 rounded-sm">
+              <Lang.String french={`Informatique`} english="Computer Science" />
+            </span>
+          }}
+        </span>
+      </div>
+      <p className="font-serif text-lg font-medium text-black"> {seminar.title} </p>
+      <Link.Text target=seminar.presenter_page_url> {React.string(seminar.presenter)} </Link.Text>
+      <Box.Collapsible
+        labelExpand={<Lang.String french="Voir le résumé" english="See abstract" />}
+        labelCollapse={<Lang.String french="Cacher le résumé" english="Hide abstract" />}>
+        <p className="mt-2"> {seminar.abstract} </p>
+      </Box.Collapsible>
+    </li>
+  }
 }
 
 let seminars = [
@@ -1244,48 +1261,75 @@ let season_2023_2024 = Belt.List.toArray(
 
 @react.component
 let make = () => {
+  let (lang, _) = React.useContext(Lang.langContext)
+  let locale = switch lang {
+  | Lang.French => "fr-FR"
+  | Lang.English => "en-US"
+  }
   <>
-    <Title>
-      <Lang.String english="Seminar" french={`Séminaire`} />
-    </Title>
-    <div className="flex flex-col justify-center items-center">
-      <div>
-        <p>
+    <section className="my-16 px-4 md:px-8">
+      <Title>
+        <Lang.String english="Seminars" french={`Séminaires`} />
+      </Title>
+    </section>
+    <div className="py-8 px-4 md:px-8 bg-primary_light/5 border-y border-border font-serif text-lg">
+      <p className="mx-auto ">
+        <Lang.String
+          english="The project continues to maintain close ties with the \
+          academic research community. As such, the Catala team hosts seminars"
+          french={`Le projet continue à maintenir des liens étroits avec la \
+          communauté de la recherche académique. Ainsi, l'équipe Catala organise des séminaires au centre de \
+          recherche de l'`}
+        />
+        <TextHighlight>
           <Lang.String
-            english="The project continues to maintain close ties with the \
-          academic research community. As such, the Catala team hosts seminars at the Inria Paris research \
-          center one Monday per month, from 17:00 to 18:30. The sessions \
+            english="at the Inria Paris research center one Monday per month, from 17:00 to 18:30."
+            french={`Inria à Paris un lundi par mois de 17:00 à 18:30.`}
+          />
+        </TextHighlight>
+        <Lang.String
+          english="The sessions \
           alternate between Computer Science, Law and Sociology presentations \
           about stakes and problems of translating law to code."
-            french={`Le projet continue à maintenir des liens étroits avec la \
-          communauté de la recherche académique. Ainsi, l'équipe Catala organise des séminaires au centre de \
-          recherche de l'Inria à  Paris un lundi par mois de 17:00 à 18:30. \
-          Les séances alternent des exposés d'informatique, de droit et de \
+          french={`Les séances alternent des exposés d'informatique, de droit et de \
           sociologie portant sur les enjeux et les problèmes posés par la \
           traduction du droit en code.`}
-          />
-        </p>
-        <p className="mt-4">
-          <Lang.String
-            english="The location \
+        />
+      </p>
+      // <p className="!my-0  mx-auto ">
+      //   <Lang.String
+      //     english=""
+      //     french={``}
+      //   />
+      // </p>
+    </div>
+    <div className="my-16 px-4 md:px-8 sm:text-center mx-auto">
+      <p className="italic text-base mx-auto">
+        <Lang.String
+          english="The location \
           of the Inria Paris research center is: 48 rue Barrault, 75013 Paris. Please arrive
           5 minutes early to leave to ID card at the front desk, before proceeding to the seminar room."
-            french={`L'adresse du centre de recherche \
+          french={`L'adresse du centre de recherche \
           Inria de Paris est : 48 rue Barrault, 75013 Paris. Veuillez arriver 5 minutes en avance
           pour laisser votre carte d'identité à l'accueil, avant d'entrer dans la salle du séminaire.`}
-          />
-        </p>
-      </div>
-      <Link.Button target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
-        <Lang.String
-          english="Subscribe to the seminar mailing list"
-          french={`S'incrire à la newsletter du séminaire`}
         />
-      </Link.Button>
+      </p>
+      <div className="mt-4">
+        <Link.Button.Primary target={"https://sympa.inria.fr/sympa/subscribe/seminaire-catala"}>
+          <Lang.String
+            english="Subscribe to the seminar mailing list"
+            french={`S'incrire à la newsletter du séminaire`}
+          />
+        </Link.Button.Primary>
+      </div>
     </div>
-    <Section
-      id="upcoming"
-      title={<Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />}>
+    <section
+      id="upcoming" className="mb-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+      <h2>
+        <a href={"#upcoming"}>
+          <Lang.String english="Upcoming seminars" french={`Séminaires à venir`} />
+        </a>
+      </h2>
       {if Belt.Array.length(upcoming) == 0 {
         <Lang.String
           english="No upcoming seminar planned yet, stay tuned!"
@@ -1294,50 +1338,66 @@ let make = () => {
       } else {
         <> </>
       }}
-      <dl>
+      <ul className="bg-white border border-border">
         {upcoming
         ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item />
+          <Seminar key={"upcoming-seminar-item-" ++ i->string_of_int} seminar=item locale />
         )
         ->React.array}
-      </dl>
+      </ul>
+    </section>
+    <Section
+      id="organizers" title={<Lang.String english="Organizers" french={`Organisateur·ices`} />}>
+      <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className="mb-8" />
     </Section>
     {if Belt.Array.length(season_2025_2026) != 0 {
-      <Section
-        id="past" title={<Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />}>
-        <dl>
+      <section
+        id="past" className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+        <h2>
+          <a href={"#past"}>
+            <Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />
+          </a>
+        </h2>
+        <ul className="bg-white border border-border">
           {season_2025_2026
           ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item />
+            <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item locale />
           )
           ->React.array}
-        </dl>
-      </Section>
+        </ul>
+      </section>
     } else {
       <> </>
     }}
-    <Section
-      id="past" title={<Lang.String english="Season 2024-2025" french={`Saison 2024-2025`} />}>
-      <dl>
+    <section
+      id="past-2024-2025"
+      className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+      <h2>
+        <a href={"#past-2024-2025"}>
+          <Lang.String english="Season 2024-2025" french={`Saison 2024-2025`} />
+        </a>
+      </h2>
+      <ul className="bg-white border border-border">
         {season_2024_2025
         ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"season24-25-seminar-item-" ++ i->string_of_int} seminar=item />
+          <Seminar key={"season24-25-seminar-item-" ++ i->string_of_int} seminar=item locale />
         )
         ->React.array}
-      </dl>
-    </Section>
-    <Section
-      id="past" title={<Lang.String english="Season 2023-2024" french={`Saison 2023-2024`} />}>
-      <dl>
+      </ul>
+    </section>
+    <section id="#past-2023-2024" className="mt-16 px-4 md:px-8">
+      <h2>
+        <a href={"#past-2023-2024"}>
+          <Lang.String english="Season 2023-2024" french={`Saison 2023-2024`} />
+        </a>
+      </h2>
+      <ul className="bg-white border border-border">
         {season_2023_2024
         ->Belt.Array.mapWithIndex((i, item) =>
-          <Seminar key={"season23-24-seminar-item-" ++ i->string_of_int} seminar=item />
+          <Seminar key={"season23-24-seminar-item-" ++ i->string_of_int} seminar=item locale />
         )
         ->React.array}
-      </dl>
-    </Section>
-    <Section id="organizers" title={<Lang.String english="Organizers" french={`Organisateurs`} />}>
-      <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className="mb-8" />
-    </Section>
+      </ul>
+    </section>
   </>
 }

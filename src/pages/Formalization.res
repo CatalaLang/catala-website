@@ -2,12 +2,20 @@ open PageComponents
 
 @react.component
 let make = () => <>
-  <Title>
-    <Lang.String english="Formalization" french="Formalisation" />
-  </Title>
-  <Section
-    id="syntax"
-    title={<Lang.String english="Surface syntax" french={`Syntaxe du langage de surface`} />}>
+  <section className="my-16 px-4 md:px-8">
+    <Title>
+      <Lang.String
+        english="Formalization of the Catala language" french={`Formalisation du langage Catala`}
+      />
+    </Title>
+  </section>
+  <section
+    id="syntax" className="mb-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+    <h2>
+      <a href={"#syntax"}>
+        <Lang.String english="Surface syntax" french={`Syntaxe du langage de surface`} />
+      </a>
+    </h2>
     <p>
       <Lang.String
         english="The syntax of the language is derived from the "
@@ -28,10 +36,15 @@ let make = () => <>
         française et anglaise de Catala. En effet, la langue d'entrée n'affecte que la création des jetons du parseur, pas leur ordre.`}
       />
     </p>
-    <Box.Collapsible>
-      <RawHtml className="font-mono" htmlFile="grammar.html" />
+    <Box.Collapsible
+      className="bg-white w-full"
+      labelExpand={<Lang.String english="Show grammar" french={`Voir la grammaire`} />}
+      labelCollapse={<Lang.String english="Hide grammar" french={`Cacher la grammaire`} />}>
+      <RawHtml
+        className="font-mono bg-white overflow-auto h-[80dvh] max-w-[85dvw]" htmlFile="grammar.html"
+      />
     </Box.Collapsible>
-    <p>
+    <p className="mt-4">
       <Lang.String
         english="To complement this formal description of the syntax, a cheat sheet is also available
         and is probably more practical to satisfy your hands-on syntax curiosity."
@@ -40,18 +53,20 @@ let make = () => <>
         vis-à-vis de la syntaxe de Catala.`}
       />
     </p>
-    <div className="flex flex-row justify-end">
+    <div className="">
       <Link.Button.Small target="https://catalalang.github.io/catala/syntax.pdf">
         <Lang.String
           english="Access the syntax cheat sheet" french={`Accéder au pense-bête syntaxique`}
         />
-        <Icon className="pl-2" name="description" />
       </Link.Button.Small>
     </div>
-  </Section>
-  <Section
-    id="semantics"
-    title={<Lang.String english="Core semantics" french={`Sémantique du cœur du langage`} />}>
+  </section>
+  <section id="semantics" className="px-4 md:px-8">
+    <h2>
+      <a href={"#semantics"}>
+        <Lang.String english="Core semantics" french={`Sémantique du cœur du langage`} />
+      </a>
+    </h2>
     <p>
       <Lang.String
         english="Catala's unique feature is the possibility to give multiple definitions to the same variable,
@@ -66,14 +81,13 @@ let make = () => <>
            le choix s'effectue selon des règles de précédences spécifiées dans le code source.`}
       />
     </p>
-    <div className="flex flex-row justify-end">
+    <div className="">
       <Link.Button.Small target="https://dl.acm.org/doi/10.1145/3473582">
         <Lang.String
           english="Access the complete formalization paper"
           french={`Accéder à l'article contenant la formalisation`}
         />
-        <Icon className="pl-2" name="description" />
       </Link.Button.Small>
     </div>
-  </Section>
+  </section>
 </>
