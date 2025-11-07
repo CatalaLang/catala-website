@@ -1201,6 +1201,16 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Law,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=11.0, ~date=8.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
+    presenter: "Joseph Garrone, Romain Lesur et Frédéric Comte",
+    presenter_page_url: "https://www.onyxia.sh/",
+    abstract: <Lang.String
+      english={`Abstract to be determined`} french={`Résumé à déterminer`}
+    />,
+    kind: ComputerScience,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
