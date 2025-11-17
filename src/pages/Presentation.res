@@ -64,7 +64,7 @@ let make = () => {
       <div className="text-sm">
         <Lang.String english="Apache-2.0 License" french={`Licence Apache-2.0`} />
         <Link.Text className="ml-2" target={githubLinkLatestRelease}>
-          <Lang.String english="GitHub v1.0.0-alpha" french={`GitHub v1.0.0-alpha`} />
+          <Lang.String english="GitHub v1.0.0" french={`GitHub v1.0.0`} />
         </Link.Text>
       </div>
     </section>
