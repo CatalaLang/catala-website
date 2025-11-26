@@ -1203,12 +1203,63 @@ public demonstrations of technology, also known as \"demos\"."
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2025.0, ~month=11.0, ~date=8.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
-    presenter: "Joseph Garrone, Romain Lesur et Frédéric Comte",
-    presenter_page_url: "https://www.onyxia.sh/",
-    abstract: <Lang.String
-      english={`Abstract to be determined`} french={`Résumé à déterminer`}
+    title: <Lang.String
+      english="How Public-Sector Open Source Actually Wins: A Field Guide to Real-World Adoption"
+      french={`Comment l'open source du secteur public réussit réellement : guide pratique pour une adoption à grande échelle`}
     />,
+    presenter: "Joseph Garrone",
+    presenter_page_url: "https://www.linkedin.com/in/joseph-garrone-0b583490/",
+    abstract: <>
+      <Lang.String
+        english={`Most open-source projects fail not because they lack innovation,
+        but because they fail to communicate value, integrate smoothly, or earn
+        trust. Drawing from the experience of building `}
+        french={`La plupart des projets open source échouent non pas par manque
+        d'innovation, mais parce qu'ils n'arrivent pas à communiquer clairement
+        leur valeur, à s'intégrer sans friction ou à instaurer la confiance.
+        En m'appuyant sur l'expérience acquise avec `}
+      />
+      <Link.Text target="https://www.onyxia.sh/">
+        <Lang.String english={`Onyxia`} french={`Onyxia`} />
+      </Link.Text>
+      <Lang.String
+        english={` and industry-adopted libraries like `}
+        french={` et des bibliothèques largement adoptées comme `}
+      />
+      <Link.Text target="https://github.com/keycloakify/keycloakify">
+        <Lang.String english={`Keycloakify`} french={`Keycloakify`} />
+      </Link.Text>
+      <Lang.String english={` or more anegdotally `} french={`, ou plus anecdotiquement `} />
+      <Link.Text target="https://github.com/codegouvfr/react-dsfr">
+        <Lang.String english={`react-dsfr`} french={`react-dsfr`} />
+      </Link.Text>
+      <Lang.String
+        english={`, this talk breaks down what actually makes public-sector
+        open source succeed in the real world. We'll cover:
+        how to craft a value proposition that speaks to the target audience,
+        how to remove barriers to adoption while staying standards-based,
+        how to build trust by fixing fast rather than never failing,
+        how to design documentation around user questions rather than code structure, and
+        why modern presentation (UX, landing pages, storytelling) has measurable impact on adoption.`}
+        french={`, cette présentation analyse ce qui permet réellement à l'open source
+        du secteur public de réussir dans le monde réel. Nous aborderons :
+        comment formuler une proposition de valeur qui parle immédiatement à votre audience cible,
+        comment supprimer les barrières à l'adoption tout en restant fidèle aux standards ouverts,
+        comment instaurer la confiance en corrigeant rapidement plutôt qu'en cherchant à ne jamais échouer,
+        comment structurer une documentation autour des questions des utilisateurs plutôt que de l'architecture du code,
+        et pourquoi une présentation moderne (UX, landing pages, storytelling) a un impact mesurable sur l'adoption.`}
+      />
+      <Lang.String
+        english="
+      This talk is not theory: it's hard-earned, field-tested guidance on
+      building open source that organizations want to bet on, even at
+      large scale."
+        french={`Cette intervention n'est pas théorique : c'est un retour
+        d'expérience concret, forgé sur le terrain, sur la manière de
+        construire de l'open source que les organisations sont prêtes à
+        adopter, y compris à grande échelle.`}
+      />
+    </>,
     kind: ComputerScience,
   },
 ]
