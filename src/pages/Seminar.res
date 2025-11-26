@@ -1229,7 +1229,7 @@ public demonstrations of technology, also known as \"demos\"."
       <Link.Text target="https://github.com/keycloakify/keycloakify">
         <Lang.String english={`Keycloakify`} french={`Keycloakify`} />
       </Link.Text>
-      <Lang.String english={` or more anegdotally `} french={`, ou plus anecdotiquement `} />
+      <Lang.String english={` or more anecdotally `} french={`, ou plus anecdotiquement `} />
       <Link.Text target="https://github.com/codegouvfr/react-dsfr">
         <Lang.String english={`react-dsfr`} french={`react-dsfr`} />
       </Link.Text>
