@@ -1262,6 +1262,28 @@ public demonstrations of technology, also known as \"demos\"."
     </>,
     kind: ComputerScience,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=0.0, ~date=12.0, ())),
+    title: <Lang.String
+      english="The University, from yesterday to today"
+      french={`Université d'hier et d'aujourd'hui`}
+    />,
+    presenter: "Christine Musselin",
+    presenter_page_url: "https://www.sciencespo.fr/cso/fr/annuaire/musselin-christine/",
+    abstract: <Lang.String
+      english={`The aim is to draw on a long-term historical perspective to
+      trace the relationship between universities and public authorities in
+      France and analyze the transformation of higher education management
+      methods. In doing so, the evolution of the missions of universities
+      and the idea of the university will also be addressed.`}
+      french={`Il s'agit de mobiliser une perspective historique de longue durée
+      pour retracer les des relations entre les universités et les autorités
+      publiques en France et d'analyser la transformation des modes de pilotage
+      de l'enseignement supérieur. Ce faisant, c'est aussi l'évolution des
+      missions des universités et de l'idée d'université qui sera abordée.`}
+    />,
+    kind: Sociology,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
