@@ -1284,6 +1284,16 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Sociology,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=1.0, ~date=23.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
+    presenter: "Claire Mathieu",
+    presenter_page_url: "https://www.irif.fr/users/claire/index",
+    abstract: <Lang.String
+      english={`Abstract to be determined`} french={`Résumer à déterminer`}
+    />,
+    kind: ComputerScience,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
