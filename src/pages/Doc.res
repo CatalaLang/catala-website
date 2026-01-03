@@ -42,20 +42,6 @@ module MakeManPageDoc = (Man: ManPage) => {
   }
 }
 
-module CatalaManPage = MakeManPageDoc({
-  let title =
-    <Lang.String english="Catala compiler man page" french={`Page man du compilateur Catala`} />
-  let url: string = "https://assets.catala-lang.org/catala.html"
-})
-
-module ClerkManPage = MakeManPageDoc({
-  let title =
-    <Lang.String
-      english="Clerk build system man page" french={`Page man du système de build Clerk`}
-    />
-  let url: string = "https://assets.catala-lang.org/clerk.html"
-})
-
 module CatalaLegifranceManPage = MakeManPageDoc({
   let title =
     <Lang.String
@@ -64,39 +50,6 @@ module CatalaLegifranceManPage = MakeManPageDoc({
     />
   let url: string = "https://catleg.readthedocs.io/en/latest/"
 })
-
-let catala_card: Card.Presentation.t = {
-  title: <Lang.String english="The Catala Compiler" french="Le compilateur Catala" />,
-  action: Some((
-    Internal([Nav.home, Nav.doc, Nav.catalaManPage]),
-    <Lang.String english="See manpage" french={`Voir la page man`} />,
-  )),
-  icon: None,
-  quote: None,
-  content: <Lang.String
-    english="The compiler is the main tool that parses Catala source code files and translate
-     the contents into various literate programming or executable targets."
-    french={`Le compilateur est l'outil principal qui prend en entrée un fichier source Catala et
-     en traduit le contenu vers diverses cibles de programmation littéraire ou exécutable.`}
-  />,
-}
-
-let clerk_card: Card.Presentation.t = {
-  title: <Lang.String english="The Clerk build system" french={`Le système de build Clerk`} />,
-  action: Some((
-    Internal([Nav.home, Nav.doc, Nav.clerkManPage]),
-    <Lang.String english="See manpage" french={`Voir la page man`} />,
-  )),
-  icon: None,
-  quote: None,
-  content: <Lang.String
-    english="The build system is the tool that help you build a Catala project and perform various
-    tasks like testing. Its design is influenced by Rust's cargo."
-    french={`Le système de build est l'outil qui vous aide à build votre projet
-    Catala ainsi que de réaliser d'autre tâches comme exécuter les tests.
-     Sa conception a été influencée par l'outil cargo de Rust.`}
-  />,
-}
 
 let catala_legifrance_card: Card.Presentation.t = {
   title: <Lang.String
@@ -239,14 +192,7 @@ let make = () => <>
       </a>
     </h2>
     <Card.Presentation.FromList
-      cards=[
-        catala_book_card,
-        syntax_cheat_sheet_card,
-        catala_card,
-        clerk_card,
-        catala_legifrance_card,
-        ocaml_docs_card,
-      ]
+      cards=[catala_book_card, syntax_cheat_sheet_card, catala_legifrance_card, ocaml_docs_card]
     />
   </section>
   <section

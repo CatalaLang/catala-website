@@ -20,8 +20,8 @@ let make = React.memo(() => {
           <Lang.String english="the Catala team" french={`l'équipe Catala`} />
         </Link.Internal>
         <Lang.String
-          english=". The design and development were done by "
-          french={`. Le design et le développement ont été réalisés par `}
+          english=". The design and development were done by Émile Rolley from "
+          french={`. Le design et le développement ont été réalisés par Émile Rolley de `}
         />
         <Link.Text target=calinou_link>
           <Lang.String english="Calinou" french={`Calinou`} />
@@ -42,9 +42,9 @@ let make = React.memo(() => {
       <div className="inline-flex flex-row gap-8">
         <div className="inline-flex flex-col">
           <p className="font-semibold text-stone-800 pb-2 font-serif">
-            <Lang.String english="Ressources" french={`Ressources`} />
+            <Lang.String english="Resources" french={`Ressources`} />
           </p>
-          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.about]}>
             Nav.about.text
           </Link.Internal>
           <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.features]}>
@@ -53,7 +53,7 @@ let make = React.memo(() => {
           <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
             Nav.doc.text
           </Link.Internal>
-          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.examples]}>
             <Lang.String english="Examples" french={`Exemples`} />
           </Link.Internal>
         </div>
@@ -96,14 +96,6 @@ let make = React.memo(() => {
           <Link.Text className=footerInternalLinkStyle target=Nav.syntaxCheatSheet.url>
             Nav.syntaxCheatSheet.text
           </Link.Text>
-          <Link.Internal
-            className=footerInternalLinkStyle target={[Nav.home, Nav.doc, Nav.catalaManPage]}>
-            Doc.catala_card.title
-          </Link.Internal>
-          <Link.Internal
-            className=footerInternalLinkStyle target={[Nav.home, Nav.doc, Nav.clerkManPage]}>
-            Doc.clerk_card.title
-          </Link.Internal>
           <Link.Text
             className=footerInternalLinkStyle target="https://github.com/CatalaLang/catleg">
             Doc.catala_legifrance_card.title
