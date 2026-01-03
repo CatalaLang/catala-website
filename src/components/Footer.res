@@ -53,7 +53,7 @@ let make = React.memo(() => {
           <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
             Nav.doc.text
           </Link.Internal>
-          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.examples]}>
+          <Link.Internal className=footerInternalLinkStyle target={[Nav.home, Nav.doc]}>
             <Lang.String english="Examples" french={`Exemples`} />
           </Link.Internal>
         </div>

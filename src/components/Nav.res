@@ -129,7 +129,6 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
         ~withDefaultElems=true,
         [
           home,
-          examples,
           about,
           seminar,
           doc,
