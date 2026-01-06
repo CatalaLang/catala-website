@@ -1293,18 +1293,28 @@ public demonstrations of technology, also known as \"demos\"."
     presenter: "Claire Mathieu",
     presenter_page_url: "https://www.irif.fr/users/claire/index",
     abstract: <Lang.String
-      english={`How can researchers and professors can interven in public policies ? 
-      In this talk, I will present a concrete example: the work done with Hugo 
-      Gimbert as CNRS researchers. We were tasked with helping to deploy 
+      english={`How can researchers and professors can interven in public policies ?
+      In this talk, I will present a concrete example: the work done with Hugo
+      Gimbert as CNRS researchers. We were tasked with helping to deploy
       the Parcoursup platform on algorithmic and modelling aspects.`}
-      french={`Quel rôle les chercheurs et enseignants-chercheurs peuvent-ils 
-      jouer dans les politiques publiques ? Dans cet exposé je présenterai un 
-      exemple concret, celui du travail qu’avec Hugo Gimbert, nous avons fait 
-      en tant que chercheurs CNRS chargés de mission, participant à la mise 
-      en place de la plateforme Parcoursup dans les aspects d’algorithmique 
+      french={`Quel rôle les chercheurs et enseignants-chercheurs peuvent-ils
+      jouer dans les politiques publiques ? Dans cet exposé je présenterai un
+      exemple concret, celui du travail qu’avec Hugo Gimbert, nous avons fait
+      en tant que chercheurs CNRS chargés de mission, participant à la mise
+      en place de la plateforme Parcoursup dans les aspects d’algorithmique
       et de modélisation.`}
     />,
     kind: ComputerScience,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=2.0, ~date=30.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
+    presenter: "Mireille Hildebrandt",
+    presenter_page_url: "https://lsts.research.vub.be/mireille-hildebrandt",
+    abstract: <Lang.String
+      english={`Abstract to be determined`} french={`Résumé à déterminer`}
+    />,
+    kind: Law,
   },
 ]
 
