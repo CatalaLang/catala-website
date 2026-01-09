@@ -1308,11 +1308,43 @@ public demonstrations of technology, also known as \"demos\"."
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=2.0, ~date=30.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à déterminer`} />,
+    title: <Lang.String
+      english="Logic, causation and performative effect"
+      french={`Logique, causalité et effet performatif`}
+    />,
     presenter: "Mireille Hildebrandt",
     presenter_page_url: "https://lsts.research.vub.be/mireille-hildebrandt",
     abstract: <Lang.String
-      english={`Abstract to be determined`} french={`Résumé à déterminer`}
+      english={`I will discuss the differences between three types of
+      relationships between natural language, and action on the one hand and
+      programming languages on the other hand. In law, what matters is legal
+      effect, which is a performative effect, whereas in programming languages
+      logic prevails. One of the interesting questions is under what conditions
+      legal effect can be attributed to the output of executable code.
+      How should executable code be situated in the context of the Rule of Law?
+      Is deployment a matter of tradeoffs, alignment, balancing or enhancement
+      of the Rule of Law? Depending on this: what requirements should be met
+      (e.g. types of programming: logic, domain-specific languages, generative
+      AI and security: attack modelling, data protection issues, debugging) ?
+      The answers to these questions must be found at two levels: (1) the
+      conceptual level, where logic, causation and performative effects
+      must be distinguished and (2) the empirical level, where the implications
+      of the use of executable code for the law’s legal effect must be tested`}
+      french={`Je vais présenter les différences de trois types de relations entre
+      le langage naturel et l'action d'une part, et le langages de programmation
+      d'une autre part. En droit, l'important est l'effet juridique, qui est
+      un effet performatif, alors que dans les langages de programmation la logique
+      seule règne. Une des questions intéressantes concerne alors les conditions
+      dans lesquelles l'effet juridique peut être attribué au résultat de
+      l'exécution d'un code source. Comment positionner l'exécution d'un code
+      informatique dans le contexte de l'état de droit ? En fonction de ce
+      positionnement: quel pré-requis faut-il prévoir (types de programmation :
+      logique,  langages dédiés, IA générative, et sécurité : modélisation des
+      attaques, problèmes de protection des données, débugging) ? Les réponses
+      à ces querstions se situeront à deux niveaux : (1) au niveau conceptuel où
+      il conviendra de distinguer la logique, la causalité et les effets performatifs,
+      et (2) au niveau empirique, où les implications et l'utilisation du code
+      exécutable pour produire des effets juridiques doivent être testés.`}
     />,
     kind: Law,
   },
