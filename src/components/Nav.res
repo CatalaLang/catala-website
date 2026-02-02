@@ -127,15 +127,7 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
     let getFirstNavElems: string => option<array<navElem>> = {
       getNavElemsFrom(
         ~withDefaultElems=true,
-        [
-          home,
-          about,
-          seminar,
-          doc,
-          features,
-          // visualization,
-          ir_catala,
-        ],
+        [home, about, seminar, doc, features, examples, ir_catala],
       )
     }
     let getSecondNavElems: string => option<array<navElem>> = {
