@@ -141,7 +141,7 @@ let make = () => {
               />
             </p>
             <Link.Text
-              target="https://book.catala-lang.org/3-5-lawyers-agile.html"
+              target="https://book.catala-lang.org/en/3-5-lawyers-agile.html"
               className="mt-2 italic w-fit">
               <Lang.String english="Read more" french={`En savoir plus`} />
             </Link.Text>
@@ -419,7 +419,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
               />,
             ),
             action: Some((
-              External("https://book.catala-lang.org/2-0-tutorial.html"),
+              External("https://book.catala-lang.org/en/2-0-tutorial.html"),
               <Lang.String
                 english="Get started with the tutorial" french={`Démarrer avec le tutoriel`}
               />,
