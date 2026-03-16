@@ -1288,7 +1288,7 @@ public demonstrations of technology, also known as \"demos\"."
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=1.0, ~date=23.0, ())),
     title: <Lang.String
       english="Researchers and public policy: the example of Parcoursup"
-      french={`Chercheurs et politique publique: l’exemple de Parcoursup`}
+      french={`Chercheurs et politique publique: l'exemple de Parcoursup`}
     />,
     presenter: "Claire Mathieu",
     presenter_page_url: "https://www.irif.fr/users/claire/index",
@@ -1299,9 +1299,9 @@ public demonstrations of technology, also known as \"demos\"."
       the Parcoursup platform on algorithmic and modelling aspects.`}
       french={`Quel rôle les chercheurs et enseignants-chercheurs peuvent-ils
       jouer dans les politiques publiques ? Dans cet exposé je présenterai un
-      exemple concret, celui du travail qu’avec Hugo Gimbert, nous avons fait
+      exemple concret, celui du travail qu'avec Hugo Gimbert, nous avons fait
       en tant que chercheurs CNRS chargés de mission, participant à la mise
-      en place de la plateforme Parcoursup dans les aspects d’algorithmique
+      en place de la plateforme Parcoursup dans les aspects d'algorithmique
       et de modélisation.`}
     />,
     kind: ComputerScience,
@@ -1329,7 +1329,7 @@ public demonstrations of technology, also known as \"demos\"."
       The answers to these questions must be found at two levels: (1) the
       conceptual level, where logic, causation and performative effects
       must be distinguished and (2) the empirical level, where the implications
-      of the use of executable code for the law’s legal effect must be tested`}
+      of the use of executable code for the law's legal effect must be tested.`}
       french={`Je vais présenter les différences de trois types de relations entre
       le langage naturel et l'action d'une part, et le langages de programmation
       d'une autre part. En droit, l'important est l'effet juridique, qui est
@@ -1347,6 +1347,52 @@ public demonstrations of technology, also known as \"demos\"."
       exécutable pour produire des effets juridiques doivent être testés.`}
     />,
     kind: Law,
+  },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=2.0, ~date=30.0, ())),
+    title: <Lang.String
+      english="Rights and files. Paperwork, \"access to justice\" and the social question"
+      french={`Droits et dossiers. Paperasse, « accès au droit » et question sociale`}
+    />,
+    presenter: "Axel Pohn-Weidinger",
+    presenter_page_url: "https://lincs.unistra.fr/le-laboratoire/membres/enseignants-chercheurs/maitres-de-conferences/pohn-weidinger-axel/",
+    abstract: <Lang.String
+      english={`Since the 1990s, the issue of ‘access to justice' has been the
+      subject of much discussion, yet we rarely take a close look at what people
+      living in precarious circumstances and poverty actually do when they seek
+      to claim their social rights. This presentation examines the question of
+      ‘access' to justice through a novel lens: that of the case file. Between
+      the cost-calculations that organise the household economy, on the one
+      hand, and the local bureaucracy that assesses claims, on the other, lies
+      this object, buffeted both by the demands of a restructured welfare state
+      and by the intense day-to-day administrative work carried out by service
+      users. How should we analyse users' files? What do they tell us about
+      what people do to access their rights, or to maintain them? What do they
+      reveal about the transformation of the French welfare state? The
+      presentation takes the audience to the heart of the welfare state's
+      archives, inviting them to open so-called administrative files, to delve
+      into their contents, and to trace the twists and turns of their
+      composition—from the application form to the administrative appeal—in
+      order to understand what it means to assert one's rights.`}
+      french={`Depuis les années 1990, la question de « l'accès au droit » a
+      fait coulé beaucoup d'encre, mais on ne regarde pourtant que rarement
+      de près ce que les gens en situation de précarité et de pauvreté font
+      quand ils demandent des droits sociaux. Cette présentation aborde la
+      question de « l'accès » au droit à travers un prisme inédit, celui du
+      dossier. Entre les façons de calculer qui organisent l'économie domestique,
+      d'un côté, et la bureaucratie de proximité qui évalue des demandes, de
+      l'autre, se tient en effet cet objet agité à la fois par les injonctions
+      d'un État social recomposé et par un intense travail administratif
+      ordinaire accompli par usagers. Comment analyser les dossiers des
+      usagers ? Que nous disent-ils de ce que les gens font pour accéder
+      aux droits, ou pour s'y maintenir ? Que disent-ils de la métamorphose
+      de l'État social français ? La présentation amène le public au cœur des
+      archives de l'État social, l'invite à ouvrir des dossiers dits
+      administratifs, à s'aventurer dans leurs plis, à remonter les
+      méandres de leur constitution, du formulaire au recours gracieux,
+      afin de comprendre ce que faire valoir ses droits veut dire.`}
+    />,
+    kind: Sociology,
   },
 ]
 
