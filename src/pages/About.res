@@ -203,6 +203,14 @@ let make = () => <>
           <Lang.String english="Apollo program" french={`Programme Apollo`} />
         </Link.Text>
       </Highlight>
+      <Highlight src={Assets.Image.logo_college_societes_savantes}>
+        <Link.Text target="https://societes-savantes.fr/prix-de-linterdisciplinarite-2026-2/">
+          <Lang.String
+            english="French collective of academic societies"
+            french={`Collège des sociétés savantes`}
+          />
+        </Link.Text>
+      </Highlight>
     </div>
   </section>
   <Section

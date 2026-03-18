@@ -23,6 +23,11 @@ external _oecd_logo: string = "_oecd_logo"
 %%raw("import _dinum_logo from '../../assets/Logo_DINUM_2020_RVB.png'")
 external _dinum_logo: string = "_dinum_logo"
 
+%%raw(
+  "import _college_societes_savantes_logo from '../../assets/logo_college_societes_savantes.png'"
+)
+external _college_societes_savantes_logo: string = "_college_societes_savantes_logo"
+
 %%raw("import _pair_programming_compr from '../../assets/pair_programming_compr.jpg'")
 external _pair_programming_compr: string = "_pair_programming_compr"
 
@@ -45,6 +50,7 @@ module Image = {
   let logo_dinum: string = _dinum_logo
   let logo_cnaf: string = _cnaf_logo
   let logo_dgfip: string = _dgfip_logo
+  let logo_college_societes_savantes = _college_societes_savantes_logo
   let pair_programming_compr: string = _pair_programming_compr
   let literate_programming_en: string = _literate_programming_en
   let literate_programming_fr: string = _literate_programming_fr
