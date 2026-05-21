@@ -1506,8 +1506,10 @@ let make = () => {
         />
         <TextHighlight>
           <Lang.String
-            english="at the Inria Paris research center one Monday per month, from 17:00 to 18:30."
-            french={`Inria à Paris un lundi par mois de 17:00 à 18:30.`}
+            english="at the Inria Paris research center one Monday per month, from 17:00 to 18:30. \
+            Exceptionnellement, la séance du 22 juin 2026 aura lieu de 18:00 à 19:30"
+            french={`Inria à Paris un lundi par mois de 17:00 à 18:30. \
+            Exceptionnally, the session of June 22nd, 2026 will happen from 18:00 to 19:30.`}
           />
         </TextHighlight>
         <Lang.String
