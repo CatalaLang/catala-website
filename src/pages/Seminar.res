@@ -1401,7 +1401,7 @@ public demonstrations of technology, also known as \"demos\"."
       french={`Law ⇌* Code : Assumer un acte infodroit, l'exemple de la sélection en Master
 `}
     />,
-    presenter: "Luc Pélissier, Pierre Valarcher, Noé Wagener",
+    presenter: "Luc Pellissier, Pierre Valarcher, Noé Wagener",
     presenter_page_url: "https://www.u-pec.fr/fr/formation/master-droit-du-numerique-parcours-informatique-et-droit",
     abstract: <Lang.String
       english={`As part of the "Mon Master 2026" initiative, a programme has been
