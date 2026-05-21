@@ -1394,6 +1394,36 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: Sociology,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=5.0, ~date=22.0, ())),
+    title: <Lang.String
+      english="Law ⇌* Code: assuming a computerlaw act, the exemple of graduate admission"
+      french={`Law ⇌* Code : Assumer un acte infodroit, l'exemple de la sélection en Master
+`}
+    />,
+    presenter: "Luc Pélissier, Pierre Valarcher, Noé Wagener",
+    presenter_page_url: "https://www.u-pec.fr/fr/formation/master-droit-du-numerique-parcours-informatique-et-droit",
+    abstract: <Lang.String
+      english={`As part of the "Mon Master 2026" initiative, a programme has been
+       developed at the University of Paris-Est Créteil to review and assess
+       applications for a Master’s degree programme. The programme, which has
+       been designed, configured and implemented, is both an executable computer
+       tool and a legal instrument in its own right, designed to be capable of
+       being subject to independent judicial review. This talk will seek to
+       outline the approach taken, which raises a whole series of potentially
+       significant questions regarding the relationship between law and the code.`}
+      french={`Dans le cadre de la procédure Mon Master 2026, un programme a
+      été élaboré à l'université Paris-Est Créteil pour procéder à l'examen
+      et à l'évaluation des candidatures à un parcours de Master. Le programme
+      qui a été conçu, paramétré et mis en oeuvre est à la fois un outil
+      informatique exécutable et un acte juridique à part entière, pensé pour
+      être susceptible de faire l'objet d'un contrôle juridictionnel autonome.
+      La présente communication s'attachera à restituer la démarche suivie, qui
+      soulève toute une série de questions potentiellement importantes quant
+      aux relations entre le droit et le code.`}
+    />,
+    kind: ComputerScience,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
