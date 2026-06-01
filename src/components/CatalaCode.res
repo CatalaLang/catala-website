@@ -2,8 +2,8 @@
 
 let typesetMathJax: unit => unit = %raw(`
 function typesetMathJax() {
-    if (window.MathJax) {
-      window.MathJax.typeset();
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise();
     }
   }
 `)
@@ -11,14 +11,29 @@ function typesetMathJax() {
 module DangerouslySetInnerHtml = {
   @react.component
   let make = (~htmlFile) => {
+    let (htmlState, setHtmlState) = React.useState(_ => None)
     React.useEffect(() => {
-      // This assumes MathJax to be loaded in the page. Necessary for the
-      // LaTeX components of the Catala code to be typeset after any
-      // change in the collapsible structure of the page.
-      typesetMathJax()
+      Assets.Html.getExn(htmlFile)
+      ->Promise.thenResolve(html => setHtmlState(_ => Some(html)))
+      ->Promise.done
       None
     })
-    <RawHtml htmlFile={htmlFile} className="catala-code w-full" />
+    // typesetMathJax runs after the DOM is updated with the HTML content
+    React.useEffect1(
+      () => {
+        switch htmlState {
+        | Some(_) => typesetMathJax()
+        | None => ()
+        }
+        None
+      },
+      [htmlState],
+    )
+    switch htmlState {
+    | Some(html) =>
+      <div className="catala-code w-full" dangerouslySetInnerHTML={"__html": html} />
+    | None => <div className="catala-code w-full"> {"Loading..."->React.string} </div>
+    }
   }
 }
 module Span = {
