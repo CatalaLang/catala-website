@@ -49,9 +49,14 @@ let make = () => {
       //   </Link.Text>
       // </div>
       <div className="inline-flex flex-col gap-4 mb-4">
-        <Link.Button.Internal target=[Nav.home, Nav.doc]>
-          <Lang.String english="Read the documentation" french={`Lire la documentation`} />
-        </Link.Button.Internal>
+        <div className="inline-flex flex-col sm:flex-row gap-4">
+          <Link.Button.Internal target=[Nav.home, Nav.doc]>
+            <Lang.String english="Read the documentation" french={`Lire la documentation`} />
+          </Link.Button.Internal>
+          <Link.Button.Primary target={zulipLink}>
+            <Lang.String english="Ask your questions" french={`Posez vos questions`} />
+          </Link.Button.Primary>
+        </div>
         <div className="inline-flex flex-col sm:flex-row gap-4">
           <Link.Button target={githubLink}>
             <Lang.String english="Get started on GitHub" french={`Démarrer sur GitHub`} />
