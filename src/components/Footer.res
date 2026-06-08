@@ -96,7 +96,7 @@ let make = React.memo(() => {
           <Link.Text
             className=footerInternalLinkStyle
             target="https://catalalang.github.io/catala/syntax.pdf">
-            Nav.syntaxCheatSheet.text
+            <Lang.String english="Syntax cheat sheet" french={`Aide-mémoire syntaxique`} />
           </Link.Text>
           <Link.Text
             className=footerInternalLinkStyle target="https://github.com/CatalaLang/catleg">
