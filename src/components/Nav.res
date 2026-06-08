@@ -83,11 +83,6 @@ let ocamlDocs: navElem = {
   text: "ocaml" |> React.string,
 }
 
-let syntaxCheatSheet: navElem = {
-  url: "syntax-sheet",
-  text: <Lang.String english="Syntax cheat sheet" french={`Aide-mémoire syntaxique`} />,
-}
-
 let visualization: navElem = {
   url: "visualization",
   text: <Lang.String english="Visualization" french={`Visualisation`} />,
@@ -141,7 +136,6 @@ let urlToNavElem = (url: RescriptReactRouter.url): (option<Lang.lang>, array<nav
         clerkManPage,
         catalaLegifranceManPage,
         ocamlDocs,
-        syntaxCheatSheet,
         ir_catala,
       ])
     }

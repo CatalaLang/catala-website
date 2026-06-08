@@ -93,7 +93,9 @@ let make = React.memo(() => {
           <Link.Text className=footerInternalLinkStyle target=catala_book_link>
             Doc.catala_book_card.title
           </Link.Text>
-          <Link.Text className=footerInternalLinkStyle target=Nav.syntaxCheatSheet.url>
+          <Link.Text
+            className=footerInternalLinkStyle
+            target="https://catalalang.github.io/catala/syntax.pdf">
             Nav.syntaxCheatSheet.text
           </Link.Text>
           <Link.Text
