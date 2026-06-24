@@ -24,13 +24,14 @@ module SubSection = {
 }
 
 module Highlight = {
+  let baseClassName = "flex flex-col h-full justify-between bg-white "
   @react.component
   let make = (
     ~src: string,
-    ~className="flex flex-col h-full justify-between not-last:border-b not-nth-[2]:border-r border-border",
+    ~className="",
     ~children,
   ) =>
-    <figure className={className}>
+    <figure className={baseClassName ++ className}>
       <img
         style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-26 p-4" src={src}
       />
@@ -40,13 +41,14 @@ module Highlight = {
     </figure>
 
   module Large = {
+    let baseClassName = "flex flex-col h-full justify-between bg-white "
     @react.component
     let make = (
       ~src: string,
-      ~className="flex flex-col h-full justify-between not-md:not-last:border-b md:not-last:border-r border-border",
+      ~className="",
       ~children,
     ) =>
-      <figure className={className}>
+      <figure className={baseClassName ++ className}>
         <img
           style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-40 p-4" src={src}
         />

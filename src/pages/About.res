@@ -175,7 +175,7 @@ let make = () => <>
     <h3 className="px-8 !mt-0">
       <Lang.String english="Highlighted by" french={`Mis en valeur par`} />
     </h3>
-    <div className="grid grid-cols-1 md:grid-cols-2 border-y border-border bg-white">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border-y border-border">
       <Highlight src={Assets.Image.logo_oecd}>
         <Link.Text target="https://oecd-opsi.org/publications/cracking-the-code/">
           <Lang.String
