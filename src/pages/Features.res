@@ -194,7 +194,7 @@ let make = () => {
           </TextHighlight>
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 border-y border-border bg-white">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border border-y border-border">
         <Highlight.Large src=Assets.Image.logo_dgfip>
           <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
             <Lang.String

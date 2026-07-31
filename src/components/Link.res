@@ -1,3 +1,18 @@
+module ArrowIcon = {
+  @react.component
+  let make = (~className="") =>
+    <svg
+      className={"inline-block " ++ className}
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="1.5">
+      <path d="M5 12h14" />
+      <path d="m12 5 7 7-7 7" />
+    </svg>
+}
+
 module Text = {
   let baseClassName = "cursor-pointer text-primary_dark hover:text-button_fg_hover border-b border-transparent hover:border-button_fg_hover "
   @react.component
@@ -7,7 +22,9 @@ module Text = {
       {if internal {
         <span />
       } else {
-        <span className="text-xs ml-1"> {"🡢"->React.string} </span>
+        <span className="inline-flex items-center pl-1 mt-2">
+          <ArrowIcon className="w-3 h-3" />
+        </span>
       }}
     </a>
 }
@@ -22,7 +39,9 @@ module Button = {
     ) => {
       <a className href=target target="_blank">
         children
-        <span className="text-base pl-2"> {"🡢"->React.string} </span>
+        <span className="inline-flex items-center pl-2">
+          <ArrowIcon className="w-3 h-3" />
+        </span>
       </a>
     }
   }
@@ -35,7 +54,9 @@ module Button = {
   ) => {
     <a className href=target target="_blank">
       children
-      <span className="text-base pl-2"> {"🡢"->React.string} </span>
+      <span className="inline-flex items-center pl-2">
+        <ArrowIcon className="w-5 h-5" />
+      </span>
     </a>
   }
 
@@ -48,7 +69,9 @@ module Button = {
     ) => {
       <a className href=target target="_blank">
         children
-        <span className="text-lg pl-2"> {"🡢"->React.string} </span>
+        <span className="inline-flex items-center pl-2">
+          <ArrowIcon className="w-5 h-5" />
+        </span>
       </a>
     }
   }
