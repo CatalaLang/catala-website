@@ -245,7 +245,7 @@ let make = () => {
           </Link.Text>
           <Lang.String
             english=" (50 billion euros distributed each year). Still awaiting technological choice by ASP."
-            french={`(50 milliards d'euros distribués par an). Choix technologique par l'ASP toujours en cours.`}
+            french={` (50 milliards d'euros distribués par an). Choix technologique par l'ASP toujours en cours.`}
           />
         </Highlight.Large>
       </div>
