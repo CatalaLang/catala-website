@@ -257,11 +257,28 @@ let make = () => <>
       </p>
       <p className="italic text-stone-700 text-sm border-t border-border pt-1 !w-fit">
         <Lang.String
-          english="Text credits: the Catala team and " french={`Source : l'équipe de Catala et `}
+          english="Text credits (2025): the Catala team and "
+          french={`Source (2025): l'équipe de Catala et `}
         />
         <Link.Text target="https://www.inria.fr/fr/catala-logiciel-administration-dgfip-cnaf">
           {React.string("Iris Maignan")}
         </Link.Text>
+      </p>
+      <p>
+        <Lang.String
+          english="Since, more government agencies have  "
+          french={`Depuis, encore plus d'administration ont `}
+        />
+        <Link.Internal target=[Nav.home, Nav.features]>
+          <Lang.String
+            english="tried or chosen Catala as their primary technology"
+            french={`éprouvé ou choisi Catala en tant que technologie principale`}
+          />
+        </Link.Internal>
+        <Lang.String
+          english=" for taxes, social benefits and subsidies computation!"
+          french={` pour le calcul des impôts, allocations ou subventions!`}
+        />
       </p>
     </div>
   </Section>

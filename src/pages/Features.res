@@ -525,7 +525,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
               to its community-maintained codebase elaborated since 2014 that
               models the taxes and benefits in several countries."
                   french={`Vous êtes économiste et vous souhaitez
-            modéliser les effets d'une réforme socio-fiscale sur la population?
+            modéliser les effets d'une réforme socio-fiscale sur la population ?
             Vous voulez lancer un simulateur permettant d'estimer rapidement l'éligibilité
             et le montant de plusieurs aides ? OpenFisca est alors l'outil le plus adapté,
             grâce à sa base de code communautaire élaborée depuis 2014, modélisant les impôts et aides
@@ -567,7 +567,7 @@ de calcul spécifié par du droit ? Catala vous permet d'envisager sereinement v
               user-facing display."
                   french={`Vous êtes une start-up d'État et vous voulez
 lancer rapidement un simulateur Web avec une bonne expérience utilisateur, par dessus
-une base de règles facile à lire? Publicodes est alors l'outil le plus adapté,
+une base de règles facile à lire ? Publicodes est alors l'outil le plus adapté,
 grâce à sa très bonne intégration entre règles de calcul et affichage
 de l'interface utilisateur.`}
                 />
