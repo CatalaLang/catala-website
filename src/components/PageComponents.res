@@ -43,16 +43,30 @@ module Highlight = {
     @react.component
     let make = (
       ~src: string,
+      ~target: option<string>=?,
       ~className="flex flex-col h-full justify-between not-md:not-last:border-b md:not-last:border-r border-border",
       ~children,
     ) =>
       <figure className={className}>
-        <img
-          style={ReactDOM.Style.make(~objectFit="contain", ())} className="max-h-40 p-4" src={src}
-        />
-        <figcaption className="border-t border-dashed border-border px-4 py-2 text-sm text-center">
-          children
-        </figcaption>
+        {
+          let img =
+            <img
+              style={ReactDOM.Style.make(~objectFit="contain", ())}
+              className="max-h-40 p-4"
+              src={src}
+            />
+          <>
+            {switch target {
+            | None => img
+            | Some(target) =>
+              <a className="flex flex-row justify-center" href={target} target="_blank"> img </a>
+            }}
+            <figcaption
+              className="border-t border-dashed border-border px-4 py-2 text-sm text-center">
+              children
+            </figcaption>
+          </>
+        }
       </figure>
   }
 }

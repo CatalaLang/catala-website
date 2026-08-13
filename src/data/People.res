@@ -18,8 +18,8 @@ let denisMerigoux = {
     url: "https://apollo.inria.fr",
   },
   role: <Lang.String
-    english="Co-designer, PhD in formal methods and project leader"
-    french={`Co-créateur, docteur en méthodes formelles et chef de projet`}
+    english="Co-designer, software engineer and project leader"
+    french={`Co-créateur, ingénieur logiciel et chef de projet`}
   />,
 }
 
@@ -106,8 +106,8 @@ let alainDelaet = {
     url: "https://team.inria.fr/prosecco/",
   },
   role: <Lang.String
-    english="PhD student, participates in formalizing the semantics of Catala"
-    french={`Doctorant, participe à la formalisation de la sémantique de Catala`}
+    english="PhD student, participated in formalizing the semantics of Catala"
+    french={`Doctorant, a participé à la formalisation de la sémantique de Catala`}
   />,
 }
 
@@ -224,7 +224,7 @@ let justineBanuls = {
   },
   role: <Lang.String
     english="Lawyer intern, participated in the French housing benefits programming"
-    french={`Stagiaire-avocates, a participé à la programmation des aides au logement`}
+    french={`Stagiaire-avocate, a participé à la programmation des aides au logement`}
   />,
 }
 
@@ -251,5 +251,44 @@ let pierreGoutagny = {
   role: <Lang.String
     english="PhD student, participates in the development of automated verification tools for Catala"
     french={`Doctorant, participe au développement d'outils de vérification automatique pour Catala`}
+  />,
+}
+
+let arnaudBihan = {
+  name: `Arnaud Bihan`,
+  website: Some("https://www.linkedin.com/in/arnaud-bihan-28117117a/"),
+  affiliation: {
+    name: "Functori",
+    url: "https://www.functori.com/",
+  },
+  role: <Lang.String
+    french={`Ingénieur logiciel, prestataire de la CNAF`}
+    english="Software engineer, contractor for CNAF"
+  />,
+}
+
+let maximeLevillain = {
+  name: `Maxime Levillain`,
+  website: Some("https://www.linkedin.com/in/maxime-levillain-3798a44b/"),
+  affiliation: {
+    name: "Functori",
+    url: "https://www.functori.com/",
+  },
+  role: <Lang.String
+    french={`Ingénieur logiciel, prestataire de la CNAF`}
+    english="Software engineer, contractor for CNAF"
+  />,
+}
+
+let gautierRaimondi = {
+  name: `Gautier Raimondi`,
+  website: Some("https://www.linkedin.com/in/gautier-raimondi/"),
+  affiliation: {
+    name: "CNAF",
+    url: "https://caf.fr/professionnels/nous-connaitre/presentation",
+  },
+  role: <Lang.String
+    french={`Ingénieur logiciel, référent Catala à la CNAF`}
+    english="Software engineer, Catala specialist at CNAF"
   />,
 }

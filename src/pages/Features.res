@@ -170,11 +170,13 @@ let make = () => {
         </h2>
         <p className="px-4 md:px-8 mb-6 mx-auto">
           <Lang.String
-            english="Several proofs of concept have been made for French public
-          administrations. This demonstrates the ability of Catala to provide
+            english="Several French government agencies have tried and tested Catala, some of them
+            committing to the language as a key technological dependency for their IT system.
+            This demonstrates the ability of Catala to provide
           tooling for "
-            french={`Plusieurs démonstrateurs ont été réalisés pour le compte
-          d'administrations publiques françaises, démontrant la capacité de Catala
+            french={`Plusieurs administrations françaises ont éprouvé Catala lors d'études appronfondies.
+            Certaines ont finit par choisir Catala comme dépendance technologique clé de leur système d'information.
+            Ceci démontre la capacité de Catala
           à `}
           />
           <TextHighlight>
@@ -194,19 +196,56 @@ let make = () => {
           </TextHighlight>
         </p>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 border-y border-border bg-white">
-        <Highlight.Large src=Assets.Image.logo_dgfip>
+      <div className="grid grid-cols-1 md:grid-cols-3 border-y border-border bg-white">
+        <Highlight.Large src=Assets.Image.logo_dgfip target="https://www.economie.gouv.fr/dgfip">
           <Link.Text target="https://gitlab.adullact.net/dgfip/ir-catala">
             <Lang.String
-              english="Income tax computation (deductions, deficit)"
-              french={`Calcul de l'impôt sur le revenu (abattements, déficit)`}
+              english="Proof of concept made in 2023-2024"
+              french={`Démonstrateur réalisé en 2023-2024`}
             />
           </Link.Text>
-        </Highlight.Large>
-        <Highlight.Large src=Assets.Image.logo_cnaf>
           <Lang.String
-            english="Computation and orchestration of three benefits (AF, RSA, AVVC)"
-            french={`Calcul et orchestration de trois allocations (AF, RSA, AVVC)`}
+            english=" for the income tax computation (120 billion euros taxed each year).
+            Technological choice awaiting the launch of the next tax computation
+            modernization project at DGFiP."
+            french={`  pour le calcul de l'impôt sur le revenu (120 milliards d'euros taxés par an).
+            Choix technologique en attente du démarrage du prochain chantier de
+            modernisation de calcul d'impôt de la DGFiP.`}
+          />
+        </Highlight.Large>
+        <Highlight.Large
+          src=Assets.Image.logo_cnaf
+          target="https://caf.fr/professionnels/nous-connaitre/presentation">
+          <Lang.String
+            english="Proof of concept made in 2024-2025 for the computation and
+            orchestration of three social benefits (AF, RSA, AVVC). Catala chosen
+            in 2026 by the CNAF as their official rules engine technology for all social
+            benefits (100 billion euros distributeur each year),
+             as announced by the "
+            french={`Démonstrateur réalisé en 2024-2025 pour le calcul et
+            l'orchestration de trois allocations (AF, RSA, AVVC). Catala choisie
+            en 2026 par la CNAF comme leur technologie officielle de moteurs de règles
+            pour toutes les prestations sociales (100 milliards d'euros distribués par an),
+             comme annoncé par le `}
+          />
+          <Link.Text
+            target="https://www.caf.fr/professionnels/presse/publications/la-cnaf-et-inria-s-engagent-ensemble-pour-developper-catala-une-solution-souveraine-de-calcul-des">
+            <Lang.String english="CNAF-Inria partnership" french={`partenariat CNAF-Inria`} />
+          </Link.Text>
+          <Lang.String english="." french={`.`} />
+        </Highlight.Large>
+        <Highlight.Large src=Assets.Image.logo_asp target="https://www.asp.gouv.fr/">
+          <Lang.String
+            english="Proof of concept made in 2026 for the computation of "
+            french={`Démonstrateur réalisé en 2026 pour le calcul de `}
+          />
+          <Link.Text
+            target="https://agriculture.ec.europa.eu/common-agricultural-policy/cap-overview/cap-glance_en">
+            <Lang.String english="CAP subsidies" french={`subventions de la PAC`} />
+          </Link.Text>
+          <Lang.String
+            english=" (50 billion euros distributed each year). Still awaiting technological choice by ASP."
+            french={`(50 milliards d'euros distribués par an). Choix technologique par l'ASP toujours en cours.`}
           />
         </Highlight.Large>
       </div>

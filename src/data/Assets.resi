@@ -5,6 +5,7 @@ module Html: {
 module Image: {
   let logo_catala: string
   let logo_inria: string
+  let logo_asp: string
   let logo_oecd: string
   let logo_dinum: string
   let logo_cnaf: string

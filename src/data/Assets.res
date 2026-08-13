@@ -43,8 +43,12 @@ external _cnaf_logo: string = "_cnaf_logo"
 %%raw("import _dgfip_logo from '../../assets/Logo_DGFP-fr.svg'")
 external _dgfip_logo: string = "_dgfip_logo"
 
+%%raw("import _asp_logo from '../../assets/ASP_logo.svg'")
+external _asp_logo: string = "_asp_logo"
+
 module Image = {
   let logo_catala: string = _catala_logo
+  let logo_asp: string = _asp_logo
   let logo_inria: string = _inria_logo
   let logo_oecd: string = _oecd_logo
   let logo_dinum: string = _dinum_logo

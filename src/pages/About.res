@@ -278,17 +278,19 @@ let make = () => <>
     <PersonTable
       persons=[
         marieAlauzen,
+        arnaudBihan,
         vincentBotbol,
-        alainDelaet,
         aymericFromherz,
         louisGesbert,
         pierreGoutagny,
         estelleHary,
         lianeHuttner,
         sarahLawsky,
+        maximeLevillain,
         denisMerigoux,
         raphaelMonat,
         romainPrimet,
+        gautierRaimondi,
       ]
     />
   </section>
@@ -304,6 +306,7 @@ let make = () => <>
       persons=[
         justineBanuls,
         nicolasChataing,
+        alainDelaet,
         carolineFlori,
         jonathanProtzenko,
         emileRolley,

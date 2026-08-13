@@ -36,18 +36,6 @@ let make = () => {
       <div
         className="text-center text-2xl sm:text-4xl text-background italic font-sans font-semibold max-w-2xl sm:max-w-3xl"
       />
-      // <div className="inline-flex flex-row content-center text-xl font-semibold">
-      //   <Link.Internal
-      //     className="cursor-pointer text-primary_dark hover:text-button_fg_hover pr-4 text-center"
-      //     target={[Nav.home, Nav.about]}>
-      //     <Lang.String english="Who are we?" french={`Qui sommes-nous?`} />
-      //   </Link.Internal>
-      //   <Link.Text
-      //     className="cursor-pointer text-primary_dark hover:text-button_fg_hover pl-4 text-center"
-      //     target=zulipLink>
-      //     <Lang.String english="Contact us on Zulip" french={`Contactez-nous sur Zulip`} />
-      //   </Link.Text>
-      // </div>
       <div className="inline-flex flex-col gap-4 mb-4">
         <div className="inline-flex flex-col sm:flex-row gap-4">
           <Link.Button.Internal target=[Nav.home, Nav.doc]>
@@ -73,22 +61,37 @@ let make = () => {
         </Link.Text>
       </div>
     </section>
-    <div
-      className="w-full border-y py-2 px-4 border-border bg-primary_light/5 inline-flex flex-row flex-wrap items-center justify-center">
-      <p className="text-center !my-0">
-        <Lang.String
-          english="Made with ❤️ within the "
-          french={`Développé avec ❤️ dans le cadre du `}
-        />
-        <Link.Text target=apolloLink>
-          <Lang.String english="Apollo program" french={`programme Apollo`} />
-        </Link.Text>
-        <Lang.String english=", managed by" french={`, piloté par`} />
-        <Link.Text target=inriaLink className="inline-block" internal=true>
-          <img className="ml-2 pb-1 h-6 inline-block" src={Assets.Image.logo_inria} />
-        </Link.Text>
-      </p>
-    </div>
+    <section>
+      <div
+        className="w-full border-y py-2 px-4 border-border bg-primary_light/5 inline-flex flex-row flex-wrap items-center justify-center">
+        <p className="text-center !my-0">
+          <Lang.String
+            english="Made with ❤️ within the "
+            french={`Développé avec ❤️ dans le cadre du `}
+          />
+          <Link.Text target=apolloLink>
+            <Lang.String english="Apollo program" french={`programme Apollo`} />
+          </Link.Text>
+          <Lang.String english=", managed by" french={`, piloté par`} />
+          <Link.Text target=inriaLink className="inline-block" internal=true>
+            <img className="ml-2 pb-1 h-6 inline-block" src={Assets.Image.logo_inria} />
+          </Link.Text>
+        </p>
+      </div>
+      <div className="mt-0 grid grid-cols-1 border-b border-border bg-white">
+        <PageComponents.Highlight.Large
+          src=Assets.Image.logo_cnaf
+          target="https://www.caf.fr/professionnels/presse/publications/la-cnaf-et-inria-s-engagent-ensemble-pour-developper-catala-une-solution-souveraine-de-calcul-des">
+          <Lang.String
+            english="The French national fund for social benefits (CNAF) announced in 2026 its committment to Catatala as
+          their core technology for commputing all social benefits (more than 100 billion euros distributed yearly)."
+            french={`La Caisse Nationale d'Allocations Familiales a annoncé en 2026 sa décision d'utiliser Catala
+          comme dépendance technologique pour le calcul de toutes les allocations familiales
+          (plus de 100 milliards d'euros distribués par an).`}
+          />
+        </PageComponents.Highlight.Large>
+      </div>
+    </section>
     <section className="px-4 md:px-8 flex flex-col md:flex-row gap-8 items-start w-full">
       <div className="flex flex-col">
         <h2>
