@@ -1398,8 +1398,7 @@ public demonstrations of technology, also known as \"demos\"."
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=5.0, ~date=22.0, ())),
     title: <Lang.String
       english="Law ⇌* Code: assuming a computerlaw act, the exemple of graduate admission"
-      french={`Law ⇌* Code : Assumer un acte infodroit, l'exemple de la sélection en Master
-`}
+      french={`Law ⇌* Code : Assumer un acte infodroit, l'exemple de la sélection en Master`}
     />,
     presenter: "Luc Pellissier, Pierre Valarcher, Noé Wagener",
     presenter_page_url: "https://www.u-pec.fr/fr/formation/master-droit-du-numerique-parcours-informatique-et-droit",
@@ -1424,6 +1423,22 @@ public demonstrations of technology, also known as \"demos\"."
     />,
     kind: ComputerScience,
   },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=9.0, ~date=6.0, ())),
+    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    presenter: "Gildas Salmon",
+    presenter_page_url: "https://lier-lodel.ehess.fr/index.php?956",
+    abstract: <Lang.String english={`Abstract to be determined`} french={`Résumé à venir.`} />,
+    kind: Sociology,
+  },
+  // {
+  //   date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=10.0, ~date=2.0, ())),
+  //   title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+  //   presenter: "David Delmas",
+  //   presenter_page_url: "https://www.linkedin.com/in/david-delmas-836b36109/",
+  //   abstract: <Lang.String english={`Abstract to be determined`} french={`Résumé à venir.`} />,
+  //   kind: ComputerScience,
+  // },
 ]
 
 let upcoming = Belt.List.toArray(
