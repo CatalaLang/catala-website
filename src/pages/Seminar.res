@@ -1455,6 +1455,21 @@ let upcoming = Belt.List.toArray(
     (x, y) => compare(x.date, y.date),
   ),
 )
+let season_2026_2027 = Belt.List.toArray(
+  Belt.List.sort(
+    Belt.List.fromArray(
+      Belt.Array.keep(seminars, seminar => {
+        seminar.date < Js.Date.make() &&
+        seminar.date >
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=7.0, ~date=30.0, ())) &&
+        seminar.date <
+        Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2027.0, ~month=7.0, ~date=30.0, ()))
+      }),
+    ),
+    (x, y) => compare(y.date, x.date),
+  ),
+)
+
 let season_2025_2026 = Belt.List.toArray(
   Belt.List.sort(
     Belt.List.fromArray(
@@ -1590,18 +1605,18 @@ let make = () => {
       id="organizers" title={<Lang.String english="Organizers" french={`Organisateur·ices`} />}>
       <PersonTable persons=[marieAlauzen, lianeHuttner, denisMerigoux] className="mb-8" />
     </Section>
-    {if Belt.Array.length(season_2025_2026) != 0 {
+    {if Belt.Array.length(season_2026_2027) != 0 {
       <section
         id="past" className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
         <h2>
           <a href={"#past"}>
-            <Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />
+            <Lang.String english="Season 2026-2027" french={`Saison 2026-2027`} />
           </a>
         </h2>
         <ul className="bg-white border border-border">
-          {season_2025_2026
+          {season_2026_2027
           ->Belt.Array.mapWithIndex((i, item) =>
-            <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item locale />
+            <Seminar key={"season26-27-seminar-item-" ++ i->string_of_int} seminar=item locale />
           )
           ->React.array}
         </ul>
@@ -1609,6 +1624,22 @@ let make = () => {
     } else {
       <> </>
     }}
+    <section
+      id="past-2025-2026"
+      className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
+      <h2>
+        <a href={"#past-2025-2026"}>
+          <Lang.String english="Season 2025-2026" french={`Saison 2025-2026`} />
+        </a>
+      </h2>
+      <ul className="bg-white border border-border">
+        {season_2025_2026
+        ->Belt.Array.mapWithIndex((i, item) =>
+          <Seminar key={"season25-26-seminar-item-" ++ i->string_of_int} seminar=item locale />
+        )
+        ->React.array}
+      </ul>
+    </section>
     <section
       id="past-2024-2025"
       className="my-16 px-4 md:px-8 border-y border-border py-16 bg-primary_light/5">
