@@ -1424,7 +1424,7 @@ public demonstrations of technology, also known as \"demos\"."
     kind: ComputerScience,
   },
   {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=9.0, ~date=6.0, ())),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=9.0, ~date=5.0, ())),
     title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
     presenter: "Gildas Salmon",
     presenter_page_url: "https://lier-lodel.ehess.fr/index.php?956",
