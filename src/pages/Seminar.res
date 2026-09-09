@@ -1425,10 +1425,58 @@ public demonstrations of technology, also known as \"demos\"."
   },
   {
     date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=9.0, ~date=5.0, ())),
-    title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
+    title: <Lang.String
+      english="The codification of Hindu law: the capture of legal expertise in a colonial context"
+      french={`La codification du droit hindou: la capture de l'expertise juridique en situation coloniale`}
+    />,
     presenter: "Gildas Salmon",
     presenter_page_url: "https://lier-lodel.ehess.fr/index.php?956",
-    abstract: <Lang.String english={`Abstract to be determined`} french={`Résumé à venir.`} />,
+    abstract: <>
+      <Lang.String
+        english={`I will present, from my book `}
+        french={`Je présenterai, à partir de mon ouvrage `}
+      />
+      <Link.Text
+        target="https://www.editionsladecouverte.fr/l_empire_de_la_supervision-9782348085680">
+        <em>
+          <Lang.String
+            english={`L'Empire de la supervision`} french={`L'Empire de la supervision`}
+          />
+        </em>
+      </Link.Text>
+      <Lang.String
+        english={` (La Découverte, 2026),
+        the research program established by the British during the colonization of India in
+        the late 18th century: to codify the law of the colonized people so that they
+        could govern them according to their own laws. I will analyze the methods by
+        which Orientalist judges sought to break free from the dual relationship
+        of dependence and mistrust they maintained toward local experts by
+        compiling a Digest intended to serve as an objective standard for
+        judicial decisions. But I will also show why their strategy of fully
+        codifying Hindu law failed, and how the British were forced to fall
+        back on a form of oversight centered on the establishment of precedents.
+        Through the concepts of supervision and knowledge capture, I will attempt
+        to reflect on the form that the capture of legal expertise took in
+        British India, emphasizing in particular that the colonial situation
+        led to an effort to minimize the ability of Indian jurists to
+        influence the formulation of their own law.`}
+        french={` (La Découverte, 2026),
+        le programme de recherche mis en place par les Britanniques lors de la colonisation de l'Inde,
+        à la fin du XVIIIe siècle: codifier le droit des colonisés, afin d'être capables de les gouverner
+        selon leurs propres lois. J'analyserai les moyens par lesquels les juges-orientalistes
+        ont voulu sortir de la double relation de dépendance et de méfiance qu'ils
+        entretenaient à l'égard des experts locaux en composant un Digeste destiné
+        à servir de critère objectif des décisions de justice. Mais je montrerai
+        aussi pourquoi leur stratégie de codification intégrale du droit hindou a
+        échoué, et comment les Britanniques ont dû se rabattre sur une forme de
+        supervision centrée sur l'établissement de précédents. A travers les concepts
+        de supervision et de capture des savoirs, j'essaierai de réfléchir sur la
+        forme qu'a prise la captation de l'expertise juridique en Inde britannique,
+        en soulignant notamment que la situation coloniale a conduit à une volonté
+        de minimiser la capacité de rétroaction des juristes indiens sur
+        l'énonciation de leur droit.`}
+      />
+    </>,
     kind: Sociology,
   },
   // {
