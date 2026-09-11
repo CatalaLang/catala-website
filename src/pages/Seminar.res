@@ -1479,14 +1479,42 @@ public demonstrations of technology, also known as \"demos\"."
     </>,
     kind: Sociology,
   },
-  // {
-  //   date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=10.0, ~date=2.0, ())),
-  //   title: <Lang.String english="Title to be determined" french={`Titre à venir`} />,
-  //   presenter: "David Delmas",
-  //   presenter_page_url: "https://www.linkedin.com/in/david-delmas-836b36109/",
-  //   abstract: <Lang.String english={`Abstract to be determined`} french={`Résumé à venir.`} />,
-  //   kind: ComputerScience,
-  // },
+  {
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=10.0, ~date=30.0, ())),
+    title: <Lang.String
+      english="Formal verification of avionics software"
+      french={`Vérification formelle de logiciel avionique`}
+    />,
+    presenter: "David Delmas",
+    presenter_page_url: "https://www.linkedin.com/in/david-delmas-836b36109/",
+    abstract: <Lang.String
+      english={`Avionics software is an essential component of onboard systems
+      in the aviation industry. It plays a key role in ensuring the safe operation
+      of these systems. Consequently, the development processes for this software
+      are subject to stringent standards. Compliance with these standards must
+      be certified by international authorities. As the size and complexity of
+      avionics software increase from one generation of aircraft to the next,
+      development processes must adapt to scale up while continuing to ensure
+      operational safety. For the past decade or so, this adaptation has been
+      driven by the introduction of formal methods into development processes.
+      This introduction was made possible through research collaborations with
+      academic laboratories and specialized companies.`}
+      french={`Les logiciels avioniques sont des éléments essentiels des systèmes
+      embarqués dans le domaine aéronautique. Ils jouent un rôle clé dans la
+      sûreté de fonctionnement de ces systèmes. Leurs processus de développement
+      sont donc soumis à des normes exigeantes. La conformité à ces normes
+      doit être certifiée par des autorités internationales. La taille et la
+      complexité des logiciels  avioniques augmentant d'une génération d'avion
+      à la suivante, les processus de développement doivent s'adapter pour
+      passer à l'échelle, tout en continuant à garantir la sûreté de
+      fonctionnement. Cette adaptation s'appuie depuis une dizaine d'années
+      sur l'introduction de méthodes formelles dans les processus de
+      développement. Cette introduction a été rendue possible suite à des
+      collaborations de recherche avec des laboratoires académiques et des
+       entreprises spécialisées.`}
+    />,
+    kind: ComputerScience,
+  },
 ]
 
 let upcoming = Belt.List.toArray(
