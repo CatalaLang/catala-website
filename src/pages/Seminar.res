@@ -1424,7 +1424,7 @@ public demonstrations of technology, also known as \"demos\"."
     kind: ComputerScience,
   },
   {
-    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=9.0, ~date=5.0, ())),
+    date: Js.Date.fromFloat(Js.Date.utcWithYMD(~year=2026.0, ~month=9.0, ~date=19.0, ())),
     title: <Lang.String
       english="The codification of Hindu law: the capture of legal expertise in a colonial context"
       french={`La codification du droit hindou: la capture de l'expertise juridique en situation coloniale`}
