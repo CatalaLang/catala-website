@@ -26,6 +26,40 @@
 
 <body>
   <div id="app">
+    <!-- Shown until React mounts; also covers a blocked app bundle. -->
+    <main id="noscript-fallback">
+      <h1>Catala — Law to Code</h1>
+      <p>
+        Catala is a domain-specific programming language that helps lawyers and
+        programmers turn legal texts (statutes, regulations, contracts) into
+        executable code that remains readable and traceable to the law.
+      </p>
+      <p>
+        This website's pages, navigation and interactive demonstrations are
+        rendered client-side and require JavaScript. Please enable JavaScript
+        in your browser, or use the resources below.
+      </p>
+      <ul>
+        <li>
+          <a href="https://book.catala-lang.org">The Catala book and documentation</a>
+          (<a href="https://book.catala-lang.org/fr/">French edition</a>)
+          — tutorials, installation instructions, FAQ and reference guides.
+        </li>
+        <li>
+          <a href="https://github.com/CatalaLang/catala">The Catala compiler on GitHub</a>
+          — source code, releases and issue tracker.
+        </li>
+        <li>
+          <a href="https://github.com/CatalaLang/catala-examples">Catala examples on GitHub</a>
+          — formalised French and US law.
+        </li>
+        <li>
+          <a href="https://zulip.catala-lang.org">The Catala Zulip chat</a>
+          — ask questions and follow project discussions.
+        </li>
+      </ul>
+    </main>
+  </div>
   <script type="module" src="./src/Index.bs.js"></script>
 </body>
 

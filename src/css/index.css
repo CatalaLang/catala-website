@@ -34,3 +34,32 @@ layer(base);
     @apply !no-underline;
   }
 }
+
+/* Fallback content rendered inside #app by index.html until React mounts; it
+   also covers a blocked app bundle. Plain CSS on purpose: this stylesheet is
+   linked directly from index.html, while the JS-imported asset CSS never loads
+   without JavaScript; unlayered rules here also take precedence over
+   Tailwind's layered utilities. */
+#noscript-fallback {
+  max-width: 70ch;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  color: #2a2f3e;
+  background-color: #ffeed4;
+}
+
+#noscript-fallback ul {
+  list-style-type: disc;
+  margin: 0 0 1rem 1.5rem;
+}
+
+#noscript-fallback li {
+  margin-bottom: 0.5rem;
+  line-height: 1.625;
+}
+
+#noscript-fallback a {
+  color: #70480d;
+  text-decoration: underline;
+}
