@@ -25,8 +25,8 @@
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.1.2/tex-mml-chtml.js"></script>
 
 <body>
-  <!-- Fallback for visitors without JavaScript; see the styling in src/css/index.css. -->
-  <noscript>
+  <div id="app">
+    <!-- Shown until React mounts; also covers a blocked app bundle. -->
     <main id="noscript-fallback">
       <h1>Catala — Law to Code</h1>
       <p>
@@ -42,6 +42,7 @@
       <ul>
         <li>
           <a href="https://book.catala-lang.org">The Catala book and documentation</a>
+          (<a href="https://book.catala-lang.org/fr/">French edition</a>)
           — tutorials, installation instructions, FAQ and reference guides.
         </li>
         <li>
@@ -58,8 +59,7 @@
         </li>
       </ul>
     </main>
-  </noscript>
-  <div id="app">
+  </div>
   <script type="module" src="./src/Index.bs.js"></script>
 </body>
 

@@ -35,9 +35,9 @@ layer(base);
   }
 }
 
-/* Fallback content rendered by the <noscript> block in index.html when
-   JavaScript is unavailable. Plain CSS on purpose: this stylesheet is linked
-   directly from index.html, while the JS-imported asset CSS never loads
+/* Fallback content rendered inside #app by index.html until React mounts; it
+   also covers a blocked app bundle. Plain CSS on purpose: this stylesheet is
+   linked directly from index.html, while the JS-imported asset CSS never loads
    without JavaScript; unlayered rules here also take precedence over
    Tailwind's layered utilities. */
 #noscript-fallback {
